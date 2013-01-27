@@ -7,19 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArchiveCollectionView.h"
 
-@interface HomeViewController : UIViewController<UIPopoverControllerDelegate> {
 
-    UIPopoverController *homeNavPopoverController;
-    id saveEditSender;
-    id saveEditTarget;
-    SEL saveEditAction;
-    
+@interface HomeViewController : UIViewController {
+
+    IBOutlet ArchiveCollectionView *audioCollection;
+    IBOutlet ArchiveCollectionView *videoCollection;
+    IBOutlet ArchiveCollectionView *textCollection;
 
 }
 
 
-
+@property (nonatomic, retain) IBOutlet ArchiveCollectionView *audioCollection;
+@property (nonatomic, retain) IBOutlet ArchiveCollectionView *videoCollection;
+@property (nonatomic, retain) IBOutlet ArchiveCollectionView *textCollection;
 
 
 @end

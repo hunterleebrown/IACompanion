@@ -14,6 +14,14 @@
 
 @end
 
+
+typedef enum {
+    MediaTypeCollection = 0,
+    MediaTypeVideo = 1,
+    MediaTypeAudio = 2,
+    MediaTypeTexts = 3
+}MediaType;
+
 @interface ArchiveDataService : NSObject {
 
     NSDictionary *results;
@@ -25,8 +33,9 @@
 }
 @property (nonatomic, retain) id<ArchiveDataServiceDelegate> delegate;
 
-- (void)setAndLoadDataFromJSONUrl:(NSString *)url;
-
+- (void) setAndLoadDataFromJSONUrl:(NSString *)url;
+- (void) getCollectionsWithType:(MediaType)type WithName:(NSString *)name;
+- (void) getCollectionsWithName:(NSString *)name;
 
 
 @end

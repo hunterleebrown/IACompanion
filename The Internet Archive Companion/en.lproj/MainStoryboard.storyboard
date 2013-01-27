@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="odw-2W-7K2">
             <objects>
-                <navigationController definesPresentationContext="YES" id="jaL-dq-GOr" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="jaL-dq-GOr" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lbs-z2-ujs">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -24,65 +24,191 @@
             <objects>
                 <viewController id="2" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysb-4T-f7O">
-                                <items>
-                                    <barButtonItem title="Contents" id="9Pl-Jz-apZ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="audioCollection" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G4I-hI-ojy" customClass="ArchiveCollectionView">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="dim-Y0-1ZT"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B2t-2v-cxU">
+                                    <size key="itemSize" width="200" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="audioCell" id="i81-MK-fRy" customClass="ArchiveCollectionCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="160" translatesAutoresizingMaskIntoConstraints="NO" id="Qxn-Dh-fIP">
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Qxn-Dh-fIP" firstAttribute="leading" secondItem="i81-MK-fRy" secondAttribute="leading" constant="20" type="default" id="KA2-Hh-0NQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qxn-Dh-fIP" secondAttribute="trailing" constant="20" type="default" id="M6P-He-pBZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Qxn-Dh-fIP" secondAttribute="bottom" constant="20" type="default" id="n4f-Sq-thl"/>
+                                            <constraint firstItem="Qxn-Dh-fIP" firstAttribute="top" secondItem="i81-MK-fRy" secondAttribute="top" constant="20" type="default" id="sba-Oe-TEo"/>
+                                        </constraints>
                                         <connections>
-                                            <segue destination="jtV-Op-V24" kind="popover" identifier="homeNav" popoverAnchorBarButtonItem="9Pl-Jz-apZ" id="jFe-DE-21o">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                                            </segue>
+                                            <outlet property="title" destination="Qxn-Dh-fIP" id="OzQ-w7-rqy"/>
                                         </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="videoCollection" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uKF-MA-X7q" customClass="ArchiveCollectionView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="paJ-cS-F1p"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ion-W0-j2R">
+                                    <size key="itemSize" width="200" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="dLw-iE-Rgq" customClass="ArchiveCollectionCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="160" translatesAutoresizingMaskIntoConstraints="NO" id="c8U-jw-uKL">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="c8U-jw-uKL" secondAttribute="bottom" constant="20" type="default" id="0al-1g-bIM"/>
+                                            <constraint firstAttribute="trailing" secondItem="c8U-jw-uKL" secondAttribute="trailing" constant="20" type="default" id="DiP-DL-75q"/>
+                                            <constraint firstItem="c8U-jw-uKL" firstAttribute="top" secondItem="dLw-iE-Rgq" secondAttribute="top" constant="20" type="default" id="Qvv-nA-Oig"/>
+                                            <constraint firstItem="c8U-jw-uKL" firstAttribute="leading" secondItem="dLw-iE-Rgq" secondAttribute="leading" constant="20" type="default" id="u9b-Oa-Szm"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="title" destination="c8U-jw-uKL" id="Q3E-Y4-VY2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="textCollection" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="awE-1z-gFo" customClass="ArchiveCollectionView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="3vu-S4-r5C"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rwV-cH-fzG">
+                                    <size key="itemSize" width="200" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textCell" id="CHN-wz-LEr" customClass="ArchiveCollectionCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="160" translatesAutoresizingMaskIntoConstraints="NO" id="tZA-fs-zuS">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="tZA-fs-zuS" firstAttribute="top" secondItem="CHN-wz-LEr" secondAttribute="top" constant="20" type="default" id="66g-es-5K9"/>
+                                            <constraint firstAttribute="trailing" secondItem="tZA-fs-zuS" secondAttribute="trailing" constant="20" type="default" id="FQ4-yj-UxN"/>
+                                            <constraint firstAttribute="bottom" secondItem="tZA-fs-zuS" secondAttribute="bottom" constant="20" type="default" id="cTr-7D-zYh"/>
+                                            <constraint firstItem="tZA-fs-zuS" firstAttribute="leading" secondItem="CHN-wz-LEr" secondAttribute="leading" constant="20" type="default" id="nnD-UP-C0e"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="title" destination="tZA-fs-zuS" id="RLa-wI-E6H"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ysb-4T-f7O" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="Pou-VA-hMp"/>
-                            <constraint firstItem="ysb-4T-f7O" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="hHT-KB-6je"/>
-                            <constraint firstItem="ysb-4T-f7O" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="jIx-i5-7EN"/>
+                            <constraint firstItem="uKF-MA-X7q" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="0Pl-b4-jyK"/>
+                            <constraint firstItem="uKF-MA-X7q" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="4UA-k9-2rk"/>
+                            <constraint firstItem="awE-1z-gFo" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="B70-HM-Rh1"/>
+                            <constraint firstItem="uKF-MA-X7q" firstAttribute="centerY" secondItem="5" secondAttribute="centerY" type="default" id="QNQ-K0-wQ1"/>
+                            <constraint firstItem="G4I-hI-ojy" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="RFz-Lu-P7E"/>
+                            <constraint firstAttribute="bottom" secondItem="awE-1z-gFo" secondAttribute="bottom" constant="50" id="SKM-UB-ZRC"/>
+                            <constraint firstItem="awE-1z-gFo" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="VcC-LV-rrB"/>
+                            <constraint firstItem="G4I-hI-ojy" firstAttribute="top" secondItem="5" secondAttribute="top" constant="50" id="dLs-Ad-vyh"/>
+                            <constraint firstItem="G4I-hI-ojy" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="eWh-41-WL9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fhb-BK-tni"/>
+                    <connections>
+                        <outlet property="audioCollection" destination="G4I-hI-ojy" id="Kpm-4Z-Myo"/>
+                        <outlet property="textCollection" destination="awE-1z-gFo" id="id1-md-HY3"/>
+                        <outlet property="videoCollection" destination="uKF-MA-X7q" id="PkO-MR-8TY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-390" y="-31"/>
-        </scene>
-        <!--Home Navigation Table View Controller-->
-        <scene sceneID="aze-yj-FhK">
-            <objects>
-                <tableViewController id="jtV-Op-V24" customClass="HomeNavigationTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pmz-na-GKU">
-                        <rect key="frame" x="0.0" y="20" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="xmK-GY-qqb">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="jtV-Op-V24" id="OwF-Pi-VAs"/>
-                            <outlet property="delegate" destination="jtV-Op-V24" id="sGD-K7-D4A"/>
-                        </connections>
-                    </tableView>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vid-HY-N8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="522" y="5"/>
+            <point key="canvasLocation" x="-390" y="-50"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ArchiveCollectionCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchiveCollectionView" superclassName="UICollectionView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionView.h"/>
+        </class>
+        <class className="HomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="audioCollection" candidateClass="ArchiveCollectionView"/>
+                <relationship kind="outlet" name="textCollection" candidateClass="ArchiveCollectionView"/>
+                <relationship kind="outlet" name="videoCollection" candidateClass="ArchiveCollectionView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

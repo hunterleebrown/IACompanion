@@ -23,7 +23,9 @@
 		5A0A10D616A640A300CC70CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A10B116A640A300CC70CD /* Foundation.framework */; };
 		5A0A10DE16A640A300CC70CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A10DC16A640A300CC70CD /* InfoPlist.strings */; };
 		5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */; };
-		5AD2070816A8F16D0027CCA5 /* HomeNavigationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2070716A8F16D0027CCA5 /* HomeNavigationTableViewController.m */; };
+		5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */; };
+		5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */; };
+		5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */; };
 		5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */; };
 /* End PBXBuildFile section */
 
@@ -60,8 +62,12 @@
 		5A0A10DD16A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A0A10DF16A640A300CC70CD /* The_Internet_Archive_CompanionTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = The_Internet_Archive_CompanionTests.h; sourceTree = "<group>"; };
 		5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Internet_Archive_CompanionTests.m; sourceTree = "<group>"; };
-		5AD2070616A8F16D0027CCA5 /* HomeNavigationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationTableViewController.h; sourceTree = "<group>"; };
-		5AD2070716A8F16D0027CCA5 /* HomeNavigationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavigationTableViewController.m; sourceTree = "<group>"; };
+		5A8A191B16B4FAD900F6A2E4 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		5A8A193C16B5B15C00F6A2E4 /* ArchiveCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionView.h; sourceTree = "<group>"; };
+		5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionView.m; sourceTree = "<group>"; };
+		5A8A195716B5C2F500F6A2E4 /* ArchiveCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionCell.h; sourceTree = "<group>"; };
+		5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionCell.m; sourceTree = "<group>"; };
 		5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDataService.h; sourceTree = "<group>"; };
 		5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDataService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +129,7 @@
 		5A0A10B516A640A300CC70CD /* The Internet Archive Companion */ = {
 			isa = PBXGroup;
 			children = (
+				5A8A193B16B5B13700F6A2E4 /* Collection Views */,
 				5AD2070E16A8F9460027CCA5 /* Data */,
 				5A0A10BE16A640A300CC70CD /* AppDelegate.h */,
 				5A0A10BF16A640A300CC70CD /* AppDelegate.m */,
@@ -130,8 +137,6 @@
 				5A0A10CA16A640A300CC70CD /* HomeViewController.h */,
 				5A0A10CB16A640A300CC70CD /* HomeViewController.m */,
 				5A0A10B616A640A300CC70CD /* Supporting Files */,
-				5AD2070616A8F16D0027CCA5 /* HomeNavigationTableViewController.h */,
-				5AD2070716A8F16D0027CCA5 /* HomeNavigationTableViewController.m */,
 			);
 			path = "The Internet Archive Companion";
 			sourceTree = "<group>";
@@ -169,11 +174,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5A8A193B16B5B13700F6A2E4 /* Collection Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A8A193C16B5B15C00F6A2E4 /* ArchiveCollectionView.h */,
+				5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */,
+				5A8A195716B5C2F500F6A2E4 /* ArchiveCollectionCell.h */,
+				5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */,
+			);
+			name = "Collection Views";
+			sourceTree = "<group>";
+		};
 		5AD2070E16A8F9460027CCA5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */,
 				5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */,
+				5A8A191B16B4FAD900F6A2E4 /* AsyncImageView.h */,
+				5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -291,8 +309,10 @@
 				5A0A10BC16A640A300CC70CD /* main.m in Sources */,
 				5A0A10C016A640A300CC70CD /* AppDelegate.m in Sources */,
 				5A0A10CC16A640A300CC70CD /* HomeViewController.m in Sources */,
-				5AD2070816A8F16D0027CCA5 /* HomeNavigationTableViewController.m in Sources */,
 				5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */,
+				5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */,
+				5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */,
+				5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
