@@ -26,6 +26,7 @@
 		5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */; };
 		5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */; };
 		5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */; };
+		5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */; };
 		5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,8 @@
 		5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionView.m; sourceTree = "<group>"; };
 		5A8A195716B5C2F500F6A2E4 /* ArchiveCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionCell.h; sourceTree = "<group>"; };
 		5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionCell.m; sourceTree = "<group>"; };
+		5A8A195A16B5DDD900F6A2E4 /* ArchiveSearchDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveSearchDoc.h; sourceTree = "<group>"; };
+		5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveSearchDoc.m; sourceTree = "<group>"; };
 		5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDataService.h; sourceTree = "<group>"; };
 		5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDataService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +195,8 @@
 				5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */,
 				5A8A191B16B4FAD900F6A2E4 /* AsyncImageView.h */,
 				5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */,
+				5A8A195A16B5DDD900F6A2E4 /* ArchiveSearchDoc.h */,
+				5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */,
 				5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */,
 				5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */,
+				5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

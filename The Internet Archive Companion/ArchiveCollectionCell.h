@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncImageView.h"
 
 @interface ArchiveCollectionCell : UICollectionViewCell{
     IBOutlet UILabel *title;
@@ -15,5 +16,6 @@
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *title;
+@property (strong, nonatomic) IBOutlet AsyncImageView *imageView;
 
 @end

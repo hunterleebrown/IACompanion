@@ -18,6 +18,15 @@
     return self;
 }
 
+- (id) initWithCoder:(NSCoder *)aDecoder:(CGRect)frame {
+    self = [super initWithCoder:aDecoder];
+    if(self){
+        cache = [[NSCache alloc] init];
+    }
+    return self;
+}
+
+
 - (void)setAndLoadImageFromUrl:(NSString *)url{
     imageUrl = url;
     

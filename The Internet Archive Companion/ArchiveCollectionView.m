@@ -8,6 +8,7 @@
 
 #import "ArchiveCollectionView.h"
 #import "ArchiveCollectionCell.h"
+#import "ArchiveSearchDoc.h"
 
 @implementation ArchiveCollectionView
 
@@ -23,8 +24,7 @@
 
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
-    NSDictionary *response = [results objectForKey:@"response"];
-    docs = [response objectForKey:@"docs"];
+    docs = [results objectForKey:@"documents"];
     [self reloadData];
  
 }
@@ -71,11 +71,12 @@
     }
     
     
-    
-    NSString *tit = [[docs objectAtIndex:indexPath.row] objectForKey:@"title"];
+    ArchiveSearchDoc *doc = [docs objectAtIndex:indexPath.row];
+    NSString *tit = doc.title;
     
     ArchiveCollectionCell *cell = [cv dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     [cell.title setText:tit];
+    [cell.imageView setAndLoadImageFromUrl:doc.headerImageUrl];
     return cell;
 }
 

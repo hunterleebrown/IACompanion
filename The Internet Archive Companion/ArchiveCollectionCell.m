@@ -7,6 +7,8 @@
 //
 
 #import "ArchiveCollectionCell.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @implementation ArchiveCollectionCell
 
@@ -16,6 +18,12 @@
     if (self)
     {
         // change to our custom selected background view
+        
+        self.contentView.layer.masksToBounds = NO;
+        self.contentView.layer.cornerRadius = 8; // if you like rounded corners
+
+        
+        self.contentView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
 
     }
     return self;

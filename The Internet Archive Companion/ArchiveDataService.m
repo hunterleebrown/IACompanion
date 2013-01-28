@@ -7,6 +7,7 @@
 //
 
 #import "ArchiveDataService.h"
+#import "ArchiveSearchDoc.h"
 
 @implementation ArchiveDataService
 @synthesize delegate;
@@ -72,8 +73,33 @@
 
 
 - (void)sendData:(NSDictionary *)inData {
+    
+    NSMutableDictionary *rawResults = [NSMutableDictionary new];
+    [rawResults setObject:inData forKey:@"original"];
+    NSMutableArray *responseDocs = [NSMutableArray new];
+    
+    NSDictionary *response = [inData objectForKey:@"response"];
+    if(response){
+        NSArray *docs = [response objectForKey:@"docs"];
+        if(docs){
+            for(NSDictionary *doc in docs){
+                ArchiveSearchDoc *aDoc = [ArchiveSearchDoc new];
+                [aDoc setTitle:[doc objectForKey:@"title"]];
+                [aDoc setHeaderImageUrl:[doc objectForKey:@"headerImage"]];
+                
+                [responseDocs addObject:aDoc];
+            
+            }
+            [rawResults setObject:responseDocs forKey:@"documents"];
+        }
+        
+        
+    }
+    
+    
+    
     if(delegate && [delegate respondsToSelector:@selector(dataDidFinishLoadingWithDictionary:)]){
-        [delegate dataDidFinishLoadingWithDictionary:inData];
+        [delegate dataDidFinishLoadingWithDictionary:rawResults];
     }
 
 }
