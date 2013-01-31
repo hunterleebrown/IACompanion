@@ -9,6 +9,8 @@
 #import "ArchiveCollectionView.h"
 #import "ArchiveCollectionCell.h"
 #import "ArchiveSearchDoc.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @implementation ArchiveCollectionView
 
@@ -19,6 +21,12 @@
     [dataService getCollectionsWithName:name];
     [self setDelegate:self];
     [self setDataSource:self];
+    
+    self.layer.shadowRadius = 2.0;
+    self.layer.shadowOpacity = 0.7;
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+
+    
 
 }
 

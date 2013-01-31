@@ -10,7 +10,7 @@
 #import "AsyncImageView.h"
 
 @interface ArchiveCollectionCell : UICollectionViewCell{
-    IBOutlet UILabel *title;
+    IBOutlet UILabel *_title;
 
 
 }
