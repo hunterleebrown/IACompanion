@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "ArchiveDataService.h"
+#import "ArchiveDetailedCollectionTableViewController.h"
 
 
 @interface HomeViewController ()
@@ -37,8 +38,19 @@
 
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"audioCellPush"])
+    {
+        NSIndexPath *selectedIndexPath = [[audioCollection indexPathsForSelectedItems] objectAtIndex:0];
+        
+        // load the image, to prevent it from being cached we use 'initWithContentsOfFile'
 
-
+        
+        ArchiveDetailedCollectionTableViewController *detailViewController = [segue destinationViewController];
+       // detailViewController.image = image;
+    }
+}
 
 
 
