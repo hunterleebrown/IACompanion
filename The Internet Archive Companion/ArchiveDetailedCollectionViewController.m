@@ -8,6 +8,7 @@
 
 #import "ArchiveDetailedCollectionViewController.h"
 #import "ArchiveSearchDoc.h"
+#import "ArchiveDetailedViewController.h"
 
 @interface ArchiveDetailedCollectionViewController ()
 
@@ -73,7 +74,7 @@
     [cell.title setText:tit];
     [cell.archiveImageView setAndLoadImageFromUrl:doc.headerImageUrl];
     
-    NSString *html = [NSString stringWithFormat:@"<html><body style='font-size:12px; font-family:sans-serif'>%@</body></html>", doc.description];
+    NSString *html = [NSString stringWithFormat:@"<html><body style='font-size:14px; font-family:sans-serif'>%@</body></html>", doc.description];
     
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
@@ -87,8 +88,17 @@
     return cell;
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
+    if ([[segue identifier] isEqualToString:@"documentDetailModal"])
+    {
+        
+        ArchiveDetailedViewController *detailViewController = [segue destinationViewController];
+        [detailViewController setTitle:@"hi"];
+        
+    }
 
+}
 
 
 - (void)didReceiveMemoryWarning

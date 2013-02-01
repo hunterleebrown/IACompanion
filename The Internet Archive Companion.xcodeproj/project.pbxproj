@@ -30,6 +30,7 @@
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
 		5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */; };
 		5A990BBF16BA592900B4C058 /* ArchiveDetailedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */; };
+		5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */; };
 		5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedCollectionViewCell.m; sourceTree = "<group>"; };
 		5A990BBD16BA592800B4C058 /* ArchiveDetailedCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDetailedCollectionViewController.h; sourceTree = "<group>"; };
 		5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedCollectionViewController.m; sourceTree = "<group>"; };
+		5AA29AA116BB8CCF0082D3C4 /* ArchiveDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDetailedViewController.h; sourceTree = "<group>"; };
+		5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedViewController.m; sourceTree = "<group>"; };
 		5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDataService.h; sourceTree = "<group>"; };
 		5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDataService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +201,8 @@
 				5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */,
 				5A990BBD16BA592800B4C058 /* ArchiveDetailedCollectionViewController.h */,
 				5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */,
+				5AA29AA116BB8CCF0082D3C4 /* ArchiveDetailedViewController.h */,
+				5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */,
 			);
 			name = "Collection Views";
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */,
 				5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */,
 				5A990BBF16BA592900B4C058 /* ArchiveDetailedCollectionViewController.m in Sources */,
+				5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
