@@ -1,27 +1,20 @@
 //
-//  AsyncImageView.m
+//  AsyncImage.m
 //  The Internet Archive Companion
 //
-//  Created by Hunter on 1/26/13.
+//  Created by Hunter on 2/1/13.
 //  Copyright (c) 2013 Hunter Lee Brown. All rights reserved.
 //
 
-#import "AsyncImageView.h"
+#import "AsyncImage.h"
 
-@implementation AsyncImageView
+@implementation AsyncImage
 
-- (id) initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (id) init{
+    self = [super init];
     if(self){
         cache = [[NSCache alloc] init];
-    }
-    return self;
-}
-
-- (id) initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if(self){
-        cache = [[NSCache alloc] init];
+       
     }
     return self;
 }
@@ -33,7 +26,7 @@
     id cI = [cache objectForKey:imageUrl];
     if(cI != nil){
         UIImage *cachedImage = (UIImage *)cI;
-        [self displayImage:cachedImage];
+        self.image = cachedImage;
         NSLog(@"CACHE HIT...");
     } else {
         
@@ -53,14 +46,7 @@
     NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:imageUrl]];
     UIImage* image = [[UIImage alloc] initWithData:imageData];
     [cache setObject:image forKey:imageUrl];
-    [self performSelectorOnMainThread:@selector(displayImage:) withObject:image waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
 }
-
-- (void)displayImage:(UIImage *)inImage {
- 
-    
-    [self setImage:inImage];
-}
-
 
 @end

@@ -27,6 +27,7 @@
 		5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */; };
 		5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */; };
 		5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */; };
+		5A98438E16BBFD020022DB3F /* AsyncImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A98438D16BBFD020022DB3F /* AsyncImage.m */; };
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
 		5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */; };
 		5A990BBF16BA592900B4C058 /* ArchiveDetailedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */; };
@@ -75,6 +76,8 @@
 		5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionCell.m; sourceTree = "<group>"; };
 		5A8A195A16B5DDD900F6A2E4 /* ArchiveSearchDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveSearchDoc.h; sourceTree = "<group>"; };
 		5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveSearchDoc.m; sourceTree = "<group>"; };
+		5A98438C16BBFD020022DB3F /* AsyncImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImage.h; sourceTree = "<group>"; };
+		5A98438D16BBFD020022DB3F /* AsyncImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImage.m; sourceTree = "<group>"; };
 		5A990BA616B9F2E500B4C058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5A990BBA16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDetailedCollectionViewCell.h; sourceTree = "<group>"; };
 		5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedCollectionViewCell.m; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */,
 				5A8A195A16B5DDD900F6A2E4 /* ArchiveSearchDoc.h */,
 				5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */,
+				5A98438C16BBFD020022DB3F /* AsyncImage.h */,
+				5A98438D16BBFD020022DB3F /* AsyncImage.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */,
 				5A990BBF16BA592900B4C058 /* ArchiveDetailedCollectionViewController.m in Sources */,
 				5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */,
+				5A98438E16BBFD020022DB3F /* AsyncImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
