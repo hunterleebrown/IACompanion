@@ -32,7 +32,7 @@
 
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
-    docs = [results objectForKey:@"documents"];
+    _docs = [results objectForKey:@"documents"];
     [self reloadData];
  
 }
@@ -41,7 +41,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
 
-    return docs.count;
+    return _docs.count;
 }
 
 
@@ -79,7 +79,7 @@
     }
     
     
-    ArchiveSearchDoc *doc = [docs objectAtIndex:indexPath.row];
+    ArchiveSearchDoc *doc = [_docs objectAtIndex:indexPath.row];
     NSString *tit = doc.title;
     
     ArchiveCollectionCell *cell = [cv dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];

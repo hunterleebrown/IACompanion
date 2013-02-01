@@ -1,18 +1,19 @@
 //
-//  ArchiveCollectionCell.m
+//  ArchiveDetailedCollectionViewCell.m
 //  The Internet Archive Companion
 //
-//  Created by Hunter on 1/27/13.
+//  Created by Hunter on 1/30/13.
 //  Copyright (c) 2013 Hunter Lee Brown. All rights reserved.
 //
 
-#import "ArchiveCollectionCell.h"
+#import "ArchiveDetailedCollectionViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation ArchiveCollectionCell
+
+@implementation ArchiveDetailedCollectionViewCell
 
 - (id) initWithCoder:(NSCoder *)aDecoder{
-
+    
     self = [super initWithCoder:aDecoder];
     if (self)
     {
@@ -25,26 +26,20 @@
         self.contentView.layer.masksToBounds = NO;
         self.contentView.layer.cornerRadius = 8; // if you like rounded corners
         [self.contentView setBackgroundColor:[UIColor whiteColor]];
-
-
-        CAGradientLayer *gradient = [CAGradientLayer layer];
-        [gradient setOpacity:1.0];
-        [gradient setBackgroundColor:[[UIColor clearColor] CGColor]];
-        gradient.cornerRadius = 8;
-        gradient.frame = CGRectMake(0, self.bounds.size.height/2, self.bounds.size.width, self.bounds.size.height/2);
-        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], nil];
-        [self.contentView.layer insertSublayer:gradient atIndex:1];
         
         
 
+        
+        
+        
         self.contentView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
         
-
         
-
+        
+        
     }
     return self;
-
+    
 }
 
 /*

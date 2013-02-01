@@ -8,8 +8,8 @@
 
 #import "HomeViewController.h"
 #import "ArchiveDataService.h"
-#import "ArchiveDetailedCollectionTableViewController.h"
-
+#import "ArchiveDetailedCollectionViewController.h"
+#import "ArchiveSearchDoc.h"
 
 @interface HomeViewController ()
 
@@ -26,6 +26,7 @@
     [audioCollection getCollectionWithName:@"audio"];
     [videoCollection getCollectionWithName:@"movies"];
     [textCollection getCollectionWithName:@"texts"];
+    [self setTitle:@"Top Level Collections"];
 
 }
 
@@ -40,16 +41,36 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    ArchiveSearchDoc *doc;
+    MediaType type;
+    
     if ([[segue identifier] isEqualToString:@"audioCellPush"])
     {
         NSIndexPath *selectedIndexPath = [[audioCollection indexPathsForSelectedItems] objectAtIndex:0];
-        
-        // load the image, to prevent it from being cached we use 'initWithContentsOfFile'
-
-        
-        ArchiveDetailedCollectionTableViewController *detailViewController = [segue destinationViewController];
-       // detailViewController.image = image;
+        doc = [audioCollection.docs objectAtIndex:selectedIndexPath.row];
+        type = MediaTypeAudio;
     }
+    else if ([[segue identifier] isEqualToString:@"videoCellPush"])
+    {
+        NSIndexPath *selectedIndexPath = [[videoCollection indexPathsForSelectedItems] objectAtIndex:0];
+        doc = [videoCollection.docs objectAtIndex:selectedIndexPath.row];
+        type = MediaTypeVideo;
+    }
+    else if ([[segue identifier] isEqualToString:@"textCellPush"])
+    {
+        NSIndexPath *selectedIndexPath = [[textCollection indexPathsForSelectedItems] objectAtIndex:0];
+        doc = [textCollection.docs objectAtIndex:selectedIndexPath.row];
+        type = MediaTypeTexts;
+    }
+    
+    
+
+    ArchiveDetailedCollectionViewController *detailCollectionViewController = [segue destinationViewController];
+    [detailCollectionViewController setCollectionIdentifier:doc.identifier forType:type];
+    [detailCollectionViewController setTitle:doc.title];
+
+
 }
 
 

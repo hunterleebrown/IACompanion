@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="jaL-dq-GOr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="jaL-dq-GOr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -71,7 +71,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="GwL-ex-Ogc" id="bHv-dH-ZzJ"/>
                                             <outlet property="title" destination="Qxn-Dh-fIP" id="OzQ-w7-rqy"/>
-                                            <segue destination="9gv-TD-6pw" kind="push" identifier="audioCellPush" id="QTV-IB-f5u"/>
+                                            <segue destination="i8s-AH-brN" kind="push" identifier="audioCellPush" id="kvv-cs-oKd"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -127,6 +127,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="QEu-Sp-nHh" id="LDQ-uG-uQn"/>
                                             <outlet property="title" destination="c8U-jw-uKL" id="Q3E-Y4-VY2"/>
+                                            <segue destination="i8s-AH-brN" kind="push" identifier="videoCellPush" id="HOx-1M-NgU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -182,6 +183,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="qiW-es-Hjl" id="VDs-Mm-JF4"/>
                                             <outlet property="title" destination="tZA-fs-zuS" id="RLa-wI-E6H"/>
+                                            <segue destination="i8s-AH-brN" kind="push" identifier="textCellPush" id="uS4-Na-FGP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -258,35 +260,101 @@
             </objects>
             <point key="canvasLocation" x="-390" y="-50"/>
         </scene>
-        <!--Archive Detailed Collection Table View Controller-->
-        <scene sceneID="nWT-lm-4xS">
+        <!--Archive Detailed Collection View Controller-->
+        <scene sceneID="xSI-xx-c5L">
             <objects>
-                <tableViewController id="9gv-TD-6pw" customClass="ArchiveDetailedCollectionTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="z7A-X3-RbZ">
+                <viewController id="i8s-AH-brN" customClass="ArchiveDetailedCollectionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="flz-YH-uy4">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailedCollectionCell" id="hVr-rX-ctZ">
-                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3of-M4-kpz">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="768" id="17w-nw-U23"/>
+                                    <constraint firstAttribute="height" constant="500" id="Ijx-gq-TNG"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hdH-qL-5QT">
+                                    <size key="itemSize" width="375" height="500"/>
+                                    <size key="headerReferenceSize" width="10" height="0.0"/>
+                                    <size key="footerReferenceSize" width="10" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="detailedCollectionCell" reuseIdentifier="detailedCollectionCell" id="te7-pq-xub" customClass="ArchiveDetailedCollectionViewCell">
+                                        <rect key="frame" x="10" y="0.0" width="375" height="500"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="122" translatesAutoresizingMaskIntoConstraints="NO" id="FLW-gt-bIw">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="122" id="iRG-V6-B6I"/>
+                                                        <constraint firstAttribute="height" constant="111" id="vUG-TE-wu0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIr-Rs-uMm">
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="310" id="gOG-1c-FW7"/>
+                                                    </constraints>
+                                                </webView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="x8F-5W-GFE" customClass="AsyncImageView">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="128" id="0QY-lE-oYa"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="FLW-gt-bIw" firstAttribute="leading" secondItem="te7-pq-xub" secondAttribute="leading" constant="20" type="default" id="0nn-qM-NrR"/>
+                                            <constraint firstItem="x8F-5W-GFE" firstAttribute="top" secondItem="te7-pq-xub" secondAttribute="top" constant="20" type="default" id="QsL-9i-gbt"/>
+                                            <constraint firstAttribute="bottom" secondItem="pIr-Rs-uMm" secondAttribute="bottom" constant="20" type="default" id="eU1-c3-b73"/>
+                                            <constraint firstAttribute="trailing" secondItem="pIr-Rs-uMm" secondAttribute="trailing" constant="20" type="default" id="fqK-w5-CN4"/>
+                                            <constraint firstItem="pIr-Rs-uMm" firstAttribute="leading" secondItem="te7-pq-xub" secondAttribute="leading" constant="20" type="default" id="kge-Xg-bCX"/>
+                                            <constraint firstItem="x8F-5W-GFE" firstAttribute="leading" secondItem="FLW-gt-bIw" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="lue-P0-PzL"/>
+                                            <constraint firstItem="FLW-gt-bIw" firstAttribute="top" secondItem="te7-pq-xub" secondAttribute="top" constant="20" type="default" id="oW2-Ve-oR5"/>
+                                            <constraint firstAttribute="trailing" secondItem="x8F-5W-GFE" secondAttribute="trailing" constant="20" type="default" id="pFh-1V-YnA"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="archiveImageView" destination="x8F-5W-GFE" id="DtR-y5-ib9"/>
+                                            <outlet property="detailsView" destination="pIr-Rs-uMm" id="anb-CC-Ber"/>
+                                            <outlet property="title" destination="FLW-gt-bIw" id="XGO-7j-tBS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7T5-1v-vJB">
+                                    <rect key="frame" x="0.0" y="0.0" width="10" height="500"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9gv-TD-6pw" id="6tk-PG-AJC"/>
-                            <outlet property="delegate" destination="9gv-TD-6pw" id="p4j-gv-YIB"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="CKi-Wl-oVO"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ea-J4-nQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qoJ-qP-0I6">
+                                    <rect key="frame" x="385" y="0.0" width="10" height="500"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3of-M4-kpz" firstAttribute="leading" secondItem="flz-YH-uy4" secondAttribute="leading" constant="5" id="ag3-0Z-bRT"/>
+                            <constraint firstItem="3of-M4-kpz" firstAttribute="centerY" secondItem="flz-YH-uy4" secondAttribute="centerY" type="default" id="b1M-ND-48c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iDW-sz-byg"/>
+                    <connections>
+                        <outlet property="collectionView" destination="3of-M4-kpz" id="c42-P2-4tg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K06-22-DqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="-57"/>
+            <point key="canvasLocation" x="501" y="-57"/>
         </scene>
     </scenes>
     <classes>
@@ -301,8 +369,19 @@
         <class className="ArchiveCollectionView" superclassName="UICollectionView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionView.h"/>
         </class>
-        <class className="ArchiveDetailedCollectionTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedCollectionTableViewController.h"/>
+        <class className="ArchiveDetailedCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="archiveImageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="detailsView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchiveDetailedCollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedCollectionViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+            </relationships>
         </class>
         <class className="AsyncImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImageView.h"/>
@@ -336,4 +415,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="uS4-Na-FGP"/>
+    </inferredMetricsTieBreakers>
 </document>

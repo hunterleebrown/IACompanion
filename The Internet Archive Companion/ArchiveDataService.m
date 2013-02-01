@@ -83,11 +83,21 @@
         NSArray *docs = [response objectForKey:@"docs"];
         if(docs){
             for(NSDictionary *doc in docs){
-                ArchiveSearchDoc *aDoc = [ArchiveSearchDoc new];
-                [aDoc setTitle:[doc objectForKey:@"title"]];
-                [aDoc setHeaderImageUrl:[doc objectForKey:@"headerImage"]];
-                
-                [responseDocs addObject:aDoc];
+                if([doc objectForKey:@"description"] && [doc objectForKey:@"title"]){
+                    ArchiveSearchDoc *aDoc = [ArchiveSearchDoc new];
+                    [aDoc setIdentifier:[doc objectForKey:@"identifier"]];
+                    [aDoc setTitle:[doc objectForKey:@"title"]];
+                    
+                    if(![doc objectForKey:@"headerImage"]){
+                        [aDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", aDoc.identifier]];
+                    } else {
+                        [aDoc setHeaderImageUrl:[doc objectForKey:@"headerImage"]];
+                    }
+                    [aDoc setDescription:[doc objectForKey:@"description"]];
+                    [aDoc setPublicDate:[doc objectForKey:@"publicDate"]];
+                    
+                    [responseDocs addObject:aDoc];
+                }
             
             }
             [rawResults setObject:responseDocs forKey:@"documents"];
@@ -106,7 +116,7 @@
 
 
 /* specific implementation */
-- (void) getCollectionsWithType:(MediaType)type WithName:(NSString *)name{
+- (void) getDocsWithType:(MediaType)type WithName:(NSString *)name{
     NSString *t = @"";
     if(type == MediaTypeAudio){
         t = @"audio";
@@ -118,7 +128,7 @@
         t = @"collection";
     }
     
-    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&fl[]=headerImage&fl[]=identifier&fl[]=title&sort[]=titleSorter+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
+    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&fl[]=publicdate&fl[]=headerImage&fl[]=description&fl[]=identifier&fl[]=title&sort[]=publicdate+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
 
     NSString *searchUrl = [NSString stringWithFormat:test, t, name];
 
@@ -139,7 +149,7 @@
 
 
 - (void) getCollectionsWithName:(NSString *)name{
-    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:collection+AND+NOT+hidden:true+AND+collection:%@&fl[]=headerImage&fl[]=identifier&fl[]=title&sort[]=titleSorter+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
+    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:collection+AND+NOT+hidden:true+AND+collection:%@&fl[]=publicdate&fl[]=description&fl[]=headerImage&fl[]=identifier&fl[]=title&sort[]=titleSorter+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
     
     NSString *searchUrl = [NSString stringWithFormat:test, name];
     

@@ -28,7 +28,8 @@
 		5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */; };
 		5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */; };
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
-		5A990BAB16B9FC9F00B4C058 /* ArchiveDetailedCollectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BAA16B9FC9F00B4C058 /* ArchiveDetailedCollectionTableViewController.m */; };
+		5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */; };
+		5A990BBF16BA592900B4C058 /* ArchiveDetailedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */; };
 		5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */; };
 /* End PBXBuildFile section */
 
@@ -74,8 +75,10 @@
 		5A8A195A16B5DDD900F6A2E4 /* ArchiveSearchDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveSearchDoc.h; sourceTree = "<group>"; };
 		5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveSearchDoc.m; sourceTree = "<group>"; };
 		5A990BA616B9F2E500B4C058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		5A990BA916B9FC9F00B4C058 /* ArchiveDetailedCollectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDetailedCollectionTableViewController.h; sourceTree = "<group>"; };
-		5A990BAA16B9FC9F00B4C058 /* ArchiveDetailedCollectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedCollectionTableViewController.m; sourceTree = "<group>"; };
+		5A990BBA16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDetailedCollectionViewCell.h; sourceTree = "<group>"; };
+		5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedCollectionViewCell.m; sourceTree = "<group>"; };
+		5A990BBD16BA592800B4C058 /* ArchiveDetailedCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDetailedCollectionViewController.h; sourceTree = "<group>"; };
+		5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedCollectionViewController.m; sourceTree = "<group>"; };
 		5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDataService.h; sourceTree = "<group>"; };
 		5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDataService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,8 +194,10 @@
 				5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */,
 				5A8A195716B5C2F500F6A2E4 /* ArchiveCollectionCell.h */,
 				5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */,
-				5A990BA916B9FC9F00B4C058 /* ArchiveDetailedCollectionTableViewController.h */,
-				5A990BAA16B9FC9F00B4C058 /* ArchiveDetailedCollectionTableViewController.m */,
+				5A990BBA16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.h */,
+				5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */,
+				5A990BBD16BA592800B4C058 /* ArchiveDetailedCollectionViewController.h */,
+				5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */,
 			);
 			name = "Collection Views";
 			sourceTree = "<group>";
@@ -328,7 +333,8 @@
 				5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */,
 				5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */,
 				5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */,
-				5A990BAB16B9FC9F00B4C058 /* ArchiveDetailedCollectionTableViewController.m in Sources */,
+				5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */,
+				5A990BBF16BA592900B4C058 /* ArchiveDetailedCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

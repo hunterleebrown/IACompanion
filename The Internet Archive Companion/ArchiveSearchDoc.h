@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSString *headerImageUrl;
 @property (strong, nonatomic) NSString *description;
 @property (strong, nonatomic) NSString *identifier;
+@property (strong, nonatomic) NSString *publicDate;
 
 
 @end

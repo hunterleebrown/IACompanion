@@ -17,5 +17,6 @@
 }
 
 - (void) getCollectionWithName:(NSString *)name;
+@property (nonatomic, strong) NSArray *docs;
 
 @end
