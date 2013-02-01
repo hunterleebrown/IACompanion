@@ -34,6 +34,11 @@
             if ([[subview class] isSubclassOfClass: [UIScrollView class]]) {
                 ((UIScrollView *)subview).bounces = NO;
             }
+            
+            if ([subview isKindOfClass:[UIImageView class]]) {
+                ((UIImageView *)subview).hidden = YES;
+            }
+            
         }
         
         self.contentView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
