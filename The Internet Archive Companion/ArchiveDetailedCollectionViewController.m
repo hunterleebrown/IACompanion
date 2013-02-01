@@ -73,8 +73,11 @@
     [cell.title setText:tit];
     [cell.archiveImageView setAndLoadImageFromUrl:doc.headerImageUrl];
     
+    NSString *html = [NSString stringWithFormat:@"<html><body style='font-size:12px; font-family:sans-serif'>%@</body></html>", doc.description];
+    
+    
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
-    [cell.detailsView loadData:[doc.description dataUsingEncoding:NSUTF8StringEncoding]
+    [cell.detailsView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
                       MIMEType:@"text/html"
               textEncodingName:@"UTF-8"
                        baseURL:theBaseURL];

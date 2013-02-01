@@ -30,7 +30,11 @@
         
 
         
-        
+        for (id subview in _detailsView.subviews) {
+            if ([[subview class] isSubclassOfClass: [UIScrollView class]]) {
+                ((UIScrollView *)subview).bounces = NO;
+            }
+        }
         
         self.contentView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
         
