@@ -10,20 +10,32 @@
 #import "ArchiveSearchDoc.h"
 #import "ArchiveDetailedViewController.h"
 
-@interface ArchiveDetailedCollectionViewController ()
-
+@interface ArchiveDetailedCollectionViewController () {
+    int start;
+    NSString *sort;
+    BOOL loading;
+}
 @end
 
 @implementation ArchiveDetailedCollectionViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+
+
+
+- (id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if(self){
+        dataService = [ArchiveDataService new];
+        [dataService setDelegate:self];
+        docs = [NSMutableArray new];
+        start = 0;
+        sort = @"publicdate+asc";
+        loading = NO;
     }
     return self;
+
 }
+
 
 - (void)viewDidLoad
 {
@@ -33,23 +45,60 @@
     [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
     
+    
 }
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
-    docs = [results objectForKey:@"documents"];
+    //docs = [results objectForKey:@"documents"];
+    [docs addObjectsFromArray:[results objectForKey:@"documents"]];
     [self.collectionView reloadData];
+    [_countingLabel setText:[NSString stringWithFormat:@"%i of %@", docs.count, [results objectForKey:@"numFound"]]];
+
+    self.loadMoreButton.enabled = YES;
+    
+    
+    loading = NO;
+}
+
+
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if(loading){
+        [self loadMoreItems:nil];
+    }
+
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+
+   // NSLog(@" offset: %f  width: %f ", scrollView.contentOffset.x + scrollView.frame.size.width, scrollView.contentSize.width);
+
+    if(scrollView.contentOffset.x + scrollView.frame.size.width > scrollView.contentSize.width + 250 && !loading){
+        loading = YES;
+    }
+    
     
 }
+
 
 - (void)setCollectionIdentifier:(NSString *)identifier forType:(MediaType)type{
     archiveIdentifier = identifier;
-    
-    dataService = [ArchiveDataService new];
-    [dataService setDelegate:self];
-    [dataService getDocsWithType:type WithName:archiveIdentifier];
+    mediaType = type;
+
+    [dataService getDocsWithType:mediaType withName:archiveIdentifier];
 
     
 }
+
+
+- (IBAction)loadMoreItems:(id)sender {
+    start = start + docs.count;
+    [dataService getDocsWithType:mediaType withName:archiveIdentifier withSort:sort withStart:[NSString stringWithFormat:@"%i", start]];
+    self.loadMoreButton.enabled = NO;
+
+}
+
+
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -84,6 +133,9 @@
                        baseURL:theBaseURL];
     
     
+    if(indexPath.row == start){
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:start inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+    }
     
     return cell;
 }

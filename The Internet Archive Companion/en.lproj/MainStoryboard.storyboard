@@ -192,7 +192,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="20"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1vB-iC-eCZ">
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="" id="1vB-iC-eCZ">
                                     <rect key="frame" x="0.0" y="220" width="200" height="20"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
@@ -339,22 +339,42 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qly-Ga-cTD">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="PR4-wS-No9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Qly-Ga-cTD" firstAttribute="leading" secondItem="flz-YH-uy4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="79D-ZO-Vg4"/>
                             <constraint firstItem="3of-M4-kpz" firstAttribute="leading" secondItem="flz-YH-uy4" secondAttribute="leading" type="user" id="CR7-PA-HUr"/>
                             <constraint firstItem="3of-M4-kpz" firstAttribute="centerY" secondItem="flz-YH-uy4" secondAttribute="centerY" type="default" id="b1M-ND-48c"/>
                             <constraint firstAttribute="trailing" secondItem="3of-M4-kpz" secondAttribute="trailing" type="user" id="gM9-3S-xTo"/>
+                            <constraint firstItem="Qly-Ga-cTD" firstAttribute="top" secondItem="flz-YH-uy4" secondAttribute="top" constant="20" symbolic="YES" type="default" id="tmp-eH-Fp7"/>
+                            <constraint firstAttribute="trailing" secondItem="Qly-Ga-cTD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zaK-LB-enR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iDW-sz-byg"/>
+                    <navigationItem key="navigationItem" id="iDW-sz-byg">
+                        <barButtonItem key="rightBarButtonItem" title="Load More" id="KTc-Mi-AY0">
+                            <connections>
+                                <action selector="loadMoreItems:" destination="i8s-AH-brN" id="VJE-AT-hni"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="3of-M4-kpz" id="c42-P2-4tg"/>
+                        <outlet property="countingLabel" destination="Qly-Ga-cTD" id="JfY-7Z-bgt"/>
+                        <outlet property="loadMoreButton" destination="KTc-Mi-AY0" id="bfN-7f-VXS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K06-22-DqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="-57"/>
+            <point key="canvasLocation" x="495" y="-55"/>
         </scene>
         <!--Archive Detailed View Controller-->
         <scene sceneID="tUu-5H-6hW">
@@ -412,7 +432,10 @@
         <class className="ArchiveDetailedCollectionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedCollectionViewController.h"/>
             <relationships>
+                <relationship kind="action" name="loadMoreItems:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="countingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loadMoreButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="ArchiveDetailedViewController" superclassName="UIViewController">

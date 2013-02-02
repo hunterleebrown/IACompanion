@@ -101,6 +101,9 @@
             
             }
             [rawResults setObject:responseDocs forKey:@"documents"];
+            [rawResults setObject:[response objectForKey:@"numFound"] forKey:@"numFound"];
+            
+
         }
         
         
@@ -116,7 +119,7 @@
 
 
 /* specific implementation */
-- (void) getDocsWithType:(MediaType)type WithName:(NSString *)name{
+- (void) getDocsWithType:(MediaType)type withName:(NSString *)name withSort:(NSString *)sort withStart:(NSString *)start{
     NSString *t = @"";
     if(type == MediaTypeAudio){
         t = @"audio";
@@ -128,35 +131,32 @@
         t = @"collection";
     }
     
-    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&fl[]=publicdate&fl[]=headerImage&fl[]=description&fl[]=identifier&fl[]=title&sort[]=publicdate+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
-
-    NSString *searchUrl = [NSString stringWithFormat:test, t, name];
-
+    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&fl[]=publicdate&fl[]=headerImage&fl[]=description&fl[]=identifier&fl[]=title&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json&start=%@";
     
-    
-    
-    
-    //NSString *searchUrl = @"http://archive.org/advancedsearch.php?q=mediatype:collection+AND+NOT+hidden:true+AND+collection:movies&fl[]=headerImage&fl[]=identifier&fl[]=title&sort[]=titleSorter+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
-    
+    NSString *searchUrl = [NSString stringWithFormat:test, t, name, sort, start];
     
     NSLog(@"searchUrl: %@", searchUrl);
-
+    
     
     [self setAndLoadDataFromJSONUrl:searchUrl];
-    
+
+}
+
+- (void) getDocsWithType:(MediaType)type withName:(NSString *)name{
+
+    [self getDocsWithType:type withName:name withSort:@"publicdate+asc" withStart:@"0"];
     
 }
 
 
 - (void) getCollectionsWithName:(NSString *)name{
-    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:collection+AND+NOT+hidden:true+AND+collection:%@&fl[]=publicdate&fl[]=description&fl[]=headerImage&fl[]=identifier&fl[]=title&sort[]=titleSorter+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
+  //  NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:collection+AND+NOT+hidden:true+AND+collection:%@&fl[]=publicdate&fl[]=description&fl[]=headerImage&fl[]=identifier&fl[]=title&sort[]=titleSorter+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
     
-    NSString *searchUrl = [NSString stringWithFormat:test, name];
+   // NSString *searchUrl = [NSString stringWithFormat:test, name];
     
-    NSLog(@"searchUrl: %@", searchUrl);
+   // NSLog(@"searchUrl: %@", searchUrl);
 
-    
-    [self setAndLoadDataFromJSONUrl:searchUrl];
+    [self getDocsWithType:MediaTypeCollection withName:name withSort:@"titleSorter+asc" withStart:@"0"];
 
 }
 
