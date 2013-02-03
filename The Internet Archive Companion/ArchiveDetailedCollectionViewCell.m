@@ -23,9 +23,7 @@
         
         
         
-        self.contentView.layer.masksToBounds = NO;
-        self.contentView.layer.cornerRadius = 8; // if you like rounded corners
-        [self.contentView setBackgroundColor:[UIColor whiteColor]];
+
         
         
 
@@ -41,7 +39,16 @@
             
         }
         
-        self.contentView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+        
+        
+        
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        [gradient setOpacity:1.0];
+        [gradient setBackgroundColor:[[UIColor clearColor] CGColor]];
+        gradient.frame = CGRectMake(0, 108, self.frame.size.width, 108);
+        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+        [self.contentView.layer insertSublayer:gradient atIndex:2];
+        
         
         
         

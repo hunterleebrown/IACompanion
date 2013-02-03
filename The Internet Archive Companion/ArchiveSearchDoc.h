@@ -19,6 +19,8 @@
 @property (strong, nonatomic) NSString *description;
 @property (strong, nonatomic) NSString *identifier;
 @property (strong, nonatomic) NSString *publicDate;
+@property (strong, nonatomic) NSString *date;
+@property (strong, nonatomic) NSDictionary *rawDoc;
 
 
 @end

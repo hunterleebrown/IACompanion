@@ -85,6 +85,7 @@
             for(NSDictionary *doc in docs){
                 if([doc objectForKey:@"description"] && [doc objectForKey:@"title"]){
                     ArchiveSearchDoc *aDoc = [ArchiveSearchDoc new];
+                    [aDoc setRawDoc:doc];
                     [aDoc setIdentifier:[doc objectForKey:@"identifier"]];
                     [aDoc setTitle:[doc objectForKey:@"title"]];
                     
@@ -94,7 +95,8 @@
                         [aDoc setHeaderImageUrl:[doc objectForKey:@"headerImage"]];
                     }
                     [aDoc setDescription:[doc objectForKey:@"description"]];
-                    [aDoc setPublicDate:[doc objectForKey:@"publicDate"]];
+                    [aDoc setPublicDate:[doc objectForKey:@"publicdate"]];
+                    [aDoc setDate:[doc objectForKey:@"date"]];
                     
                     [responseDocs addObject:aDoc];
                 }
@@ -131,7 +133,7 @@
         t = @"collection";
     }
     
-    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&fl[]=publicdate&fl[]=headerImage&fl[]=description&fl[]=identifier&fl[]=title&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json&start=%@";
+    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json&start=%@";
     
     NSString *searchUrl = [NSString stringWithFormat:test, t, name, sort, start];
     
@@ -150,11 +152,7 @@
 
 
 - (void) getCollectionsWithName:(NSString *)name{
-  //  NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:collection+AND+NOT+hidden:true+AND+collection:%@&fl[]=publicdate&fl[]=description&fl[]=headerImage&fl[]=identifier&fl[]=title&sort[]=titleSorter+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
-    
-   // NSString *searchUrl = [NSString stringWithFormat:test, name];
-    
-   // NSLog(@"searchUrl: %@", searchUrl);
+
 
     [self getDocsWithType:MediaTypeCollection withName:name withSort:@"titleSorter+asc" withStart:@"0"];
 

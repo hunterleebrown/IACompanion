@@ -15,6 +15,14 @@
 
 @property IBOutlet UIWebView *detailsView;
 @property IBOutlet UILabel *title;
+@property IBOutlet UILabel *publisher;
+@property IBOutlet UILabel *date;
+@property IBOutlet UILabel *from;
+
+@property IBOutlet UILabel *publicDate;
+@property IBOutlet UILabel *added;
+
+
 @property IBOutlet AsyncImageView *archiveImageView;
 
 @end

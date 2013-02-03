@@ -15,11 +15,16 @@
     NSString *sort;
     BOOL loading;
 }
+
+- (NSString *)displayDateFromArchiveDateString:(NSString *)archiveInDate;
+
 @end
 
 @implementation ArchiveDetailedCollectionViewController
 
-
+NSString *const DisplayDateFormat = @"MMMM d, YYYY";
+//2002-07-16T00:00:00Z
+NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
 
 
 - (id) initWithCoder:(NSCoder *)aDecoder {
@@ -54,7 +59,6 @@
     [self.collectionView reloadData];
     [_countingLabel setText:[NSString stringWithFormat:@"%i of %@", docs.count, [results objectForKey:@"numFound"]]];
 
-    self.loadMoreButton.enabled = YES;
     
     
     loading = NO;
@@ -73,7 +77,7 @@
 
    // NSLog(@" offset: %f  width: %f ", scrollView.contentOffset.x + scrollView.frame.size.width, scrollView.contentSize.width);
 
-    if(scrollView.contentOffset.x + scrollView.frame.size.width > scrollView.contentSize.width + 250 && !loading){
+    if(scrollView.contentOffset.x + scrollView.frame.size.width > scrollView.contentSize.width + 100 && !loading){
         loading = YES;
     }
     
@@ -94,7 +98,6 @@
 - (IBAction)loadMoreItems:(id)sender {
     start = start + docs.count;
     [dataService getDocsWithType:mediaType withName:archiveIdentifier withSort:sort withStart:[NSString stringWithFormat:@"%i", start]];
-    self.loadMoreButton.enabled = NO;
 
 }
 
@@ -123,7 +126,40 @@
     [cell.title setText:tit];
     [cell.archiveImageView setAndLoadImageFromUrl:doc.headerImageUrl];
     
-    NSString *html = [NSString stringWithFormat:@"<html><body style='font-size:14px; font-family:sans-serif'>%@</body></html>", doc.description];
+    if(doc.date){
+        [cell.date setText:[self displayDateFromArchiveDateString:doc.date]];
+        [cell.from setHidden:NO];
+        [cell.date setHidden:NO];
+    } else {
+        [cell.from setHidden:YES];
+        [cell.date setHidden:YES];
+    }
+    
+    if(doc.publicDate){
+        [cell.publicDate setText:[self displayDateFromArchiveDateString:doc.publicDate]];
+        [cell.added setHidden:NO];
+        [cell.publicDate setHidden:NO];
+    } else {
+        [cell.added setHidden:YES];
+        [cell.publicDate setHidden:YES];
+    }
+    
+    
+    
+    
+    
+    if([doc.rawDoc objectForKey:@"publisher"]){
+
+        NSMutableString * pubs = [[NSMutableString alloc] init];
+        for (NSObject * obj in [doc.rawDoc objectForKey:@"publisher"])
+        {
+            [pubs appendString:[obj description]];
+        }
+        
+        [cell.publisher setText:pubs]   ;
+    }
+    
+    NSString *html = [NSString stringWithFormat:@"<html><body style='background-color:#000; color:#fff; font-size:14px; font-family:sans-serif'>%@</body></html>", doc.description];
     
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
@@ -133,9 +169,7 @@
                        baseURL:theBaseURL];
     
     
-    if(indexPath.row == start){
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:start inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
-    }
+
     
     return cell;
 }
@@ -157,6 +191,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Utils
+- (NSString *) displayDateFromArchiveDateString:(NSString *)archiveInDate {
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    dateFormatter.dateFormat = ArchiveDateFormat;
+    NSDate *sDate = [dateFormatter dateFromString:archiveInDate];
+    
+    NSDateFormatter *showDateFormat = [NSDateFormatter new];
+    [showDateFormat setDateFormat:DisplayDateFormat];
+    NSString *theDate = [showDateFormat stringFromDate:sDate];
+    
+    return theDate;
 }
 
 @end

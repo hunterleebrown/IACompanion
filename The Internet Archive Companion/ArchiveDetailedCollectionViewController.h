@@ -22,7 +22,6 @@
 
 @property (nonatomic, retain) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, retain) IBOutlet UILabel *countingLabel;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *loadMoreButton;
 
 - (void)setCollectionIdentifier:(NSString *)identifier forType:(MediaType)type;
 - (IBAction)loadMoreItems:(id)sender;

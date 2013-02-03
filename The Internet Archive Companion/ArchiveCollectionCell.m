@@ -32,7 +32,7 @@
         [gradient setBackgroundColor:[[UIColor clearColor] CGColor]];
         gradient.cornerRadius = 8;
         gradient.frame = CGRectMake(0, self.bounds.size.height/2, self.bounds.size.width, self.bounds.size.height/2);
-        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], nil];
+        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
         [self.contentView.layer insertSublayer:gradient atIndex:1];
         
         
