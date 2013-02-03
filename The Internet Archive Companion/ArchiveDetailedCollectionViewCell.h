@@ -21,6 +21,7 @@
 
 @property IBOutlet UILabel *publicDate;
 @property IBOutlet UILabel *added;
+@property IBOutlet UILabel *subject;
 
 
 @property IBOutlet AsyncImageView *archiveImageView;

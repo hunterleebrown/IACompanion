@@ -34,7 +34,7 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
         [dataService setDelegate:self];
         docs = [NSMutableArray new];
         start = 0;
-        sort = @"publicdate+asc";
+        sort = @"publicdate+desc";
         loading = NO;
     }
     return self;
@@ -156,10 +156,27 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
             [pubs appendString:[obj description]];
         }
         
-        [cell.publisher setText:pubs]   ;
+        [cell.publisher setText:pubs];
     }
     
-    NSString *html = [NSString stringWithFormat:@"<html><body style='background-color:#000; color:#fff; font-size:14px; font-family:sans-serif'>%@</body></html>", doc.description];
+
+    if([doc.rawDoc objectForKey:@"subject"]){
+        
+        NSMutableString * subs = [[NSMutableString alloc] init];
+        for (NSObject * obj in [doc.rawDoc objectForKey:@"subject"])
+        {
+            if(![subs isEqualToString:@""]){
+                [subs appendString:@", "];
+            }
+            [subs appendString:[obj description]];
+        }
+        
+        [cell.subject setText:subs];
+    }
+    
+    
+    
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#fff; text-decoration:none;}</style></head><body style='background-color:#000; color:#fff; font-size:14px; font-family:sans-serif'>%@</body></html>", doc.description];
     
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
@@ -173,6 +190,8 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
     
     return cell;
 }
+
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
@@ -206,6 +225,17 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
     NSString *theDate = [showDateFormat stringFromDate:sDate];
     
     return theDate;
+}
+
+
+#pragma marks - WebView 
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        return NO;
+    }
+    return YES;
+
 }
 
 @end

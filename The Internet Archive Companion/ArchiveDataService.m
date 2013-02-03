@@ -146,7 +146,7 @@
 
 - (void) getDocsWithType:(MediaType)type withName:(NSString *)name{
 
-    [self getDocsWithType:type withName:name withSort:@"publicdate+asc" withStart:@"0"];
+    [self getDocsWithType:type withName:name withSort:@"publicdate+desc" withStart:@"0"];
     
 }
 
