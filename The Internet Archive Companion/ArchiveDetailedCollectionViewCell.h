@@ -22,7 +22,7 @@
 @property IBOutlet UILabel *publicDate;
 @property IBOutlet UILabel *added;
 @property IBOutlet UILabel *subject;
-
+@property IBOutlet UIButton *showButton;
 
 @property IBOutlet AsyncImageView *archiveImageView;
 

@@ -366,7 +366,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <state key="normal" title="View" backgroundImage="uiglassbutton-template.png">
+                                                    <state key="normal" title="Open" backgroundImage="uiglassbutton-template.png">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -374,7 +374,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="5Hf-D6-IM6" kind="push" id="ZmM-Bp-U4D"/>
+                                                        <segue destination="5Hf-D6-IM6" kind="push" identifier="showDoc" id="ZmM-Bp-U4D"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -419,6 +419,7 @@
                                             <outlet property="from" destination="EFC-e3-wK0" id="UfA-iZ-U0K"/>
                                             <outlet property="publicDate" destination="xNp-4p-cDZ" id="9pX-3R-ZTQ"/>
                                             <outlet property="publisher" destination="v6L-WA-P0O" id="AIG-3J-rCM"/>
+                                            <outlet property="showButton" destination="uVT-PP-8vc" id="fPv-PW-5cY"/>
                                             <outlet property="subject" destination="1sQ-B7-wmi" id="rHu-ij-dsa"/>
                                             <outlet property="title" destination="FLW-gt-bIw" id="XGO-7j-tBS"/>
                                         </connections>
@@ -522,6 +523,7 @@
                 <relationship kind="outlet" name="from" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="publicDate" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="publisher" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="showButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="title" candidateClass="UILabel"/>
             </relationships>
@@ -562,6 +564,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ArchiveDataService.h"
 
 @interface ArchiveSearchDoc : NSObject {
-    NSCache *cache;
 
 
 }
@@ -22,5 +22,17 @@
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSDictionary *rawDoc;
 
+
+@end
+
+
+
+@interface ArchiveDetailDoc : ArchiveSearchDoc
+
+
+@property (strong, nonatomic) NSString *uploader;
+@property (strong, nonatomic) NSString *creator;
+@property (nonatomic) MediaType type;
+@property (strong, nonatomic) NSArray *files;
 
 @end

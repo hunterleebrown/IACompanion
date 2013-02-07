@@ -89,7 +89,7 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
     archiveIdentifier = identifier;
     mediaType = type;
 
-    [dataService getDocsWithType:mediaType withName:archiveIdentifier];
+    [dataService getDocsWithType:mediaType withIdentifier:archiveIdentifier];
 
     
 }
@@ -97,7 +97,7 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
 
 - (IBAction)loadMoreItems:(id)sender {
     start = start + docs.count;
-    [dataService getDocsWithType:mediaType withName:archiveIdentifier withSort:sort withStart:[NSString stringWithFormat:@"%i", start]];
+    [dataService getDocsWithType:mediaType withIdentifier:archiveIdentifier withSort:sort withStart:[NSString stringWithFormat:@"%i", start]];
 
 }
 
@@ -144,7 +144,7 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
         [cell.publicDate setHidden:YES];
     }
     
-    
+    [cell.showButton setTag:indexPath.row];
     
     
     
@@ -198,11 +198,25 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
     if ([[segue identifier] isEqualToString:@"documentDetailModal"])
     {
         
-        ArchiveDetailedViewController *detailViewController = [segue destinationViewController];
-        [detailViewController setTitle:@"hi"];
+
         
     }
 
+    
+    if ([[segue identifier] isEqualToString:@"showDoc"])
+    {
+        UIButton *clickedButton = (UIButton *)sender;
+        int indexFromSender = clickedButton.tag;
+        
+        ArchiveSearchDoc *doc = [docs objectAtIndex:indexFromSender];
+        
+        ArchiveDetailedViewController *detailViewController = [segue destinationViewController];
+        [detailViewController setTitle:doc.title];
+        [detailViewController setIdentifier:doc.identifier];
+        
+    }
+    
+    
 }
 
 

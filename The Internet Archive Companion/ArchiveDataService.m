@@ -32,8 +32,7 @@
 
 
 - (void) setAndLoadDataFromJSONUrl:(NSString *)url{
-    //inUrl = @"http://archive.org/advancedsearch.php?q=mediatype:collection+AND+NOT+hidden:true+AND+collection:movies&fl[]=headerImage&fl[]=identifier&fl[]=title&sort[]=titleSorter+asc&sort[]=&sort[]=&rows=50&page=1&output=json";
-    
+
     inUrl = url;
     
     
@@ -79,6 +78,9 @@
     NSMutableArray *responseDocs = [NSMutableArray new];
     
     NSDictionary *response = [inData objectForKey:@"response"];
+    NSDictionary *metadata = [inData objectForKey:@"metadata"];
+
+    
     if(response){
         NSArray *docs = [response objectForKey:@"docs"];
         if(docs){
@@ -104,13 +106,28 @@
             }
             [rawResults setObject:responseDocs forKey:@"documents"];
             [rawResults setObject:[response objectForKey:@"numFound"] forKey:@"numFound"];
-            
-
         }
-        
-        
     }
     
+    if(metadata){
+        ArchiveDetailDoc *dDoc = [ArchiveDetailDoc new];
+        [dDoc setRawDoc:inData];
+        NSDictionary *metadata = [inData objectForKey:@"metadata"];
+        [dDoc setIdentifier:[metadata objectForKey:@"identifier"]];
+        [dDoc setTitle:[metadata objectForKey:@"title"]];
+        if(![metadata objectForKey:@"headerImage"]){
+            [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", dDoc.identifier]];
+        } else {
+            [dDoc setHeaderImageUrl:[metadata objectForKey:@"headerImage"]];
+        }
+        [dDoc setDescription:[metadata objectForKey:@"description"]];
+        [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];
+        
+        [responseDocs addObject:dDoc];
+        
+        [rawResults setObject:responseDocs forKey:@"documents"];
+    
+    }
     
     
     if(delegate && [delegate respondsToSelector:@selector(dataDidFinishLoadingWithDictionary:)]){
@@ -121,7 +138,7 @@
 
 
 /* specific implementation */
-- (void) getDocsWithType:(MediaType)type withName:(NSString *)name withSort:(NSString *)sort withStart:(NSString *)start{
+- (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier withSort:(NSString *)sort withStart:(NSString *)start{
     NSString *t = @"";
     if(type == MediaTypeAudio){
         t = @"audio";
@@ -134,32 +151,28 @@
     }
     
     NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json&start=%@";
-    
-    NSString *searchUrl = [NSString stringWithFormat:test, t, name, sort, start];
-    
+    NSString *searchUrl = [NSString stringWithFormat:test, t, identifier, sort, start];
     NSLog(@"searchUrl: %@", searchUrl);
-    
-    
     [self setAndLoadDataFromJSONUrl:searchUrl];
 
 }
 
-- (void) getDocsWithType:(MediaType)type withName:(NSString *)name{
-
-    [self getDocsWithType:type withName:name withSort:@"publicdate+desc" withStart:@"0"];
-    
+- (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier{
+    [self getDocsWithType:type withIdentifier:identifier withSort:@"publicdate+desc" withStart:@"0"];
 }
 
 
-- (void) getCollectionsWithName:(NSString *)name{
-
-
-    [self getDocsWithType:MediaTypeCollection withName:name withSort:@"titleSorter+asc" withStart:@"0"];
-
+- (void) getCollectionsWithIdentifier:(NSString *)identifier{
+    [self getDocsWithType:MediaTypeCollection withIdentifier:identifier withSort:@"titleSorter+asc" withStart:@"0"];
 }
 
 
-
+- (void) getMetadataDocsWithIdentifier:(NSString *)identifier{
+    NSString *test = @"http://archive.org/metadata/%@";
+    NSString *searchUrl = [NSString stringWithFormat:test, identifier];
+    NSLog(@"searchUrl: %@", searchUrl);
+    [self setAndLoadDataFromJSONUrl:searchUrl];
+}
 
 
 

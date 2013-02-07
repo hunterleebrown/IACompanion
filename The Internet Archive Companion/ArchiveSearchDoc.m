@@ -10,20 +10,15 @@
 
 @implementation ArchiveSearchDoc
 
-- (id) init{
-
-    self = [super init];
-    if(self){
-        cache = [[NSCache alloc] init];
-    }
-    return self;
-
-}
 
 
 
 
+@end
 
 
+
+
+@implementation ArchiveDetailDoc
 
 @end

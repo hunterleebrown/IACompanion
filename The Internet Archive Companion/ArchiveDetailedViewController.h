@@ -7,12 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArchiveSearchDoc.h"
+#import "ArchiveDataService.h"
 
-@interface ArchiveDetailedViewController : UIViewController {
+@interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate> {
+    
+    ArchiveDataService *service;
   
 
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *docTitle;
+@property (nonatomic, retain) ArchiveDetailDoc *doc;
+@property (nonatomic, retain) NSString *identifier;
+
+
 
 @end

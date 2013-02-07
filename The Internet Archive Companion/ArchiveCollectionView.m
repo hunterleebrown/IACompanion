@@ -18,7 +18,7 @@
 - (void) getCollectionWithName:(NSString *)name{
     dataService = [ArchiveDataService new];
     [dataService setDelegate:self];
-    [dataService getCollectionsWithName:name];
+    [dataService getCollectionsWithIdentifier:name];
     [self setDelegate:self];
     [self setDataSource:self];
     

@@ -34,9 +34,11 @@ typedef enum {
 @property (nonatomic, retain) id<ArchiveDataServiceDelegate> delegate;
 
 - (void) setAndLoadDataFromJSONUrl:(NSString *)url;
-- (void) getDocsWithType:(MediaType)type withName:(NSString *)name withSort:(NSString *)sort withStart:(NSString *)start;
-- (void) getDocsWithType:(MediaType)type withName:(NSString *)name;
-- (void) getCollectionsWithName:(NSString *)name;
+- (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier withSort:(NSString *)sort withStart:(NSString *)start;
+- (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier;
+- (void) getCollectionsWithIdentifier:(NSString *)identifier;
+
+- (void) getMetadataDocsWithIdentifier:(NSString *)identifier;
 
 
 @end
