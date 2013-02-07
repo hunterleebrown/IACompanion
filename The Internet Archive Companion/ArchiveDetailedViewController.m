@@ -16,7 +16,7 @@
 
 @implementation ArchiveDetailedViewController
 
-
+// http://ia700300.us.archive.org/zipview.php?zip=/9/items/adventhuckfinn00twairich/adventhuckfinn00twairich_jp2.zip
 
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
