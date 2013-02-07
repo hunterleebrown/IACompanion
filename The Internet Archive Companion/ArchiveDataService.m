@@ -8,6 +8,7 @@
 
 #import "ArchiveDataService.h"
 #import "ArchiveSearchDoc.h"
+#import "ArchiveFile.h"
 
 @implementation ArchiveDataService
 @synthesize delegate;
@@ -122,9 +123,20 @@
         }
         [dDoc setDescription:[metadata objectForKey:@"description"]];
         [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];
+
+        
+        NSMutableArray *files = [NSMutableArray new];
+        if([inData objectForKey:@"files"]){
+            for (NSDictionary *file in [inData objectForKey:@"files"]) {
+                ArchiveFile *aFile = [[ArchiveFile alloc]initWithIdentifier:dDoc.identifier withServer:[inData objectForKey:@"server"] withDirectory:[inData objectForKey:@"dir"] withFile:file];
+                [files addObject:aFile];
+            }
+        }
+        [dDoc setFiles:files];
+        
+        
         
         [responseDocs addObject:dDoc];
-        
         [rawResults setObject:responseDocs forKey:@"documents"];
     
     }

@@ -10,16 +10,17 @@
 #import "ArchiveSearchDoc.h"
 #import "ArchiveDataService.h"
 
-@interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate> {
+@interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate> {
     
     ArchiveDataService *service;
-  
+    NSMutableArray *vbrs;
 
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *docTitle;
 @property (nonatomic, retain) ArchiveDetailDoc *doc;
 @property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 
 

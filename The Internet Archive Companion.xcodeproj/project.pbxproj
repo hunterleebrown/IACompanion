@@ -23,6 +23,8 @@
 		5A0A10D616A640A300CC70CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A10B116A640A300CC70CD /* Foundation.framework */; };
 		5A0A10DE16A640A300CC70CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A10DC16A640A300CC70CD /* InfoPlist.strings */; };
 		5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */; };
+		5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930616C3855400C3E107 /* ArchiveFile.m */; };
+		5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A23930816C3A07500C3E107 /* MediaPlayer.framework */; };
 		5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */; };
 		5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */; };
 		5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */; };
@@ -69,6 +71,9 @@
 		5A0A10DD16A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A0A10DF16A640A300CC70CD /* The_Internet_Archive_CompanionTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = The_Internet_Archive_CompanionTests.h; sourceTree = "<group>"; };
 		5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Internet_Archive_CompanionTests.m; sourceTree = "<group>"; };
+		5A23930516C3855400C3E107 /* ArchiveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFile.h; sourceTree = "<group>"; };
+		5A23930616C3855400C3E107 /* ArchiveFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFile.m; sourceTree = "<group>"; };
+		5A23930816C3A07500C3E107 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		5A8A191B16B4FAD900F6A2E4 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		5A8A193C16B5B15C00F6A2E4 /* ArchiveCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionView.h; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */,
 				5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */,
 				5A0A10B016A640A300CC70CD /* UIKit.framework in Frameworks */,
 				5A0A10B216A640A300CC70CD /* Foundation.framework in Frameworks */,
@@ -119,6 +125,7 @@
 		5A0A10A016A640A300CC70CD = {
 			isa = PBXGroup;
 			children = (
+				5A23930816C3A07500C3E107 /* MediaPlayer.framework */,
 				5A990BA616B9F2E500B4C058 /* QuartzCore.framework */,
 				5A0A10B516A640A300CC70CD /* The Internet Archive Companion */,
 				5A0A10D916A640A300CC70CD /* The Internet Archive CompanionTests */,
@@ -224,6 +231,8 @@
 				5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */,
 				5A98438C16BBFD020022DB3F /* AsyncImage.h */,
 				5A98438D16BBFD020022DB3F /* AsyncImage.m */,
+				5A23930516C3855400C3E107 /* ArchiveFile.h */,
+				5A23930616C3855400C3E107 /* ArchiveFile.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -351,6 +360,7 @@
 				5A990BBF16BA592900B4C058 /* ArchiveDetailedCollectionViewController.m in Sources */,
 				5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */,
 				5A98438E16BBFD020022DB3F /* AsyncImage.m in Sources */,
+				5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
