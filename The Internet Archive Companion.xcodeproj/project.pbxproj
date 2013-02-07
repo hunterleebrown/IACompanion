@@ -25,6 +25,7 @@
 		5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */; };
 		5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930616C3855400C3E107 /* ArchiveFile.m */; };
 		5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A23930816C3A07500C3E107 /* MediaPlayer.framework */; };
+		5A23930C16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930B16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m */; };
 		5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */; };
 		5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */; };
 		5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */; };
@@ -74,6 +75,8 @@
 		5A23930516C3855400C3E107 /* ArchiveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFile.h; sourceTree = "<group>"; };
 		5A23930616C3855400C3E107 /* ArchiveFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFile.m; sourceTree = "<group>"; };
 		5A23930816C3A07500C3E107 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5A23930A16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveMoviePlayerViewController.h; sourceTree = "<group>"; };
+		5A23930B16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveMoviePlayerViewController.m; sourceTree = "<group>"; };
 		5A8A191B16B4FAD900F6A2E4 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		5A8A193C16B5B15C00F6A2E4 /* ArchiveCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionView.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */,
 				5AA29AA116BB8CCF0082D3C4 /* ArchiveDetailedViewController.h */,
 				5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */,
+				5A23930A16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.h */,
+				5A23930B16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m */,
 			);
 			name = "Collection Views";
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */,
 				5A98438E16BBFD020022DB3F /* AsyncImage.m in Sources */,
 				5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */,
+				5A23930C16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

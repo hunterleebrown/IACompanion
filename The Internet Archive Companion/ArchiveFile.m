@@ -27,6 +27,8 @@
     _file = file;
     if([[file objectForKey:@"format"] isEqualToString:@"VBR MP3"]){
         _format = FileFormatVBRMP3;
+    } else if([[file objectForKey:@"format"] isEqualToString:@"h.264"]){
+        _format = FileFormatH264;
     }
     
     if([file objectForKey:@"title"]){

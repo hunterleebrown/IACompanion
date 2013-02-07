@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ArchiveSearchDoc.h"
 #import "ArchiveDataService.h"
+#import <MediaPlayer/MediaPlayer.h>
+
 
 @interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate> {
     
@@ -21,7 +23,6 @@
 @property (nonatomic, retain) ArchiveDetailDoc *doc;
 @property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-
 
 
 @end

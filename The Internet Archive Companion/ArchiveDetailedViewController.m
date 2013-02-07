@@ -69,7 +69,7 @@
 
     NSURL *movie = [NSURL URLWithString:file.url];
     
-    NSLog(@"mp3: %@", file.url);
+   NSLog(@"mp3: %@", file.url);
     
     MPMoviePlayerViewController *mp = [[MPMoviePlayerViewController alloc] initWithContentURL:movie];
 
@@ -94,7 +94,7 @@
     _docTitle.text = _doc.title;
     
     for(ArchiveFile *file in _doc.files){
-        if(file.format == FileFormatVBRMP3){
+        if(file.format == FileFormatVBRMP3 || file.format == FileFormatH264){
             [vbrs addObject:file];
         }
     }
@@ -104,6 +104,10 @@
     }
     
 }
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning
