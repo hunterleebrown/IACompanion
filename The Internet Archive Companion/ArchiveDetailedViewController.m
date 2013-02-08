@@ -8,6 +8,7 @@
 
 #import "ArchiveDetailedViewController.h"
 #import "ArchiveFile.h"
+#import "ArchiveFileTableViewCell.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface ArchiveDetailedViewController ()
@@ -49,15 +50,11 @@
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VBRCell"];
-    if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"VBRCell"];
-   
-    }
+    ArchiveFileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playableFileCell"];
+ 
     ArchiveFile *file = [vbrs objectAtIndex:indexPath.row];
    
-   // [cell.textLabel setText:file.name];
-    [cell.textLabel setText:file.title];
+    [cell.fileTitle setText:file.title];
     
     return cell;
 }
@@ -72,9 +69,25 @@
    NSLog(@"mp3: %@", file.url);
     
     MPMoviePlayerViewController *mp = [[MPMoviePlayerViewController alloc] initWithContentURL:movie];
-
-    [self.navigationController pushViewController:mp animated:YES];
+    //[mp.navigationController.toolbar setHidden:YES];
+    
+    [self.navigationController pushViewController:mp animated:NO];
     [mp.moviePlayer play];
+    [mp.navigationController setNavigationBarHidden:YES];
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:mp.moviePlayer];
+
+    
+    
+}
+
+
+- (void)playbackDidFinish:(NSNotification *)notification{
+    [self.navigationController popViewControllerAnimated:NO];
+    [self.navigationController setNavigationBarHidden:NO];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
 }
 
 
@@ -93,8 +106,20 @@
     _doc = [[results objectForKey:@"documents"] objectAtIndex:0];
     _docTitle.text = _doc.title;
     
+    
+    
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#666; font-size:14px; font-family:sans-serif'>%@</body></html>", _doc.description];
+    
+    
+    NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
+    [_description loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
+                      MIMEType:@"text/html"
+              textEncodingName:@"UTF-8"
+                       baseURL:theBaseURL];
+    
+    
     for(ArchiveFile *file in _doc.files){
-        if(file.format == FileFormatVBRMP3 || file.format == FileFormatH264){
+        if(file.format == FileFormatVBRMP3 || file.format == FileFormatH264 || file.format == FileFormatMPEG4){
             [vbrs addObject:file];
         }
     }
