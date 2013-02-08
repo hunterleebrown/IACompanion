@@ -55,7 +55,9 @@
 
 - (NSString *) url{
 
-    return [NSString stringWithFormat:@"http://%@%@/%@", _server, _directory,[StringUtils urlEncodeString:_name]];
+    //return [NSString stringWithFormat:@"http://%@%@/%@", _server, _directory,[StringUtils urlEncodeString:_name]];
+    return [NSString stringWithFormat:@"http://%@/%@/%@/%@", @"archive.org", @"download",_identifier, [StringUtils urlEncodeString:_name]];
+    
 
 }
 
