@@ -146,6 +146,9 @@
 
 - (void)loadData {
     
+
+    
+    NSLog(@"--->url: %@", inUrl);
     
     NSData* data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inUrl]];
     NSError *jsonParsingError = nil;
@@ -202,10 +205,10 @@
 
 - (void) getDocsWithQueryString:(NSString *)query {
     
+    NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)query,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
     
+    testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@+AND+NOT+hidden:true&sort[]=&sort[]=&sort[]=&rows=50&page=1&output=json", escapedString];
     
-    testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@+AND+NOT+hidden:true&sort[]=&sort[]=&sort[]=&rows=50&page=1&output=json", query];
-   
     
     
     [self getDocsWithTest:testUrl withStart:loadMoreStart];
@@ -217,7 +220,6 @@
 - (void) getMetadataDocsWithIdentifier:(NSString *)identifier{
     testUrl = @"http://archive.org/metadata/%@";
     NSString *searchUrl = [NSString stringWithFormat:testUrl, identifier];
-    NSLog(@"searchUrl: %@", searchUrl);
     [self setAndLoadDataFromJSONUrl:searchUrl];
 }
 
@@ -235,7 +237,6 @@
 - (void) getDocsWithTest:(NSString *)test withStart:(NSString *)start{
     testUrl = test;
     NSString *searchUrl =[NSString stringWithFormat:@"%@&start=%@", testUrl, start];
-    NSLog(@"searchUrl: %@", searchUrl);
     
     
     

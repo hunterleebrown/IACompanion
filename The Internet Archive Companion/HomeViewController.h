@@ -19,7 +19,7 @@
 @property (nonatomic, retain) IBOutlet ArchiveCollectionView *audioCollection;
 @property (nonatomic, retain) IBOutlet ArchiveCollectionView *videoCollection;
 @property (nonatomic, retain) IBOutlet ArchiveCollectionView *textCollection;
-
+@property (nonatomic, retain) IBOutlet UIButton *searchButton;
 
 
 @end

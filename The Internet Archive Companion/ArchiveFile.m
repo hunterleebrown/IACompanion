@@ -7,6 +7,7 @@
 //
 
 #import "ArchiveFile.h"
+#import "StringUtils.h"
 
 @implementation ArchiveFile
 
@@ -54,7 +55,7 @@
 
 - (NSString *) url{
 
-    return [NSString stringWithFormat:@"http://%@%@/%@", _server, _directory, _name];
+    return [NSString stringWithFormat:@"http://%@%@/%@", _server, _directory,[StringUtils urlEncodeString:_name]];
 
 }
 

@@ -10,6 +10,7 @@
 #import "ArchiveFile.h"
 #import "ArchiveFileTableViewCell.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "StringUtils.h"
 
 @interface ArchiveDetailedViewController ()
 

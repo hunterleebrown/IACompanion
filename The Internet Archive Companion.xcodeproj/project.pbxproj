@@ -36,6 +36,7 @@
 		5A990BBF16BA592900B4C058 /* ArchiveDetailedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */; };
 		5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */; };
 		5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */; };
+		CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3019CD16C5729E00733B99 /* StringUtils.m */; };
 		CE752A2816C1799400A432AB /* uiglassbutton-template.png in Resources */ = {isa = PBXBuildFile; fileRef = CE752A2716C1799400A432AB /* uiglassbutton-template.png */; };
 		CEEA640216C4240100DCA3BC /* ArchiveFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,8 @@
 		5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedViewController.m; sourceTree = "<group>"; };
 		5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDataService.h; sourceTree = "<group>"; };
 		5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDataService.m; sourceTree = "<group>"; };
+		CE3019CC16C5729E00733B99 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
+		CE3019CD16C5729E00733B99 /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtils.m; sourceTree = "<group>"; };
 		CE752A2716C1799400A432AB /* uiglassbutton-template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uiglassbutton-template.png"; sourceTree = "<group>"; };
 		CEEA640016C4240100DCA3BC /* ArchiveFileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFileTableViewCell.h; sourceTree = "<group>"; };
 		CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFileTableViewCell.m; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		5A0A10B516A640A300CC70CD /* The Internet Archive Companion */ = {
 			isa = PBXGroup;
 			children = (
+				CE3019CB16C5728700733B99 /* Utils */,
 				CEEA63FF16C4192C00DCA3BC /* Controllers */,
 				5A8A193B16B5B13700F6A2E4 /* Views */,
 				5AD2070E16A8F9460027CCA5 /* Data */,
@@ -238,6 +242,15 @@
 				5A23930616C3855400C3E107 /* ArchiveFile.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		CE3019CB16C5728700733B99 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE3019CC16C5729E00733B99 /* StringUtils.h */,
+				CE3019CD16C5729E00733B99 /* StringUtils.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		CEEA63FF16C4192C00DCA3BC /* Controllers */ = {
@@ -381,6 +394,7 @@
 				5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */,
 				5A23930C16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m in Sources */,
 				CEEA640216C4240100DCA3BC /* ArchiveFileTableViewCell.m in Sources */,
+				CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

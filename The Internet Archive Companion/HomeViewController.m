@@ -48,29 +48,34 @@
     ArchiveSearchDoc *doc;
     MediaType type;
     
+    ArchiveDetailedCollectionViewController *detailCollectionViewController = [segue destinationViewController];
+
     if ([[segue identifier] isEqualToString:@"audioCellPush"])
     {
         NSIndexPath *selectedIndexPath = [[self.audioCollection indexPathsForSelectedItems] objectAtIndex:0];
         doc = [self.audioCollection.docs objectAtIndex:selectedIndexPath.row];
         type = MediaTypeAudio;
+        [detailCollectionViewController setCollectionIdentifier:doc.identifier forType:type];
+        [detailCollectionViewController setTitle:doc.title];
     }
     else if ([[segue identifier] isEqualToString:@"videoCellPush"])
     {
         NSIndexPath *selectedIndexPath = [[self.videoCollection indexPathsForSelectedItems] objectAtIndex:0];
         doc = [self.videoCollection.docs objectAtIndex:selectedIndexPath.row];
         type = MediaTypeVideo;
+        [detailCollectionViewController setCollectionIdentifier:doc.identifier forType:type];
+        [detailCollectionViewController setTitle:doc.title];
     }
-    else {
+    else if([[segue identifier] isEqualToString:@"textCellPush"]){
         NSIndexPath *selectedIndexPath = [[self.textCollection indexPathsForSelectedItems] objectAtIndex:0];
         doc = [self.textCollection.docs objectAtIndex:selectedIndexPath.row];
         type = MediaTypeTexts;
-    }
-    
+        [detailCollectionViewController setCollectionIdentifier:doc.identifier forType:type];
+        [detailCollectionViewController setTitle:doc.title];
+    } 
     
 
-    ArchiveDetailedCollectionViewController *detailCollectionViewController = [segue destinationViewController];
-    [detailCollectionViewController setCollectionIdentifier:doc.identifier forType:type];
-    [detailCollectionViewController setTitle:doc.title];
+
 
 
 }
