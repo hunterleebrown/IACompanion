@@ -462,7 +462,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K06-22-DqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="473" y="542"/>
+            <point key="canvasLocation" x="517" y="-78"/>
         </scene>
         <!--Archive Detailed View Controller-->
         <scene sceneID="tUu-5H-6hW">
@@ -472,44 +472,97 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="738" translatesAutoresizingMaskIntoConstraints="NO" id="GJ4-U2-TiI">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="GJ4-U2-TiI">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="Qtk-dt-wkQ"/>
-                                    <constraint firstAttribute="width" constant="738" type="user" id="phJ-mj-Blu"/>
+                                    <constraint firstAttribute="height" constant="40" type="user" id="1Gz-z3-ZZY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Np-SX-QeY">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="460" id="Q8M-ld-iAV"/>
+                                    <constraint firstAttribute="width" constant="320" id="aVa-gc-VwP"/>
+                                    <constraint firstAttribute="height" constant="500" type="user" id="qHt-Cb-e3g"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="playableFileCell" selectionStyle="gray" indentationWidth="10" reuseIdentifier="playableFileCell" id="MDh-j2-Qbb" customClass="ArchiveFileTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="5KC-km-pBa">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" id="7Bv-7G-vt7"/>
+                                                        <constraint firstAttribute="width" constant="300" id="xqD-dO-g9U"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="5KC-km-pBa" firstAttribute="centerY" secondItem="MDh-j2-Qbb" secondAttribute="centerY" type="default" id="SNw-0X-iax"/>
+                                            <constraint firstItem="5KC-km-pBa" firstAttribute="centerX" secondItem="MDh-j2-Qbb" secondAttribute="centerX" type="default" id="qao-zn-TCf"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="fileTitle" destination="5KC-km-pBa" id="D6h-a1-Gnd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="5Hf-D6-IM6" id="g4g-QT-fc7"/>
                                     <outlet property="delegate" destination="5Hf-D6-IM6" id="Che-bW-CLv"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Playable files" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qab-1k-FIV">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="Aha-Ya-4Wu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnN-ve-aSX">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="344" id="x3C-Dy-sus"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="5Hf-D6-IM6" id="Tnx-tS-ZEZ"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9Np-SX-QeY" firstAttribute="leading" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6Ij-zj-kz2"/>
-                            <constraint firstItem="GJ4-U2-TiI" firstAttribute="leading" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" type="user" id="UkK-Gw-1wc"/>
-                            <constraint firstItem="9Np-SX-QeY" firstAttribute="centerY" secondItem="Eop-05-gV9" secondAttribute="centerY" type="default" id="bN7-op-enG"/>
-                            <constraint firstAttribute="trailing" secondItem="9Np-SX-QeY" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hEB-CZ-CfP"/>
-                            <constraint firstItem="GJ4-U2-TiI" firstAttribute="top" secondItem="Eop-05-gV9" secondAttribute="top" constant="50" type="user" id="sDg-jo-Vtl"/>
+                            <constraint firstAttribute="trailing" secondItem="Qab-1k-FIV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="AlI-sV-rnP"/>
+                            <constraint firstItem="9Np-SX-QeY" firstAttribute="bottom" secondItem="WnN-ve-aSX" secondAttribute="bottom" type="default" id="PBJ-r4-QTc"/>
+                            <constraint firstItem="9Np-SX-QeY" firstAttribute="top" secondItem="Qab-1k-FIV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WSV-aU-sWa"/>
+                            <constraint firstItem="Qab-1k-FIV" firstAttribute="top" secondItem="Eop-05-gV9" secondAttribute="top" constant="128" id="cOO-tG-jLb"/>
+                            <constraint firstItem="GJ4-U2-TiI" firstAttribute="leading" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="chm-Jc-5P4"/>
+                            <constraint firstItem="Qab-1k-FIV" firstAttribute="leading" secondItem="9Np-SX-QeY" secondAttribute="leading" type="default" id="h4x-Mw-Xak"/>
+                            <constraint firstItem="WnN-ve-aSX" firstAttribute="top" secondItem="9Np-SX-QeY" secondAttribute="top" type="default" id="n22-XE-Hii"/>
+                            <constraint firstItem="GJ4-U2-TiI" firstAttribute="top" secondItem="Eop-05-gV9" secondAttribute="top" constant="20" symbolic="YES" type="default" id="v62-Q8-hPV"/>
+                            <constraint firstAttribute="trailing" secondItem="GJ4-U2-TiI" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="w2r-UZ-PXD"/>
+                            <constraint firstItem="WnN-ve-aSX" firstAttribute="leading" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" type="user" id="xqg-I4-JVB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f2F-y1-lk2"/>
                     <connections>
+                        <outlet property="description" destination="WnN-ve-aSX" id="VlE-b5-rUe"/>
                         <outlet property="docTitle" destination="GJ4-U2-TiI" id="Vwi-gV-YK3"/>
                         <outlet property="tableView" destination="9Np-SX-QeY" id="343-a4-GbX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsW-Dz-qyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="-50"/>
+            <point key="canvasLocation" x="1417" y="-78"/>
         </scene>
     </scenes>
     <resources>
@@ -553,8 +606,15 @@
         <class className="ArchiveDetailedViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="description" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="docTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ArchiveFileTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveFileTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="AsyncImageView" superclassName="UIImageView">

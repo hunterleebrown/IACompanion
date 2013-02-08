@@ -23,6 +23,7 @@
 @property (nonatomic, retain) ArchiveDetailDoc *doc;
 @property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) IBOutlet UIWebView *description;
 
 
 @end
