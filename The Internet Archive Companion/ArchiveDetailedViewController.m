@@ -31,6 +31,10 @@
         service = [ArchiveDataService new];
         [service setDelegate:self];
         
+
+        // ...
+
+        
     }
     return self;
 }
@@ -66,20 +70,30 @@
 
     NSURL *movie = [NSURL URLWithString:file.url];
     
-   NSLog(@"mp3: %@", file.url);
+    NSLog(@"mp3: %@", file.url);
+    player = [[MPMoviePlayerController alloc] initWithContentURL:movie];
+    [player prepareToPlay];
+    if(file.width){
+     //   [self.movieView setFrame:CGRectMake(self.movieView.frame.origin.x, self.movieView.frame.origin.y, [file.width floatValue], [file.height floatValue])];
+      //  [self.movieView setCenter:self.view.center];
+    }
+    [player.view setFrame: self.movieView.bounds];  // player's frame must match parent's
+    [self.movieView addSubview: player.view];
+    [player play];
+    [player.view setBackgroundColor:[UIColor clearColor]];
     
-    MPMoviePlayerViewController *mp = [[MPMoviePlayerViewController alloc] initWithContentURL:movie];
-    //[mp.navigationController.toolbar setHidden:YES];
-    
-    [self.navigationController pushViewController:mp animated:NO];
-    [mp.moviePlayer play];
-    [mp.navigationController setNavigationBarHidden:YES];
+    /*
+     MPMoviePlayerViewController *mp = [[MPMoviePlayerViewController alloc] initWithContentURL:movie];
+     //[mp.navigationController.toolbar setHidden:YES];
+     
+     [self.navigationController pushViewController:mp animated:NO];
+     [mp.moviePlayer play];
+     [mp.navigationController setNavigationBarHidden:YES];
+     
+     
+     [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:mp.moviePlayer];
+     */
 
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:mp.moviePlayer];
-
-    
-    
 }
 
 
@@ -97,6 +111,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [player stop];
+
+}
+
+- (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [player.view setFrame: self.movieView.bounds];  // player's frame must match parent's
 }
 
 
@@ -119,7 +142,7 @@
     
     
     for(ArchiveFile *file in _doc.files){
-        if(file.format == FileFormatVBRMP3 || file.format == FileFormatH264 || file.format == FileFormatMPEG4){
+        if(file.format == FileFormatVBRMP3 || file.format == FileFormatH264 || file.format == FileFormatMPEG4 || file.format == FileFormat512kbMPEG4){
             [vbrs addObject:file];
         }
     }

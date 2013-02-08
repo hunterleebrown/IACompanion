@@ -13,7 +13,8 @@ typedef enum {
     FileFormatOther = 0,
     FileFormatVBRMP3 = 1,
     FileFormatH264 = 2,
-    FileFormatMPEG4 = 3
+    FileFormatMPEG4 = 3,
+    FileFormat512kbMPEG4 = 4
     
 } FileFormat;
 
@@ -30,6 +31,8 @@ typedef enum {
 @property (nonatomic, assign) NSString *identifier;
 @property (nonatomic, assign) NSString *server;
 @property (nonatomic, assign) NSString *directory;
+@property (nonatomic, assign) NSString *height;
+@property (nonatomic, assign) NSString *width;
 
 
 

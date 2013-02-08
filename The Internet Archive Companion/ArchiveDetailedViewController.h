@@ -16,6 +16,7 @@
     
     ArchiveDataService *service;
     NSMutableArray *vbrs;
+    MPMoviePlayerController *player;
 
 }
 
@@ -24,6 +25,6 @@
 @property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIWebView *description;
-
+@property (nonatomic, retain) IBOutlet UIView *movieView;
 
 @end

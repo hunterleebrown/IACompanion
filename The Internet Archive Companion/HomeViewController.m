@@ -16,16 +16,15 @@
 @end
 
 @implementation HomeViewController
-@synthesize audioCollection, videoCollection, textCollection;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [audioCollection getCollectionWithName:@"audio"];
-    [videoCollection getCollectionWithName:@"movies"];
-    [textCollection getCollectionWithName:@"texts"];
+    [self.audioCollection getCollectionWithName:@"audio"];
+    [self.videoCollection getCollectionWithName:@"movies"];
+    [self.textCollection getCollectionWithName:@"texts"];
     [self setTitle:@"Top Level Collections"];
 
 }
@@ -39,6 +38,10 @@
 
 
 
+
+
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
@@ -47,20 +50,19 @@
     
     if ([[segue identifier] isEqualToString:@"audioCellPush"])
     {
-        NSIndexPath *selectedIndexPath = [[audioCollection indexPathsForSelectedItems] objectAtIndex:0];
-        doc = [audioCollection.docs objectAtIndex:selectedIndexPath.row];
+        NSIndexPath *selectedIndexPath = [[self.audioCollection indexPathsForSelectedItems] objectAtIndex:0];
+        doc = [self.audioCollection.docs objectAtIndex:selectedIndexPath.row];
         type = MediaTypeAudio;
     }
     else if ([[segue identifier] isEqualToString:@"videoCellPush"])
     {
-        NSIndexPath *selectedIndexPath = [[videoCollection indexPathsForSelectedItems] objectAtIndex:0];
-        doc = [videoCollection.docs objectAtIndex:selectedIndexPath.row];
+        NSIndexPath *selectedIndexPath = [[self.videoCollection indexPathsForSelectedItems] objectAtIndex:0];
+        doc = [self.videoCollection.docs objectAtIndex:selectedIndexPath.row];
         type = MediaTypeVideo;
     }
-    else if ([[segue identifier] isEqualToString:@"textCellPush"])
-    {
-        NSIndexPath *selectedIndexPath = [[textCollection indexPathsForSelectedItems] objectAtIndex:0];
-        doc = [textCollection.docs objectAtIndex:selectedIndexPath.row];
+    else {
+        NSIndexPath *selectedIndexPath = [[self.textCollection indexPathsForSelectedItems] objectAtIndex:0];
+        doc = [self.textCollection.docs objectAtIndex:selectedIndexPath.row];
         type = MediaTypeTexts;
     }
     

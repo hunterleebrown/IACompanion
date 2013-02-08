@@ -31,6 +31,8 @@
         _format = FileFormatH264;
     } else if([[file objectForKey:@"format"] isEqualToString:@"MPEG4"]){
         _format = FileFormatMPEG4;
+    } else if([[file objectForKey:@"format"] isEqualToString:@"512Kb MPEG4"]){
+        _format = FileFormat512kbMPEG4;
     }
     
     if([file objectForKey:@"title"]){
@@ -42,7 +44,12 @@
     _track = [file objectForKey:@"track"];
     _name = [file objectForKey:@"name"];
 
-    
+    if([file objectForKey:@"height"]){
+        _height = [file objectForKey:@"height"];
+    }
+    if([file objectForKey:@"width"]){
+        _width = [file objectForKey:@"width"];
+    }
 }
 
 - (NSString *) url{

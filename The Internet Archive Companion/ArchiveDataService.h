@@ -28,15 +28,17 @@ typedef enum {
     NSString *inUrl;
     NSCache *cache;
     id<ArchiveDataServiceDelegate> delegate;
-    
+    NSString *testUrl;
+    NSString *loadMoreStart;
 
 }
 @property (nonatomic, retain) id<ArchiveDataServiceDelegate> delegate;
 
 - (void) setAndLoadDataFromJSONUrl:(NSString *)url;
-- (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier withSort:(NSString *)sort withStart:(NSString *)start;
 - (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier;
 - (void) getCollectionsWithIdentifier:(NSString *)identifier;
+- (void) getDocsWithQueryString:(NSString *)query;
+- (void) loadMoreWithStart:(NSString *)loadMoreStart;
 
 - (void) getMetadataDocsWithIdentifier:(NSString *)identifier;
 

@@ -41,6 +41,20 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
 
 }
 
+- (id) init{
+    self = [super init];
+    if(self){
+        dataService = [ArchiveDataService new];
+        [dataService setDelegate:self];
+        docs = [NSMutableArray new];
+        start = 0;
+        sort = @"publicdate+desc";
+        loading = NO;
+    
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad
 {
@@ -65,6 +79,17 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
 }
 
 
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+ //   [docs removeAllObjects];
+   // docs = [NSMutableArray new];
+    [docs removeAllObjects];
+    [self.collectionView reloadData];
+    [dataService getDocsWithQueryString:searchBar.text];
+    
+    
+}
+
+
 
 - (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     if(loading){
@@ -74,7 +99,7 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
-
+    [self.searchBar resignFirstResponder];
    // NSLog(@" offset: %f  width: %f ", scrollView.contentOffset.x + scrollView.frame.size.width, scrollView.contentSize.width);
 
     if(scrollView.contentOffset.x + scrollView.frame.size.width > scrollView.contentSize.width + 100 && !loading){
@@ -97,7 +122,8 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
 
 - (IBAction)loadMoreItems:(id)sender {
     start = start + docs.count;
-    [dataService getDocsWithType:mediaType withIdentifier:archiveIdentifier withSort:sort withStart:[NSString stringWithFormat:@"%i", start]];
+    //[dataService getDocsWithType:mediaType withIdentifier:archiveIdentifier withSort:sort withStart:[NSString stringWithFormat:@"%i", start]];
+    [dataService loadMoreWithStart:[NSString stringWithFormat:@"%i", start]];
 
 }
 

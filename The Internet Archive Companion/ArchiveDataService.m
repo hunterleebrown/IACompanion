@@ -31,42 +31,12 @@
  
 */
 
-
-- (void) setAndLoadDataFromJSONUrl:(NSString *)url{
-
-    inUrl = url;
-    
-    
-    id cI = [cache objectForKey:inUrl];
-    if(cI != nil){
-        NSDictionary *cachedData = (NSDictionary *)cI;
-        [self sendData:cachedData];
-        NSLog(@"CACHE HIT...");
-    } else {
-        
-        NSOperationQueue *queue = [NSOperationQueue new];
-        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
-                                            initWithTarget:self
-                                            selector:@selector(loadData)
-                                            object:nil];
-        [queue addOperation:operation];
+- (id) init{
+    self = [super init];
+    if(self){
+        loadMoreStart = @"0";
     }
-    
-    
-    
-}
-
-- (void)loadData {
-    
-
-    NSData* data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inUrl]];
-    NSError *jsonParsingError = nil;
-
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-    
-    
-    [cache setObject:json forKey:inUrl];
-    [self performSelectorOnMainThread:@selector(sendData:) withObject:json waitUntilDone:NO];
+    return self;
 }
 
 
@@ -149,8 +119,47 @@
 }
 
 
-/* specific implementation */
-- (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier withSort:(NSString *)sort withStart:(NSString *)start{
+#pragma mark - the real request, async
+- (void) setAndLoadDataFromJSONUrl:(NSString *)url{
+    
+    inUrl = url;
+    
+    
+    id cI = [cache objectForKey:inUrl];
+    if(cI != nil){
+        NSDictionary *cachedData = (NSDictionary *)cI;
+        [self sendData:cachedData];
+        NSLog(@"CACHE HIT...");
+    } else {
+        
+        NSOperationQueue *queue = [NSOperationQueue new];
+        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                            initWithTarget:self
+                                            selector:@selector(loadData)
+                                            object:nil];
+        [queue addOperation:operation];
+    }
+    
+    
+    
+}
+
+- (void)loadData {
+    
+    
+    NSData* data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inUrl]];
+    NSError *jsonParsingError = nil;
+    
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+    
+    
+    [cache setObject:json forKey:inUrl];
+    [self performSelectorOnMainThread:@selector(sendData:) withObject:json waitUntilDone:NO];
+}
+
+
+
+- (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier withSort:(NSString *)sort{
     NSString *t = @"";
     if(type == MediaTypeAudio){
         t = @"audio";
@@ -162,29 +171,79 @@
         t = @"collection";
     }
     
-    NSString *test = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json&start=%@";
-    NSString *searchUrl = [NSString stringWithFormat:test, t, identifier, sort, start];
-    NSLog(@"searchUrl: %@", searchUrl);
-    [self setAndLoadDataFromJSONUrl:searchUrl];
+    
+    testUrl = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json";
+    NSString *searchUrl = [NSString stringWithFormat:testUrl, t, identifier, sort];
+
+    
+    
+    [self getDocsWithTest:searchUrl withStart:loadMoreStart];
+    
+    //NSLog(@"searchUrl: %@", searchUrl);
+    //[self setAndLoadDataFromJSONUrl:searchUrl];
+    
 
 }
 
+
+#pragma mark - the outside world
+
+
 - (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier{
-    [self getDocsWithType:type withIdentifier:identifier withSort:@"publicdate+desc" withStart:@"0"];
+    [self getDocsWithType:type withIdentifier:identifier withSort:@"publicdate+desc"];
 }
 
 
 - (void) getCollectionsWithIdentifier:(NSString *)identifier{
-    [self getDocsWithType:MediaTypeCollection withIdentifier:identifier withSort:@"titleSorter+asc" withStart:@"0"];
+    [self getDocsWithType:MediaTypeCollection withIdentifier:identifier withSort:@"titleSorter+asc"];
 }
+
+
+
+- (void) getDocsWithQueryString:(NSString *)query {
+    
+    
+    
+    testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@+AND+NOT+hidden:true&sort[]=&sort[]=&sort[]=&rows=50&page=1&output=json", query];
+   
+    
+    
+    [self getDocsWithTest:testUrl withStart:loadMoreStart];
+}
+
+
 
 
 - (void) getMetadataDocsWithIdentifier:(NSString *)identifier{
-    NSString *test = @"http://archive.org/metadata/%@";
-    NSString *searchUrl = [NSString stringWithFormat:test, identifier];
+    testUrl = @"http://archive.org/metadata/%@";
+    NSString *searchUrl = [NSString stringWithFormat:testUrl, identifier];
     NSLog(@"searchUrl: %@", searchUrl);
     [self setAndLoadDataFromJSONUrl:searchUrl];
 }
+
+
+
+- (void) loadMoreWithStart:(NSString *)start{
+    [self getDocsWithTest:testUrl withStart:start];
+
+}
+
+
+
+#pragma mark - the shit
+
+- (void) getDocsWithTest:(NSString *)test withStart:(NSString *)start{
+    testUrl = test;
+    NSString *searchUrl =[NSString stringWithFormat:@"%@&start=%@", testUrl, start];
+    NSLog(@"searchUrl: %@", searchUrl);
+    
+    
+    
+    [self setAndLoadDataFromJSONUrl:searchUrl];
+    
+}
+
+
 
 
 

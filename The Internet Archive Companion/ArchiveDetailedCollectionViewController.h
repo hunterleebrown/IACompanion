@@ -10,7 +10,7 @@
 #import "ArchiveDataService.h"
 #import "ArchiveDetailedCollectionViewCell.h"
 
-@interface ArchiveDetailedCollectionViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UIWebViewDelegate, ArchiveDataServiceDelegate> {
+@interface ArchiveDetailedCollectionViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UIWebViewDelegate, ArchiveDataServiceDelegate, UISearchBarDelegate> {
 
     NSMutableArray *docs;
     ArchiveDataService *dataService;
@@ -22,8 +22,10 @@
 
 @property (nonatomic, retain) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, retain) IBOutlet UILabel *countingLabel;
+@property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
 
 - (void)setCollectionIdentifier:(NSString *)identifier forType:(MediaType)type;
+
 - (IBAction)loadMoreItems:(id)sender;
 
 @end
