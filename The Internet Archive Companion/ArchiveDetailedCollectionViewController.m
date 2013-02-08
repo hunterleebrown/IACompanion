@@ -183,6 +183,8 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
         }
         
         [cell.publisher setText:pubs];
+    } else {
+        [cell.publisher setText:@""];
     }
     
 
@@ -198,6 +200,8 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
         }
         
         [cell.subject setText:subs];
+    } else {
+        [cell.subject setText:@""];
     }
     
     

@@ -463,6 +463,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Qly-Ga-cTD" firstAttribute="top" secondItem="flz-YH-uy4" secondAttribute="top" constant="50" id="2s2-gJ-Wpf"/>
                             <constraint firstItem="Qly-Ga-cTD" firstAttribute="leading" secondItem="flz-YH-uy4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="79D-ZO-Vg4"/>
                             <constraint firstItem="3of-M4-kpz" firstAttribute="leading" secondItem="flz-YH-uy4" secondAttribute="leading" type="user" id="CR7-PA-HUr"/>
                             <constraint firstItem="0Ve-g8-iJ8" firstAttribute="leading" secondItem="flz-YH-uy4" secondAttribute="leading" type="default" id="VmW-VN-bzi"/>
@@ -470,7 +471,6 @@
                             <constraint firstItem="0Ve-g8-iJ8" firstAttribute="trailing" secondItem="flz-YH-uy4" secondAttribute="trailing" type="default" id="frc-OM-T7R"/>
                             <constraint firstAttribute="trailing" secondItem="3of-M4-kpz" secondAttribute="trailing" type="user" id="gM9-3S-xTo"/>
                             <constraint firstItem="0Ve-g8-iJ8" firstAttribute="top" secondItem="flz-YH-uy4" secondAttribute="top" type="default" id="qaJ-DE-BHw"/>
-                            <constraint firstItem="Qly-Ga-cTD" firstAttribute="top" secondItem="flz-YH-uy4" secondAttribute="top" constant="20" symbolic="YES" type="default" id="tmp-eH-Fp7"/>
                             <constraint firstAttribute="trailing" secondItem="Qly-Ga-cTD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zaK-LB-enR"/>
                         </constraints>
                     </view>
@@ -674,9 +674,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
