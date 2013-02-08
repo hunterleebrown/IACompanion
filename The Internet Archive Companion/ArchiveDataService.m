@@ -207,7 +207,7 @@
     
     NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)query,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
     
-    testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@+AND+NOT+hidden:true&sort[]=&sort[]=&sort[]=&rows=50&page=1&output=json", escapedString];
+    testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@&output=json", escapedString];
     
     
     
