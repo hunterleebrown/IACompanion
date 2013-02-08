@@ -82,6 +82,8 @@
     [self.movieView addSubview: player.view];
     [player play];
     [player.view setBackgroundColor:[UIColor clearColor]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+
     
     /*
      MPMoviePlayerViewController *mp = [[MPMoviePlayerViewController alloc] initWithContentURL:movie];
@@ -99,8 +101,6 @@
 
 
 - (void)playbackDidFinish:(NSNotification *)notification{
-    [self.navigationController popViewControllerAnimated:NO];
-    [self.navigationController setNavigationBarHidden:NO];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
 }
@@ -120,7 +120,7 @@
 }
 
 - (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    [player.view setFrame: self.movieView.bounds];  // player's frame must match parent's
+    //[player.view setFrame: self.movieView.bounds];  // player's frame must match parent's
 }
 
 
@@ -132,7 +132,7 @@
     
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#666; font-size:14px; font-family:sans-serif'>%@</body></html>", _doc.description];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", _doc.description];
     
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
@@ -151,6 +151,8 @@
         [_tableView reloadData];
     
     }
+    
+    [self.aSyncImage setAndLoadImageFromUrl:_doc.headerImageUrl];
     
 }
 

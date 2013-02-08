@@ -11,7 +11,8 @@
 @interface StringUtils : NSObject
 
 
-+(NSString *)urlEncodeString:(NSString *)input;
++ (NSString *) urlEncodeString:(NSString *)input;
++ (NSString *) displayDateFromArchiveDateString:(NSString *)archiveInDate;
 
 
 @end

@@ -9,6 +9,7 @@
 #import "ArchiveDetailedCollectionViewController.h"
 #import "ArchiveSearchDoc.h"
 #import "ArchiveDetailedViewController.h"
+#import "StringUtils.h"
 
 @interface ArchiveDetailedCollectionViewController () {
     int start;
@@ -16,15 +17,10 @@
     BOOL loading;
 }
 
-- (NSString *)displayDateFromArchiveDateString:(NSString *)archiveInDate;
 
 @end
 
 @implementation ArchiveDetailedCollectionViewController
-
-NSString *const DisplayDateFormat = @"MMMM d, YYYY";
-//2002-07-16T00:00:00Z
-NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
 
 
 - (id) initWithCoder:(NSCoder *)aDecoder {
@@ -153,7 +149,7 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
     [cell.archiveImageView setAndLoadImageFromUrl:doc.headerImageUrl];
     
     if(doc.date){
-        [cell.date setText:[self displayDateFromArchiveDateString:doc.date]];
+        [cell.date setText:[StringUtils displayDateFromArchiveDateString:doc.date]];
         [cell.from setHidden:NO];
         [cell.date setHidden:NO];
     } else {
@@ -162,7 +158,7 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
     }
     
     if(doc.publicDate){
-        [cell.publicDate setText:[self displayDateFromArchiveDateString:doc.publicDate]];
+        [cell.publicDate setText:[StringUtils displayDateFromArchiveDateString:doc.publicDate]];
         [cell.added setHidden:NO];
         [cell.publicDate setHidden:NO];
     } else {
@@ -206,7 +202,7 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
     
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#fff; text-decoration:none;}</style></head><body style='background-color:#000; color:#fff; font-size:14px; font-family:sans-serif'>%@</body></html>", doc.description];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#fff; text-decoration:none;}</style></head><body style='background-color:#000; color:#fff; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
     
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
@@ -258,18 +254,7 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
 
 
 #pragma mark - Utils
-- (NSString *) displayDateFromArchiveDateString:(NSString *)archiveInDate {
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    
-    dateFormatter.dateFormat = ArchiveDateFormat;
-    NSDate *sDate = [dateFormatter dateFromString:archiveInDate];
-    
-    NSDateFormatter *showDateFormat = [NSDateFormatter new];
-    [showDateFormat setDateFormat:DisplayDateFormat];
-    NSString *theDate = [showDateFormat stringFromDate:sDate];
-    
-    return theDate;
-}
+
 
 
 #pragma marks - WebView 

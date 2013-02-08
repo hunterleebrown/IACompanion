@@ -54,7 +54,7 @@
                                                         <constraint firstAttribute="width" constant="190" id="C62-Xc-NOl"/>
                                                         <constraint firstAttribute="height" constant="80" id="e0V-Y3-hz7"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -114,7 +114,7 @@
                                                         <constraint firstAttribute="height" constant="80" id="Zzb-dD-Rac"/>
                                                         <constraint firstAttribute="width" constant="190" id="xFh-XC-18s"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -170,7 +170,7 @@
                                                         <constraint firstAttribute="height" constant="80" id="ozC-tG-iXA"/>
                                                         <constraint firstAttribute="width" constant="190" id="tlY-qC-bbj"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -205,7 +205,7 @@
                                     <constraint firstAttribute="width" constant="200" id="XaE-GE-MHx"/>
                                     <constraint firstAttribute="height" constant="21" id="w0z-ka-C5w"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -214,7 +214,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="NK4-Mt-fAd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -223,7 +223,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="thg-xg-Fw5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -315,7 +315,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="82" id="Xmj-dG-Nfn"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
@@ -324,7 +324,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="kzI-QL-rM0"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -493,30 +493,28 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="GJ4-U2-TiI">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The greatest title Of Them All For New York and Beyond and all in bewteen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="GJ4-U2-TiI">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" type="user" id="1Gz-z3-ZZY"/>
+                                    <constraint firstAttribute="height" constant="92" id="YOy-XI-g8N"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="24"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Np-SX-QeY">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="zGT-A7-1t5"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="playableFileCell" selectionStyle="gray" indentationWidth="10" reuseIdentifier="playableFileCell" id="MDh-j2-Qbb" customClass="ArchiveFileTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="728" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="340" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="728" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="5KC-km-pBa">
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="41" id="7Bv-7G-vt7"/>
+                                                        <constraint firstAttribute="width" constant="728" id="ks4-me-2Ek"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -528,7 +526,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="5KC-km-pBa" firstAttribute="centerY" secondItem="MDh-j2-Qbb" secondAttribute="centerY" type="default" id="SNw-0X-iax"/>
-                                            <constraint firstItem="5KC-km-pBa" firstAttribute="trailing" secondItem="MDh-j2-Qbb" secondAttribute="trailing" type="default" id="XJU-SA-uhj"/>
                                             <constraint firstItem="5KC-km-pBa" firstAttribute="leading" secondItem="MDh-j2-Qbb" secondAttribute="leading" type="default" id="aTu-hC-I0p"/>
                                         </constraints>
                                         <connections>
@@ -543,48 +540,56 @@
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Playable files" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qab-1k-FIV">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="360" id="Aha-Ya-4Wu"/>
+                                    <constraint firstAttribute="height" constant="30" id="ODY-NR-rdk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnN-ve-aSX">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="182" id="93l-V2-ITh"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="5Hf-D6-IM6" id="Tnx-tS-ZEZ"/>
                                 </connections>
                             </webView>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4hd-DC-8DL">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="hSp-Yc-HvM" customClass="AsyncImageView"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hSp-Yc-HvM" firstAttribute="trailing" secondItem="4hd-DC-8DL" secondAttribute="trailing" type="default" id="M3o-7y-cu0"/>
+                                    <constraint firstAttribute="height" constant="264" type="user" id="Ody-Ut-bf9"/>
+                                    <constraint firstAttribute="width" constant="340" type="user" id="Y5i-Q5-AMG"/>
+                                    <constraint firstItem="hSp-Yc-HvM" firstAttribute="bottom" secondItem="4hd-DC-8DL" secondAttribute="bottom" type="default" id="qak-gf-uIq"/>
+                                    <constraint firstItem="hSp-Yc-HvM" firstAttribute="leading" secondItem="4hd-DC-8DL" secondAttribute="leading" type="default" id="uVn-CN-oCd"/>
+                                    <constraint firstItem="hSp-Yc-HvM" firstAttribute="top" secondItem="4hd-DC-8DL" secondAttribute="top" type="default" id="zfE-U1-fXh"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="9Np-SX-QeY" secondAttribute="bottom" constant="18" id="48V-S6-l8j"/>
+                            <constraint firstAttribute="bottom" secondItem="9Np-SX-QeY" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="35B-mq-h3h"/>
+                            <constraint firstAttribute="trailing" secondItem="GJ4-U2-TiI" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="63u-wT-hjB"/>
+                            <constraint firstItem="Qab-1k-FIV" firstAttribute="leading" secondItem="WnN-ve-aSX" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="8M0-jc-2yI"/>
                             <constraint firstAttribute="trailing" secondItem="9Np-SX-QeY" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="EIM-yR-aiV"/>
-                            <constraint firstAttribute="trailing" secondItem="4hd-DC-8DL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GVY-Yt-z9P"/>
                             <constraint firstItem="WnN-ve-aSX" firstAttribute="leading" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Gn5-Pv-7H6"/>
-                            <constraint firstItem="WnN-ve-aSX" firstAttribute="top" secondItem="GJ4-U2-TiI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Igc-TV-KhC"/>
-                            <constraint firstItem="4hd-DC-8DL" firstAttribute="top" secondItem="Eop-05-gV9" secondAttribute="top" constant="267" id="Swn-pf-Og1"/>
+                            <constraint firstAttribute="trailing" secondItem="4hd-DC-8DL" secondAttribute="trailing" constant="20" type="user" id="TV4-fE-Iz5"/>
                             <constraint firstItem="GJ4-U2-TiI" firstAttribute="leading" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="chm-Jc-5P4"/>
-                            <constraint firstItem="9Np-SX-QeY" firstAttribute="top" secondItem="Qab-1k-FIV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hK0-7n-vfH"/>
-                            <constraint firstAttribute="trailing" secondItem="WnN-ve-aSX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="jcJ-Xy-dsy"/>
-                            <constraint firstItem="Qab-1k-FIV" firstAttribute="leading" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nCD-JN-Uum"/>
-                            <constraint firstItem="9Np-SX-QeY" firstAttribute="leading" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oH5-hp-o8m"/>
-                            <constraint firstItem="4hd-DC-8DL" firstAttribute="leading" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="u2r-Av-h6x"/>
-                            <constraint firstItem="GJ4-U2-TiI" firstAttribute="top" secondItem="Eop-05-gV9" secondAttribute="top" constant="20" symbolic="YES" type="default" id="v62-Q8-hPV"/>
-                            <constraint firstAttribute="trailing" secondItem="GJ4-U2-TiI" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="w2r-UZ-PXD"/>
-                            <constraint firstAttribute="bottom" secondItem="4hd-DC-8DL" secondAttribute="bottom" constant="175" id="wAu-Ot-c9O"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4hd-DC-8DL" secondAttribute="trailing" constant="20" type="user" id="xDv-bk-2V8"/>
-                            <constraint firstItem="4hd-DC-8DL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Eop-05-gV9" secondAttribute="leading" constant="20" type="user" id="yoF-E3-Vux"/>
+                            <constraint firstItem="9Np-SX-QeY" firstAttribute="top" secondItem="Qab-1k-FIV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="doo-MS-j7V"/>
+                            <constraint firstAttribute="bottom" secondItem="WnN-ve-aSX" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="gZ6-Ji-jam"/>
+                            <constraint firstItem="4hd-DC-8DL" firstAttribute="top" secondItem="GJ4-U2-TiI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hcy-YF-fhe"/>
+                            <constraint firstItem="WnN-ve-aSX" firstAttribute="top" secondItem="GJ4-U2-TiI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="jPz-C9-k13"/>
+                            <constraint firstItem="9Np-SX-QeY" firstAttribute="leading" secondItem="WnN-ve-aSX" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="kbY-ft-1rI"/>
+                            <constraint firstItem="Qab-1k-FIV" firstAttribute="top" secondItem="4hd-DC-8DL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mK4-mh-1UB"/>
+                            <constraint firstItem="4hd-DC-8DL" firstAttribute="leading" secondItem="WnN-ve-aSX" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="nwZ-mT-0JG"/>
+                            <constraint firstAttribute="trailing" secondItem="Qab-1k-FIV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="t5G-py-ENr"/>
+                            <constraint firstItem="GJ4-U2-TiI" firstAttribute="top" secondItem="Eop-05-gV9" secondAttribute="top" constant="20" symbolic="YES" type="user" id="v62-Q8-hPV"/>
+                            <constraint firstAttribute="trailing" secondItem="4hd-DC-8DL" secondAttribute="trailing" constant="20" type="user" id="xDv-bk-2V8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f2F-y1-lk2"/>
                     <connections>
+                        <outlet property="aSyncImage" destination="hSp-Yc-HvM" id="eor-EW-amv"/>
                         <outlet property="description" destination="WnN-ve-aSX" id="VlE-b5-rUe"/>
                         <outlet property="docTitle" destination="GJ4-U2-TiI" id="Vwi-gV-YK3"/>
                         <outlet property="movieView" destination="4hd-DC-8DL" id="3ld-Ss-hTN"/>
@@ -638,6 +643,7 @@
         <class className="ArchiveDetailedViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="aSyncImage" candidateClass="AsyncImageView"/>
                 <relationship kind="outlet" name="description" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="docTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="movieView" candidateClass="UIView"/>
@@ -674,6 +680,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

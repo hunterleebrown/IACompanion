@@ -10,6 +10,7 @@
 #import "ArchiveSearchDoc.h"
 #import "ArchiveDataService.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "AsyncImageView.h"
 
 
 @interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate> {
@@ -26,5 +27,6 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIWebView *description;
 @property (nonatomic, retain) IBOutlet UIView *movieView;
+@property (nonatomic, assign) IBOutlet AsyncImageView *aSyncImage;
 
 @end
