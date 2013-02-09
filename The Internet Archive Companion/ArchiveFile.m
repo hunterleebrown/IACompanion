@@ -26,14 +26,19 @@
 
 - (void) setFile:(NSDictionary *)file{
     _file = file;
-    if([[file objectForKey:@"format"] isEqualToString:@"VBR MP3"]){
-        _format = FileFormatVBRMP3;
-    } else if([[file objectForKey:@"format"] isEqualToString:@"h.264"]){
-        _format = FileFormatH264;
-    } else if([[file objectForKey:@"format"] isEqualToString:@"MPEG4"]){
-        _format = FileFormatMPEG4;
-    } else if([[file objectForKey:@"format"] isEqualToString:@"512Kb MPEG4"]){
-        _format = FileFormat512kbMPEG4;
+    
+    if([file objectForKey:@"format"]){
+        if([[file objectForKey:@"format"] isEqualToString:@"VBR MP3"]){
+            _format = FileFormatVBRMP3;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"h.264"]){
+            _format = FileFormatH264;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"MPEG4"]){
+            _format = FileFormatMPEG4;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"512Kb MPEG4"]){
+            _format = FileFormat512kbMPEG4;
+        }
+    } else {
+        _format = FileFormatOther;
     }
     
     if([file objectForKey:@"title"]){

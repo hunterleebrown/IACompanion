@@ -130,7 +130,9 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
-    [player stop];
+    if(!player.fullscreen){
+        [player stop];
+    }
 
 }
 
@@ -188,9 +190,8 @@
             
             [self.subject setText:[metadata objectForKey:@"subject"]];
         }
-        
-        
     }
+    
     if([metadata objectForKey:@"publicdate"]){
         [self.added setText:[StringUtils displayDateFromArchiveMetaDateString:[metadata objectForKey:@"publicdate"]]];
         
@@ -203,9 +204,35 @@
         [self.publisher setText:[metadata objectForKey:@"publisher"]];
     }
     
+  //  if([metadata objectForKey:@"creator"]){
+   //     [self.creator setText:[metadata objectForKey:@"creator"]];
+   // }
+    
+    
     if([metadata objectForKey:@"creator"]){
-        [self.creator setText:[metadata objectForKey:@"creator"]];
+        
+        if([[metadata objectForKey:@"creator"] isKindOfClass:[NSArray class]]){
+            NSMutableString * subs = [[NSMutableString alloc] init];
+            for (NSObject * obj in [metadata objectForKey:@"creator"])
+            {
+                if(![subs isEqualToString:@""]){
+                    [subs appendString:@", "];
+                }
+                [subs appendString:[obj description]];
+            }
+            [self.subject setText:subs];
+            
+        } else if([[metadata objectForKey:@"creator"] isKindOfClass:[NSString class]]){
+            [self.subject setText:[metadata objectForKey:@"subject"]];
+            
+        } else {
+
+        }
     }
+    
+    
+    
+    
     if([metadata objectForKey:@"uploader"]){
         [self.uploader setText:[metadata objectForKey:@"uploader"]];
     }
