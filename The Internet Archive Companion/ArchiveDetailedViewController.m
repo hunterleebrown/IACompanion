@@ -117,9 +117,7 @@
     
     
     for (id subview in _description.subviews) {
-        if ([[subview class] isSubclassOfClass: [UIScrollView class]]) {
-            ((UIScrollView *)subview).bounces = NO;
-        }
+  
         
         if ([subview isKindOfClass:[UIImageView class]]) {
             ((UIImageView *)subview).hidden = YES;
