@@ -111,6 +111,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+    for (id subview in _description.subviews) {
+        if ([[subview class] isSubclassOfClass: [UIScrollView class]]) {
+            ((UIScrollView *)subview).bounces = NO;
+        }
+        
+        if ([subview isKindOfClass:[UIImageView class]]) {
+            ((UIImageView *)subview).hidden = YES;
+        }
+        
+    }
+    
+    
+    
 
 }
 
@@ -154,6 +169,47 @@
     
     [self.aSyncImage setAndLoadImageFromUrl:_doc.headerImageUrl];
     
+    NSDictionary *metadata = [_doc.rawDoc objectForKey:@"metadata"];
+    
+    if([metadata objectForKey:@"subject"]){
+        
+        if([[metadata objectForKey:@"subject"] isKindOfClass:[NSArray class]]){
+            NSMutableString * subs = [[NSMutableString alloc] init];
+            for (NSObject * obj in [metadata objectForKey:@"subject"])
+            {
+                if(![subs isEqualToString:@""]){
+                    [subs appendString:@", "];
+                }
+                [subs appendString:[obj description]];
+            }
+            [self.subject setText:subs];
+            
+        } else {
+            
+            [self.subject setText:[metadata objectForKey:@"subject"]];
+        }
+        
+        
+    }
+    if([metadata objectForKey:@"publicdate"]){
+        [self.added setText:[StringUtils displayDateFromArchiveMetaDateString:[metadata objectForKey:@"publicdate"]]];
+        
+        
+    }
+    if([metadata objectForKey:@"addeddate"]){
+        [self.from setText:[StringUtils displayDateFromArchiveMetaDateString:[metadata objectForKey:@"addeddate"]]];
+    }
+    if([metadata objectForKey:@"publisher"]){
+        [self.publisher setText:[metadata objectForKey:@"publisher"]];
+    }
+    
+    if([metadata objectForKey:@"creator"]){
+        [self.creator setText:[metadata objectForKey:@"creator"]];
+    }
+    if([metadata objectForKey:@"uploader"]){
+        [self.uploader setText:[metadata objectForKey:@"uploader"]];
+    }
+
 }
 
 

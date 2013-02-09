@@ -13,6 +13,8 @@
 NSString *const DisplayDateFormat = @"MMMM d, YYYY";
 //2002-07-16T00:00:00Z
 NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
+//2010-07-06 22:50:45
+NSString *const ArchiveMetaDateFormat = @"yyyy'-'MM'-'dd' 'HH':'mm':'ss";
 
 
 
@@ -44,6 +46,23 @@ NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
     
     return theDate;
 }
+
+
+
++ (NSString *) displayDateFromArchiveMetaDateString:(NSString *)metaDate{
+
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    dateFormatter.dateFormat = ArchiveMetaDateFormat;
+    NSDate *sDate = [dateFormatter dateFromString:metaDate];
+    
+    NSDateFormatter *showDateFormat = [NSDateFormatter new];
+    [showDateFormat setDateFormat:DisplayDateFormat];
+    NSString *theDate = [showDateFormat stringFromDate:sDate];
+    
+    return theDate;
+}
+
 
 
 @end

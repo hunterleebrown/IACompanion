@@ -13,6 +13,6 @@
 
 + (NSString *) urlEncodeString:(NSString *)input;
 + (NSString *) displayDateFromArchiveDateString:(NSString *)archiveInDate;
-
++ (NSString *) displayDateFromArchiveMetaDateString:(NSString *)metaDate;
 
 @end

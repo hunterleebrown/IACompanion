@@ -29,4 +29,13 @@
 @property (nonatomic, retain) IBOutlet UIView *movieView;
 @property (nonatomic, assign) IBOutlet AsyncImageView *aSyncImage;
 
+@property (nonatomic, retain) IBOutlet UILabel *subject;
+@property (nonatomic, retain) IBOutlet UILabel *creator;
+@property (nonatomic, retain) IBOutlet UILabel *publisher;
+@property (nonatomic, retain) IBOutlet UILabel *added;
+@property (nonatomic, retain) IBOutlet UILabel *from;
+@property (nonatomic, retain) IBOutlet UILabel *uploader;
+
+
+
 @end
