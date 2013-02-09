@@ -36,6 +36,8 @@
             _format = FileFormatMPEG4;
         } else if([[file objectForKey:@"format"] isEqualToString:@"512Kb MPEG4"]){
             _format = FileFormat512kbMPEG4;
+        }else if([[file objectForKey:@"format"] isEqualToString:@"JPEG"]){
+            _format = FileFormatJPEG;
         }
     } else {
         _format = FileFormatOther;

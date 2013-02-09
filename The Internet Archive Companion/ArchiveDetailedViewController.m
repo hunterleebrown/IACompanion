@@ -68,34 +68,37 @@
     ArchiveFile *file = [vbrs objectAtIndex:indexPath.row];
     
     
-
-    NSURL *movie = [NSURL URLWithString:file.url];
     
-    NSLog(@"mp3: %@", file.url);
-    player = [[MPMoviePlayerController alloc] initWithContentURL:movie];
-    [player prepareToPlay];
-    if(file.width){
-     //   [self.movieView setFrame:CGRectMake(self.movieView.frame.origin.x, self.movieView.frame.origin.y, [file.width floatValue], [file.height floatValue])];
-      //  [self.movieView setCenter:self.view.center];
+    if(file.format != FileFormatJPEG){
+        NSURL *movie = [NSURL URLWithString:file.url];
+        
+        NSLog(@"mp3: %@", file.url);
+        player = [[MPMoviePlayerController alloc] initWithContentURL:movie];
+        [player prepareToPlay];
+        if(file.width){
+            //   [self.movieView setFrame:CGRectMake(self.movieView.frame.origin.x, self.movieView.frame.origin.y, [file.width floatValue], [file.height floatValue])];
+            //  [self.movieView setCenter:self.view.center];
+        }
+        [player.view setFrame: self.movieView.bounds];  // player's frame must match parent's
+        [self.movieView addSubview: player.view];
+        [player play];
+        [player.view setBackgroundColor:[UIColor clearColor]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
     }
-    [player.view setFrame: self.movieView.bounds];  // player's frame must match parent's
-    [self.movieView addSubview: player.view];
-    [player play];
-    [player.view setBackgroundColor:[UIColor clearColor]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
-
+    else {
+        
+        UIViewController *pushController = [UIViewController new];
+        
+        AsyncImageView *jpegView = [[AsyncImageView alloc]initWithFrame:pushController.view.bounds];
+        [pushController setView:jpegView];
+        [self.navigationController pushViewController:pushController animated:YES];
+        [jpegView setAndLoadImageFromUrl:file.url];
+        [jpegView setContentMode:UIViewContentModeScaleAspectFit];
+        [pushController setTitle:file.name];
     
-    /*
-     MPMoviePlayerViewController *mp = [[MPMoviePlayerViewController alloc] initWithContentURL:movie];
-     //[mp.navigationController.toolbar setHidden:YES];
-     
-     [self.navigationController pushViewController:mp animated:NO];
-     [mp.moviePlayer play];
-     [mp.navigationController setNavigationBarHidden:YES];
-     
-     
-     [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:mp.moviePlayer];
-     */
+    
+    }
+
 
 }
 
@@ -160,7 +163,11 @@
     
     
     for(ArchiveFile *file in _doc.files){
-        if(file.format == FileFormatVBRMP3 || file.format == FileFormatH264 || file.format == FileFormatMPEG4 || file.format == FileFormat512kbMPEG4){
+        if(file.format == FileFormatVBRMP3 ||
+           file.format == FileFormatH264 ||
+           file.format == FileFormatMPEG4 ||
+           file.format == FileFormat512kbMPEG4 ||
+           file.format == FileFormatJPEG){
             [vbrs addObject:file];
         }
     }
@@ -223,7 +230,7 @@
             [self.subject setText:subs];
             
         } else if([[metadata objectForKey:@"creator"] isKindOfClass:[NSString class]]){
-            [self.subject setText:[metadata objectForKey:@"subject"]];
+            [self.subject setText:[metadata objectForKey:@"creator"]];
             
         } else {
 

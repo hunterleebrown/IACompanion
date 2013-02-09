@@ -538,7 +538,7 @@
                                     <outlet property="delegate" destination="5Hf-D6-IM6" id="Che-bW-CLv"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Playable files" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qab-1k-FIV">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Displayable Media Files" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qab-1k-FIV">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ODY-NR-rdk"/>
                                 </constraints>
@@ -718,7 +718,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsW-Dz-qyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1417" y="-78"/>
+            <point key="canvasLocation" x="1475" y="-90"/>
         </scene>
     </scenes>
     <resources>
