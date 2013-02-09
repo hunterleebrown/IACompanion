@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeContentTableViewCell.h"
 #import "ArchiveDataService.h"
 
 @interface HomeContentTableView : UITableView <UITableViewDataSource, UITableViewDelegate, ArchiveDataServiceDelegate> {

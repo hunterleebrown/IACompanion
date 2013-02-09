@@ -8,34 +8,49 @@
         <scene sceneID="JX5-LD-vo2">
             <objects>
                 <viewController id="eeV-js-ROD" customClass="HomeCombinedViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hDz-Wt-Bgw">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="bes-fD-3J2" customClass="HomeScrollView">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PWN-tR-lOs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LBm-Af-OpI" customClass="HomeNavTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="256" height="1004"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="homeNavCell" id="tYs-Ig-Hqs">
+                                        <rect key="frame" x="0.0" y="22" width="256" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bJx-g9-USn">
+                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qLo-c3-MGq" customClass="HomeContentTableView">
+                                <rect key="frame" x="256" y="0.0" width="768" height="1004"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" id="bes-fD-3J2">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qLo-c3-MGq" customClass="HomeContentTableView">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="homeContentTableView" destination="qLo-c3-MGq" id="uJt-51-34Q"/>
+                            <outlet property="homeNavTableView" destination="LBm-Af-OpI" id="cL8-io-bjZ"/>
+                        </connections>
+                    </scrollView>
                     <connections>
                         <outlet property="contentScrollView" destination="bes-fD-3J2" id="FaQ-Fw-92a"/>
-                        <outlet property="contentTableView" destination="qLo-c3-MGq" id="ffk-vP-ZCb"/>
-                        <outlet property="mainNavigationTable" destination="PWN-tR-lOs" id="nI5-2R-aIS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEa-9m-jOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -614,13 +629,21 @@
         <class className="HomeCombinedViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeCombinedViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="contentScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="contentTableView" candidateClass="HomeContentTableView"/>
-                <relationship kind="outlet" name="mainNavigationTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="contentScrollView" candidateClass="HomeScrollView"/>
             </relationships>
         </class>
         <class className="HomeContentTableView" superclassName="UITableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentTableView.h"/>
+        </class>
+        <class className="HomeNavTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavTableView.h"/>
+        </class>
+        <class className="HomeScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeScrollView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
+                <relationship kind="outlet" name="homeNavTableView" candidateClass="HomeNavTableView"/>
+            </relationships>
         </class>
         <class className="HomeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
@@ -640,9 +663,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

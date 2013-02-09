@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeContentTableView.h"
+#import "HomeScrollView.h"
 
 @interface HomeCombinedViewController : UIViewController
 
 
-@property (nonatomic, assign) IBOutlet UIScrollView *contentScrollView;
-@property (nonatomic, assign) IBOutlet UITableView *mainNavigationTable;
-@property (nonatomic, retain) IBOutlet HomeContentTableView *contentTableView;
+@property (nonatomic, assign) IBOutlet HomeScrollView *contentScrollView;
+
 
 @end

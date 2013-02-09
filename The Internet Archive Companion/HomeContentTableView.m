@@ -7,7 +7,6 @@
 //
 
 #import "HomeContentTableView.h"
-#import "HomeContentTableViewCell.h"
 #import "ArchiveSearchDoc.h"
 
 @implementation HomeContentTableView

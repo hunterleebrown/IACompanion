@@ -10,7 +10,6 @@
 
 @interface HomeCombinedViewController () {
 
-
 }
 
 
@@ -23,6 +22,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        
     }
     return self;
 }
@@ -30,23 +31,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-   // self.contentTableView = [[HomeContentTableView alloc] initWithFrame:CGRectMake(self.mainNavigationTable.frame.size.width, 0, 768, self.view.frame.size.height) style:UITableViewStylePlain];
-    
-    
-    
+    [self doOrientationLayout:self.interfaceOrientation];
 
     
-   [self doOrientationLayout:self.interfaceOrientation];
-    
-   // [self.contentTableView setFrame:CGRectMake(256, 0, 768, self.view.bounds.size.height)];
-
-    
-    [self.contentTableView getCollection:@"movies"];
-    
+    [self.contentScrollView.homeContentTableView getCollection:@"movies"];
     
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -61,19 +56,22 @@
 }
 
 
+
+
 - (void) doOrientationLayout:(UIInterfaceOrientation)toInterfaceOrientation{
     if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation)){
-        [self.contentScrollView setFrame:CGRectMake(self.mainNavigationTable.frame.size.width, 0, 768, self.view.bounds.size.height)];
-        [self.contentScrollView setContentSize:CGSizeMake(768, self.view.bounds.size.height)];
+        [self.contentScrollView setContentSize:CGSizeMake(1024, self.view.bounds.size.height)];
         
-        [self.contentTableView setFrame:CGRectMake(0, 0, 768, self.contentScrollView.bounds.size.height)];
     } else {
-        [self.contentScrollView setFrame:CGRectMake(0, 0, 768, self.view.bounds.size.height)];
-        [self.contentScrollView setContentSize:CGSizeMake(1024, self.contentScrollView.bounds.size.height)];
+        [self.contentScrollView setContentSize:CGSizeMake(1024, self.view.bounds.size.height)];
         
-        [self.contentTableView setFrame:CGRectMake(256, 0, 768, self.contentScrollView.bounds.size.height)];
     }
+    
+
+    
 }
+ 
+
 
 
 

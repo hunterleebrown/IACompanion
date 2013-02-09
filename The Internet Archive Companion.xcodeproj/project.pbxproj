@@ -38,8 +38,8 @@
 		5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */; };
 		5ADAB7D316C6C1B400DBC072 /* HomeCombinedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */; };
 		5ADAB7D616C6D40400DBC072 /* HomeContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7D516C6D40400DBC072 /* HomeContentTableView.m */; };
-		5ADAB7DB16C6D8C800DBC072 /* HomeContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7DA16C6D8C800DBC072 /* HomeContentTableViewCell.m */; };
-		5ADAB7DD16C6D8ED00DBC072 /* HomeContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7DC16C6D8ED00DBC072 /* HomeContentTableViewCell.xib */; };
+		5ADAB7E216C6FA9600DBC072 /* HomeNavTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7E116C6FA9600DBC072 /* HomeNavTableView.m */; };
+		5ADAB7E516C6FFAE00DBC072 /* HomeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7E416C6FFAE00DBC072 /* HomeScrollView.m */; };
 		CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3019CD16C5729E00733B99 /* StringUtils.m */; };
 		CE3019D316C5937A00733B99 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019CF16C5937A00733B99 /* Default-Landscape@2x~ipad.png */; };
 		CE3019D416C5937A00733B99 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019D016C5937A00733B99 /* Default-Landscape~ipad.png */; };
@@ -113,9 +113,10 @@
 		5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCombinedViewController.m; sourceTree = "<group>"; };
 		5ADAB7D416C6D40400DBC072 /* HomeContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeContentTableView.h; sourceTree = "<group>"; };
 		5ADAB7D516C6D40400DBC072 /* HomeContentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeContentTableView.m; sourceTree = "<group>"; };
-		5ADAB7D916C6D8C800DBC072 /* HomeContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeContentTableViewCell.h; sourceTree = "<group>"; };
-		5ADAB7DA16C6D8C800DBC072 /* HomeContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeContentTableViewCell.m; sourceTree = "<group>"; };
-		5ADAB7DC16C6D8ED00DBC072 /* HomeContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeContentTableViewCell.xib; sourceTree = "<group>"; };
+		5ADAB7E016C6FA9600DBC072 /* HomeNavTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavTableView.h; sourceTree = "<group>"; };
+		5ADAB7E116C6FA9600DBC072 /* HomeNavTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavTableView.m; sourceTree = "<group>"; };
+		5ADAB7E316C6FFAE00DBC072 /* HomeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScrollView.h; sourceTree = "<group>"; };
+		5ADAB7E416C6FFAE00DBC072 /* HomeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScrollView.m; sourceTree = "<group>"; };
 		CE3019CC16C5729E00733B99 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		CE3019CD16C5729E00733B99 /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtils.m; sourceTree = "<group>"; };
 		CE3019CF16C5937A00733B99 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -259,9 +260,10 @@
 				CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */,
 				5ADAB7D416C6D40400DBC072 /* HomeContentTableView.h */,
 				5ADAB7D516C6D40400DBC072 /* HomeContentTableView.m */,
-				5ADAB7D916C6D8C800DBC072 /* HomeContentTableViewCell.h */,
-				5ADAB7DA16C6D8C800DBC072 /* HomeContentTableViewCell.m */,
-				5ADAB7DC16C6D8ED00DBC072 /* HomeContentTableViewCell.xib */,
+				5ADAB7E016C6FA9600DBC072 /* HomeNavTableView.h */,
+				5ADAB7E116C6FA9600DBC072 /* HomeNavTableView.m */,
+				5ADAB7E316C6FFAE00DBC072 /* HomeScrollView.h */,
+				5ADAB7E416C6FFAE00DBC072 /* HomeScrollView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -391,7 +393,6 @@
 				CE3019D916C5953100733B99 /* Icon-72.png in Resources */,
 				CE3019DA16C5953100733B99 /* Icon-72@2x.png in Resources */,
 				CE3019DC16C5963000733B99 /* Icon.png in Resources */,
-				5ADAB7DD16C6D8ED00DBC072 /* HomeContentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +445,8 @@
 				CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */,
 				5ADAB7D316C6C1B400DBC072 /* HomeCombinedViewController.m in Sources */,
 				5ADAB7D616C6D40400DBC072 /* HomeContentTableView.m in Sources */,
-				5ADAB7DB16C6D8C800DBC072 /* HomeContentTableViewCell.m in Sources */,
+				5ADAB7E216C6FA9600DBC072 /* HomeNavTableView.m in Sources */,
+				5ADAB7E516C6FFAE00DBC072 /* HomeScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
