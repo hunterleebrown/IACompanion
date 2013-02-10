@@ -13,6 +13,8 @@
 }
 
 
+
+
 @end
 
 @implementation HomeCombinedViewController
@@ -31,6 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+
+
+    
     
     [self doOrientationLayout:self.interfaceOrientation];
 
@@ -60,10 +66,10 @@
 
 - (void) doOrientationLayout:(UIInterfaceOrientation)toInterfaceOrientation{
     if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation)){
-        [self.contentScrollView setContentSize:CGSizeMake(1024, self.view.bounds.size.height)];
+        [self.contentScrollView setContentSize:CGSizeMake(1024, 10)];
         
     } else {
-        [self.contentScrollView setContentSize:CGSizeMake(1024, self.view.bounds.size.height)];
+        [self.contentScrollView setContentSize:CGSizeMake(1024, 10)];
         
     }
     

@@ -8,6 +8,7 @@
 
 #import "HomeContentTableView.h"
 #import "ArchiveSearchDoc.h"
+#import "HomeContentCell.h"
 
 @implementation HomeContentTableView
 
@@ -59,11 +60,8 @@
 
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contentTableViewCell"];
-    if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentTableViewCell"];
-    }
-    
+    HomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeContentCell"];
+
     
     
     ArchiveSearchDoc *doc = [docs objectAtIndex:indexPath.row];

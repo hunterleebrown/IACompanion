@@ -7,6 +7,7 @@
 //
 
 #import "HomeNavTableView.h"
+#import "HomeNavCell.h"
 
 @implementation HomeNavTableView
 
@@ -24,6 +25,14 @@
 
 
 
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if(section == 0){
+        return @"Top Collections";
+    }
+    else return @"";
+}
+
+
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
     
@@ -36,12 +45,26 @@
 
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeNavCell"];
+    HomeNavCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeNavCell"];
       
+    switch (indexPath.row) {
+        case 0:
+            [cell.navImageView setImage:[UIImage imageNamed:@"audio.gif"]];
+            [cell.title setText:@"Audio"];
+            break;
+        case 1:
+            [cell.navImageView setImage:[UIImage imageNamed:@"movies.gif"]];
+            [cell.title setText:@"Movies"];
+            break;
+        case 2:
+            [cell.navImageView setImage:[UIImage imageNamed:@"texts.gif"]];
+            [cell.title setText:@"Texts"];
+            break;
+        default:
+            break;
+    }
     
     
-    
-    [cell.textLabel setText:@"OH WOO"];
     
     return cell;
 }

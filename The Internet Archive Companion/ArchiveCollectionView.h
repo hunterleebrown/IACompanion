@@ -12,11 +12,10 @@
 @interface ArchiveCollectionView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate, ArchiveDataServiceDelegate> {
 
     ArchiveDataService *dataService;
-    NSArray *docs;
 
 }
 
 - (void) getCollectionWithName:(NSString *)name;
-@property (nonatomic, strong) NSArray *docs;
+@property (nonatomic, assign) NSArray *docs;
 
 @end

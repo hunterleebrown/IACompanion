@@ -13,7 +13,10 @@
 @interface HomeScrollView : UIScrollView
 
 
-@property (nonatomic, retain) IBOutlet HomeNavTableView *homeNavTableView;
-@property (nonatomic, retain) IBOutlet HomeContentTableView *homeContentTableView;
+
+@property (nonatomic, weak) IBOutlet UIView *homeNavView;
+@property (nonatomic, weak) IBOutlet UIView *homeContentView;
+@property (nonatomic, weak) IBOutlet HomeNavTableView *homeNavTableView;
+@property (nonatomic, weak) IBOutlet HomeContentTableView *homeContentTableView;
 
 @end

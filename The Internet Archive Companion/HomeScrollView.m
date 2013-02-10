@@ -28,9 +28,9 @@
 
 -(void) respositionNav
 {
-    CGRect frame = self.homeNavTableView.frame;
+    CGRect frame = self.homeNavView.frame;
     frame.origin = CGPointMake(self.contentOffset.x, 0);
-    self.homeNavTableView.frame = frame;
+    self.homeNavView.frame = frame;
 }
 
 
