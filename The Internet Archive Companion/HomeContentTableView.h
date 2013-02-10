@@ -9,11 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ArchiveDataService.h"
 
+
+@protocol HomeContentScrollingDelegate <NSObject>
+
+- (void) didScroll;
+
+@end
+
 @interface HomeContentTableView : UITableView <UITableViewDataSource, UITableViewDelegate, ArchiveDataServiceDelegate> {
     NSMutableArray *docs;
 }
 
 
 @property (nonatomic, retain) ArchiveDataService *service;
+@property (weak, nonatomic) IBOutlet id<HomeContentScrollingDelegate> scrollDelegate;
 
 @end

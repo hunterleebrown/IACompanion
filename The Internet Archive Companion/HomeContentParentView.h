@@ -12,9 +12,17 @@
 
 
 
-@interface HomeContentParentView : UIView<UIWebViewDelegate, HomeNavTouchDelegate>
+
+@interface HomeContentParentView : UIView<UIWebViewDelegate, HomeNavTouchDelegate, UIScrollViewDelegate, HomeContentScrollingDelegate>
 
 @property (weak, nonatomic) IBOutlet HomeContentTableView *homeContentTableView;
 @property (weak, nonatomic) IBOutlet UIWebView *homeContentDescriptionView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *toolBarButton;
+@property (weak, nonatomic) IBOutlet UIBarItem *toolBarTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *descriptionShadow;
+
+- (IBAction)toggleDetails:(id)sender;
+
 
 @end

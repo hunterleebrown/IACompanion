@@ -72,11 +72,20 @@
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
     [docs removeAllObjects];
     [docs addObjectsFromArray:[results objectForKey:@"documents"]];
+    
     [self reloadData];
 
 }
 
 
+#pragma mark - scroll view delegates
+
+- (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    if(_scrollDelegate && [_scrollDelegate respondsToSelector:@selector(didScroll)]){
+        [_scrollDelegate didScroll];
+    }
+
+}
 
 
 /*
