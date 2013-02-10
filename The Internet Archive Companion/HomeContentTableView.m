@@ -74,6 +74,7 @@
     [docs addObjectsFromArray:[results objectForKey:@"documents"]];
     
     [self reloadData];
+    [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewRowAnimationTop animated:YES];
 
 }
 

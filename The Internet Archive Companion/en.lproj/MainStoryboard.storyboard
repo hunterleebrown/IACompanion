@@ -71,7 +71,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <webView contentMode="scaleToFill" id="xP0-V9-KTd">
-                                        <rect key="frame" x="0.0" y="44" width="768" height="254"/>
+                                        <rect key="frame" x="0.0" y="44" width="768" height="430"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -79,7 +79,7 @@
                                         </connections>
                                     </webView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fL-ft-iBe" customClass="HomeContentTableView">
-                                        <rect key="frame" x="0.0" y="297" width="768" height="451"/>
+                                        <rect key="frame" x="0.0" y="473" width="768" height="276"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -124,7 +124,7 @@
                                         </connections>
                                     </tableView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadow.png" id="Vl9-pD-BEg">
-                                        <rect key="frame" x="0.0" y="298" width="768" height="19"/>
+                                        <rect key="frame" x="0.0" y="473" width="768" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="Ntu-DW-bYb">
