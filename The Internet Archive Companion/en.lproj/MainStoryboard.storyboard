@@ -62,7 +62,7 @@
                                     </tableView>
                                 </subviews>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="nav_snippet_shadow.png" id="wVG-Ko-Box">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="leftContentShadow.png" id="wVG-Ko-Box">
                                 <rect key="frame" x="237" y="0.0" width="21" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -77,6 +77,14 @@
                                             <barButtonItem title="Item" id="sbJ-oV-Lro"/>
                                         </items>
                                     </toolbar>
+                                    <webView contentMode="scaleToFill" id="xP0-V9-KTd">
+                                        <rect key="frame" x="0.0" y="44" width="768" height="254"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="dGe-kY-kb9" id="C5g-ty-tln"/>
+                                        </connections>
+                                    </webView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fL-ft-iBe" customClass="HomeContentTableView">
                                         <rect key="frame" x="0.0" y="297" width="768" height="707"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
@@ -119,14 +127,10 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <webView contentMode="scaleToFill" id="xP0-V9-KTd">
-                                        <rect key="frame" x="0.0" y="44" width="768" height="243"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadow.png" id="Vl9-pD-BEg">
+                                        <rect key="frame" x="0.0" y="298" width="768" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="dGe-kY-kb9" id="C5g-ty-tln"/>
-                                        </connections>
-                                    </webView>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -656,8 +660,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="nav_snippet_shadow.png" width="21" height="461"/>
+        <image name="leftContentShadow.png" width="21" height="461"/>
         <image name="uiglassbutton-template.png" width="50" height="37"/>
+        <image name="vertShadow.png" width="320" height="19"/>
     </resources>
     <classes>
         <class className="ArchiveCollectionCell" superclassName="UICollectionViewCell">
