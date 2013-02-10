@@ -8,6 +8,23 @@
 
 #import "HomeNavTableView.h"
 #import "HomeNavCell.h"
+#import "HomeNavSectionView.h"
+#import "ArchiveSearchDoc.h"
+
+@interface HomeNavTableView () {
+    ArchiveDataService  *audioService;
+    ArchiveDataService  *movieService;
+    ArchiveDataService  *textService;
+    
+    
+    NSMutableArray *audioDocs;
+    NSMutableArray *videoDocs;
+    NSMutableArray *textDocs;
+    
+
+}
+
+@end
 
 @implementation HomeNavTableView
 
@@ -18,53 +35,139 @@
         // Initialization code
         [self setDataSource:self];
         [self setDelegate:self];
+        audioService = [ArchiveDataService new];
+        [audioService setDelegate:self];
+
+        movieService = [ArchiveDataService new];
+        [movieService setDelegate:self];
+        
+        textService = [ArchiveDataService new];
+        [textService setDelegate:self];
+        
+        audioDocs = [NSMutableArray new];
+        videoDocs = [NSMutableArray new];
+        textDocs = [NSMutableArray new];
+        
+
+        
+        
+        
+        
+        [audioService getCollectionsWithIdentifier:@"audio"];
+        [movieService getCollectionsWithIdentifier:@"movies"];
+        [textService getCollectionsWithIdentifier:@"texts"];
+        
+        
  
     }
     return self;
 }
 
 
+- (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
+    
+    
+    
+    if([[results objectForKey:@"identifier"] isEqualToString:@"audio"]){
+        [audioDocs addObjectsFromArray:[results objectForKey:@"documents"]];
 
+    } else if([[results objectForKey:@"identifier"] isEqualToString:@"movies"]) {
+        [videoDocs addObjectsFromArray:[results objectForKey:@"documents"]];
+
+    } else if([[results objectForKey:@"identifier"] isEqualToString:@"texts"]){
+        [textDocs addObjectsFromArray:[results objectForKey:@"documents"]];
+
+    }
+    
+    [self reloadData];
+}
+
+
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    HomeNavSectionView *sectionView = [[HomeNavSectionView alloc] initWithFrame:CGRectMake(0, 0, 256, 76)];
+    
+    switch (section) {
+        case 0:
+            [sectionView.title setText:@"Audio"];
+            [sectionView.imageView setImage:[UIImage imageNamed:@"audio.gif"]];
+            break;
+        case 1:
+            [sectionView.title setText:@"Video"];
+            [sectionView.imageView setImage:[UIImage imageNamed:@"movies.gif"]];
+            break;
+        case 2:
+            [sectionView.title setText:@"Text"];
+            [sectionView.imageView setImage:[UIImage imageNamed:@"texts.gif"]];
+            break;
+        default:
+            break;
+    }
+    
+    return sectionView;
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 76.0;
+}
+
+
+
+/*
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if(section == 0){
         return @"Top Collections";
     }
     else return @"";
 }
-
+*/
 
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    switch (section) {
+        case 0:
+            return audioDocs.count;
+            break;
+        case 1:
+            return videoDocs.count;
+            break;
+        case 2:
+            return textDocs.count;
+            break;
+        default:
+            return 0;
+            break;
+    }
     
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 3;
 }
 
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeNavCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeNavCell"];
-      
-    switch (indexPath.row) {
+    ArchiveSearchDoc *doc;
+    
+    
+    switch (indexPath.section) {
         case 0:
-            [cell.navImageView setImage:[UIImage imageNamed:@"audio.gif"]];
-            [cell.title setText:@"Audio"];
+            doc = [audioDocs objectAtIndex:indexPath.row];
             break;
         case 1:
-            [cell.navImageView setImage:[UIImage imageNamed:@"movies.gif"]];
-            [cell.title setText:@"Movies"];
+            doc = [videoDocs objectAtIndex:indexPath.row];
             break;
         case 2:
-            [cell.navImageView setImage:[UIImage imageNamed:@"texts.gif"]];
-            [cell.title setText:@"Texts"];
+            doc = [textDocs objectAtIndex:indexPath.row];
             break;
         default:
             break;
     }
-    
-    
+
+    [cell.title setText:doc.title];
     
     return cell;
 }

@@ -80,11 +80,7 @@
 
 }
 
-- (void) getCollection:(NSString *)collectionIdentifier{
 
-    [service getCollectionsWithIdentifier:collectionIdentifier];
-
-}
 
 
 /*

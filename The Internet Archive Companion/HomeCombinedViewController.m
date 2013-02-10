@@ -41,7 +41,6 @@
     [self doOrientationLayout:self.interfaceOrientation];
 
     
-    [self.contentScrollView.homeContentTableView getCollection:@"movies"];
     
 }
 

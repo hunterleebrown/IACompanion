@@ -10,6 +10,14 @@
 #import "ArchiveSearchDoc.h"
 #import "ArchiveFile.h"
 
+@interface ArchiveDataService () {
+
+    NSString *identifierIn;
+}
+
+@end
+
+
 @implementation ArchiveDataService
 @synthesize delegate;
 
@@ -111,6 +119,9 @@
     
     }
     
+    if(identifierIn){
+        [rawResults setObject:identifierIn forKey:@"identifier"];
+    }
     
     if(delegate && [delegate respondsToSelector:@selector(dataDidFinishLoadingWithDictionary:)]){
         [delegate dataDidFinishLoadingWithDictionary:rawResults];
@@ -124,7 +135,7 @@
     
     inUrl = url;
     
-    
+    /*
     id cI = [cache objectForKey:inUrl];
     if(cI != nil){
         NSDictionary *cachedData = (NSDictionary *)cI;
@@ -139,9 +150,16 @@
                                             object:nil];
         [queue addOperation:operation];
     }
+    */
+    id cI = [cache objectForKey:inUrl];
+    if(cI != nil){
+        NSDictionary *cachedData = (NSDictionary *)cI;
+        [self sendData:cachedData];
+        NSLog(@"CACHE HIT...");
+    }else{
     
-    
-    
+        [self loadData];
+    }
 }
 
 - (void)loadData {
@@ -163,6 +181,9 @@
 
 
 - (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier withSort:(NSString *)sort{
+    
+    identifierIn = identifier;
+
     NSString *t = @"";
     if(type == MediaTypeAudio){
         t = @"audio";
@@ -218,6 +239,7 @@
 
 
 - (void) getMetadataDocsWithIdentifier:(NSString *)identifier{
+    identifierIn = identifier;
     testUrl = @"http://archive.org/metadata/%@";
     NSString *searchUrl = [NSString stringWithFormat:testUrl, identifier];
     [self setAndLoadDataFromJSONUrl:searchUrl];

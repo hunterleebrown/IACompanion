@@ -14,7 +14,6 @@
     NSMutableArray *docs;
 }
 
-- (void) getCollection:(NSString *)collectionIdentifier;
     
 
 @end

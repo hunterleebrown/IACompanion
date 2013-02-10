@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArchiveDataService.h"
 
-@interface HomeNavTableView : UITableView <UITableViewDataSource, UITableViewDelegate>
+@interface HomeNavTableView : UITableView <UITableViewDataSource, UITableViewDelegate, ArchiveDataServiceDelegate>
 
 @end
