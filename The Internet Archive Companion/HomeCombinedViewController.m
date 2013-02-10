@@ -7,6 +7,9 @@
 //
 
 #import "HomeCombinedViewController.h"
+#import "ArchiveSearchDoc.h"
+#import "ArchiveDetailedViewController.h"
+#import "HomeContentCell.h"
 
 @interface HomeCombinedViewController () {
 
@@ -44,9 +47,33 @@
     
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    if([[segue identifier] isEqualToString:@"homeCellPush"]){
+    
+        HomeContentCell *cell = (HomeContentCell *)sender;
+        ArchiveSearchDoc *doc = cell.doc;
+        
+        ArchiveDetailedViewController *detailViewController = [segue destinationViewController];
+        [detailViewController setTitle:doc.title];
+        [detailViewController setIdentifier:doc.identifier];
+    }
 
 
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+    [self.contentScrollView.homeContentView.homeContentTableView deselectRowAtIndexPath:self.contentScrollView.homeContentView.homeContentTableView.indexPathForSelectedRow animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
 
 
 - (void)didReceiveMemoryWarning

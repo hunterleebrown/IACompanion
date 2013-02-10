@@ -9,6 +9,7 @@
 #import "HomeContentTableView.h"
 #import "ArchiveSearchDoc.h"
 #import "HomeContentCell.h"
+#import "ArchiveDetailedViewController.h"
 
 @implementation HomeContentTableView
 
@@ -64,8 +65,12 @@
     
     [cell.title setText:doc.title];
     [cell.aSyncImageView setAndLoadImageFromUrl:doc.headerImageUrl];
+    [cell setDoc:doc];
     return cell;
 }
+
+
+
 
 
 
