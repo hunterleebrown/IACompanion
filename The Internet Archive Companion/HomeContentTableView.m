@@ -56,19 +56,14 @@
     return 1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 150;
-}
+
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeContentCell"];
-
-    
-    
     ArchiveSearchDoc *doc = [docs objectAtIndex:indexPath.row];
     
-    [cell.textLabel setText:doc.title];
-
+    [cell.title setText:doc.title];
+    [cell.aSyncImageView setAndLoadImageFromUrl:doc.headerImageUrl];
     return cell;
 }
 

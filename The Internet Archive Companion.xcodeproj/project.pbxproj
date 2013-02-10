@@ -26,6 +26,8 @@
 		5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930616C3855400C3E107 /* ArchiveFile.m */; };
 		5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A23930816C3A07500C3E107 /* MediaPlayer.framework */; };
 		5A23930C16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930B16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m */; };
+		5A31D4FA16C7B2A200710DE0 /* nav_snippet_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4F816C7B2A200710DE0 /* nav_snippet_shadow.png */; };
+		5A31D4FB16C7B2A200710DE0 /* nav_snippet_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4F916C7B2A200710DE0 /* nav_snippet_shadow@2x.png */; };
 		5A528DBE16C782100066EEEF /* HomeNavSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A528DBD16C782100066EEEF /* HomeNavSectionView.m */; };
 		5A528DC016C7825B0066EEEF /* HomeNavSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A528DBF16C7825A0066EEEF /* HomeNavSectionView.xib */; };
 		5A528DC316C7A14D0066EEEF /* HomeContentParentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */; };
@@ -98,6 +100,8 @@
 		5A23930816C3A07500C3E107 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		5A23930A16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveMoviePlayerViewController.h; sourceTree = "<group>"; };
 		5A23930B16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveMoviePlayerViewController.m; sourceTree = "<group>"; };
+		5A31D4F816C7B2A200710DE0 /* nav_snippet_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_snippet_shadow.png; sourceTree = "<group>"; };
+		5A31D4F916C7B2A200710DE0 /* nav_snippet_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_snippet_shadow@2x.png"; sourceTree = "<group>"; };
 		5A528DBC16C782100066EEEF /* HomeNavSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavSectionView.h; sourceTree = "<group>"; };
 		5A528DBD16C782100066EEEF /* HomeNavSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavSectionView.m; sourceTree = "<group>"; };
 		5A528DBF16C7825A0066EEEF /* HomeNavSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeNavSectionView.xib; sourceTree = "<group>"; };
@@ -324,6 +328,8 @@
 		5ADAB7ED16C76E8100DBC072 /* IA Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A31D4F816C7B2A200710DE0 /* nav_snippet_shadow.png */,
+				5A31D4F916C7B2A200710DE0 /* nav_snippet_shadow@2x.png */,
 				5ADAB7EE16C76F5400DBC072 /* audio.gif */,
 				5ADAB7EF16C76F5400DBC072 /* movies.gif */,
 				5ADAB7F016C76F5400DBC072 /* texts.gif */,
@@ -445,6 +451,8 @@
 				5ADAB7F216C76F5400DBC072 /* movies.gif in Resources */,
 				5ADAB7F316C76F5400DBC072 /* texts.gif in Resources */,
 				5A528DC016C7825B0066EEEF /* HomeNavSectionView.xib in Resources */,
+				5A31D4FA16C7B2A200710DE0 /* nav_snippet_shadow.png in Resources */,
+				5A31D4FB16C7B2A200710DE0 /* nav_snippet_shadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
