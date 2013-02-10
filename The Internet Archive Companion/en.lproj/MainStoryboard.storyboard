@@ -17,9 +17,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="256" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="va3-Jl-Dvs" customClass="HomeNavTableView">
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="jJs-Cd-Iwd">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <items>
+                                            <barButtonItem title="Top Collections" id="6sj-Ri-Fe7"/>
+                                        </items>
+                                    </toolbar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="va3-Jl-Dvs" customClass="HomeNavTableView">
                                         <rect key="frame" x="0.0" y="44" width="256" height="960"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="homeNavCell" id="Zs2-up-IWM" customClass="HomeNavCell">
@@ -29,12 +36,12 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="256" height="75"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="KJb-59-ePO">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="KJb-59-ePO" customClass="AsyncImageView">
                                                             <rect key="frame" x="3" y="3" width="128" height="70"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" id="weY-2m-iyj">
-                                                            <rect key="frame" x="139" y="3" width="117" height="70"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="weY-2m-iyj">
+                                                            <rect key="frame" x="139" y="3" width="109" height="70"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -49,24 +56,27 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="touchDelegate" destination="dGe-kY-kb9" id="Hpj-cF-Ig5"/>
+                                        </connections>
                                     </tableView>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="jJs-Cd-Iwd">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <items>
-                                            <barButtonItem title="Top Collections" id="6sj-Ri-Fe7"/>
-                                        </items>
-                                    </toolbar>
                                 </subviews>
                             </view>
-                            <view contentMode="scaleToFill" id="dGe-kY-kb9">
+                            <view contentMode="scaleToFill" id="dGe-kY-kb9" customClass="HomeContentParentView">
                                 <rect key="frame" x="256" y="0.0" width="1024" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fL-ft-iBe" customClass="HomeContentTableView">
-                                        <rect key="frame" x="0.0" y="44" width="768" height="960"/>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="I6G-cu-TrT">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <items>
+                                            <barButtonItem title="Item" id="sbJ-oV-Lro"/>
+                                        </items>
+                                    </toolbar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fL-ft-iBe" customClass="HomeContentTableView">
+                                        <rect key="frame" x="0.0" y="297" width="768" height="707"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="homeContentCell" id="KNR-iX-kOV" customClass="HomeContentCell">
                                                 <rect key="frame" x="0.0" y="22" width="768" height="44"/>
@@ -79,19 +89,24 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="I6G-cu-TrT">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                    <webView contentMode="scaleToFill" id="xP0-V9-KTd">
+                                        <rect key="frame" x="0.0" y="44" width="768" height="253"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <items>
-                                            <barButtonItem title="Item" id="sbJ-oV-Lro"/>
-                                        </items>
-                                    </toolbar>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="dGe-kY-kb9" id="C5g-ty-tln"/>
+                                        </connections>
+                                    </webView>
                                 </subviews>
+                                <connections>
+                                    <outlet property="homeContentDescriptionView" destination="xP0-V9-KTd" id="tjh-6P-N9I"/>
+                                    <outlet property="homeContentTableView" destination="3fL-ft-iBe" id="7BG-oq-xbu"/>
+                                </connections>
                             </view>
                         </subviews>
                         <connections>
-                            <outlet property="homeContentTableView" destination="3fL-ft-iBe" id="ow6-2A-AZx"/>
-                            <outlet property="homeContentView" destination="dGe-kY-kb9" id="dJ8-ry-150"/>
+                            <outlet property="delegate" destination="eeV-js-ROD" id="j2x-WV-h8Y"/>
+                            <outlet property="homeContentView" destination="dGe-kY-kb9" id="T3j-t1-WlL"/>
                             <outlet property="homeNavTableView" destination="va3-Jl-Dvs" id="qp9-UR-Cd5"/>
                             <outlet property="homeNavView" destination="zCd-rU-GBd" id="6fA-HN-CkQ"/>
                         </connections>
@@ -670,6 +685,9 @@
                 <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="AsyncImage" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImage.h"/>
+        </class>
         <class className="AsyncImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImageView.h"/>
         </class>
@@ -682,24 +700,33 @@
         <class className="HomeContentCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentCell.h"/>
         </class>
+        <class className="HomeContentParentView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentParentView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="homeContentDescriptionView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
+            </relationships>
+        </class>
         <class className="HomeContentTableView" superclassName="UITableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentTableView.h"/>
         </class>
         <class className="HomeNavCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="navImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navImageView" candidateClass="AsyncImage"/>
                 <relationship kind="outlet" name="title" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="HomeNavTableView" superclassName="UITableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="touchDelegate"/>
+            </relationships>
         </class>
         <class className="HomeScrollView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeScrollView.h"/>
             <relationships>
-                <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
-                <relationship kind="outlet" name="homeContentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="homeContentView" candidateClass="HomeContentParentView"/>
                 <relationship kind="outlet" name="homeNavTableView" candidateClass="HomeNavTableView"/>
                 <relationship kind="outlet" name="homeNavView" candidateClass="UIView"/>
             </relationships>
@@ -722,6 +749,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

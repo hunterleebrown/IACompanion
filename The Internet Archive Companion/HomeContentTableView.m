@@ -16,13 +16,12 @@
 - (id) initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     self = [super initWithFrame:frame style:style];
     if(self){
-        [self setBackgroundColor:[UIColor orangeColor]];
         [self setDelegate:self];
         [self setDataSource:self];
         docs = [NSMutableArray new];
 
-        service = [ArchiveDataService new];
-        [service setDelegate:self];
+        _service = [ArchiveDataService new];
+        [_service setDelegate:self];
         
     }
     return  self;
@@ -33,13 +32,12 @@
 - (id) initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if(self){
-        [self setBackgroundColor:[UIColor orangeColor]];
         [self setDelegate:self];
         [self setDataSource:self];
         docs = [NSMutableArray new];
         
-        service = [ArchiveDataService new];
-        [service setDelegate:self];
+        _service = [ArchiveDataService new];
+        [_service setDelegate:self];
     
     }
     return self;
@@ -58,6 +56,9 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 150;
+}
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeContentCell"];
@@ -74,7 +75,7 @@
 
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
-    
+    [docs removeAllObjects];
     [docs addObjectsFromArray:[results objectForKey:@"documents"]];
     [self reloadData];
 

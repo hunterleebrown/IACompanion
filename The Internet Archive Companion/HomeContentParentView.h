@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeContentTableView.h"
+#import "HomeNavTableView.h"
 
-@interface HomeContentParentView : UIView
+
+
+@interface HomeContentParentView : UIView<UIWebViewDelegate, HomeNavTouchDelegate>
+
+@property (weak, nonatomic) IBOutlet HomeContentTableView *homeContentTableView;
+@property (weak, nonatomic) IBOutlet UIWebView *homeContentDescriptionView;
 
 @end

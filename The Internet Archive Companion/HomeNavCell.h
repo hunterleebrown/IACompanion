@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncImage.h"
 
 @interface HomeNavCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UIImageView *navImageView;
+@property (weak, nonatomic) IBOutlet AsyncImage *navImageView;
 
 @end

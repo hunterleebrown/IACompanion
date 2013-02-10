@@ -115,14 +115,7 @@
 
 
 
-/*
-- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if(section == 0){
-        return @"Top Collections";
-    }
-    else return @"";
-}
-*/
+
 
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
@@ -168,8 +161,32 @@
     }
 
     [cell.title setText:doc.title];
+    [cell.navImageView setAndLoadImageFromUrl:doc.headerImageUrl];
     
     return cell;
+}
+
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ArchiveSearchDoc *doc;
+    switch (indexPath.section) {
+        case 0:
+            doc = [audioDocs objectAtIndex:indexPath.row];
+            break;
+        case 1:
+            doc = [videoDocs objectAtIndex:indexPath.row];
+            break;
+        case 2:
+            doc = [textDocs objectAtIndex:indexPath.row];
+            break;
+        default:
+            break;
+    }
+
+    if(_touchDelegate && [_touchDelegate respondsToSelector:@selector(didTouchNavigationCellWithDoc:)]){
+        [_touchDelegate didTouchNavigationCellWithDoc:doc];
+    }
+
 }
 
 

@@ -48,6 +48,7 @@
 
 
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -72,7 +73,8 @@
         
     }
     
-
+    [self.contentScrollView.homeNavTableView reloadData];
+    [self.contentScrollView.homeContentView.homeContentTableView reloadData];
     
 }
  

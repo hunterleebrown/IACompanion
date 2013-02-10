@@ -8,15 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeNavTableView.h"
-#import "HomeContentTableView.h"
+#import "HomeContentParentView.h"
 
 @interface HomeScrollView : UIScrollView
 
 
-
+@property (nonatomic, weak) IBOutlet HomeContentParentView *homeContentView;
 @property (nonatomic, weak) IBOutlet UIView *homeNavView;
-@property (nonatomic, weak) IBOutlet UIView *homeContentView;
 @property (nonatomic, weak) IBOutlet HomeNavTableView *homeNavTableView;
-@property (nonatomic, weak) IBOutlet HomeContentTableView *homeContentTableView;
 
 @end

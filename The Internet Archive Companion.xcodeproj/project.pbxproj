@@ -28,6 +28,7 @@
 		5A23930C16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930B16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m */; };
 		5A528DBE16C782100066EEEF /* HomeNavSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A528DBD16C782100066EEEF /* HomeNavSectionView.m */; };
 		5A528DC016C7825B0066EEEF /* HomeNavSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A528DBF16C7825A0066EEEF /* HomeNavSectionView.xib */; };
+		5A528DC316C7A14D0066EEEF /* HomeContentParentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */; };
 		5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */; };
 		5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */; };
 		5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */; };
@@ -100,6 +101,8 @@
 		5A528DBC16C782100066EEEF /* HomeNavSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavSectionView.h; sourceTree = "<group>"; };
 		5A528DBD16C782100066EEEF /* HomeNavSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavSectionView.m; sourceTree = "<group>"; };
 		5A528DBF16C7825A0066EEEF /* HomeNavSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeNavSectionView.xib; sourceTree = "<group>"; };
+		5A528DC116C7A14C0066EEEF /* HomeContentParentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeContentParentView.h; sourceTree = "<group>"; };
+		5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeContentParentView.m; sourceTree = "<group>"; };
 		5A8A191B16B4FAD900F6A2E4 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		5A8A193C16B5B15C00F6A2E4 /* ArchiveCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionView.h; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 		5ADAB7E616C76D9C00DBC072 /* Home Tables */ = {
 			isa = PBXGroup;
 			children = (
+				5A528DC116C7A14C0066EEEF /* HomeContentParentView.h */,
+				5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */,
 				5ADAB7D416C6D40400DBC072 /* HomeContentTableView.h */,
 				5ADAB7D516C6D40400DBC072 /* HomeContentTableView.m */,
 				5ADAB7EA16C76DE800DBC072 /* HomeContentCell.h */,
@@ -497,6 +502,7 @@
 				5ADAB7E916C76DD200DBC072 /* HomeNavCell.m in Sources */,
 				5ADAB7EC16C76DE800DBC072 /* HomeContentCell.m in Sources */,
 				5A528DBE16C782100066EEEF /* HomeNavSectionView.m in Sources */,
+				5A528DC316C7A14D0066EEEF /* HomeContentParentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

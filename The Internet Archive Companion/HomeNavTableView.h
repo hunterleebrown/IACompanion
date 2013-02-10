@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "ArchiveDataService.h"
+#import "ArchiveSearchDoc.h"
+
+@protocol HomeNavTouchDelegate <NSObject>
+
+- (void) didTouchNavigationCellWithDoc:(ArchiveSearchDoc *)doc;
+
+@end
 
 @interface HomeNavTableView : UITableView <UITableViewDataSource, UITableViewDelegate, ArchiveDataServiceDelegate>
+
+@property (weak, nonatomic) IBOutlet id<HomeNavTouchDelegate> touchDelegate;
 
 @end

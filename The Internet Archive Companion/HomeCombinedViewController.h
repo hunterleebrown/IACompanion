@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HomeScrollView.h"
 
-@interface HomeCombinedViewController : UIViewController
+@interface HomeCombinedViewController : UIViewController<UIScrollViewDelegate>
 
 
 @property (nonatomic, assign) IBOutlet HomeScrollView *contentScrollView;

@@ -10,10 +10,10 @@
 #import "ArchiveDataService.h"
 
 @interface HomeContentTableView : UITableView <UITableViewDataSource, UITableViewDelegate, ArchiveDataServiceDelegate> {
-    ArchiveDataService *service;
     NSMutableArray *docs;
 }
 
-    
+
+@property (nonatomic, retain) ArchiveDataService *service;
 
 @end

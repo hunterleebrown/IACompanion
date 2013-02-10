@@ -184,24 +184,32 @@
     
     identifierIn = identifier;
 
-    NSString *t = @"";
-    if(type == MediaTypeAudio){
-        t = @"audio";
-    } else if(type == MediaTypeVideo){
-        t = @"movies";
-    } else if(type == MediaTypeTexts){
-        t = @"texts";
-    } else if(type == MediaTypeCollection){
-        t = @"collection";
+    if(type != MediaTypeNone ){
+        NSString *t = @"";
+        if(type == MediaTypeAudio){
+            t = @"audio";
+        } else if(type == MediaTypeVideo){
+            t = @"movies";
+        } else if(type == MediaTypeTexts){
+            t = @"texts";
+        } else if(type == MediaTypeCollection){
+            t = @"collection";
+        }
+        
+        
+        testUrl = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json";
+        NSString *searchUrl = [NSString stringWithFormat:testUrl, t, identifier, sort];
+        [self getDocsWithTest:searchUrl withStart:loadMoreStart];
+
+    } else {
+        testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json";
+        NSString *searchUrl = [NSString stringWithFormat:testUrl, identifier, sort];
+        [self getDocsWithTest:searchUrl withStart:loadMoreStart];
     }
     
-    
-    testUrl = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json";
-    NSString *searchUrl = [NSString stringWithFormat:testUrl, t, identifier, sort];
 
     
     
-    [self getDocsWithTest:searchUrl withStart:loadMoreStart];
     
     //NSLog(@"searchUrl: %@", searchUrl);
     //[self setAndLoadDataFromJSONUrl:searchUrl];
@@ -215,6 +223,10 @@
 
 - (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier{
     [self getDocsWithType:type withIdentifier:identifier withSort:@"publicdate+desc"];
+}
+
+- (void) getDocsWithCollectionIdentifier:(NSString *)identifier{
+    [self getDocsWithType:MediaTypeNone withIdentifier:identifier withSort:@"publicdate+desc"];
 }
 
 
