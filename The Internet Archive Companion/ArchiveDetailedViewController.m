@@ -146,7 +146,7 @@
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
     _doc = [[results objectForKey:@"documents"] objectAtIndex:0];
-    _docTitle.text = _doc.title;
+    _docTitle.text = [StringUtils stringFromObject:_doc.title];
     
     
     
@@ -179,23 +179,10 @@
     NSDictionary *metadata = [_doc.rawDoc objectForKey:@"metadata"];
     
     if([metadata objectForKey:@"subject"]){
-        
-        if([[metadata objectForKey:@"subject"] isKindOfClass:[NSArray class]]){
-            NSMutableString * subs = [[NSMutableString alloc] init];
-            for (NSObject * obj in [metadata objectForKey:@"subject"])
-            {
-                if(![subs isEqualToString:@""]){
-                    [subs appendString:@", "];
-                }
-                [subs appendString:[obj description]];
-            }
-            [self.subject setText:subs];
-            
-        } else {
-            
-            [self.subject setText:[metadata objectForKey:@"subject"]];
-        }
+        [self.subject setText:[StringUtils stringFromObject:[metadata objectForKey:@"subject"]]];
     }
+    
+    
     
     if([metadata objectForKey:@"publicdate"]){
         [self.added setText:[StringUtils displayDateFromArchiveMetaDateString:[metadata objectForKey:@"publicdate"]]];
@@ -206,40 +193,21 @@
         [self.from setText:[StringUtils displayDateFromArchiveMetaDateString:[metadata objectForKey:@"addeddate"]]];
     }
     if([metadata objectForKey:@"publisher"]){
-        [self.publisher setText:[metadata objectForKey:@"publisher"]];
+        [self.publisher setText:[StringUtils stringFromObject:[metadata objectForKey:@"publisher"]]];
     }
     
-  //  if([metadata objectForKey:@"creator"]){
-   //     [self.creator setText:[metadata objectForKey:@"creator"]];
-   // }
+
     
     
     if([metadata objectForKey:@"creator"]){
-        
-        if([[metadata objectForKey:@"creator"] isKindOfClass:[NSArray class]]){
-            NSMutableString * subs = [[NSMutableString alloc] init];
-            for (NSObject * obj in [metadata objectForKey:@"creator"])
-            {
-                if(![subs isEqualToString:@""]){
-                    [subs appendString:@", "];
-                }
-                [subs appendString:[obj description]];
-            }
-            [self.subject setText:subs];
-            
-        } else if([[metadata objectForKey:@"creator"] isKindOfClass:[NSString class]]){
-            [self.subject setText:[metadata objectForKey:@"creator"]];
-            
-        } else {
-
-        }
+        [self.creator setText:[StringUtils stringFromObject:[metadata objectForKey:@"creator"]]];
     }
     
     
     
     
     if([metadata objectForKey:@"uploader"]){
-        [self.uploader setText:[metadata objectForKey:@"uploader"]];
+        [self.uploader setText:[StringUtils stringFromObject:[metadata objectForKey:@"uploader"]]];
     }
 
 }

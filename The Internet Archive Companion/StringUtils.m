@@ -34,6 +34,9 @@ NSString *const ArchiveMetaDateFormat = @"yyyy'-'MM'-'dd' 'HH':'mm':'ss";
 
 
 
+
+
+
 + (NSString *) displayDateFromArchiveDateString:(NSString *)archiveInDate {
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     
@@ -63,6 +66,32 @@ NSString *const ArchiveMetaDateFormat = @"yyyy'-'MM'-'dd' 'HH':'mm':'ss";
     return theDate;
 }
 
+
++ (NSString *) stringFromObject:(NSObject *)object{
+    if([object isKindOfClass:[NSArray class]]){
+        NSMutableString * subs = [[NSMutableString alloc] init];
+        for (NSObject * obj in (NSArray*)object)
+        {
+            if(![subs isEqualToString:@""]){
+                [subs appendString:@", "];
+            }
+            if([obj isKindOfClass:[NSString class]]){
+                [subs appendString:(NSString *)obj];
+            } else {
+                return nil;
+            }
+            
+        }
+        
+        return subs;
+        
+    } else if([object isKindOfClass:[NSString class]]) {
+        
+        return (NSString *)object;
+    } else {
+        return nil;
+    }
+}
 
 
 @end

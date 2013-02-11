@@ -14,5 +14,6 @@
 + (NSString *) urlEncodeString:(NSString *)input;
 + (NSString *) displayDateFromArchiveDateString:(NSString *)archiveInDate;
 + (NSString *) displayDateFromArchiveMetaDateString:(NSString *)metaDate;
++ (NSString *) stringFromObject:(NSObject *)object;
 
 @end
