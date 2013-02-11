@@ -127,6 +127,10 @@
         [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewRowAnimationTop animated:YES];
     }
 
+    
+    [_totalFound setText:[NSString stringWithFormat:@"%@ items found",  [results objectForKey:@"numFound"]]];
+
+    
 }
 
 

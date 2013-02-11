@@ -167,12 +167,20 @@
                                         </prototypes>
                                         <connections>
                                             <outlet property="scrollDelegate" destination="dGe-kY-kb9" id="krR-6H-Dzu"/>
+                                            <outlet property="totalFound" destination="QTJ-tU-llL" id="bbh-xt-YGY"/>
                                         </connections>
                                     </tableView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadow.png" id="Vl9-pD-BEg">
                                         <rect key="frame" x="0.0" y="473" width="768" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="left" text="FOUND" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QTJ-tU-llL">
+                                        <rect key="frame" x="-10" y="44" width="768" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default-Portrait~ipad.png" id="laf-xb-oXd">
                                         <rect key="frame" x="0.0" y="45" width="768" height="660"/>
                                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
@@ -820,6 +828,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentTableView.h"/>
             <relationships>
                 <relationship kind="outlet" name="scrollDelegate"/>
+                <relationship kind="outlet" name="totalFound" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="HomeNavCell" superclassName="UITableViewCell">
