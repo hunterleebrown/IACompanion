@@ -28,6 +28,17 @@
 }
 */
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    if(self.homeContentDescriptionView.bounds.size.height == 430){
+        [self toggleDetails:nil];
+    }
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [_homeContentTableView.service getDocsWithQueryString:searchBar.text];
+
+}
+
 
 - (void) didTouchNavigationCellWithDoc:(ArchiveSearchDoc *)doc{
     
@@ -50,7 +61,10 @@
     if(self.homeContentDescriptionView.bounds.size.height == 430){
         [self toggleDetails:nil];
     }
+    [_aSearchBar resignFirstResponder];
 }
+
+
 
 
 - (IBAction)toggleDetails:(id)sender{
