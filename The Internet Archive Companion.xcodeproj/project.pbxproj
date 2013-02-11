@@ -220,6 +220,7 @@
 		5A0A10B516A640A300CC70CD /* The Internet Archive Companion */ = {
 			isa = PBXGroup;
 			children = (
+				5AFA0C4416C8CA0E008E7CB2 /* New Home Scroll Design */,
 				5ADAB7ED16C76E8100DBC072 /* IA Resources */,
 				CE3019CB16C5728700733B99 /* Utils */,
 				CEEA63FF16C4192C00DCA3BC /* Controllers */,
@@ -277,7 +278,6 @@
 		5A8A193B16B5B13700F6A2E4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5ADAB7E616C76D9C00DBC072 /* Home Tables */,
 				5A8A191B16B4FAD900F6A2E4 /* AsyncImageView.h */,
 				5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */,
 				5A8A193C16B5B15C00F6A2E4 /* ArchiveCollectionView.h */,
@@ -288,8 +288,6 @@
 				5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */,
 				CEEA640016C4240100DCA3BC /* ArchiveFileTableViewCell.h */,
 				CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */,
-				5ADAB7E316C6FFAE00DBC072 /* HomeScrollView.h */,
-				5ADAB7E416C6FFAE00DBC072 /* HomeScrollView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -312,19 +310,6 @@
 		5ADAB7E616C76D9C00DBC072 /* Home Tables */ = {
 			isa = PBXGroup;
 			children = (
-				5A528DC116C7A14C0066EEEF /* HomeContentParentView.h */,
-				5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */,
-				5ADAB7D416C6D40400DBC072 /* HomeContentTableView.h */,
-				5ADAB7D516C6D40400DBC072 /* HomeContentTableView.m */,
-				5ADAB7EA16C76DE800DBC072 /* HomeContentCell.h */,
-				5ADAB7EB16C76DE800DBC072 /* HomeContentCell.m */,
-				5ADAB7E016C6FA9600DBC072 /* HomeNavTableView.h */,
-				5ADAB7E116C6FA9600DBC072 /* HomeNavTableView.m */,
-				5ADAB7E716C76DD200DBC072 /* HomeNavCell.h */,
-				5ADAB7E816C76DD200DBC072 /* HomeNavCell.m */,
-				5A528DBC16C782100066EEEF /* HomeNavSectionView.h */,
-				5A528DBD16C782100066EEEF /* HomeNavSectionView.m */,
-				5A528DBF16C7825A0066EEEF /* HomeNavSectionView.xib */,
 			);
 			name = "Home Tables";
 			sourceTree = "<group>";
@@ -341,6 +326,55 @@
 				5ADAB7F016C76F5400DBC072 /* texts.gif */,
 			);
 			name = "IA Resources";
+			sourceTree = "<group>";
+		};
+		5AFA0C4416C8CA0E008E7CB2 /* New Home Scroll Design */ = {
+			isa = PBXGroup;
+			children = (
+				5AFA0C4716C8CAAA008E7CB2 /* Controllers */,
+				5AFA0C4616C8CA4E008E7CB2 /* Views */,
+				5ADAB7E616C76D9C00DBC072 /* Home Tables */,
+			);
+			name = "New Home Scroll Design";
+			sourceTree = "<group>";
+		};
+		5AFA0C4516C8CA26008E7CB2 /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+				5ADAB7D416C6D40400DBC072 /* HomeContentTableView.h */,
+				5ADAB7D516C6D40400DBC072 /* HomeContentTableView.m */,
+				5ADAB7EA16C76DE800DBC072 /* HomeContentCell.h */,
+				5ADAB7EB16C76DE800DBC072 /* HomeContentCell.m */,
+				5ADAB7E016C6FA9600DBC072 /* HomeNavTableView.h */,
+				5ADAB7E116C6FA9600DBC072 /* HomeNavTableView.m */,
+				5ADAB7E716C76DD200DBC072 /* HomeNavCell.h */,
+				5ADAB7E816C76DD200DBC072 /* HomeNavCell.m */,
+				5A528DBC16C782100066EEEF /* HomeNavSectionView.h */,
+				5A528DBD16C782100066EEEF /* HomeNavSectionView.m */,
+				5A528DBF16C7825A0066EEEF /* HomeNavSectionView.xib */,
+			);
+			name = Tables;
+			sourceTree = "<group>";
+		};
+		5AFA0C4616C8CA4E008E7CB2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5ADAB7E316C6FFAE00DBC072 /* HomeScrollView.h */,
+				5ADAB7E416C6FFAE00DBC072 /* HomeScrollView.m */,
+				5AFA0C4516C8CA26008E7CB2 /* Tables */,
+				5A528DC116C7A14C0066EEEF /* HomeContentParentView.h */,
+				5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5AFA0C4716C8CAAA008E7CB2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5ADAB7D116C6C1B400DBC072 /* HomeCombinedViewController.h */,
+				5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		CE3019CB16C5728700733B99 /* Utils */ = {
@@ -363,8 +397,6 @@
 				5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */,
 				5A23930A16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.h */,
 				5A23930B16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m */,
-				5ADAB7D116C6C1B400DBC072 /* HomeCombinedViewController.h */,
-				5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
