@@ -35,27 +35,46 @@
 }
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [_toolBarTitle setTitle:@""];
     [_homeContentTableView.service getDocsWithQueryString:searchBar.text];
-
+    [_toolBarButton setEnabled:NO];
+    [self hideSplashView];
 }
+
+
 
 
 - (void) didTouchNavigationCellWithDoc:(ArchiveSearchDoc *)doc{
     
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='padding:20px;background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
     
-    
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
     [_homeContentDescriptionView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
-                  MIMEType:@"text/html"
-          textEncodingName:@"UTF-8"
-                   baseURL:theBaseURL];
-    
-    
+                                 MIMEType:@"text/html"
+                         textEncodingName:@"UTF-8"
+                                  baseURL:theBaseURL];
     [_homeContentTableView.service getDocsWithCollectionIdentifier:doc.identifier];
     [_toolBarTitle setTitle:doc.title];
-    
+    [_aSearchBar setText:@""];
+    [_toolBarButton setEnabled:YES];
+    [self hideSplashView];
 }
+
+
+- (void) hideSplashView{
+    if(!_iASplashImageView.hidden){
+        [UIView animateWithDuration:0.33 animations:^{
+            [_iASplashImageView setFrame:CGRectMake(_iASplashImageView.frame.origin.x,
+                                                    self.bounds.size.height,
+                                                    _iASplashImageView.bounds.size.width,
+                                                    _iASplashImageView.bounds.size.height)];
+        } completion:^(BOOL finished) {
+            [_iASplashImageView setHidden:YES];
+        }];
+    }
+}
+
+
 
 - (void) didScroll{
     if(self.homeContentDescriptionView.bounds.size.height == 430){

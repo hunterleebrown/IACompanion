@@ -104,7 +104,13 @@
     [self.contentScrollView.homeContentView.homeContentTableView reloadData];
     
 }
- 
+
+
+#pragma mark - scroll view  
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.contentScrollView.homeContentView.aSearchBar resignFirstResponder];
+}
 
 
 

@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIBarItem *toolBarTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *descriptionShadow;
 @property (weak, nonatomic) IBOutlet UISearchBar *aSearchBar;
+
+@property (weak, nonatomic) IBOutlet UIImageView *iASplashImageView;
+
 - (IBAction)toggleDetails:(id)sender;
 
 
