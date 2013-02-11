@@ -11,6 +11,15 @@
 #import "HomeContentCell.h"
 #import "ArchiveDetailedViewController.h"
 
+@interface HomeContentTableView () {
+    int start;
+    NSString *sort;
+    BOOL loading;
+
+}
+
+@end
+
 @implementation HomeContentTableView
 
 
@@ -20,10 +29,14 @@
         [self setDelegate:self];
         [self setDataSource:self];
         docs = [NSMutableArray new];
-
+        start = 0;
+        sort = @"publicdate+desc";
+        loading = NO;
+        _didTriggerLoadMore = NO;
+        
         _service = [ArchiveDataService new];
         [_service setDelegate:self];
-        
+
     }
     return  self;
 
@@ -36,6 +49,11 @@
         [self setDelegate:self];
         [self setDataSource:self];
         docs = [NSMutableArray new];
+        start = 0;
+        sort = @"publicdate+desc";
+        loading = NO;
+        _didTriggerLoadMore = NO;
+
         
         _service = [ArchiveDataService new];
         [_service setDelegate:self];
@@ -66,6 +84,25 @@
     [cell.title setText:doc.title];
     [cell.aSyncImageView setAndLoadImageFromUrl:doc.headerImageUrl];
     [cell setDoc:doc];
+    
+    
+    if([doc.rawDoc objectForKey:@"subject"]){
+        
+        NSMutableString * subs = [[NSMutableString alloc] init];
+        for (NSObject * obj in [doc.rawDoc objectForKey:@"subject"])
+        {
+            if(![subs isEqualToString:@""]){
+                [subs appendString:@", "];
+            }
+            [subs appendString:[obj description]];
+        }
+        [cell.subject setText:subs];
+    } else {
+        [cell.subject setText:@""];
+    }
+    
+    
+    
     return cell;
 }
 
@@ -75,11 +112,20 @@
 
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
-    [docs removeAllObjects];
+    loading = NO;
+
+    if(!_didTriggerLoadMore){
+        [docs removeAllObjects];
+    }
+    
+    
     [docs addObjectsFromArray:[results objectForKey:@"documents"]];
     
     [self reloadData];
-    [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewRowAnimationTop animated:YES];
+    
+    if(!_didTriggerLoadMore){
+        [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewRowAnimationTop animated:YES];
+    }
 
 }
 
@@ -96,6 +142,33 @@
     }
 
 }
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if(loading){
+        [self loadMoreItems:nil];
+    }
+    
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+    // NSLog(@" offset: %f  width: %f ", scrollView.contentOffset.x + scrollView.frame.size.width, scrollView.contentSize.width);
+    
+    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height + 100 && !loading){
+        loading = YES;
+    }
+    
+    
+}
+
+
+- (void)loadMoreItems:(id)sender {
+    NSLog(@"-----> trigger loadmore");
+    _didTriggerLoadMore = YES;
+    start = start + docs.count;
+    [_service loadMoreWithStart:[NSString stringWithFormat:@"%i", start]];
+    
+}
+
 
 
 /*

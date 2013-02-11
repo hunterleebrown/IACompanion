@@ -36,6 +36,7 @@
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [_toolBarTitle setTitle:@""];
+    [_homeContentTableView setDidTriggerLoadMore:NO];
     [_homeContentTableView.service getDocsWithQueryString:searchBar.text];
     [_toolBarButton setEnabled:NO];
     [self hideSplashView];
@@ -53,6 +54,7 @@
                                  MIMEType:@"text/html"
                          textEncodingName:@"UTF-8"
                                   baseURL:theBaseURL];
+    [_homeContentTableView setDidTriggerLoadMore:NO];
     [_homeContentTableView.service getDocsWithCollectionIdentifier:doc.identifier];
     [_toolBarTitle setTitle:doc.title];
     [_aSearchBar setText:@""];

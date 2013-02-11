@@ -23,5 +23,6 @@
 
 @property (nonatomic, retain) ArchiveDataService *service;
 @property (weak, nonatomic) IBOutlet id<HomeContentScrollingDelegate> scrollDelegate;
+@property (nonatomic) BOOL didTriggerLoadMore;  
 
 @end
