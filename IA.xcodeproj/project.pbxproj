@@ -75,14 +75,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A0A10AB16A640A300CC70CD /* The Internet Archive Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Internet Archive Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A0A10AB16A640A300CC70CD /* IA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0A10AF16A640A300CC70CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5A0A10B116A640A300CC70CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5A0A10B316A640A300CC70CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5A0A10B716A640A300CC70CD /* The Internet Archive Companion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "The Internet Archive Companion-Info.plist"; sourceTree = "<group>"; };
+		5A0A10B716A640A300CC70CD /* IA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IA-Info.plist"; sourceTree = "<group>"; };
 		5A0A10B916A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A0A10BB16A640A300CC70CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5A0A10BD16A640A300CC70CD /* The Internet Archive Companion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "The Internet Archive Companion-Prefix.pch"; sourceTree = "<group>"; };
+		5A0A10BD16A640A300CC70CD /* IA-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IA-Prefix.pch"; sourceTree = "<group>"; };
 		5A0A10BE16A640A300CC70CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A0A10BF16A640A300CC70CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5A0A10C116A640A300CC70CD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 		5A0A10C816A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5A0A10CA16A640A300CC70CD /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		5A0A10CB16A640A300CC70CD /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		5A0A10D216A640A300CC70CD /* The Internet Archive CompanionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Internet Archive CompanionTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A0A10D216A640A300CC70CD /* IATests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IATests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0A10D316A640A300CC70CD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		5A0A10DB16A640A300CC70CD /* The Internet Archive CompanionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "The Internet Archive CompanionTests-Info.plist"; sourceTree = "<group>"; };
+		5A0A10DB16A640A300CC70CD /* IATests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IATests-Info.plist"; sourceTree = "<group>"; };
 		5A0A10DD16A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A0A10DF16A640A300CC70CD /* The_Internet_Archive_CompanionTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = The_Internet_Archive_CompanionTests.h; sourceTree = "<group>"; };
 		5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Internet_Archive_CompanionTests.m; sourceTree = "<group>"; };
@@ -200,8 +200,8 @@
 		5A0A10AC16A640A300CC70CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A0A10AB16A640A300CC70CD /* The Internet Archive Companion.app */,
-				5A0A10D216A640A300CC70CD /* The Internet Archive CompanionTests.octest */,
+				5A0A10AB16A640A300CC70CD /* IA.app */,
+				5A0A10D216A640A300CC70CD /* IATests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,10 +245,10 @@
 				CE3019D116C5937A00733B99 /* Default-Portrait@2x~ipad.png */,
 				CE3019D216C5937A00733B99 /* Default-Portrait~ipad.png */,
 				CE752A2716C1799400A432AB /* uiglassbutton-template.png */,
-				5A0A10B716A640A300CC70CD /* The Internet Archive Companion-Info.plist */,
+				5A0A10B716A640A300CC70CD /* IA-Info.plist */,
 				5A0A10B816A640A300CC70CD /* InfoPlist.strings */,
 				5A0A10BB16A640A300CC70CD /* main.m */,
-				5A0A10BD16A640A300CC70CD /* The Internet Archive Companion-Prefix.pch */,
+				5A0A10BD16A640A300CC70CD /* IA-Prefix.pch */,
 				5A0A10C116A640A300CC70CD /* Default.png */,
 				5A0A10C316A640A300CC70CD /* Default@2x.png */,
 				5A0A10C516A640A300CC70CD /* Default-568h@2x.png */,
@@ -269,7 +269,7 @@
 		5A0A10DA16A640A300CC70CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5A0A10DB16A640A300CC70CD /* The Internet Archive CompanionTests-Info.plist */,
+				5A0A10DB16A640A300CC70CD /* IATests-Info.plist */,
 				5A0A10DC16A640A300CC70CD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -404,9 +404,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5A0A10AA16A640A300CC70CD /* The Internet Archive Companion */ = {
+		5A0A10AA16A640A300CC70CD /* IA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A0A10E416A640A300CC70CD /* Build configuration list for PBXNativeTarget "The Internet Archive Companion" */;
+			buildConfigurationList = 5A0A10E416A640A300CC70CD /* Build configuration list for PBXNativeTarget "IA" */;
 			buildPhases = (
 				5A0A10A716A640A300CC70CD /* Sources */,
 				5A0A10A816A640A300CC70CD /* Frameworks */,
@@ -416,14 +416,14 @@
 			);
 			dependencies = (
 			);
-			name = "The Internet Archive Companion";
+			name = IA;
 			productName = "The Internet Archive Companion";
-			productReference = 5A0A10AB16A640A300CC70CD /* The Internet Archive Companion.app */;
+			productReference = 5A0A10AB16A640A300CC70CD /* IA.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5A0A10D116A640A300CC70CD /* The Internet Archive CompanionTests */ = {
+		5A0A10D116A640A300CC70CD /* IATests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A0A10E716A640A300CC70CD /* Build configuration list for PBXNativeTarget "The Internet Archive CompanionTests" */;
+			buildConfigurationList = 5A0A10E716A640A300CC70CD /* Build configuration list for PBXNativeTarget "IATests" */;
 			buildPhases = (
 				5A0A10CD16A640A300CC70CD /* Sources */,
 				5A0A10CE16A640A300CC70CD /* Frameworks */,
@@ -435,9 +435,9 @@
 			dependencies = (
 				5A0A10D816A640A300CC70CD /* PBXTargetDependency */,
 			);
-			name = "The Internet Archive CompanionTests";
+			name = IATests;
 			productName = "The Internet Archive CompanionTests";
-			productReference = 5A0A10D216A640A300CC70CD /* The Internet Archive CompanionTests.octest */;
+			productReference = 5A0A10D216A640A300CC70CD /* IATests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -449,7 +449,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Hunter Lee Brown";
 			};
-			buildConfigurationList = 5A0A10A516A640A300CC70CD /* Build configuration list for PBXProject "The Internet Archive Companion" */;
+			buildConfigurationList = 5A0A10A516A640A300CC70CD /* Build configuration list for PBXProject "IA" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -461,8 +461,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5A0A10AA16A640A300CC70CD /* The Internet Archive Companion */,
-				5A0A10D116A640A300CC70CD /* The Internet Archive CompanionTests */,
+				5A0A10AA16A640A300CC70CD /* IA */,
+				5A0A10D116A640A300CC70CD /* IATests */,
 			);
 		};
 /* End PBXProject section */
@@ -567,7 +567,7 @@
 /* Begin PBXTargetDependency section */
 		5A0A10D816A640A300CC70CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5A0A10AA16A640A300CC70CD /* The Internet Archive Companion */;
+			target = 5A0A10AA16A640A300CC70CD /* IA */;
 			targetProxy = 5A0A10D716A640A300CC70CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -609,7 +609,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hunter L Brown (K4B37Y9ZCB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunter L Brown (PWQFAX8T56)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -625,7 +625,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "07741FA1-44E5-47DF-8850-F9A54645EEDE";
+				PROVISIONING_PROFILE = "C0E25857-80A0-45F4-B703-76329CE7C1D2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -640,7 +640,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hunter L Brown (K4B37Y9ZCB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunter L Brown (PWQFAX8T56)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -649,7 +649,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "07741FA1-44E5-47DF-8850-F9A54645EEDE";
+				PROVISIONING_PROFILE = "C0E25857-80A0-45F4-B703-76329CE7C1D2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -659,12 +659,12 @@
 		5A0A10E516A640A300CC70CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hunter L Brown (K4B37Y9ZCB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunter L Brown (M562U37R3G)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "The Internet Archive Companion/The Internet Archive Companion-Prefix.pch";
-				INFOPLIST_FILE = "The Internet Archive Companion/The Internet Archive Companion-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "07741FA1-44E5-47DF-8850-F9A54645EEDE";
+				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
+				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
+				PRODUCT_NAME = IA;
+				PROVISIONING_PROFILE = "B71838A7-FD66-4320-B12F-67BC44D498DB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -672,12 +672,12 @@
 		5A0A10E616A640A300CC70CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hunter L Brown (K4B37Y9ZCB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunter L Brown (M562U37R3G)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "The Internet Archive Companion/The Internet Archive Companion-Prefix.pch";
-				INFOPLIST_FILE = "The Internet Archive Companion/The Internet Archive Companion-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "07741FA1-44E5-47DF-8850-F9A54645EEDE";
+				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
+				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
+				PRODUCT_NAME = IA;
+				PROVISIONING_PROFILE = "B71838A7-FD66-4320-B12F-67BC44D498DB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -692,8 +692,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/The Internet Archive Companion-Prefix.pch";
-				INFOPLIST_FILE = "The Internet Archive CompanionTests/The Internet Archive CompanionTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "The Internet Archive CompanionTests/IATests-Info.plist";
+				PRODUCT_NAME = IATests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -709,8 +709,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/The Internet Archive Companion-Prefix.pch";
-				INFOPLIST_FILE = "The Internet Archive CompanionTests/The Internet Archive CompanionTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "The Internet Archive CompanionTests/IATests-Info.plist";
+				PRODUCT_NAME = IATests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -719,7 +719,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5A0A10A516A640A300CC70CD /* Build configuration list for PBXProject "The Internet Archive Companion" */ = {
+		5A0A10A516A640A300CC70CD /* Build configuration list for PBXProject "IA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A0A10E216A640A300CC70CD /* Debug */,
@@ -728,7 +728,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A0A10E416A640A300CC70CD /* Build configuration list for PBXNativeTarget "The Internet Archive Companion" */ = {
+		5A0A10E416A640A300CC70CD /* Build configuration list for PBXNativeTarget "IA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A0A10E516A640A300CC70CD /* Debug */,
@@ -737,7 +737,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A0A10E716A640A300CC70CD /* Build configuration list for PBXNativeTarget "The Internet Archive CompanionTests" */ = {
+		5A0A10E716A640A300CC70CD /* Build configuration list for PBXNativeTarget "IATests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A0A10E816A640A300CC70CD /* Debug */,
