@@ -7,3 +7,6 @@ This is not an official app of the Internet Archive, however it uses the publicl
 
 
 design and code, Hunter Lee Brown 2013   
+
+
+ * for iPad iOS 6 and above
