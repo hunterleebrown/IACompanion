@@ -11,11 +11,15 @@
 
 typedef enum {
     FileFormatOther = 0,
+    
     FileFormatVBRMP3 = 1,
+    
     FileFormatH264 = 2,
     FileFormatMPEG4 = 3,
     FileFormat512kbMPEG4 = 4,
-    FileFormatJPEG = 5
+    
+    FileFormatJPEG = 5,
+    FileFormatGIF = 6
     
 } FileFormat;
 

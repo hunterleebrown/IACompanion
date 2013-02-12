@@ -28,6 +28,7 @@
     _file = file;
     
     if([file objectForKey:@"format"]){
+        
         if([[file objectForKey:@"format"] isEqualToString:@"VBR MP3"]){
             _format = FileFormatVBRMP3;
         } else if([[file objectForKey:@"format"] isEqualToString:@"h.264"]){
@@ -38,7 +39,13 @@
             _format = FileFormat512kbMPEG4;
         }else if([[file objectForKey:@"format"] isEqualToString:@"JPEG"]){
             _format = FileFormatJPEG;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"GIF"]){
+            _format = FileFormatGIF;
         }
+        else {
+            _format = FileFormatOther;
+        }
+        
     } else {
         _format = FileFormatOther;
     }

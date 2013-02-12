@@ -69,7 +69,13 @@
     
     
     
-    if(file.format != FileFormatJPEG){
+    if(
+       file.format == FileFormatH264 ||
+       file.format == FileFormat512kbMPEG4 ||
+       file.format == FileFormatMPEG4 ||
+       file.format == FileFormatVBRMP3
+       
+       ){
         NSURL *movie = [NSURL URLWithString:file.url];
         
         NSLog(@"mp3: %@", file.url);
@@ -161,11 +167,7 @@
     
     
     for(ArchiveFile *file in _doc.files){
-        if(file.format == FileFormatVBRMP3 ||
-           file.format == FileFormatH264 ||
-           file.format == FileFormatMPEG4 ||
-           file.format == FileFormat512kbMPEG4 ||
-           file.format == FileFormatJPEG){
+        if(file.format != FileFormatOther){
             [vbrs addObject:file];
         }
     }
