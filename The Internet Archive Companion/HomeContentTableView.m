@@ -14,9 +14,8 @@
 @interface HomeContentTableView () {
     int start;
     NSString *sort;
-    BOOL shouldLoadMore;
     NSMutableArray *docs;
-
+    int numFound;
 }
 
 @end
@@ -32,8 +31,8 @@
         docs = [NSMutableArray new];
         start = 0;
         sort = @"publicdate+desc";
-        shouldLoadMore = NO;
         _didTriggerLoadMore = NO;
+        numFound = 0;
         
         _service = [ArchiveDataService new];
         [_service setDelegate:self];
@@ -52,9 +51,8 @@
         docs = [NSMutableArray new];
         start = 0;
         sort = @"publicdate+desc";
-        shouldLoadMore = NO;
         _didTriggerLoadMore = NO;
-
+        numFound = 0;
         
         _service = [ArchiveDataService new];
         [_service setDelegate:self];
@@ -113,7 +111,6 @@
 
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
-    shouldLoadMore = NO;
 
     if(!_didTriggerLoadMore){
         [docs removeAllObjects];
@@ -127,9 +124,9 @@
     if(!_didTriggerLoadMore){
         [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewRowAnimationTop animated:YES];
     }
-
+    numFound = [[results objectForKey:@"numFound"] intValue];
     
-    [_totalFound setText:[NSString stringWithFormat:@"%@ items found",  [results objectForKey:@"numFound"]]];
+    [_totalFound setText:[NSString stringWithFormat:@"%i items found",  numFound]];
 
     
 }
@@ -148,20 +145,17 @@
 
 }
 
-- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    if(shouldLoadMore){
-        if(docs.count > 0){
-            [self loadMoreItems:nil];
-        }
-    }
-    
-}
+
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     // NSLog(@" offset: %f  width: %f ", scrollView.contentOffset.x + scrollView.frame.size.width, scrollView.contentSize.width);
     
-    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height + 100 && !shouldLoadMore){
-        shouldLoadMore = YES;
+    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 300){
+        if(docs.count > 0  && docs.count < numFound ){
+            NSLog(@" docs.count:%i  numFound:%i", docs.count, numFound);
+            [self loadMoreItems:nil];
+        }
+        
     }
     
     
