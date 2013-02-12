@@ -61,7 +61,7 @@
             _format = FileFormatGIF;
         } else if([[file objectForKey:@"format"] isEqualToString:@"Single Page Processed JP2 ZIP"]){
             _format = FileFormatProcessedJP2ZIP;
-            _title = @"Read Online";
+            _title = @"View Pages";
         }
         else {
             _format = FileFormatOther;
