@@ -115,7 +115,7 @@
                                             <outlet property="delegate" destination="dGe-kY-kb9" id="C5g-ty-tln"/>
                                         </connections>
                                     </webView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fL-ft-iBe" customClass="HomeContentTableView">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fL-ft-iBe" customClass="HomeContentTableView">
                                         <rect key="frame" x="0.0" y="473" width="768" height="488"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -215,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEa-9m-jOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-457" y="-1082"/>
+            <point key="canvasLocation" x="-429" y="-1233"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="odw-2W-7K2">
@@ -231,7 +231,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUE-lW-M74" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1236" y="-50"/>
+            <point key="canvasLocation" x="-1244" y="326"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="4">
@@ -417,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-390" y="-50"/>
+            <point key="canvasLocation" x="-398" y="326"/>
         </scene>
         <!--Archive Detailed Collection View Controller-->
         <scene sceneID="xSI-xx-c5L">
@@ -565,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K06-22-DqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517" y="-78"/>
+            <point key="canvasLocation" x="433" y="326"/>
         </scene>
         <!--Archive Detailed View Controller-->
         <scene sceneID="tUu-5H-6hW">
@@ -736,7 +736,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsW-Dz-qyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="-1210"/>
+            <point key="canvasLocation" x="622" y="-1233"/>
         </scene>
     </scenes>
     <resources>
@@ -885,9 +885,6 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
@@ -895,7 +892,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mbX-ep-fhz"/>
         <segue reference="PVC-Mv-n42"/>
+        <segue reference="mbX-ep-fhz"/>
     </inferredMetricsTieBreakers>
 </document>

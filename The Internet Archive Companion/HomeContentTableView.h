@@ -16,9 +16,7 @@
 
 @end
 
-@interface HomeContentTableView : UITableView <UITableViewDataSource, UITableViewDelegate, ArchiveDataServiceDelegate> {
-    NSMutableArray *docs;
-}
+@interface HomeContentTableView : UITableView <UITableViewDataSource, UITableViewDelegate, ArchiveDataServiceDelegate> 
 
 
 @property (nonatomic, retain) ArchiveDataService *service;

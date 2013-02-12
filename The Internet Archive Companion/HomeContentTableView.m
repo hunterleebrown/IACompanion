@@ -14,7 +14,8 @@
 @interface HomeContentTableView () {
     int start;
     NSString *sort;
-    BOOL loading;
+    BOOL shouldLoadMore;
+    NSMutableArray *docs;
 
 }
 
@@ -31,7 +32,7 @@
         docs = [NSMutableArray new];
         start = 0;
         sort = @"publicdate+desc";
-        loading = NO;
+        shouldLoadMore = NO;
         _didTriggerLoadMore = NO;
         
         _service = [ArchiveDataService new];
@@ -51,7 +52,7 @@
         docs = [NSMutableArray new];
         start = 0;
         sort = @"publicdate+desc";
-        loading = NO;
+        shouldLoadMore = NO;
         _didTriggerLoadMore = NO;
 
         
@@ -112,7 +113,7 @@
 
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
-    loading = NO;
+    shouldLoadMore = NO;
 
     if(!_didTriggerLoadMore){
         [docs removeAllObjects];
@@ -148,8 +149,10 @@
 }
 
 - (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    if(loading){
-        [self loadMoreItems:nil];
+    if(shouldLoadMore){
+        if(docs.count > 0){
+            [self loadMoreItems:nil];
+        }
     }
     
 }
@@ -157,8 +160,8 @@
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     // NSLog(@" offset: %f  width: %f ", scrollView.contentOffset.x + scrollView.frame.size.width, scrollView.contentSize.width);
     
-    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height + 100 && !loading){
-        loading = YES;
+    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height + 100 && !shouldLoadMore){
+        shouldLoadMore = YES;
     }
     
     
@@ -170,7 +173,6 @@
     _didTriggerLoadMore = YES;
     start = start + docs.count;
     [_service loadMoreWithStart:[NSString stringWithFormat:@"%i", start]];
-    
 }
 
 
