@@ -43,6 +43,7 @@
 		5A990BBF16BA592900B4C058 /* ArchiveDetailedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBE16BA592800B4C058 /* ArchiveDetailedCollectionViewController.m */; };
 		5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */; };
 		5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */; };
+		5AD5975316CA1AE300AD663B /* ArchivePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5975216CA1AE300AD663B /* ArchivePageViewController.m */; };
 		5ADAB7D316C6C1B400DBC072 /* HomeCombinedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */; };
 		5ADAB7D616C6D40400DBC072 /* HomeContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7D516C6D40400DBC072 /* HomeContentTableView.m */; };
 		5ADAB7E216C6FA9600DBC072 /* HomeNavTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7E116C6FA9600DBC072 /* HomeNavTableView.m */; };
@@ -131,6 +132,8 @@
 		5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedViewController.m; sourceTree = "<group>"; };
 		5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDataService.h; sourceTree = "<group>"; };
 		5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDataService.m; sourceTree = "<group>"; };
+		5AD5975116CA1AE300AD663B /* ArchivePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePageViewController.h; sourceTree = "<group>"; };
+		5AD5975216CA1AE300AD663B /* ArchivePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePageViewController.m; sourceTree = "<group>"; };
 		5ADAB7D116C6C1B400DBC072 /* HomeCombinedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCombinedViewController.h; sourceTree = "<group>"; };
 		5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCombinedViewController.m; sourceTree = "<group>"; };
 		5ADAB7D416C6D40400DBC072 /* HomeContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeContentTableView.h; sourceTree = "<group>"; };
@@ -402,6 +405,8 @@
 				5A23930B16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m */,
 				CE1B959116C9D722002E9D8D /* ArchiveBookPageImageViewController.h */,
 				CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */,
+				5AD5975116CA1AE300AD663B /* ArchivePageViewController.h */,
+				5AD5975216CA1AE300AD663B /* ArchivePageViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				5A528DBE16C782100066EEEF /* HomeNavSectionView.m in Sources */,
 				5A528DC316C7A14D0066EEEF /* HomeContentParentView.m in Sources */,
 				CE1B959316C9D722002E9D8D /* ArchiveBookPageImageViewController.m in Sources */,
+				5AD5975316CA1AE300AD663B /* ArchivePageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
