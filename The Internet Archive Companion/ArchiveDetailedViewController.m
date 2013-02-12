@@ -167,6 +167,8 @@
     
     
     for(ArchiveFile *file in _doc.files){
+        NSLog(@"file %@%@/%@", file.server, file.directory, file.name);
+        
         if(file.format != FileFormatOther){
             [vbrs addObject:file];
         }
