@@ -67,6 +67,7 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
   //  NSLog(@"------> page: %@", page);
    // NSLog(@"------> url: %@", _url);
     [_aSyncImageView setAndLoadImageFromUrl:_url];
+    [_pageNumber setText:[NSString stringWithFormat:@"%i", (_index + 1)]];
 }
 
 

@@ -16,9 +16,7 @@
 
 @interface ArchiveDetailedViewController (){
     ArchiveFile *bookFile;
-    int pageNumber;
-    ArchiveBookPageImageViewController *nextController;
-    ArchiveBookPageImageViewController *previousController;
+    ArchiveBookPageImageViewController *firstPage;
     NSMutableArray *pages;
 }
 @end
@@ -39,7 +37,6 @@
         service = [ArchiveDataService new];
         [service setDelegate:self];
         
-        pageNumber = 0;
         
         pages = [NSMutableArray new];
         
@@ -113,11 +110,8 @@
             [jpegView setContentMode:UIViewContentModeScaleAspectFit];
             [pushController setTitle:file.name];
         } else if(file.format == FileFormatProcessedJP2ZIP) {
-
             
-            //[self.navigationController pushViewController:page animated:YES];
             bookFile = file;
-            
             [self performSegueWithIdentifier:@"bookViewer" sender:bookFile];
             
         }
@@ -130,19 +124,15 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"bookViewer"]){
-        ArchiveBookPageImageViewController *page = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
-        [page setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:0];
+        firstPage = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
+        [firstPage setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:0];
         
         ArchivePageViewController *bookViewController = [segue destinationViewController];
         [bookViewController setDataSource:self];
-        [bookViewController setViewControllers:@[page] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
+        [bookViewController setViewControllers:@[firstPage] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
         
-        
-        [pages setObject:page atIndexedSubscript:0];
-        
-        nextController = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
-        [nextController setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:1];
-        [pages setObject:nextController atIndexedSubscript:1];
+        [pages setObject:firstPage atIndexedSubscript:0];
+        [pages setObject:[self pageControllerWithIndex:1] atIndexedSubscript:1];
   
         
         
@@ -153,38 +143,33 @@
 
 #pragma mark - page view controller
 
-- (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(ArchiveBookPageImageViewController *)viewController{
-    
-    ArchiveBookPageImageViewController *page = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
-    [page setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:(viewController.index + 2)];
-  
-    [pages setObject:page atIndexedSubscript:(viewController.index + 2)];
-    
-    
-    
-    return [pages objectAtIndex:(viewController.index + 1)];
+- (ArchiveBookPageImageViewController *) pageControllerWithIndex:(int)index{
 
+    ArchiveBookPageImageViewController *page = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
+    [page setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:index];
+
+    return page;
+}
+
+
+- (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(ArchiveBookPageImageViewController *)viewController{
+        
+    ArchiveBookPageImageViewController *show = [pages objectAtIndex:1];
+    [pages setObject:[self pageControllerWithIndex:(show.index + 1)] atIndexedSubscript:1];
+    [pages setObject:[self pageControllerWithIndex:(show.index -1)] atIndexedSubscript:0];
+    return show;
 }
 
 
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(ArchiveBookPageImageViewController *)viewController{
-    
-    if(viewController.index == 1){
-        return [pages objectAtIndex:0];
-    
-    } else if(viewController.index == 0){
-        return nil;
         
+    if(viewController.index == 0){
+        return firstPage;
     } else{
-    
-    
-        ArchiveBookPageImageViewController *page = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
-        [page setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:(viewController.index - 2)];
-    
-        [pages setObject:page atIndexedSubscript:(viewController.index - 2)];
-    
-    
-        return [pages objectAtIndex:(viewController.index - 1)];
+        ArchiveBookPageImageViewController *show = [pages objectAtIndex:0];
+        [pages setObject:[self pageControllerWithIndex:(show.index + 1)] atIndexedSubscript:1];
+        [pages setObject:[self pageControllerWithIndex:(show.index -1)] atIndexedSubscript:0];
+        return show;
     }
 }
 
