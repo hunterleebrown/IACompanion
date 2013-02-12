@@ -223,9 +223,9 @@
 		5A0A10B516A640A300CC70CD /* The Internet Archive Companion */ = {
 			isa = PBXGroup;
 			children = (
-				5AFA0C4416C8CA0E008E7CB2 /* New Home Scroll Design */,
 				5ADAB7ED16C76E8100DBC072 /* IA Resources */,
 				CE3019CB16C5728700733B99 /* Utils */,
+				5AFA0C4416C8CA0E008E7CB2 /* New Home Scroll Design */,
 				CEEA63FF16C4192C00DCA3BC /* Controllers */,
 				5A8A193B16B5B13700F6A2E4 /* Views */,
 				5AD2070E16A8F9460027CCA5 /* Data */,

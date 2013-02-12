@@ -15,6 +15,6 @@
 
 @property (nonatomic, retain) AsyncImageView *aSyncImageView;
 
-- (id) initWithZipFileLocation:(NSString *)zipFile withIdentifier:(NSString *)identifier withIndex:(int)index;
+- (id) initWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(NSString *)index;
 
 @end

@@ -11,6 +11,7 @@
 #import "ArchiveFileTableViewCell.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "StringUtils.h"
+#import "ArchiveBookPageImageViewController.h"
 
 @interface ArchiveDetailedViewController ()
 
@@ -93,14 +94,23 @@
     }
     else {
         
-        UIViewController *pushController = [UIViewController new];
-        
-        AsyncImageView *jpegView = [[AsyncImageView alloc]initWithFrame:pushController.view.bounds];
-        [pushController setView:jpegView];
-        [self.navigationController pushViewController:pushController animated:YES];
-        [jpegView setAndLoadImageFromUrl:file.url];
-        [jpegView setContentMode:UIViewContentModeScaleAspectFit];
-        [pushController setTitle:file.name];
+        if(file.format == FileFormatJPEG || file.format == FileFormatGIF) {
+            UIViewController *pushController = [UIViewController new];
+            
+            AsyncImageView *jpegView = [[AsyncImageView alloc]initWithFrame:pushController.view.bounds];
+            [pushController setView:jpegView];
+            [self.navigationController pushViewController:pushController animated:YES];
+            [jpegView setAndLoadImageFromUrl:file.url];
+            [jpegView setContentMode:UIViewContentModeScaleAspectFit];
+            [pushController setTitle:file.name];
+        } else if(file.format == FileFormatProcessedJP2ZIP) {
+
+            ArchiveBookPageImageViewController *page =
+            [[ArchiveBookPageImageViewController alloc] initWithServer:file.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", file.directory, file.name] withFileName:file.name withIdentifier:_identifier withIndex:@"0000"];
+            
+            [self.navigationController pushViewController:page animated:YES];
+            
+        }
     
     
     }

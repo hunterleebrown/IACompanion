@@ -41,6 +41,8 @@
             _format = FileFormatJPEG;
         } else if([[file objectForKey:@"format"] isEqualToString:@"GIF"]){
             _format = FileFormatGIF;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"Single Page Processed JP2 ZIP"]){
+            _format = FileFormatProcessedJP2ZIP;
         }
         else {
             _format = FileFormatOther;
