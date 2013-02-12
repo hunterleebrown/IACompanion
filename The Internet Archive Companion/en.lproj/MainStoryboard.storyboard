@@ -736,7 +736,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsW-Dz-qyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="-1233"/>
+            <point key="canvasLocation" x="470" y="-1233"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="WKj-4q-RCS">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="y53-fE-RS1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xgN-lb-TLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1333" y="-1233"/>
         </scene>
     </scenes>
     <resources>
@@ -893,6 +901,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="PVC-Mv-n42"/>
-        <segue reference="mbX-ep-fhz"/>
+        <segue reference="ZmM-Bp-U4D"/>
     </inferredMetricsTieBreakers>
 </document>

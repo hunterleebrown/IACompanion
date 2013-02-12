@@ -52,6 +52,7 @@
 		5ADAB7F116C76F5400DBC072 /* audio.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7EE16C76F5400DBC072 /* audio.gif */; };
 		5ADAB7F216C76F5400DBC072 /* movies.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7EF16C76F5400DBC072 /* movies.gif */; };
 		5ADAB7F316C76F5400DBC072 /* texts.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7F016C76F5400DBC072 /* texts.gif */; };
+		CE1B959316C9D722002E9D8D /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */; };
 		CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3019CD16C5729E00733B99 /* StringUtils.m */; };
 		CE3019D316C5937A00733B99 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019CF16C5937A00733B99 /* Default-Landscape@2x~ipad.png */; };
 		CE3019D416C5937A00733B99 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019D016C5937A00733B99 /* Default-Landscape~ipad.png */; };
@@ -145,6 +146,8 @@
 		5ADAB7EE16C76F5400DBC072 /* audio.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = audio.gif; sourceTree = "<group>"; };
 		5ADAB7EF16C76F5400DBC072 /* movies.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = movies.gif; sourceTree = "<group>"; };
 		5ADAB7F016C76F5400DBC072 /* texts.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = texts.gif; sourceTree = "<group>"; };
+		CE1B959116C9D722002E9D8D /* ArchiveBookPageImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageImageViewController.h; sourceTree = "<group>"; };
+		CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageImageViewController.m; sourceTree = "<group>"; };
 		CE3019CC16C5729E00733B99 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		CE3019CD16C5729E00733B99 /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtils.m; sourceTree = "<group>"; };
 		CE3019CF16C5937A00733B99 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -397,6 +400,8 @@
 				5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */,
 				5A23930A16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.h */,
 				5A23930B16C3A84D00C3E107 /* ArchiveMoviePlayerViewController.m */,
+				CE1B959116C9D722002E9D8D /* ArchiveBookPageImageViewController.h */,
+				CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -551,6 +556,7 @@
 				5ADAB7EC16C76DE800DBC072 /* HomeContentCell.m in Sources */,
 				5A528DBE16C782100066EEEF /* HomeNavSectionView.m in Sources */,
 				5A528DC316C7A14D0066EEEF /* HomeContentParentView.m in Sources */,
+				CE1B959316C9D722002E9D8D /* ArchiveBookPageImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
