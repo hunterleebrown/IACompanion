@@ -12,9 +12,12 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "StringUtils.h"
 #import "ArchiveBookPageImageViewController.h"
+#import "ArchivePageViewController.h"
 
-@interface ArchiveDetailedViewController ()
-
+@interface ArchiveDetailedViewController (){
+    ArchiveFile *bookFile;
+    int pageNumber;
+}
 @end
 
 @implementation ArchiveDetailedViewController
@@ -33,7 +36,8 @@
         service = [ArchiveDataService new];
         [service setDelegate:self];
         
-
+        pageNumber = 0;
+        
         // ...
 
         
@@ -105,10 +109,11 @@
             [pushController setTitle:file.name];
         } else if(file.format == FileFormatProcessedJP2ZIP) {
 
-            ArchiveBookPageImageViewController *page =
-            [[ArchiveBookPageImageViewController alloc] initWithServer:file.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", file.directory, file.name] withFileName:file.name withIdentifier:_identifier withIndex:@"0000"];
             
-            [self.navigationController pushViewController:page animated:YES];
+            //[self.navigationController pushViewController:page animated:YES];
+            bookFile = file;
+            
+            [self performSegueWithIdentifier:@"bookViewer" sender:bookFile];
             
         }
     
@@ -117,6 +122,47 @@
 
 
 }
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"bookViewer"]){
+
+        
+        ArchiveBookPageImageViewController *page =[[ArchiveBookPageImageViewController alloc] initWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:0];
+
+
+
+        
+        ArchivePageViewController *bookViewController = [segue destinationViewController];
+        [bookViewController setDataSource:self];
+        [bookViewController setViewControllers:@[page] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
+        
+        
+    }
+}
+
+
+#pragma mark - page view controller
+
+- (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(ArchiveBookPageImageViewController *)viewController{
+    
+    NSUInteger index = viewController.index;
+    
+    ArchiveBookPageImageViewController *page =[[ArchiveBookPageImageViewController alloc] initWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:(index + 1)];
+    
+    return page;
+
+}
+
+
+- (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(ArchiveBookPageImageViewController *)viewController{
+    NSUInteger index = viewController.index;
+
+    ArchiveBookPageImageViewController *page =[[ArchiveBookPageImageViewController alloc] initWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:(index - 1)];
+    
+
+    return page;
+}
+
 
 
 - (void)playbackDidFinish:(NSNotification *)notification{
@@ -177,7 +223,7 @@
     
     
     for(ArchiveFile *file in _doc.files){
-        NSLog(@"file %@%@/%@", file.server, file.directory, file.name);
+       // NSLog(@"file %@%@/%@", file.server, file.directory, file.name);
         
         if(file.format != FileFormatOther){
             [vbrs addObject:file];

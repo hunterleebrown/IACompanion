@@ -732,16 +732,19 @@
                         <outlet property="subject" destination="gKV-6L-2G6" id="21T-AY-F7q"/>
                         <outlet property="tableView" destination="9Np-SX-QeY" id="343-a4-GbX"/>
                         <outlet property="uploader" destination="YYK-OP-Vct" id="WiY-g5-CbB"/>
+                        <segue destination="y53-fE-RS1" kind="push" identifier="bookViewer" id="ocb-ZN-o1S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsW-Dz-qyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="470" y="-1233"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Archive Page View Controller-->
         <scene sceneID="WKj-4q-RCS">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="y53-fE-RS1" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="currentContext" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="y53-fE-RS1" customClass="ArchivePageViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wkb-xL-dr8"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgN-lb-TLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1333" y="-1233"/>
@@ -810,6 +813,9 @@
             <relationships>
                 <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="ArchivePageViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePageViewController.h"/>
         </class>
         <class className="AsyncImage" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImage.h"/>
@@ -892,9 +898,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
