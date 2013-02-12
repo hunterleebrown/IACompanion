@@ -34,37 +34,41 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        [self.view setBackgroundColor:[UIColor whiteColor]];
+
+        
     }
     return self;
 }
 
-- (id) initWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(int)index{
-
-    self = [super init];
+- (id) initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
     if(self){
-        _server = server;
-        _zipFile = zipFile;
-        _identifier = identifier;
-        _index = index;
-        _name = name;
-        
-
-
-
-        NSString *page = [name substringWithRange:NSMakeRange(0, (name.length - 8))];
-
-        _url = [NSString stringWithFormat:@"http://%@%@zip=%@&file=%@_jp2/%@_%@.jp2&scale=2", _server, BookReaderImagesPHP, _zipFile, page, page, [NSString stringWithFormat:@"%04d", _index]];
-
-        NSLog(@"------> page: %@", page);
-
-        NSLog(@"------> url: %@", _url);
-
+    
         [self.view setBackgroundColor:[UIColor whiteColor]];
 
     }
     return self;
-    
 }
+
+
+
+- (void) setPageWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(int)index{
+
+    _server = server;
+    _zipFile = zipFile;
+    _identifier = identifier;
+    _index = index;
+    _name = name;
+
+    NSString *page = [name substringWithRange:NSMakeRange(0, (name.length - 8))];
+    _url = [NSString stringWithFormat:@"http://%@%@zip=%@&file=%@_jp2/%@_%@.jp2&scale=2", _server, BookReaderImagesPHP, _zipFile, page, page, [NSString stringWithFormat:@"%04d", _index]];
+  //  NSLog(@"------> page: %@", page);
+   // NSLog(@"------> url: %@", _url);
+    [_aSyncImageView setAndLoadImageFromUrl:_url];
+}
+
 
 - (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     [self.aSyncImageView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
@@ -86,12 +90,9 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.aSyncImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    [self.aSyncImageView setContentMode:UIViewContentModeScaleAspectFit];
-    [self.view addSubview:self.aSyncImageView];
-    [_aSyncImageView setAndLoadImageFromUrl:_url];
-
     
+    
+
     
     
 	// Do any additional setup after loading the view.

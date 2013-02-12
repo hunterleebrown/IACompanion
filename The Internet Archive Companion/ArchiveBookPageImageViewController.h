@@ -13,7 +13,7 @@
 
 
 
-@property (nonatomic, retain) AsyncImageView *aSyncImageView;
+@property (nonatomic, retain) IBOutlet AsyncImageView *aSyncImageView;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *server;
 @property (nonatomic, retain) NSString *identifier;
@@ -21,6 +21,6 @@
 @property (nonatomic) int index;
 @property (nonatomic, retain) NSString *url;
 
-- (id) initWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(int)index;
+- (void) setPageWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(int)index;
 
 @end
