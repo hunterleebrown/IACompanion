@@ -214,52 +214,7 @@
 }
 
 
-- (ArchiveBookPageImageViewController *) pageControllerWithIndex:(int)index{
-    
-    NSLog(@"--------> pageDictionary size: %i", pageDictionary.count);
-    
-    id cPage = [pageDictionary objectForKey:[NSString stringWithFormat:@"%i", index]];
-    if(cPage != nil){
-        NSLog(@"-----> page dictionary hit!");
-        return (ArchiveBookPageImageViewController *)cPage;
-    } else {
-        
-        ArchiveBookPageImageViewController *page = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
-        [page setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:index];
-        [pageDictionary setObject:page forKey:[NSString stringWithFormat:@"%i", index]];
-        
-        if(!(index - 1) < 0){
-            ArchiveBookPageImageViewController *prev = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
-            [prev setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:(index - 1)];
-            [pageDictionary setObject:prev forKey:[NSString stringWithFormat:@"%i", (index - 1)]];
-        
-        }
-        
-        ArchiveBookPageImageViewController *next = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
-        [next setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:(index + 1)];
-        [pageDictionary setObject:next forKey:[NSString stringWithFormat:@"%i", (index + 1)]];
-        
-        
-       // if(pageDictionary.count > 3){
-            if([pageDictionary objectForKey:[NSString stringWithFormat:@"%i", index - 2]] != nil){
-                NSLog(@"---> got a minus 2, deleting!");
-                [pageDictionary removeObjectForKey:[NSString stringWithFormat:@"%i", index - 2]];
-            }
 
-            if([pageDictionary objectForKey:[NSString stringWithFormat:@"%i", index + 2]] != nil){
-                NSLog(@"---> got a plus 2, deleting!");
-                [pageDictionary removeObjectForKey:[NSString stringWithFormat:@"%i", index + 2]];
-            }
-
-        NSLog(@"---> post pageDictionary size: %i", pageDictionary.count);
-
-        
-        //}
-        
-        
-        return page;
-    }
-}
 
 
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(ArchiveBookPageImageViewController *)viewController{
@@ -313,9 +268,9 @@
         
         
         NSArray *viewControllers = nil;
-        ArchiveBookPageImageViewController *currentViewController = [bookViewController.viewControllers objectAtIndex:0];
+        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:1];
         
-        NSLog(@"-------> controller index: %i", currentViewController.index);
+        NSLog(@"-------> controller index: %i", ((ArchiveBookPageImageViewController*)[pages objectAtIndex:1]).index);
         
         
         NSUInteger currentIndex = currentViewController.index;
@@ -337,7 +292,7 @@
     } else {
         
         
-        UIViewController *currentViewController = [bookViewController.viewControllers objectAtIndex:0];
+        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:1];
         NSArray *viewControllers = [NSArray arrayWithObject:currentViewController];
         [bookViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
         
