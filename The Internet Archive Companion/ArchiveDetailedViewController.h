@@ -13,7 +13,7 @@
 #import "AsyncImageView.h"
 
 
-@interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource> {
+@interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
     
     ArchiveDataService *service;
     NSMutableArray *vbrs;
