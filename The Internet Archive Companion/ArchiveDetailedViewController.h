@@ -11,6 +11,7 @@
 #import "ArchiveDataService.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "AsyncImageView.h"
+#import "ArchiveMetadataTableView.h"
 
 
 @interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
@@ -36,6 +37,11 @@
 @property (nonatomic, retain) IBOutlet UILabel *from;
 @property (nonatomic, retain) IBOutlet UILabel *uploader;
 
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *viewWebPageButton;
 
+@property (nonatomic, weak) IBOutlet ArchiveMetadataTableView *metadataTableView;
+
+
+- (IBAction)openWebPage:(id)sender;
 
 @end

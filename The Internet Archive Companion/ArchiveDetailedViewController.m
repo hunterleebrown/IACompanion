@@ -367,32 +367,8 @@
     }
     
     
-    
-    if([metadata objectForKey:@"publicdate"]){
-        [self.added setText:[StringUtils displayDateFromArchiveMetaDateString:[metadata objectForKey:@"publicdate"]]];
         
-        
-    }
-    if([metadata objectForKey:@"addeddate"]){
-        [self.from setText:[StringUtils displayDateFromArchiveMetaDateString:[metadata objectForKey:@"addeddate"]]];
-    }
-    if([metadata objectForKey:@"publisher"]){
-        [self.publisher setText:[StringUtils stringFromObject:[metadata objectForKey:@"publisher"]]];
-    }
-    
-
-    
-    
-    if([metadata objectForKey:@"creator"]){
-        [self.creator setText:[StringUtils stringFromObject:[metadata objectForKey:@"creator"]]];
-    }
-    
-    
-    
-    
-    if([metadata objectForKey:@"uploader"]){
-        [self.uploader setText:[StringUtils stringFromObject:[metadata objectForKey:@"uploader"]]];
-    }
+    [self.metadataTableView setMetadata:[_doc.rawDoc objectForKey:@"metadata"]];
 
 }
 
@@ -411,6 +387,13 @@
 - (void) setIdentifier:(NSString *)identifier{
     _identifier = identifier;
     [service getMetadataDocsWithIdentifier:identifier];
+
+}
+
+- (IBAction)openWebPage:(id)sender{
+    
+    NSURL *aUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", _identifier]];
+    [[UIApplication sharedApplication] openURL:aUrl];
 
 }
 

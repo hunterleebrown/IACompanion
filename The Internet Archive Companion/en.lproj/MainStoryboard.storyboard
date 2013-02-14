@@ -19,7 +19,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9A-dU-hn0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1480" y="-1233"/>
+            <point key="canvasLocation" x="-1304" y="-1233"/>
         </scene>
         <!--Home Combined View Controller-->
         <scene sceneID="JX5-LD-vo2">
@@ -288,20 +288,6 @@
                                     </imageView>
                                 </subviews>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Creator:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aBt-Cf-Y3Q">
-                                <rect key="frame" x="20" y="177" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publisher:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fiv-Mg-dhe">
-                                <rect key="frame" x="20" y="206" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" id="gKV-6L-2G6">
                                 <rect key="frame" x="20" y="119" width="380" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -309,79 +295,63 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xhr-82-640">
-                                <rect key="frame" x="20" y="235" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Added:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="svy-1T-ENR">
-                                <rect key="frame" x="20" y="264" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GPf-C1-I7b">
-                                <rect key="frame" x="122" y="206" width="278" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yjJ-4D-Pr9">
-                                <rect key="frame" x="122" y="177" width="278" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="huh-iS-AYb">
-                                <rect key="frame" x="122" y="235" width="278" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cTM-3p-itg">
-                                <rect key="frame" x="122" y="264" width="278" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Uploader:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wQq-KS-sx6">
-                                <rect key="frame" x="20" y="292" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" id="YYK-OP-Vct">
-                                <rect key="frame" x="122" y="292" width="278" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" id="qsM-Kr-6Cx" customClass="ArchiveMetadataTableView">
+                                <rect key="frame" x="20" y="177" width="380" height="137"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ArchiveMetadataTableViewCell" id="L5d-AD-n9W" customClass="ArchiveMetadataTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="380" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="380" height="39"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="kFY-Ks-Cyc">
+                                                    <rect key="frame" x="20" y="11" width="100" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" id="8eO-ka-MKe">
+                                                    <rect key="frame" x="128" y="0.0" width="252" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="key" destination="kFY-Ks-Cyc" id="Cdu-aP-EGY"/>
+                                            <outlet property="value" destination="8eO-ka-MKe" id="7I5-LK-tHU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="f2F-y1-lk2"/>
+                    <navigationItem key="navigationItem" id="f2F-y1-lk2">
+                        <barButtonItem key="rightBarButtonItem" title="Visit Item Web Page" id="oNv-Uz-WsW">
+                            <connections>
+                                <action selector="openWebPage:" destination="5Hf-D6-IM6" id="Rd3-1W-Tdl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="aSyncImage" destination="hSp-Yc-HvM" id="eor-EW-amv"/>
-                        <outlet property="added" destination="cTM-3p-itg" id="MiD-yp-wPU"/>
-                        <outlet property="creator" destination="yjJ-4D-Pr9" id="WYT-VQ-NMY"/>
                         <outlet property="description" destination="WnN-ve-aSX" id="VlE-b5-rUe"/>
                         <outlet property="docTitle" destination="GJ4-U2-TiI" id="Vwi-gV-YK3"/>
-                        <outlet property="from" destination="huh-iS-AYb" id="bgn-Lf-eRb"/>
+                        <outlet property="metadataTableView" destination="qsM-Kr-6Cx" id="9E4-Qy-TOb"/>
                         <outlet property="movieView" destination="4hd-DC-8DL" id="3ld-Ss-hTN"/>
-                        <outlet property="publisher" destination="GPf-C1-I7b" id="1JV-CF-7dq"/>
                         <outlet property="subject" destination="gKV-6L-2G6" id="21T-AY-F7q"/>
                         <outlet property="tableView" destination="9Np-SX-QeY" id="343-a4-GbX"/>
-                        <outlet property="uploader" destination="YYK-OP-Vct" id="WiY-g5-CbB"/>
+                        <outlet property="viewWebPageButton" destination="oNv-Uz-WsW" id="uEw-Up-VJp"/>
                         <segue destination="y53-fE-RS1" kind="push" identifier="bookViewer" id="ocb-ZN-o1S"/>
                     </connections>
                 </viewController>
@@ -405,6 +375,109 @@
         <image name="leftContentShadow.png" width="21" height="461"/>
         <image name="vertShadow.png" width="320" height="19"/>
     </resources>
+    <classes>
+        <class className="ArchiveDetailedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="openWebPage:"/>
+                <relationship kind="outlet" name="aSyncImage" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="added" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="creator" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="description" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="docTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="from" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="metadataTableView" candidateClass="ArchiveMetadataTableView"/>
+                <relationship kind="outlet" name="movieView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="publisher" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="uploader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewWebPageButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ArchiveFileTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveFileTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchiveMetadataTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveMetadataTableView.h"/>
+        </class>
+        <class className="ArchiveMetadataTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveMetadataTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="key" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="value" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchivePageViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePageViewController.h"/>
+        </class>
+        <class className="AsyncImage" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImage.h"/>
+        </class>
+        <class className="AsyncImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImageView.h"/>
+        </class>
+        <class className="HomeCombinedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeCombinedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentScrollView" candidateClass="HomeScrollView"/>
+            </relationships>
+        </class>
+        <class className="HomeContentCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aSyncImageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="underlayView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="HomeContentParentView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentParentView.h"/>
+            <relationships>
+                <relationship kind="action" name="toggleDetails:"/>
+                <relationship kind="outlet" name="aSearchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="descriptionShadow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="homeContentDescriptionView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
+                <relationship kind="outlet" name="iASplashImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="toolBarButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolBarTitle" candidateClass="UIBarItem"/>
+            </relationships>
+        </class>
+        <class className="HomeContentTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollDelegate"/>
+                <relationship kind="outlet" name="totalFound" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HomeNavCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navImageView" candidateClass="AsyncImage"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HomeNavTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="touchDelegate"/>
+            </relationships>
+        </class>
+        <class className="HomeScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeScrollView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="homeContentView" candidateClass="HomeContentParentView"/>
+                <relationship kind="outlet" name="homeNavTableView" candidateClass="HomeNavTableView"/>
+                <relationship kind="outlet" name="homeNavView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

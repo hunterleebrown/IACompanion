@@ -15,6 +15,8 @@ NSString *const DisplayDateFormat = @"MMMM d, YYYY";
 NSString *const ArchiveDateFormat = @"yyyy'-'MM'-'dd'T'HH:mm:ss'Z'";
 //2010-07-06 22:50:45
 NSString *const ArchiveMetaDateFormat = @"yyyy'-'MM'-'dd' 'HH':'mm':'ss";
+//2010-07-06
+NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 
 
 
@@ -42,6 +44,21 @@ NSString *const ArchiveMetaDateFormat = @"yyyy'-'MM'-'dd' 'HH':'mm':'ss";
     
     dateFormatter.dateFormat = ArchiveDateFormat;
     NSDate *sDate = [dateFormatter dateFromString:archiveInDate];
+    
+    NSDateFormatter *showDateFormat = [NSDateFormatter new];
+    [showDateFormat setDateFormat:DisplayDateFormat];
+    NSString *theDate = [showDateFormat stringFromDate:sDate];
+    
+    return theDate;
+}
+
+
++ (NSString *) displayDateFromArchiveDayString:(NSString *)metaDate{
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    dateFormatter.dateFormat = ArchiveMetaDayFormat;
+    NSDate *sDate = [dateFormatter dateFromString:metaDate];
     
     NSDateFormatter *showDateFormat = [NSDateFormatter new];
     [showDateFormat setDateFormat:DisplayDateFormat];
@@ -86,8 +103,15 @@ NSString *const ArchiveMetaDateFormat = @"yyyy'-'MM'-'dd' 'HH':'mm':'ss";
         return subs;
         
     } else if([object isKindOfClass:[NSString class]]) {
-        
-        return (NSString *)object;
+        if([StringUtils displayDateFromArchiveDayString:(NSString*)object]){
+            return [StringUtils displayDateFromArchiveDayString:(NSString*)object];
+        } else if([StringUtils displayDateFromArchiveDateString:(NSString*)object]){
+            return [StringUtils displayDateFromArchiveDateString:(NSString*)object];
+        } else if([StringUtils displayDateFromArchiveMetaDateString:(NSString*)object]){
+            return [StringUtils displayDateFromArchiveMetaDateString:(NSString*)object];
+        } else {
+            return (NSString *)object;
+        }
     } else {
         return nil;
     }
