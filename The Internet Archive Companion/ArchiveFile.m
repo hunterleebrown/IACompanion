@@ -12,10 +12,11 @@
 @implementation ArchiveFile
 
 
-- (id) initWithIdentifier:(NSString *)identifier withServer:(NSString *)server withDirectory:(NSString *)dir withFile:(NSDictionary *)file{
+- (id) initWithIdentifier:(NSString *)identifier withIdentifierTitle:(NSString *)identifierTitle withServer:(NSString *)server withDirectory:(NSString *)dir withFile:(NSDictionary *)file{
     self= [super init];
     if(self){
         _identifier = identifier;
+        _identifierTitle = identifierTitle;
         _server = server;
         _directory = dir;
         [self setFile:file];

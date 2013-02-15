@@ -13,6 +13,9 @@
 @interface HomeViewController : UIViewController
 
 @property (nonatomic, retain) UINavigationController *contentController;
-@property (nonatomic, retain) ArchivePlayerViewController *playerController;
+@property (nonatomic, retain) IBOutlet ArchivePlayerViewController *playerController;
+
+@property (nonatomic, weak) IBOutlet UIView *top;
+@property (nonatomic, weak) IBOutlet UIView *bottom;
 
 @end

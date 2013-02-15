@@ -47,6 +47,9 @@
         // ...
 
         
+
+        
+        
     }
     return self;
 }
@@ -87,10 +90,10 @@
        file.format == FileFormatVBRMP3
        
        ){
-        NSURL *movie = [NSURL URLWithString:file.url];
+       //NSURL *movie = [NSURL URLWithString:file.url];
         
         NSLog(@"mp3: %@", file.url);
-        player = [[MPMoviePlayerController alloc] initWithContentURL:movie];
+        /*player = [[MPMoviePlayerController alloc] initWithContentURL:movie];
         [player prepareToPlay];
         if(file.width){
             //   [self.movieView setFrame:CGRectMake(self.movieView.frame.origin.x, self.movieView.frame.origin.y, [file.width floatValue], [file.height floatValue])];
@@ -100,7 +103,13 @@
         [self.movieView addSubview: player.view];
         [player play];
         [player.view setBackgroundColor:[UIColor clearColor]];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+        */
+        
+      //  [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:file];
+
+        
     }
     else {
         
@@ -346,13 +355,20 @@
                        baseURL:theBaseURL];
     
     
+    NSMutableArray *files = [NSMutableArray new];
     for(ArchiveFile *file in _doc.files){
        // NSLog(@"file %@%@/%@", file.server, file.directory, file.name);
         
         if(file.format != FileFormatOther){
-            [vbrs addObject:file];
+            [files addObject:file];
         }
     }
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"track" ascending:YES];
+    [vbrs addObjectsFromArray:[files sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]]];
+    
+    
+    
     if(vbrs.count > 0){
         [_tableView reloadData];
     

@@ -12,6 +12,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "AsyncImageView.h"
 #import "ArchiveMetadataTableView.h"
+#import "ArchivePlayerViewController.h"
+
 
 
 @interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate> {

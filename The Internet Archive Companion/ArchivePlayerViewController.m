@@ -8,9 +8,12 @@
 
 #import "ArchivePlayerViewController.h"
 #import "ArchivePlayerTableViewCell.h"
+#import <MediaPlayer/MediaPlayer.h>
+
 
 @interface ArchivePlayerViewController () {
     NSMutableArray *playerFiles;
+    MPMoviePlayerController *player;
 
 }
 
@@ -32,6 +35,16 @@
     if(self){
         playerFiles = [NSMutableArray new];
     
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFile:) name:@"AddToPlayerListFileNotification" object:nil];
+
+        
+        [_playerTableView setAllowsSelectionDuringEditing:NO];
+
+        
+
+        
+        
+        
     }
     return self;
 }
@@ -44,31 +57,7 @@
     
 
     
-    ArchiveFile *one = [ArchiveFile new];
-    one.identifier = @"Worked Brass";
-    one.title = @"Fanfare";
-    
-    ArchiveFile *two = [ArchiveFile new];
-    two.identifier = @"Worked Brass";
-    two.title = @"Dasha Lilt";
-
-    
-    ArchiveFile *three = [ArchiveFile new];
-    three.identifier = @"Worked Brass";
-    three.title = @"Katya's Journey";
-    
-    ArchiveFile *four = [ArchiveFile new];
-    four.identifier = @"Worked Brass";
-    four.title = @"Energetico";
-
-    [playerFiles addObject:one];
-    [playerFiles addObject:two];
-    [playerFiles addObject:three];
-    [playerFiles addObject:four];
-    
-    
-    [_playerTableView reloadData];
-}
+  }
 
 - (void)didReceiveMemoryWarning
 {
@@ -94,13 +83,63 @@
     ArchiveFile *file = [playerFiles objectAtIndex:indexPath.row];
     
     cell.fileTitle.text = file.title;
-    cell.identifierLabel.text = file.identifier;
+    cell.identifierLabel.text = file.identifierTitle;
+    cell.showsReorderControl = YES;
+    [cell setFile:file];
     return cell;
     
 }
 
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [playerFiles removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+        [tableView reloadData];
+
+    
+    }
+}
+
+- (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+
+
+}
+
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(player){
+        [player stop];
+    }
+    ArchiveFile *file = ((ArchivePlayerTableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).file;
+    player = [[MPMoviePlayerController alloc] init];
+    [self.playerHolder addSubview: player.view];
+    
+    [player.view setFrame: self.playerHolder.bounds];  // player's frame must match parent's
+
+    [player prepareToPlay];
+    [player setContentURL:[NSURL URLWithString:file.url]];
+    [player play];
+
+
+}
+
+
+- (void) addToPlayerListFile:(NSNotification *)notification{
+    ArchiveFile *file = notification.object;
+    [playerFiles addObject:file];
+    [_playerTableView reloadData];
+
+}
 
 
 

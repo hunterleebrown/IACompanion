@@ -106,7 +106,7 @@
         NSMutableArray *files = [NSMutableArray new];
         if([inData objectForKey:@"files"]){
             for (NSDictionary *file in [inData objectForKey:@"files"]) {
-                ArchiveFile *aFile = [[ArchiveFile alloc]initWithIdentifier:dDoc.identifier withServer:[inData objectForKey:@"server"] withDirectory:[inData objectForKey:@"dir"] withFile:file];
+                ArchiveFile *aFile = [[ArchiveFile alloc]initWithIdentifier:dDoc.identifier withIdentifierTitle:dDoc.title withServer:[inData objectForKey:@"server"] withDirectory:[inData objectForKey:@"dir"] withFile:file];
                 [files addObject:aFile];
             }
         }

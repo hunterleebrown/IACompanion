@@ -39,10 +39,11 @@ typedef enum {
 @property (nonatomic, assign) NSString *directory;
 @property (nonatomic, assign) NSString *height;
 @property (nonatomic, assign) NSString *width;
+@property (nonatomic, assign) NSString *identifierTitle;
 
 
 
-- (id) initWithIdentifier:(NSString *)identifier withServer:(NSString *)server withDirectory:(NSString *)dir withFile:(NSDictionary *)file;
+- (id) initWithIdentifier:(NSString *)identifier withIdentifierTitle:(NSString *)identifierTitle withServer:(NSString *)server withDirectory:(NSString *)dir withFile:(NSDictionary *)file;
 
 
 @end

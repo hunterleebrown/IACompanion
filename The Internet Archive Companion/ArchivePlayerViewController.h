@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArchiveFile.h"
+
+
 
 @interface ArchivePlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView *playerTableView;
+@property (nonatomic, weak) IBOutlet UIView *playerHolder;
 
 @end

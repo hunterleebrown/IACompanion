@@ -8,6 +8,7 @@
 
 #import "ArchivePlayerTableViewCell.h"
 
+
 @implementation ArchivePlayerTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

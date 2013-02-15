@@ -67,6 +67,8 @@
 		CE3019DA16C5953100733B99 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019D816C5953100733B99 /* Icon-72@2x.png */; };
 		CE3019DC16C5963000733B99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019DB16C5963000733B99 /* Icon.png */; };
 		CE752A2816C1799400A432AB /* uiglassbutton-template.png in Resources */ = {isa = PBXBuildFile; fileRef = CE752A2716C1799400A432AB /* uiglassbutton-template.png */; };
+		CEBA014016CEEFCE0038625F /* vertShadowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */; };
+		CEBA014116CEEFCE0038625F /* vertShadowBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */; };
 		CEEA640216C4240100DCA3BC /* ArchiveFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -172,6 +174,8 @@
 		CE3019D816C5953100733B99 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
 		CE3019DB16C5963000733B99 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 		CE752A2716C1799400A432AB /* uiglassbutton-template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uiglassbutton-template.png"; sourceTree = "<group>"; };
+		CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertShadowBottom.png; sourceTree = "<group>"; };
+		CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertShadowBottom@2x.png"; sourceTree = "<group>"; };
 		CEEA640016C4240100DCA3BC /* ArchiveFileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFileTableViewCell.h; sourceTree = "<group>"; };
 		CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFileTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -327,6 +331,8 @@
 		5ADAB7ED16C76E8100DBC072 /* IA Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */,
+				CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */,
 				5A31D4FC16C7B56E00710DE0 /* vertShadow.png */,
 				5A31D4FD16C7B56E00710DE0 /* vertShadow@2x.png */,
 				5A31D4F816C7B2A200710DE0 /* leftContentShadow.png */,
@@ -514,6 +520,8 @@
 				5A31D4FE16C7B56E00710DE0 /* vertShadow.png in Resources */,
 				5A31D4FF16C7B56E00710DE0 /* vertShadow@2x.png in Resources */,
 				5AB7AB5916CA3A230014D40C /* ArchiveBookPageImageViewController.xib in Resources */,
+				CEBA014016CEEFCE0038625F /* vertShadowBottom.png in Resources */,
+				CEBA014116CEEFCE0038625F /* vertShadowBottom@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
