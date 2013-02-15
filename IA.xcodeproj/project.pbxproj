@@ -54,6 +54,9 @@
 		5ADAB7F316C76F5400DBC072 /* texts.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7F016C76F5400DBC072 /* texts.gif */; };
 		5AE33BEA16CC955900129C62 /* ArchiveMetadataTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE33BE916CC955900129C62 /* ArchiveMetadataTableView.m */; };
 		5AE33BED16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE33BEC16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m */; };
+		CE18814B16CEA71F0040EA9A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18814A16CEA71F0040EA9A /* HomeViewController.m */; };
+		CE18814E16CEA7640040EA9A /* ArchivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18814D16CEA7640040EA9A /* ArchivePlayerViewController.m */; };
+		CE18815116CEAC630040EA9A /* ArchivePlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18815016CEAC630040EA9A /* ArchivePlayerTableViewCell.m */; };
 		CE1B959316C9D722002E9D8D /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */; };
 		CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3019CD16C5729E00733B99 /* StringUtils.m */; };
 		CE3019D316C5937A00733B99 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019CF16C5937A00733B99 /* Default-Landscape@2x~ipad.png */; };
@@ -151,6 +154,12 @@
 		5AE33BE916CC955900129C62 /* ArchiveMetadataTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveMetadataTableView.m; sourceTree = "<group>"; };
 		5AE33BEB16CC96AE00129C62 /* ArchiveMetadataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveMetadataTableViewCell.h; sourceTree = "<group>"; };
 		5AE33BEC16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveMetadataTableViewCell.m; sourceTree = "<group>"; };
+		CE18814916CEA71F0040EA9A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		CE18814A16CEA71F0040EA9A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CE18814C16CEA7640040EA9A /* ArchivePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePlayerViewController.h; sourceTree = "<group>"; };
+		CE18814D16CEA7640040EA9A /* ArchivePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePlayerViewController.m; sourceTree = "<group>"; };
+		CE18814F16CEAC630040EA9A /* ArchivePlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePlayerTableViewCell.h; sourceTree = "<group>"; };
+		CE18815016CEAC630040EA9A /* ArchivePlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePlayerTableViewCell.m; sourceTree = "<group>"; };
 		CE1B959116C9D722002E9D8D /* ArchiveBookPageImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageImageViewController.h; sourceTree = "<group>"; };
 		CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageImageViewController.m; sourceTree = "<group>"; };
 		CE3019CC16C5729E00733B99 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
@@ -356,6 +365,8 @@
 				5AE33BE916CC955900129C62 /* ArchiveMetadataTableView.m */,
 				5AE33BEB16CC96AE00129C62 /* ArchiveMetadataTableViewCell.h */,
 				5AE33BEC16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m */,
+				CE18814F16CEAC630040EA9A /* ArchivePlayerTableViewCell.h */,
+				CE18815016CEAC630040EA9A /* ArchivePlayerTableViewCell.m */,
 			);
 			name = Tables;
 			sourceTree = "<group>";
@@ -377,6 +388,8 @@
 			children = (
 				5ADAB7D116C6C1B400DBC072 /* HomeCombinedViewController.h */,
 				5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */,
+				CE18814916CEA71F0040EA9A /* HomeViewController.h */,
+				CE18814A16CEA71F0040EA9A /* HomeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -402,6 +415,8 @@
 				5AB7AB5816CA3A230014D40C /* ArchiveBookPageImageViewController.xib */,
 				5AD5975116CA1AE300AD663B /* ArchivePageViewController.h */,
 				5AD5975216CA1AE300AD663B /* ArchivePageViewController.m */,
+				CE18814C16CEA7640040EA9A /* ArchivePlayerViewController.h */,
+				CE18814D16CEA7640040EA9A /* ArchivePlayerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -559,6 +574,9 @@
 				5AD5975316CA1AE300AD663B /* ArchivePageViewController.m in Sources */,
 				5AE33BEA16CC955900129C62 /* ArchiveMetadataTableView.m in Sources */,
 				5AE33BED16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m in Sources */,
+				CE18814B16CEA71F0040EA9A /* HomeViewController.m in Sources */,
+				CE18814E16CEA7640040EA9A /* ArchivePlayerViewController.m in Sources */,
+				CE18815116CEAC630040EA9A /* ArchivePlayerTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
