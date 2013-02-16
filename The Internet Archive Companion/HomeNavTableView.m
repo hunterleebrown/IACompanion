@@ -12,9 +12,7 @@
 #import "ArchiveSearchDoc.h"
 
 @interface HomeNavTableView () {
-    ArchiveDataService  *audioService;
-    ArchiveDataService  *movieService;
-    ArchiveDataService  *textService;
+
     
     
     NSMutableArray *audioDocs;
@@ -35,14 +33,14 @@
         // Initialization code
         [self setDataSource:self];
         [self setDelegate:self];
-        audioService = [ArchiveDataService new];
-        [audioService setDelegate:self];
+        _audioService = [ArchiveDataService new];
+        [_audioService setDelegate:self];
 
-        movieService = [ArchiveDataService new];
-        [movieService setDelegate:self];
+        _movieService = [ArchiveDataService new];
+        [_movieService setDelegate:self];
         
-        textService = [ArchiveDataService new];
-        [textService setDelegate:self];
+        _textService = [ArchiveDataService new];
+        [_textService setDelegate:self];
         
         audioDocs = [NSMutableArray new];
         videoDocs = [NSMutableArray new];
@@ -52,10 +50,7 @@
         
         
         
-        
-        [audioService getCollectionsWithIdentifier:@"audio"];
-        [movieService getCollectionsWithIdentifier:@"movies"];
-        [textService getCollectionsWithIdentifier:@"texts"];
+
         
         
  

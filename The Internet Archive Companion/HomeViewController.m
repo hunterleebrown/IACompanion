@@ -46,22 +46,27 @@
 
 
 - (void)hidePlayer{
-  /*  if(_bottom.frame.origin.y > self.view.bounds.size.height){
+   if(_bottom.frame.origin.y == (self.view.bounds.size.height - 44)){
         // reveal
     
         [UIView animateWithDuration:0.33 animations:^{
-            _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height - 144);
-            _bottom.frame = CGRectMake(_bottom.frame.origin.x, _top.frame.size.height, _bottom.frame.size.width, _bottom.frame.size.height);
+            _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height - 100);
+            _bottom.frame = CGRectMake(_bottom.frame.origin.x, self.view.bounds.size.height - 144, _bottom.frame.size.width, _bottom.frame.size.height);
+            _shadow.frame = CGRectMake(_shadow.frame.origin.x, _bottom.frame.origin.y - 19, _shadow.frame.size.width, _shadow.frame.size.height);
         }];
-        
-    } else {
-        // hide
-        _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height + 144);
-        _bottom.frame = CGRectMake(_bottom.frame.origin.x, _top.frame.size.height, _bottom.frame.size.width, _bottom.frame.size.height);
+       
+   } else {
+       // hide
+       [UIView animateWithDuration:0.33 animations:^{
+           
+           _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height + 100);
+           _bottom.frame = CGRectMake(_bottom.frame.origin.x, self.view.bounds.size.height - 44, _bottom.frame.size.width, _bottom.frame.size.height);
+           _shadow.frame = CGRectMake(_shadow.frame.origin.x, _bottom.frame.origin.y - 19, _shadow.frame.size.width, _shadow.frame.size.height);
 
+       }];
 
     }
-*/
+
 
 }
 

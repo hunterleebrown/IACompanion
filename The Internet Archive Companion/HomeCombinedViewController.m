@@ -38,7 +38,10 @@
     [super viewDidLoad];
 
 
-
+    
+    [_contentScrollView.homeNavTableView.audioService getCollectionsWithIdentifier:@"audio"];
+    [_contentScrollView.homeNavTableView.movieService getCollectionsWithIdentifier:@"movies"];
+    [_contentScrollView.homeNavTableView.textService getCollectionsWithIdentifier:@"texts"];
     
     
     [self doOrientationLayout:self.interfaceOrientation];
@@ -92,14 +95,7 @@
 
 
 - (void) doOrientationLayout:(UIInterfaceOrientation)toInterfaceOrientation{
-    if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation)){
-        [self.contentScrollView setContentSize:CGSizeMake(1024, 10)];
-        
-    } else {
-        [self.contentScrollView setContentSize:CGSizeMake(1024, 10)];
-        
-    }
-    
+    [self.contentScrollView setContentSize:CGSizeMake(1024, 10)];
     [self.contentScrollView.homeNavTableView reloadData];
     [self.contentScrollView.homeContentView.homeContentTableView reloadData];
     

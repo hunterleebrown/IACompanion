@@ -10,6 +10,7 @@
 #import "ArchiveSearchDoc.h"
 #import "HomeContentCell.h"
 #import "ArchiveDetailedViewController.h"
+#import "StringUtils.h"
 
 @interface HomeContentTableView () {
     int start;
@@ -86,20 +87,13 @@
     
     
     if([doc.rawDoc objectForKey:@"subject"]){
-        
-        NSMutableString * subs = [[NSMutableString alloc] init];
-        for (NSObject * obj in [doc.rawDoc objectForKey:@"subject"])
-        {
-            if(![subs isEqualToString:@""]){
-                [subs appendString:@", "];
-            }
-            [subs appendString:[obj description]];
-        }
-        [cell.subject setText:subs];
-    } else {
-        [cell.subject setText:@""];
+        cell.subject.text = [StringUtils stringFromObject:[doc.rawDoc objectForKey:@"subject"]];
     }
-    
+    if([doc.rawDoc objectForKey:@"date"]){
+        cell.date.text = [StringUtils stringFromObject:[doc.rawDoc objectForKey:@"date"]];
+
+    }
+
     
     
     return cell;
