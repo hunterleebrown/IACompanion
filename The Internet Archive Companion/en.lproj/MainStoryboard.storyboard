@@ -497,6 +497,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0sD-IE-xJ1"/>
+                                    <barButtonItem image="barIcon.png" style="plain" id="LX2-Ow-U8H"/>
                                     <barButtonItem title="Media Player" style="plain" id="HnM-zb-17H"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JFk-73-uCE"/>
                                     <barButtonItem title="Clear" id="rLM-za-3hj">
@@ -531,6 +532,7 @@
     </scenes>
     <resources>
         <image name="Default-Portrait~ipad.png" width="768" height="1004"/>
+        <image name="barIcon.png" width="20" height="20"/>
         <image name="leftContentShadow.png" width="21" height="461"/>
         <image name="vertShadow.png" width="320" height="19"/>
         <image name="vertShadowBottom.png" width="320" height="19"/>
