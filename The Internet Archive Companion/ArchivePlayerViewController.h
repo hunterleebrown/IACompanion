@@ -17,7 +17,10 @@
 @property (nonatomic, weak) IBOutlet UIView *playerHolder;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *editListButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *hidePlayerButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *clearButton;
 
 - (IBAction)editList:(id)sender;
+- (IBAction)clearList:(id)sender;
+- (IBAction)hidPlayer:(id)sender;
 
 @end

@@ -94,6 +94,7 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:file];
 
+
         
     }
     else {
@@ -132,6 +133,7 @@
            
            ){
             [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:file];
+
         }
     }
 

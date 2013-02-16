@@ -156,11 +156,22 @@
 
 }
 
+- (IBAction)clearList:(id)sender{
+    [playerFiles removeAllObjects];
+    [_playerTableView reloadData];
+
+}
+
 
 - (void) addToPlayerListFile:(NSNotification *)notification{
     ArchiveFile *file = notification.object;
     [playerFiles addObject:file];
     [_playerTableView reloadData];
+
+}
+
+- (IBAction)hidPlayer:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HidePlayerNotification" object:nil];
 
 }
 

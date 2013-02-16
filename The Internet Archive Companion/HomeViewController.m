@@ -45,10 +45,35 @@
 }
 
 
+- (void)hidePlayer{
+  /*  if(_bottom.frame.origin.y > self.view.bounds.size.height){
+        // reveal
+    
+        [UIView animateWithDuration:0.33 animations:^{
+            _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height - 144);
+            _bottom.frame = CGRectMake(_bottom.frame.origin.x, _top.frame.size.height, _bottom.frame.size.width, _bottom.frame.size.height);
+        }];
+        
+    } else {
+        // hide
+        _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height + 144);
+        _bottom.frame = CGRectMake(_bottom.frame.origin.x, _top.frame.size.height, _bottom.frame.size.width, _bottom.frame.size.height);
+
+
+    }
+*/
+
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePlayer) name:@"HidePlayerNotification" object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning

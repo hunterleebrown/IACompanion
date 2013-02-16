@@ -482,10 +482,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Hide" id="BeQ-0j-UaO"/>
+                                    <barButtonItem title="Hide" id="BeQ-0j-UaO">
+                                        <connections>
+                                            <action selector="hidPlayer:" destination="OFF-3p-DFo" id="DYq-fk-hEF"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0sD-IE-xJ1"/>
                                     <barButtonItem title="Media Player" style="plain" id="HnM-zb-17H"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JFk-73-uCE"/>
+                                    <barButtonItem title="Clear" id="rLM-za-3hj">
+                                        <connections>
+                                            <action selector="clearList:" destination="OFF-3p-DFo" id="Pm6-rd-e3e"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Edit" id="pYr-Wb-6cy">
                                         <connections>
                                             <action selector="editList:" destination="OFF-3p-DFo" id="Lwx-CG-4rB"/>
@@ -499,6 +508,7 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="clearButton" destination="rLM-za-3hj" id="v0O-nq-Bot"/>
                         <outlet property="editListButton" destination="pYr-Wb-6cy" id="24b-cT-7Re"/>
                         <outlet property="hidePlayerButton" destination="BeQ-0j-UaO" id="WtK-I5-GWY"/>
                         <outlet property="playerHolder" destination="see-lf-jWU" id="5gK-bQ-8eW"/>
@@ -568,7 +578,10 @@
         <class className="ArchivePlayerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePlayerViewController.h"/>
             <relationships>
+                <relationship kind="action" name="clearList:"/>
                 <relationship kind="action" name="editList:"/>
+                <relationship kind="action" name="hidPlayer:"/>
+                <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="editListButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="hidePlayerButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
@@ -641,6 +654,7 @@
         <class className="HomeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
             <relationships>
+                <relationship kind="action" name="hidePlayer:"/>
                 <relationship kind="outlet" name="bottom" candidateClass="UIView"/>
                 <relationship kind="outlet" name="playerController" candidateClass="ArchivePlayerViewController"/>
                 <relationship kind="outlet" name="top" candidateClass="UIView"/>

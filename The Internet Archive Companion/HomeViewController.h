@@ -18,4 +18,7 @@
 @property (nonatomic, weak) IBOutlet UIView *top;
 @property (nonatomic, weak) IBOutlet UIView *bottom;
 
+
+- (void)hidePlayer;
+
 @end
