@@ -145,6 +145,7 @@
     [player prepareToPlay];
     [player setContentURL:[NSURL URLWithString:file.url]];
     [player play];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
 
 
 }
@@ -174,6 +175,55 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"HidePlayerNotification" object:nil];
 
 }
+
+
+- (int) indexOfInVideoItemFromUrl:(NSURL *)url{
+    
+    for(ArchiveFile *file in playerFiles){
+        if([file.url isEqualToString:url.absoluteString]){
+            return [playerFiles indexOfObject:file];
+        }
+        
+    }
+    return -1;
+}
+
+- (void)playlistFinishedCallback:(NSNotification *)notification{
+    
+    MPMoviePlayerController *moviePlayer = [notification object];
+    NSNumber *finishReason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    
+    // Dismiss the view controller ONLY when the reason is not "playback ended"
+    if ([finishReason intValue] != MPMovieFinishReasonPlaybackEnded)
+    {
+        // Remove this class from the observers
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:MPMoviePlayerPlaybackDidFinishNotification
+                                                      object:moviePlayer];
+    } else {
+        int index = [self indexOfInVideoItemFromUrl:moviePlayer.contentURL];
+        if(index >= 0) {
+            int newIndex = index +1;
+            if(newIndex == [playerFiles count]){
+                // Remove this class from the observers
+                [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                                name:MPMoviePlayerPlaybackDidFinishNotification
+                                                              object:moviePlayer];
+                
+                // Dismiss the view controller
+                
+            } else {
+                ArchiveFile *newFile = [playerFiles objectAtIndex:newIndex];
+                [player setContentURL:[NSURL URLWithString:newFile.url]];
+                [player play];
+            }
+            
+        } else {
+            return;
+        }
+    }
+}
+
 
 
 
