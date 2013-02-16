@@ -9,11 +9,16 @@
 #import "ArchivePlayerViewController.h"
 #import "ArchivePlayerTableViewCell.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
+
 
 
 @interface ArchivePlayerViewController () {
     NSMutableArray *playerFiles;
     MPMoviePlayerController *player;
+    BOOL tableIsEditing;
 
 }
 
@@ -40,9 +45,20 @@
         
         [_playerTableView setAllowsSelectionDuringEditing:NO];
 
+  
+       // using the device audio session
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
         
-
+        NSError *setCategoryError = nil;
+        BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+        if (!success) {    } 
         
+        NSError *activationError = nil;
+        success = [audioSession setActive:YES error:&activationError];
+        if (!success) {  }
+     
+        
+        tableIsEditing = NO;
         
         
     }
@@ -130,6 +146,13 @@
     [player setContentURL:[NSURL URLWithString:file.url]];
     [player play];
 
+
+}
+
+- (IBAction)editList:(id)sender{
+    tableIsEditing = !tableIsEditing;
+    [_editListButton setTitle:tableIsEditing ? @"Done" : @"Edit"];
+    [_playerTableView setEditing:tableIsEditing animated:YES];
 
 }
 

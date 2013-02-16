@@ -69,6 +69,8 @@
 		CE752A2816C1799400A432AB /* uiglassbutton-template.png in Resources */ = {isa = PBXBuildFile; fileRef = CE752A2716C1799400A432AB /* uiglassbutton-template.png */; };
 		CEBA014016CEEFCE0038625F /* vertShadowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */; };
 		CEBA014116CEEFCE0038625F /* vertShadowBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */; };
+		CEBA014316CEF6B30038625F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014216CEF6B30038625F /* AVFoundation.framework */; };
+		CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014616CEFFB60038625F /* AudioToolbox.framework */; };
 		CEEA640216C4240100DCA3BC /* ArchiveFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +178,9 @@
 		CE752A2716C1799400A432AB /* uiglassbutton-template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uiglassbutton-template.png"; sourceTree = "<group>"; };
 		CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertShadowBottom.png; sourceTree = "<group>"; };
 		CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertShadowBottom@2x.png"; sourceTree = "<group>"; };
+		CEBA014216CEF6B30038625F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CEBA014416CEFF580038625F /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		CEBA014616CEFFB60038625F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEEA640016C4240100DCA3BC /* ArchiveFileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFileTableViewCell.h; sourceTree = "<group>"; };
 		CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFileTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +190,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */,
+				CEBA014316CEF6B30038625F /* AVFoundation.framework in Frameworks */,
 				5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */,
 				5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */,
 				5A0A10B016A640A300CC70CD /* UIKit.framework in Frameworks */,
@@ -209,6 +216,9 @@
 		5A0A10A016A640A300CC70CD = {
 			isa = PBXGroup;
 			children = (
+				CEBA014616CEFFB60038625F /* AudioToolbox.framework */,
+				CEBA014416CEFF580038625F /* CoreAudio.framework */,
+				CEBA014216CEF6B30038625F /* AVFoundation.framework */,
 				5A23930816C3A07500C3E107 /* MediaPlayer.framework */,
 				5A990BA616B9F2E500B4C058 /* QuartzCore.framework */,
 				5A0A10B516A640A300CC70CD /* The Internet Archive Companion */,

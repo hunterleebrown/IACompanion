@@ -15,5 +15,9 @@
 
 @property (nonatomic, retain) IBOutlet UITableView *playerTableView;
 @property (nonatomic, weak) IBOutlet UIView *playerHolder;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *editListButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *hidePlayerButton;
+
+- (IBAction)editList:(id)sender;
 
 @end

@@ -90,22 +90,7 @@
        file.format == FileFormatVBRMP3
        
        ){
-       //NSURL *movie = [NSURL URLWithString:file.url];
-        
-        NSLog(@"mp3: %@", file.url);
-        /*player = [[MPMoviePlayerController alloc] initWithContentURL:movie];
-        [player prepareToPlay];
-        if(file.width){
-            //   [self.movieView setFrame:CGRectMake(self.movieView.frame.origin.x, self.movieView.frame.origin.y, [file.width floatValue], [file.height floatValue])];
-            //  [self.movieView setCenter:self.view.center];
-        }
-        [player.view setFrame: self.movieView.bounds];  // player's frame must match parent's
-        [self.movieView addSubview: player.view];
-        [player play];
-        [player.view setBackgroundColor:[UIColor clearColor]];
-        */
-        
-      //  [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playbackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:file];
 
@@ -134,6 +119,24 @@
 
 
 }
+
+
+- (IBAction)addFilesToPlayer:(id)sender{
+    
+    for(ArchiveFile *file in vbrs){        
+        if(
+           file.format == FileFormatH264 ||
+           file.format == FileFormat512kbMPEG4 ||
+           file.format == FileFormatMPEG4 ||
+           file.format == FileFormatVBRMP3
+           
+           ){
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:file];
+        }
+    }
+
+}
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"bookViewer"]){
