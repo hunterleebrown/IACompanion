@@ -14,6 +14,7 @@
 #import "ArchiveBookPageImageViewController.h"
 #import "ArchivePageViewController.h"
 #import "ArchiveShareViewController.h"
+#import "ArchiveImageViewController.h"
 
 @interface ArchiveDetailedViewController (){
     ArchiveFile *bookFile;
@@ -21,6 +22,7 @@
     ArchiveBookPageImageViewController *firstPage;
     NSMutableArray *pages;
     NSMutableDictionary *pageDictionary;
+    ArchiveFile *sharedPhotoFile;
     
 }
 @end
@@ -102,24 +104,21 @@
         
         if(file.format == FileFormatJPEG || file.format == FileFormatGIF) {
             UIViewController *pushController = [UIViewController new];
-            
-            AsyncImageView *jpegView = [[AsyncImageView alloc]initWithFrame:pushController.view.bounds];
-            [pushController setView:jpegView];
-            [self.navigationController pushViewController:pushController animated:YES];
-            [jpegView setAndLoadImageFromUrl:file.url];
-            [jpegView setContentMode:UIViewContentModeScaleAspectFit];
-            [pushController setTitle:file.name];
+            sharedPhotoFile = file;
+            [self performSegueWithIdentifier:@"imageSegue" sender:sharedPhotoFile];
         } else if(file.format == FileFormatProcessedJP2ZIP) {
-            
             bookFile = file;
             [self performSegueWithIdentifier:@"bookViewer" sender:bookFile];
-            
         }
     
     
     }
 
 
+}
+
+- (void) sharePhoto{
+    [self performSegueWithIdentifier:@"sharePopover" sender:nil];
 }
 
 
@@ -161,9 +160,16 @@
         [shareController setMyPopOverController:pop];
         [shareController setArchiveIdentifier:self.identifier];
         [shareController setArchiveTitle:[StringUtils stringFromObject:_doc.title]];
-
+        
     }
-
+    if([[segue identifier] isEqualToString:@"imageSegue"]){
+        ArchiveImageViewController *ivc = [segue destinationViewController];
+        [ivc setUrl:sharedPhotoFile.url];
+        [ivc setArchvieTitle:[StringUtils stringFromObject:_doc.title]];
+    
+        
+    }
+   
 
 }
 

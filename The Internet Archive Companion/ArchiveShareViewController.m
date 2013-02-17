@@ -8,6 +8,7 @@
 
 #import "ArchiveShareViewController.h"
 #import "ArchiveShareTableViewCell.h"
+#import "AsyncImage.h"
 #import <Social/Social.h>
 
 @interface ArchiveShareViewController ()
@@ -53,7 +54,7 @@
 
     UIButton *button = (UIButton *)sender;
     NSLog(@"------> button.tag: %i", button.tag);
-    if(_archiveIdentifier == nil){
+    if((_archiveIdentifier == nil) && ! _imageUrl){
         [_myPopOverController dismissPopoverAnimated:YES];
     
     } else {
@@ -73,10 +74,24 @@
 
         };
         controller.completionHandler =myBlock;
-        NSString *archiveUrl = [NSString stringWithFormat:@"http://archive.org/details/%@", self.archiveIdentifier];
+        NSString *archiveUrl;
+        
+        if(_imageUrl){
+            archiveUrl = _imageUrl;
+        } else {
+            archiveUrl = [NSString stringWithFormat:@"http://archive.org/details/%@", self.archiveIdentifier];
+            
+        }
+        
         [controller addURL:[NSURL URLWithString:archiveUrl]];
         [controller setInitialText:[NSString stringWithFormat:@"@Internet Archive - %@", self.archiveTitle]];
-        [self presentViewController:controller animated:YES completion:nil];
+     /*   if(_imageUrl) {
+            AsyncImage *aSync = [AsyncImage new];
+            [aSync setAndLoadImageFromUrl:_imageUrl];
+            [controller addImage:aSync.image];
+        }
+      */ 
+      [self presentViewController:controller animated:YES completion:nil];
     }
     
     

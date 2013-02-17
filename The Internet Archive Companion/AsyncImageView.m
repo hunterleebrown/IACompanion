@@ -14,6 +14,9 @@
     self = [super initWithFrame:frame];
     if(self){
         cache = [[NSCache alloc] init];
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self addSubview:spinner];
+
     }
     return self;
 }
@@ -22,6 +25,8 @@
     self = [super initWithCoder:aDecoder];
     if(self){
         cache = [[NSCache alloc] init];
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self addSubview:spinner];
     }
     return self;
 }
@@ -29,7 +34,8 @@
 
 - (void)setAndLoadImageFromUrl:(NSString *)url{
     imageUrl = url;
-    
+    spinner.center = CGPointMake(self.center.x, self.center.y);
+    [spinner startAnimating];
     id cI = [cache objectForKey:imageUrl];
     if(cI != nil){
         UIImage *cachedImage = (UIImage *)cI;
@@ -57,9 +63,8 @@
 }
 
 - (void)displayImage:(UIImage *)inImage {
- 
-    
     [self setImage:inImage];
+    [spinner stopAnimating];
 }
 
 

@@ -11,6 +11,7 @@
 @interface AsyncImageView : UIImageView {
     NSString *imageUrl;
     NSCache *cache;
+    UIActivityIndicatorView *spinner;
 }
 
 - (void) setAndLoadImageFromUrl:(NSString *)url;

@@ -45,6 +45,7 @@
 		5A8CA7F716D0423600F97BF7 /* W-share-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7F316D0423600F97BF7 /* W-share-twitter@2x.png */; };
 		5A8CA7FA16D0445500F97BF7 /* ArchiveShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8CA7F916D0445500F97BF7 /* ArchiveShareTableViewCell.m */; };
 		5A8CA7FC16D051EF00F97BF7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8CA7FB16D051EF00F97BF7 /* Social.framework */; };
+		5A8CA7FF16D0965200F97BF7 /* ArchiveImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */; };
 		5A98438E16BBFD020022DB3F /* AsyncImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A98438D16BBFD020022DB3F /* AsyncImage.m */; };
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
 		5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */; };
@@ -146,6 +147,8 @@
 		5A8CA7F816D0445500F97BF7 /* ArchiveShareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveShareTableViewCell.h; sourceTree = "<group>"; };
 		5A8CA7F916D0445500F97BF7 /* ArchiveShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveShareTableViewCell.m; sourceTree = "<group>"; };
 		5A8CA7FB16D051EF00F97BF7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5A8CA7FD16D0965100F97BF7 /* ArchiveImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveImageViewController.h; sourceTree = "<group>"; };
+		5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveImageViewController.m; sourceTree = "<group>"; };
 		5A98438C16BBFD020022DB3F /* AsyncImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImage.h; sourceTree = "<group>"; };
 		5A98438D16BBFD020022DB3F /* AsyncImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImage.m; sourceTree = "<group>"; };
 		5A990BA616B9F2E500B4C058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -463,6 +466,8 @@
 				CE18814D16CEA7640040EA9A /* ArchivePlayerViewController.m */,
 				5A8CA7ED16D03D1000F97BF7 /* ArchiveShareViewController.h */,
 				5A8CA7EE16D03D1000F97BF7 /* ArchiveShareViewController.m */,
+				5A8CA7FD16D0965100F97BF7 /* ArchiveImageViewController.h */,
+				5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -633,6 +638,7 @@
 				CE18815116CEAC630040EA9A /* ArchivePlayerTableViewCell.m in Sources */,
 				5A8CA7EF16D03D1000F97BF7 /* ArchiveShareViewController.m in Sources */,
 				5A8CA7FA16D0445500F97BF7 /* ArchiveShareTableViewCell.m in Sources */,
+				5A8CA7FF16D0965200F97BF7 /* ArchiveImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

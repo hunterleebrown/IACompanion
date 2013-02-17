@@ -433,11 +433,26 @@
                         <outlet property="tableView" destination="9Np-SX-QeY" id="343-a4-GbX"/>
                         <outlet property="viewWebPageButton" destination="oNv-Uz-WsW" id="uEw-Up-VJp"/>
                         <segue destination="y53-fE-RS1" kind="push" identifier="bookViewer" id="ocb-ZN-o1S"/>
+                        <segue destination="aZb-Mp-738" kind="push" identifier="imageSegue" id="yoJ-9L-8zY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsW-Dz-qyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="470" y="-1233"/>
+        </scene>
+        <!--Archive Image View Controller-->
+        <scene sceneID="Eab-kJ-OvR">
+            <objects>
+                <viewController id="aZb-Mp-738" customClass="ArchiveImageViewController" sceneMemberID="viewController">
+                    <imageView key="view" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="25e-f1-pWv" customClass="AsyncImageView">
+                        <rect key="frame" x="0.0" y="64" width="768" height="696"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </imageView>
+                    <navigationItem key="navigationItem" id="e3w-Un-67Q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pUd-Y9-2lt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="470" y="-206"/>
         </scene>
         <!--Archive Share View Controller-->
         <scene sceneID="KbG-if-aoH">
@@ -674,6 +689,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveFileTableViewCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchiveImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="sharePhoto" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="view" candidateClass="AsyncImageView"/>
             </relationships>
         </class>
         <class className="ArchiveMetadataTableView" superclassName="UITableView">
