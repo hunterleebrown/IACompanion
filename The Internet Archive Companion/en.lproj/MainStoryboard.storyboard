@@ -600,6 +600,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JFk-73-uCE"/>
+                                    <barButtonItem style="plain" id="mhU-TN-lUe"/>
                                     <barButtonItem title="Clear" id="rLM-za-3hj">
                                         <connections>
                                             <action selector="clearList:" destination="OFF-3p-DFo" id="Pm6-rd-e3e"/>
@@ -624,6 +625,7 @@
                         <outlet property="forwards" destination="7O6-I8-eAn" id="bh9-ae-8Ax"/>
                         <outlet property="hidePlayerButton" destination="BeQ-0j-UaO" id="WtK-I5-GWY"/>
                         <outlet property="next" destination="Z4q-QQ-zVv" id="CMB-JN-gD8"/>
+                        <outlet property="numberOfFiles" destination="mhU-TN-lUe" id="H3l-mh-mg7"/>
                         <outlet property="playPause" destination="A0s-r3-vVN" id="BGP-64-fhe"/>
                         <outlet property="playerHolder" destination="see-lf-jWU" id="5gK-bQ-8eW"/>
                         <outlet property="playerTableView" destination="zyX-Pq-UGl" id="zUY-Fu-Vch"/>
@@ -706,13 +708,14 @@
                 <relationship kind="action" name="editList:"/>
                 <relationship kind="action" name="endBackwards:"/>
                 <relationship kind="action" name="endForwards:"/>
-                <relationship kind="action" name="hidPlayer:"/>
+                <relationship kind="action" name="hidePlayer:"/>
                 <relationship kind="outlet" name="backwards" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="editListButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="forwards" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="hidePlayerButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="next" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="numberOfFiles" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="playPause" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>

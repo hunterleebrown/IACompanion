@@ -25,6 +25,7 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *previous;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *forwards;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *backwards;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *numberOfFiles;
 
 - (IBAction)doPlayPause:(id)sender;
 - (IBAction)doNext:(id)sender;

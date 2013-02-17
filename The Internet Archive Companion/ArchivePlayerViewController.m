@@ -89,6 +89,7 @@
 
 
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    [_numberOfFiles setTitle:[NSString stringWithFormat:@"%i file%@", playerFiles.count, playerFiles.count == 1 ? @"": @"s"]];
     return playerFiles.count;
 
 }
