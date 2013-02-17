@@ -106,22 +106,31 @@
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
 
-    if(!_didTriggerLoadMore){
-        [docs removeAllObjects];
-    }
-    
-    
-    [docs addObjectsFromArray:[results objectForKey:@"documents"]];
-    
-    [self reloadData];
-    
-    if(!_didTriggerLoadMore){
-        [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewRowAnimationTop animated:YES];
-    }
-    numFound = [[results objectForKey:@"numFound"] intValue];
-    
-    [_totalFound setText:[NSString stringWithFormat:@"%i items found",  numFound]];
+    if(((NSArray *)[results objectForKey:@"documents"]).count > 0) {
+        
+        if(!_didTriggerLoadMore){
+            [docs removeAllObjects];
+        }
+        
+        
+        [docs addObjectsFromArray:[results objectForKey:@"documents"]];
+        
+        [self reloadData];
+        
+        if(!_didTriggerLoadMore){
+            [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewRowAnimationTop animated:YES];
+        }
+        numFound = [[results objectForKey:@"numFound"] intValue];
+        
+        [_totalFound setText:[NSString stringWithFormat:@"%i items found",  numFound]];
+        [_totalFound setTextColor:[UIColor blackColor]];
 
+    } else {
+        numFound = [[results objectForKey:@"numFound"] intValue];
+        [_totalFound setText:[NSString stringWithFormat:@"%i items found",  numFound]];
+        [_totalFound setTextColor:[UIColor whiteColor]];
+
+    }
     
 }
 
