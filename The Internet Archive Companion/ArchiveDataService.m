@@ -236,16 +236,44 @@
 
 
 
-- (void) getDocsWithQueryString:(NSString *)query {
-    
+- (void) getDocsWithQueryString:(NSString *)query {    
     NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)query,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
-    
     testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@&output=json&rows=50", escapedString];
-    
-    
-    
     [self getDocsWithTest:testUrl withStart:loadMoreStart];
 }
+
+
+- (void) getDocsWithQueryString:(NSString *)query forMediaType:(MediaType)type{
+    NSString *t;
+
+    switch (type) {
+        case MediaTypeAudio:
+            t = @"audio";
+            break;
+        case MediaTypeVideo:
+            t = @"movies";
+            break;
+        case MediaTypeTexts:
+            t = @"texts";
+            break;
+        case MediaTypeImage:
+            t = @"image";
+            break;
+        case MediaTypeNone:
+            break;
+        default:
+            break;
+    }
+
+    
+    NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)query,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
+    NSString *mediaTypeString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)[NSString stringWithFormat:@" AND mediatype:%@",t],	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1)); 
+    testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@%@&output=json&rows=50", escapedString, [NSString stringWithFormat:@"%@", t ? mediaTypeString : @""]];
+    [self getDocsWithTest:testUrl withStart:loadMoreStart];
+
+
+}
+
 
 
 

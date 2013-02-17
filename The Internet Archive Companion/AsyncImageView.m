@@ -17,6 +17,7 @@
         spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [self addSubview:spinner];
 
+
     }
     return self;
 }

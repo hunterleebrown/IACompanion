@@ -132,6 +132,19 @@
                                         <items>
                                             <barButtonItem style="plain" id="IyF-xp-D1C"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="nQ0-Yy-9Ms"/>
+                                            <barButtonItem style="plain" id="Iay-NW-kBr">
+                                                <segmentedControl key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="H3p-Xl-n2H">
+                                                    <rect key="frame" x="129" y="7" width="253" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="All"/>
+                                                        <segment title="Audio"/>
+                                                        <segment title="Video"/>
+                                                        <segment title="Texts"/>
+                                                        <segment title="Images"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" id="BPK-K8-wcN">
                                                 <searchBar key="customView" contentMode="redraw" id="k6U-p3-Aeb">
                                                     <rect key="frame" x="392" y="0.0" width="256" height="44"/>
@@ -244,6 +257,7 @@
                                     <outlet property="homeContentDescriptionView" destination="xP0-V9-KTd" id="tjh-6P-N9I"/>
                                     <outlet property="homeContentTableView" destination="3fL-ft-iBe" id="7BG-oq-xbu"/>
                                     <outlet property="iASplashImageView" destination="laf-xb-oXd" id="F3s-KN-ImW"/>
+                                    <outlet property="searchButtons" destination="H3p-Xl-n2H" id="O8B-xY-ex4"/>
                                     <outlet property="toolBar" destination="Ntu-DW-bYb" id="UWD-AF-Tql"/>
                                     <outlet property="toolBarButton" destination="QIw-Ng-LCk" id="YMj-zW-BXw"/>
                                     <outlet property="toolBarTitle" destination="IyF-xp-D1C" id="LZZ-Jg-CHw"/>
@@ -783,6 +797,7 @@
                 <relationship kind="outlet" name="homeContentDescriptionView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
                 <relationship kind="outlet" name="iASplashImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="searchButtons" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="toolBarButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toolBarTitle" candidateClass="UIBarItem"/>

@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *aSearchBar;
 
 @property (weak, nonatomic) IBOutlet UIImageView *iASplashImageView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *searchButtons;
 
 - (IBAction)toggleDetails:(id)sender;
 

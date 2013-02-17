@@ -39,8 +39,9 @@
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [_toolBarTitle setTitle:@""];
-    [_homeContentTableView setDidTriggerLoadMore:NO];
-    [_homeContentTableView.service getDocsWithQueryString:searchBar.text];
+    [_homeContentTableView setDidTriggerLoadMore:NO];    
+    MediaType type = (MediaType)_searchButtons.selectedSegmentIndex;
+    [_homeContentTableView.service getDocsWithQueryString:searchBar.text forMediaType:type];
     [_toolBarButton setEnabled:NO];
     [self hideSplashView];
 }

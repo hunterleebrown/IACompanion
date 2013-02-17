@@ -16,11 +16,13 @@
 
 
 typedef enum {
-    MediaTypeCollection = 0,
-    MediaTypeVideo = 1,
-    MediaTypeAudio = 2,
+    MediaTypeNone = 0,
+    MediaTypeAudio = 1,
+    MediaTypeVideo = 2,
     MediaTypeTexts = 3,
-    MediaTypeNone = 4
+    MediaTypeImage = 4,
+    MediaTypeCollection = 5
+
 }MediaType;
 
 @interface ArchiveDataService : NSObject {
@@ -39,6 +41,7 @@ typedef enum {
 - (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier;
 - (void) getCollectionsWithIdentifier:(NSString *)identifier;
 - (void) getDocsWithQueryString:(NSString *)query;
+- (void) getDocsWithQueryString:(NSString *)query forMediaType:(MediaType)type;
 - (void) loadMoreWithStart:(NSString *)loadMoreStart;
 - (void) getDocsWithCollectionIdentifier:(NSString *)identifier;
 
