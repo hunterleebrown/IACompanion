@@ -50,8 +50,8 @@
         // reveal
     
         [UIView animateWithDuration:0.33 animations:^{
-            _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height - 100);
-            _bottom.frame = CGRectMake(_bottom.frame.origin.x, self.view.bounds.size.height - 144, _bottom.frame.size.width, _bottom.frame.size.height);
+            _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height - 200);
+            _bottom.frame = CGRectMake(_bottom.frame.origin.x, self.view.bounds.size.height - 244, _bottom.frame.size.width, _bottom.frame.size.height);
             _shadow.frame = CGRectMake(_shadow.frame.origin.x, _bottom.frame.origin.y - 19, _shadow.frame.size.width, _shadow.frame.size.height);
         } completion:^(BOOL finished) {
             [_playerController.hidePlayerButton setTitle:@"Hide"];
@@ -61,7 +61,7 @@
        // hide
        [UIView animateWithDuration:0.33 animations:^{
            
-           _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height + 100);
+           _top.frame = CGRectMake(_top.frame.origin.x, _top.frame.origin.y, _top.frame.size.width, _top.frame.size.height + 200);
            _bottom.frame = CGRectMake(_bottom.frame.origin.x, self.view.bounds.size.height - 44, _bottom.frame.size.width, _bottom.frame.size.height);
            _shadow.frame = CGRectMake(_shadow.frame.origin.x, _bottom.frame.origin.y - 19, _shadow.frame.size.width, _shadow.frame.size.height);
 
@@ -83,6 +83,7 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePlayer) name:@"HidePlayerNotification" object:nil];
+    [self hidePlayer];
 
 }
 

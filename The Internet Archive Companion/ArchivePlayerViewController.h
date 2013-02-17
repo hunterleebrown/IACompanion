@@ -19,8 +19,26 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *hidePlayerButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *clearButton;
 
+
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *playPause;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *next;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *previous;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *forwards;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *backwards;
+
+- (IBAction)doPlayPause:(id)sender;
+- (IBAction)doNext:(id)sender;
+- (IBAction)doPrevious:(id)sender;
+- (IBAction)doForwards:(id)sender;
+- (IBAction)endForwards:(id)sender;
+- (IBAction)doBackwards:(id)sender;
+- (IBAction)endBackwards:(id)sender;
+
+
+
+
 - (IBAction)editList:(id)sender;
 - (IBAction)clearList:(id)sender;
-- (IBAction)hidPlayer:(id)sender;
+- (IBAction)hidePlayer:(id)sender;
 
 @end

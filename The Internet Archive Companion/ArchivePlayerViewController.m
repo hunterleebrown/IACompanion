@@ -118,8 +118,9 @@
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
         [tableView reloadData];
 
-    
     }
+    
+    
 }
 
 - (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -127,8 +128,29 @@
 }
 
 - (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    NSLog(@"->      sourceIndexPath.row: %i", sourceIndexPath.row);
+    NSLog(@"-> destinationIndexPath.row: %i", destinationIndexPath.row);
+    
+    /*
+    for(ArchiveFile *file in playerFiles){
+        NSLog(@"index: %i  %@", [playerFiles indexOfObject:file], file.title);
+    }
+    */
 
+    /* man this is way too easy */
+    id object = [playerFiles objectAtIndex:sourceIndexPath.row];
+    [playerFiles removeObjectAtIndex:sourceIndexPath.row];
+    [playerFiles insertObject:object atIndex:destinationIndexPath.row];
 
+    /*
+    NSLog(@" <   ---   > ");
+    
+    for(ArchiveFile *file in playerFiles){
+        NSLog(@"index: %i  %@", [playerFiles indexOfObject:file], file.title);
+    }
+     */
+    
+    
 }
 
 
@@ -137,16 +159,8 @@
         [player stop];
     }
     ArchiveFile *file = ((ArchivePlayerTableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).file;
-    player = [[MPMoviePlayerController alloc] init];
-    [self.playerHolder addSubview: player.view];
-    
-    [player.view setFrame: self.playerHolder.bounds];  // player's frame must match parent's
 
-    [player prepareToPlay];
-    [player setContentURL:[NSURL URLWithString:file.url]];
-    [player play];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
-
+    [self startListWithFile:file];
 
 }
 
@@ -154,6 +168,9 @@
     tableIsEditing = !tableIsEditing;
     [_editListButton setTitle:tableIsEditing ? @"Done" : @"Edit"];
     [_playerTableView setEditing:tableIsEditing animated:YES];
+    if(player){
+        [self setSelectedCellOfPlayingFileForPlayer:player];
+    }
 
 }
 
@@ -171,13 +188,13 @@
 
 }
 
-- (IBAction)hidPlayer:(id)sender{
+- (IBAction)hidePlayer:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"HidePlayerNotification" object:nil];
 
 }
 
 
-- (int) indexOfInVideoItemFromUrl:(NSURL *)url{
+- (int) indexOfInFileFromUrl:(NSURL *)url{
     
     for(ArchiveFile *file in playerFiles){
         if([file.url isEqualToString:url.absoluteString]){
@@ -188,9 +205,81 @@
     return -1;
 }
 
+
+- (void) setSelectedCellOfPlayingFileForPlayer:(MPMoviePlayerController *)thePlayer{
+    int index = [self indexOfInFileFromUrl:thePlayer.contentURL];
+    NSLog(@"--------> playing index: %i", index);
+    
+    if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
+        [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+    }
+
+}
+
+- (void)startListWithFile:(ArchiveFile *)file{
+    if(playerFiles.count > 0){
+        if(!player){
+            player = [[MPMoviePlayerController alloc] init];
+            [self.playerHolder addSubview: player.view];
+            [player.view setFrame: self.playerHolder.bounds];  // player's frame must match parent's
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+            [player prepareToPlay];
+            [player setContentURL:[NSURL URLWithString:file.url]];
+            [player play];
+        
+        } else {
+            [player prepareToPlay];
+            [player setContentURL:[NSURL URLWithString:file.url]];
+            [player play];
+            
+        }
+        [self setSelectedCellOfPlayingFileForPlayer:player];
+    
+    }
+
+}
+
+- (void) playNext{
+    int index = [self indexOfInFileFromUrl:player.contentURL];
+    if(index >= 0) {
+        int newIndex = index +1;
+        if(newIndex == [playerFiles count]){
+            // Remove this class from the observers
+            [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                            name:MPMoviePlayerPlaybackDidFinishNotification
+                                                          object:player];
+        } else {
+            ArchiveFile *newFile = [playerFiles objectAtIndex:newIndex];
+            [player setContentURL:[NSURL URLWithString:newFile.url]];
+            [player play];
+            [self setSelectedCellOfPlayingFileForPlayer:player];
+        }
+        
+    } else {
+        /*don't think this will ever happen */
+        return;
+    }
+}
+
+- (void) playPrevious {
+    int index = [self indexOfInFileFromUrl:player.contentURL];
+    if(index > 0) {
+        int newIndex = index - 1;
+        ArchiveFile *newFile = [playerFiles objectAtIndex:newIndex];
+        [player setContentURL:[NSURL URLWithString:newFile.url]];
+        [player play];
+        [self setSelectedCellOfPlayingFileForPlayer:player];
+        
+    } else {
+        return;
+    }
+
+
+}
+
 - (void)playlistFinishedCallback:(NSNotification *)notification{
     
-    MPMoviePlayerController *moviePlayer = [notification object];
+    MPMoviePlayerController *thePlayer = [notification object];
     NSNumber *finishReason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     
     // Dismiss the view controller ONLY when the reason is not "playback ended"
@@ -199,34 +288,64 @@
         // Remove this class from the observers
         [[NSNotificationCenter defaultCenter] removeObserver:self
                                                         name:MPMoviePlayerPlaybackDidFinishNotification
-                                                      object:moviePlayer];
+                                                      object:thePlayer];
     } else {
-        int index = [self indexOfInVideoItemFromUrl:moviePlayer.contentURL];
-        if(index >= 0) {
-            int newIndex = index +1;
-            if(newIndex == [playerFiles count]){
-                // Remove this class from the observers
-                [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                                name:MPMoviePlayerPlaybackDidFinishNotification
-                                                              object:moviePlayer];
-                
-                // Dismiss the view controller
-                
-            } else {
-                ArchiveFile *newFile = [playerFiles objectAtIndex:newIndex];
-                [player setContentURL:[NSURL URLWithString:newFile.url]];
-                [player play];
-                
-                if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:newIndex inSection:0]]){
-                    [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:newIndex inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-                }
-            }
-            
-        } else {
-            return;
+        [self playNext];
+    }
+}
+
+#pragma mark - controls
+
+- (IBAction)doPlayPause:(id)sender{
+    if(player){
+        if(player.playbackState == MPMoviePlaybackStatePlaying){
+            [player pause];
+        } else if(player.playbackState == MPMoviePlaybackStatePaused){
+            [player play];
+        } else if(player.playbackState == MPMoviePlaybackStateSeekingBackward || player.playbackState == MPMoviePlaybackStateSeekingForward){
+            [player endSeeking];
+        } else if(player.playbackState == MPMoviePlaybackStateStopped){
+            [player play];
+        }
+    } else{
+        if(playerFiles.count > 0){
+            [self startListWithFile:[playerFiles objectAtIndex:0]];
+            [self setSelectedCellOfPlayingFileForPlayer:player];
         }
     }
 }
+
+- (IBAction)doNext:(id)sender{
+    [self playNext];
+}
+
+
+- (IBAction)doPrevious:(id)sender{
+    [self playPrevious];
+
+}
+
+- (IBAction)doForwards:(id)sender{
+    if((player && player.playbackState == MPMoviePlaybackStatePlaying) || (player && player.playbackState == MPMoviePlaybackStateSeekingBackward)){
+        [player beginSeekingForward];
+    
+    } else if(player && player.playbackState == MPMoviePlaybackStateSeekingForward){
+        [player endSeeking];
+    }
+
+}
+
+- (IBAction)doBackwards:(id)sender{
+    if((player && player.playbackState == MPMoviePlaybackStatePlaying) || (player && player.playbackState == MPMoviePlaybackStateSeekingForward)){
+        [player beginSeekingBackward];
+        
+    } else if(player && player.playbackState == MPMoviePlaybackStateSeekingBackward){
+        [player endSeeking];
+    }
+
+}
+
+
 
 
 

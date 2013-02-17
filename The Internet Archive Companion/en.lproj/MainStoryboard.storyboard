@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" id="iZ5-Ro-UHb">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="860"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="760"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -22,7 +22,7 @@
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" id="j7E-el-rf5">
-                                <rect key="frame" x="0.0" y="860" width="768" height="144"/>
+                                <rect key="frame" x="0.0" y="760" width="768" height="244"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -30,7 +30,7 @@
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadowBottom.png" id="ilh-eE-dds">
-                                <rect key="frame" x="0.0" y="841" width="768" height="19"/>
+                                <rect key="frame" x="0.0" y="741" width="768" height="19"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </imageView>
                         </subviews>
@@ -68,11 +68,11 @@
             <objects>
                 <viewController id="eeV-js-ROD" customClass="HomeCombinedViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="bes-fD-3J2" customClass="HomeScrollView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="796"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="696"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="zCd-rU-GBd">
-                                <rect key="frame" x="0.0" y="0.0" width="256" height="796"/>
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="696"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="jJs-Cd-Iwd">
@@ -81,7 +81,7 @@
                                         <items/>
                                     </toolbar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="va3-Jl-Dvs" customClass="HomeNavTableView">
-                                        <rect key="frame" x="0.0" y="44" width="256" height="752"/>
+                                        <rect key="frame" x="0.0" y="44" width="256" height="652"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -123,7 +123,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="dGe-kY-kb9" customClass="HomeContentParentView">
-                                <rect key="frame" x="256" y="0.0" width="768" height="796"/>
+                                <rect key="frame" x="256" y="0.0" width="768" height="696"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="Ntu-DW-bYb">
@@ -158,7 +158,7 @@
                                         </connections>
                                     </webView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fL-ft-iBe" customClass="HomeContentTableView">
-                                        <rect key="frame" x="0.0" y="473" width="768" height="324"/>
+                                        <rect key="frame" x="0.0" y="473" width="768" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -232,7 +232,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default-Portrait~ipad.png" id="laf-xb-oXd">
-                                        <rect key="frame" x="0.0" y="44" width="768" height="752"/>
+                                        <rect key="frame" x="0.0" y="44" width="768" height="652"/>
                                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
@@ -271,7 +271,7 @@
             <objects>
                 <viewController id="5Hf-D6-IM6" customClass="ArchiveDetailedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eop-05-gV9">
-                        <rect key="frame" x="0.0" y="64" width="768" height="796"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="696"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GJ4-U2-TiI">
@@ -282,7 +282,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Np-SX-QeY">
-                                <rect key="frame" x="408" y="429" width="340" height="347"/>
+                                <rect key="frame" x="408" y="429" width="340" height="247"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="playableFileCell" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="playableFileCell" id="MDh-j2-Qbb" customClass="ArchiveFileTableViewCell">
@@ -321,7 +321,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView opaque="NO" contentMode="scaleToFill" id="WnN-ve-aSX">
-                                <rect key="frame" x="20" y="322" width="380" height="454"/>
+                                <rect key="frame" x="20" y="322" width="380" height="354"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -505,11 +505,11 @@
             <objects>
                 <viewController id="OFF-3p-DFo" customClass="ArchivePlayerViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uNb-lg-f5d">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="144"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="244"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="zyX-Pq-UGl">
-                                <rect key="frame" x="256" y="44" width="512" height="100"/>
+                                <rect key="frame" x="256" y="44" width="512" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -549,8 +549,17 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleAspectFit" id="see-lf-jWU">
-                                <rect key="frame" x="0.0" y="44" width="256" height="100"/>
+                                <rect key="frame" x="0.0" y="44" width="256" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To add files, view an item's page, and click on a Media File, or the + symbol to add all." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kbb-3D-IkS">
+                                        <rect key="frame" x="20" y="65" width="216" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="GE8-DM-8uf">
@@ -559,12 +568,37 @@
                                 <items>
                                     <barButtonItem title="Hide" id="BeQ-0j-UaO">
                                         <connections>
-                                            <action selector="hidPlayer:" destination="OFF-3p-DFo" id="DYq-fk-hEF"/>
+                                            <action selector="hidePlayer:" destination="OFF-3p-DFo" id="YIz-A3-EFw"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0sD-IE-xJ1"/>
                                     <barButtonItem image="barIcon.png" style="plain" id="LX2-Ow-U8H"/>
                                     <barButtonItem title="Media Player" style="plain" id="HnM-zb-17H"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0sD-IE-xJ1"/>
+                                    <barButtonItem title="&lt;" id="0Bd-52-5tR">
+                                        <connections>
+                                            <action selector="doPrevious:" destination="OFF-3p-DFo" id="w9l-7M-caB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="&lt;&lt;" id="pnC-Wk-XQb">
+                                        <connections>
+                                            <action selector="doBackwards:" destination="OFF-3p-DFo" id="WEt-QV-QZo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="play / pause" id="A0s-r3-vVN">
+                                        <connections>
+                                            <action selector="doPlayPause:" destination="OFF-3p-DFo" id="WNh-E3-DGy"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title=">>" id="7O6-I8-eAn">
+                                        <connections>
+                                            <action selector="doForwards:" destination="OFF-3p-DFo" id="s7U-oV-bqc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title=">" id="Z4q-QQ-zVv">
+                                        <connections>
+                                            <action selector="doNext:" destination="OFF-3p-DFo" id="RCT-Al-flW"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JFk-73-uCE"/>
                                     <barButtonItem title="Clear" id="rLM-za-3hj">
                                         <connections>
@@ -584,11 +618,16 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="backwards" destination="pnC-Wk-XQb" id="R1C-rj-cK6"/>
                         <outlet property="clearButton" destination="rLM-za-3hj" id="v0O-nq-Bot"/>
                         <outlet property="editListButton" destination="pYr-Wb-6cy" id="24b-cT-7Re"/>
+                        <outlet property="forwards" destination="7O6-I8-eAn" id="bh9-ae-8Ax"/>
                         <outlet property="hidePlayerButton" destination="BeQ-0j-UaO" id="WtK-I5-GWY"/>
+                        <outlet property="next" destination="Z4q-QQ-zVv" id="CMB-JN-gD8"/>
+                        <outlet property="playPause" destination="A0s-r3-vVN" id="BGP-64-fhe"/>
                         <outlet property="playerHolder" destination="see-lf-jWU" id="5gK-bQ-8eW"/>
                         <outlet property="playerTableView" destination="zyX-Pq-UGl" id="zUY-Fu-Vch"/>
+                        <outlet property="previous" destination="0Bd-52-5tR" id="duj-4V-E2u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soD-R9-Bme" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -659,13 +698,25 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePlayerViewController.h"/>
             <relationships>
                 <relationship kind="action" name="clearList:"/>
+                <relationship kind="action" name="doBackwards:"/>
+                <relationship kind="action" name="doForwards:"/>
+                <relationship kind="action" name="doNext:"/>
+                <relationship kind="action" name="doPlayPause:"/>
+                <relationship kind="action" name="doPrevious:"/>
                 <relationship kind="action" name="editList:"/>
+                <relationship kind="action" name="endBackwards:"/>
+                <relationship kind="action" name="endForwards:"/>
                 <relationship kind="action" name="hidPlayer:"/>
+                <relationship kind="outlet" name="backwards" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="editListButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwards" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="hidePlayerButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="next" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playPause" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="previous" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="ArchiveShareViewController" superclassName="UIViewController">
