@@ -60,7 +60,7 @@
                                   baseURL:theBaseURL];
     [_homeContentTableView setDidTriggerLoadMore:NO];
     [_homeContentTableView.service getDocsWithCollectionIdentifier:doc.identifier];
-    [_toolBarTitle setTitle:doc.title];
+    //[_toolBarTitle setTitle:doc.title];
     [_aSearchBar setText:@""];
     [_toolBarButton setEnabled:YES];
     [self hideSplashView];
