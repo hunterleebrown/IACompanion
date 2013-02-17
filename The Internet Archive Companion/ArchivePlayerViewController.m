@@ -216,6 +216,10 @@
                 ArchiveFile *newFile = [playerFiles objectAtIndex:newIndex];
                 [player setContentURL:[NSURL URLWithString:newFile.url]];
                 [player play];
+                
+                if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:newIndex inSection:0]]){
+                    [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:newIndex inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+                }
             }
             
         } else {

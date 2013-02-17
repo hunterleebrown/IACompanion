@@ -40,6 +40,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *uploader;
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *viewWebPageButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *shareButton;
+
 
 @property (nonatomic, weak) IBOutlet ArchiveMetadataTableView *metadataTableView;
 @property (nonatomic, weak) IBOutlet UIButton *addFilesToPlayerButton;

@@ -36,6 +36,15 @@
 		5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */; };
 		5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */; };
 		5A8CA7E816D00D1800F97BF7 /* barIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7E716D00D1800F97BF7 /* barIcon.png */; };
+		5A8CA7EB16D0365000F97BF7 /* share-bbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7E916D0365000F97BF7 /* share-bbi.png */; };
+		5A8CA7EC16D0365000F97BF7 /* share-bbi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7EA16D0365000F97BF7 /* share-bbi@2x.png */; };
+		5A8CA7EF16D03D1000F97BF7 /* ArchiveShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8CA7EE16D03D1000F97BF7 /* ArchiveShareViewController.m */; };
+		5A8CA7F416D0423600F97BF7 /* W-share-FB.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7F016D0423600F97BF7 /* W-share-FB.png */; };
+		5A8CA7F516D0423600F97BF7 /* W-share-FB@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7F116D0423600F97BF7 /* W-share-FB@2x.png */; };
+		5A8CA7F616D0423600F97BF7 /* W-share-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7F216D0423600F97BF7 /* W-share-twitter.png */; };
+		5A8CA7F716D0423600F97BF7 /* W-share-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7F316D0423600F97BF7 /* W-share-twitter@2x.png */; };
+		5A8CA7FA16D0445500F97BF7 /* ArchiveShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8CA7F916D0445500F97BF7 /* ArchiveShareTableViewCell.m */; };
+		5A8CA7FC16D051EF00F97BF7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8CA7FB16D051EF00F97BF7 /* Social.framework */; };
 		5A98438E16BBFD020022DB3F /* AsyncImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A98438D16BBFD020022DB3F /* AsyncImage.m */; };
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
 		5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */; };
@@ -126,6 +135,17 @@
 		5A8A195A16B5DDD900F6A2E4 /* ArchiveSearchDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveSearchDoc.h; sourceTree = "<group>"; };
 		5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveSearchDoc.m; sourceTree = "<group>"; };
 		5A8CA7E716D00D1800F97BF7 /* barIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon.png; sourceTree = "<group>"; };
+		5A8CA7E916D0365000F97BF7 /* share-bbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-bbi.png"; sourceTree = "<group>"; };
+		5A8CA7EA16D0365000F97BF7 /* share-bbi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-bbi@2x.png"; sourceTree = "<group>"; };
+		5A8CA7ED16D03D1000F97BF7 /* ArchiveShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveShareViewController.h; sourceTree = "<group>"; };
+		5A8CA7EE16D03D1000F97BF7 /* ArchiveShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveShareViewController.m; sourceTree = "<group>"; };
+		5A8CA7F016D0423600F97BF7 /* W-share-FB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W-share-FB.png"; sourceTree = "<group>"; };
+		5A8CA7F116D0423600F97BF7 /* W-share-FB@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W-share-FB@2x.png"; sourceTree = "<group>"; };
+		5A8CA7F216D0423600F97BF7 /* W-share-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W-share-twitter.png"; sourceTree = "<group>"; };
+		5A8CA7F316D0423600F97BF7 /* W-share-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W-share-twitter@2x.png"; sourceTree = "<group>"; };
+		5A8CA7F816D0445500F97BF7 /* ArchiveShareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveShareTableViewCell.h; sourceTree = "<group>"; };
+		5A8CA7F916D0445500F97BF7 /* ArchiveShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveShareTableViewCell.m; sourceTree = "<group>"; };
+		5A8CA7FB16D051EF00F97BF7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5A98438C16BBFD020022DB3F /* AsyncImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImage.h; sourceTree = "<group>"; };
 		5A98438D16BBFD020022DB3F /* AsyncImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImage.m; sourceTree = "<group>"; };
 		5A990BA616B9F2E500B4C058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -189,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A8CA7FC16D051EF00F97BF7 /* Social.framework in Frameworks */,
 				CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */,
 				CEBA014316CEF6B30038625F /* AVFoundation.framework in Frameworks */,
 				5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */,
@@ -215,6 +236,7 @@
 		5A0A10A016A640A300CC70CD = {
 			isa = PBXGroup;
 			children = (
+				5A8CA7FB16D051EF00F97BF7 /* Social.framework */,
 				CEBA014616CEFFB60038625F /* AudioToolbox.framework */,
 				CEBA014416CEFF580038625F /* CoreAudio.framework */,
 				CEBA014216CEF6B30038625F /* AVFoundation.framework */,
@@ -340,6 +362,12 @@
 		5ADAB7ED16C76E8100DBC072 /* IA Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A8CA7F016D0423600F97BF7 /* W-share-FB.png */,
+				5A8CA7F116D0423600F97BF7 /* W-share-FB@2x.png */,
+				5A8CA7F216D0423600F97BF7 /* W-share-twitter.png */,
+				5A8CA7F316D0423600F97BF7 /* W-share-twitter@2x.png */,
+				5A8CA7E916D0365000F97BF7 /* share-bbi.png */,
+				5A8CA7EA16D0365000F97BF7 /* share-bbi@2x.png */,
 				5A8CA7E716D00D1800F97BF7 /* barIcon.png */,
 				CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */,
 				CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */,
@@ -383,6 +411,8 @@
 				5AE33BEC16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m */,
 				CE18814F16CEAC630040EA9A /* ArchivePlayerTableViewCell.h */,
 				CE18815016CEAC630040EA9A /* ArchivePlayerTableViewCell.m */,
+				5A8CA7F816D0445500F97BF7 /* ArchiveShareTableViewCell.h */,
+				5A8CA7F916D0445500F97BF7 /* ArchiveShareTableViewCell.m */,
 			);
 			name = Tables;
 			sourceTree = "<group>";
@@ -431,6 +461,8 @@
 				5AD5975216CA1AE300AD663B /* ArchivePageViewController.m */,
 				CE18814C16CEA7640040EA9A /* ArchivePlayerViewController.h */,
 				CE18814D16CEA7640040EA9A /* ArchivePlayerViewController.m */,
+				5A8CA7ED16D03D1000F97BF7 /* ArchiveShareViewController.h */,
+				5A8CA7EE16D03D1000F97BF7 /* ArchiveShareViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -531,6 +563,12 @@
 				CEBA014016CEEFCE0038625F /* vertShadowBottom.png in Resources */,
 				CEBA014116CEEFCE0038625F /* vertShadowBottom@2x.png in Resources */,
 				5A8CA7E816D00D1800F97BF7 /* barIcon.png in Resources */,
+				5A8CA7EB16D0365000F97BF7 /* share-bbi.png in Resources */,
+				5A8CA7EC16D0365000F97BF7 /* share-bbi@2x.png in Resources */,
+				5A8CA7F416D0423600F97BF7 /* W-share-FB.png in Resources */,
+				5A8CA7F516D0423600F97BF7 /* W-share-FB@2x.png in Resources */,
+				5A8CA7F616D0423600F97BF7 /* W-share-twitter.png in Resources */,
+				5A8CA7F716D0423600F97BF7 /* W-share-twitter@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +631,8 @@
 				CE18814B16CEA71F0040EA9A /* HomeViewController.m in Sources */,
 				CE18814E16CEA7640040EA9A /* ArchivePlayerViewController.m in Sources */,
 				CE18815116CEAC630040EA9A /* ArchivePlayerTableViewCell.m in Sources */,
+				5A8CA7EF16D03D1000F97BF7 /* ArchiveShareViewController.m in Sources */,
+				5A8CA7FA16D0445500F97BF7 /* ArchiveShareTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

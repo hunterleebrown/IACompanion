@@ -13,6 +13,7 @@
 #import "StringUtils.h"
 #import "ArchiveBookPageImageViewController.h"
 #import "ArchivePageViewController.h"
+#import "ArchiveShareViewController.h"
 
 @interface ArchiveDetailedViewController (){
     ArchiveFile *bookFile;
@@ -151,13 +152,19 @@
         [bookViewController setViewControllers:@[firstPage] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
         
         [pages setObject:firstPage atIndexedSubscript:0];
-     
-
-  
-        
-        
         
     }
+    if([[segue identifier] isEqualToString:@"sharePopover"]){
+        
+        ArchiveShareViewController *shareController = [segue destinationViewController];
+        UIPopoverController *pop = ((UIStoryboardPopoverSegue *)segue).popoverController;
+        [shareController setMyPopOverController:pop];
+        [shareController setArchiveIdentifier:self.identifier];
+        [shareController setArchiveTitle:[StringUtils stringFromObject:_doc.title]];
+
+    }
+
+
 }
 
 

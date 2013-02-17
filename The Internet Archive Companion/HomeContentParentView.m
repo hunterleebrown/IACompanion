@@ -28,6 +28,9 @@
 }
 */
 
+
+
+
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     if(self.homeContentDescriptionView.bounds.size.height == 430){
         [self toggleDetails:nil];
