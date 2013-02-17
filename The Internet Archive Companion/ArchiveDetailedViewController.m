@@ -160,6 +160,7 @@
         [shareController setMyPopOverController:pop];
         [shareController setArchiveIdentifier:self.identifier];
         [shareController setArchiveTitle:[StringUtils stringFromObject:_doc.title]];
+        [shareController setImage:_aSyncImage.image];
         
     }
     if([[segue identifier] isEqualToString:@"imageSegue"]){

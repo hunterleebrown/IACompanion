@@ -34,9 +34,9 @@
     
         UIPopoverController *pop = ((UIStoryboardPopoverSegue *)segue).popoverController;
         [shareController setMyPopOverController:pop];
-        [shareController setImageUrl:_url];
+       // [shareController setImage:((AsyncImageView *)_view).image];
         [shareController setArchiveTitle:_archvieTitle];
-           
+        
     }
 }
 

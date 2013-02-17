@@ -9,7 +9,7 @@
 #import "ArchiveDataService.h"
 #import "ArchiveSearchDoc.h"
 #import "ArchiveFile.h"
-
+#import "StringUtils.h"
 @interface ArchiveDataService () {
 
     NSString *identifierIn;
@@ -93,7 +93,7 @@
         [dDoc setRawDoc:inData];
         NSDictionary *metadata = [inData objectForKey:@"metadata"];
         [dDoc setIdentifier:[metadata objectForKey:@"identifier"]];
-        [dDoc setTitle:[metadata objectForKey:@"title"]];
+        [dDoc setTitle:[StringUtils stringFromObject:[metadata objectForKey:@"title"]]];
         if(![metadata objectForKey:@"headerImage"]){
             [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", dDoc.identifier]];
         } else {
@@ -106,7 +106,7 @@
         NSMutableArray *files = [NSMutableArray new];
         if([inData objectForKey:@"files"]){
             for (NSDictionary *file in [inData objectForKey:@"files"]) {
-                ArchiveFile *aFile = [[ArchiveFile alloc]initWithIdentifier:dDoc.identifier withIdentifierTitle:dDoc.title withServer:[inData objectForKey:@"server"] withDirectory:[inData objectForKey:@"dir"] withFile:file];
+                ArchiveFile *aFile = [[ArchiveFile alloc]initWithIdentifier:dDoc.identifier withIdentifierTitle:[StringUtils stringFromObject:dDoc.title] withServer:[inData objectForKey:@"server"] withDirectory:[inData objectForKey:@"dir"] withFile:file];
                 [files addObject:aFile];
             }
         }

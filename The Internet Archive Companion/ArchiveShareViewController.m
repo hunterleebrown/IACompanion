@@ -54,7 +54,7 @@
 
     UIButton *button = (UIButton *)sender;
     NSLog(@"------> button.tag: %i", button.tag);
-    if((_archiveIdentifier == nil) && ! _imageUrl){
+    if(_archiveIdentifier == nil){
         [_myPopOverController dismissPopoverAnimated:YES];
     
     } else {
@@ -73,24 +73,14 @@
             [_myPopOverController dismissPopoverAnimated:YES];
 
         };
-        controller.completionHandler =myBlock;
-        NSString *archiveUrl;
-        
-        if(_imageUrl){
-            archiveUrl = _imageUrl;
-        } else {
-            archiveUrl = [NSString stringWithFormat:@"http://archive.org/details/%@", self.archiveIdentifier];
-            
-        }
-        
+        controller.completionHandler = myBlock;
+        NSString *archiveUrl = [NSString stringWithFormat:@"http://archive.org/details/%@", self.archiveIdentifier];
         [controller addURL:[NSURL URLWithString:archiveUrl]];
         [controller setInitialText:[NSString stringWithFormat:@"@Internet Archive - %@", self.archiveTitle]];
-     /*   if(_imageUrl) {
-            AsyncImage *aSync = [AsyncImage new];
-            [aSync setAndLoadImageFromUrl:_imageUrl];
-            [controller addImage:aSync.image];
+        if(_image) {
+         //   [controller addImage:_image];
         }
-      */ 
+      
       [self presentViewController:controller animated:YES completion:nil];
     }
     

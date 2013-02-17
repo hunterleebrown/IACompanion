@@ -20,7 +20,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *twitterButton;
 @property (nonatomic, retain) NSString *archiveIdentifier;
 @property (nonatomic, retain) NSString *archiveTitle;
-@property (nonatomic, retain) NSString *imageUrl;
+@property (nonatomic, retain) UIImage *image;
 - (IBAction)doShare:(id)sender;
 
 @end
