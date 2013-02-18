@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *subject;
 @property (weak, nonatomic) IBOutlet UILabel *date;
+@property (weak, nonatomic) IBOutlet UILabel *collection;
+
+
 
 @property (weak, nonatomic) IBOutlet UIView *underlayView;;
 @property (nonatomic, retain) ArchiveSearchDoc *doc;

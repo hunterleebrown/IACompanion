@@ -93,7 +93,11 @@
         cell.date.text = [StringUtils stringFromObject:[doc.rawDoc objectForKey:@"date"]];
 
     }
-
+    if([[doc.rawDoc objectForKey:@"mediatype"] isEqualToString:@"collection"]){
+        [cell.collection setHidden:NO];
+    } else {
+        [cell.collection setHidden:YES];
+    }
     
     
     return cell;
