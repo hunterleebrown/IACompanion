@@ -39,6 +39,9 @@
 @property (nonatomic, retain) IBOutlet UILabel *from;
 @property (nonatomic, retain) IBOutlet UILabel *uploader;
 
+
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *viewCollectionButton;
+
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *viewWebPageButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *shareButton;
 

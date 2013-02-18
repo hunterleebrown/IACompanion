@@ -158,7 +158,17 @@
         NSLog(@"CACHE HIT...");
     }else{
     
-        [self loadData];
+        //[self loadData];
+        
+        NSOperationQueue *queue = [NSOperationQueue new];
+        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                            initWithTarget:self
+                                            selector:@selector(loadData)
+                                            object:nil];
+        [queue addOperation:operation];
+        
+        
+        
     }
 }
 
@@ -226,6 +236,7 @@
 }
 
 - (void) getDocsWithCollectionIdentifier:(NSString *)identifier{
+    
     [self getDocsWithType:MediaTypeNone withIdentifier:identifier withSort:@"publicdate+desc"];
 }
 

@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *searchButtons;
 
 - (IBAction)toggleDetails:(id)sender;
+- (void) hideSplashView;
 
 
 @end

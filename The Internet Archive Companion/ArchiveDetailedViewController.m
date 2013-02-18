@@ -15,6 +15,7 @@
 #import "ArchivePageViewController.h"
 #import "ArchiveShareViewController.h"
 #import "ArchiveImageViewController.h"
+#import "HomeCollectionViewController.h"
 
 @interface ArchiveDetailedViewController (){
     ArchiveFile *bookFile;
@@ -170,6 +171,13 @@
     
         
     }
+    
+    if([[segue identifier] isEqualToString:@"viewCollection"]){
+        
+        HomeCollectionViewController *collectionViewController = [segue destinationViewController];
+        [collectionViewController setIdentifier:_identifier];
+    }
+    
    
 
 }
@@ -404,6 +412,10 @@
     
         
     [self.metadataTableView setMetadata:[_doc.rawDoc objectForKey:@"metadata"]];
+    
+    if([[metadata objectForKey:@"mediatype"] isEqualToString:@"collection"]){
+        [_viewCollectionButton setEnabled:YES];
+    }
 
 }
 
