@@ -282,7 +282,6 @@
                         </connections>
                     </scrollView>
                     <navigationItem key="navigationItem" id="JIu-8Y-dpe"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="contentScrollView" destination="bes-fD-3J2" id="ITJ-yr-78Z"/>
                     </connections>
@@ -346,7 +345,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView opaque="NO" contentMode="scaleToFill" id="WnN-ve-aSX">
-                                <rect key="frame" x="20" y="322" width="380" height="354"/>
+                                <rect key="frame" x="20" y="322" width="380" height="356"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -454,7 +453,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="f2F-y1-lk2"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="aSyncImage" destination="hSp-Yc-HvM" id="eor-EW-amv"/>
                         <outlet property="addFilesToPlayerButton" destination="Lht-Ll-8zs" id="sAC-zT-PjF"/>
@@ -488,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUd-Y9-2lt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1333" y="46"/>
+            <point key="canvasLocation" x="1345" y="-310"/>
         </scene>
         <!--Archive Share View Controller-->
         <scene sceneID="KbG-if-aoH">
@@ -539,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUg-Ou-3El" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1333" y="-252"/>
+            <point key="canvasLocation" x="745" y="-180"/>
         </scene>
         <!--Archive Page View Controller-->
         <scene sceneID="WKj-4q-RCS">
@@ -685,7 +683,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soD-R9-Bme" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1280" y="-78"/>
+            <point key="canvasLocation" x="-1296" y="-214"/>
         </scene>
         <!--Home Collection View Controller-->
         <scene sceneID="xNr-BE-LuP">
@@ -696,7 +694,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="EQV-Xm-86M" customClass="HomeContentTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="698"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="700"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -787,7 +785,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prd-0C-Zry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333" y="100"/>
+            <point key="canvasLocation" x="1333" y="-2164"/>
         </scene>
     </scenes>
     <resources>
