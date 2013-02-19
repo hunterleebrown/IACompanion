@@ -39,6 +39,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *from;
 @property (nonatomic, retain) IBOutlet UILabel *uploader;
 
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *viewCollectionButton;
 

@@ -121,8 +121,8 @@
            file.format == FileFormatH264 ||
            file.format == FileFormat512kbMPEG4 ||
            file.format == FileFormatMPEG4 ||
-           file.format == FileFormatVBRMP3
-           
+           file.format == FileFormatVBRMP3 ||
+           file.format == FileFormat64KbpsMP3
            ){
             [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:file];
 
@@ -341,6 +341,8 @@
             ((UIImageView *)subview).hidden = YES;
         }
     }
+    
+    [_spinner startAnimating];
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
@@ -407,6 +409,9 @@
     if([[metadata objectForKey:@"mediatype"] isEqualToString:@"collection"]){
         [_viewCollectionButton setEnabled:YES];
     }
+    
+    [_spinner stopAnimating];
+
 
 }
 
