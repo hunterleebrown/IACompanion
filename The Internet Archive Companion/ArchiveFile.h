@@ -20,7 +20,8 @@ typedef enum {
     
     FileFormatJPEG = 5,
     FileFormatGIF = 6,
-    FileFormatProcessedJP2ZIP = 7
+    FileFormatProcessedJP2ZIP = 7,
+    FileFormat64KbpsMP3 = 8
     
 } FileFormat;
 

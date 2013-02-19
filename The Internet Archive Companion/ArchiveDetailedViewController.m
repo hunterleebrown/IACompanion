@@ -91,31 +91,22 @@
        file.format == FileFormatH264 ||
        file.format == FileFormat512kbMPEG4 ||
        file.format == FileFormatMPEG4 ||
-       file.format == FileFormatVBRMP3
-       
+       file.format == FileFormatVBRMP3 ||
+       file.format == FileFormat64KbpsMP3
        ){
-
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:file];
 
-
-        
     }
     else {
         
         if(file.format == FileFormatJPEG || file.format == FileFormatGIF) {
-            UIViewController *pushController = [UIViewController new];
             sharedPhotoFile = file;
             [self performSegueWithIdentifier:@"imageSegue" sender:sharedPhotoFile];
         } else if(file.format == FileFormatProcessedJP2ZIP) {
             bookFile = file;
             [self performSegueWithIdentifier:@"bookViewer" sender:bookFile];
         }
-    
-    
     }
-
-
 }
 
 - (void) sharePhoto{
@@ -417,6 +408,14 @@
         [_viewCollectionButton setEnabled:YES];
     }
 
+}
+
+- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    if(navigationType == UIWebViewNavigationTypeLinkClicked){
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 

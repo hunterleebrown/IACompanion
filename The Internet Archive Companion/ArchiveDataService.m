@@ -270,6 +270,9 @@
         case MediaTypeImage:
             t = @"image";
             break;
+        case MediaTypeCollection:
+            t = @"collection";
+            break;
         case MediaTypeNone:
             break;
         default:

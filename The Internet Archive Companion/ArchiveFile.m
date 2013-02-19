@@ -60,6 +60,8 @@
             _format = FileFormatJPEG;
         } else if([[file objectForKey:@"format"] isEqualToString:@"GIF"]){
             _format = FileFormatGIF;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"64Kbps MP3"]){
+            _format = FileFormat64KbpsMP3;
         } else if([[file objectForKey:@"format"] isEqualToString:@"Single Page Processed JP2 ZIP"]){
             _format = FileFormatProcessedJP2ZIP;
             _title = @"View Pages";

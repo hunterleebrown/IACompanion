@@ -16,7 +16,7 @@
 
 
 
-@interface ArchiveDetailedViewController : UIViewController <ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
+@interface ArchiveDetailedViewController : UIViewController <UIWebViewDelegate, ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
     
     ArchiveDataService *service;
     NSMutableArray *vbrs;
