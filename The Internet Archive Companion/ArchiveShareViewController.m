@@ -8,7 +8,6 @@
 
 #import "ArchiveShareViewController.h"
 #import "ArchiveShareTableViewCell.h"
-#import "AsyncImage.h"
 #import <Social/Social.h>
 
 @interface ArchiveShareViewController ()
