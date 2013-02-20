@@ -34,7 +34,13 @@
 
 
 - (void)setAndLoadImageFromUrl:(NSString *)url{
+    
     imageUrl = url;
+
+    
+   // NSLog(@"---------> imageUrl in: %@", imageUrl);
+
+    
     spinner.center = CGPointMake(self.center.x, self.center.y);
     [spinner startAnimating];
     id cI = [cache objectForKey:imageUrl];
@@ -66,6 +72,9 @@
 - (void)displayImage:(UIImage *)inImage {
     [self setImage:inImage];
     [spinner stopAnimating];
+  //  NSLog(@"---------> loaded ImageUrl: %@", imageUrl);
+
+
 }
 
 

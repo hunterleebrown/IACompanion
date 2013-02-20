@@ -82,6 +82,7 @@
     ArchiveSearchDoc *doc = [docs objectAtIndex:indexPath.row];
     
     [cell.title setText:doc.title];
+    [cell.aSyncImageView setImage:nil];
     [cell.aSyncImageView setAndLoadImageFromUrl:doc.headerImageUrl];
     [cell setDoc:doc];
     

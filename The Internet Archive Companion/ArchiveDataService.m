@@ -247,8 +247,9 @@
 
 
 
-- (void) getDocsWithQueryString:(NSString *)query {    
-    NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)query,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
+- (void) getDocsWithQueryString:(NSString *)query {
+    NSString *realQuery = [NSString stringWithFormat:@"%@ AND NOT collection:web AND NOT collection:webwidecrawl", query];
+    NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)realQuery,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
     testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@&output=json&rows=50", escapedString];
     [self getDocsWithTest:testUrl withStart:loadMoreStart];
 }
@@ -279,8 +280,8 @@
             break;
     }
 
-    
-    NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)query,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
+    NSString *realQuery = [NSString stringWithFormat:@"%@ AND NOT collection:web AND NOT collection:webwidecrawl", query];
+    NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)realQuery,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
     NSString *mediaTypeString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)[NSString stringWithFormat:@" AND mediatype:%@",t],	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1)); 
     testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@%@&output=json&rows=50", escapedString, [NSString stringWithFormat:@"%@", t ? mediaTypeString : @""]];
     [self getDocsWithTest:testUrl withStart:loadMoreStart];
