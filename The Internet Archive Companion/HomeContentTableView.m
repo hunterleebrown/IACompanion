@@ -136,7 +136,7 @@
        // [_totalFound setTextColor:[UIColor whiteColor]];
 
     }
-    
+    _didTriggerLoadMore = NO;
 }
 
 
@@ -159,8 +159,7 @@
     // NSLog(@" offset: %f  width: %f ", scrollView.contentOffset.x + scrollView.frame.size.width, scrollView.contentSize.width);
     
     if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 300){
-        if(docs.count > 0  && docs.count < numFound ){
-            NSLog(@" docs.count:%i  numFound:%i", docs.count, numFound);
+        if(docs.count > 0  && docs.count < numFound  && start < numFound && !_didTriggerLoadMore){
             [self loadMoreItems:nil];
         }
         
@@ -171,9 +170,11 @@
 
 
 - (void)loadMoreItems:(id)sender {
-    NSLog(@"-----> trigger loadmore");
     _didTriggerLoadMore = YES;
-    start = start + docs.count;
+    start = start + 50;
+    NSLog(@"-----> trigger loadmore");
+    NSLog(@" docs.count:%i  numFound:%i   start:%i", docs.count, numFound, start);
+
     [_service loadMoreWithStart:[NSString stringWithFormat:@"%i", start]];
 }
 

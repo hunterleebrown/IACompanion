@@ -135,41 +135,16 @@
     
     inUrl = url;
     
-    /*
-    id cI = [cache objectForKey:inUrl];
-    if(cI != nil){
-        NSDictionary *cachedData = (NSDictionary *)cI;
-        [self sendData:cachedData];
-        NSLog(@"CACHE HIT...");
-    } else {
-        
-        NSOperationQueue *queue = [NSOperationQueue new];
-        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
-                                            initWithTarget:self
-                                            selector:@selector(loadData)
-                                            object:nil];
-        [queue addOperation:operation];
-    }
-    */
-    id cI = [cache objectForKey:inUrl];
-    if(cI != nil){
-        NSDictionary *cachedData = (NSDictionary *)cI;
-        [self sendData:cachedData];
-        NSLog(@"CACHE HIT...");
-    }else{
+    NSOperationQueue *queue = [NSOperationQueue new];
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                        initWithTarget:self
+                                        selector:@selector(loadData)
+                                        object:nil];
+    [queue addOperation:operation];
     
-        //[self loadData];
-        
-        NSOperationQueue *queue = [NSOperationQueue new];
-        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
-                                            initWithTarget:self
-                                            selector:@selector(loadData)
-                                            object:nil];
-        [queue addOperation:operation];
-        
-        
-        
-    }
+    
+    
+    
 }
 
 - (void)loadData {
@@ -184,7 +159,6 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
     
     
-    [cache setObject:json forKey:inUrl];
     [self performSelectorOnMainThread:@selector(sendData:) withObject:json waitUntilDone:NO];
 }
 
