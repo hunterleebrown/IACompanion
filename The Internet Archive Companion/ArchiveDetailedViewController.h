@@ -51,8 +51,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *addFilesToPlayerButton;
 
 
-@property (nonatomic, weak) IBOutlet UIScrollView *phoneScrollView;
-@property (nonatomic, weak) IBOutlet UIView *phoneScrollContents;
 
 
 - (IBAction)openWebPage:(id)sender;

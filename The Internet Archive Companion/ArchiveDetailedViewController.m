@@ -382,22 +382,11 @@
     }
     
     [_spinner startAnimating];
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        [self layoutPhone];
-    }
+ 
     
 }
 
 
-- (void) layoutPhone{
-    if(_phoneScrollView){
-        
-        [_phoneScrollView setContentSize:CGSizeMake(_phoneScrollContents.bounds.size.width, _phoneScrollContents.bounds.size.height)];
-    
-    }
-
-}
 
 
 - (void) viewWillDisappear:(BOOL)animated{

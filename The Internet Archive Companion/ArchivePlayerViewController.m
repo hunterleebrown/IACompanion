@@ -195,6 +195,10 @@
 }
 
 
+- (BOOL) shouldAutorotate{
+    return YES;
+}
+
 - (int) indexOfInFileFromUrl:(NSURL *)url{
     
     for(ArchiveFile *file in playerFiles){
