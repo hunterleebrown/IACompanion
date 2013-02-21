@@ -155,6 +155,15 @@
         [shareController setImage:_aSyncImage.image];
         
     }
+    if([[segue identifier] isEqualToString:@"shareModal"]){
+        
+        ArchiveShareViewController *shareController = [segue destinationViewController];
+        [shareController setArchiveIdentifier:self.identifier];
+        [shareController setArchiveTitle:[StringUtils stringFromObject:_doc.title]];
+        [shareController setImage:_aSyncImage.image];
+        
+    }
+    
     if([[segue identifier] isEqualToString:@"imageSegue"]){
         ArchiveImageViewController *ivc = [segue destinationViewController];
         [ivc setUrl:sharedPhotoFile.url];
@@ -373,7 +382,23 @@
     }
     
     [_spinner startAnimating];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self layoutPhone];
+    }
+    
 }
+
+
+- (void) layoutPhone{
+    if(_phoneScrollView){
+        
+        [_phoneScrollView setContentSize:CGSizeMake(_phoneScrollContents.bounds.size.width, _phoneScrollContents.bounds.size.height)];
+    
+    }
+
+}
+
 
 - (void) viewWillDisappear:(BOOL)animated{
     if(!player.fullscreen){
