@@ -135,7 +135,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"bookViewer"]){
         [self setPagesWithIndex:0];
-        firstPage = [pages objectAtIndex:1];
+        firstPage = [pages objectAtIndex:2];
         
         bookViewController = [segue destinationViewController];
         [bookViewController setDataSource:self];
@@ -183,7 +183,14 @@
     
     ArchiveBookPageImageViewController *p0;
     ArchiveBookPageImageViewController *p1;
+    
     ArchiveBookPageImageViewController *p2;
+
+    ArchiveBookPageImageViewController *p3;
+    ArchiveBookPageImageViewController *p4;
+    
+ 
+    
     
     if([pages objectAtIndex:0]){
         p0 = [pages objectAtIndex:0];
@@ -199,6 +206,17 @@
         NSLog(@"p2.index: %i", p2.index);
 
     }
+    if([pages objectAtIndex:3]){
+        p3 = [pages objectAtIndex:3];
+        NSLog(@"p3.index: %i", p3.index);
+        
+    }
+    if([pages objectAtIndex:4]){
+        p4 = [pages objectAtIndex:4];
+        NSLog(@"p4.index: %i", p4.index);
+        
+    }
+      
     
     
     if(p0.index == index){
@@ -216,19 +234,31 @@
         [self setPagesWithIndex:index];
         return p2;
     }
+    else if(p3.index == index){
+        NSLog(@"--> 3 HIT");
+        [self setPagesWithIndex:index];
+        return p3;
+    }
+    else if(p4.index == index){
+        NSLog(@"--> 4 HIT");
+        [self setPagesWithIndex:index];
+        return p4;
+    }
     else {
         NSLog(@"--> go fish");
         [self setPagesWithIndex:index];
-        return [pages objectAtIndex:1];
+        return [pages objectAtIndex:2];
     }
     
     
 }
 
 - (void) setPagesWithIndex:(int)index{
-    [pages setObject:[self newPageControllerWithIndex:index - 1] atIndexedSubscript:0];
-    [pages setObject:[self newPageControllerWithIndex:index] atIndexedSubscript:1];
-    [pages setObject:[self newPageControllerWithIndex:index + 1] atIndexedSubscript:2];
+    [pages setObject:[self newPageControllerWithIndex:index - 2] atIndexedSubscript:0];
+    [pages setObject:[self newPageControllerWithIndex:index - 1] atIndexedSubscript:1];
+    [pages setObject:[self newPageControllerWithIndex:index] atIndexedSubscript:2];
+    [pages setObject:[self newPageControllerWithIndex:index + 1] atIndexedSubscript:3];
+    [pages setObject:[self newPageControllerWithIndex:index + 2] atIndexedSubscript:4];
 
 }
 
@@ -295,7 +325,7 @@
         
         
         NSArray *viewControllers = nil;
-        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:1];
+        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:2];
         
         NSLog(@"-------> controller index: %i", ((ArchiveBookPageImageViewController*)[pages objectAtIndex:1]).index);
         
@@ -319,7 +349,7 @@
     } else {
         
         
-        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:1];
+        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:2];
         NSArray *viewControllers = [NSArray arrayWithObject:currentViewController];
         [bookViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
         

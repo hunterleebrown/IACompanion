@@ -57,6 +57,12 @@ static NSCache *cache = nil;
 }
 
 
+- (void) layoutSubviews{
+    [super layoutSubviews];
+    spinner.center = CGPointMake(self.center.x, self.center.y);
+
+}
+
 - (void)setAndLoadImageFromUrl:(NSString *)url{
     
     imageUrl = url;
