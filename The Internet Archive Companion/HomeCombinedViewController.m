@@ -67,9 +67,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self.contentScrollView.homeContentView.homeContentTableView deselectRowAtIndexPath:self.contentScrollView.homeContentView.homeContentTableView.indexPathForSelectedRow animated:YES];
+    [self doOrientationLayout:self.interfaceOrientation];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -95,7 +96,7 @@
 
 
 - (void) doOrientationLayout:(UIInterfaceOrientation)toInterfaceOrientation{
-    [self.contentScrollView setContentSize:CGSizeMake(1024, 10)];
+    [self.contentScrollView setContentSize:CGSizeMake((self.contentScrollView.homeNavTableView.bounds.size.width + self.contentScrollView.homeContentView.bounds.size.width), 10)];
     [self.contentScrollView.homeNavTableView reloadData];
     [self.contentScrollView.homeContentView.homeContentTableView reloadData];
     

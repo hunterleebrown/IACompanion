@@ -100,7 +100,7 @@
             [self.homeContentDescriptionView setFrame:CGRectMake(self.homeContentDescriptionView.frame.origin.x,
                                                                  self.homeContentDescriptionView.frame.origin.y,
                                                                  self.homeContentDescriptionView.bounds.size.width,
-                                                                 430)];
+                                                                 self.bounds.size.height - self.toolBar.bounds.size.height)];
             
             [self.descriptionShadow setFrame:CGRectMake(self.descriptionShadow.frame.origin.x,
                                                         self.homeContentDescriptionView.frame.origin.y + self.homeContentDescriptionView.bounds.size.height,

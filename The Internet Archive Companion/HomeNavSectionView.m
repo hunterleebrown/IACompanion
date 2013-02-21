@@ -22,7 +22,15 @@
     if (self) {
         // Initialization code
         
-        [[NSBundle mainBundle] loadNibNamed:@"HomeNavSectionView" owner:self options:nil];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            [[NSBundle mainBundle] loadNibNamed:@"HomeNavSectionView~ipad" owner:self options:nil];
+
+        } else {
+            [[NSBundle mainBundle] loadNibNamed:@"HomeNavSectionView~iphone" owner:self options:nil];
+        }
+        
+        
         self.contentView.frame = self.bounds;
         [self addSubview:self.contentView];
         

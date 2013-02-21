@@ -29,7 +29,7 @@
 		5A31D4FE16C7B56E00710DE0 /* vertShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4FC16C7B56E00710DE0 /* vertShadow.png */; };
 		5A31D4FF16C7B56E00710DE0 /* vertShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4FD16C7B56E00710DE0 /* vertShadow@2x.png */; };
 		5A528DBE16C782100066EEEF /* HomeNavSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A528DBD16C782100066EEEF /* HomeNavSectionView.m */; };
-		5A528DC016C7825B0066EEEF /* HomeNavSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A528DBF16C7825A0066EEEF /* HomeNavSectionView.xib */; };
+		5A528DC016C7825B0066EEEF /* HomeNavSectionView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A528DBF16C7825A0066EEEF /* HomeNavSectionView~ipad.xib */; };
 		5A528DC316C7A14D0066EEEF /* HomeContentParentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */; };
 		5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */; };
 		5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */; };
@@ -46,6 +46,8 @@
 		5A8CA7FA16D0445500F97BF7 /* ArchiveShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8CA7F916D0445500F97BF7 /* ArchiveShareTableViewCell.m */; };
 		5A8CA7FC16D051EF00F97BF7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8CA7FB16D051EF00F97BF7 /* Social.framework */; };
 		5A8CA7FF16D0965200F97BF7 /* ArchiveImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */; };
+		5A942D4616D5F545001CB01B /* MainStoryboard-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */; };
+		5A942D4816D60AAD001CB01B /* HomeNavSectionView~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A942D4716D60AAD001CB01B /* HomeNavSectionView~iphone.xib */; };
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
 		5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */; };
 		5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */; };
@@ -124,7 +126,7 @@
 		5A31D4FD16C7B56E00710DE0 /* vertShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertShadow@2x.png"; sourceTree = "<group>"; };
 		5A528DBC16C782100066EEEF /* HomeNavSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavSectionView.h; sourceTree = "<group>"; };
 		5A528DBD16C782100066EEEF /* HomeNavSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavSectionView.m; sourceTree = "<group>"; };
-		5A528DBF16C7825A0066EEEF /* HomeNavSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeNavSectionView.xib; sourceTree = "<group>"; };
+		5A528DBF16C7825A0066EEEF /* HomeNavSectionView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "HomeNavSectionView~ipad.xib"; sourceTree = "<group>"; };
 		5A528DC116C7A14C0066EEEF /* HomeContentParentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeContentParentView.h; sourceTree = "<group>"; };
 		5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeContentParentView.m; sourceTree = "<group>"; };
 		5A8A191B16B4FAD900F6A2E4 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
@@ -149,6 +151,8 @@
 		5A8CA7FB16D051EF00F97BF7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5A8CA7FD16D0965100F97BF7 /* ArchiveImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveImageViewController.h; sourceTree = "<group>"; };
 		5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveImageViewController.m; sourceTree = "<group>"; };
+		5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "MainStoryboard-iPhone.storyboard"; path = "../MainStoryboard-iPhone.storyboard"; sourceTree = "<group>"; };
+		5A942D4716D60AAD001CB01B /* HomeNavSectionView~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "HomeNavSectionView~iphone.xib"; sourceTree = "<group>"; };
 		5A990BA616B9F2E500B4C058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5A990BBA16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDetailedCollectionViewCell.h; sourceTree = "<group>"; };
 		5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedCollectionViewCell.m; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 				5A0A10BE16A640A300CC70CD /* AppDelegate.h */,
 				5A0A10BF16A640A300CC70CD /* AppDelegate.m */,
 				5A0A10C716A640A300CC70CD /* MainStoryboard.storyboard */,
+				5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */,
 				5A0A10B616A640A300CC70CD /* Supporting Files */,
 			);
 			path = "The Internet Archive Companion";
@@ -405,7 +410,8 @@
 				5ADAB7E816C76DD200DBC072 /* HomeNavCell.m */,
 				5A528DBC16C782100066EEEF /* HomeNavSectionView.h */,
 				5A528DBD16C782100066EEEF /* HomeNavSectionView.m */,
-				5A528DBF16C7825A0066EEEF /* HomeNavSectionView.xib */,
+				5A528DBF16C7825A0066EEEF /* HomeNavSectionView~ipad.xib */,
+				5A942D4716D60AAD001CB01B /* HomeNavSectionView~iphone.xib */,
 				5AE33BE816CC955900129C62 /* ArchiveMetadataTableView.h */,
 				5AE33BE916CC955900129C62 /* ArchiveMetadataTableView.m */,
 				5AE33BEB16CC96AE00129C62 /* ArchiveMetadataTableViewCell.h */,
@@ -559,7 +565,7 @@
 				5ADAB7F116C76F5400DBC072 /* audio.gif in Resources */,
 				5ADAB7F216C76F5400DBC072 /* movies.gif in Resources */,
 				5ADAB7F316C76F5400DBC072 /* texts.gif in Resources */,
-				5A528DC016C7825B0066EEEF /* HomeNavSectionView.xib in Resources */,
+				5A528DC016C7825B0066EEEF /* HomeNavSectionView~ipad.xib in Resources */,
 				5A31D4FA16C7B2A200710DE0 /* leftContentShadow.png in Resources */,
 				5A31D4FB16C7B2A200710DE0 /* leftContentShadow@2x.png in Resources */,
 				5A31D4FE16C7B56E00710DE0 /* vertShadow.png in Resources */,
@@ -574,6 +580,8 @@
 				5A8CA7F516D0423600F97BF7 /* W-share-FB@2x.png in Resources */,
 				5A8CA7F616D0423600F97BF7 /* W-share-twitter.png in Resources */,
 				5A8CA7F716D0423600F97BF7 /* W-share-twitter@2x.png in Resources */,
+				5A942D4616D5F545001CB01B /* MainStoryboard-iPhone.storyboard in Resources */,
+				5A942D4816D60AAD001CB01B /* HomeNavSectionView~iphone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +761,7 @@
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
 				PRODUCT_NAME = IA;
 				PROVISIONING_PROFILE = "B71838A7-FD66-4320-B12F-67BC44D498DB";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -766,6 +775,7 @@
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
 				PRODUCT_NAME = IA;
 				PROVISIONING_PROFILE = "B71838A7-FD66-4320-B12F-67BC44D498DB";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
