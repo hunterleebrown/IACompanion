@@ -34,7 +34,7 @@
     [self loadWebView:_webContent];
     [self.metadataTableView setMetadata:_metadata];
     
-    
+    [_description setDelegate:self];
     
 
     _description.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -61,6 +61,19 @@
      textEncodingName:@"UTF-8"
               baseURL:theBaseURL];
     
+}
+
+- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    if(navigationType == UIWebViewNavigationTypeLinkClicked){
+   
+        
+        return NO;
+ 
+    
+    } else {
+        return YES;
+    }
+
 }
 
 

@@ -24,6 +24,7 @@
 {
     [super layoutSubviews];
     [self respositionNav];
+    [self.homeContentView.aSearchBar resignFirstResponder];
 }
 
 -(void) respositionNav
