@@ -156,7 +156,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="SXU-ad-9sq" customClass="AsyncImageView">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" id="SXU-ad-9sq" customClass="AsyncImageView">
                                                                     <rect key="frame" x="203" y="0.0" width="117" height="88"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 </imageView>
@@ -182,7 +182,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u3s-6f-dos">
-                                                                    <rect key="frame" x="20" y="102" width="70" height="21"/>
+                                                                    <rect key="frame" x="248" y="65" width="70" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
@@ -270,11 +270,11 @@
             <objects>
                 <viewController id="Bt4-SM-HOP" customClass="ArchiveDetailedViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="3R1-cG-3Yi">
-                        <rect key="frame" x="0.0" y="64" width="320" height="348"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="jI6-v0-4Nb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="11z-C3-N5v">
@@ -286,7 +286,11 @@
                                                     <action selector="openWebPage:" destination="Bt4-SM-HOP" id="0Go-4d-R4J"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem enabled="NO" title="Collection List" id="4nh-4F-Dpy"/>
+                                            <barButtonItem enabled="NO" title="Collection List" id="4nh-4F-Dpy">
+                                                <connections>
+                                                    <segue destination="LGy-GE-vDG" kind="push" identifier="viewCollection" id="jW2-7p-b3B"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="Pc6-5Y-Dgr"/>
                                             <barButtonItem image="share-bbi.png" style="plain" id="YS6-S3-pJg">
                                                 <connections>
@@ -304,7 +308,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xa7-HB-pyg">
-                                        <rect key="frame" x="0.0" y="237" width="320" height="200"/>
+                                        <rect key="frame" x="0.0" y="237" width="320" height="400"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="playableFileCell" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="playableFileCell" id="jhk-qE-R8Q" customClass="ArchiveFileTableViewCell">
@@ -343,7 +347,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <webView opaque="NO" contentMode="scaleToFill" id="58S-br-M3x">
-                                        <rect key="frame" x="0.0" y="600" width="320" height="1032"/>
+                                        <rect key="frame" x="0.0" y="600" width="320" height="1232"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </webView>
@@ -499,12 +503,114 @@
             </objects>
             <point key="canvasLocation" x="1348" y="656"/>
         </scene>
+        <!--Home Collection View Controller-->
+        <scene sceneID="T3W-Fc-Mf4">
+            <objects>
+                <viewController id="LGy-GE-vDG" customClass="HomeCollectionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CFK-pj-3tL" customClass="HomeContentParentView">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="eRM-il-6eb" customClass="HomeContentTableView">
+                                <rect key="frame" x="0.0" y="22" width="320" height="552"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="homeContentCell" id="IHJ-Vp-dZx" customClass="HomeContentCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="88"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="xV0-YW-4BW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" id="dFT-vI-I3t" customClass="AsyncImageView">
+                                                            <rect key="frame" x="203" y="0.0" width="117" height="87"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Big fat lazy foxes jumped over brown Bears who ate a goat and came back into the united states to transport young guls" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" id="LAZ-QN-t1P">
+                                                            <rect key="frame" x="20" y="8" width="175" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="sex, lies, videotape, music, joy stuff" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="uE3-NK-vMM">
+                                                            <rect key="frame" x="20" y="50" width="175" height="18"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="10"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="December 31, 2969" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mek-mJ-WdV">
+                                                            <rect key="frame" x="20" y="67" width="98" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="10"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8KI-kG-9pg">
+                                                            <rect key="frame" x="248" y="65" width="70" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="aSyncImageView" destination="dFT-vI-I3t" id="nDv-8d-UJ8"/>
+                                            <outlet property="date" destination="Mek-mJ-WdV" id="Ahr-PH-d6w"/>
+                                            <outlet property="subject" destination="uE3-NK-vMM" id="rVA-h2-mvg"/>
+                                            <outlet property="title" destination="LAZ-QN-t1P" id="EI6-F6-3f5"/>
+                                            <outlet property="underlayView" destination="xV0-YW-4BW" id="8Kg-wL-Bfl"/>
+                                            <segue destination="Bt4-SM-HOP" kind="push" identifier="collectionCellPush" id="59s-KJ-yRw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="scrollDelegate" destination="CFK-pj-3tL" id="zyq-KI-BKZ"/>
+                                    <outlet property="totalFound" destination="9lZ-tB-Ibh" id="MUh-if-AKt"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9lZ-tB-Ibh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <connections>
+                            <outlet property="homeContentTableView" destination="eRM-il-6eb" id="Z5O-A1-1mt"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="6JQ-5b-iHO"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="contentParentView" destination="CFK-pj-3tL" id="BYq-B9-EhL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPm-6Z-wdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="-571"/>
+        </scene>
         <!--Archive Page View Controller-->
         <scene sceneID="xaD-tE-YYP">
             <objects>
                 <viewController id="gFQ-Yn-Bil" customClass="ArchivePageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4s-cl-Rv6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="348"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -520,7 +626,7 @@
             <objects>
                 <viewController id="UgK-hH-v0y" customClass="ArchiveImageViewController" sceneMemberID="viewController">
                     <imageView key="view" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="PMX-Uq-Fbx" customClass="AsyncImageView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="348"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
@@ -744,6 +850,12 @@
         <class className="AsyncImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImageView.h"/>
         </class>
+        <class className="HomeCollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeCollectionViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentParentView" candidateClass="HomeContentParentView"/>
+            </relationships>
+        </class>
         <class className="HomeCombinedViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeCombinedViewController.h"/>
             <relationships>
@@ -819,4 +931,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="59s-KJ-yRw"/>
+    </inferredMetricsTieBreakers>
 </document>

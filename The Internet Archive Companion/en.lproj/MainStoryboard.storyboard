@@ -293,7 +293,7 @@
             <objects>
                 <viewController id="5Hf-D6-IM6" customClass="ArchiveDetailedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eop-05-gV9">
-                        <rect key="frame" x="0.0" y="64" width="768" height="696"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GJ4-U2-TiI">
@@ -304,7 +304,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Np-SX-QeY">
-                                <rect key="frame" x="408" y="429" width="340" height="248"/>
+                                <rect key="frame" x="408" y="429" width="340" height="512"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="playableFileCell" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="playableFileCell" id="MDh-j2-Qbb" customClass="ArchiveFileTableViewCell">
@@ -343,7 +343,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView opaque="NO" contentMode="scaleToFill" id="WnN-ve-aSX">
-                                <rect key="frame" x="20" y="322" width="380" height="356"/>
+                                <rect key="frame" x="20" y="322" width="380" height="620"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -477,7 +477,7 @@
             <objects>
                 <viewController id="aZb-Mp-738" customClass="ArchiveImageViewController" sceneMemberID="viewController">
                     <imageView key="view" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="25e-f1-pWv" customClass="AsyncImageView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="696"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
                     <navigationItem key="navigationItem" id="e3w-Un-67Q"/>
@@ -688,11 +688,11 @@
             <objects>
                 <viewController id="LTP-89-WoS" customClass="HomeCollectionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xm6-1M-gNa" customClass="HomeContentParentView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="696"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="EQV-Xm-86M" customClass="HomeContentTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="700"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="964"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -783,7 +783,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prd-0C-Zry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1333" y="-2164"/>
+            <point key="canvasLocation" x="1345" y="-2400"/>
         </scene>
     </scenes>
     <resources>
@@ -802,6 +802,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mbX-ep-fhz"/>
+        <segue reference="ofh-wf-f9k"/>
     </inferredMetricsTieBreakers>
 </document>
