@@ -16,6 +16,7 @@
 #import "ArchiveShareViewController.h"
 #import "ArchiveImageViewController.h"
 #import "HomeCollectionViewController.h"
+#import "ArchivePhoneExtraDetailsViewController.h"
 
 @interface ArchiveDetailedViewController (){
     ArchiveFile *bookFile;
@@ -176,6 +177,13 @@
         
         HomeCollectionViewController *collectionViewController = [segue destinationViewController];
         [collectionViewController setIdentifier:_identifier];
+    }
+    
+    
+    if([[segue identifier] isEqualToString:@"phoneDetails"]){
+        ArchivePhoneExtraDetailsViewController *phoneDetails = [segue destinationViewController];
+        [phoneDetails setWebContent:_doc.description];
+        [phoneDetails setMetadata:[_doc.rawDoc objectForKey:@"metadata"]];
     }
     
    
@@ -403,20 +411,26 @@
 
 #pragma mark - data call back
 
+
+- (void) loadAWebView:(UIWebView *)webView{
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", _doc.description];
+    
+    
+    NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
+    [webView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
+                  MIMEType:@"text/html"
+          textEncodingName:@"UTF-8"
+                   baseURL:theBaseURL];
+
+}
+
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
     _doc = [[results objectForKey:@"documents"] objectAtIndex:0];
     _docTitle.text = [StringUtils stringFromObject:_doc.title];
     
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", _doc.description];
-    
-    
-    NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
-    [_description loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
-                      MIMEType:@"text/html"
-              textEncodingName:@"UTF-8"
-                       baseURL:theBaseURL];
+    [self loadAWebView:_description];
     
     
     NSMutableArray *files = [NSMutableArray new];

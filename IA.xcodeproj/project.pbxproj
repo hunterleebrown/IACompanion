@@ -83,6 +83,7 @@
 		CEBA014116CEEFCE0038625F /* vertShadowBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */; };
 		CEBA014316CEF6B30038625F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014216CEF6B30038625F /* AVFoundation.framework */; };
 		CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014616CEFFB60038625F /* AudioToolbox.framework */; };
+		CED75E3116D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED75E3016D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m */; };
 		CEEA640216C4240100DCA3BC /* ArchiveFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -207,6 +208,8 @@
 		CEBA014216CEF6B30038625F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CEBA014416CEFF580038625F /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		CEBA014616CEFFB60038625F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CED75E2F16D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePhoneExtraDetailsViewController.h; sourceTree = "<group>"; };
+		CED75E3016D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePhoneExtraDetailsViewController.m; sourceTree = "<group>"; };
 		CEEA640016C4240100DCA3BC /* ArchiveFileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFileTableViewCell.h; sourceTree = "<group>"; };
 		CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFileTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -474,6 +477,8 @@
 				5A8CA7EE16D03D1000F97BF7 /* ArchiveShareViewController.m */,
 				5A8CA7FD16D0965100F97BF7 /* ArchiveImageViewController.h */,
 				5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */,
+				CED75E2F16D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.h */,
+				CED75E3016D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -647,6 +652,7 @@
 				5A8CA7FA16D0445500F97BF7 /* ArchiveShareTableViewCell.m in Sources */,
 				5A8CA7FF16D0965200F97BF7 /* ArchiveImageViewController.m in Sources */,
 				5AA2EDB916D2C140003EAD82 /* HomeCollectionViewController.m in Sources */,
+				CED75E3116D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
