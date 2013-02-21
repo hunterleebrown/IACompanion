@@ -31,9 +31,7 @@
 - (IBAction)doNext:(id)sender;
 - (IBAction)doPrevious:(id)sender;
 - (IBAction)doForwards:(id)sender;
-- (IBAction)endForwards:(id)sender;
 - (IBAction)doBackwards:(id)sender;
-- (IBAction)endBackwards:(id)sender;
 
 
 

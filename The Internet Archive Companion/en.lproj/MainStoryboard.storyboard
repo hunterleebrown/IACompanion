@@ -130,11 +130,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <items>
-                                            <barButtonItem style="plain" id="IyF-xp-D1C"/>
-                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="nQ0-Yy-9Ms"/>
                                             <barButtonItem style="plain" id="Iay-NW-kBr">
                                                 <segmentedControl key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="H3p-Xl-n2H">
-                                                    <rect key="frame" x="4" y="7" width="378" height="30"/>
+                                                    <rect key="frame" x="7" y="7" width="378" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <segments>
                                                         <segment title="All"/>
@@ -146,6 +144,7 @@
                                                     </segments>
                                                 </segmentedControl>
                                             </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="nQ0-Yy-9Ms"/>
                                             <barButtonItem style="plain" id="BPK-K8-wcN">
                                                 <searchBar key="customView" contentMode="redraw" id="k6U-p3-Aeb">
                                                     <rect key="frame" x="392" y="0.0" width="256" height="44"/>
@@ -247,7 +246,7 @@
                                         <rect key="frame" x="0.0" y="473" width="768" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="left" text="FOUND" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QTJ-tU-llL">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QTJ-tU-llL">
                                         <rect key="frame" x="-10" y="44" width="768" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -270,7 +269,6 @@
                                     <outlet property="searchButtons" destination="H3p-Xl-n2H" id="O8B-xY-ex4"/>
                                     <outlet property="toolBar" destination="Ntu-DW-bYb" id="UWD-AF-Tql"/>
                                     <outlet property="toolBarButton" destination="QIw-Ng-LCk" id="YMj-zW-BXw"/>
-                                    <outlet property="toolBarTitle" destination="IyF-xp-D1C" id="LZZ-Jg-CHw"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -866,8 +864,6 @@
                 <relationship kind="action" name="doPlayPause:"/>
                 <relationship kind="action" name="doPrevious:"/>
                 <relationship kind="action" name="editList:"/>
-                <relationship kind="action" name="endBackwards:"/>
-                <relationship kind="action" name="endForwards:"/>
                 <relationship kind="action" name="hidePlayer:"/>
                 <relationship kind="outlet" name="backwards" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
@@ -889,9 +885,6 @@
                 <relationship kind="outlet" name="faceBookButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="twitterButton" candidateClass="UIButton"/>
             </relationships>
-        </class>
-        <class className="AsyncImage" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImage.h"/>
         </class>
         <class className="AsyncImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImageView.h"/>
@@ -944,7 +937,7 @@
         <class className="HomeNavCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="navImageView" candidateClass="AsyncImage"/>
+                <relationship kind="outlet" name="navImageView" candidateClass="AsyncImageView"/>
                 <relationship kind="outlet" name="title" candidateClass="UILabel"/>
             </relationships>
         </class>

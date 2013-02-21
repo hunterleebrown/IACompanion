@@ -139,7 +139,9 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeNavCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeNavCell"];
     ArchiveSearchDoc *doc;
-    
+    [cell.navImageView setImage:nil];
+    [cell.title setText:nil];
+
     
     switch (indexPath.section) {
         case 0:

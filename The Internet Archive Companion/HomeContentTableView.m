@@ -81,8 +81,15 @@
     HomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeContentCell"];
     ArchiveSearchDoc *doc = [docs objectAtIndex:indexPath.row];
     
-    [cell.title setText:doc.title];
     [cell.aSyncImageView setImage:nil];
+    [cell setDoc:nil];
+    [cell.title setText:nil];
+    [cell.subject setText:nil];
+    [cell.date setText:nil];
+
+    
+    
+    [cell.title setText:doc.title];
     [cell.aSyncImageView setAndLoadImageFromUrl:doc.headerImageUrl];
     [cell setDoc:doc];
     

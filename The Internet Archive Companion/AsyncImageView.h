@@ -10,10 +10,11 @@
 
 @interface AsyncImageView : UIImageView {
     NSString *imageUrl;
-    NSCache *cache;
     UIActivityIndicatorView *spinner;
 }
 
+
++ (NSCache *)cache;
 - (void) setAndLoadImageFromUrl:(NSString *)url;
 
 @end

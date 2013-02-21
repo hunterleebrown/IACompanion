@@ -10,10 +10,35 @@
 
 @implementation AsyncImageView
 
+static NSCache *cache = nil;
+
+
+
+/* We use a single NSCache for all instances of ImageFile.  The count limit is set to a value that allows demonstrating the cache evicting objects.
+ */
++ (void)initialize {
+    if (self == [AsyncImageView class]) {
+        cache = [[NSCache alloc] init];
+        [cache setCountLimit:100];
+  
+    
+    }
+}
+
+
++ (NSCache *)cache {
+    return cache;
+}
+
+/* In case we want to have a per-instance cache.
+ */
+- (NSCache *)cache {
+    return cache;
+}
+
 - (id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self){
-        cache = [[NSCache alloc] init];
         spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [self addSubview:spinner];
 
@@ -25,7 +50,6 @@
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if(self){
-        cache = [[NSCache alloc] init];
         spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [self addSubview:spinner];
     }
@@ -47,9 +71,10 @@
     if(cI != nil){
         UIImage *cachedImage = (UIImage *)cI;
         [self displayImage:cachedImage];
-        NSLog(@"CACHE HIT...");
+     //   NSLog(@"CACHE HIT...");
     } else {
-        
+      //  NSLog(@"NO CACHE HIT...");
+
         NSOperationQueue *queue = [NSOperationQueue new];
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                             initWithTarget:self
