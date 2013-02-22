@@ -80,11 +80,11 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="mfL-ta-Sgb" customClass="AsyncImageView">
-                                                            <rect key="frame" x="0.0" y="0.0" width="88" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="59" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="JJE-NL-Mzk">
-                                                            <rect key="frame" x="99" y="0.0" width="157" height="44"/>
+                                                            <rect key="frame" x="67" y="-1" width="181" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
