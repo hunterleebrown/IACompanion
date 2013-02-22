@@ -8,7 +8,6 @@
 
 #import "HomeNavTableView.h"
 #import "HomeNavCell.h"
-#import "HomeNavSectionView.h"
 #import "ArchiveSearchDoc.h"
 
 @interface HomeNavTableView () {
@@ -48,7 +47,8 @@
         
 
         
-        
+        [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor blackColor]];
+
         
 
         
@@ -80,30 +80,24 @@
 
 
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    HomeNavSectionView *sectionView = [[HomeNavSectionView alloc] initWithFrame:CGRectMake(0, 0, 256, 76)];
-    
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            [sectionView.title setText:@"Audio"];
-            [sectionView.imageView setImage:[UIImage imageNamed:@"audio.gif"]];
+            return @"Audio";
             break;
         case 1:
-            [sectionView.title setText:@"Video"];
-            [sectionView.imageView setImage:[UIImage imageNamed:@"movies.gif"]];
+            return @"Video";
             break;
         case 2:
-            [sectionView.title setText:@"Text"];
-            [sectionView.imageView setImage:[UIImage imageNamed:@"texts.gif"]];
+            return @"Text";
             break;
         default:
+            return 0;
             break;
     }
-    
-    return sectionView;
+
 
 }
-
 
 
 
