@@ -123,4 +123,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (BOOL) shouldAutorotate {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return YES;
+    }
+    return NO;
+
+
+}
+
 @end
