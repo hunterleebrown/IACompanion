@@ -971,6 +971,7 @@
         <class className="HomeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="animatedLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="bottom" candidateClass="UIView"/>
                 <relationship kind="outlet" name="playerController" candidateClass="ArchivePlayerViewController"/>
                 <relationship kind="outlet" name="shadow" candidateClass="UIImageView"/>

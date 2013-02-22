@@ -75,6 +75,9 @@
     
   }
 
+
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -228,6 +231,8 @@
             [self.playerHolder addSubview: player.view];
             [player.view setFrame: self.playerHolder.bounds];  // player's frame must match parent's
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTitle:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:player];
+
             [player prepareToPlay];
             [player setContentURL:[NSURL URLWithString:file.url]];
             [player play];
@@ -243,6 +248,28 @@
     }
 
 }
+
+- (void) changeTitle:(NSNotification *)notification{
+
+    ArchiveFile *f = [self playingFile];
+    
+    if(player.playbackState == MPMoviePlaybackStatePlaying){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddPlayingFileName" object:f.name];
+
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddPlayingFileName" object:@""];
+
+    }
+
+}
+
+
+- (ArchiveFile *) playingFile{
+    int index = [self indexOfInFileFromUrl:player.contentURL];
+    ArchiveFile *f = [playerFiles objectAtIndex:index];
+    return f;
+}
+
 
 - (void) playNext{
     int index = [self indexOfInFileFromUrl:player.contentURL];

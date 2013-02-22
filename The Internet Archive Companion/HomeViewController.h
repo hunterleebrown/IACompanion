@@ -19,6 +19,9 @@
 @property (nonatomic, weak) IBOutlet UIView *bottom;
 @property (nonatomic, weak) IBOutlet UIImageView *shadow;
 
+
+@property (nonatomic, weak) IBOutlet UILabel *animatedLabel;
+
 - (void)hidePlayer;
 
 @end
