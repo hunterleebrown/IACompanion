@@ -56,6 +56,9 @@
         } completion:^(BOOL finished) {
             [_playerController.hidePlayerButton setTitle:@"Hide"];
         }];
+
+       
+       
        
    } else {
        // hide

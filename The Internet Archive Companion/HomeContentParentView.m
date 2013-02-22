@@ -93,6 +93,12 @@
 
 
 - (IBAction)toggleDetails:(id)sender{
+    
+    
+    float toolBarHeight =  110;
+    if(self.toolBar){
+        toolBarHeight = self.toolBar.bounds.size.height + 22;
+    }
 
     [UIView animateWithDuration:0.33 animations:^{
         if(self.homeContentDescriptionView.bounds.size.height == 0){
@@ -100,7 +106,7 @@
             [self.homeContentDescriptionView setFrame:CGRectMake(self.homeContentDescriptionView.frame.origin.x,
                                                                  self.homeContentDescriptionView.frame.origin.y,
                                                                  self.homeContentDescriptionView.bounds.size.width,
-                                                                 self.bounds.size.height - self.toolBar.bounds.size.height)];
+                                                                 self.bounds.size.height - toolBarHeight)];
             
             [self.descriptionShadow setFrame:CGRectMake(self.descriptionShadow.frame.origin.x,
                                                         self.homeContentDescriptionView.frame.origin.y + self.homeContentDescriptionView.bounds.size.height,
@@ -110,7 +116,7 @@
             [self.homeContentTableView setFrame:CGRectMake(self.homeContentTableView.frame.origin.x,
                                                         self.homeContentDescriptionView.frame.origin.y + self.homeContentDescriptionView.bounds.size.height,
                                                         self.homeContentTableView.bounds.size.width,
-                                                        self.bounds.size.height - self.toolBar.bounds.size.height - self.homeContentDescriptionView.bounds.size.height)];
+                                                        self.bounds.size.height - toolBarHeight - self.homeContentDescriptionView.bounds.size.height)];
             
             
             
@@ -127,9 +133,9 @@
             
             
             [self.homeContentTableView setFrame:CGRectMake(self.homeContentTableView.frame.origin.x,
-                                                           self.homeContentDescriptionView.frame.origin.y + self.homeContentDescriptionView.bounds.size.height,
+                                                           toolBarHeight,
                                                            self.homeContentTableView.bounds.size.width,
-                                                           self.bounds.size.height - self.toolBar.bounds.size.height - self.homeContentDescriptionView.bounds.size.height)];
+                                                           self.bounds.size.height - toolBarHeight - self.homeContentDescriptionView.bounds.size.height)];
             
             
         }

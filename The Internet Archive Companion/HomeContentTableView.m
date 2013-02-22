@@ -135,7 +135,7 @@
         numFound = [[results objectForKey:@"numFound"] intValue];
         
         [_totalFound setText:[NSString stringWithFormat:@"%i items found",  numFound]];
-        [_totalFound setTextColor:[UIColor blackColor]];
+       // [_totalFound setTextColor:[UIColor blackColor]];
 
     } else {
         numFound = [[results objectForKey:@"numFound"] intValue];

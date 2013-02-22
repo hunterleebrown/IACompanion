@@ -12,20 +12,19 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" id="p49-lE-F37">
-                                <rect key="frame" x="0.0" y="410" width="320" height="138"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="3hQ-pq-szV" kind="embed" identifier="playerController" id="3CB-0c-VwA"/>
-                                </connections>
-                            </containerView>
                             <containerView contentMode="scaleToFill" id="A0u-z9-n8v">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="412"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <connections>
                                     <segue destination="X9j-4Y-HAT" kind="embed" identifier="contentController" id="7cH-5m-6Kb"/>
+                                </connections>
+                            </containerView>
+                            <containerView contentMode="scaleToFill" id="p49-lE-F37">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="3hQ-pq-szV" kind="embed" identifier="playerController" id="3CB-0c-VwA"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -61,20 +60,15 @@
             <objects>
                 <viewController id="6tU-cR-x8V" customClass="HomeCombinedViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="H3T-Uv-BPZ" customClass="HomeScrollView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="348"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="484"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="O1U-hm-Jrc">
-                                <rect key="frame" x="0.0" y="0.0" width="256" height="348"/>
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="71F-i9-ZPb">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <items/>
-                                    </toolbar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="44" sectionFooterHeight="22" id="BbG-dG-LQJ" customClass="HomeNavTableView">
-                                        <rect key="frame" x="0.0" y="44" width="256" height="304"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="592"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -112,37 +106,16 @@
                                 </subviews>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="leftContentShadow.png" id="bgU-Vd-Dws">
-                                <rect key="frame" x="237" y="0.0" width="21" height="420"/>
+                                <rect key="frame" x="237" y="0.0" width="21" height="556"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="UP6-dG-5tN" customClass="HomeContentParentView">
-                                <rect key="frame" x="256" y="0.0" width="320" height="348"/>
+                                <rect key="frame" x="256" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="cFA-eh-JNm">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <items>
-                                            <barButtonItem image="barIcon.png" style="plain" id="Mwv-dD-mmR"/>
-                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="pFf-tz-rPM"/>
-                                            <barButtonItem enabled="NO" title="Description" id="Kry-KV-MsX">
-                                                <connections>
-                                                    <action selector="toggleDetails:" destination="UP6-dG-5tN" id="qTR-NI-CQB"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </items>
-                                    </toolbar>
-                                    <webView contentMode="scaleToFill" id="eAP-Fb-bgv">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="0.0"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="UP6-dG-5tN" id="QYG-N6-dsp"/>
-                                        </connections>
-                                    </webView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="ER7-Y5-3yt" customClass="HomeContentTableView">
-                                        <rect key="frame" x="0.0" y="110" width="320" height="260"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <rect key="frame" x="0.0" y="110" width="320" height="374"/>
+                                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="homeContentCell" id="t2V-dC-Pec" customClass="HomeContentCell">
@@ -177,8 +150,8 @@
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nhe-py-UmG">
                                                                     <rect key="frame" x="20" y="67" width="98" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="10"/>
-                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="10"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u3s-6f-dos">
@@ -212,28 +185,32 @@
                                             <outlet property="totalFound" destination="Xnh-UX-e6P" id="3q8-Eh-Dk1"/>
                                         </connections>
                                     </tableView>
+                                    <webView contentMode="scaleToFill" id="eAP-Fb-bgv">
+                                        <rect key="frame" x="0.0" y="110" width="320" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="UP6-dG-5tN" id="QYG-N6-dsp"/>
+                                        </connections>
+                                    </webView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadow.png" id="rxD-eJ-Am8">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="19"/>
+                                        <rect key="frame" x="0.0" y="110" width="320" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xnh-UX-e6P">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="21"/>
+                                        <rect key="frame" x="5" y="88" width="310" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default-Portrait~ipad.png" id="DFB-2x-4Jn">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="304"/>
-                                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" id="hGS-OJ-52g">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" barStyle="blackTranslucent" id="nRT-oA-X53">
-                                                <rect key="frame" x="160" y="0.0" width="160" height="44"/>
+                                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -241,21 +218,41 @@
                                                 </connections>
                                             </searchBar>
                                             <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="BlB-0U-9YE">
-                                                <rect key="frame" x="5" y="7" width="150" height="30"/>
+                                                <rect key="frame" x="5" y="6" width="310" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="All"/>
-                                                    <segment title="Au"/>
-                                                    <segment title="Vid"/>
-                                                    <segment title="Txt"/>
-                                                    <segment title="Img"/>
-                                                    <segment title="Col"/>
+                                                    <segment title="Audio"/>
+                                                    <segment title="Video"/>
+                                                    <segment title="Text"/>
+                                                    <segment title="Image"/>
+                                                    <segment title="Coll"/>
                                                 </segments>
                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EpT-u5-l4W">
+                                        <rect key="frame" x="27" y="90" width="58" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <state key="normal" title="Details" backgroundImage="uiglassbutton-template.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toggleDetails:" destination="UP6-dG-5tN" eventType="touchUpInside" id="Avr-Jv-qJt"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default-Portrait~ipad.png" id="DFB-2x-4Jn">
+                                        <rect key="frame" x="0.0" y="88" width="320" height="396"/>
+                                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <connections>
@@ -265,8 +262,6 @@
                                     <outlet property="homeContentTableView" destination="ER7-Y5-3yt" id="voz-9b-MlQ"/>
                                     <outlet property="iASplashImageView" destination="DFB-2x-4Jn" id="e6U-hD-ge5"/>
                                     <outlet property="searchButtons" destination="BlB-0U-9YE" id="8z0-dg-plB"/>
-                                    <outlet property="toolBar" destination="cFA-eh-JNm" id="LQg-75-TgB"/>
-                                    <outlet property="toolBarButton" destination="Kry-KV-MsX" id="9bu-aO-LdN"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -291,7 +286,7 @@
             <objects>
                 <viewController id="Bt4-SM-HOP" customClass="ArchiveDetailedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JvL-xI-GhM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="348"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="484"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="98Q-zb-DTa">
@@ -330,7 +325,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XQ2-wK-Rgd">
-                                <rect key="frame" x="0.0" y="237" width="320" height="111"/>
+                                <rect key="frame" x="0.0" y="237" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="playableFileCell" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="playableFileCell" id="FZW-G8-4qG" customClass="ArchiveFileTableViewCell">
@@ -559,11 +554,11 @@
             <objects>
                 <viewController id="LGy-GE-vDG" customClass="HomeCollectionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CFK-pj-3tL" customClass="HomeContentParentView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="348"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="484"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="eRM-il-6eb" customClass="HomeContentTableView">
-                                <rect key="frame" x="0.0" y="22" width="320" height="352"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -661,7 +656,7 @@
             <objects>
                 <viewController id="gFQ-Yn-Bil" customClass="ArchivePageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4s-cl-Rv6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="348"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="484"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -677,7 +672,7 @@
             <objects>
                 <viewController id="UgK-hH-v0y" customClass="ArchiveImageViewController" sceneMemberID="viewController">
                     <imageView key="view" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="PMX-Uq-Fbx" customClass="AsyncImageView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="348"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="484"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
@@ -693,23 +688,23 @@
             <objects>
                 <viewController id="3hQ-pq-szV" customClass="ArchivePlayerViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OwD-l6-kNV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="rWJ-1G-pHd">
-                                <rect key="frame" x="168" y="44" width="152" height="94"/>
+                                <rect key="frame" x="0.0" y="292" width="320" height="256"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="playerCell" id="ibA-ob-IXH" customClass="ArchivePlayerTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="152" height="50"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="152" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xtz-hk-K9s">
-                                                    <rect key="frame" x="20" y="0.0" width="112" height="29"/>
+                                                    <rect key="frame" x="20" y="0.0" width="280" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -737,11 +732,11 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleAspectFit" id="Pho-bt-LEi">
-                                <rect key="frame" x="0.0" y="44" width="160" height="94"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To add files, view an item's page, and click on a Media File, or the + symbol to add all." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lmf-Oj-NEc">
-                                        <rect key="frame" x="0.0" y="12" width="160" height="69"/>
+                                        <rect key="frame" x="80" y="85" width="160" height="69"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -752,7 +747,7 @@
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uWT-qf-ZgD">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem title="Hide" id="rFu-CF-6E6">
                                         <connections>
@@ -801,9 +796,9 @@
         <image name="Default-Portrait~ipad.png" width="768" height="1004"/>
         <image name="W-share-FB.png" width="35" height="28"/>
         <image name="W-share-twitter.png" width="35" height="28"/>
-        <image name="barIcon.png" width="20" height="20"/>
         <image name="leftContentShadow.png" width="21" height="461"/>
         <image name="share-bbi.png" width="24" height="18"/>
+        <image name="uiglassbutton-template.png" width="50" height="37"/>
         <image name="vertShadow.png" width="320" height="19"/>
     </resources>
     <classes>
