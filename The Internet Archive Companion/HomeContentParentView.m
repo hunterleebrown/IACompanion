@@ -64,6 +64,9 @@
     [_aSearchBar setText:@""];
     [_toolBarButton setEnabled:YES];
     [self hideSplashView];
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveOverScrollerNotification" object:nil];
 }
 
 

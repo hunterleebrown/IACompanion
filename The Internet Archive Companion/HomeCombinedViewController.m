@@ -38,7 +38,8 @@
     [super viewDidLoad];
 
 
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver:) name:@"MoveOverScrollerNotification" object:nil];
+
     [_contentScrollView.homeNavTableView.audioService getCollectionsWithIdentifier:@"audio"];
     [_contentScrollView.homeNavTableView.movieService getCollectionsWithIdentifier:@"movies"];
     [_contentScrollView.homeNavTableView.textService getCollectionsWithIdentifier:@"texts"];
@@ -48,6 +49,15 @@
 
     
     
+}
+
+- (void) moveContentViewOver:(NSNotification *)notification{
+
+    if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+        [UIView animateWithDuration:0.3 animations:^{
+            [_contentScrollView setContentOffset:CGPointMake(_contentScrollView.homeContentView.frame.origin.x, 0)];
+        }];
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
