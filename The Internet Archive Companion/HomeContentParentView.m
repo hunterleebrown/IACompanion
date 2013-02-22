@@ -32,6 +32,7 @@
 
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveOverScrollerNotification" object:nil];
     if(self.homeContentDescriptionView.bounds.size.height == 430){
         [self toggleDetails:nil];
     }
