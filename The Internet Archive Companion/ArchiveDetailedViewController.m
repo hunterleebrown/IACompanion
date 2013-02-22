@@ -95,7 +95,8 @@
        file.format == FileFormatVBRMP3 ||
        file.format == FileFormat64KbpsMP3
        ){
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:file];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileAndPlayNotification" object:file];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UnHidePlayerNotification" object:file];
 
     }
     else {

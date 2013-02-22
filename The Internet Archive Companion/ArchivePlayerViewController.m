@@ -41,6 +41,7 @@
         playerFiles = [NSMutableArray new];
     
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFile:) name:@"AddToPlayerListFileNotification" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileAndPlay:) name:@"AddToPlayerListFileAndPlayNotification" object:nil];
 
         
         [_playerTableView setAllowsSelectionDuringEditing:NO];
@@ -182,6 +183,13 @@
     [playerFiles removeAllObjects];
     [_playerTableView reloadData];
 
+}
+
+
+- (void) addToPlayerListFileAndPlay:(NSNotification *)notification{    
+    [self addToPlayerListFile:notification];
+    ArchiveFile *file = notification.object;
+    [self startListWithFile:file];
 }
 
 
