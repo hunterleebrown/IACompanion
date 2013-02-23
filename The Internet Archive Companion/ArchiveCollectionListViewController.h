@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HomeContentParentView.h"
 
-@interface HomeCollectionViewController : UIViewController
+@interface ArchiveCollectionListViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet HomeContentParentView *contentParentView;
 @property (nonatomic, strong) NSString *identifier;

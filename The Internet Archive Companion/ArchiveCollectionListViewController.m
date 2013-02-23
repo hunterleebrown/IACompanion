@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 Hunter Lee Brown. All rights reserved.
 //
 
-#import "HomeCollectionViewController.h"
+#import "ArchiveCollectionListViewController.h"
 #import "HomeContentCell.h"
 #import "ArchiveSearchDoc.h"
 #import "ArchiveDetailedViewController.h"
 
-@interface HomeCollectionViewController ()
+@interface ArchiveCollectionListViewController ()
 
 @end
 
-@implementation HomeCollectionViewController
+@implementation ArchiveCollectionListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

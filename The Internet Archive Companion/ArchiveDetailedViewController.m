@@ -15,7 +15,7 @@
 #import "ArchivePageViewController.h"
 #import "ArchiveShareViewController.h"
 #import "ArchiveImageViewController.h"
-#import "HomeCollectionViewController.h"
+#import "ArchiveCollectionListViewController.h"
 #import "ArchivePhoneExtraDetailsViewController.h"
 
 @interface ArchiveDetailedViewController (){
@@ -176,7 +176,7 @@
     
     if([[segue identifier] isEqualToString:@"viewCollection"]){
         
-        HomeCollectionViewController *collectionViewController = [segue destinationViewController];
+        ArchiveCollectionListViewController *collectionViewController = [segue destinationViewController];
         [collectionViewController setIdentifier:_identifier];
     }
     
