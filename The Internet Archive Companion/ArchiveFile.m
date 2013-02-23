@@ -36,7 +36,13 @@
         _title = [file objectForKey:@"name"];
     }
     
-    _track = [file objectForKey:@"track"];
+    if([file objectForKey:@"track"]){
+        NSString *tr = (NSString *)[file objectForKey:@"track"];
+        _track =  [tr intValue];
+    } else {
+        _track = 0;
+    }
+    
     _name = [file objectForKey:@"name"];
 
     if([file objectForKey:@"height"]){

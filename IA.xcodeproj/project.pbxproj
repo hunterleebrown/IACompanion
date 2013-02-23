@@ -175,12 +175,12 @@
 		5AE33BE916CC955900129C62 /* ArchiveMetadataTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveMetadataTableView.m; sourceTree = "<group>"; };
 		5AE33BEB16CC96AE00129C62 /* ArchiveMetadataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveMetadataTableViewCell.h; sourceTree = "<group>"; };
 		5AE33BEC16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveMetadataTableViewCell.m; sourceTree = "<group>"; };
-		5AF2310516D7551800262B09 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
-		5AF2310716D7552300262B09 /* Icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57@2x.png"; sourceTree = "<group>"; };
-		5AF2310916D756BC00262B09 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		5AF2310B16D756C500262B09 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		5AF2310D16D7575D00262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		5AF2310F16D758F900262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5AF2310516D7551800262B09 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57.png"; path = "../Icon-57.png"; sourceTree = "<group>"; };
+		5AF2310716D7552300262B09 /* Icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57@2x.png"; path = "../Icon-57@2x.png"; sourceTree = "<group>"; };
+		5AF2310916D756BC00262B09 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		5AF2310B16D756C500262B09 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		5AF2310D16D7575D00262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		5AF2310F16D758F900262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		CE18814916CEA71F0040EA9A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		CE18814A16CEA71F0040EA9A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		CE18814C16CEA7640040EA9A /* ArchivePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePlayerViewController.h; sourceTree = "<group>"; };
@@ -242,18 +242,6 @@
 		5A0A10A016A640A300CC70CD = {
 			isa = PBXGroup;
 			children = (
-				5AF2310F16D758F900262B09 /* Default-568h@2x.png */,
-				5AF2310D16D7575D00262B09 /* Default-568h@2x.png */,
-				5AF2310B16D756C500262B09 /* Default@2x.png */,
-				5AF2310916D756BC00262B09 /* Default.png */,
-				5AF2310716D7552300262B09 /* Icon-57@2x.png */,
-				5AF2310516D7551800262B09 /* Icon-57.png */,
-				5A8CA7FB16D051EF00F97BF7 /* Social.framework */,
-				CEBA014616CEFFB60038625F /* AudioToolbox.framework */,
-				CEBA014416CEFF580038625F /* CoreAudio.framework */,
-				CEBA014216CEF6B30038625F /* AVFoundation.framework */,
-				5A23930816C3A07500C3E107 /* MediaPlayer.framework */,
-				5A990BA616B9F2E500B4C058 /* QuartzCore.framework */,
 				5A0A10B516A640A300CC70CD /* The Internet Archive Companion */,
 				5A0A10D916A640A300CC70CD /* The Internet Archive CompanionTests */,
 				5A0A10AE16A640A300CC70CD /* Frameworks */,
@@ -273,6 +261,12 @@
 		5A0A10AE16A640A300CC70CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A8CA7FB16D051EF00F97BF7 /* Social.framework */,
+				CEBA014616CEFFB60038625F /* AudioToolbox.framework */,
+				CEBA014416CEFF580038625F /* CoreAudio.framework */,
+				CEBA014216CEF6B30038625F /* AVFoundation.framework */,
+				5A23930816C3A07500C3E107 /* MediaPlayer.framework */,
+				5A990BA616B9F2E500B4C058 /* QuartzCore.framework */,
 				5A0A10AF16A640A300CC70CD /* UIKit.framework */,
 				5A0A10B116A640A300CC70CD /* Foundation.framework */,
 				5A0A10B316A640A300CC70CD /* CoreGraphics.framework */,
@@ -302,6 +296,12 @@
 		5A0A10B616A640A300CC70CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5AF2310F16D758F900262B09 /* Default-568h@2x.png */,
+				5AF2310D16D7575D00262B09 /* Default-568h@2x.png */,
+				5AF2310B16D756C500262B09 /* Default@2x.png */,
+				5AF2310916D756BC00262B09 /* Default.png */,
+				5AF2310716D7552300262B09 /* Icon-57@2x.png */,
+				5AF2310516D7551800262B09 /* Icon-57.png */,
 				CE3019DB16C5963000733B99 /* Icon.png */,
 				CE3019D716C5953100733B99 /* Icon-72.png */,
 				CE3019D816C5953100733B99 /* Icon-72@2x.png */,
@@ -309,7 +309,6 @@
 				CE3019D016C5937A00733B99 /* Default-Landscape~ipad.png */,
 				CE3019D116C5937A00733B99 /* Default-Portrait@2x~ipad.png */,
 				CE3019D216C5937A00733B99 /* Default-Portrait~ipad.png */,
-				CE752A2716C1799400A432AB /* uiglassbutton-template.png */,
 				5A0A10B716A640A300CC70CD /* IA-Info.plist */,
 				5A0A10B816A640A300CC70CD /* InfoPlist.strings */,
 				5A0A10BB16A640A300CC70CD /* main.m */,
@@ -386,6 +385,7 @@
 				5ADAB7EE16C76F5400DBC072 /* audio.gif */,
 				5ADAB7EF16C76F5400DBC072 /* movies.gif */,
 				5ADAB7F016C76F5400DBC072 /* texts.gif */,
+				CE752A2716C1799400A432AB /* uiglassbutton-template.png */,
 			);
 			name = "IA Resources";
 			sourceTree = "<group>";

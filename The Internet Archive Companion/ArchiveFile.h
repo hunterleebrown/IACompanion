@@ -33,7 +33,7 @@ typedef enum {
 @property (nonatomic) FileFormat format;
 @property (nonatomic, assign) NSString *name;
 @property (nonatomic, assign) NSString *title;
-@property (nonatomic, assign) NSString *track;
+@property (nonatomic, assign) int track;
 @property (nonatomic, assign) NSString *url;
 @property (nonatomic, assign) NSString *identifier;
 @property (nonatomic, assign) NSString *server;
