@@ -230,6 +230,10 @@
         if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
             [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
         }
+        
+        ArchiveFile *file = [playerFiles objectAtIndex:index];
+        [_backgroundImage setAndLoadImageFromUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", file.identifier]];
+        [_instructions setHidden:YES];
     }
 
 }
@@ -238,6 +242,7 @@
     if(playerFiles.count > 0){
         if(!player){
             player = [[MPMoviePlayerController alloc] init];
+            [player.view setBackgroundColor:[UIColor clearColor]];
             [self.playerHolder addSubview: player.view];
             [player.view setFrame: self.playerHolder.bounds];  // player's frame must match parent's
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];

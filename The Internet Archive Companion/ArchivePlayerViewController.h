@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ArchiveFile.h"
+#import "AsyncImageView.h"
 
 
 
@@ -26,6 +27,10 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *forwards;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *backwards;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *numberOfFiles;
+
+@property (nonatomic, weak) IBOutlet UILabel *instructions;
+
+@property (nonatomic, weak) IBOutlet AsyncImageView *backgroundImage;
 
 
 - (IBAction)doPlayPause:(id)sender;

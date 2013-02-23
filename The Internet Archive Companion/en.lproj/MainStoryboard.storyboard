@@ -328,7 +328,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5KC-km-pBa">
-                                                    <rect key="frame" x="0.0" y="2" width="728" height="41"/>
+                                                    <rect key="frame" x="0.0" y="2" width="320" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -612,6 +613,10 @@
                                 <rect key="frame" x="0.0" y="44" width="256" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="lRa-RC-bxo" customClass="AsyncImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To add files, view an item's page, and click on a Media File, or the + symbol to add all." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kbb-3D-IkS">
                                         <rect key="frame" x="20" y="65" width="216" height="69"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -620,7 +625,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="GE8-DM-8uf">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -679,11 +684,13 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="backgroundImage" destination="lRa-RC-bxo" id="Hnn-QS-jHq"/>
                         <outlet property="backwards" destination="pnC-Wk-XQb" id="R1C-rj-cK6"/>
                         <outlet property="clearButton" destination="rLM-za-3hj" id="v0O-nq-Bot"/>
                         <outlet property="editListButton" destination="pYr-Wb-6cy" id="24b-cT-7Re"/>
                         <outlet property="forwards" destination="7O6-I8-eAn" id="bh9-ae-8Ax"/>
                         <outlet property="hidePlayerButton" destination="BeQ-0j-UaO" id="WtK-I5-GWY"/>
+                        <outlet property="instructions" destination="kbb-3D-IkS" id="66I-lj-BuN"/>
                         <outlet property="next" destination="Z4q-QQ-zVv" id="CMB-JN-gD8"/>
                         <outlet property="numberOfFiles" destination="mhU-TN-lUe" id="H3l-mh-mg7"/>
                         <outlet property="playPause" destination="A0s-r3-vVN" id="BGP-64-fhe"/>
@@ -884,11 +891,13 @@
                 <relationship kind="action" name="doPrevious:"/>
                 <relationship kind="action" name="editList:"/>
                 <relationship kind="action" name="hidePlayer:"/>
+                <relationship kind="outlet" name="backgroundImage" candidateClass="AsyncImageView"/>
                 <relationship kind="outlet" name="backwards" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="editListButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="forwards" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="hidePlayerButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="instructions" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="next" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="numberOfFiles" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="playPause" candidateClass="UIBarButtonItem"/>
