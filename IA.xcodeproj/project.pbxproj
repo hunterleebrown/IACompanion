@@ -52,7 +52,6 @@
 		5ADAB7D316C6C1B400DBC072 /* HomeCombinedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */; };
 		5ADAB7D616C6D40400DBC072 /* HomeContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7D516C6D40400DBC072 /* HomeContentTableView.m */; };
 		5ADAB7E216C6FA9600DBC072 /* HomeNavTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7E116C6FA9600DBC072 /* HomeNavTableView.m */; };
-		5ADAB7E516C6FFAE00DBC072 /* HomeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7E416C6FFAE00DBC072 /* HomeScrollView.m */; };
 		5ADAB7E916C76DD200DBC072 /* HomeNavCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7E816C76DD200DBC072 /* HomeNavCell.m */; };
 		5ADAB7EC16C76DE800DBC072 /* HomeContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7EB16C76DE800DBC072 /* HomeContentCell.m */; };
 		5ADAB7F116C76F5400DBC072 /* audio.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7EE16C76F5400DBC072 /* audio.gif */; };
@@ -165,8 +164,6 @@
 		5ADAB7D516C6D40400DBC072 /* HomeContentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeContentTableView.m; sourceTree = "<group>"; };
 		5ADAB7E016C6FA9600DBC072 /* HomeNavTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavTableView.h; sourceTree = "<group>"; };
 		5ADAB7E116C6FA9600DBC072 /* HomeNavTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavTableView.m; sourceTree = "<group>"; };
-		5ADAB7E316C6FFAE00DBC072 /* HomeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScrollView.h; sourceTree = "<group>"; };
-		5ADAB7E416C6FFAE00DBC072 /* HomeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScrollView.m; sourceTree = "<group>"; };
 		5ADAB7E716C76DD200DBC072 /* HomeNavCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavCell.h; sourceTree = "<group>"; };
 		5ADAB7E816C76DD200DBC072 /* HomeNavCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavCell.m; sourceTree = "<group>"; };
 		5ADAB7EA16C76DE800DBC072 /* HomeContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeContentCell.h; sourceTree = "<group>"; };
@@ -431,8 +428,6 @@
 			children = (
 				5A528DC116C7A14C0066EEEF /* HomeContentParentView.h */,
 				5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */,
-				5ADAB7E316C6FFAE00DBC072 /* HomeScrollView.h */,
-				5ADAB7E416C6FFAE00DBC072 /* HomeScrollView.m */,
 				5AFA0C4516C8CA26008E7CB2 /* Tables */,
 			);
 			name = Views;
@@ -635,7 +630,6 @@
 				5ADAB7D316C6C1B400DBC072 /* HomeCombinedViewController.m in Sources */,
 				5ADAB7D616C6D40400DBC072 /* HomeContentTableView.m in Sources */,
 				5ADAB7E216C6FA9600DBC072 /* HomeNavTableView.m in Sources */,
-				5ADAB7E516C6FFAE00DBC072 /* HomeScrollView.m in Sources */,
 				5ADAB7E916C76DD200DBC072 /* HomeNavCell.m in Sources */,
 				5ADAB7EC16C76DE800DBC072 /* HomeContentCell.m in Sources */,
 				5A528DC316C7A14D0066EEEF /* HomeContentParentView.m in Sources */,

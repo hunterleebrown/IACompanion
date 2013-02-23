@@ -7,12 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeScrollView.h"
+#import "HomeContentParentView.h"
+#import "HomeNavTableView.h"
 
-@interface HomeCombinedViewController : UIViewController<UIScrollViewDelegate>
+@interface HomeCombinedViewController : UIViewController
 
 
-@property (nonatomic, assign) IBOutlet HomeScrollView *contentScrollView;
+
+
+
+@property (nonatomic, weak) IBOutlet HomeContentParentView *homeContentView;
+@property (nonatomic, weak) IBOutlet UIView *homeNavView;
+@property (nonatomic, weak) IBOutlet HomeNavTableView *homeNavTableView;
+
+@property (nonatomic, weak) IBOutlet UIGestureRecognizer *swipeGestureRecognizerLeft;
+@property (nonatomic, weak) IBOutlet UIGestureRecognizer *swipeGestureRecognizerRight;
+
+- (IBAction) moveContentViewOver;
+- (IBAction) moveContentViewBack;
+
 
 
 @end

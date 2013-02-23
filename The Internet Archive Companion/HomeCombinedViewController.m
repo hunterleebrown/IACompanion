@@ -38,11 +38,12 @@
     [super viewDidLoad];
 
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver:) name:@"MoveOverScrollerNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver) name:@"MoveOverNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver) name:@"MoveBackNotification" object:nil];
 
-    [_contentScrollView.homeNavTableView.audioService getCollectionsWithIdentifier:@"audio"];
-    [_contentScrollView.homeNavTableView.movieService getCollectionsWithIdentifier:@"movies"];
-    [_contentScrollView.homeNavTableView.textService getCollectionsWithIdentifier:@"texts"];
+    [_homeNavTableView.audioService getCollectionsWithIdentifier:@"audio"];
+    [_homeNavTableView.movieService getCollectionsWithIdentifier:@"movies"];
+    [_homeNavTableView.textService getCollectionsWithIdentifier:@"texts"];
     
     
     [self doOrientationLayout:self.interfaceOrientation];
@@ -51,11 +52,23 @@
     
 }
 
-- (void) moveContentViewOver:(NSNotification *)notification{
+- (IBAction) moveContentViewOver{
 
     if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
         [UIView animateWithDuration:0.3 animations:^{
-            [_contentScrollView setContentOffset:CGPointMake(_contentScrollView.homeContentView.frame.origin.x, 0)];
+           // [_contentScrollView setContentOffset:CGPointMake(_homeContentView.frame.origin.x, 0)];
+            [_homeContentView setFrame:CGRectMake(0, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+        }];
+    }
+}
+
+
+- (IBAction) moveContentViewBack{
+    
+    if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+        [UIView animateWithDuration:0.3 animations:^{
+            // [_contentScrollView setContentOffset:CGPointMake(_homeContentView.frame.origin.x, 0)];
+            [_homeContentView setFrame:CGRectMake(256, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
         }];
     }
 }
@@ -79,7 +92,7 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [self.contentScrollView.homeContentView.homeContentTableView deselectRowAtIndexPath:self.contentScrollView.homeContentView.homeContentTableView.indexPathForSelectedRow animated:YES];
+    [_homeContentView.homeContentTableView deselectRowAtIndexPath:_homeContentView.homeContentTableView.indexPathForSelectedRow animated:YES];
     [self doOrientationLayout:self.interfaceOrientation];
 }
 
@@ -106,9 +119,9 @@
 
 
 - (void) doOrientationLayout:(UIInterfaceOrientation)toInterfaceOrientation{
-    [self.contentScrollView setContentSize:CGSizeMake((self.contentScrollView.homeNavTableView.bounds.size.width + self.contentScrollView.homeContentView.bounds.size.width), 10)];
-    [self.contentScrollView.homeNavTableView reloadData];
-    [self.contentScrollView.homeContentView.homeContentTableView reloadData];
+ //   [self.contentScrollView setContentSize:CGSizeMake((self.contentScrollView.homeNavTableView.bounds.size.width + self.contentScrollView.homeContentView.bounds.size.width), 10)];
+  //  [self.contentScrollView.homeNavTableView reloadData];
+   // [self.contentScrollView.homeContentView.homeContentTableView reloadData];
     
 }
 
@@ -116,7 +129,7 @@
 #pragma mark - scroll view  
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self.contentScrollView.homeContentView.aSearchBar resignFirstResponder];
+   // [self.contentScrollView.homeContentView.aSearchBar resignFirstResponder];
 }
 
 

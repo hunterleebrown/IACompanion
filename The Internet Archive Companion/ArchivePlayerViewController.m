@@ -223,11 +223,13 @@
 
 
 - (void) setSelectedCellOfPlayingFileForPlayer:(MPMoviePlayerController *)thePlayer{
-    int index = [self indexOfInFileFromUrl:thePlayer.contentURL];
-    NSLog(@"--------> playing index: %i", index);
-    
-    if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
-        [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+    if (playerFiles.count > 0) {
+        int index = [self indexOfInFileFromUrl:thePlayer.contentURL];
+        NSLog(@"--------> playing index: %i", index);
+        
+        if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
+            [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+        }
     }
 
 }
@@ -239,7 +241,6 @@
             [self.playerHolder addSubview: player.view];
             [player.view setFrame: self.playerHolder.bounds];  // player's frame must match parent's
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTitle:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:player];
 
             [player prepareToPlay];
             [player setContentURL:[NSURL URLWithString:file.url]];
@@ -257,19 +258,7 @@
 
 }
 
-- (void) changeTitle:(NSNotification *)notification{
 
-    ArchiveFile *f = [self playingFile];
-    
-    if(player.playbackState == MPMoviePlaybackStatePlaying){
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddPlayingFileName" object:f.name];
-
-    } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddPlayingFileName" object:@""];
-
-    }
-
-}
 
 
 - (ArchiveFile *) playingFile{
@@ -339,16 +328,23 @@
 - (IBAction)doPlayPause:(id)sender{
     if(player){
         if(player.playbackState == MPMoviePlaybackStatePlaying){
+            
             [player pause];
+            
+            
+            
         } else if(player.playbackState == MPMoviePlaybackStatePaused){
+            
             [player play];
         } else if(player.playbackState == MPMoviePlaybackStateSeekingBackward || player.playbackState == MPMoviePlaybackStateSeekingForward){
             [player endSeeking];
         } else if(player.playbackState == MPMoviePlaybackStateStopped){
+            
             [player play];
         }
     } else{
         if(playerFiles.count > 0){
+            
             [self startListWithFile:[playerFiles objectAtIndex:0]];
             [self setSelectedCellOfPlayingFileForPlayer:player];
         }
