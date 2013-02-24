@@ -123,6 +123,10 @@
   //  [self.contentScrollView.homeNavTableView reloadData];
    // [self.contentScrollView.homeContentView.homeContentTableView reloadData];
     
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [_homeContentView setFrame:CGRectMake(256, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+    }
+    
 }
 
 
