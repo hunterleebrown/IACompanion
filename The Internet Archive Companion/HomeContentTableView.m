@@ -17,6 +17,7 @@
     NSString *sort;
     NSMutableArray *docs;
     int numFound;
+    UIRefreshControl *refreshControl;
 }
 
 @end
@@ -58,10 +59,20 @@
         _service = [ArchiveDataService new];
         [_service setDelegate:self];
     
+        
+        refreshControl = [[UIRefreshControl alloc] init];
+        [refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+        [self addSubview:refreshControl];
+        
+        
     }
     return self;
 }
 
+- (void) handleRefresh{
+    [_service loadMoreWithStart:@"0"];
+
+}
 
 
 
@@ -115,9 +126,10 @@
 
 
 
-
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
 
+    [refreshControl endRefreshing];
+    
     if(((NSArray *)[results objectForKey:@"documents"]).count > 0) {
         
         if(!_didTriggerLoadMore){
@@ -135,13 +147,13 @@
         numFound = [[results objectForKey:@"numFound"] intValue];
         
         [_totalFound setText:[NSString stringWithFormat:@"%i items found",  numFound]];
-       // [_totalFound setTextColor:[UIColor blackColor]];
-
+        // [_totalFound setTextColor:[UIColor blackColor]];
+        
     } else {
         numFound = [[results objectForKey:@"numFound"] intValue];
         [_totalFound setText:[NSString stringWithFormat:@"%i items found",  numFound]];
-       // [_totalFound setTextColor:[UIColor whiteColor]];
-
+        // [_totalFound setTextColor:[UIColor whiteColor]];
+        
     }
     _didTriggerLoadMore = NO;
 }

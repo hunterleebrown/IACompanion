@@ -24,4 +24,6 @@
 @property (nonatomic) BOOL didTriggerLoadMore;
 @property (nonatomic, weak) IBOutlet UILabel *totalFound;
 
+
+
 @end
