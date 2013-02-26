@@ -26,6 +26,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iASplashImageView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *searchButtons;
 
+@property (weak, nonatomic) IBOutlet UIView *searchButtonHolder;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *showListButton;
+
 - (IBAction)toggleDetails:(id)sender;
 - (void) hideSplashView;
 

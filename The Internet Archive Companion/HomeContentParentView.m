@@ -36,6 +36,10 @@
     if(self.homeContentDescriptionView.bounds.size.height == 430){
         [self toggleDetails:nil];
     }
+    if(_searchButtonHolder){
+        [self showSearchButtons];
+    }
+    
 }
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -45,6 +49,11 @@
     [_homeContentTableView.service getDocsWithQueryString:searchBar.text forMediaType:type];
     [_toolBarButton setEnabled:NO];
     [self hideSplashView];
+    
+    if(_searchButtonHolder){
+        [self hideSearchButtons];
+    }
+    
 }
 
 
@@ -71,6 +80,23 @@
 }
 
 
+- (void) showSearchButtons{
+    [UIView animateWithDuration:0.33 animations:^{
+        [_searchButtonHolder setFrame:CGRectMake(0, 44, _searchButtonHolder.bounds.size.width, _searchButtonHolder.bounds.size.height)];
+    } completion:^(BOOL finished) {
+       
+    }];
+}
+
+- (void) hideSearchButtons{
+    [UIView animateWithDuration:0.33 animations:^{
+        [_searchButtonHolder setFrame:CGRectMake(0, 0, _searchButtonHolder.bounds.size.width, _searchButtonHolder.bounds.size.height)];
+    } completion:^(BOOL finished) {
+        
+    }];
+
+}
+
 - (void) hideSplashView{
     if(!_iASplashImageView.hidden){
         [UIView animateWithDuration:0.33 animations:^{
@@ -91,6 +117,9 @@
         [self toggleDetails:nil];
     }
     [_aSearchBar resignFirstResponder];
+    if(_searchButtonHolder){
+        [self hideSearchButtons];
+    }
 }
 
 
@@ -110,12 +139,8 @@
             [self.homeContentDescriptionView setFrame:CGRectMake(self.homeContentDescriptionView.frame.origin.x,
                                                                  self.homeContentDescriptionView.frame.origin.y,
                                                                  self.homeContentDescriptionView.bounds.size.width,
-                                                                 self.bounds.size.height - toolBarHeight)];
-            
-            [self.descriptionShadow setFrame:CGRectMake(self.descriptionShadow.frame.origin.x,
-                                                        self.homeContentDescriptionView.frame.origin.y + self.homeContentDescriptionView.bounds.size.height,
-                                                        self.descriptionShadow.bounds.size.width,
-                                                        self.descriptionShadow.bounds.size.height)];
+                                                                 self.bounds.size.height - 66)];
+
             
             [self.homeContentTableView setFrame:CGRectMake(self.homeContentTableView.frame.origin.x,
                                                         self.homeContentDescriptionView.frame.origin.y + self.homeContentDescriptionView.bounds.size.height,
@@ -128,18 +153,12 @@
             [self.homeContentDescriptionView setFrame:CGRectMake(self.homeContentDescriptionView.frame.origin.x,
                                                                  self.homeContentDescriptionView.frame.origin.y,
                                                                  self.homeContentDescriptionView.bounds.size.width,
-                                                                 0)];
-            [self.descriptionShadow setFrame:CGRectMake(self.descriptionShadow.frame.origin.x,
-                                                        self.homeContentDescriptionView.frame.origin.y + self.homeContentDescriptionView.bounds.size.height,
-                                                        self.descriptionShadow.bounds.size.width,
-                                                        self.descriptionShadow.bounds.size.height)];
-            
-            
+                                                                 0)];            
             
             [self.homeContentTableView setFrame:CGRectMake(self.homeContentTableView.frame.origin.x,
-                                                           toolBarHeight,
+                                                           66,
                                                            self.homeContentTableView.bounds.size.width,
-                                                           self.bounds.size.height - toolBarHeight - self.homeContentDescriptionView.bounds.size.height)];
+                                                           self.bounds.size.height - 66 - self.homeContentDescriptionView.bounds.size.height)];
             
             
         }

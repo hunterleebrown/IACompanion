@@ -83,6 +83,10 @@
 		CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014616CEFFB60038625F /* AudioToolbox.framework */; };
 		CED75E3116D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED75E3016D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m */; };
 		CEEA640216C4240100DCA3BC /* ArchiveFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */; };
+		CEEA730D16DD30C80092FA84 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA730C16DD30C80092FA84 /* list.png */; };
+		CEEA731016DD4B4A0092FA84 /* MoreInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA730F16DD4B4A0092FA84 /* MoreInfoView.m */; };
+		CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731116DD53A40092FA84 /* rightContentShadow.png */; };
+		CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +212,11 @@
 		CED75E3016D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePhoneExtraDetailsViewController.m; sourceTree = "<group>"; };
 		CEEA640016C4240100DCA3BC /* ArchiveFileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFileTableViewCell.h; sourceTree = "<group>"; };
 		CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFileTableViewCell.m; sourceTree = "<group>"; };
+		CEEA730C16DD30C80092FA84 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		CEEA730E16DD4B4A0092FA84 /* MoreInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInfoView.h; sourceTree = "<group>"; };
+		CEEA730F16DD4B4A0092FA84 /* MoreInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInfoView.m; sourceTree = "<group>"; };
+		CEEA731116DD53A40092FA84 /* rightContentShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightContentShadow.png; sourceTree = "<group>"; };
+		CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightContentShadow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +378,9 @@
 		5ADAB7ED16C76E8100DBC072 /* IA Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEEA731116DD53A40092FA84 /* rightContentShadow.png */,
+				CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */,
+				CEEA730C16DD30C80092FA84 /* list.png */,
 				5A8CA7F016D0423600F97BF7 /* W-share-FB.png */,
 				5A8CA7F116D0423600F97BF7 /* W-share-FB@2x.png */,
 				5A8CA7F216D0423600F97BF7 /* W-share-twitter.png */,
@@ -429,6 +441,8 @@
 				5A528DC116C7A14C0066EEEF /* HomeContentParentView.h */,
 				5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */,
 				5AFA0C4516C8CA26008E7CB2 /* Tables */,
+				CEEA730E16DD4B4A0092FA84 /* MoreInfoView.h */,
+				CEEA730F16DD4B4A0092FA84 /* MoreInfoView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -581,6 +595,9 @@
 				5AF2310A16D756BC00262B09 /* Default.png in Resources */,
 				5AF2310C16D756C500262B09 /* Default@2x.png in Resources */,
 				5AF2311016D758F900262B09 /* Default-568h@2x.png in Resources */,
+				CEEA730D16DD30C80092FA84 /* list.png in Resources */,
+				CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */,
+				CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +662,7 @@
 				5A8CA7FF16D0965200F97BF7 /* ArchiveImageViewController.m in Sources */,
 				5AA2EDB916D2C140003EAD82 /* ArchiveCollectionListViewController.m in Sources */,
 				CED75E3116D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m in Sources */,
+				CEEA731016DD4B4A0092FA84 /* MoreInfoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

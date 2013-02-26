@@ -38,7 +38,7 @@
     [super viewDidLoad];
 
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver) name:@"MoveOverNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doMoveOverForNotification) name:@"MoveOverNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver) name:@"MoveBackNotification" object:nil];
 
     [_homeNavTableView.audioService getCollectionsWithIdentifier:@"audio"];
@@ -48,29 +48,100 @@
     
     [self doOrientationLayout:self.interfaceOrientation];
 
+
     
     
 }
 
-- (IBAction) moveContentViewOver{
 
+- (void) doMoveOverForNotification{
+    float whereToGoLeft = 0;
     if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+        whereToGoLeft = 0;
+    } else {
+        whereToGoLeft = 256;
+    }
+
+    [UIView animateWithDuration:0.3 animations:^{
+        // [_contentScrollView setContentOffset:CGPointMake(_homeContentView.frame.origin.x, 0)];
+        [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+        [_moreInfoView setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _moreInfoView.frame.origin.y, _moreInfoView.bounds.size.width, _moreInfoView.bounds.size.height)];
+        
+        [_rightContentShadow setFrame:CGRectMake(_moreInfoView.frame.origin.x, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
+    }];
+    
+    
+}
+
+
+- (IBAction) toggleContent{
+    if(_homeContentView.frame.origin.x == 256){
+        [self moveContentViewOver];
+    } else {
+        [self moveContentViewBack];
+    }
+
+}
+
+
+- (IBAction) moveContentViewOver{
+    // swipe left
+
+    float whereToGoLeft = 0.0;
+    
+    if(_homeContentView.frame.origin.x == 256){
+        whereToGoLeft = 0.0;
+    } else if(_homeContentView.frame.origin.x == 0){
+        
+        if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+            whereToGoLeft = -256;
+        }
+        
+    } else if(_homeContentView.frame.origin.x == -256){
+        whereToGoLeft = -256;
+    }
+    
+   // if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
         [UIView animateWithDuration:0.3 animations:^{
            // [_contentScrollView setContentOffset:CGPointMake(_homeContentView.frame.origin.x, 0)];
-            [_homeContentView setFrame:CGRectMake(0, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+            [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+            [_moreInfoView setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _moreInfoView.frame.origin.y, _moreInfoView.bounds.size.width, _moreInfoView.bounds.size.height)];
+            
+            [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
         }];
-    }
+   // }
+    
+    
+    
+    
 }
 
 
 - (IBAction) moveContentViewBack{
+    // swipe right
     
-    if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+    float whereToGoLeft = 256;
+    
+    if(_homeContentView.frame.origin.x == -256){
+        whereToGoLeft = 0;
+    } else if(_homeContentView.frame.origin.x == 0){
+        whereToGoLeft = 256;
+    } else if(_homeContentView.frame.origin.x == 256){
+        whereToGoLeft = 256;
+    }
+
+  //  if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
         [UIView animateWithDuration:0.3 animations:^{
             // [_contentScrollView setContentOffset:CGPointMake(_homeContentView.frame.origin.x, 0)];
-            [_homeContentView setFrame:CGRectMake(256, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+            [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+            [_moreInfoView setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _moreInfoView.frame.origin.y, _moreInfoView.bounds.size.width, _moreInfoView.bounds.size.height)];
+            
+            [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
         }];
-    }
+    //}
+
+
+
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -124,9 +195,12 @@
    // [self.contentScrollView.homeContentView.homeContentTableView reloadData];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [_homeContentView setFrame:CGRectMake(256, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+        if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation)){
+            [_homeContentView setFrame:CGRectMake(256, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+        }
     }
-    
+    [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
+
 }
 
 

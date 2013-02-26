@@ -19,6 +19,10 @@
 @property (nonatomic, weak) IBOutlet HomeContentParentView *homeContentView;
 @property (nonatomic, weak) IBOutlet UIView *homeNavView;
 @property (nonatomic, weak) IBOutlet HomeNavTableView *homeNavTableView;
+@property (nonatomic, weak) IBOutlet UIView *moreInfoView;
+
+@property (nonatomic, weak) IBOutlet UIImageView *rightContentShadow;
+
 
 @property (nonatomic, weak) IBOutlet UIGestureRecognizer *swipeGestureRecognizerLeft;
 @property (nonatomic, weak) IBOutlet UIGestureRecognizer *swipeGestureRecognizerRight;

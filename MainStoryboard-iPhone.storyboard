@@ -109,12 +109,16 @@
                                 <rect key="frame" x="235" y="0.0" width="21" height="404"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" id="3gh-1R-JEg" customClass="MoreInfoView">
+                                <rect key="frame" x="320" y="0.0" width="256" height="352"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </view>
                             <view contentMode="scaleToFill" id="GBh-gy-iFv" customClass="HomeContentParentView">
-                                <rect key="frame" x="256" y="0.0" width="320" height="352"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="352"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="YMS-aa-dpV" customClass="HomeContentTableView">
-                                        <rect key="frame" x="0.0" y="110" width="320" height="242"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="286"/>
                                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -186,55 +190,22 @@
                                         </connections>
                                     </tableView>
                                     <webView contentMode="scaleToFill" id="Xld-dq-LE1">
-                                        <rect key="frame" x="0.0" y="110" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="delegate" destination="GBh-gy-iFv" id="2sl-eT-7R0"/>
                                         </connections>
                                     </webView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadow.png" id="IJf-nf-pTa">
-                                        <rect key="frame" x="0.0" y="110" width="320" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sr5-Fl-f0c">
-                                        <rect key="frame" x="5" y="88" width="310" height="21"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" id="j90-XI-vK1">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <searchBar contentMode="redraw" barStyle="blackTranslucent" id="9pd-t8-2Vc">
-                                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="GBh-gy-iFv" id="yV1-9R-w3t"/>
-                                                </connections>
-                                            </searchBar>
-                                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="D5J-lf-KIG">
-                                                <rect key="frame" x="5" y="6" width="310" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <segments>
-                                                    <segment title="All"/>
-                                                    <segment title="Audio"/>
-                                                    <segment title="Video"/>
-                                                    <segment title="Text"/>
-                                                    <segment title="Image"/>
-                                                    <segment title="Coll"/>
-                                                </segments>
-                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            </segmentedControl>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d7h-OK-2uD">
-                                        <rect key="frame" x="27" y="90" width="58" height="18"/>
+                                        <rect key="frame" x="27" y="46" width="58" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <state key="normal" title="Details" backgroundImage="uiglassbutton-template.png">
@@ -248,11 +219,68 @@
                                             <action selector="toggleDetails:" destination="GBh-gy-iFv" eventType="touchUpInside" id="7I6-GB-Bkq"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadow.png" id="IJf-nf-pTa">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="19"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default-Portrait~ipad.png" id="ofd-nQ-sZd">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="264"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="308"/>
                                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
+                                    <view contentMode="scaleToFill" id="j90-XI-vK1">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5Re-ne-rO8">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                <items>
+                                                    <barButtonItem style="plain" id="Zhy-fi-Igl">
+                                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="D5J-lf-KIG">
+                                                            <rect key="frame" x="6" y="8" width="310" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <segments>
+                                                                <segment title="All"/>
+                                                                <segment title="Audio"/>
+                                                                <segment title="Video"/>
+                                                                <segment title="Text"/>
+                                                                <segment title="Image"/>
+                                                                <segment title="Coll"/>
+                                                            </segments>
+                                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </segmentedControl>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </toolbar>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dfv-pE-SB7">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <items>
+                                            <barButtonItem image="list.png" style="plain" id="gkA-J9-IuB">
+                                                <inset key="imageInsets" minX="2" minY="-6" maxX="-13" maxY="-6"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="toggleContent" destination="6tU-cR-x8V" id="XN5-vi-Ax0"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </toolbar>
+                                    <searchBar contentMode="redraw" barStyle="blackTranslucent" id="9pd-t8-2Vc">
+                                        <rect key="frame" x="60" y="0.0" width="260" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="GBh-gy-iFv" id="yV1-9R-w3t"/>
+                                        </connections>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <gestureRecognizers/>
@@ -262,11 +290,17 @@
                                     <outlet property="homeContentDescriptionView" destination="Xld-dq-LE1" id="0hg-Hf-i6V"/>
                                     <outlet property="homeContentTableView" destination="YMS-aa-dpV" id="HD5-aP-j5C"/>
                                     <outlet property="iASplashImageView" destination="ofd-nQ-sZd" id="jvA-uZ-UwR"/>
+                                    <outlet property="searchButtonHolder" destination="j90-XI-vK1" id="ki9-04-cwa"/>
                                     <outlet property="searchButtons" destination="D5J-lf-KIG" id="MsM-hg-jUt"/>
+                                    <outlet property="showListButton" destination="gkA-J9-IuB" id="JJv-Jl-dcY"/>
                                     <outletCollection property="gestureRecognizers" destination="gBr-By-Xjt" appends="YES" id="3fY-t4-xGx"/>
                                     <outletCollection property="gestureRecognizers" destination="mDp-28-hhb" appends="YES" id="vVI-K3-zNt"/>
                                 </connections>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="rightContentShadow.png" id="rUP-aO-Hha">
+                                <rect key="frame" x="320" y="0.0" width="21" height="352"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -275,6 +309,8 @@
                         <outlet property="homeContentView" destination="GBh-gy-iFv" id="5y7-EG-m6e"/>
                         <outlet property="homeNavTableView" destination="TKU-5r-RpE" id="pXe-jS-Xun"/>
                         <outlet property="homeNavView" destination="ko2-hl-zp1" id="PCe-Pc-Rh0"/>
+                        <outlet property="moreInfoView" destination="3gh-1R-JEg" id="AWu-Nn-e6L"/>
+                        <outlet property="rightContentShadow" destination="rUP-aO-Hha" id="m6A-zj-ZXO"/>
                         <outlet property="swipeGestureRecognizerLeft" destination="gBr-By-Xjt" id="EaE-dh-o0i"/>
                         <outlet property="swipeGestureRecognizerRight" destination="mDp-28-hhb" id="mRo-Da-dar"/>
                     </connections>
@@ -815,10 +851,197 @@
         <image name="W-share-FB.png" width="35" height="28"/>
         <image name="W-share-twitter.png" width="35" height="28"/>
         <image name="leftContentShadow.png" width="21" height="461"/>
+        <image name="list.png" width="17" height="19"/>
+        <image name="rightContentShadow.png" width="21" height="461"/>
         <image name="share-bbi.png" width="24" height="18"/>
         <image name="uiglassbutton-template.png" width="50" height="37"/>
         <image name="vertShadow.png" width="320" height="19"/>
     </resources>
+    <classes>
+        <class className="ArchiveCollectionListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentParentView" candidateClass="HomeContentParentView"/>
+            </relationships>
+        </class>
+        <class className="ArchiveDetailedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addFilesToPlayer:"/>
+                <relationship kind="action" name="openWebPage:"/>
+                <relationship kind="outlet" name="aSyncImage" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="addFilesToPlayerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="added" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="creator" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="description" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="docTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="from" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="metadataTableView" candidateClass="ArchiveMetadataTableView"/>
+                <relationship kind="outlet" name="movieView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="publisher" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="uploader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewCollectionButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="viewWebPageButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ArchiveFileTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveFileTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchiveImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="sharePhoto" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="view" candidateClass="AsyncImageView"/>
+            </relationships>
+        </class>
+        <class className="ArchiveMetadataTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveMetadataTableView.h"/>
+        </class>
+        <class className="ArchiveMetadataTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveMetadataTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="key" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="value" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchivePageViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePageViewController.h"/>
+        </class>
+        <class className="ArchivePhoneExtraDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePhoneExtraDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="close:"/>
+                <relationship kind="outlet" name="description" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="metadataTableView" candidateClass="ArchiveMetadataTableView"/>
+            </relationships>
+        </class>
+        <class className="ArchivePlayerTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePlayerTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="identifierLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchivePlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePlayerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearList:"/>
+                <relationship kind="action" name="doBackwards:"/>
+                <relationship kind="action" name="doForwards:"/>
+                <relationship kind="action" name="doNext:"/>
+                <relationship kind="action" name="doPlayPause:"/>
+                <relationship kind="action" name="doPrevious:"/>
+                <relationship kind="action" name="editList:"/>
+                <relationship kind="action" name="hidePlayer:"/>
+                <relationship kind="outlet" name="backgroundImage" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="backwards" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="editListButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwards" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="hidePlayerButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="instructions" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="next" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="numberOfFiles" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playPause" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="previous" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ArchiveShareViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveShareViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doShare:"/>
+                <relationship kind="outlet" name="faceBookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="twitterButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AsyncImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImageView.h"/>
+        </class>
+        <class className="HomeCombinedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeCombinedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="moveContentViewBack"/>
+                <relationship kind="action" name="moveContentViewOver"/>
+                <relationship kind="outlet" name="homeContentView" candidateClass="HomeContentParentView"/>
+                <relationship kind="outlet" name="homeNavTableView" candidateClass="HomeNavTableView"/>
+                <relationship kind="outlet" name="homeNavView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="moreInfoView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="rightContentShadow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="swipeGestureRecognizerLeft" candidateClass="UIGestureRecognizer"/>
+                <relationship kind="outlet" name="swipeGestureRecognizerRight" candidateClass="UIGestureRecognizer"/>
+            </relationships>
+        </class>
+        <class className="HomeContentCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aSyncImageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="collection" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="underlayView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="HomeContentParentView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentParentView.h"/>
+            <relationships>
+                <relationship kind="action" name="toggleDetails:"/>
+                <relationship kind="outlet" name="aSearchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="descriptionShadow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="homeContentDescriptionView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
+                <relationship kind="outlet" name="iASplashImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="searchButtonHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchButtons" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="showListButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="toolBarButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolBarTitle" candidateClass="UIBarItem"/>
+            </relationships>
+        </class>
+        <class className="HomeContentTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollDelegate"/>
+                <relationship kind="outlet" name="totalFound" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HomeNavCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navImageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HomeNavTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="touchDelegate"/>
+            </relationships>
+        </class>
+        <class className="HomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="animatedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bottom" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerController" candidateClass="ArchivePlayerViewController"/>
+                <relationship kind="outlet" name="shadow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="top" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="MoreInfoView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreInfoView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
