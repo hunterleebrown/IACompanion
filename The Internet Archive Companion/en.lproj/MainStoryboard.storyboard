@@ -75,13 +75,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="256" height="696"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="jJs-Cd-Iwd">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <items/>
-                                    </toolbar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="va3-Jl-Dvs" customClass="HomeNavTableView">
-                                        <rect key="frame" x="0.0" y="44" width="256" height="652"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="696"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
