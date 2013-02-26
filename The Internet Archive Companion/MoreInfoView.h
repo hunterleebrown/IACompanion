@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MoreInfoView : UIView
+@interface MoreInfoView : UIView<UIWebViewDelegate>
+
+@property (nonatomic, weak) IBOutlet UIWebView *licenseWeb;
+@property (nonatomic, assign) UIViewController *parentController;
 
 @end

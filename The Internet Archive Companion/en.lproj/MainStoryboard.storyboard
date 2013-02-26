@@ -125,6 +125,19 @@
                             <view contentMode="scaleToFill" id="Xai-pq-qjQ" customClass="MoreInfoView">
                                 <rect key="frame" x="512" y="0.0" width="256" height="696"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <webView contentMode="scaleToFill" id="I4Q-Xf-Ghd">
+                                        <rect key="frame" x="0.0" y="160" width="256" height="375"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Xai-pq-qjQ" id="cgz-ma-X3e"/>
+                                        </connections>
+                                    </webView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="licenseWeb" destination="I4Q-Xf-Ghd" id="aeL-xc-8F3"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" id="dGe-kY-kb9" customClass="HomeContentParentView">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="696"/>
@@ -930,7 +943,7 @@
                 <relationship kind="outlet" name="homeContentView" candidateClass="HomeContentParentView"/>
                 <relationship kind="outlet" name="homeNavTableView" candidateClass="HomeNavTableView"/>
                 <relationship kind="outlet" name="homeNavView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="moreInfoView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="moreInfoView" candidateClass="MoreInfoView"/>
                 <relationship kind="outlet" name="rightContentShadow" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="swipeGestureRecognizerLeft" candidateClass="UIGestureRecognizer"/>
                 <relationship kind="outlet" name="swipeGestureRecognizerRight" candidateClass="UIGestureRecognizer"/>
@@ -996,6 +1009,9 @@
         </class>
         <class className="MoreInfoView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreInfoView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="licenseWeb" candidateClass="UIWebView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

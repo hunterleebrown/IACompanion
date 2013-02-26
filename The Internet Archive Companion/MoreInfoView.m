@@ -23,9 +23,31 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
-        [self setBackgroundColor:[UIColor yellowColor]];
+        
+
+        
+        
     }
     return self;
+}
+
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    if(navigationType == UIWebViewNavigationTypeLinkClicked){
+        
+        UIViewController *pop = [UIViewController new];
+        UIWebView *popWeb = [UIWebView new];
+        [popWeb setScalesPageToFit:YES];
+        [popWeb loadRequest:request];
+        pop.view = popWeb;
+        [pop setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+        [_parentController presentViewController:pop animated:YES completion:nil];
+        
+        
+        return NO;
+    }
+    return YES;
+
 }
 
 

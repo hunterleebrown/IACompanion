@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HomeContentParentView.h"
 #import "HomeNavTableView.h"
-
+#import "MoreInfoView.h"
 @interface HomeCombinedViewController : UIViewController
 
 
@@ -19,7 +19,7 @@
 @property (nonatomic, weak) IBOutlet HomeContentParentView *homeContentView;
 @property (nonatomic, weak) IBOutlet UIView *homeNavView;
 @property (nonatomic, weak) IBOutlet HomeNavTableView *homeNavTableView;
-@property (nonatomic, weak) IBOutlet UIView *moreInfoView;
+@property (nonatomic, weak) IBOutlet MoreInfoView *moreInfoView;
 
 @property (nonatomic, weak) IBOutlet UIImageView *rightContentShadow;
 
