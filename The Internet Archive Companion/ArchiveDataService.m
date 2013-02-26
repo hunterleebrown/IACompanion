@@ -127,6 +127,9 @@
         [delegate dataDidFinishLoadingWithDictionary:rawResults];
     }
 
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
+    
 }
 
 
@@ -142,7 +145,8 @@
                                         object:nil];
     [queue addOperation:operation];
     
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
     
     
 }
