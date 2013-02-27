@@ -105,6 +105,7 @@
     
     cell.fileTitle.text = file.title;
     cell.identifierLabel.text = file.identifierTitle;
+    cell.fileFormat.text = [file.file objectForKey:@"format"];
     cell.showsReorderControl = YES;
     [cell setFile:file];
     return cell;

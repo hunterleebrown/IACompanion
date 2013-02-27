@@ -14,6 +14,8 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *identifierLabel;
 @property (nonatomic, weak) IBOutlet UILabel *fileTitle;
+@property (nonatomic, weak) IBOutlet UILabel *fileFormat;
+
 @property (nonatomic, weak) ArchiveFile *file;
 
 

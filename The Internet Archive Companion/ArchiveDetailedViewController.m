@@ -79,6 +79,7 @@
     ArchiveFile *file = [vbrs objectAtIndex:indexPath.row];
    
     [cell.fileTitle setText:file.title];
+    [cell.fileFormat setText:[file.file objectForKey:@"format"]];
     
     return cell;
 }
