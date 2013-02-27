@@ -93,7 +93,8 @@
        file.format == FileFormat512kbMPEG4 ||
        file.format == FileFormatMPEG4 ||
        file.format == FileFormatVBRMP3 ||
-       file.format == FileFormat64KbpsMP3
+       file.format == FileFormat64KbpsMP3 ||
+       file.format == FileFormatH264HD
        ){
         [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileAndPlayNotification" object:file];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"UnHidePlayerNotification" object:file];
@@ -124,7 +125,8 @@
            file.format == FileFormat512kbMPEG4 ||
            file.format == FileFormatMPEG4 ||
            file.format == FileFormatVBRMP3 ||
-           file.format == FileFormat64KbpsMP3
+           file.format == FileFormat64KbpsMP3 ||
+           file.format == FileFormatH264HD
            ){
             [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:file];
 
