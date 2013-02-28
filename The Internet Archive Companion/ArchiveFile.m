@@ -80,8 +80,9 @@
             _format = FileFormatH264HD;
         } else if([[file objectForKey:@"format"] isEqualToString:@"Single Page Processed JP2 ZIP"]){
             _format = FileFormatProcessedJP2ZIP;
-            _title = @"View Pages";
+            _title = @"Flip Through Page Images";
         } else if([[file objectForKey:@"format"] isEqualToString:@"DjVuTXT"]){
+            _title = @"Flipt Through Text as Pages";
             _format = FileFormatDjVuTXT;
         }
         else {

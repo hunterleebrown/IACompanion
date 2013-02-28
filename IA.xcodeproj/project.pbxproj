@@ -89,6 +89,7 @@
 		CEEA731016DD4B4A0092FA84 /* MoreInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA730F16DD4B4A0092FA84 /* MoreInfoView.m */; };
 		CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731116DD53A40092FA84 /* rightContentShadow.png */; };
 		CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */; };
+		CEEF43C816DFD11E00DC1C74 /* AsyncTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF43C716DFD11E00DC1C74 /* AsyncTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +223,8 @@
 		CEEA730F16DD4B4A0092FA84 /* MoreInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInfoView.m; sourceTree = "<group>"; };
 		CEEA731116DD53A40092FA84 /* rightContentShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightContentShadow.png; sourceTree = "<group>"; };
 		CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightContentShadow@2x.png"; sourceTree = "<group>"; };
+		CEEF43C616DFD11E00DC1C74 /* AsyncTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTextView.h; sourceTree = "<group>"; };
+		CEEF43C716DFD11E00DC1C74 /* AsyncTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +366,8 @@
 				5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */,
 				CEEA640016C4240100DCA3BC /* ArchiveFileTableViewCell.h */,
 				CEEA640116C4240100DCA3BC /* ArchiveFileTableViewCell.m */,
+				CEEF43C616DFD11E00DC1C74 /* AsyncTextView.h */,
+				CEEF43C716DFD11E00DC1C74 /* AsyncTextView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -673,6 +678,7 @@
 				CED75E3116D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m in Sources */,
 				CEEA731016DD4B4A0092FA84 /* MoreInfoView.m in Sources */,
 				5A25C28116DF31C000CC0449 /* ArchiveBookPageTextViewController.m in Sources */,
+				CEEF43C816DFD11E00DC1C74 /* AsyncTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
