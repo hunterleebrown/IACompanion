@@ -33,7 +33,7 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveOverNotification" object:nil];
-    if(self.homeContentDescriptionView.bounds.size.height == 430){
+    if(self.homeContentDescriptionView.bounds.size.height > 0){
         [self toggleDetails:nil];
     }
     if(_searchButtonHolder){
@@ -47,12 +47,13 @@
     [_homeContentTableView setDidTriggerLoadMore:NO];    
     MediaType type = (MediaType)_searchButtons.selectedSegmentIndex;
     [_homeContentTableView.service getDocsWithQueryString:searchBar.text forMediaType:type];
-    [_toolBarButton setEnabled:NO];
+    [_detailsButton setEnabled:NO];
     [self hideSplashView];
     
     if(_searchButtonHolder){
         [self hideSearchButtons];
     }
+    
     
 }
 
@@ -68,11 +69,11 @@
                                  MIMEType:@"text/html"
                          textEncodingName:@"UTF-8"
                                   baseURL:theBaseURL];
+
     [_homeContentTableView setDidTriggerLoadMore:NO];
     [_homeContentTableView.service getDocsWithCollectionIdentifier:doc.identifier];
-    //[_toolBarTitle setTitle:doc.title];
     [_aSearchBar setText:@""];
-    [_toolBarButton setEnabled:YES];
+    [_detailsButton setEnabled:YES];
     [self hideSplashView];
     
     
@@ -113,7 +114,7 @@
 
 
 - (void) didScroll{
-    if(self.homeContentDescriptionView.bounds.size.height == 430){
+    if(self.homeContentDescriptionView.bounds.size.height > 0){
         [self toggleDetails:nil];
     }
     [_aSearchBar resignFirstResponder];
@@ -126,43 +127,31 @@
 
 
 - (IBAction)toggleDetails:(id)sender{
-    
-    
-    float toolBarHeight =  110;
-    if(self.toolBar){
-        toolBarHeight = self.toolBar.bounds.size.height + 22;
-    }
 
     [UIView animateWithDuration:0.33 animations:^{
         if(self.homeContentDescriptionView.bounds.size.height == 0){
 
+            [self.homeContentDescriptionView setHidden:NO];
+
             [self.homeContentDescriptionView setFrame:CGRectMake(self.homeContentDescriptionView.frame.origin.x,
                                                                  self.homeContentDescriptionView.frame.origin.y,
                                                                  self.homeContentDescriptionView.bounds.size.width,
-                                                                 self.bounds.size.height - 66)];
+                                                                 self.bounds.size.height - 88)];
 
-            
-            [self.homeContentTableView setFrame:CGRectMake(self.homeContentTableView.frame.origin.x,
-                                                        self.homeContentDescriptionView.frame.origin.y + self.homeContentDescriptionView.bounds.size.height,
-                                                        self.homeContentTableView.bounds.size.width,
-                                                        self.bounds.size.height - toolBarHeight - self.homeContentDescriptionView.bounds.size.height)];
-            
-            
-            
+                    
         } else {
             [self.homeContentDescriptionView setFrame:CGRectMake(self.homeContentDescriptionView.frame.origin.x,
                                                                  self.homeContentDescriptionView.frame.origin.y,
                                                                  self.homeContentDescriptionView.bounds.size.width,
                                                                  0)];            
             
-            [self.homeContentTableView setFrame:CGRectMake(self.homeContentTableView.frame.origin.x,
-                                                           66,
-                                                           self.homeContentTableView.bounds.size.width,
-                                                           self.bounds.size.height - 66 - self.homeContentDescriptionView.bounds.size.height)];
-            
-            
-        }
+
+             }
         
+    } completion:^(BOOL finished) {
+        [self.homeContentDescriptionView setHidden:self.homeContentDescriptionView.bounds.size.height == 0];
+        
+
     }];
 
 

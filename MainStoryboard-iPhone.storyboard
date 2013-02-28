@@ -133,15 +133,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="YMS-aa-dpV" customClass="HomeContentTableView">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="286"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="264"/>
                                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="homeContentCell" id="x80-OP-2h2" customClass="HomeContentCell">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="homeContentCell" id="x80-OP-2h2" customClass="HomeContentCell">
                                                 <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="87"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" id="4Uh-3z-nCJ">
@@ -149,32 +149,32 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="VYp-rL-S8o" customClass="AsyncImageView">
-                                                                    <rect key="frame" x="203" y="0.0" width="117" height="87"/>
+                                                                    <rect key="frame" x="193" y="0.0" width="117" height="87"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 </imageView>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" id="Ywf-e9-Jed">
-                                                                    <rect key="frame" x="20" y="8" width="175" height="44"/>
+                                                                    <rect key="frame" x="10" y="8" width="175" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="nYS-bu-LQP">
-                                                                    <rect key="frame" x="20" y="50" width="175" height="18"/>
+                                                                    <rect key="frame" x="10" y="50" width="175" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="10"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2L7-N6-6an">
-                                                                    <rect key="frame" x="20" y="67" width="98" height="16"/>
+                                                                    <rect key="frame" x="10" y="67" width="175" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="10"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LlS-kL-fuY">
-                                                                    <rect key="frame" x="248" y="65" width="70" height="21"/>
+                                                                    <rect key="frame" x="240" y="62" width="70" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
@@ -201,48 +201,37 @@
                                         </prototypes>
                                         <connections>
                                             <outlet property="scrollDelegate" destination="GBh-gy-iFv" id="R6u-ry-mzN"/>
-                                            <outlet property="totalFound" destination="Sr5-Fl-f0c" id="OZP-vm-fNe"/>
+                                            <outlet property="totalFound" destination="fsO-tp-uRo" id="6mj-sM-Hsv"/>
                                         </connections>
                                     </tableView>
                                     <webView contentMode="scaleToFill" id="Xld-dq-LE1">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="delegate" destination="GBh-gy-iFv" id="2sl-eT-7R0"/>
                                         </connections>
                                     </webView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sr5-Fl-f0c">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d7h-OK-2uD">
-                                        <rect key="frame" x="27" y="46" width="58" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                        <state key="normal" title="Details" backgroundImage="uiglassbutton-template.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="toggleDetails:" destination="GBh-gy-iFv" eventType="touchUpInside" id="7I6-GB-Bkq"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadow.png" id="IJf-nf-pTa">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="19"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default-Portrait~ipad.png" id="ofd-nQ-sZd">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="308"/>
-                                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="rPw-db-OGd">
+                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <items>
+                                            <barButtonItem title="Collection Details" id="eTV-hM-Rvh">
+                                                <connections>
+                                                    <action selector="toggleDetails:" destination="GBh-gy-iFv" id="3EW-rY-7lR"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="7De-JK-Rcw"/>
+                                            <barButtonItem style="plain" id="fsO-tp-uRo">
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </toolbar>
                                     <view contentMode="scaleToFill" id="j90-XI-vK1">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -277,9 +266,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <items>
-                                            <barButtonItem image="list.png" style="plain" id="gkA-J9-IuB">
-                                                <inset key="imageInsets" minX="2" minY="-6" maxX="-13" maxY="-6"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="5kS-oC-ZQK"/>
+                                            <barButtonItem image="list.png" id="gkA-J9-IuB">
                                                 <connections>
                                                     <action selector="toggleContent" destination="6tU-cR-x8V" id="XN5-vi-Ax0"/>
                                                 </connections>
@@ -287,21 +275,27 @@
                                         </items>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </toolbar>
-                                    <searchBar contentMode="redraw" barStyle="blackTranslucent" id="9pd-t8-2Vc">
-                                        <rect key="frame" x="60" y="0.0" width="260" height="44"/>
+                                    <searchBar contentMode="redraw" id="9pd-t8-2Vc">
+                                        <rect key="frame" x="60" y="1" width="260" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="GBh-gy-iFv" id="yV1-9R-w3t"/>
                                         </connections>
                                     </searchBar>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default.png" id="ofd-nQ-sZd">
+                                        <rect key="frame" x="0.0" y="45" width="320" height="307"/>
+                                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="aSearchBar" destination="9pd-t8-2Vc" id="Di4-ag-kUl"/>
                                     <outlet property="descriptionShadow" destination="IJf-nf-pTa" id="knw-Og-Gb7"/>
+                                    <outlet property="detailsButton" destination="eTV-hM-Rvh" id="Ovb-CJ-5mo"/>
                                     <outlet property="homeContentDescriptionView" destination="Xld-dq-LE1" id="0hg-Hf-i6V"/>
                                     <outlet property="homeContentTableView" destination="YMS-aa-dpV" id="HD5-aP-j5C"/>
                                     <outlet property="iASplashImageView" destination="ofd-nQ-sZd" id="jvA-uZ-UwR"/>
@@ -629,7 +623,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="eRM-il-6eb" customClass="HomeContentTableView">
-                                <rect key="frame" x="0.0" y="22" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -645,32 +639,32 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="dFT-vI-I3t" customClass="AsyncImageView">
-                                                            <rect key="frame" x="203" y="0.0" width="117" height="87"/>
+                                                            <rect key="frame" x="193" y="0.0" width="117" height="87"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Big fat lazy foxes jumped over brown Bears who ate a goat and came back into the united states to transport young guls" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" id="LAZ-QN-t1P">
-                                                            <rect key="frame" x="20" y="8" width="175" height="44"/>
+                                                            <rect key="frame" x="10" y="8" width="175" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="sex, lies, videotape, music, joy stuff" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="uE3-NK-vMM">
-                                                            <rect key="frame" x="20" y="50" width="175" height="18"/>
+                                                            <rect key="frame" x="10" y="50" width="175" height="18"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="December 31, 2969" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mek-mJ-WdV">
-                                                            <rect key="frame" x="20" y="67" width="98" height="16"/>
+                                                            <rect key="frame" x="10" y="67" width="175" height="16"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8KI-kG-9pg">
-                                                            <rect key="frame" x="248" y="65" width="70" height="21"/>
+                                                            <rect key="frame" x="240" y="64" width="70" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
@@ -696,16 +690,22 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="scrollDelegate" destination="CFK-pj-3tL" id="zyq-KI-BKZ"/>
-                                    <outlet property="totalFound" destination="9lZ-tB-Ibh" id="MUh-if-AKt"/>
+                                    <outlet property="totalFound" destination="akb-V8-Th9" id="Ct9-Of-H3l"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9lZ-tB-Ibh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="zEH-Dy-guS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6t2-uH-v4c"/>
+                                    <barButtonItem style="plain" id="akb-V8-Th9"/>
+                                </items>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadow.png" id="sly-dW-CWc">
+                                <rect key="frame" x="0.0" y="44" width="320" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <connections>
@@ -878,14 +878,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default-Portrait~ipad.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
         <image name="W-share-FB.png" width="35" height="28"/>
         <image name="W-share-twitter.png" width="35" height="28"/>
         <image name="leftContentShadow.png" width="21" height="461"/>
         <image name="list.png" width="17" height="19"/>
         <image name="rightContentShadow.png" width="21" height="461"/>
         <image name="share-bbi.png" width="24" height="18"/>
-        <image name="uiglassbutton-template.png" width="50" height="37"/>
         <image name="vertShadow.png" width="320" height="19"/>
     </resources>
     <classes>
@@ -1030,6 +1029,7 @@
                 <relationship kind="action" name="toggleDetails:"/>
                 <relationship kind="outlet" name="aSearchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="descriptionShadow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="detailsButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="homeContentDescriptionView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
                 <relationship kind="outlet" name="iASplashImageView" candidateClass="UIImageView"/>
@@ -1037,7 +1037,6 @@
                 <relationship kind="outlet" name="searchButtons" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="showListButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="toolBarButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toolBarTitle" candidateClass="UIBarItem"/>
             </relationships>
         </class>
@@ -1045,7 +1044,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentTableView.h"/>
             <relationships>
                 <relationship kind="outlet" name="scrollDelegate"/>
-                <relationship kind="outlet" name="totalFound" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalFound" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="HomeNavCell" superclassName="UITableViewCell">
@@ -1084,6 +1083,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3MR-ZC-u27"/>
+        <segue reference="59s-KJ-yRw"/>
     </inferredMetricsTieBreakers>
 </document>

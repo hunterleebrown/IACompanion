@@ -22,7 +22,7 @@
 @property (nonatomic, retain) ArchiveDataService *service;
 @property (weak, nonatomic) IBOutlet id<HomeContentScrollingDelegate> scrollDelegate;
 @property (nonatomic) BOOL didTriggerLoadMore;
-@property (nonatomic, weak) IBOutlet UILabel *totalFound;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *totalFound;
 
 
 
