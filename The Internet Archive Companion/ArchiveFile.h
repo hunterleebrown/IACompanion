@@ -21,7 +21,9 @@ typedef enum {
     FileFormatJPEG = 5,
     FileFormatGIF = 6,
     FileFormatProcessedJP2ZIP = 7,
-    FileFormat64KbpsMP3 = 8
+    FileFormat64KbpsMP3 = 8,
+    FileFormatH264HD = 9,
+    FileFormatDjVuTXT = 10
     
 } FileFormat;
 
@@ -41,6 +43,7 @@ typedef enum {
 @property (nonatomic, assign) NSString *height;
 @property (nonatomic, assign) NSString *width;
 @property (nonatomic, assign) NSString *identifierTitle;
+@property (nonatomic, assign) int size;
 
 
 

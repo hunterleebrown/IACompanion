@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet HomeContentTableView *homeContentTableView;
 @property (weak, nonatomic) IBOutlet UIWebView *homeContentDescriptionView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *toolBarButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *detailsButton;
 @property (weak, nonatomic) IBOutlet UIBarItem *toolBarTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *descriptionShadow;
 @property (weak, nonatomic) IBOutlet UISearchBar *aSearchBar;

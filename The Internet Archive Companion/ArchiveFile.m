@@ -43,6 +43,14 @@
         _track = 0;
     }
     
+
+    if([file objectForKey:@"size"]){
+        NSString *sz = (NSString *)[file objectForKey:@"size"];
+        _size =  [sz intValue];
+    } else {
+        _size = 0;
+    }
+    
     _name = [file objectForKey:@"name"];
 
     if([file objectForKey:@"height"]){
@@ -68,9 +76,13 @@
             _format = FileFormatGIF;
         } else if([[file objectForKey:@"format"] isEqualToString:@"64Kbps MP3"]){
             _format = FileFormat64KbpsMP3;
+        } else if ([[file objectForKey:@"format"] isEqualToString:@"h.264 HD"]){
+            _format = FileFormatH264HD;
         } else if([[file objectForKey:@"format"] isEqualToString:@"Single Page Processed JP2 ZIP"]){
             _format = FileFormatProcessedJP2ZIP;
             _title = @"View Pages";
+        } else if([[file objectForKey:@"format"] isEqualToString:@"DjVuTXT"]){
+            _format = FileFormatDjVuTXT;
         }
         else {
             _format = FileFormatOther;

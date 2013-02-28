@@ -12,5 +12,7 @@
 
 
 @property (nonatomic, assign) IBOutlet UILabel *fileTitle;
+@property (nonatomic, assign) IBOutlet UILabel *fileFormat;
+
 
 @end
