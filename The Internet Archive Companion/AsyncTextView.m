@@ -93,6 +93,9 @@ static NSCache *cache = nil;
     
 }
 
+
+
+
 - (void)loadData {
     NSData* fileData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:fileUrl]];
     
@@ -114,7 +117,7 @@ static NSCache *cache = nil;
 
 - (void)displayView:(NSData *)inData {
     NSRange range = NSMakeRange(startByte, readLength);
-
+    
     NSString *textValue = [[NSString alloc] initWithData:[inData subdataWithRange:range] encoding:NSUTF8StringEncoding];
     
     [self setText:textValue];
@@ -123,6 +126,55 @@ static NSCache *cache = nil;
     
     
 }
+
+
+/*
+
+- (void)loadData {
+    NSData* fileData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:fileUrl]];
+    
+    NSString *results = [[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
+    
+    results = [results stringByReplacingOccurrencesOfString:@"\n\n" withString:@"<--PARAGRAPH-->"];
+    results = [results stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    //results = [results stringByReplacingOccurrencesOfString:@"<--PARAGRAPH-->" withString:@"\n\n"];
+    
+    NSData *munge = [results dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    [cache setObject:munge forKey:fileUrl];
+    [self performSelectorOnMainThread:@selector(displayView:) withObject:munge waitUntilDone:NO];
+    
+    
+    
+}
+
+- (void)displayView:(NSData *)inData {
+    NSRange range = NSMakeRange(startByte, readLength);
+
+    //NSString *textValue = [[NSString alloc] initWithData:[inData subdataWithRange:range] encoding:NSUTF8StringEncoding];
+    
+    NSString *text = [[NSString alloc] initWithData:inData encoding:NSUTF8StringEncoding];
+    
+    NSCharacterSet *separators = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSArray *words = [text componentsSeparatedByCharactersInSet:separators];
+    NSMutableString *sendValue = [NSMutableString new];
+    
+    
+    NSArray *itemsForView = [words subarrayWithRange:range];
+
+    
+    for(NSString *st in itemsForView){
+        NSString *results = [st stringByReplacingOccurrencesOfString:@"<--PARAGRAPH-->" withString:@"\n\n"];
+        [sendValue appendString:[NSString stringWithFormat:@"%@ ", results]];
+    }
+    
+    [self setText:sendValue];
+    [spinner stopAnimating];
+    //  NSLog(@"---------> loaded ImageUrl: %@", imageUrl);
+    
+    
+} */
 
 
 @end
