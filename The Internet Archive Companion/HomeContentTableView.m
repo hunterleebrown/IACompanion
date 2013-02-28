@@ -146,12 +146,12 @@
         }
         numFound = [[results objectForKey:@"numFound"] intValue];
         
-        [_totalFound setTitle:[NSString stringWithFormat:@"%i items",  numFound]];
+        [_totalFound setTitle:[NSString stringWithFormat:@"%@ items", [StringUtils decimalFormatNumberFromInteger:numFound]]];
         // [_totalFound setTextColor:[UIColor blackColor]];
         
     } else {
         numFound = [[results objectForKey:@"numFound"] intValue];
-        [_totalFound setTitle:[NSString stringWithFormat:@"%i items",  numFound]];
+        [_totalFound setTitle:[NSString stringWithFormat:@"%@ items", [StringUtils decimalFormatNumberFromInteger:numFound]]];
         // [_totalFound setTextColor:[UIColor whiteColor]];
         
     }

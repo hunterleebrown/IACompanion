@@ -118,4 +118,14 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 }
 
 
+
++ (NSString *) decimalFormatNumberFromInteger:(int)input{
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInt:input]];
+    return formatted;
+
+}
+
+
 @end
