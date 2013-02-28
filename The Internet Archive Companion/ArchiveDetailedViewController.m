@@ -12,6 +12,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "StringUtils.h"
 #import "ArchiveBookPageImageViewController.h"
+#import "ArchiveBookPageTextViewController.h"
 #import "ArchivePageViewController.h"
 #import "ArchiveShareViewController.h"
 #import "ArchiveImageViewController.h"
@@ -106,10 +107,10 @@
         if(file.format == FileFormatJPEG || file.format == FileFormatGIF) {
             sharedPhotoFile = file;
             [self performSegueWithIdentifier:@"imageSegue" sender:sharedPhotoFile];
-        } else if(file.format == FileFormatProcessedJP2ZIP) {
+        } else if(file.format == FileFormatProcessedJP2ZIP || file.format == FileFormatDjVuTXT) {
             bookFile = file;
             [self performSegueWithIdentifier:@"bookViewer" sender:bookFile];
-        }
+        } 
     }
 }
 
@@ -284,11 +285,24 @@
 }
 
 
-- (ArchiveBookPageImageViewController *) newPageControllerWithIndex:(int)index{
+- (UIViewController *) newPageControllerWithIndex:(int)index{
+    
+    if(bookFile.format == FileFormatDjVuTXT){
+        
+        ArchiveBookPageTextViewController *page = [[ArchiveBookPageTextViewController alloc] initWithNibName:@"ArchiveBookPageTextViewController" bundle:nil];
+        [page getPageWithFile:bookFile withIndex:index];
+        
+        
+        return page;
+        
+    } else if(bookFile.format == FileFormatProcessedJP2ZIP) {
 
-    ArchiveBookPageImageViewController *page = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
-    [page setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:index];
-    return page;
+        ArchiveBookPageImageViewController *page = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
+        [page setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:index];
+        return page;
+
+    }
+        
 }
 
 
@@ -395,6 +409,9 @@
     
     [_spinner startAnimating];
  
+    
+   // [service doRangeRequestFromRange:0 toRange:5000 fromUrl:@"http://archive.org/download/newtonspmathema00newtrich/newtonspmathema00newtrich_djvu.txt"];
+    
     
 }
 

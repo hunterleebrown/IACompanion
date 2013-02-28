@@ -11,6 +11,7 @@
 @protocol ArchiveDataServiceDelegate <NSObject>
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results;
+- (void) dataDidFinishLoadingWithRangeRequestResults:(NSString *)results;
 
 @end
 
@@ -25,7 +26,7 @@ typedef enum {
 
 }MediaType;
 
-@interface ArchiveDataService : NSObject {
+@interface ArchiveDataService : NSObject<NSURLConnectionDelegate> {
 
     NSDictionary *results;
     NSString *inUrl;
@@ -44,7 +45,7 @@ typedef enum {
 - (void) getDocsWithQueryString:(NSString *)query forMediaType:(MediaType)type;
 - (void) loadMoreWithStart:(NSString *)loadMoreStart;
 - (void) getDocsWithCollectionIdentifier:(NSString *)identifier;
-
+- (void) doRangeRequestFromRange:(unsigned int)fromByte toRange:(unsigned int)toByte fromUrl:(NSString *)url;
 
 
 - (void) getMetadataDocsWithIdentifier:(NSString *)identifier;

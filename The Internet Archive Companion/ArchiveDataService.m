@@ -13,6 +13,8 @@
 @interface ArchiveDataService () {
 
     NSString *identifierIn;
+    NSMutableURLRequest *bookTextPageRequest;
+    NSMutableData *bookTextData;
 }
 
 @end
@@ -298,6 +300,78 @@
     
 }
 
+
+
+- (void) doRangeRequestFromRange:(unsigned int)fromByte toRange:(unsigned int)toByte fromUrl:(NSString *)url{
+
+    NSLog(@"-----> url: %@", url);
+    
+    //bookTextPageRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
+    bookTextPageRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15];
+    
+    // Define the bytes we wish to download.
+    NSString *range = [NSString stringWithFormat:@"bytes=%i-%i", fromByte, toByte];
+    NSLog(@"-----> range: %@", range);
+    
+    [bookTextPageRequest setValue:range forHTTPHeaderField:@"Range"];
+
+   
+    NSURLConnection *myConnection = [[NSURLConnection alloc] initWithRequest:bookTextPageRequest delegate:self];
+    if(myConnection){
+        bookTextData = [NSMutableData data];
+    
+    }
+    
+    [myConnection start];
+    
+}
+
+
+- (void) doBookPageRequest{
+    
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:bookTextPageRequest delegate:self startImmediately:TRUE];
+    if (!urlConnection) {
+        
+        
+    }
+    
+    
+
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+
+    NSLog(@"  response statusCode: %i", [httpResponse statusCode]);
+    [bookTextData setLength:0];
+
+
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    // Append the new data to receivedData.
+    // receivedData is an instance variable declared elsewhere.
+    [bookTextData appendData:data];
+}
+
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // do something with the data
+    // receivedData is declared as a method instance elsewhere
+    NSLog(@"Succeeded! Received %d bytes of data",[bookTextData length]);
+
+    
+    NSString *myString = [[NSString alloc] initWithData:bookTextData encoding:NSUTF8StringEncoding];
+    
+    if(delegate && [delegate respondsToSelector:@selector(dataDidFinishLoadingWithRangeRequestResults:)]){
+        [delegate dataDidFinishLoadingWithRangeRequestResults:myString];
+    }
+    
+    
+}
 
 
 

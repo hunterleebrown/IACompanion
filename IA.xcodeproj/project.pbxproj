@@ -21,6 +21,8 @@
 		5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */; };
 		5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930616C3855400C3E107 /* ArchiveFile.m */; };
 		5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A23930816C3A07500C3E107 /* MediaPlayer.framework */; };
+		5A25C28116DF31C000CC0449 /* ArchiveBookPageTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A25C27F16DF31C000CC0449 /* ArchiveBookPageTextViewController.m */; };
+		5A25C28416DF324800CC0449 /* ArchiveBookPageTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A25C28316DF324800CC0449 /* ArchiveBookPageTextViewController.xib */; };
 		5A31D4FA16C7B2A200710DE0 /* leftContentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4F816C7B2A200710DE0 /* leftContentShadow.png */; };
 		5A31D4FB16C7B2A200710DE0 /* leftContentShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4F916C7B2A200710DE0 /* leftContentShadow@2x.png */; };
 		5A31D4FE16C7B56E00710DE0 /* vertShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4FC16C7B56E00710DE0 /* vertShadow.png */; };
@@ -120,6 +122,9 @@
 		5A23930516C3855400C3E107 /* ArchiveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFile.h; sourceTree = "<group>"; };
 		5A23930616C3855400C3E107 /* ArchiveFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFile.m; sourceTree = "<group>"; };
 		5A23930816C3A07500C3E107 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5A25C27E16DF31BF00CC0449 /* ArchiveBookPageTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageTextViewController.h; sourceTree = "<group>"; };
+		5A25C27F16DF31C000CC0449 /* ArchiveBookPageTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageTextViewController.m; sourceTree = "<group>"; };
+		5A25C28316DF324800CC0449 /* ArchiveBookPageTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArchiveBookPageTextViewController.xib; sourceTree = "<group>"; };
 		5A31D4F816C7B2A200710DE0 /* leftContentShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftContentShadow.png; sourceTree = "<group>"; };
 		5A31D4F916C7B2A200710DE0 /* leftContentShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leftContentShadow@2x.png"; sourceTree = "<group>"; };
 		5A31D4FC16C7B56E00710DE0 /* vertShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertShadow.png; sourceTree = "<group>"; };
@@ -487,6 +492,9 @@
 				5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */,
 				CED75E2F16D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.h */,
 				CED75E3016D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m */,
+				5A25C27E16DF31BF00CC0449 /* ArchiveBookPageTextViewController.h */,
+				5A25C27F16DF31C000CC0449 /* ArchiveBookPageTextViewController.m */,
+				5A25C28316DF324800CC0449 /* ArchiveBookPageTextViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -598,6 +606,7 @@
 				CEEA730D16DD30C80092FA84 /* list.png in Resources */,
 				CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */,
 				CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */,
+				5A25C28416DF324800CC0449 /* ArchiveBookPageTextViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +672,7 @@
 				5AA2EDB916D2C140003EAD82 /* ArchiveCollectionListViewController.m in Sources */,
 				CED75E3116D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m in Sources */,
 				CEEA731016DD4B4A0092FA84 /* MoreInfoView.m in Sources */,
+				5A25C28116DF31C000CC0449 /* ArchiveBookPageTextViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
