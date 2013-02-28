@@ -232,19 +232,6 @@
                                         </items>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </toolbar>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dfv-pE-SB7">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <items>
-                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="5kS-oC-ZQK"/>
-                                            <barButtonItem image="list.png" id="gkA-J9-IuB">
-                                                <connections>
-                                                    <action selector="toggleContent" destination="6tU-cR-x8V" id="XN5-vi-Ax0"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </items>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </toolbar>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default.png" id="ofd-nQ-sZd">
                                         <rect key="frame" x="0.0" y="45" width="320" height="307"/>
                                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
@@ -280,6 +267,19 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dfv-pE-SB7">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="5kS-oC-ZQK"/>
+                                            <barButtonItem image="list.png" id="gkA-J9-IuB">
+                                                <connections>
+                                                    <action selector="toggleContent" destination="6tU-cR-x8V" id="XN5-vi-Ax0"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </toolbar>
                                     <searchBar contentMode="redraw" id="9pd-t8-2Vc">
                                         <rect key="frame" x="60" y="1" width="260" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
