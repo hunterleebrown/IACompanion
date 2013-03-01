@@ -100,10 +100,15 @@ static NSCache *cache = nil;
     NSData* fileData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:fileUrl]];
     
     NSString *results = [[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
-    
+
+    results = [results stringByReplacingOccurrencesOfString:@"\r\n" withString:@"<--GURTENPARAGRAPH-->"];
     results = [results stringByReplacingOccurrencesOfString:@"\n\n" withString:@"<--PARAGRAPH-->"];
     results = [results stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    
     results = [results stringByReplacingOccurrencesOfString:@"<--PARAGRAPH-->" withString:@"\n\n"];
+    results = [results stringByReplacingOccurrencesOfString:@"<--GURTENPARAGRAPH--><--GURTENPARAGRAPH-->" withString:@"\n\n"];
+    results = [results stringByReplacingOccurrencesOfString:@"<--GURTENPARAGRAPH-->" withString:@""];
+
     
     NSData *munge = [results dataUsingEncoding:NSUTF8StringEncoding];
     

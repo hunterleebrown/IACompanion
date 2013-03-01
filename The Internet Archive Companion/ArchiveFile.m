@@ -82,8 +82,11 @@
             _format = FileFormatProcessedJP2ZIP;
             _title = @"Flip Through Page Images";
         } else if([[file objectForKey:@"format"] isEqualToString:@"DjVuTXT"]){
-            _title = @"Flipt Through Text as Pages";
+            _title = @"Flip Through Text as Pages";
             _format = FileFormatDjVuTXT;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"Text"]){
+            _title = @"Flip Through Text as Pages";
+            _format = FileFormatTxt;
         }
         else {
             _format = FileFormatOther;

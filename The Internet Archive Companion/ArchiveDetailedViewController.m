@@ -107,7 +107,7 @@
         if(file.format == FileFormatJPEG || file.format == FileFormatGIF) {
             sharedPhotoFile = file;
             [self performSegueWithIdentifier:@"imageSegue" sender:sharedPhotoFile];
-        } else if(file.format == FileFormatProcessedJP2ZIP || file.format == FileFormatDjVuTXT) {
+        } else if(file.format == FileFormatProcessedJP2ZIP || file.format == FileFormatDjVuTXT || file.format == FileFormatTxt) {
             bookFile = file;
             [self performSegueWithIdentifier:@"bookViewer" sender:bookFile];
         } 
@@ -287,7 +287,7 @@
 
 - (UIViewController *) newPageControllerWithIndex:(int)index{
     
-    if(bookFile.format == FileFormatDjVuTXT){
+    if(bookFile.format == FileFormatDjVuTXT || bookFile.format == FileFormatTxt){
         
         ArchiveBookPageTextViewController *page = [[ArchiveBookPageTextViewController alloc] initWithNibName:@"ArchiveBookPageTextViewController" bundle:nil];
         [page getPageWithFile:bookFile withIndex:index];

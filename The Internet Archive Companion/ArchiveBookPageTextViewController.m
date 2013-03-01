@@ -24,8 +24,8 @@
 
 NSInteger const ReadPageBytesLengthiPhone = 400;
 NSInteger const ReadPageBytesLengthiPhoneLong = 500;
-NSInteger const ReadPageBytesLengthiPadPortrait = 2000;
-NSInteger const ReadPageBytesLengthiPadLandscape = 1100;
+NSInteger const ReadPageBytesLengthiPadPortrait = 2200;
+NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -83,12 +83,14 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1100;
     
     
     int paddingDenom = 10;
+    float topPadding = 40;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        paddingDenom = 8;
+        paddingDenom = 4;
+        topPadding = 80;
     }
     
     float padding = round(self.view.bounds.size.width / paddingDenom);
-    [_bodyTextView setBounds:CGRectMake(padding, 40, self.view.bounds.size.width - padding, self.view.bounds.size.height - 40)];
+    [_bodyTextView setBounds:CGRectMake(padding, topPadding, self.view.bounds.size.width - padding, self.view.bounds.size.height - topPadding)];
 }
 
 
