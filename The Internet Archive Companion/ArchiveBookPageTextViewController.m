@@ -8,6 +8,9 @@
 
 #import "ArchiveBookPageTextViewController.h"
 #import "ArchiveDataService.h"
+#import "ArchivePageViewController.h"
+
+
 @interface ArchiveBookPageTextViewController ()
 {
     
@@ -34,17 +37,6 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     if (self) {
         // Custom initialization
 
-        /*
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {            
-            if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
-                ReadPageBytesLength = ReadPageBytesLengthiPadLandscape;
-            } else {
-                ReadPageBytesLength = ReadPageBytesLengthiPadPortrait;
-
-            }
-        } else {
-            ReadPageBytesLength = ReadPageBytesLengthiPhone;
-        }  */
     }
     return self;
 }
@@ -53,10 +45,8 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSLog(@"-----> useUrl: %@  start:%i  end:%i", useUrl, start, end);
-
-    
-    [self adjustFontSizeForOrientation];
+    NSLog(@"-----> useUrl: %@  start:%i  end:%i", useUrl, start, end);    
+    [self adjustForOrientationAndDevice];
 
 }
 
@@ -69,7 +59,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 
 - (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
 
-    [self adjustFontSizeForOrientation];
+    [self adjustForOrientationAndDevice];
 }
 
 
@@ -84,26 +74,31 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     
     int paddingDenom = 10;
     float topPadding = 40;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        paddingDenom = 4;
-        topPadding = 80;
-    }
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        float padding = round(self.view.bounds.size.width / paddingDenom);
+        [_bodyTextView setBounds:CGRectMake(padding, topPadding, self.view.bounds.size.width - padding, self.view.bounds.size.height - topPadding)];
+    } 
     
-    float padding = round(self.view.bounds.size.width / paddingDenom);
-    [_bodyTextView setBounds:CGRectMake(padding, topPadding, self.view.bounds.size.width - padding, self.view.bounds.size.height - topPadding)];
+    _bodyTextView.font = [UIFont fontWithName:_bodyTextView.font.fontName size:_fontSize];
+}
+
+
+- (void) setFontSize:(int)fontSize{
+    _fontSize = fontSize;
+    _bodyTextView.font = [UIFont fontWithName:_bodyTextView.font.fontName size:_fontSize];
 }
 
 
 
 
-- (void) adjustFontSizeForOrientation{
+- (void) adjustForOrientationAndDevice{
     if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
         ReadPageBytesLength = ReadPageBytesLengthiPadLandscape;
     } else {
         ReadPageBytesLength = ReadPageBytesLengthiPadPortrait;
     }
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        NSLog(@"---> [[UIScreen mainScreen] bounds].size.height: %f", [[UIScreen mainScreen] bounds].size.height);
+     //   NSLog(@"---> [[UIScreen mainScreen] bounds].size.height: %f", [[UIScreen mainScreen] bounds].size.height);
         if([[UIScreen mainScreen] bounds].size.height == 568){
             ReadPageBytesLength = ReadPageBytesLengthiPhoneLong;
         } else {
@@ -112,7 +107,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     }
     
     
-    [self getPageWithFile:_file withIndex:_index];
+    [self getPageWithFile:_file withIndex:_index fontSize:_fontSize];
     [self loadPage];
 }
 
@@ -131,10 +126,13 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 }
 
 
-- (void) getPageWithFile:(ArchiveFile *)file withIndex:(int)index{
+- (void) getPageWithFile:(ArchiveFile *)file withIndex:(int)index fontSize:(int)size{
     _index = index;
     start = 0;
     _file = file;
+    _fontSize = size;
+    
+    
     if(file.size == 0){
         return;
     }
@@ -147,7 +145,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
         start = ReadPageBytesLength * _index;
     }
 
-    NSLog(@"->ReadPageBytesLength: %i", ReadPageBytesLength);
+   // NSLog(@"->ReadPageBytesLength: %i", ReadPageBytesLength);
         
         
     useUrl = [NSString stringWithFormat:@"http://%@%@/%@", _file.server, _file.directory, _file.name];

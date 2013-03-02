@@ -68,7 +68,7 @@ static NSCache *cache = nil;
     startByte = start;
     readLength = length;
     
-    NSLog(@"---------> imageUrl in: %@", fileUrl);
+   // NSLog(@"---------> imageUrl in: %@", fileUrl);
     
     
     spinner.center = CGPointMake(self.center.x, self.center.y);

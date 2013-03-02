@@ -13,14 +13,15 @@
 #import "AsyncImageView.h"
 #import "ArchiveMetadataTableView.h"
 #import "ArchivePlayerViewController.h"
+#import "ArchivePageViewController.h"
 
 
-
-@interface ArchiveDetailedViewController : UIViewController <UIWebViewDelegate, ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
+@interface ArchiveDetailedViewController : UIViewController <UIWebViewDelegate, ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverControllerDelegate, PageFontChangeDelegate> {
     
     ArchiveDataService *service;
     NSMutableArray *vbrs;
     MPMoviePlayerController *player;
+    UIPopoverController *sharePopover;
 
 }
 

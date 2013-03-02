@@ -146,6 +146,7 @@
         bookViewController = [segue destinationViewController];
         [bookViewController setDataSource:self];
         [bookViewController setDelegate:self];
+        [bookViewController setFontChangeDelegate:self];
         [bookViewController setViewControllers:@[firstPage] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
         
         [pages setObject:firstPage atIndexedSubscript:0];
@@ -154,8 +155,9 @@
     if([[segue identifier] isEqualToString:@"sharePopover"]){
         
         ArchiveShareViewController *shareController = [segue destinationViewController];
-        UIPopoverController *pop = ((UIStoryboardPopoverSegue *)segue).popoverController;
-        [shareController setMyPopOverController:pop];
+        sharePopover = ((UIStoryboardPopoverSegue *)segue).popoverController;
+        sharePopover.delegate = self;
+        [shareController setMyPopOverController:sharePopover];
         [shareController setArchiveIdentifier:self.identifier];
         [shareController setArchiveTitle:[StringUtils stringFromObject:_doc.title]];
         [shareController setImage:_aSyncImage.image];
@@ -193,6 +195,14 @@
     
    
 
+}
+
+- (void) popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
+    sharePopover = nil;
+}
+
+- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    return sharePopover ? NO : YES;
 }
 
 
@@ -285,14 +295,31 @@
 }
 
 
+- (void) changeFontSizeOfChildControllers:(int)size{
+    NSLog(@" ---------> change child fontsize to: %i", size);
+    
+    for(UIViewController *vc in pages){
+        if([vc isKindOfClass:[ArchiveBookPageTextViewController class]]) {
+            ArchiveBookPageTextViewController *tvc = (ArchiveBookPageTextViewController *)vc;
+            [tvc setFontSize:bookViewController.fontSizeForAll];
+        }
+    }
+    
+
+}
+
+
 - (UIViewController *) newPageControllerWithIndex:(int)index{
     
     if(bookFile.format == FileFormatDjVuTXT || bookFile.format == FileFormatTxt){
         
         ArchiveBookPageTextViewController *page = [[ArchiveBookPageTextViewController alloc] initWithNibName:@"ArchiveBookPageTextViewController" bundle:nil];
-        [page getPageWithFile:bookFile withIndex:index];
-        
-        
+        int fontSize = 14;
+        if(bookViewController){
+            fontSize = bookViewController.fontSizeForAll;
+        }
+        [page getPageWithFile:bookFile withIndex:index fontSize:fontSize];
+
         return page;
         
     } else if(bookFile.format == FileFormatProcessedJP2ZIP) {

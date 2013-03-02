@@ -66,6 +66,7 @@
 		5AF2310A16D756BC00262B09 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310916D756BC00262B09 /* Default.png */; };
 		5AF2310C16D756C500262B09 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310B16D756C500262B09 /* Default@2x.png */; };
 		5AF2311016D758F900262B09 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310F16D758F900262B09 /* Default-568h@2x.png */; };
+		CE0411A716E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0411A616E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m */; };
 		CE18814B16CEA71F0040EA9A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18814A16CEA71F0040EA9A /* HomeViewController.m */; };
 		CE18814E16CEA7640040EA9A /* ArchivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18814D16CEA7640040EA9A /* ArchivePlayerViewController.m */; };
 		CE18815116CEAC630040EA9A /* ArchivePlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18815016CEAC630040EA9A /* ArchivePlayerTableViewCell.m */; };
@@ -191,6 +192,8 @@
 		5AF2310B16D756C500262B09 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		5AF2310D16D7575D00262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		5AF2310F16D758F900262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		CE0411A516E1584F00F4F2E5 /* ArchivePageTextSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePageTextSizeViewController.h; sourceTree = "<group>"; };
+		CE0411A616E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePageTextSizeViewController.m; sourceTree = "<group>"; };
 		CE18814916CEA71F0040EA9A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		CE18814A16CEA71F0040EA9A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		CE18814C16CEA7640040EA9A /* ArchivePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePlayerViewController.h; sourceTree = "<group>"; };
@@ -468,6 +471,23 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		CE0411A416E1553300F4F2E5 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				CE1B959116C9D722002E9D8D /* ArchiveBookPageImageViewController.h */,
+				CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */,
+				5AB7AB5816CA3A230014D40C /* ArchiveBookPageImageViewController.xib */,
+				5A25C27E16DF31BF00CC0449 /* ArchiveBookPageTextViewController.h */,
+				5A25C27F16DF31C000CC0449 /* ArchiveBookPageTextViewController.m */,
+				5A25C28316DF324800CC0449 /* ArchiveBookPageTextViewController.xib */,
+				5AD5975116CA1AE300AD663B /* ArchivePageViewController.h */,
+				5AD5975216CA1AE300AD663B /* ArchivePageViewController.m */,
+				CE0411A516E1584F00F4F2E5 /* ArchivePageTextSizeViewController.h */,
+				CE0411A616E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m */,
+			);
+			name = Pages;
+			sourceTree = "<group>";
+		};
 		CE3019CB16C5728700733B99 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,15 +500,11 @@
 		CEEA63FF16C4192C00DCA3BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE0411A416E1553300F4F2E5 /* Pages */,
 				5AA29AA116BB8CCF0082D3C4 /* ArchiveDetailedViewController.h */,
 				5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */,
 				5AA2EDB716D2C140003EAD82 /* ArchiveCollectionListViewController.h */,
 				5AA2EDB816D2C140003EAD82 /* ArchiveCollectionListViewController.m */,
-				CE1B959116C9D722002E9D8D /* ArchiveBookPageImageViewController.h */,
-				CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */,
-				5AB7AB5816CA3A230014D40C /* ArchiveBookPageImageViewController.xib */,
-				5AD5975116CA1AE300AD663B /* ArchivePageViewController.h */,
-				5AD5975216CA1AE300AD663B /* ArchivePageViewController.m */,
 				CE18814C16CEA7640040EA9A /* ArchivePlayerViewController.h */,
 				CE18814D16CEA7640040EA9A /* ArchivePlayerViewController.m */,
 				5A8CA7ED16D03D1000F97BF7 /* ArchiveShareViewController.h */,
@@ -497,9 +513,6 @@
 				5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */,
 				CED75E2F16D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.h */,
 				CED75E3016D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m */,
-				5A25C27E16DF31BF00CC0449 /* ArchiveBookPageTextViewController.h */,
-				5A25C27F16DF31C000CC0449 /* ArchiveBookPageTextViewController.m */,
-				5A25C28316DF324800CC0449 /* ArchiveBookPageTextViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -679,6 +692,7 @@
 				CEEA731016DD4B4A0092FA84 /* MoreInfoView.m in Sources */,
 				5A25C28116DF31C000CC0449 /* ArchiveBookPageTextViewController.m in Sources */,
 				CEEF43C816DFD11E00DC1C74 /* AsyncTextView.m in Sources */,
+				CE0411A716E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
