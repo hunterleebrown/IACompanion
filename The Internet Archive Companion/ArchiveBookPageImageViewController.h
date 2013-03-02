@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AsyncImageView.h"
+#import "ArchiveBookPageViewController.h"
 
-@interface ArchiveBookPageImageViewController : UIViewController
+@interface ArchiveBookPageImageViewController : ArchiveBookPageViewController
 
 
 
@@ -18,7 +19,7 @@
 @property (nonatomic, retain) NSString *server;
 @property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) NSString *zipFile;
-@property (nonatomic) int index;
+//@property (nonatomic) int index;
 @property (nonatomic, retain) NSString *url;
 @property (nonatomic, weak) IBOutlet UILabel *pageNumber;
 

@@ -19,6 +19,7 @@
 #import "ArchiveCollectionListViewController.h"
 #import "ArchivePhoneExtraDetailsViewController.h"
 
+
 @interface ArchiveDetailedViewController (){
     ArchiveFile *bookFile;
     ArchivePageViewController *bookViewController;
@@ -372,21 +373,23 @@
         
         
         NSArray *viewControllers = nil;
-        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:2];
-        
-        NSLog(@"-------> controller index: %i", ((ArchiveBookPageImageViewController*)[pages objectAtIndex:1]).index);
+        ArchiveBookPageViewController *currentViewController = (ArchiveBookPageViewController*)[pages objectAtIndex:2];
         
         
         NSUInteger currentIndex = currentViewController.index;
         if(currentIndex == 0 || currentIndex %2 == 0)
         {
-            UIViewController *nextViewController = [self pageViewController:bookViewController viewControllerAfterViewController:currentViewController];
+            ArchiveBookPageViewController *nextViewController = (ArchiveBookPageViewController *)[self pageViewController:bookViewController viewControllerAfterViewController:currentViewController];
+            
             
             viewControllers = [NSArray arrayWithObjects:currentViewController, nextViewController, nil];
         }
         else
         {
-            UIViewController *previousViewController = [self pageViewController:bookViewController viewControllerBeforeViewController:currentViewController];
+            
+            ArchiveBookPageViewController *previousViewController = (ArchiveBookPageViewController *)[self pageViewController:bookViewController viewControllerBeforeViewController:currentViewController];
+            
+            
             
             viewControllers = [NSArray arrayWithObjects:previousViewController, currentViewController, nil];
         }
@@ -396,7 +399,8 @@
     } else {
         
         
-        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:2];
+        ArchiveBookPageViewController *currentViewController = (ArchiveBookPageViewController*)[pages objectAtIndex:2];
+        
         NSArray *viewControllers = [NSArray arrayWithObject:currentViewController];
         [bookViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
         
@@ -406,6 +410,8 @@
     }
 
 }
+
+
 
 
 - (void)viewDidLoad
