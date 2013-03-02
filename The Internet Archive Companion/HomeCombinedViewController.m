@@ -78,10 +78,11 @@
 
     [UIView animateWithDuration:0.3 animations:^{
         // [_contentScrollView setContentOffset:CGPointMake(_homeContentView.frame.origin.x, 0)];
-        [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
-        [_moreInfoView setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _moreInfoView.frame.origin.y, _moreInfoView.bounds.size.width, _moreInfoView.bounds.size.height)];
+        [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];        
+        [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
         
-        [_rightContentShadow setFrame:CGRectMake(_moreInfoView.frame.origin.x, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
+
+        
     }];
     
     
@@ -114,8 +115,6 @@
     } else if(_homeContentView.frame.origin.x == -256){
         whereToGoLeft = -256;
     }
-    int moreIndex = [self.view.subviews indexOfObject:_moreInfoView];
-    int homeNavIndex = [self.view.subviews indexOfObject:_homeNavView];
 
         [UIView animateWithDuration:0.3 animations:^{
             [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
@@ -128,8 +127,11 @@
                     [_homeNavView setHidden:YES];
                     [_moreInfoView setHidden:NO];
                 } 
+            } else {
+                [_homeNavView setHidden:NO];
+                [_moreInfoView setHidden:NO];
             }
-            
+         
         }];
 
     
@@ -153,8 +155,6 @@
     }
 
     
-    int moreIndex = [self.view.subviews indexOfObject:_moreInfoView];
-    int homeNavIndex = [self.view.subviews indexOfObject:_homeNavView];
 
 
         [UIView animateWithDuration:0.3 animations:^{
@@ -205,6 +205,12 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [_homeContentView.homeContentTableView deselectRowAtIndexPath:_homeContentView.homeContentTableView.indexPathForSelectedRow animated:YES];
     [self doOrientationLayout:self.interfaceOrientation];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [_homeNavView setHidden:NO];
+        [_moreInfoView setHidden:NO];
+    }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -237,9 +243,10 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation)){
             [_homeContentView setFrame:CGRectMake(256, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
-            [_homeNavView setHidden:NO];
-            [_moreInfoView setHidden:NO];
         }
+        [_homeNavView setHidden:NO];
+        [_moreInfoView setHidden:NO];
+    
     }
     [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
 
