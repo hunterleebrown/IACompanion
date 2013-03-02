@@ -9,6 +9,7 @@
 #import "ArchiveBookPageTextViewController.h"
 #import "ArchiveDataService.h"
 #import "ArchivePageViewController.h"
+#import "StringUtils.h"
 
 
 @interface ArchiveBookPageTextViewController ()
@@ -64,6 +65,11 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 
 
 - (void) loadPage{
+    
+    if(_file.size == 0){
+        [_bodyTextView setText:@"TEXT FILE HAS NO DATA"];
+    }
+    
     if(start > _file.size || start + ReadPageBytesLength > _file.size){
         [_bodyTextView setText:@"END OF FILE REACHED"];
     } else {
@@ -148,7 +154,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
    // NSLog(@"->ReadPageBytesLength: %i", ReadPageBytesLength);
         
         
-    useUrl = [NSString stringWithFormat:@"http://%@%@/%@", _file.server, _file.directory, _file.name];
+    useUrl = [NSString stringWithFormat:@"http://%@%@/%@", _file.server, _file.directory, [StringUtils urlEncodeString:_file.name]];
     
     
 }
