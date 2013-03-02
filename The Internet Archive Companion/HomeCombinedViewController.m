@@ -114,21 +114,29 @@
     } else if(_homeContentView.frame.origin.x == -256){
         whereToGoLeft = -256;
     }
-    
-   // if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+    int moreIndex = [self.view.subviews indexOfObject:_moreInfoView];
+    int homeNavIndex = [self.view.subviews indexOfObject:_homeNavView];
+
         [UIView animateWithDuration:0.3 animations:^{
-           // [_contentScrollView setContentOffset:CGPointMake(_homeContentView.frame.origin.x, 0)];
             [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
-            [_moreInfoView setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _moreInfoView.frame.origin.y, _moreInfoView.bounds.size.width, _moreInfoView.bounds.size.height)];
-            
             [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
+            
+
+            
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                if(whereToGoLeft == -256){
+                    [_homeNavView setHidden:YES];
+                    [_moreInfoView setHidden:NO];
+                } 
+            }
+            
         }];
-   // }
-    
-    
+
     
     
 }
+
+
 
 
 - (IBAction) moveContentViewBack{
@@ -144,15 +152,33 @@
         whereToGoLeft = 256;
     }
 
-  //  if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+    
+    int moreIndex = [self.view.subviews indexOfObject:_moreInfoView];
+    int homeNavIndex = [self.view.subviews indexOfObject:_homeNavView];
+
+
         [UIView animateWithDuration:0.3 animations:^{
-            // [_contentScrollView setContentOffset:CGPointMake(_homeContentView.frame.origin.x, 0)];
             [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
-            [_moreInfoView setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _moreInfoView.frame.origin.y, _moreInfoView.bounds.size.width, _moreInfoView.bounds.size.height)];
-            
             [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
+
+            
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                if(whereToGoLeft == 256){
+                    [_homeNavView setHidden:NO];
+                    [_moreInfoView setHidden:YES];
+                }
+                if(whereToGoLeft == -256){
+                    [_homeNavView setHidden:YES];
+                } else {
+                    [_homeNavView setHidden:NO];
+                }
+                
+            } else{
+                [_homeNavView setHidden:NO];
+                [_moreInfoView setHidden:NO];
+            }
+        
         }];
-    //}
 
 
 
@@ -211,6 +237,8 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation)){
             [_homeContentView setFrame:CGRectMake(256, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+            [_homeNavView setHidden:NO];
+            [_moreInfoView setHidden:NO];
         }
     }
     [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];

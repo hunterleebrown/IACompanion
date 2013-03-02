@@ -430,16 +430,29 @@
     
    // [service doRangeRequestFromRange:0 toRange:5000 fromUrl:@"http://archive.org/download/newtonspmathema00newtrich/newtonspmathema00newtrich_djvu.txt"];
     
+ 
+    
+
+    
     
 }
 
+-(IBAction)dismiss{
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 
+- (void) viewWillAppear:(BOOL)animated{
+   // [self.navigationController setNavigationBarHidden:YES animated:NO];
+
+}
 
 - (void) viewWillDisappear:(BOOL)animated{
     if(!player.fullscreen){
         [player stop];
     }
+    //[self.navigationController setNavigationBarHidden:YES animated:YES];
 
 }
 
