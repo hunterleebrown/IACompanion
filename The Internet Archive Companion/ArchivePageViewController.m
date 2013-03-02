@@ -84,7 +84,7 @@
 
 
 - (void) changeFontSize:(int)size{
-    if(_fontSizeForAll + size >= 10 && _fontSizeForAll + size <= 18) {
+    if(_fontSizeForAll + size >= 10 && _fontSizeForAll + size <= 24) {
         _fontSizeForAll = _fontSizeForAll + size;
         for(UIViewController *child in self.childViewControllers) {
             
