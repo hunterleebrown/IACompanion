@@ -45,7 +45,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSLog(@"-----> useUrl: %@  start:%i  end:%i", useUrl, start, end);    
+    //NSLog(@"-----> useUrl: %@  start:%i  end:%i", useUrl, start, end);
     [self adjustForOrientationAndDevice];
 
 }

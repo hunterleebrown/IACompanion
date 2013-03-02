@@ -211,7 +211,6 @@
 
 - (ArchiveBookPageImageViewController *) pageControllerForIndex:(int)index{
     
-    NSLog(@"-----> pages.count: %i   index:%i", pages.count, index);
     
     ArchiveBookPageImageViewController *p0;
     ArchiveBookPageImageViewController *p1;
@@ -226,58 +225,44 @@
     
     if([pages objectAtIndex:0]){
         p0 = [pages objectAtIndex:0];
-        NSLog(@"p0.index: %i", p0.index);
     }
     if([pages objectAtIndex:1]){
         p1 = [pages objectAtIndex:1];
-        NSLog(@"p1.index: %i", p1.index);
 
     }
     if([pages objectAtIndex:2]){
         p2 = [pages objectAtIndex:2];
-        NSLog(@"p2.index: %i", p2.index);
-
     }
     if([pages objectAtIndex:3]){
         p3 = [pages objectAtIndex:3];
-        NSLog(@"p3.index: %i", p3.index);
-        
-    }
+            }
     if([pages objectAtIndex:4]){
         p4 = [pages objectAtIndex:4];
-        NSLog(@"p4.index: %i", p4.index);
-        
     }
-      
+    
     
     
     if(p0.index == index){
-        NSLog(@"--> 0 HIT");
         [self setPagesWithIndex:index];
         return p0;
     }
     else if(p1.index == index){
-        NSLog(@"--> 1 HIT");
         [self setPagesWithIndex:index];
         return p1;
     }
     else if(p2.index == index){
-        NSLog(@"--> 2 HIT");
         [self setPagesWithIndex:index];
         return p2;
     }
     else if(p3.index == index){
-        NSLog(@"--> 3 HIT");
         [self setPagesWithIndex:index];
         return p3;
     }
     else if(p4.index == index){
-        NSLog(@"--> 4 HIT");
         [self setPagesWithIndex:index];
         return p4;
     }
     else {
-        NSLog(@"--> go fish");
         [self setPagesWithIndex:index];
         return [pages objectAtIndex:2];
     }
@@ -338,7 +323,7 @@
 
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(ArchiveBookPageImageViewController *)viewController{
     
-    NSLog(@"---> currentIndex: %i", viewController.index);
+   // NSLog(@"---> currentIndex: %i", viewController.index);
 
 
     return [self pageControllerForIndex:viewController.index + 1];
@@ -347,7 +332,7 @@
 
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(ArchiveBookPageImageViewController *)viewController{
     
-    NSLog(@"---> currentIndex: %i", viewController.index);
+    //NSLog(@"---> currentIndex: %i", viewController.index);
     
     
     if(viewController.index == 0){
