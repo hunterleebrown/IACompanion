@@ -37,6 +37,8 @@
 {
     [super viewDidLoad];
 
+    
+    
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doMoveOverForNotification) name:@"MoveOverNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver) name:@"MoveBackNotification" object:nil];
@@ -192,7 +194,7 @@
         ArchiveSearchDoc *doc = cell.doc;
         
         ArchiveDetailedViewController *detailViewController = [segue destinationViewController];
-        [detailViewController setTitle:doc.title];
+        //[detailViewController setTitle:doc.title];
         [detailViewController setIdentifier:doc.identifier];
     }
 

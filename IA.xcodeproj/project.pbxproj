@@ -60,6 +60,8 @@
 		5ADAB7F116C76F5400DBC072 /* audio.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7EE16C76F5400DBC072 /* audio.gif */; };
 		5ADAB7F216C76F5400DBC072 /* movies.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7EF16C76F5400DBC072 /* movies.gif */; };
 		5ADAB7F316C76F5400DBC072 /* texts.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7F016C76F5400DBC072 /* texts.gif */; };
+		5AE16FB116E2BF5800029E3E /* Jackson_Pollock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AE16FB016E2BF5800029E3E /* Jackson_Pollock.jpg */; };
+		5AE16FB316E2CF2E00029E3E /* TVScanLines.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AE16FB216E2CF2E00029E3E /* TVScanLines.jpg */; };
 		5AE33BEA16CC955900129C62 /* ArchiveMetadataTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE33BE916CC955900129C62 /* ArchiveMetadataTableView.m */; };
 		5AE33BED16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE33BEC16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m */; };
 		5AF2310616D7551800262B09 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310516D7551800262B09 /* Icon-57.png */; };
@@ -185,6 +187,8 @@
 		5ADAB7EE16C76F5400DBC072 /* audio.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = audio.gif; sourceTree = "<group>"; };
 		5ADAB7EF16C76F5400DBC072 /* movies.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = movies.gif; sourceTree = "<group>"; };
 		5ADAB7F016C76F5400DBC072 /* texts.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = texts.gif; sourceTree = "<group>"; };
+		5AE16FB016E2BF5800029E3E /* Jackson_Pollock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jackson_Pollock.jpg; sourceTree = "<group>"; };
+		5AE16FB216E2CF2E00029E3E /* TVScanLines.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TVScanLines.jpg; sourceTree = "<group>"; };
 		5AE33BE816CC955900129C62 /* ArchiveMetadataTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveMetadataTableView.h; sourceTree = "<group>"; };
 		5AE33BE916CC955900129C62 /* ArchiveMetadataTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveMetadataTableView.m; sourceTree = "<group>"; };
 		5AE33BEB16CC96AE00129C62 /* ArchiveMetadataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveMetadataTableViewCell.h; sourceTree = "<group>"; };
@@ -394,6 +398,8 @@
 		5ADAB7ED16C76E8100DBC072 /* IA Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5AE16FB216E2CF2E00029E3E /* TVScanLines.jpg */,
+				5AE16FB016E2BF5800029E3E /* Jackson_Pollock.jpg */,
 				CEEA731116DD53A40092FA84 /* rightContentShadow.png */,
 				CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */,
 				CEEA730C16DD30C80092FA84 /* list.png */,
@@ -630,6 +636,8 @@
 				CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */,
 				CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */,
 				5A25C28416DF324800CC0449 /* ArchiveBookPageTextViewController.xib in Resources */,
+				5AE16FB116E2BF5800029E3E /* Jackson_Pollock.jpg in Resources */,
+				5AE16FB316E2CF2E00029E3E /* TVScanLines.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

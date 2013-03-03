@@ -31,7 +31,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *instructions;
 
 @property (nonatomic, weak) IBOutlet AsyncImageView *backgroundImage;
-
+@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 
 - (IBAction)doPlayPause:(id)sender;
 - (IBAction)doNext:(id)sender;

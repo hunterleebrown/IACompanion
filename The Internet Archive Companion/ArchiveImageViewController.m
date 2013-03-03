@@ -42,6 +42,15 @@
 
 
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    //[self.navigationController setNavigationBarHidden:YES];   //it hides
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    //[self.navigationController setNavigationBarHidden:NO];    // it shows
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,10 +58,11 @@
     
 }
 
+
+
 - (void) setUrl:(NSString *)url{
     _url = url;
     [self.view setAndLoadImageFromUrl:_url];
-    [self setTitle:_url];
 
 }
 

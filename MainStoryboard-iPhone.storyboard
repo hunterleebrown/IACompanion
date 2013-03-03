@@ -557,6 +557,7 @@
                     <connections>
                         <outlet property="description" destination="tK2-pY-0qG" id="BQr-lQ-HBR"/>
                         <outlet property="metadataTableView" destination="dxz-MC-PWx" id="Ckv-VR-7Qe"/>
+                        <outlet property="toolbar" destination="kZo-YN-woM" id="k5b-iZ-eMJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wv9-2a-Ik0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -870,6 +871,7 @@
                         <outlet property="playPause" destination="JxG-PS-i9t" id="fpR-bL-9TX"/>
                         <outlet property="playerHolder" destination="Pho-bt-LEi" id="SdN-pq-tyy"/>
                         <outlet property="playerTableView" destination="rWJ-1G-pHd" id="7ex-HQ-iZT"/>
+                        <outlet property="toolbar" destination="uWT-qf-ZgD" id="lCH-u3-gtB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCH-OB-Hm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -955,6 +957,7 @@
                 <relationship kind="action" name="close:"/>
                 <relationship kind="outlet" name="description" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="metadataTableView" candidateClass="ArchiveMetadataTableView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="ArchivePlayerTableViewCell" superclassName="UITableViewCell">
@@ -989,6 +992,7 @@
                 <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="previous" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="ArchiveShareViewController" superclassName="UIViewController">

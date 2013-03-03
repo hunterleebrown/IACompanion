@@ -10,6 +10,9 @@
 
 @implementation HomeContentParentView
 
+
+
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -27,6 +30,17 @@
     // Drawing code
 }
 */
+
+
+- (id) initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if(self){
+
+    
+    }
+    return self;
+
+}
 
 
 
