@@ -203,7 +203,8 @@
 }
 
 - (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    return sharePopover ? NO : YES;
+    
+    return sharePopover == nil ? YES : NO;
 }
 
 
