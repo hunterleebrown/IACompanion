@@ -40,6 +40,13 @@
     _description.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _description.layer.borderWidth = 5.0f;
     
+
+
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+
+
 }
 
 - (void) setWebContent:(NSString *)webContent{

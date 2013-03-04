@@ -77,7 +77,7 @@ static NSCache *cache = nil;
     if(cD != nil){
         NSData *cachedData = (NSData *)cD;
         [self displayView:cachedData];
-        NSLog(@"CACHE HIT...");
+      //  NSLog(@"CACHE HIT...");
     } else {
         NSLog(@"NO CACHE HIT...");
         
@@ -123,11 +123,25 @@ static NSCache *cache = nil;
 - (void)displayView:(NSData *)inData {
     NSRange range = NSMakeRange(startByte, readLength);
     
-    NSString *textValue = [[NSString alloc] initWithData:[inData subdataWithRange:range] encoding:NSUTF8StringEncoding];
+    int dataLength = inData.length;
+    if(startByte > dataLength) {
+        [self setText:@"[--- RAN OUT OF FILE ---]"];
+        [spinner stopAnimating];
+        return;
+    }
+    if(dataLength < (startByte + readLength)){
+        int difference = dataLength - startByte;
+        if(difference < 0){
+            [self setText:@"[--- RAN OUT OF FILE ---]"];
+            return;
+        }
+        range = NSMakeRange(startByte, difference);
+    }
     
+    
+    NSString *textValue = [[NSString alloc] initWithData:[inData subdataWithRange:range] encoding:NSUTF8StringEncoding];
     [self setText:textValue];
     [spinner stopAnimating];
-    //  NSLog(@"---------> loaded ImageUrl: %@", imageUrl);
     
     
 }

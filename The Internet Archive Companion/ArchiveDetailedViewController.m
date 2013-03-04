@@ -19,6 +19,7 @@
 #import "ArchiveCollectionListViewController.h"
 #import "ArchivePhoneExtraDetailsViewController.h"
 
+
 @interface ArchiveDetailedViewController (){
     ArchiveFile *bookFile;
     ArchivePageViewController *bookViewController;
@@ -202,7 +203,8 @@
 }
 
 - (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    return sharePopover ? NO : YES;
+    
+    return sharePopover == nil ? YES : NO;
 }
 
 
@@ -211,7 +213,6 @@
 
 - (ArchiveBookPageImageViewController *) pageControllerForIndex:(int)index{
     
-    NSLog(@"-----> pages.count: %i   index:%i", pages.count, index);
     
     ArchiveBookPageImageViewController *p0;
     ArchiveBookPageImageViewController *p1;
@@ -226,58 +227,44 @@
     
     if([pages objectAtIndex:0]){
         p0 = [pages objectAtIndex:0];
-        NSLog(@"p0.index: %i", p0.index);
     }
     if([pages objectAtIndex:1]){
         p1 = [pages objectAtIndex:1];
-        NSLog(@"p1.index: %i", p1.index);
 
     }
     if([pages objectAtIndex:2]){
         p2 = [pages objectAtIndex:2];
-        NSLog(@"p2.index: %i", p2.index);
-
     }
     if([pages objectAtIndex:3]){
         p3 = [pages objectAtIndex:3];
-        NSLog(@"p3.index: %i", p3.index);
-        
-    }
+            }
     if([pages objectAtIndex:4]){
         p4 = [pages objectAtIndex:4];
-        NSLog(@"p4.index: %i", p4.index);
-        
     }
-      
+    
     
     
     if(p0.index == index){
-        NSLog(@"--> 0 HIT");
         [self setPagesWithIndex:index];
         return p0;
     }
     else if(p1.index == index){
-        NSLog(@"--> 1 HIT");
         [self setPagesWithIndex:index];
         return p1;
     }
     else if(p2.index == index){
-        NSLog(@"--> 2 HIT");
         [self setPagesWithIndex:index];
         return p2;
     }
     else if(p3.index == index){
-        NSLog(@"--> 3 HIT");
         [self setPagesWithIndex:index];
         return p3;
     }
     else if(p4.index == index){
-        NSLog(@"--> 4 HIT");
         [self setPagesWithIndex:index];
         return p4;
     }
     else {
-        NSLog(@"--> go fish");
         [self setPagesWithIndex:index];
         return [pages objectAtIndex:2];
     }
@@ -338,7 +325,7 @@
 
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(ArchiveBookPageImageViewController *)viewController{
     
-    NSLog(@"---> currentIndex: %i", viewController.index);
+   // NSLog(@"---> currentIndex: %i", viewController.index);
 
 
     return [self pageControllerForIndex:viewController.index + 1];
@@ -347,7 +334,7 @@
 
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(ArchiveBookPageImageViewController *)viewController{
     
-    NSLog(@"---> currentIndex: %i", viewController.index);
+    //NSLog(@"---> currentIndex: %i", viewController.index);
     
     
     if(viewController.index == 0){
@@ -387,21 +374,23 @@
         
         
         NSArray *viewControllers = nil;
-        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:2];
-        
-        NSLog(@"-------> controller index: %i", ((ArchiveBookPageImageViewController*)[pages objectAtIndex:1]).index);
+        ArchiveBookPageViewController *currentViewController = (ArchiveBookPageViewController*)[pages objectAtIndex:2];
         
         
         NSUInteger currentIndex = currentViewController.index;
         if(currentIndex == 0 || currentIndex %2 == 0)
         {
-            UIViewController *nextViewController = [self pageViewController:bookViewController viewControllerAfterViewController:currentViewController];
+            ArchiveBookPageViewController *nextViewController = (ArchiveBookPageViewController *)[self pageViewController:bookViewController viewControllerAfterViewController:currentViewController];
+            
             
             viewControllers = [NSArray arrayWithObjects:currentViewController, nextViewController, nil];
         }
         else
         {
-            UIViewController *previousViewController = [self pageViewController:bookViewController viewControllerBeforeViewController:currentViewController];
+            
+            ArchiveBookPageViewController *previousViewController = (ArchiveBookPageViewController *)[self pageViewController:bookViewController viewControllerBeforeViewController:currentViewController];
+            
+            
             
             viewControllers = [NSArray arrayWithObjects:previousViewController, currentViewController, nil];
         }
@@ -411,7 +400,8 @@
     } else {
         
         
-        ArchiveBookPageImageViewController *currentViewController = (ArchiveBookPageImageViewController*)[pages objectAtIndex:2];
+        ArchiveBookPageViewController *currentViewController = (ArchiveBookPageViewController*)[pages objectAtIndex:2];
+        
         NSArray *viewControllers = [NSArray arrayWithObject:currentViewController];
         [bookViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
         
@@ -423,10 +413,14 @@
 }
 
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+
     
     for (id subview in _description.subviews) {
         if ([subview isKindOfClass:[UIImageView class]]) {
@@ -439,16 +433,29 @@
     
    // [service doRangeRequestFromRange:0 toRange:5000 fromUrl:@"http://archive.org/download/newtonspmathema00newtrich/newtonspmathema00newtrich_djvu.txt"];
     
+ 
+    
+
+    
     
 }
 
+-(IBAction)dismiss{
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 
+- (void) viewWillAppear:(BOOL)animated{
+   // [self.navigationController setNavigationBarHidden:YES animated:NO];
+
+}
 
 - (void) viewWillDisappear:(BOOL)animated{
     if(!player.fullscreen){
         [player stop];
     }
+    //[self.navigationController setNavigationBarHidden:YES animated:YES];
 
 }
 

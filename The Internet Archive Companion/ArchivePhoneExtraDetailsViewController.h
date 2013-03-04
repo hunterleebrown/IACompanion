@@ -16,6 +16,8 @@
 @property (nonatomic, retain) NSString *webContent;
 @property (nonatomic, retain) NSDictionary *metadata;
 
+@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
+
 
 - (IBAction)close:(id)sender;
 - (void) loadWebView:(NSString *)description;

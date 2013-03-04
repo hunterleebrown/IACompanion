@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "ArchiveFile.h"
 #import "AsyncTextView.h"
+#import "ArchiveBookPageViewController.h"
 
-@interface ArchiveBookPageTextViewController : UIViewController
+@interface ArchiveBookPageTextViewController : ArchiveBookPageViewController
 
 
 - (void) getPageWithFile:(ArchiveFile *)file withIndex:(int)index fontSize:(int)size;
 
 @property (nonatomic, weak) IBOutlet AsyncTextView *bodyTextView;
 @property (nonatomic, weak) IBOutlet UILabel *pageNumber;
-@property (nonatomic) int index;
+//@property (nonatomic) int index;
 @property (nonatomic) int fontSize;
 @property (nonatomic, retain) ArchiveFile *file;
 

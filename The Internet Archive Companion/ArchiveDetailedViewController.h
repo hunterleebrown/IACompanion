@@ -53,7 +53,7 @@
 
 
 
-
+- (IBAction)dismiss;
 - (IBAction)openWebPage:(id)sender;
 - (IBAction)addFilesToPlayer:(id)sender;
 

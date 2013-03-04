@@ -27,6 +27,9 @@
 		5A31D4FB16C7B2A200710DE0 /* leftContentShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4F916C7B2A200710DE0 /* leftContentShadow@2x.png */; };
 		5A31D4FE16C7B56E00710DE0 /* vertShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4FC16C7B56E00710DE0 /* vertShadow.png */; };
 		5A31D4FF16C7B56E00710DE0 /* vertShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4FD16C7B56E00710DE0 /* vertShadow@2x.png */; };
+		5A51FA4A16E3C464004E5C44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A51FA4916E3C464004E5C44 /* MessageUI.framework */; };
+		5A51FA4D16E3C6C5004E5C44 /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A51FA4B16E3C6C5004E5C44 /* email-icon.png */; };
+		5A51FA4E16E3C6C5004E5C44 /* email-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A51FA4C16E3C6C5004E5C44 /* email-icon@2x.png */; };
 		5A528DC316C7A14D0066EEEF /* HomeContentParentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */; };
 		5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */; };
 		5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */; };
@@ -49,6 +52,7 @@
 		5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */; };
 		5AA2EDB916D2C140003EAD82 /* ArchiveCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2EDB816D2C140003EAD82 /* ArchiveCollectionListViewController.m */; };
 		5AB7AB5916CA3A230014D40C /* ArchiveBookPageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB7AB5816CA3A230014D40C /* ArchiveBookPageImageViewController.xib */; };
+		5ACA3B3816E1D85000AAD6C6 /* ArchiveBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACA3B3716E1D85000AAD6C6 /* ArchiveBookPageViewController.m */; };
 		5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */; };
 		5AD5975316CA1AE300AD663B /* ArchivePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5975216CA1AE300AD663B /* ArchivePageViewController.m */; };
 		5ADAB7D316C6C1B400DBC072 /* HomeCombinedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */; };
@@ -59,6 +63,8 @@
 		5ADAB7F116C76F5400DBC072 /* audio.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7EE16C76F5400DBC072 /* audio.gif */; };
 		5ADAB7F216C76F5400DBC072 /* movies.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7EF16C76F5400DBC072 /* movies.gif */; };
 		5ADAB7F316C76F5400DBC072 /* texts.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAB7F016C76F5400DBC072 /* texts.gif */; };
+		5AE16FB116E2BF5800029E3E /* Jackson_Pollock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AE16FB016E2BF5800029E3E /* Jackson_Pollock.jpg */; };
+		5AE16FB316E2CF2E00029E3E /* TVScanLines.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AE16FB216E2CF2E00029E3E /* TVScanLines.jpg */; };
 		5AE33BEA16CC955900129C62 /* ArchiveMetadataTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE33BE916CC955900129C62 /* ArchiveMetadataTableView.m */; };
 		5AE33BED16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE33BEC16CC96AE00129C62 /* ArchiveMetadataTableViewCell.m */; };
 		5AF2310616D7551800262B09 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310516D7551800262B09 /* Icon-57.png */; };
@@ -131,6 +137,9 @@
 		5A31D4F916C7B2A200710DE0 /* leftContentShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leftContentShadow@2x.png"; sourceTree = "<group>"; };
 		5A31D4FC16C7B56E00710DE0 /* vertShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertShadow.png; sourceTree = "<group>"; };
 		5A31D4FD16C7B56E00710DE0 /* vertShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertShadow@2x.png"; sourceTree = "<group>"; };
+		5A51FA4916E3C464004E5C44 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5A51FA4B16E3C6C5004E5C44 /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
+		5A51FA4C16E3C6C5004E5C44 /* email-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon@2x.png"; sourceTree = "<group>"; };
 		5A528DBC16C782100066EEEF /* HomeNavSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavSectionView.h; sourceTree = "<group>"; };
 		5A528DC116C7A14C0066EEEF /* HomeContentParentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeContentParentView.h; sourceTree = "<group>"; };
 		5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeContentParentView.m; sourceTree = "<group>"; };
@@ -165,6 +174,8 @@
 		5AA2EDB716D2C140003EAD82 /* ArchiveCollectionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionListViewController.h; sourceTree = "<group>"; };
 		5AA2EDB816D2C140003EAD82 /* ArchiveCollectionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionListViewController.m; sourceTree = "<group>"; };
 		5AB7AB5816CA3A230014D40C /* ArchiveBookPageImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArchiveBookPageImageViewController.xib; sourceTree = "<group>"; };
+		5ACA3B3616E1D85000AAD6C6 /* ArchiveBookPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageViewController.h; sourceTree = "<group>"; };
+		5ACA3B3716E1D85000AAD6C6 /* ArchiveBookPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageViewController.m; sourceTree = "<group>"; };
 		5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDataService.h; sourceTree = "<group>"; };
 		5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDataService.m; sourceTree = "<group>"; };
 		5AD5975116CA1AE300AD663B /* ArchivePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePageViewController.h; sourceTree = "<group>"; };
@@ -182,6 +193,8 @@
 		5ADAB7EE16C76F5400DBC072 /* audio.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = audio.gif; sourceTree = "<group>"; };
 		5ADAB7EF16C76F5400DBC072 /* movies.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = movies.gif; sourceTree = "<group>"; };
 		5ADAB7F016C76F5400DBC072 /* texts.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = texts.gif; sourceTree = "<group>"; };
+		5AE16FB016E2BF5800029E3E /* Jackson_Pollock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jackson_Pollock.jpg; sourceTree = "<group>"; };
+		5AE16FB216E2CF2E00029E3E /* TVScanLines.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TVScanLines.jpg; sourceTree = "<group>"; };
 		5AE33BE816CC955900129C62 /* ArchiveMetadataTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveMetadataTableView.h; sourceTree = "<group>"; };
 		5AE33BE916CC955900129C62 /* ArchiveMetadataTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveMetadataTableView.m; sourceTree = "<group>"; };
 		5AE33BEB16CC96AE00129C62 /* ArchiveMetadataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveMetadataTableViewCell.h; sourceTree = "<group>"; };
@@ -235,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A51FA4A16E3C464004E5C44 /* MessageUI.framework in Frameworks */,
 				5A8CA7FC16D051EF00F97BF7 /* Social.framework in Frameworks */,
 				CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */,
 				CEBA014316CEF6B30038625F /* AVFoundation.framework in Frameworks */,
@@ -262,6 +276,7 @@
 		5A0A10A016A640A300CC70CD = {
 			isa = PBXGroup;
 			children = (
+				5A51FA4916E3C464004E5C44 /* MessageUI.framework */,
 				5A0A10B516A640A300CC70CD /* The Internet Archive Companion */,
 				5A0A10D916A640A300CC70CD /* The Internet Archive CompanionTests */,
 				5A0A10AE16A640A300CC70CD /* Frameworks */,
@@ -391,6 +406,10 @@
 		5ADAB7ED16C76E8100DBC072 /* IA Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A51FA4B16E3C6C5004E5C44 /* email-icon.png */,
+				5A51FA4C16E3C6C5004E5C44 /* email-icon@2x.png */,
+				5AE16FB216E2CF2E00029E3E /* TVScanLines.jpg */,
+				5AE16FB016E2BF5800029E3E /* Jackson_Pollock.jpg */,
 				CEEA731116DD53A40092FA84 /* rightContentShadow.png */,
 				CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */,
 				CEEA730C16DD30C80092FA84 /* list.png */,
@@ -474,6 +493,8 @@
 		CE0411A416E1553300F4F2E5 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				5ACA3B3616E1D85000AAD6C6 /* ArchiveBookPageViewController.h */,
+				5ACA3B3716E1D85000AAD6C6 /* ArchiveBookPageViewController.m */,
 				CE1B959116C9D722002E9D8D /* ArchiveBookPageImageViewController.h */,
 				CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */,
 				5AB7AB5816CA3A230014D40C /* ArchiveBookPageImageViewController.xib */,
@@ -625,6 +646,10 @@
 				CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */,
 				CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */,
 				5A25C28416DF324800CC0449 /* ArchiveBookPageTextViewController.xib in Resources */,
+				5AE16FB116E2BF5800029E3E /* Jackson_Pollock.jpg in Resources */,
+				5AE16FB316E2CF2E00029E3E /* TVScanLines.jpg in Resources */,
+				5A51FA4D16E3C6C5004E5C44 /* email-icon.png in Resources */,
+				5A51FA4E16E3C6C5004E5C44 /* email-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +718,7 @@
 				5A25C28116DF31C000CC0449 /* ArchiveBookPageTextViewController.m in Sources */,
 				CEEF43C816DFD11E00DC1C74 /* AsyncTextView.m in Sources */,
 				CE0411A716E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m in Sources */,
+				5ACA3B3816E1D85000AAD6C6 /* ArchiveBookPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

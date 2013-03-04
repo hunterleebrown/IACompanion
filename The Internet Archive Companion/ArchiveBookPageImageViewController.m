@@ -59,15 +59,15 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
     _server = server;
     _zipFile = zipFile;
     _identifier = identifier;
-    _index = index;
+    self.index = index;
     _name = name;
 
     NSString *page = [name substringWithRange:NSMakeRange(0, (name.length - 8))];
-    _url = [NSString stringWithFormat:@"http://%@%@zip=%@&file=%@_jp2/%@_%@.jp2&scale=2", _server, BookReaderImagesPHP, _zipFile, page, page, [NSString stringWithFormat:@"%04d", _index]];
+    _url = [NSString stringWithFormat:@"http://%@%@zip=%@&file=%@_jp2/%@_%@.jp2&scale=2", _server, BookReaderImagesPHP, _zipFile, page, page, [NSString stringWithFormat:@"%04d", self.index]];
   //  NSLog(@"------> page: %@", page);
    // NSLog(@"------> url: %@", _url);
     [_aSyncImageView setAndLoadImageFromUrl:_url];
-    [_pageNumber setText:[NSString stringWithFormat:@"%i", _index ]];
+    [_pageNumber setText:[NSString stringWithFormat:@"%i", self.index ]];
 }
 
 

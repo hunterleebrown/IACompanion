@@ -46,7 +46,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSLog(@"-----> useUrl: %@  start:%i  end:%i", useUrl, start, end);    
+    //NSLog(@"-----> useUrl: %@  start:%i  end:%i", useUrl, start, end);
     [self adjustForOrientationAndDevice];
 
 }
@@ -75,7 +75,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     } else {
         [_bodyTextView setAndLoadViewFromUrl:useUrl withStartByte:start withLength:ReadPageBytesLength];
     }
-    [_pageNumber setText:[NSString stringWithFormat:@"%i", _index + 1]];
+    [_pageNumber setText:[NSString stringWithFormat:@"%i", self.index + 1]];
     
     
     int paddingDenom = 10;
@@ -113,7 +113,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     }
     
     
-    [self getPageWithFile:_file withIndex:_index fontSize:_fontSize];
+    [self getPageWithFile:_file withIndex:self.index fontSize:_fontSize];
     [self loadPage];
 }
 
@@ -133,7 +133,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 
 
 - (void) getPageWithFile:(ArchiveFile *)file withIndex:(int)index fontSize:(int)size{
-    _index = index;
+    self.index = index;
     start = 0;
     _file = file;
     _fontSize = size;
@@ -148,7 +148,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     
     
     if(index > 0){
-        start = ReadPageBytesLength * _index;
+        start = ReadPageBytesLength * self.index;
     }
 
    // NSLog(@"->ReadPageBytesLength: %i", ReadPageBytesLength);
