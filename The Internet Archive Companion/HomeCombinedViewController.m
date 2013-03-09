@@ -91,7 +91,7 @@
 }
 
 
-- (IBAction) toggleContent{
+- (IBAction) toggleContent:(id)sender {
     if(_homeContentView.frame.origin.x == 256){
         [self moveContentViewOver];
     } else {
@@ -99,6 +99,8 @@
     }
 
 }
+
+
 
 
 - (IBAction) moveContentViewOver{
@@ -211,6 +213,8 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [_homeNavView setHidden:NO];
         [_moreInfoView setHidden:NO];
+    } else {
+        [_homeContentView.aSearchBar setBackgroundImage:[UIImage imageNamed:@"bar.png"]];
     }
     
 }

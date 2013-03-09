@@ -30,6 +30,6 @@
 - (IBAction) moveContentViewOver;
 - (IBAction) moveContentViewBack;
 
-
+- (IBAction)toggleContent:(id)sender;
 
 @end
