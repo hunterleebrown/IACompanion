@@ -63,6 +63,7 @@
 									<int key="NSfFlags">16</int>
 								</object>
 								<object class="NSMutableParagraphStyle" key="NSParagraphStyle">
+									<int key="NSAlignment">3</int>
 									<nil key="NSTabStops"/>
 								</object>
 							</dictionary>
