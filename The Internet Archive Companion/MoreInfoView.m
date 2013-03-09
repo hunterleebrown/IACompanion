@@ -35,6 +35,7 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     if(navigationType == UIWebViewNavigationTypeLinkClicked){
         
+        /*
         UIViewController *pop = [UIViewController new];
         UIWebView *popWeb = [UIWebView new];
         [popWeb setScalesPageToFit:YES];
@@ -42,6 +43,11 @@
         pop.view = popWeb;
         [pop setModalTransitionStyle:UIModalTransitionStylePartialCurl];
         [_parentController presentViewController:pop animated:YES completion:nil];
+        
+        */
+        
+        [[UIApplication sharedApplication] openURL:request.URL];
+
         
         
         return NO;
