@@ -10,3 +10,6 @@ design and code, Hunter Lee Brown 2013
 
 
  * for iPhone/iPod Touch/iPad iOS 6 and above
+
+Store Link:
+https://itunes.apple.com/us/app/internet-archive-companion/id617179709
