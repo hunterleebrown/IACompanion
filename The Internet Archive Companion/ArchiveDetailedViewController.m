@@ -519,7 +519,7 @@
         
     [self.metadataTableView setMetadata:[_doc.rawDoc objectForKey:@"metadata"]];
     
-    if([[metadata objectForKey:@"mediatype"] isEqualToString:@"collection"]){
+    if([[StringUtils stringFromObject:[metadata objectForKey:@"mediatype"]] isEqualToString:@"collection"]){
         [_viewCollectionButton setEnabled:YES];
     }
     
