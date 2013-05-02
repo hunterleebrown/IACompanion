@@ -14,4 +14,7 @@
 @property (nonatomic, weak) IBOutlet HomeContentParentView *contentParentView;
 @property (nonatomic, strong) NSString *identifier;
 
+- (IBAction)popBack:(id)sender;
+
+
 @end

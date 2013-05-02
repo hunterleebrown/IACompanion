@@ -31,6 +31,8 @@
 		5A51FA4D16E3C6C5004E5C44 /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A51FA4B16E3C6C5004E5C44 /* email-icon.png */; };
 		5A51FA4E16E3C6C5004E5C44 /* email-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A51FA4C16E3C6C5004E5C44 /* email-icon@2x.png */; };
 		5A528DC316C7A14D0066EEEF /* HomeContentParentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */; };
+		5A75EAE81731B83C007CEEA4 /* archivebw.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5A75EAE61731B83C007CEEA4 /* archivebw.jpeg */; };
+		5A75EAE91731B83C007CEEA4 /* petabox.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A75EAE71731B83C007CEEA4 /* petabox.jpg */; };
 		5A8A191D16B4FAD900F6A2E4 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */; };
 		5A8A193E16B5B15C00F6A2E4 /* ArchiveCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A193D16B5B15C00F6A2E4 /* ArchiveCollectionView.m */; };
 		5A8A195916B5C2F500F6A2E4 /* ArchiveCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195816B5C2F500F6A2E4 /* ArchiveCollectionCell.m */; };
@@ -144,6 +146,8 @@
 		5A528DBC16C782100066EEEF /* HomeNavSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavSectionView.h; sourceTree = "<group>"; };
 		5A528DC116C7A14C0066EEEF /* HomeContentParentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeContentParentView.h; sourceTree = "<group>"; };
 		5A528DC216C7A14D0066EEEF /* HomeContentParentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeContentParentView.m; sourceTree = "<group>"; };
+		5A75EAE61731B83C007CEEA4 /* archivebw.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = archivebw.jpeg; sourceTree = "<group>"; };
+		5A75EAE71731B83C007CEEA4 /* petabox.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = petabox.jpg; sourceTree = "<group>"; };
 		5A8A191B16B4FAD900F6A2E4 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		5A8A191C16B4FAD900F6A2E4 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		5A8A193C16B5B15C00F6A2E4 /* ArchiveCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionView.h; sourceTree = "<group>"; };
@@ -408,6 +412,8 @@
 		5ADAB7ED16C76E8100DBC072 /* IA Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A75EAE61731B83C007CEEA4 /* archivebw.jpeg */,
+				5A75EAE71731B83C007CEEA4 /* petabox.jpg */,
 				CE1F81EF16EAB11E009739F2 /* bar.png */,
 				5A51FA4B16E3C6C5004E5C44 /* email-icon.png */,
 				5A51FA4C16E3C6C5004E5C44 /* email-icon@2x.png */,
@@ -654,6 +660,8 @@
 				5A51FA4D16E3C6C5004E5C44 /* email-icon.png in Resources */,
 				5A51FA4E16E3C6C5004E5C44 /* email-icon@2x.png in Resources */,
 				CE1F81F016EAB11E009739F2 /* bar.png in Resources */,
+				5A75EAE81731B83C007CEEA4 /* archivebw.jpeg in Resources */,
+				5A75EAE91731B83C007CEEA4 /* petabox.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

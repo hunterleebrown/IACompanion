@@ -69,4 +69,10 @@
     
 }
 
+
+- (IBAction)popBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 @end

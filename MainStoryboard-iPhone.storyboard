@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yQt-Br-ODy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yQt-Br-ODy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -232,11 +232,49 @@
                                         </items>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </toolbar>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default.png" id="ofd-nQ-sZd">
+                                    <view contentMode="scaleToFill" id="T8F-5K-Wo5">
                                         <rect key="frame" x="0.0" y="44" width="320" height="308"/>
-                                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="sq5-Z8-CVK">
+                                                <rect key="frame" x="0.0" y="44" width="320" height="264"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="GBh-gy-iFv" id="XLE-6K-mWG"/>
+                                                </connections>
+                                            </webView>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="hGy-GL-IPk">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <items>
+                                                    <barButtonItem title="&lt;" id="Nv8-tb-AtC">
+                                                        <connections>
+                                                            <action selector="goBack" destination="sq5-Z8-CVK" id="EoV-Kj-0dX"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BQ3-3P-kwi"/>
+                                                    <barButtonItem systemItem="stop" id="ebr-Bf-4jm">
+                                                        <connections>
+                                                            <action selector="stopLoading" destination="sq5-Z8-CVK" id="Ybo-DX-mft"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem systemItem="refresh" id="kfh-HV-1EC">
+                                                        <connections>
+                                                            <action selector="reload" destination="sq5-Z8-CVK" id="5Kq-Ge-2rJ"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PWy-QQ-pMM"/>
+                                                    <barButtonItem title=">" id="x92-Mh-Itl">
+                                                        <connections>
+                                                            <action selector="goForward" destination="sq5-Z8-CVK" id="tIy-Dh-2Af"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                            </toolbar>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    </view>
                                     <view contentMode="scaleToFill" id="j90-XI-vK1">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
@@ -287,7 +325,7 @@
                                                 </connections>
                                             </button>
                                             <searchBar contentMode="redraw" id="9pd-t8-2Vc">
-                                                <rect key="frame" x="60" y="0.0" width="260" height="44"/>
+                                                <rect key="frame" x="54" y="0.0" width="213" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -295,6 +333,21 @@
                                                     <outlet property="delegate" destination="GBh-gy-iFv" id="yV1-9R-w3t"/>
                                                 </connections>
                                             </searchBar>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1CD-ur-DsV">
+                                                <rect key="frame" x="267" y="0.0" width="47" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" image="barIcon.png">
+                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="toggleSplashView:" destination="GBh-gy-iFv" eventType="touchUpInside" id="OQc-o0-oF7"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -307,7 +360,8 @@
                                     <outlet property="detailsButton" destination="eTV-hM-Rvh" id="Ovb-CJ-5mo"/>
                                     <outlet property="homeContentDescriptionView" destination="Xld-dq-LE1" id="0hg-Hf-i6V"/>
                                     <outlet property="homeContentTableView" destination="YMS-aa-dpV" id="HD5-aP-j5C"/>
-                                    <outlet property="iASplashImageView" destination="ofd-nQ-sZd" id="jvA-uZ-UwR"/>
+                                    <outlet property="iABlogWebView" destination="sq5-Z8-CVK" id="yw6-ak-KXe"/>
+                                    <outlet property="iAHomeSplashView" destination="T8F-5K-Wo5" id="LVu-TS-ueA"/>
                                     <outlet property="searchButtonHolder" destination="j90-XI-vK1" id="ki9-04-cwa"/>
                                     <outlet property="searchButtons" destination="D5J-lf-KIG" id="MsM-hg-jUt"/>
                                     <outletCollection property="gestureRecognizers" destination="gBr-By-Xjt" appends="YES" id="3fY-t4-xGx"/>
@@ -913,9 +967,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default.png" width="320" height="480"/>
         <image name="W-share-FB.png" width="35" height="28"/>
         <image name="W-share-twitter.png" width="35" height="28"/>
+        <image name="barIcon.png" width="20" height="20"/>
         <image name="email-icon.png" width="24" height="24"/>
         <image name="leftContentShadow.png" width="21" height="461"/>
         <image name="list.png" width="17" height="19"/>
@@ -1069,12 +1123,16 @@
         <class className="HomeContentParentView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentParentView.h"/>
             <relationships>
+                <relationship kind="action" name="showSplashView"/>
                 <relationship kind="action" name="toggleDetails:"/>
+                <relationship kind="action" name="toggleSplashView:"/>
                 <relationship kind="outlet" name="aSearchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="descriptionShadow" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="detailsButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="homeContentDescriptionView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
+                <relationship kind="outlet" name="iABlogWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="iAHomeSplashView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="iASplashImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="searchButtonHolder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="searchButtons" candidateClass="UISegmentedControl"/>

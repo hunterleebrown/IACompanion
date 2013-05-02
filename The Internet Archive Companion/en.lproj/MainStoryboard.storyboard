@@ -134,7 +134,7 @@
                                     <outlet property="licenseWeb" destination="I4Q-Xf-Ghd" id="aeL-xc-8F3"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" id="dGe-kY-kb9" customClass="HomeContentParentView">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" id="dGe-kY-kb9" customClass="HomeContentParentView">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="696"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
@@ -142,26 +142,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <items>
-                                            <barButtonItem style="plain" id="zGm-mX-Sp9">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4WN-Uz-r1r">
-                                                    <rect key="frame" x="12" y="6" width="32" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" image="list.png">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="toggleContent:" destination="eeV-js-ROD" eventType="touchUpInside" id="13H-qS-fnU"/>
-                                                    </connections>
-                                                </button>
+                                            <barButtonItem image="list.png" id="c2y-d3-ITd">
+                                                <connections>
+                                                    <action selector="toggleContent:" destination="eeV-js-ROD" id="SH1-s5-fbg"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="barIcon.png" id="zCE-EV-Ahu">
+                                                <connections>
+                                                    <action selector="toggleSplashView:" destination="dGe-kY-kb9" id="Qa7-N1-3IL"/>
+                                                </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="Iay-NW-kBr">
                                                 <segmentedControl key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="H3p-Xl-n2H">
-                                                    <rect key="frame" x="54" y="7" width="378" height="30"/>
+                                                    <rect key="frame" x="104" y="7" width="344" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <segments>
                                                         <segment title="All"/>
@@ -169,20 +162,37 @@
                                                         <segment title="Video"/>
                                                         <segment title="Texts"/>
                                                         <segment title="Images"/>
-                                                        <segment title="Collection"/>
+                                                        <segment title="Coll."/>
                                                     </segments>
                                                 </segmentedControl>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="nQ0-Yy-9Ms"/>
                                             <barButtonItem style="plain" id="BPK-K8-wcN">
                                                 <searchBar key="customView" contentMode="redraw" id="k6U-p3-Aeb">
-                                                    <rect key="frame" x="500" y="0.0" width="256" height="44"/>
+                                                    <rect key="frame" x="472" y="0.0" width="256" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="dGe-kY-kb9" id="p7L-Hv-bo1"/>
                                                     </connections>
                                                 </searchBar>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="8Rb-ps-aQU">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="0zO-gh-pOj">
+                                                    <rect key="frame" x="738" y="13" width="18" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="toggleInstructions:" destination="dGe-kY-kb9" eventType="touchUpInside" id="5iy-P1-oY3"/>
+                                                    </connections>
+                                                </button>
                                             </barButtonItem>
                                         </items>
                                     </toolbar>
@@ -284,11 +294,171 @@
                                         <rect key="frame" x="0.0" y="88" width="768" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default-Portrait~ipad.png" id="laf-xb-oXd">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" id="bb3-fE-etS">
                                         <rect key="frame" x="0.0" y="44" width="768" height="652"/>
                                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Internet Archive Companion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Ug-Kb-Fvg">
+                                                <rect key="frame" x="20" y="0.0" width="728" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="44"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </label>
+                                            <webView multipleTouchEnabled="YES" contentMode="scaleAspectFill" scalesPageToFit="YES" id="fAI-Zg-pi6">
+                                                <rect key="frame" x="20" y="99" width="728" height="533"/>
+                                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="dGe-kY-kb9" id="jJM-H4-PAS"/>
+                                                </connections>
+                                            </webView>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="uwa-HJ-gwt">
+                                                <rect key="frame" x="20" y="55" width="728" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <items>
+                                                    <barButtonItem enabled="NO" title="blog.archive.org" style="plain" id="xlF-ph-D0A"/>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cil-8i-8rO"/>
+                                                    <barButtonItem title="&lt;" id="Pkm-Fz-AXZ">
+                                                        <connections>
+                                                            <action selector="goBack" destination="fAI-Zg-pi6" id="ri0-9E-sW1"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem systemItem="stop" id="swR-uL-GWh">
+                                                        <connections>
+                                                            <action selector="stopLoading" destination="fAI-Zg-pi6" id="9xV-UP-2rF"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem systemItem="refresh" id="Wm6-Cc-BLf">
+                                                        <connections>
+                                                            <action selector="reload" destination="fAI-Zg-pi6" id="Pb4-gD-lR7"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title=">" id="8r8-lw-t3w">
+                                                        <connections>
+                                                            <action selector="goForward" destination="fAI-Zg-pi6" id="D6T-Tz-pN7"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zyy-RT-boi"/>
+                                                </items>
+                                            </toolbar>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    </view>
+                                    <view hidden="YES" alpha="0.0" contentMode="scaleToFill" id="Xl6-ni-Ah8">
+                                        <rect key="frame" x="0.0" y="44" width="768" height="652"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="toggle left nav" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NYd-92-egc">
+                                                <rect key="frame" x="348" y="154" width="101" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="list.png" id="p3N-SM-UeR">
+                                                <rect key="frame" x="320" y="155" width="17" height="19"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="barIcon.png" id="NAq-ZW-A9V">
+                                                <rect key="frame" x="320" y="181" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="toggle IA blog" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yq9-Cg-nEV">
+                                                <rect key="frame" x="348" y="180" width="101" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="swipe left &lt;--  shows about the app" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YdI-FI-8AJ">
+                                                <rect key="frame" x="486" y="267" width="262" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="swipe right -->  shows left nav" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OFo-Ih-2fa">
+                                                <rect key="frame" x="20" y="267" width="262" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ui hints" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qhR-Aa-zSF">
+                                                <rect key="frame" x="285" y="96" width="199" height="49"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="48"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="search filters: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QMa-qp-WEy">
+                                                <rect key="frame" x="234" y="0.0" width="126" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="all items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mzc-Ql-met">
+                                                <rect key="frame" x="110" y="20" width="59" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="12"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eUX-te-SQw">
+                                                <rect key="frame" x="173" y="20" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="12"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="movies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MST-os-bUY">
+                                                <rect key="frame" x="220" y="20" width="59" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="12"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="books" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E5D-vf-ILA">
+                                                <rect key="frame" x="275" y="20" width="59" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="12"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="stills" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XhK-Nl-NuF">
+                                                <rect key="frame" x="332" y="20" width="59" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="12"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="lists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ubf-j7-vKN">
+                                                <rect key="frame" x="385" y="20" width="59" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="12"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="search input" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vWM-QU-rus">
+                                                <rect key="frame" x="551" y="0.0" width="133" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Try swiping left and right on most views.  Often this dismisses the view you're on and brings you back to the previous view." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bNB-7H-cYs">
+                                                <rect key="frame" x="247" y="333" width="274" height="161"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <gestureRecognizers/>
@@ -297,7 +467,9 @@
                                     <outlet property="detailsButton" destination="QIw-Ng-LCk" id="bM4-2M-bLu"/>
                                     <outlet property="homeContentDescriptionView" destination="xP0-V9-KTd" id="tjh-6P-N9I"/>
                                     <outlet property="homeContentTableView" destination="3fL-ft-iBe" id="7BG-oq-xbu"/>
-                                    <outlet property="iASplashImageView" destination="laf-xb-oXd" id="F3s-KN-ImW"/>
+                                    <outlet property="iABlogWebView" destination="fAI-Zg-pi6" id="5tU-eH-zet"/>
+                                    <outlet property="iAHomeSplashView" destination="bb3-fE-etS" id="W0M-AZ-0d9"/>
+                                    <outlet property="instructionsView" destination="Xl6-ni-Ah8" id="PxJ-LA-CI9"/>
                                     <outlet property="searchButtons" destination="H3p-Xl-n2H" id="O8B-xY-ex4"/>
                                     <outlet property="toolBar" destination="Ntu-DW-bYb" id="UWD-AF-Tql"/>
                                     <outletCollection property="gestureRecognizers" destination="SE1-WN-Ym2" appends="YES" id="INO-CN-Tdl"/>
@@ -341,7 +513,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" id="5Hf-D6-IM6" customClass="ArchiveDetailedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eop-05-gV9">
-                        <rect key="frame" x="0.0" y="20" width="768" height="740"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GJ4-U2-TiI">
@@ -352,7 +524,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Np-SX-QeY">
-                                <rect key="frame" x="20" y="429" width="340" height="292"/>
+                                <rect key="frame" x="20" y="429" width="340" height="556"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="playableFileCell" selectionStyle="gray" indentationWidth="10" reuseIdentifier="playableFileCell" id="MDh-j2-Qbb" customClass="ArchiveFileTableViewCell">
@@ -400,7 +572,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView opaque="NO" contentMode="scaleToFill" id="WnN-ve-aSX">
-                                <rect key="frame" x="389" y="366" width="359" height="356"/>
+                                <rect key="frame" x="389" y="366" width="359" height="620"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -543,16 +715,23 @@
         <scene sceneID="Eab-kJ-OvR">
             <objects>
                 <viewController id="aZb-Mp-738" customClass="ArchiveImageViewController" sceneMemberID="viewController">
-                    <imageView key="view" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="25e-f1-pWv" customClass="AsyncImageView">
-                        <rect key="frame" x="0.0" y="20" width="768" height="740"/>
+                    <imageView key="view" contentMode="scaleAspectFit" id="cOG-iU-wID" customClass="AsyncImageView">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="mNA-yd-SM9" appends="YES" id="cez-Fg-gmi"/>
+                        </connections>
                     </imageView>
                     <navigationItem key="navigationItem" id="e3w-Un-67Q"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUd-Y9-2lt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="mNA-yd-SM9">
+                    <connections>
+                        <action selector="dismiss:" destination="aZb-Mp-738" id="37e-up-2pa"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1345" y="-310"/>
+            <point key="canvasLocation" x="1333" y="-58"/>
         </scene>
         <!--Archive Share View Controller-->
         <scene sceneID="KbG-if-aoH">
@@ -838,11 +1017,11 @@
             <objects>
                 <viewController id="LTP-89-WoS" customClass="ArchiveCollectionListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xm6-1M-gNa" customClass="HomeContentParentView">
-                        <rect key="frame" x="0.0" y="20" width="768" height="740"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="EQV-Xm-86M" customClass="HomeContentTableView">
-                                <rect key="frame" x="0.0" y="44" width="768" height="696"/>
+                                <rect key="frame" x="0.0" y="44" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -930,6 +1109,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <connections>
                             <outlet property="homeContentTableView" destination="EQV-Xm-86M" id="BRo-Le-vYU"/>
+                            <outletCollection property="gestureRecognizers" destination="eLO-1Q-ebw" appends="YES" id="diy-IV-pig"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Js8-69-nQR"/>
@@ -938,12 +1118,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prd-0C-Zry" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="eLO-1Q-ebw">
+                    <connections>
+                        <action selector="popBack:" destination="LTP-89-WoS" id="fWB-fD-968"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1333" y="-2384"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Default-Portrait~ipad.png" width="768" height="1004"/>
         <image name="W-share-FB.png" width="35" height="28"/>
         <image name="W-share-twitter.png" width="35" height="28"/>
         <image name="barIcon.png" width="20" height="20"/>
@@ -959,6 +1143,7 @@
         <class className="ArchiveCollectionListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionListViewController.h"/>
             <relationships>
+                <relationship kind="action" name="popBack:"/>
                 <relationship kind="outlet" name="contentParentView" candidateClass="HomeContentParentView"/>
             </relationships>
         </class>
@@ -1102,13 +1287,19 @@
         <class className="HomeContentParentView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentParentView.h"/>
             <relationships>
+                <relationship kind="action" name="showSplashView"/>
                 <relationship kind="action" name="toggleDetails:"/>
+                <relationship kind="action" name="toggleInstructions:"/>
+                <relationship kind="action" name="toggleSplashView:"/>
                 <relationship kind="outlet" name="aSearchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="descriptionShadow" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="detailsButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="homeContentDescriptionView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
+                <relationship kind="outlet" name="iABlogWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="iAHomeSplashView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="iASplashImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="instructionsView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="searchButtonHolder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="searchButtons" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="showListButton" candidateClass="UIBarButtonItem"/>
@@ -1159,6 +1350,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mbX-ep-fhz"/>
+        <segue reference="ofh-wf-f9k"/>
     </inferredMetricsTieBreakers>
 </document>

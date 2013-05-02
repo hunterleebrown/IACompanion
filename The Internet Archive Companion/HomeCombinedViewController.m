@@ -48,6 +48,10 @@
     [_homeNavTableView.textService getCollectionsWithIdentifier:@"texts"];
     
     
+    NSURL *blogUrl = [NSURL URLWithString:@"http://blog.archive.org/category/announcements/"];
+    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:blogUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+    [_homeContentView.iABlogWebView loadRequest:req];
+    
     [self doOrientationLayout:self.interfaceOrientation];
 
 
@@ -92,6 +96,13 @@
 
 
 - (IBAction) toggleContent:(id)sender {
+    
+    
+    [_homeContentView.aSearchBar resignFirstResponder];
+    if(_homeContentView.searchButtonHolder){
+        [_homeContentView hideSearchButtons];
+    }
+    
     if(_homeContentView.frame.origin.x == 256){
         [self moveContentViewOver];
     } else {

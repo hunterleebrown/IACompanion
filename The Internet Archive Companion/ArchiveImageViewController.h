@@ -19,4 +19,6 @@
 @property (strong, nonatomic) NSString *archvieTitle;
 
 
+- (IBAction)dismiss:(id)sender;
+
 @end

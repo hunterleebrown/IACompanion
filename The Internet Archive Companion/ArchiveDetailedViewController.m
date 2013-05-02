@@ -27,7 +27,7 @@
     NSMutableArray *pages;
     NSMutableDictionary *pageDictionary;
     ArchiveFile *sharedPhotoFile;
-    
+    UIStoryboardSegue *activePhotoSegue;
 }
 @end
 
@@ -107,7 +107,17 @@
         
         if(file.format == FileFormatJPEG || file.format == FileFormatGIF) {
             sharedPhotoFile = file;
-            [self performSegueWithIdentifier:@"imageSegue" sender:sharedPhotoFile];
+            if(sharedPhotoFile.size > 1000000){
+                
+                NSString *fileSize = [StringUtils decimalFormatNumberFromInteger:round(sharedPhotoFile.size/1000000)];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Large Image Warning" message:[NSString stringWithFormat:@"This image is very large > (%@ MB) and may cause your device to run out of memory and crash.", fileSize] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ignore Warning", nil];
+                [alert show];
+            } else {
+                [self performSegueWithIdentifier:@"imageSegue" sender:sharedPhotoFile];
+            }
+            
+            
         } else if(file.format == FileFormatProcessedJP2ZIP || file.format == FileFormatDjVuTXT || file.format == FileFormatTxt) {
             bookFile = file;
             [self performSegueWithIdentifier:@"bookViewer" sender:bookFile];
@@ -136,6 +146,13 @@
         }
     }
 
+}
+
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        [self performSegueWithIdentifier:@"imageSegue" sender:sharedPhotoFile];    
+    }
 }
 
 
@@ -177,8 +194,6 @@
         ArchiveImageViewController *ivc = [segue destinationViewController];
         [ivc setUrl:sharedPhotoFile.url];
         [ivc setArchvieTitle:[StringUtils stringFromObject:_doc.title]];
-    
-        
     }
     
     if([[segue identifier] isEqualToString:@"viewCollection"]){

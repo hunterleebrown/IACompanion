@@ -35,8 +35,9 @@
 - (id) initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if(self){
+        
 
-    
+        
     }
     return self;
 
@@ -113,16 +114,45 @@
 }
 
 - (void) hideSplashView{
-    if(!_iASplashImageView.hidden){
+    if(!_iAHomeSplashView.hidden){
         [UIView animateWithDuration:0.33 animations:^{
-            [_iASplashImageView setFrame:CGRectMake(_iASplashImageView.frame.origin.x,
+            [_iAHomeSplashView setFrame:CGRectMake(_iAHomeSplashView.frame.origin.x,
                                                     self.bounds.size.height,
-                                                    _iASplashImageView.bounds.size.width,
-                                                    _iASplashImageView.bounds.size.height)];
+                                                    _iAHomeSplashView.bounds.size.width,
+                                                    _iAHomeSplashView.bounds.size.height)];
         } completion:^(BOOL finished) {
-            [_iASplashImageView setHidden:YES];
+            [_iAHomeSplashView setHidden:YES];
         }];
     }
+}
+
+
+- (IBAction) showSplashView{
+    if(_iAHomeSplashView.hidden){
+        [_iAHomeSplashView setHidden:NO];
+
+        
+        [UIView animateWithDuration:0.33 animations:^{
+            [_iAHomeSplashView setFrame:CGRectMake(_iAHomeSplashView.frame.origin.x,
+                                                   44,
+                                                   _iAHomeSplashView.bounds.size.width,
+                                                   _iAHomeSplashView.bounds.size.height)];
+        } completion:^(BOOL finished) {
+            
+            [_aSearchBar resignFirstResponder];
+            if(_searchButtonHolder){
+                [self hideSearchButtons];
+            }
+            
+            NSURL *blogUrl = [NSURL URLWithString:@"http://blog.archive.org/category/announcements/"];
+            NSURLRequest *req = [[NSURLRequest alloc] initWithURL:blogUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+            [_iABlogWebView loadRequest:req];
+        }];
+    }
+}
+
+- (IBAction)toggleSplashView:(id)sender {
+    _iAHomeSplashView.hidden ? [self showSplashView] : [self hideSplashView];
 }
 
 
@@ -172,11 +202,37 @@
 }
 
 
+- (void) fadeInInstructions{
+    [_instructionsView setHidden:NO];
+    [UIView animateWithDuration:0.33 animations:^{
+        [_instructionsView setAlpha:0.9];
+    }];
+}
+
+
+- (void) fadeOutInstructions{
+    [UIView animateWithDuration:0.33 animations:^{
+        [_instructionsView setAlpha:0];
+    } completion:^(BOOL finished) {
+        [_instructionsView setHidden:YES];
+    }];
+
+}
+
+- (IBAction)toggleInstructions:(id)sender{
+    _instructionsView.hidden ? [self fadeInInstructions] : [self fadeOutInstructions];
+}
+
+
 #pragma marks - WebView
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
-        return NO;
+        if(webView == _iABlogWebView){
+            return YES;
+        } else {
+            return NO;
+        }
     }
     return YES;
     

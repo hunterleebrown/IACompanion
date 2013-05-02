@@ -16,7 +16,7 @@
 #import "ArchivePageViewController.h"
 
 
-@interface ArchiveDetailedViewController : UIViewController <UIWebViewDelegate, ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverControllerDelegate, PageFontChangeDelegate> {
+@interface ArchiveDetailedViewController : UIViewController <UIWebViewDelegate, ArchiveDataServiceDelegate, UITableViewDataSource, UITableViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIPopoverControllerDelegate, PageFontChangeDelegate, UIAlertViewDelegate> {
     
     ArchiveDataService *service;
     NSMutableArray *vbrs;
