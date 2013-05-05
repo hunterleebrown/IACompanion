@@ -134,7 +134,7 @@
         
         [UIView animateWithDuration:0.33 animations:^{
             [_iAHomeSplashView setFrame:CGRectMake(_iAHomeSplashView.frame.origin.x,
-                                                   44,
+                                                   54,
                                                    _iAHomeSplashView.bounds.size.width,
                                                    _iAHomeSplashView.bounds.size.height)];
         } completion:^(BOOL finished) {
