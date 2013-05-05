@@ -34,9 +34,13 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *playPause;
 @property (nonatomic, weak) IBOutlet UIButton *playPauseButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *next;
+@property (nonatomic, weak) IBOutlet UIButton *nextButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *previous;
+@property (nonatomic, weak) IBOutlet UIButton *previousButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *forwards;
+@property (nonatomic, weak) IBOutlet UIButton *forwardsButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *backwards;
+@property (nonatomic, weak) IBOutlet UIButton *backwardsButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *numberOfFiles;
 
 @property (nonatomic, weak) IBOutlet UILabel *instructions;

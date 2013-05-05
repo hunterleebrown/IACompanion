@@ -232,12 +232,26 @@
                                         </items>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </toolbar>
-                                    <view contentMode="scaleToFill" id="T8F-5K-Wo5">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="308"/>
+                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" id="T8F-5K-Wo5">
+                                        <rect key="frame" x="0.0" y="54" width="320" height="298"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Internet Archive Companion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8iL-W9-aqD">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Annoucements from the Official Blog of the IA" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YQV-Lh-IIJ">
+                                                <rect key="frame" x="10" y="22" width="300" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <webView contentMode="scaleToFill" scalesPageToFit="YES" id="sq5-Z8-CVK">
-                                                <rect key="frame" x="0.0" y="44" width="320" height="264"/>
+                                                <rect key="frame" x="0.0" y="88" width="320" height="210"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
@@ -245,35 +259,35 @@
                                                 </connections>
                                             </webView>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="hGy-GL-IPk">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <items>
-                                                    <barButtonItem title="&lt;" id="Nv8-tb-AtC">
-                                                        <connections>
-                                                            <action selector="goBack" destination="sq5-Z8-CVK" id="EoV-Kj-0dX"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BQ3-3P-kwi"/>
-                                                    <barButtonItem systemItem="stop" id="ebr-Bf-4jm">
-                                                        <connections>
-                                                            <action selector="stopLoading" destination="sq5-Z8-CVK" id="Ybo-DX-mft"/>
-                                                        </connections>
-                                                    </barButtonItem>
                                                     <barButtonItem systemItem="refresh" id="kfh-HV-1EC">
                                                         <connections>
                                                             <action selector="reload" destination="sq5-Z8-CVK" id="5Kq-Ge-2rJ"/>
                                                         </connections>
                                                     </barButtonItem>
-                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PWy-QQ-pMM"/>
-                                                    <barButtonItem title=">" id="x92-Mh-Itl">
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BQ3-3P-kwi"/>
+                                                    <barButtonItem title="&lt;" width="33" id="Nv8-tb-AtC">
+                                                        <connections>
+                                                            <action selector="goBack" destination="sq5-Z8-CVK" id="EoV-Kj-0dX"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title=">" width="33" id="x92-Mh-Itl">
                                                         <connections>
                                                             <action selector="goForward" destination="sq5-Z8-CVK" id="tIy-Dh-2Af"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PWy-QQ-pMM"/>
+                                                    <barButtonItem title="Close" id="fsC-Pd-rS9">
+                                                        <connections>
+                                                            <action selector="toggleSplashView:" destination="GBh-gy-iFv" id="Viv-1N-Mld"/>
                                                         </connections>
                                                     </barButtonItem>
                                                 </items>
                                             </toolbar>
                                         </subviews>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="j90-XI-vK1">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -922,7 +936,7 @@
                                 <items>
                                     <barButtonItem style="plain" id="l5Q-Q3-1Xw">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GBS-SR-eWm">
-                                            <rect key="frame" x="12" y="2" width="40" height="41"/>
+                                            <rect key="frame" x="12" y="7" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" title="Button" image="upup.png">
@@ -938,9 +952,26 @@
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Trm-8G-qX9"/>
+                                    <barButtonItem style="plain" id="ndI-a3-grm">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2At-Yb-ffU">
+                                            <rect key="frame" x="66" y="7" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Button" image="previous.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="doPrevious:" destination="3hQ-pq-szV" eventType="touchUpInside" id="orn-5u-YWg"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" id="AqQ-iy-rt4">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tfH-ct-RKh">
-                                            <rect key="frame" x="140" y="2" width="40" height="41"/>
+                                            <rect key="frame" x="106" y="2" width="40" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" title="Button" image="play-plainer.png">
@@ -952,6 +983,23 @@
                                             </state>
                                             <connections>
                                                 <action selector="doPlayPause:" destination="3hQ-pq-szV" eventType="touchUpInside" id="rRn-Aw-yrv"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="Ice-9b-Q67">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="90d-yi-v1l">
+                                            <rect key="frame" x="156" y="7" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Button" image="next.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="doNext:" destination="3hQ-pq-szV" eventType="touchUpInside" id="Ywn-Xd-wWf"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
@@ -979,10 +1027,14 @@
                         <outlet property="editListButton" destination="xDa-nQ-HFj" id="i2w-Vf-pXK"/>
                         <outlet property="hidePlayerButton" destination="l5Q-Q3-1Xw" id="IoJ-ST-dKP"/>
                         <outlet property="instructions" destination="lmf-Oj-NEc" id="BvT-VU-gib"/>
+                        <outlet property="next" destination="Ice-9b-Q67" id="Fpi-qI-g3X"/>
+                        <outlet property="nextButton" destination="90d-yi-v1l" id="dBK-Wh-prx"/>
                         <outlet property="playPause" destination="AqQ-iy-rt4" id="5oa-jX-CtZ"/>
                         <outlet property="playPauseButton" destination="tfH-ct-RKh" id="NlR-GG-Tfy"/>
                         <outlet property="playerHolder" destination="Pho-bt-LEi" id="SdN-pq-tyy"/>
                         <outlet property="playerTableView" destination="rWJ-1G-pHd" id="7ex-HQ-iZT"/>
+                        <outlet property="previous" destination="ndI-a3-grm" id="hA5-jQ-Q2l"/>
+                        <outlet property="previousButton" destination="2At-Yb-ffU" id="JR9-Zg-vTp"/>
                         <outlet property="toolbar" destination="uWT-qf-ZgD" id="lCH-u3-gtB"/>
                         <outlet property="upupButton" destination="GBS-SR-eWm" id="Gin-YY-Akf"/>
                     </connections>
@@ -999,7 +1051,9 @@
         <image name="email-icon.png" width="24" height="24"/>
         <image name="leftContentShadow.png" width="21" height="461"/>
         <image name="list.png" width="17" height="19"/>
+        <image name="next.png" width="70" height="70"/>
         <image name="play-plainer.png" width="80" height="80"/>
+        <image name="previous.png" width="70" height="70"/>
         <image name="rightContentShadow.png" width="21" height="461"/>
         <image name="share-bbi.png" width="24" height="18"/>
         <image name="upup.png" width="80" height="80"/>
@@ -1099,18 +1153,22 @@
                 <relationship kind="action" name="hidePlayer:"/>
                 <relationship kind="outlet" name="backgroundImage" candidateClass="AsyncImageView"/>
                 <relationship kind="outlet" name="backwards" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="backwardsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="editListButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="forwards" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwardsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="hidePlayerButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="instructions" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="next" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="numberOfFiles" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="playPause" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="playPauseButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="previous" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="previousButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="upupButton" candidateClass="UIButton"/>
             </relationships>
