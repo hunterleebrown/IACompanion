@@ -91,6 +91,13 @@
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
+    // Turn on remote control event delivery
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    // Set itself as the first responder
+    [self becomeFirstResponder];
+    
+    
     //[service getMetadataFileWithName:@"01Fanfare.mp3" withIdentifier:@"HunterLeeBrownWorkedBrass"];
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -104,7 +111,36 @@
 
 }
 
+#pragma mark - Remote Control Events
 
+- (BOOL)canBecomeFirstResponder{
+    return YES;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent {
+
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        
+        switch (receivedEvent.subtype) {
+                
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                [self doPlayPause:nil];
+                break;
+                
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                [self playPrevious];
+                break;
+                
+            case UIEventSubtypeRemoteControlNextTrack:
+                [self playNext];
+                break;
+                
+            default:
+                break;
+        }
+    }
+
+}
 
 - (void) dataDidFinishLoadingWithArchiveFile:(ArchiveFile *)file{
 
@@ -476,6 +512,7 @@
             [self.playerHolder addSubview: player.view];
             [player.view setFrame: self.playerHolder.bounds];  // player's frame must match parent's
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playBackStateChangeNotification:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:player];
 
             [player prepareToPlay];
             [player setContentURL:[NSURL URLWithString:file.url]];
@@ -488,6 +525,25 @@
             
         }
         [self setSelectedCellOfPlayingFileForPlayer:player];
+    
+    }
+
+}
+
+- (void) playBackStateChangeNotification:(NSNotification *)notification{
+    if(player.playbackState == MPMoviePlaybackStatePlaying){
+        
+        int index = [self indexOfInFileFromUrl:player.contentURL];
+        PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+        MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:_backgroundImage.image];
+        NSDictionary *songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  file.title, MPMediaItemPropertyTitle,
+                                  file.identifierTitle, MPMediaItemPropertyAlbumTitle,
+                                  file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
+                                  [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                                  art, MPMediaItemPropertyArtwork,
+                                  nil];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
     
     }
 
@@ -558,7 +614,6 @@
         if(player.playbackState == MPMoviePlaybackStatePlaying){
             
             [player pause];
-            
             
             
         } else if(player.playbackState == MPMoviePlaybackStatePaused){

@@ -24,6 +24,10 @@
 {
     // Override point for customization after application launch.
     
+
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
+
+    
     HomeViewController *controller = (HomeViewController *)self.window.rootViewController;
     controller.managedObjectContext = self.managedObjectContext;
     
@@ -51,6 +55,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // reactivate audio session
+    [[AVAudioSession sharedInstance] setActive: YES error: nil];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
