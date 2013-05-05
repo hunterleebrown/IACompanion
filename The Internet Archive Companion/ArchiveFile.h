@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ArchiveDataService.h"
 
 typedef enum {
     FileFormatOther = 0,
@@ -33,19 +32,19 @@ typedef enum {
 
 @interface ArchiveFile : NSObject
 
-@property (nonatomic, assign) NSDictionary *file;
+@property (nonatomic, strong) NSDictionary *file;
 @property (nonatomic) FileFormat format;
-@property (nonatomic, assign) NSString *name;
-@property (nonatomic, assign) NSString *title;
-@property (nonatomic, assign) int track;
-@property (nonatomic, assign) NSString *url;
-@property (nonatomic, assign) NSString *identifier;
-@property (nonatomic, assign) NSString *server;
-@property (nonatomic, assign) NSString *directory;
-@property (nonatomic, assign) NSString *height;
-@property (nonatomic, assign) NSString *width;
-@property (nonatomic, assign) NSString *identifierTitle;
-@property (nonatomic, assign) int size;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic) int track;
+@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString *server;
+@property (nonatomic, strong) NSString *directory;
+@property (nonatomic, strong) NSString *height;
+@property (nonatomic, strong) NSString *width;
+@property (nonatomic, strong) NSString *identifierTitle;
+@property (nonatomic) int size;
 
 
 

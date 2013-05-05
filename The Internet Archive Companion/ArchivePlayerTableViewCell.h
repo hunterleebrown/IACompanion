@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ArchiveFile.h"
+#import "PlayerFile.h"
 
 
 @interface ArchivePlayerTableViewCell : UITableViewCell
@@ -16,7 +16,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *fileTitle;
 @property (nonatomic, weak) IBOutlet UILabel *fileFormat;
 
-@property (nonatomic, weak) ArchiveFile *file;
+@property (nonatomic, strong) PlayerFile *file;
 
 
 @end

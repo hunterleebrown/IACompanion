@@ -19,6 +19,8 @@
         _identifierTitle = identifierTitle;
         _server = server;
         _directory = dir;
+        
+        
         [self setFile:file];
     }
     return self;

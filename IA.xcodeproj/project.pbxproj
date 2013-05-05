@@ -48,6 +48,10 @@
 		5A8CA7FA16D0445500F97BF7 /* ArchiveShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8CA7F916D0445500F97BF7 /* ArchiveShareTableViewCell.m */; };
 		5A8CA7FC16D051EF00F97BF7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8CA7FB16D051EF00F97BF7 /* Social.framework */; };
 		5A8CA7FF16D0965200F97BF7 /* ArchiveImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */; };
+		5A9003161735B507000C6304 /* IA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A9003141735B507000C6304 /* IA.xcdatamodeld */; };
+		5A9003191735B6E3000C6304 /* PlayerFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9003181735B6E3000C6304 /* PlayerFile.m */; };
+		5A90031B1735B9DF000C6304 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A90031A1735B9DF000C6304 /* CoreData.framework */; };
+		5A9003B91735C9A3000C6304 /* IA.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 5A9003141735B507000C6304 /* IA.xcdatamodeld */; };
 		5A942D4616D5F545001CB01B /* MainStoryboard-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */; };
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
 		5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */; };
@@ -170,6 +174,10 @@
 		5A8CA7FB16D051EF00F97BF7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5A8CA7FD16D0965100F97BF7 /* ArchiveImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveImageViewController.h; sourceTree = "<group>"; };
 		5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveImageViewController.m; sourceTree = "<group>"; };
+		5A9003151735B507000C6304 /* IA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IA.xcdatamodel; sourceTree = "<group>"; };
+		5A9003171735B6E3000C6304 /* PlayerFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerFile.h; sourceTree = "<group>"; };
+		5A9003181735B6E3000C6304 /* PlayerFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerFile.m; sourceTree = "<group>"; };
+		5A90031A1735B9DF000C6304 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "MainStoryboard-iPhone.storyboard"; path = "../MainStoryboard-iPhone.storyboard"; sourceTree = "<group>"; };
 		5A990BA616B9F2E500B4C058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5A990BBA16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDetailedCollectionViewCell.h; sourceTree = "<group>"; };
@@ -254,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A90031B1735B9DF000C6304 /* CoreData.framework in Frameworks */,
 				5A51FA4A16E3C464004E5C44 /* MessageUI.framework in Frameworks */,
 				5A8CA7FC16D051EF00F97BF7 /* Social.framework in Frameworks */,
 				CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */,
@@ -282,6 +291,7 @@
 		5A0A10A016A640A300CC70CD = {
 			isa = PBXGroup;
 			children = (
+				5A90031A1735B9DF000C6304 /* CoreData.framework */,
 				5A51FA4916E3C464004E5C44 /* MessageUI.framework */,
 				5A0A10B516A640A300CC70CD /* The Internet Archive Companion */,
 				5A0A10D916A640A300CC70CD /* The Internet Archive CompanionTests */,
@@ -399,6 +409,9 @@
 		5AD2070E16A8F9460027CCA5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5A9003141735B507000C6304 /* IA.xcdatamodeld */,
+				5A9003171735B6E3000C6304 /* PlayerFile.h */,
+				5A9003181735B6E3000C6304 /* PlayerFile.m */,
 				5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */,
 				5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */,
 				5A8A195A16B5DDD900F6A2E4 /* ArchiveSearchDoc.h */,
@@ -618,6 +631,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A9003B91735C9A3000C6304 /* IA.xcdatamodeld in Resources */,
 				5A0A10BA16A640A300CC70CD /* InfoPlist.strings in Resources */,
 				5A0A10C916A640A300CC70CD /* MainStoryboard.storyboard in Resources */,
 				CE752A2816C1799400A432AB /* uiglassbutton-template.png in Resources */,
@@ -731,6 +745,8 @@
 				CEEF43C816DFD11E00DC1C74 /* AsyncTextView.m in Sources */,
 				CE0411A716E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m in Sources */,
 				5ACA3B3816E1D85000AAD6C6 /* ArchiveBookPageViewController.m in Sources */,
+				5A9003161735B507000C6304 /* IA.xcdatamodeld in Sources */,
+				5A9003191735B6E3000C6304 /* PlayerFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,6 +945,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5A9003141735B507000C6304 /* IA.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5A9003151735B507000C6304 /* IA.xcdatamodel */,
+			);
+			currentVersion = 5A9003151735B507000C6304 /* IA.xcdatamodel */;
+			path = IA.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5A0A10A216A640A300CC70CD /* Project object */;
 }

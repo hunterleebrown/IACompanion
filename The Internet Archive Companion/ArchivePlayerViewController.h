@@ -9,10 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ArchiveFile.h"
 #import "AsyncImageView.h"
+#import "ArchiveDataService.h"
+#import <CoreData/CoreData.h>
 
 
+@interface ArchivePlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ArchiveDataServiceDelegate, NSFetchedResultsControllerDelegate> {
 
-@interface ArchivePlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+    
+
+}
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 
 @property (nonatomic, retain) IBOutlet UITableView *playerTableView;
 @property (nonatomic, weak) IBOutlet UIView *playerHolder;

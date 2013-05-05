@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ArchiveFile.h"
 
 @protocol ArchiveDataServiceDelegate <NSObject>
 
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results;
 - (void) dataDidFinishLoadingWithRangeRequestResults:(NSString *)results;
+- (void) dataDidFinishLoadingWithArchiveFile:(ArchiveFile *)file;
+
 
 @end
 
@@ -49,6 +52,6 @@ typedef enum {
 
 
 - (void) getMetadataDocsWithIdentifier:(NSString *)identifier;
-
+- (void) getMetadataFileWithName:(NSString *)fileName withIdentifier:(NSString *)identifier;
 
 @end

@@ -8,11 +8,11 @@
 
 #import "ArchiveDataService.h"
 #import "ArchiveSearchDoc.h"
-#import "ArchiveFile.h"
 #import "StringUtils.h"
 @interface ArchiveDataService () {
 
     NSString *identifierIn;
+    NSString *fileNameIn;
     NSMutableURLRequest *bookTextPageRequest;
     NSMutableData *bookTextData;
 }
@@ -125,14 +125,42 @@
         [rawResults setObject:identifierIn forKey:@"identifier"];
     }
     
-    if(delegate && [delegate respondsToSelector:@selector(dataDidFinishLoadingWithDictionary:)]){
-        [delegate dataDidFinishLoadingWithDictionary:rawResults];
+    
+    if(fileNameIn) {
+        ArchiveFile *aFile;
+        ArchiveDetailDoc *aDoc = [responseDocs objectAtIndex:0];
+        for(ArchiveFile *af in aDoc.files){
+            if([af.name isEqualToString:fileNameIn]){
+                aFile = af;
+            }
+        }
+        if(aFile){
+            
+            
+            if(delegate && [delegate respondsToSelector:@selector(dataDidFinishLoadingWithArchiveFile:)]){
+                [delegate dataDidFinishLoadingWithArchiveFile:aFile];
+            }
+        }
+        
+        
+        
+    } else {
+        
+        if(delegate && [delegate respondsToSelector:@selector(dataDidFinishLoadingWithDictionary:)]){
+            [delegate dataDidFinishLoadingWithDictionary:rawResults];
+        }
     }
+    
+    
 
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
     
 }
+
+
+
+
 
 
 #pragma mark - the real request, async
@@ -152,6 +180,17 @@
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)loadData {
     
@@ -276,6 +315,19 @@
 - (void) getMetadataDocsWithIdentifier:(NSString *)identifier{
     identifierIn = identifier;
     testUrl = @"http://archive.org/metadata/%@";
+    fileNameIn = nil;
+
+    NSString *searchUrl = [NSString stringWithFormat:testUrl, identifier];
+    [self setAndLoadDataFromJSONUrl:searchUrl];
+}
+
+
+
+- (void) getMetadataFileWithName:(NSString *)fileName withIdentifier:(NSString *)identifier{
+    identifierIn = identifier;
+    testUrl = @"http://archive.org/metadata/%@";
+    fileNameIn = fileName;
+ 
     NSString *searchUrl = [NSString stringWithFormat:testUrl, identifier];
     [self setAndLoadDataFromJSONUrl:searchUrl];
 }

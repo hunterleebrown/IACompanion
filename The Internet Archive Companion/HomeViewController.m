@@ -103,6 +103,9 @@
     if(self.animatedLabel){
         [self animateTheLabel];
     }
+    
+    
+    [_playerController setManagedObjectContext:self.managedObjectContext];
 
 }
 

@@ -11,20 +11,26 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "ArchiveSearchDoc.h"
+#import "PlayerFile.h"
+#import "AppDelegate.h"
 
 
 
 
 @interface ArchivePlayerViewController () {
-    NSMutableArray *playerFiles;
     MPMoviePlayerController *player;
     BOOL tableIsEditing;
+    ArchiveDataService *service;
+    BOOL changingPlaylistOrder;
+
 
 }
 
 @end
 
 @implementation ArchivePlayerViewController
+@synthesize managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,10 +44,9 @@
 - (id) initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if(self){
-        playerFiles = [NSMutableArray new];
     
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFile:) name:@"AddToPlayerListFileNotification" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileAndPlay:) name:@"AddToPlayerListFileAndPlayNotification" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileNotification:) name:@"AddToPlayerListFileNotification" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileAndPlayNotification:) name:@"AddToPlayerListFileAndPlayNotification" object:nil];
 
         
         [_playerTableView setAllowsSelectionDuringEditing:NO];
@@ -62,6 +67,11 @@
         tableIsEditing = NO;
         
         
+        service = [ArchiveDataService new];
+        [service setDelegate:self];
+        
+
+        
     }
     return self;
 }
@@ -71,11 +81,37 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+
 
     
-  }
+    
+    
+}
 
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    //[service getMetadataFileWithName:@"01Fanfare.mp3" withIdentifier:@"HunterLeeBrownWorkedBrass"];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    if (!context) {
+        // Handle the error.
+    }
+    // Pass the managed object context to the view controller.
+    managedObjectContext = context;
+
+
+
+}
+
+
+
+- (void) dataDidFinishLoadingWithArchiveFile:(ArchiveFile *)file{
+
+    
+    [self addToPlayerListFile:file];
+    
+}
 
 
 
@@ -88,26 +124,33 @@
 
 
 - (int) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return [[self.fetchedResultsController sections] count];
 }
 
+- (void)configureCell:(ArchivePlayerTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    PlayerFile *file = (PlayerFile *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.fileTitle.text = file.title;
+    cell.identifierLabel.text = file.identifierTitle;
+    cell.fileFormat.text = file.format;
+    cell.showsReorderControl = YES;
+    [cell setFile:file];
+    
+}
 
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    [_numberOfFiles setTitle:[NSString stringWithFormat:@"%i file%@", playerFiles.count, playerFiles.count == 1 ? @"": @"s"]];
-    return playerFiles.count;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    [_numberOfFiles setTitle:[NSString stringWithFormat:@"%i file%@", [sectionInfo numberOfObjects], [sectionInfo numberOfObjects] == 1 ? @"": @"s"]];
+
+    return [sectionInfo numberOfObjects];
 
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
     ArchivePlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playerCell"];
-    
-    ArchiveFile *file = [playerFiles objectAtIndex:indexPath.row];
-    
-    cell.fileTitle.text = file.title;
-    cell.identifierLabel.text = file.identifierTitle;
-    cell.fileFormat.text = [file.file objectForKey:@"format"];
-    cell.showsReorderControl = YES;
-    [cell setFile:file];
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
     
 }
@@ -119,10 +162,15 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
-        [playerFiles removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-        [tableView reloadData];
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
 
     }
     
@@ -136,36 +184,44 @@
 - (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     NSLog(@"->      sourceIndexPath.row: %i", sourceIndexPath.row);
     NSLog(@"-> destinationIndexPath.row: %i", destinationIndexPath.row);
-    
-    /*
-    for(ArchiveFile *file in playerFiles){
-        NSLog(@"index: %i  %@", [playerFiles indexOfObject:file], file.title);
-    }
-    */
 
-    /* man this is way too easy */
-    id object = [playerFiles objectAtIndex:sourceIndexPath.row];
-    [playerFiles removeObjectAtIndex:sourceIndexPath.row];
-    [playerFiles insertObject:object atIndex:destinationIndexPath.row];
+    
+    // Get a handle to the playlist we're moving
+    NSMutableArray *sortedFiles = [NSMutableArray arrayWithArray:[self.fetchedResultsController fetchedObjects]];
+    
+    // Get a handle to the call we're moving
+    PlayerFile *playerFileWeAreMoving = [sortedFiles objectAtIndex:sourceIndexPath.row];
+    
+    // Remove the call from it's current position
+    [sortedFiles removeObjectAtIndex:sourceIndexPath.row];
+    
+    // Insert it at it's new position
+    [sortedFiles insertObject:playerFileWeAreMoving atIndex:destinationIndexPath.row];
+    
+    // Update the order of them all according to their index in the mutable array
+    [sortedFiles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        PlayerFile *zePlayerFile = (PlayerFile *)obj;
+        zePlayerFile.displayOrder = [NSNumber numberWithInt:idx];
+    }];
+    
 
-    /*
-    NSLog(@" <   ---   > ");
     
-    for(ArchiveFile *file in playerFiles){
-        NSLog(@"index: %i  %@", [playerFiles indexOfObject:file], file.title);
-    }
-     */
+
     
     
+
 }
+
 
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(player){
         [player stop];
     }
-    ArchiveFile *file = ((ArchivePlayerTableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).file;
-
+    PlayerFile *file = ((ArchivePlayerTableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).file;
+    NSLog(@"-----> file.url: %@", file.url);
+    
+    
     [self startListWithFile:file];
 
 }
@@ -177,29 +233,193 @@
     if(player){
         [self setSelectedCellOfPlayingFileForPlayer:player];
     }
+    
+    if(!tableIsEditing){
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        // Save the managed object context
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+    }
 
 }
 
 - (IBAction)clearList:(id)sender{
-    [playerFiles removeAllObjects];
-    [_playerTableView reloadData];
+    //[playerFiles removeAllObjects];
+    
+    //[_playerTableView reloadData];
+    
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    for(PlayerFile *f in [self.fetchedResultsController fetchedObjects]){
+        [context deleteObject:f];
+    }
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    
 
 }
 
 
-- (void) addToPlayerListFileAndPlay:(NSNotification *)notification{    
-    [self addToPlayerListFile:notification];
-    ArchiveFile *file = notification.object;
+#pragma mark - Fetched results controller
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PlayerFile" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Set the batch size to a suitable number.
+   // [fetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"displayOrder" ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    
+	NSError *error = nil;
+	if (![self.fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	}
+    
+    return _fetchedResultsController;
+}
+
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    [_playerTableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+{
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [_playerTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [_playerTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    UITableView *tableView = _playerTableView;
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+
+    [_playerTableView endUpdates];
+}
+
+
+
+
+- (void) addToPlayerListFileAndPlayNotification:(NSNotification *)notification{
+    [self addToPlayerListFileNotification:notification];
+    PlayerFile *file = [[self.fetchedResultsController fetchedObjects] lastObject];
     [self startListWithFile:file];
+    
 }
 
 
-- (void) addToPlayerListFile:(NSNotification *)notification{
+- (void) addToPlayerListFileNotification:(NSNotification *)notification{
     ArchiveFile *file = notification.object;
-    [playerFiles addObject:file];
-    [_playerTableView reloadData];
+    
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    // If appropriate, configure the new managed object.
+    
+    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+    
+    [newManagedObject setValue:file.title forKey:@"title"];
+    [newManagedObject setValue:file.identifier forKey:@"identifier"];
+    [newManagedObject setValue:file.url forKey:@"url"];
+    [newManagedObject setValue:file.identifierTitle forKey:@"identifierTitle"];
+    [newManagedObject setValue:[file.file objectForKey:@"format"] forKey:@"format"];
+    [newManagedObject setValue:[NSNumber numberWithInt:[[self.fetchedResultsController fetchedObjects]count]] forKey:@"displayOrder"];
+    
+    // Save the context.
+    
+    NSError *error = nil;
+    
+    if (![context save:&error])
+        
+    {
+        
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+         
+         */
+        
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        
+        
+    }
+    
+    
+   // [self addToPlayerListFile:file];
+    
+
 
 }
+
+- (void)addToPlayerListFile:(ArchiveFile *)file{
+ //   [playerFiles addObject:file];
+   // [_playerTableView reloadData];
+}
+
+
 
 - (IBAction)hidePlayer:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"HidePlayerNotification" object:nil];
@@ -213,9 +433,10 @@
 
 - (int) indexOfInFileFromUrl:(NSURL *)url{
     
-    for(ArchiveFile *file in playerFiles){
+    NSArray *loadedFiles = [self.fetchedResultsController fetchedObjects];
+    for(PlayerFile *file in loadedFiles){
         if([file.url isEqualToString:url.absoluteString]){
-            return [playerFiles indexOfObject:file];
+            return [loadedFiles indexOfObject:file];
         }
         
     }
@@ -224,7 +445,7 @@
 
 
 - (void) setSelectedCellOfPlayingFileForPlayer:(MPMoviePlayerController *)thePlayer{
-    if (playerFiles.count > 0) {
+    if ([[self.fetchedResultsController fetchedObjects] count]> 0) {
         int index = [self indexOfInFileFromUrl:thePlayer.contentURL];
         NSLog(@"--------> playing index: %i", index);
         
@@ -232,15 +453,23 @@
             [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
         }
         
-        ArchiveFile *file = [playerFiles objectAtIndex:index];
+//        PlayerFile *file = [self.fetchedResultsController objectAtIndex:index];
+        
+        
+        PlayerFile *file = (PlayerFile *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+
+        
         [_backgroundImage setAndLoadImageFromUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", file.identifier]];
         [_instructions setHidden:YES];
     }
 
 }
 
-- (void)startListWithFile:(ArchiveFile *)file{
-    if(playerFiles.count > 0){
+- (void)startListWithFile:(PlayerFile *)file{
+    if([[self.fetchedResultsController fetchedObjects] count] > 0){
+        
+        
+        
         if(!player){
             player = [[MPMoviePlayerController alloc] init];
             [player.view setBackgroundColor:[UIColor clearColor]];
@@ -267,24 +496,17 @@
 
 
 
-- (ArchiveFile *) playingFile{
-    int index = [self indexOfInFileFromUrl:player.contentURL];
-    ArchiveFile *f = [playerFiles objectAtIndex:index];
-    return f;
-}
-
-
 - (void) playNext{
     int index = [self indexOfInFileFromUrl:player.contentURL];
     if(index >= 0) {
         int newIndex = index +1;
-        if(newIndex == [playerFiles count]){
+        if(newIndex == [[self.fetchedResultsController fetchedObjects ]count]){
             // Remove this class from the observers
             [[NSNotificationCenter defaultCenter] removeObserver:self
                                                             name:MPMoviePlayerPlaybackDidFinishNotification
                                                           object:player];
         } else {
-            ArchiveFile *newFile = [playerFiles objectAtIndex:newIndex];
+            PlayerFile *newFile = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:newIndex inSection:0]];
             [player setContentURL:[NSURL URLWithString:newFile.url]];
             [player play];
             [self setSelectedCellOfPlayingFileForPlayer:player];
@@ -300,7 +522,7 @@
     int index = [self indexOfInFileFromUrl:player.contentURL];
     if(index > 0) {
         int newIndex = index - 1;
-        ArchiveFile *newFile = [playerFiles objectAtIndex:newIndex];
+        PlayerFile *newFile = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:newIndex inSection:0]];
         [player setContentURL:[NSURL URLWithString:newFile.url]];
         [player play];
         [self setSelectedCellOfPlayingFileForPlayer:player];
@@ -349,9 +571,8 @@
             [player play];
         }
     } else{
-        if(playerFiles.count > 0){
-            
-            [self startListWithFile:[playerFiles objectAtIndex:0]];
+        if([[self.fetchedResultsController fetchedObjects] count] > 0){
+            [self startListWithFile:[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]];
             [self setSelectedCellOfPlayingFileForPlayer:player];
         }
     }
