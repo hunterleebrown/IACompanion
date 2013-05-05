@@ -920,16 +920,40 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <barButtonItem title="Hide" id="rFu-CF-6E6">
-                                        <connections>
-                                            <action selector="hidePlayer:" destination="3hQ-pq-szV" id="598-V0-UeP"/>
-                                        </connections>
+                                    <barButtonItem style="plain" id="l5Q-Q3-1Xw">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GBS-SR-eWm">
+                                            <rect key="frame" x="12" y="2" width="40" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Button" image="upup.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="hidePlayer:" destination="3hQ-pq-szV" eventType="touchUpInside" id="dKc-Qf-lkc"/>
+                                            </connections>
+                                        </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Trm-8G-qX9"/>
-                                    <barButtonItem title="play / pause" id="JxG-PS-i9t">
-                                        <connections>
-                                            <action selector="doPlayPause:" destination="3hQ-pq-szV" id="vP0-Lc-dNG"/>
-                                        </connections>
+                                    <barButtonItem style="plain" id="AqQ-iy-rt4">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tfH-ct-RKh">
+                                            <rect key="frame" x="140" y="2" width="40" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Button" image="play-plainer.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="doPlayPause:" destination="3hQ-pq-szV" eventType="touchUpInside" id="rRn-Aw-yrv"/>
+                                            </connections>
+                                        </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jUk-QP-GkL"/>
                                     <barButtonItem title="Clear" id="R1h-vI-ikp">
@@ -953,12 +977,14 @@
                         <outlet property="backgroundImage" destination="iBR-8O-8wC" id="tFf-Vc-q5l"/>
                         <outlet property="clearButton" destination="R1h-vI-ikp" id="zgY-RH-u9f"/>
                         <outlet property="editListButton" destination="xDa-nQ-HFj" id="i2w-Vf-pXK"/>
-                        <outlet property="hidePlayerButton" destination="rFu-CF-6E6" id="bsP-yz-QVv"/>
+                        <outlet property="hidePlayerButton" destination="l5Q-Q3-1Xw" id="IoJ-ST-dKP"/>
                         <outlet property="instructions" destination="lmf-Oj-NEc" id="BvT-VU-gib"/>
-                        <outlet property="playPause" destination="JxG-PS-i9t" id="fpR-bL-9TX"/>
+                        <outlet property="playPause" destination="AqQ-iy-rt4" id="5oa-jX-CtZ"/>
+                        <outlet property="playPauseButton" destination="tfH-ct-RKh" id="NlR-GG-Tfy"/>
                         <outlet property="playerHolder" destination="Pho-bt-LEi" id="SdN-pq-tyy"/>
                         <outlet property="playerTableView" destination="rWJ-1G-pHd" id="7ex-HQ-iZT"/>
                         <outlet property="toolbar" destination="uWT-qf-ZgD" id="lCH-u3-gtB"/>
+                        <outlet property="upupButton" destination="GBS-SR-eWm" id="Gin-YY-Akf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCH-OB-Hm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -973,14 +999,17 @@
         <image name="email-icon.png" width="24" height="24"/>
         <image name="leftContentShadow.png" width="21" height="461"/>
         <image name="list.png" width="17" height="19"/>
+        <image name="play-plainer.png" width="80" height="80"/>
         <image name="rightContentShadow.png" width="21" height="461"/>
         <image name="share-bbi.png" width="24" height="18"/>
+        <image name="upup.png" width="80" height="80"/>
         <image name="vertShadow.png" width="320" height="19"/>
     </resources>
     <classes>
         <class className="ArchiveCollectionListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionListViewController.h"/>
             <relationships>
+                <relationship kind="action" name="popBack:"/>
                 <relationship kind="outlet" name="contentParentView" candidateClass="HomeContentParentView"/>
             </relationships>
         </class>
@@ -1019,6 +1048,7 @@
         <class className="ArchiveImageViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageViewController.h"/>
             <relationships>
+                <relationship kind="action" name="dismiss:"/>
                 <relationship kind="outlet" name="sharePhoto" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="view" candidateClass="AsyncImageView"/>
             </relationships>
@@ -1077,10 +1107,12 @@
                 <relationship kind="outlet" name="next" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="numberOfFiles" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="playPause" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playPauseButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="previous" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="upupButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="ArchiveShareViewController" superclassName="UIViewController">
@@ -1125,6 +1157,7 @@
             <relationships>
                 <relationship kind="action" name="showSplashView"/>
                 <relationship kind="action" name="toggleDetails:"/>
+                <relationship kind="action" name="toggleInstructions:"/>
                 <relationship kind="action" name="toggleSplashView:"/>
                 <relationship kind="outlet" name="aSearchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="descriptionShadow" candidateClass="UIImageView"/>
@@ -1134,6 +1167,7 @@
                 <relationship kind="outlet" name="iABlogWebView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="iAHomeSplashView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="iASplashImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="instructionsView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="searchButtonHolder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="searchButtons" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="showListButton" candidateClass="UIBarButtonItem"/>

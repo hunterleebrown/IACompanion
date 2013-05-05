@@ -83,7 +83,7 @@
 	// Do any additional setup after loading the view.
 
 
-    
+    [_toolbar setBackgroundImage:[UIImage imageNamed:@"Jackson_Pollock.jpg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
     
 }
@@ -386,7 +386,7 @@
             [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
             
-            break;
+            
     }
 }
 
@@ -531,20 +531,31 @@
 }
 
 - (void) playBackStateChangeNotification:(NSNotification *)notification{
-    if(player.playbackState == MPMoviePlaybackStatePlaying){
-        
-        int index = [self indexOfInFileFromUrl:player.contentURL];
-        PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-        MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:_backgroundImage.image];
-        NSDictionary *songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  file.title, MPMediaItemPropertyTitle,
-                                  file.identifierTitle, MPMediaItemPropertyAlbumTitle,
-                                  file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
-                                  [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
-                                  art, MPMediaItemPropertyArtwork,
-                                  nil];
-        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
-    
+    switch(player.playbackState) {
+        case MPMoviePlaybackStatePlaying: {
+            [_playPauseButton setImage:[UIImage imageNamed:@"pause-plainer.png"] forState:UIControlStateNormal];
+            
+            int index = [self indexOfInFileFromUrl:player.contentURL];
+            PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+            MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:_backgroundImage.image];
+            NSDictionary *songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      file.title, MPMediaItemPropertyTitle,
+                                      file.identifierTitle, MPMediaItemPropertyAlbumTitle,
+                                      file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
+                                      [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                                      art, MPMediaItemPropertyArtwork,
+                                      nil];
+            [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+        }
+            break;
+            
+        case MPMoviePlaybackStatePaused: {
+            [_playPauseButton setImage:[UIImage imageNamed:@"play-plainer.png"] forState:UIControlStateNormal];
+        }
+            break;
+        default:
+            break;
+            
     }
 
 }

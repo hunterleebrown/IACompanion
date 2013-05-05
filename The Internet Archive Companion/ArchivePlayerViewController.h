@@ -27,10 +27,12 @@
 @property (nonatomic, weak) IBOutlet UIView *playerHolder;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *editListButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *hidePlayerButton;
+@property (nonatomic, weak) IBOutlet UIButton *upupButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *clearButton;
 
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *playPause;
+@property (nonatomic, weak) IBOutlet UIButton *playPauseButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *next;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *previous;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *forwards;

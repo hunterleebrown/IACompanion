@@ -55,8 +55,15 @@
             _animatedLabel.frame = CGRectMake(_animatedLabel.frame.origin.x, 200, _animatedLabel.frame.size.width, _animatedLabel.frame.size.height);
         }
     } completion:^(BOOL finished) {
-        [_playerController.hidePlayerButton setTitle:@"Hide"];
+        
+        //[_playerController.upupButton setImage:[UIImage imageNamed:@"downdown.png"] forState:UIControlStateNormal];
+        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
+            CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI);
+            _playerController.upupButton.transform = transform;
+        } completion:NULL];
     }];
+
+    
 
 
 }
@@ -79,11 +86,18 @@
            }
 
        } completion:^(BOOL finished) {
-           [_playerController.hidePlayerButton setTitle:@"Show"];
+          // [_playerController.upupButton setImage:[UIImage imageNamed:@"upup.png"] forState:UIControlStateNormal];
+           [UIView beginAnimations:@"rotate" context:nil];
+           [UIView setAnimationDuration:0.3];
+           _playerController.upupButton.transform = CGAffineTransformMakeRotation(90/180*M_PI);
+           [UIView commitAnimations];
+
 
        }];
 
     }
+
+    
 
 
 }
