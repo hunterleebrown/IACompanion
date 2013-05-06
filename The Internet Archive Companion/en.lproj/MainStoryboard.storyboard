@@ -319,39 +319,42 @@
                                                     <outlet property="delegate" destination="dGe-kY-kb9" id="jJM-H4-PAS"/>
                                                 </connections>
                                             </webView>
-                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="uwa-HJ-gwt">
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uwa-HJ-gwt">
                                                 <rect key="frame" x="20" y="95" width="708" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <items>
-                                                    <barButtonItem enabled="NO" title="blog.archive.org" style="plain" id="xlF-ph-D0A"/>
-                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cil-8i-8rO"/>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cil-8i-8rO">
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </barButtonItem>
                                                     <barButtonItem title="&lt;" id="Pkm-Fz-AXZ">
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="goBack" destination="fAI-Zg-pi6" id="ri0-9E-sW1"/>
                                                         </connections>
                                                     </barButtonItem>
-                                                    <barButtonItem systemItem="stop" id="swR-uL-GWh">
-                                                        <connections>
-                                                            <action selector="stopLoading" destination="fAI-Zg-pi6" id="9xV-UP-2rF"/>
-                                                        </connections>
-                                                    </barButtonItem>
                                                     <barButtonItem systemItem="refresh" id="Wm6-Cc-BLf">
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="reload" destination="fAI-Zg-pi6" id="Pb4-gD-lR7"/>
                                                         </connections>
                                                     </barButtonItem>
                                                     <barButtonItem title=">" id="8r8-lw-t3w">
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="goForward" destination="fAI-Zg-pi6" id="D6T-Tz-pN7"/>
                                                         </connections>
                                                     </barButtonItem>
-                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zyy-RT-boi"/>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zyy-RT-boi">
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </barButtonItem>
                                                     <barButtonItem title="Close" id="Lsg-sH-ppU">
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="toggleSplashView:" destination="dGe-kY-kb9" id="ogW-Sr-LyJ"/>
                                                         </connections>
                                                     </barButtonItem>
                                                 </items>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </toolbar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
