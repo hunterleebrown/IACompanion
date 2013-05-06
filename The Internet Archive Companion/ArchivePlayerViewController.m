@@ -394,6 +394,7 @@
 {
 
     [_playerTableView endUpdates];
+    [_playerTableView reloadData];
 }
 
 

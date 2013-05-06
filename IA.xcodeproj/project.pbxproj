@@ -64,6 +64,7 @@
 		5AC008A317371B33002571CB /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC008A117371B33002571CB /* next.png */; };
 		5AC008A417371B33002571CB /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC008A217371B33002571CB /* previous.png */; };
 		5AC008A617371D0D002571CB /* upup.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC008A517371D0D002571CB /* upup.png */; };
+		5AC008AA1737518F002571CB /* addall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC008A91737518F002571CB /* addall.png */; };
 		5ACA3B3816E1D85000AAD6C6 /* ArchiveBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACA3B3716E1D85000AAD6C6 /* ArchiveBookPageViewController.m */; };
 		5AD2071116A8F98E0027CCA5 /* ArchiveDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD2071016A8F98E0027CCA5 /* ArchiveDataService.m */; };
 		5AD5975316CA1AE300AD663B /* ArchivePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5975216CA1AE300AD663B /* ArchivePageViewController.m */; };
@@ -199,6 +200,7 @@
 		5AC008A117371B33002571CB /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		5AC008A217371B33002571CB /* previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previous.png; sourceTree = "<group>"; };
 		5AC008A517371D0D002571CB /* upup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upup.png; sourceTree = "<group>"; };
+		5AC008A91737518F002571CB /* addall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addall.png; sourceTree = "<group>"; };
 		5ACA3B3616E1D85000AAD6C6 /* ArchiveBookPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageViewController.h; sourceTree = "<group>"; };
 		5ACA3B3716E1D85000AAD6C6 /* ArchiveBookPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageViewController.m; sourceTree = "<group>"; };
 		5AD2070F16A8F98E0027CCA5 /* ArchiveDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveDataService.h; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 		5A5065261736DDCD00D295E2 /* Multimedia */ = {
 			isa = PBXGroup;
 			children = (
+				5AC008A91737518F002571CB /* addall.png */,
 				5AC008A517371D0D002571CB /* upup.png */,
 				5AC008A117371B33002571CB /* next.png */,
 				5AC008A217371B33002571CB /* previous.png */,
@@ -708,6 +711,7 @@
 				5AC008A317371B33002571CB /* next.png in Resources */,
 				5AC008A417371B33002571CB /* previous.png in Resources */,
 				5AC008A617371D0D002571CB /* upup.png in Resources */,
+				5AC008AA1737518F002571CB /* addall.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
