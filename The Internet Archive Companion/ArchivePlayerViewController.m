@@ -90,11 +90,7 @@
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    // Turn on remote control event delivery
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    
-    // Set itself as the first responder
-    [self becomeFirstResponder];
+
     
     
     //[service getMetadataFileWithName:@"01Fanfare.mp3" withIdentifier:@"HunterLeeBrownWorkedBrass"];
@@ -619,7 +615,11 @@
     switch(player.playbackState) {
         case MPMoviePlaybackStatePlaying: {
             
+            // Turn on remote control event delivery
+            [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
             
+            // Set itself as the first responder
+            [self becomeFirstResponder];
             
 
             
