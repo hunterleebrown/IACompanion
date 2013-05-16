@@ -17,5 +17,7 @@
 + (NSString *) displayDateFromArchiveDayString:(NSString *)metaDate;
 + (NSString *) stringFromObject:(NSObject *)object;
 + (NSString *) decimalFormatNumberFromInteger:(int)input;
++ (NSString *)timeFormatted:(int)totalSecond;
+
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A04CEC317447A0E00AA3EE6 /* fullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A04CEC217447A0E00AA3EE6 /* fullscreen.png */; };
+		5A04CECD174489C400AA3EE6 /* mediabar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A04CECC174489C400AA3EE6 /* mediabar.png */; };
 		5A0A10B016A640A300CC70CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A10AF16A640A300CC70CD /* UIKit.framework */; };
 		5A0A10B216A640A300CC70CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A10B116A640A300CC70CD /* Foundation.framework */; };
 		5A0A10B416A640A300CC70CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A10B316A640A300CC70CD /* CoreGraphics.framework */; };
@@ -124,6 +126,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A04CEC217447A0E00AA3EE6 /* fullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullscreen.png; sourceTree = "<group>"; };
+		5A04CECC174489C400AA3EE6 /* mediabar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mediabar.png; sourceTree = "<group>"; };
 		5A0A10AB16A640A300CC70CD /* IA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0A10AF16A640A300CC70CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5A0A10B116A640A300CC70CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -404,6 +408,8 @@
 		5A5065261736DDCD00D295E2 /* Multimedia */ = {
 			isa = PBXGroup;
 			children = (
+				5A04CECC174489C400AA3EE6 /* mediabar.png */,
+				5A04CEC217447A0E00AA3EE6 /* fullscreen.png */,
 				5AC008AB173760CE002571CB /* addall.png */,
 				5AC008A517371D0D002571CB /* upup.png */,
 				5AC008A117371B33002571CB /* next.png */,
@@ -712,6 +718,8 @@
 				5AC008A417371B33002571CB /* previous.png in Resources */,
 				5AC008A617371D0D002571CB /* upup.png in Resources */,
 				5AC008AC173760CE002571CB /* addall.png in Resources */,
+				5A04CEC317447A0E00AA3EE6 /* fullscreen.png in Resources */,
+				5A04CECD174489C400AA3EE6 /* mediabar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

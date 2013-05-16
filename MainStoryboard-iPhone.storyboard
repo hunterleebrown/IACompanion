@@ -874,7 +874,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="rWJ-1G-pHd">
-                                <rect key="frame" x="0.0" y="292" width="320" height="168"/>
+                                <rect key="frame" x="0.0" y="336" width="320" height="124"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -939,6 +939,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tBB-kw-dOv">
+                                <rect key="frame" x="273" y="237" width="40" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="fullscreen.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goFullScreen:" destination="3hQ-pq-szV" eventType="touchUpInside" id="EJJ-JY-gdm"/>
+                                </connections>
+                            </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uWT-qf-ZgD">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -960,7 +975,7 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Trm-8G-qX9"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hoV-iv-7um"/>
                                     <barButtonItem style="plain" id="ndI-a3-grm">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2At-Yb-ffU">
                                             <rect key="frame" x="66" y="7" width="30" height="30"/>
@@ -1012,7 +1027,7 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jUk-QP-GkL"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="a2m-Gj-Znk"/>
                                     <barButtonItem title="Clear" id="R1h-vI-ikp">
                                         <connections>
                                             <action selector="clearList:" destination="3hQ-pq-szV" id="gO3-BJ-bct"/>
@@ -1024,16 +1039,55 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="66Y-LD-Mqx">
+                                <rect key="frame" x="18" y="281" width="284" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="didTouchDown:" destination="3hQ-pq-szV" eventType="touchDown" id="aaR-MR-Sdp"/>
+                                    <action selector="didTouchUp:" destination="3hQ-pq-szV" eventType="touchUpInside" id="TRl-56-zUw"/>
+                                    <action selector="sliderDidChangeValue:" destination="3hQ-pq-szV" eventType="valueChanged" id="1u7-Ta-A6K"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GKa-OC-2oo">
+                                <rect key="frame" x="20" y="311" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZlK-qY-ZvP">
+                                <rect key="frame" x="230" y="311" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ql5-xk-3dY">
+                                <rect key="frame" x="125" y="311" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6bg-IN-LOU" appends="YES" id="ZF4-lQ-ELQ"/>
+                            <outletCollection property="gestureRecognizers" destination="cV8-kK-dhb" appends="YES" id="P7p-az-niw"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <connections>
                         <outlet property="backgroundImage" destination="iBR-8O-8wC" id="tFf-Vc-q5l"/>
                         <outlet property="clearButton" destination="R1h-vI-ikp" id="zgY-RH-u9f"/>
+                        <outlet property="currentTimeLabel" destination="Ql5-xk-3dY" id="Kry-yw-aP4"/>
                         <outlet property="editListButton" destination="xDa-nQ-HFj" id="i2w-Vf-pXK"/>
+                        <outlet property="fullScreenButton" destination="tBB-kw-dOv" id="IR0-sn-3XC"/>
                         <outlet property="hidePlayerButton" destination="l5Q-Q3-1Xw" id="IoJ-ST-dKP"/>
                         <outlet property="instructions" destination="lmf-Oj-NEc" id="BvT-VU-gib"/>
                         <outlet property="next" destination="Ice-9b-Q67" id="Fpi-qI-g3X"/>
@@ -1044,11 +1098,24 @@
                         <outlet property="playerTableView" destination="rWJ-1G-pHd" id="7ex-HQ-iZT"/>
                         <outlet property="previous" destination="ndI-a3-grm" id="hA5-jQ-Q2l"/>
                         <outlet property="previousButton" destination="2At-Yb-ffU" id="JR9-Zg-vTp"/>
+                        <outlet property="slider" destination="66Y-LD-Mqx" id="8nh-2T-aof"/>
+                        <outlet property="sliderMaxLabel" destination="ZlK-qY-ZvP" id="Vff-2y-rJX"/>
+                        <outlet property="sliderMinLabel" destination="GKa-OC-2oo" id="ell-Zt-F0k"/>
                         <outlet property="toolbar" destination="uWT-qf-ZgD" id="lCH-u3-gtB"/>
                         <outlet property="upupButton" destination="GBS-SR-eWm" id="Gin-YY-Akf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCH-OB-Hm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="6bg-IN-LOU">
+                    <connections>
+                        <action selector="hidePlayer:" destination="3hQ-pq-szV" id="ZXu-tS-rqP"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="cV8-kK-dhb">
+                    <connections>
+                        <action selector="hidePlayer:" destination="3hQ-pq-szV" id="zYO-Wi-huI"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="562" y="771"/>
         </scene>
@@ -1059,6 +1126,7 @@
         <image name="addall.png" width="80" height="80"/>
         <image name="barIcon.png" width="20" height="20"/>
         <image name="email-icon.png" width="24" height="24"/>
+        <image name="fullscreen.png" width="80" height="80"/>
         <image name="leftContentShadow.png" width="21" height="461"/>
         <image name="list.png" width="17" height="19"/>
         <image name="next.png" width="70" height="70"/>
@@ -1154,20 +1222,26 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePlayerViewController.h"/>
             <relationships>
                 <relationship kind="action" name="clearList:"/>
+                <relationship kind="action" name="didTouchDown:"/>
+                <relationship kind="action" name="didTouchUp:"/>
                 <relationship kind="action" name="doBackwards:"/>
                 <relationship kind="action" name="doForwards:"/>
                 <relationship kind="action" name="doNext:"/>
                 <relationship kind="action" name="doPlayPause:"/>
                 <relationship kind="action" name="doPrevious:"/>
                 <relationship kind="action" name="editList:"/>
+                <relationship kind="action" name="goFullScreen:"/>
                 <relationship kind="action" name="hidePlayer:"/>
+                <relationship kind="action" name="sliderDidChangeValue:"/>
                 <relationship kind="outlet" name="backgroundImage" candidateClass="AsyncImageView"/>
                 <relationship kind="outlet" name="backwards" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="backwardsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="currentTimeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="editListButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="forwards" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="forwardsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fullScreenButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="hidePlayerButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="instructions" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="next" candidateClass="UIBarButtonItem"/>
@@ -1179,6 +1253,9 @@
                 <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="previous" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="previousButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sliderMinLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="upupButton" candidateClass="UIButton"/>
             </relationships>

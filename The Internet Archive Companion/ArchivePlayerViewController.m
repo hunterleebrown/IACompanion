@@ -14,6 +14,7 @@
 #import "ArchiveSearchDoc.h"
 #import "PlayerFile.h"
 #import "AppDelegate.h"
+#import "StringUtils.h"
 
 
 
@@ -23,7 +24,7 @@
     BOOL tableIsEditing;
     ArchiveDataService *service;
     BOOL changingPlaylistOrder;
-
+    BOOL sliderIsTouched;
 
 }
 
@@ -81,10 +82,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [_toolbar setBackgroundImage:[UIImage imageNamed:@"mediabar.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 
-
-    [_toolbar setBackgroundImage:[UIImage imageNamed:@"Jackson_Pollock.jpg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-    
     
 }
 
@@ -107,7 +106,8 @@
     // Pass the managed object context to the view controller.
     managedObjectContext = context;
 
-
+    self.slider.value = 0.0;
+    sliderIsTouched = NO;
 
 }
 
@@ -497,7 +497,12 @@
 
         
         [_backgroundImage setAndLoadImageFromUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", file.identifier]];
+       
         [_instructions setHidden:YES];
+        
+
+        
+
     }
 
 }
@@ -509,49 +514,145 @@
         
         if(!player){
             player = [[MPMoviePlayerController alloc] init];
+            [player setControlStyle:MPMovieControlStyleNone];
             [player.view setBackgroundColor:[UIColor clearColor]];
             [self.playerHolder addSubview: player.view];
             [player.view setFrame: self.playerHolder.bounds];  // player's frame must match parent's
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playBackStateChangeNotification:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:player];
+        
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidEnterFullscreenNotification object:player];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidExitFullscreenNotification object:player];
 
+            
             [player prepareToPlay];
             [player setContentURL:[NSURL URLWithString:file.url]];
             [player play];
+            [self monitorPlaybackTime];
+
         
         } else {
-            [player prepareToPlay];
+          //  [player prepareToPlay];
+            [player stop];
             [player setContentURL:[NSURL URLWithString:file.url]];
             [player play];
+            [self monitorPlaybackTime];
+
             
         }
         [self setSelectedCellOfPlayingFileForPlayer:player];
+
+    }
+
+}
+- (IBAction)didTouchDown:(id)sender{
+    sliderIsTouched = YES;
+    [_currentTimeLabel setHidden:NO];
+}
+
+- (IBAction)didTouchUp:(id)sender{
+   // player.currentPlaybackTime = _slider.value;
+    sliderIsTouched = NO;
+    [_currentTimeLabel setHidden:YES];
+    [self monitorPlaybackTime];
+}
+
+- (IBAction) sliderDidChangeValue:(id)sender{
+    player.currentPlaybackTime = _slider.value;
+    _currentTimeLabel.text = [StringUtils timeFormatted:_slider.value];
     
+    _sliderMaxLabel.text = [StringUtils timeFormatted:player.duration - player.currentPlaybackTime];
+    _sliderMinLabel.text = [StringUtils timeFormatted:player.currentPlaybackTime];
+
+
+}
+
+- (IBAction)goFullScreen:(id)sender {
+    [player setFullscreen:YES animated:YES];
+}
+
+
+- (void)fullScreenToggleNotification:(NSNotification *)notification {
+    if(player.isFullscreen){
+        [player setControlStyle:MPMovieControlStyleDefault];
+    } else {
+        [player setControlStyle:MPMovieControlStyleNone];
+
     }
 
 }
 
+-(void)monitorPlaybackTime {
+    
+    if (sliderIsTouched)
+    {
+       return;
+    }
+
+    self.slider.minimumValue = 0.0;
+    self.slider.maximumValue = player.duration;
+    self.totalVideoTime = player.duration;
+    _slider.value = player.currentPlaybackTime;
+
+    
+    _sliderMaxLabel.text = [StringUtils timeFormatted:player.duration - player.currentPlaybackTime];
+    _sliderMinLabel.text = [StringUtils timeFormatted:player.currentPlaybackTime];
+    
+    
+    //NSLog(@"currenttime: %f   touched: %@", player.currentPlaybackTime, [NSString stringWithFormat:@"%@", sliderIsTouched ? @"YES" : @"NO"]);
+    
+    //keep checking for the end of video
+    if ((self.totalVideoTime != 0 && player.currentPlaybackTime >= _totalVideoTime) || player.playbackState == MPMoviePlaybackStatePaused)
+    {
+       // [player pause];
+      //  [btnPlay setImage:[UIImage imageNamed:@"UIButtonBarPlayGray.png"] forState:UIControlStateNormal];
+       // btnPlay.tag = 0;
+    }
+    else
+    {
+        [self performSelector:@selector(monitorPlaybackTime) withObject:nil afterDelay:0.1];
+    }
+}
+
+
 - (void) playBackStateChangeNotification:(NSNotification *)notification{
     switch(player.playbackState) {
         case MPMoviePlaybackStatePlaying: {
+            
+            
+            
+
+            
             [_playPauseButton setImage:[UIImage imageNamed:@"pause-plainer.png"] forState:UIControlStateNormal];
             
             int index = [self indexOfInFileFromUrl:player.contentURL];
             PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-            MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:_backgroundImage.image];
-            NSDictionary *songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      file.title, MPMediaItemPropertyTitle,
-                                      file.identifierTitle, MPMediaItemPropertyAlbumTitle,
-                                      file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
-                                      [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
-                                      art, MPMediaItemPropertyArtwork,
-                                      nil];
+            NSDictionary *songInfo;
+            if(_backgroundImage.image){
+               MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:_backgroundImage.image];
+                songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                             file.title, MPMediaItemPropertyTitle,
+                             file.identifierTitle, MPMediaItemPropertyAlbumTitle,
+                             file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
+                             [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                             art, MPMediaItemPropertyArtwork,
+                             nil];
+            } else {
+                songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                             file.title, MPMediaItemPropertyTitle,
+                             file.identifierTitle, MPMediaItemPropertyAlbumTitle,
+                             file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
+                             [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                             nil];
+            }
+            
             [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
         }
             break;
             
         case MPMoviePlaybackStatePaused: {
             [_playPauseButton setImage:[UIImage imageNamed:@"play-plainer.png"] forState:UIControlStateNormal];
+
         }
             break;
         default:
@@ -576,8 +677,12 @@
         } else {
             PlayerFile *newFile = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:newIndex inSection:0]];
             [player setContentURL:[NSURL URLWithString:newFile.url]];
+            [player stop];
             [player play];
+
             [self setSelectedCellOfPlayingFileForPlayer:player];
+            [self monitorPlaybackTime];
+
         }
         
     } else {
@@ -592,8 +697,12 @@
         int newIndex = index - 1;
         PlayerFile *newFile = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:newIndex inSection:0]];
         [player setContentURL:[NSURL URLWithString:newFile.url]];
+        [player stop];
         [player play];
+        
         [self setSelectedCellOfPlayingFileForPlayer:player];
+        [self monitorPlaybackTime];
+
         
     } else {
         return;
@@ -623,6 +732,8 @@
 
 - (IBAction)doPlayPause:(id)sender{
     if(player){
+        
+        
         if(player.playbackState == MPMoviePlaybackStatePlaying){
             
             [player pause];
@@ -631,11 +742,18 @@
         } else if(player.playbackState == MPMoviePlaybackStatePaused){
             
             [player play];
+            [self monitorPlaybackTime];
+
         } else if(player.playbackState == MPMoviePlaybackStateSeekingBackward || player.playbackState == MPMoviePlaybackStateSeekingForward){
             [player endSeeking];
+            [player pause];
+            
         } else if(player.playbackState == MPMoviePlaybackStateStopped){
             
             [player play];
+            [self monitorPlaybackTime];
+
+            
         }
     } else{
         if([[self.fetchedResultsController fetchedObjects] count] > 0){
@@ -643,6 +761,8 @@
             [self setSelectedCellOfPlayingFileForPlayer:player];
         }
     }
+    
+
 }
 
 - (IBAction)doNext:(id)sender{

@@ -84,6 +84,7 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 }
 
 
+
 + (NSString *) stringFromObject:(NSObject *)object{
     if([object isKindOfClass:[NSArray class]]){
         NSMutableString * subs = [[NSMutableString alloc] init];
@@ -126,6 +127,21 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
     return formatted;
 
 }
+
+
+
+
++ (NSString *)timeFormatted:(int)totalSeconds
+{
+    
+    int seconds = totalSeconds % 60;
+    int minutes = (totalSeconds / 60) % 60;
+    int hours = totalSeconds / 3600;
+    
+    return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
+}
+
+
 
 
 @end

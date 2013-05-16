@@ -42,11 +42,23 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *backwards;
 @property (nonatomic, weak) IBOutlet UIButton *backwardsButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *numberOfFiles;
+@property (nonatomic, weak) IBOutlet UIButton *fullScreenButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *instructions;
 
 @property (nonatomic, weak) IBOutlet AsyncImageView *backgroundImage;
 @property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
+
+@property (nonatomic, weak) IBOutlet UISlider *slider;
+@property (nonatomic, assign) NSTimeInterval totalVideoTime;
+@property (nonatomic, weak) IBOutlet UILabel *sliderMinLabel;
+@property (nonatomic, weak) IBOutlet UILabel *sliderMaxLabel;
+@property (nonatomic, weak) IBOutlet UILabel *currentTimeLabel;
+
+- (IBAction)didTouchUp:(id)sender;
+- (IBAction)didTouchDown:(id)sender;
+- (IBAction)sliderDidChangeValue:(id)sender;
+
 
 - (IBAction)doPlayPause:(id)sender;
 - (IBAction)doNext:(id)sender;
