@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "ArchivePlayerViewController.h"
 #import "HomeCombinedViewController.h"
+#import "ArchiveFavoritesViewController.h"
 
 @interface HomeViewController : UIViewController
 
 @property (nonatomic, retain) UINavigationController *contentController;
 @property (nonatomic, retain) IBOutlet ArchivePlayerViewController *playerController;
+@property (nonatomic, retain) IBOutlet ArchiveFavoritesViewController *favoritesController;
 
 @property (nonatomic, weak) IBOutlet UIView *top;
 @property (nonatomic, weak) IBOutlet UIView *bottom;
+@property (nonatomic, weak) IBOutlet UIView *favorites;
 @property (nonatomic, weak) IBOutlet UIImageView *shadow;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 

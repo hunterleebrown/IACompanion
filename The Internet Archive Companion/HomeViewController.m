@@ -39,7 +39,8 @@
     
     } else if([[segue identifier] isEqualToString:@"playerController"]){
         _playerController = [segue destinationViewController];
-    
+    } else if([[segue identifier] isEqualToString:@"favoritesController"]){
+        _favoritesController = [segue destinationViewController];
     }
 
 }
@@ -100,6 +101,27 @@
 
 }
 
+- (void) toggleFavorites{
+    if(_favorites.frame.size.width == 320){
+        [UIView animateWithDuration:0.33 animations:^{
+            [_favorites setFrame:CGRectMake(self.view.bounds.size.width - 22, _favorites.frame.origin.y, 22, 132)];
+        } completion:^(BOOL finished) {
+            
+        }];
+
+    
+    } else {
+        [UIView animateWithDuration:0.33 animations:^{
+            [_favorites setFrame:CGRectMake(self.view.bounds.size.width - 320, _favorites.frame.origin.y, 320, 300)];
+        } completion:^(BOOL finished) {
+            
+        }];
+        
+        
+    }
+
+}
+
 
 - (void)viewDidLoad
 {
@@ -109,6 +131,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTextToLabel:) name:@"AddPlayingFileName" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePlayer) name:@"HidePlayerNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unHidePlayer) name:@"UnHidePlayerNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleFavorites) name:@"ToggleFavoritesNotification" object:nil];
 
     [self hidePlayer];
     

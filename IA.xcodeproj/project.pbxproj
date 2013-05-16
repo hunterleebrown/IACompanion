@@ -93,6 +93,8 @@
 		CE18815116CEAC630040EA9A /* ArchivePlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18815016CEAC630040EA9A /* ArchivePlayerTableViewCell.m */; };
 		CE1B959316C9D722002E9D8D /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */; };
 		CE1F81F016EAB11E009739F2 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1F81EF16EAB11E009739F2 /* bar.png */; };
+		CE204B4E17457EBC00AD6066 /* ArchiveFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE204B4D17457EBC00AD6066 /* ArchiveFavoritesViewController.m */; };
+		CE204B5A1745972000AD6066 /* favorites-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = CE204B591745972000AD6066 /* favorites-tab.png */; };
 		CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3019CD16C5729E00733B99 /* StringUtils.m */; };
 		CE3019D316C5937A00733B99 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019CF16C5937A00733B99 /* Default-Landscape@2x~ipad.png */; };
 		CE3019D416C5937A00733B99 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019D016C5937A00733B99 /* Default-Landscape~ipad.png */; };
@@ -247,6 +249,9 @@
 		CE1B959116C9D722002E9D8D /* ArchiveBookPageImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageImageViewController.h; sourceTree = "<group>"; };
 		CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageImageViewController.m; sourceTree = "<group>"; };
 		CE1F81EF16EAB11E009739F2 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
+		CE204B4C17457EBC00AD6066 /* ArchiveFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFavoritesViewController.h; sourceTree = "<group>"; };
+		CE204B4D17457EBC00AD6066 /* ArchiveFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFavoritesViewController.m; sourceTree = "<group>"; };
+		CE204B591745972000AD6066 /* favorites-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorites-tab.png"; sourceTree = "<group>"; };
 		CE3019CC16C5729E00733B99 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		CE3019CD16C5729E00733B99 /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtils.m; sourceTree = "<group>"; };
 		CE3019CF16C5937A00733B99 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -462,6 +467,7 @@
 			children = (
 				5A5065261736DDCD00D295E2 /* Multimedia */,
 				5A75EAE71731B83C007CEEA4 /* petabox.jpg */,
+				CE204B591745972000AD6066 /* favorites-tab.png */,
 				CE1F81EF16EAB11E009739F2 /* bar.png */,
 				5A51FA4B16E3C6C5004E5C44 /* email-icon.png */,
 				5A51FA4C16E3C6C5004E5C44 /* email-icon@2x.png */,
@@ -591,6 +597,8 @@
 				5A8CA7FE16D0965100F97BF7 /* ArchiveImageViewController.m */,
 				CED75E2F16D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.h */,
 				CED75E3016D6C3FF00BB37CD /* ArchivePhoneExtraDetailsViewController.m */,
+				CE204B4C17457EBC00AD6066 /* ArchiveFavoritesViewController.h */,
+				CE204B4D17457EBC00AD6066 /* ArchiveFavoritesViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -720,6 +728,7 @@
 				5AC008AC173760CE002571CB /* addall.png in Resources */,
 				5A04CEC317447A0E00AA3EE6 /* fullscreen.png in Resources */,
 				5A04CECD174489C400AA3EE6 /* mediabar.png in Resources */,
+				CE204B5A1745972000AD6066 /* favorites-tab.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +800,7 @@
 				5ACA3B3816E1D85000AAD6C6 /* ArchiveBookPageViewController.m in Sources */,
 				5A9003161735B507000C6304 /* IA.xcdatamodeld in Sources */,
 				5A9003191735B6E3000C6304 /* PlayerFile.m in Sources */,
+				CE204B4E17457EBC00AD6066 /* ArchiveFavoritesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
