@@ -14,6 +14,8 @@
 @property (nonatomic, weak) IBOutlet HomeContentParentView *contentParentView;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *back;
+@property (nonatomic, weak) IBOutlet UILabel *collectionTitleLabel;
+@property (nonatomic, strong) NSString *collectionTitle;
 
 - (IBAction)popBack:(id)sender;
 

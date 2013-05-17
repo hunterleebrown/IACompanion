@@ -200,6 +200,7 @@
         
         ArchiveCollectionListViewController *collectionViewController = [segue destinationViewController];
         [collectionViewController setIdentifier:_identifier];
+        [collectionViewController setCollectionTitle:_docTitle.text];
     }
     
     
