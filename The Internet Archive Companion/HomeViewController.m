@@ -137,7 +137,7 @@
 - (void) toggleFavorites{
     if(_favorites.frame.origin.x == self.view.bounds.size.width - 320){
         [UIView animateWithDuration:0.33 animations:^{
-            [_favorites setFrame:CGRectMake(self.view.bounds.size.width - 22, _favorites.frame.origin.y, 320, 300)];
+            [_favorites setFrame:CGRectMake(self.view.bounds.size.width - 22, _favorites.frame.origin.y, 320, _favorites.frame.size.height)];
         } completion:^(BOOL finished) {
             
         }];
@@ -145,7 +145,7 @@
     
     } else {
         [UIView animateWithDuration:0.33 animations:^{
-            [_favorites setFrame:CGRectMake(self.view.bounds.size.width - 320, _favorites.frame.origin.y, 320, 300)];
+            [_favorites setFrame:CGRectMake(self.view.bounds.size.width - 320, _favorites.frame.origin.y, 320, _favorites.frame.size.height)];
         } completion:^(BOOL finished) {
             
         }];

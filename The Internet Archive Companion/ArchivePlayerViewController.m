@@ -82,7 +82,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [_toolbar setBackgroundImage:[UIImage imageNamed:@"mediabar.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+   // [_toolbar setBackgroundImage:[UIImage imageNamed:@"mediabar.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 
     
 }
