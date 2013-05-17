@@ -64,12 +64,30 @@
     
     
     if([[results objectForKey:@"identifier"] isEqualToString:@"audio"]){
+        ArchiveSearchDoc *topAudio = [ArchiveSearchDoc new];
+        [topAudio setIdentifier:@"audio"];
+        [topAudio setTitle:@"ALL AUDIO"];
+        [topAudio setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"audio"]];
+        [audioDocs addObject:topAudio];
         [audioDocs addObjectsFromArray:[results objectForKey:@"documents"]];
 
     } else if([[results objectForKey:@"identifier"] isEqualToString:@"movies"]) {
+        ArchiveSearchDoc *topVideo = [ArchiveSearchDoc new];
+        [topVideo setIdentifier:@"movies"];
+        [topVideo setTitle:@"ALL VIDEO"];
+        [topVideo setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"movies"]];
+        [videoDocs addObject:topVideo];
+        [videoDocs addObjectsFromArray:[results objectForKey:@"documents"]];
         [videoDocs addObjectsFromArray:[results objectForKey:@"documents"]];
 
     } else if([[results objectForKey:@"identifier"] isEqualToString:@"texts"]){
+        ArchiveSearchDoc *topTexts = [ArchiveSearchDoc new];
+        [topTexts setIdentifier:@"texts"];
+        [topTexts setTitle:@"ALL TEXTS"];
+        [topTexts setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"texts"]];
+        [textDocs addObject:topTexts];
+        [textDocs addObjectsFromArray:[results objectForKey:@"documents"]];
+        
         [textDocs addObjectsFromArray:[results objectForKey:@"documents"]];
 
     }
@@ -83,13 +101,13 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return @"Audio";
+            return @"Audio Collections";
             break;
         case 1:
-            return @"Video";
+            return @"Video Collections";
             break;
         case 2:
-            return @"Text";
+            return @"Text Collections";
             break;
         default:
             return 0;
@@ -147,6 +165,14 @@
             break;
         default:
             break;
+    }
+    if (indexPath.row == 0) {
+        [cell.contentView setBackgroundColor:[UIColor blackColor]];
+        [cell.title setTextColor:[UIColor whiteColor]];
+    } else {
+        [cell.contentView setBackgroundColor:[UIColor whiteColor]];
+        [cell.title setTextColor:[UIColor blackColor]];
+
     }
 
     [cell.title setText:doc.title];

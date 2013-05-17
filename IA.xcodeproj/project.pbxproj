@@ -98,6 +98,7 @@
 		CE1B959316C9D722002E9D8D /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1B959216C9D722002E9D8D /* ArchiveBookPageImageViewController.m */; };
 		CE1F81F016EAB11E009739F2 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1F81EF16EAB11E009739F2 /* bar.png */; };
 		CE204B4E17457EBC00AD6066 /* ArchiveFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE204B4D17457EBC00AD6066 /* ArchiveFavoritesViewController.m */; };
+		CE204B5C1746AAB100AD6066 /* player-tab-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CE204B5B1746AAB100AD6066 /* player-tab-iphone.png */; };
 		CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3019CD16C5729E00733B99 /* StringUtils.m */; };
 		CE3019D316C5937A00733B99 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019CF16C5937A00733B99 /* Default-Landscape@2x~ipad.png */; };
 		CE3019D416C5937A00733B99 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019D016C5937A00733B99 /* Default-Landscape~ipad.png */; };
@@ -258,6 +259,7 @@
 		CE1F81EF16EAB11E009739F2 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		CE204B4C17457EBC00AD6066 /* ArchiveFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFavoritesViewController.h; sourceTree = "<group>"; };
 		CE204B4D17457EBC00AD6066 /* ArchiveFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFavoritesViewController.m; sourceTree = "<group>"; };
+		CE204B5B1746AAB100AD6066 /* player-tab-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player-tab-iphone.png"; sourceTree = "<group>"; };
 		CE3019CC16C5729E00733B99 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		CE3019CD16C5729E00733B99 /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtils.m; sourceTree = "<group>"; };
 		CE3019CF16C5937A00733B99 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -473,6 +475,7 @@
 			children = (
 				5A5065261736DDCD00D295E2 /* Multimedia */,
 				5A75EAE71731B83C007CEEA4 /* petabox.jpg */,
+				CE204B5B1746AAB100AD6066 /* player-tab-iphone.png */,
 				5AED60ED174600BB009320E0 /* close-btn.png */,
 				5AED60EF1746125F009320E0 /* close-tab.png */,
 				5AED60E91745F6BC009320E0 /* favorites-tab.png */,
@@ -741,6 +744,7 @@
 				5AED60EC1745F6BC009320E0 /* musicplayer-tab.png in Resources */,
 				5AED60EE174600BB009320E0 /* close-btn.png in Resources */,
 				5AED60F01746125F009320E0 /* close-tab.png in Resources */,
+				CE204B5C1746AAB100AD6066 /* player-tab-iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

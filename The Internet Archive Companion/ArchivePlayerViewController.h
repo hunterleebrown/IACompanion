@@ -66,6 +66,7 @@
 - (IBAction)doPrevious:(id)sender;
 - (IBAction)doForwards:(id)sender;
 - (IBAction)doBackwards:(id)sender;
+- (IBAction)togglePlayer:(id)sender;
 
 
 

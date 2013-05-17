@@ -42,7 +42,9 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doMoveOverForNotification) name:@"MoveOverNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver) name:@"MoveBackNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotNavCellSelectNotification:) name:@"NavCellSelectNotification" object:nil];
 
+    
     [_homeNavTableView.audioService getCollectionsWithIdentifier:@"audio"];
     [_homeNavTableView.movieService getCollectionsWithIdentifier:@"movies"];
     [_homeNavTableView.textService getCollectionsWithIdentifier:@"texts"];
@@ -198,6 +200,14 @@
         }];
 
 
+
+}
+
+- (void) gotNavCellSelectNotification:(NSNotification *)notification{
+    ArchiveSearchDoc *aDoc = notification.object;
+    HomeContentCell *cell = [HomeContentCell new];
+    [cell setDoc:aDoc];
+    [self performSegueWithIdentifier:@"homeCellPush" sender:cell];
 
 }
 

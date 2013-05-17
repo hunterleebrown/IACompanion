@@ -76,7 +76,7 @@
 
 
 - (void) didTouchNavigationCellWithDoc:(ArchiveSearchDoc *)doc{
-    
+    /*
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='padding:20px;background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
@@ -93,6 +93,12 @@
     
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveOverNotification" object:nil];
+    
+    
+    */
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NavCellSelectNotification" object:doc];
+    
 }
 
 
