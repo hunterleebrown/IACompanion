@@ -57,6 +57,10 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     
 }
 
+- (IBAction)fontSizeChange:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FontSizeNotification" object:nil];
+
+}
 
 - (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
 

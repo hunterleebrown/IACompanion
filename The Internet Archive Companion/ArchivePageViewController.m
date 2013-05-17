@@ -43,7 +43,12 @@
     
     _fontSizeForAll = 14;
 
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doFontSize:) name:@"FontSizeNotification" object:nil];
+
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -58,6 +63,10 @@
     }
     return NO;
     
+}
+
+- (void) doFontSize:(NSNotification *)notification{
+    [self performSegueWithIdentifier:@"fontSizeSegue" sender:nil];
 }
 
 

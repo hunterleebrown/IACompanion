@@ -21,5 +21,8 @@
 //@property (nonatomic) int index;
 @property (nonatomic) int fontSize;
 @property (nonatomic, retain) ArchiveFile *file;
+@property (nonatomic, retain) IBOutlet UIButton *fontSizeButton;
+
+- (IBAction)fontSizeChange:(id)sender;
 
 @end
