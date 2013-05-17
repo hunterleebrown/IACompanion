@@ -459,6 +459,11 @@
 
 }
 
+- (IBAction)togglePlayer:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TogglePlayerNotification" object:nil];
+    
+}
+
 
 - (BOOL) shouldAutorotate{
     return YES;

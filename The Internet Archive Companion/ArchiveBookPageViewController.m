@@ -37,13 +37,31 @@
         [self.rightShadow setHidden:YES];
     }
     
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popMeBack:) name:@"PopPageControllerNotification" object:nil];
 }
+
+- (void) viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    
+}
+
+- (IBAction)popMe:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PopPageControllerNotification" object:nil];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)popMeBack:(NSNotification *)notification{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

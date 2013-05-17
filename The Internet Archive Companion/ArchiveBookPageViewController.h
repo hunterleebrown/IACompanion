@@ -16,4 +16,8 @@
 @property (nonatomic, retain) IBOutlet UIImageView *leftShadow;
 @property (nonatomic, retain) IBOutlet UIImageView *rightShadow;
 
+@property (nonatomic, weak) IBOutlet UIButton *popButton;
+- (IBAction)popMe:(id)sender;
+
+
 @end

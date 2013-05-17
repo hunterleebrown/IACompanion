@@ -455,6 +455,10 @@
     
 }
 
+- (IBAction)dismissModal:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(IBAction)dismiss{
     [self.navigationController popViewControllerAnimated:YES];
 
@@ -462,7 +466,8 @@
 
 
 - (void) viewWillAppear:(BOOL)animated{
-   // [self.navigationController setNavigationBarHidden:YES animated:NO];
+   [self.navigationController setNavigationBarHidden:YES animated:NO];
+
 
 }
 

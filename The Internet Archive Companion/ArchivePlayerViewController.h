@@ -43,6 +43,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *backwardsButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *numberOfFiles;
 @property (nonatomic, weak) IBOutlet UIButton *fullScreenButton;
+@property (nonatomic, weak) IBOutlet UIButton *togglePlayerButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *instructions;
 

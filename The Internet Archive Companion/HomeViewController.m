@@ -101,10 +101,43 @@
 
 }
 
+
+- (void) showPlayerDrawer{
+
+    [UIView animateWithDuration:0.33 animations:^{
+        [_bottom setFrame:CGRectMake(self.view.bounds.size.width - 768, _bottom.frame.origin.y, 768, _bottom.frame.size.height)];
+    } completion:^(BOOL finished) {
+        
+    }];
+
+}
+
+- (void) hidePlayerDrawer{
+    [UIView animateWithDuration:0.33 animations:^{
+        [_bottom setFrame:CGRectMake(self.view.bounds.size.width - 22, _bottom.frame.origin.y, 768, _bottom.frame.size.height)];
+    } completion:^(BOOL finished) {
+        
+    }];
+
+}
+
+
+- (IBAction)togglerPlayer:(id)sender {
+    if(_bottom.frame.origin.x == self.view.bounds.size.width - 768){
+        [self hidePlayerDrawer];
+        
+    } else {
+        [self showPlayerDrawer];
+        
+    }
+    
+}
+
+
 - (void) toggleFavorites{
-    if(_favorites.frame.size.width == 320){
+    if(_favorites.frame.origin.x == self.view.bounds.size.width - 320){
         [UIView animateWithDuration:0.33 animations:^{
-            [_favorites setFrame:CGRectMake(self.view.bounds.size.width - 22, _favorites.frame.origin.y, 22, 132)];
+            [_favorites setFrame:CGRectMake(self.view.bounds.size.width - 22, _favorites.frame.origin.y, 320, 300)];
         } completion:^(BOOL finished) {
             
         }];
@@ -129,15 +162,13 @@
 	// Do any additional setup after loading the view.
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTextToLabel:) name:@"AddPlayingFileName" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePlayer) name:@"HidePlayerNotification" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unHidePlayer) name:@"UnHidePlayerNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePlayerDrawer) name:@"HidePlayerNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPlayerDrawer) name:@"UnHidePlayerNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleFavorites) name:@"ToggleFavoritesNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(togglerPlayer:) name:@"TogglePlayerNotification" object:nil];
 
-    [self hidePlayer];
     
-    if(self.animatedLabel){
-        [self animateTheLabel];
-    }
+
     
     
     [_playerController setManagedObjectContext:self.managedObjectContext];

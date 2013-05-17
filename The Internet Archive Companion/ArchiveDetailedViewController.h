@@ -51,7 +51,7 @@
 @property (nonatomic, weak) IBOutlet ArchiveMetadataTableView *metadataTableView;
 @property (nonatomic, weak) IBOutlet UIButton *addFilesToPlayerButton;
 
-
+@property (nonatomic, weak) IBOutlet UIButton *closeButton;
 
 - (IBAction)dismiss;
 - (IBAction)openWebPage:(id)sender;

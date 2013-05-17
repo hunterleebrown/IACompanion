@@ -27,5 +27,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *animatedLabel;
 
 - (void)hidePlayer;
+- (IBAction)togglerPlayer:(id)sender;
 
 @end
