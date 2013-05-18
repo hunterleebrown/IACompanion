@@ -42,7 +42,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doMoveOverForNotification) name:@"MoveOverNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver) name:@"MoveBackNotification" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotNavCellSelectNotification:) name:@"NavCellSelectNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleContent:) name:@"ToggleContentNotification" object:nil];
 
     
     [_homeNavTableView.audioService getCollectionsWithIdentifier:@"audio"];
@@ -50,9 +50,7 @@
     [_homeNavTableView.textService getCollectionsWithIdentifier:@"texts"];
     
     
-    NSURL *blogUrl = [NSURL URLWithString:@"http://blog.archive.org/category/announcements/"];
-    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:blogUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
-    [_homeContentView.iABlogWebView loadRequest:req];
+
     
     [self doOrientationLayout:self.interfaceOrientation];
 
@@ -88,8 +86,8 @@
 
     [UIView animateWithDuration:0.3 animations:^{
         // [_contentScrollView setContentOffset:CGPointMake(_homeContentView.frame.origin.x, 0)];
-        [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];        
-        [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
+        [_homeContainerView setFrame:CGRectMake(whereToGoLeft, 0, _homeContainerView.bounds.size.width, _homeContainerView.bounds.size.height)];
+        [_rightContentShadow setFrame:CGRectMake(_homeContainerView.frame.origin.x + _homeContainerView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
         
 
         
@@ -107,7 +105,7 @@
         [_homeContentView hideSearchButtons];
     }
     
-    if(_homeContentView.frame.origin.x == 256){
+    if(_homeContainerView.frame.origin.x == 256){
         [self moveContentViewOver];
     } else {
         [self moveContentViewBack];
@@ -123,21 +121,21 @@
 
     float whereToGoLeft = 0.0;
     
-    if(_homeContentView.frame.origin.x == 256){
+    if(_homeContainerView.frame.origin.x == 256){
         whereToGoLeft = 0.0;
-    } else if(_homeContentView.frame.origin.x == 0){
+    } else if(_homeContainerView.frame.origin.x == 0){
         
         if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
             whereToGoLeft = -256;
         }
         
-    } else if(_homeContentView.frame.origin.x == -256){
+    } else if(_homeContainerView.frame.origin.x == -256){
         whereToGoLeft = -256;
     }
 
         [UIView animateWithDuration:0.3 animations:^{
-            [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
-            [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
+            [_homeContainerView setFrame:CGRectMake(whereToGoLeft, 0, _homeContainerView.bounds.size.width, _homeContainerView.bounds.size.height)];
+            [_rightContentShadow setFrame:CGRectMake(_homeContainerView.frame.origin.x + _homeContainerView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
             
 
             
@@ -165,11 +163,11 @@
     
     float whereToGoLeft = 256;
     
-    if(_homeContentView.frame.origin.x == -256){
+    if(_homeContainerView.frame.origin.x == -256){
         whereToGoLeft = 0;
-    } else if(_homeContentView.frame.origin.x == 0){
+    } else if(_homeContainerView.frame.origin.x == 0){
         whereToGoLeft = 256;
-    } else if(_homeContentView.frame.origin.x == 256){
+    } else if(_homeContainerView.frame.origin.x == 256){
         whereToGoLeft = 256;
     }
 
@@ -177,8 +175,8 @@
 
 
         [UIView animateWithDuration:0.3 animations:^{
-            [_homeContentView setFrame:CGRectMake(whereToGoLeft, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
-            [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
+            [_homeContainerView setFrame:CGRectMake(whereToGoLeft, 0, _homeContainerView.bounds.size.width, _homeContainerView.bounds.size.height)];
+            [_rightContentShadow setFrame:CGRectMake(_homeContainerView.frame.origin.x + _homeContainerView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
 
             
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
@@ -203,28 +201,7 @@
 
 }
 
-- (void) gotNavCellSelectNotification:(NSNotification *)notification{
-    ArchiveSearchDoc *aDoc = notification.object;
-    HomeContentCell *cell = [HomeContentCell new];
-    [cell setDoc:aDoc];
-    [self performSegueWithIdentifier:@"homeCellPush" sender:cell];
 
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
-    if([[segue identifier] isEqualToString:@"homeCellPush"]){
-    
-        HomeContentCell *cell = (HomeContentCell *)sender;
-        ArchiveSearchDoc *doc = cell.doc;
-        
-        ArchiveDetailedViewController *detailViewController = [segue destinationViewController];
-        //[detailViewController setTitle:doc.title];
-        [detailViewController setIdentifier:doc.identifier];
-    }
-
-
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -271,13 +248,13 @@
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation)){
-            [_homeContentView setFrame:CGRectMake(256, 0, _homeContentView.bounds.size.width, _homeContentView.bounds.size.height)];
+            [_homeContainerView setFrame:CGRectMake(256, 0, _homeContainerView.bounds.size.width, _homeContainerView.bounds.size.height)];
         }
         [_homeNavView setHidden:NO];
         [_moreInfoView setHidden:NO];
     
     }
-    [_rightContentShadow setFrame:CGRectMake(_homeContentView.frame.origin.x + _homeContentView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
+    [_rightContentShadow setFrame:CGRectMake(_homeContainerView.frame.origin.x + _homeContainerView.bounds.size.width, _rightContentShadow.frame.origin.y, _rightContentShadow.bounds.size.width, _rightContentShadow.bounds.size.height)];
 
 }
 

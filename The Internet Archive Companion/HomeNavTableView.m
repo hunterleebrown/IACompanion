@@ -198,10 +198,11 @@
             break;
     }
 
-    if(_touchDelegate && [_touchDelegate respondsToSelector:@selector(didTouchNavigationCellWithDoc:)]){
-        [_touchDelegate didTouchNavigationCellWithDoc:doc];
-    }
 
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NavCellSelectNotification" object:doc];
+
+    
 }
 
 

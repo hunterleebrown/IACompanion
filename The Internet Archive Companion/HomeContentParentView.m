@@ -43,6 +43,9 @@
 
 }
 
+- (IBAction)toggleContent:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];
+}
 
 
 
@@ -75,31 +78,9 @@
 
 
 
-- (void) didTouchNavigationCellWithDoc:(ArchiveSearchDoc *)doc{
-    /*
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='padding:20px;background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
-    
-    NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
-    [_homeContentDescriptionView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
-                                 MIMEType:@"text/html"
-                         textEncodingName:@"UTF-8"
-                                  baseURL:theBaseURL];
 
-    [_homeContentTableView setDidTriggerLoadMore:NO];
-    [_homeContentTableView.service getDocsWithCollectionIdentifier:doc.identifier];
-    [_aSearchBar setText:@""];
-    [_detailsButton setEnabled:YES];
-    [self hideSplashView];
     
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveOverNotification" object:nil];
-    
-    
-    */
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"NavCellSelectNotification" object:doc];
-    
-}
 
 
 - (void) showSearchButtons{

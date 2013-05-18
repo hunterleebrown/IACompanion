@@ -90,6 +90,7 @@
 		5AF2310A16D756BC00262B09 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310916D756BC00262B09 /* Default.png */; };
 		5AF2310C16D756C500262B09 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310B16D756C500262B09 /* Default@2x.png */; };
 		5AF2311016D758F900262B09 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310F16D758F900262B09 /* Default-568h@2x.png */; };
+		5AFB0EAE17472B4700FAE78B /* HomeContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0EAD17472B4700FAE78B /* HomeContentViewController.m */; };
 		CE0411A716E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0411A616E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m */; };
 		CE18814B16CEA71F0040EA9A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18814A16CEA71F0040EA9A /* HomeViewController.m */; };
 		CE18814E16CEA7640040EA9A /* ArchivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18814D16CEA7640040EA9A /* ArchivePlayerViewController.m */; };
@@ -248,6 +249,8 @@
 		5AF2310B16D756C500262B09 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		5AF2310D16D7575D00262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		5AF2310F16D758F900262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		5AFB0EAC17472B4700FAE78B /* HomeContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeContentViewController.h; sourceTree = "<group>"; };
+		5AFB0EAD17472B4700FAE78B /* HomeContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeContentViewController.m; sourceTree = "<group>"; };
 		CE0411A516E1584F00F4F2E5 /* ArchivePageTextSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePageTextSizeViewController.h; sourceTree = "<group>"; };
 		CE0411A616E1584F00F4F2E5 /* ArchivePageTextSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePageTextSizeViewController.m; sourceTree = "<group>"; };
 		CE18814916CEA71F0040EA9A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -572,6 +575,8 @@
 				5ADAB7D216C6C1B400DBC072 /* HomeCombinedViewController.m */,
 				CE18814916CEA71F0040EA9A /* HomeViewController.h */,
 				CE18814A16CEA71F0040EA9A /* HomeViewController.m */,
+				5AFB0EAC17472B4700FAE78B /* HomeContentViewController.h */,
+				5AFB0EAD17472B4700FAE78B /* HomeContentViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -831,6 +836,7 @@
 				5A9003191735B6E3000C6304 /* PlayerFile.m in Sources */,
 				CE204B4E17457EBC00AD6066 /* ArchiveFavoritesViewController.m in Sources */,
 				CE204B671746B5E800AD6066 /* MediaToolBar.m in Sources */,
+				5AFB0EAE17472B4700FAE78B /* HomeContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

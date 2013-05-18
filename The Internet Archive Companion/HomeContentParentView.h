@@ -13,7 +13,7 @@
 
 
 
-@interface HomeContentParentView : UIView<UIWebViewDelegate, HomeNavTouchDelegate, UIScrollViewDelegate, HomeContentScrollingDelegate, UISearchBarDelegate>
+@interface HomeContentParentView : UIView<UIWebViewDelegate, UIScrollViewDelegate, HomeContentScrollingDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet HomeContentTableView *homeContentTableView;
 @property (weak, nonatomic) IBOutlet UIWebView *homeContentDescriptionView;
@@ -44,7 +44,7 @@
 - (IBAction)toggleSplashView:(id)sender;
 - (void) hideSearchButtons;
 - (IBAction)toggleInstructions:(id)sender;
-
+- (IBAction)toggleContent:(id)sender;
 
 
 @end
