@@ -30,12 +30,12 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"shareImage"]){
+              
         ArchiveShareViewController *shareController = [segue destinationViewController];
-    
-        UIPopoverController *pop = ((UIStoryboardPopoverSegue *)segue).popoverController;
-        [shareController setMyPopOverController:pop];
-       // [shareController setImage:((AsyncImageView *)_view).image];
-        [shareController setArchiveTitle:_archvieTitle];
+        [shareController setArchiveIdentifier:_archiveIdentifier];
+        [shareController setArchiveTitle:[StringUtils stringFromObject:_archvieTitle]];
+        [shareController setImage:_imageView.image];
+        
         
     }
 }
@@ -61,11 +61,14 @@
     
 }
 
+- (void) viewDidAppear:(BOOL)animated  {
+    [self.imageView setAndLoadImageFromUrl:_url];
+
+}
 
 
 - (void) setUrl:(NSString *)url{
     _url = url;
-    [self.view setAndLoadImageFromUrl:_url];
 
 }
 

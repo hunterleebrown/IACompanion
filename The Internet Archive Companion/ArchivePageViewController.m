@@ -45,6 +45,8 @@
 
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doFontSize:) name:@"FontSizeNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popMeBack:) name:@"PopPageControllerNotification" object:nil];
+
 
 }
 
@@ -110,6 +112,11 @@
 
 }
 
+
+- (void)popMeBack:(NSNotification *)notification{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

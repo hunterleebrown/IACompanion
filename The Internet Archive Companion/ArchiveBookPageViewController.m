@@ -37,7 +37,6 @@
         [self.rightShadow setHidden:YES];
     }
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popMeBack:) name:@"PopPageControllerNotification" object:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -59,9 +58,6 @@
 }
 
 
-- (void)popMeBack:(NSNotification *)notification{
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 
 @end

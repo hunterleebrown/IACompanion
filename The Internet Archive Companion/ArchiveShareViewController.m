@@ -77,9 +77,10 @@
             controller.completionHandler = myBlock;
             NSString *archiveUrl = [NSString stringWithFormat:@"http://archive.org/details/%@", self.archiveIdentifier];
             [controller addURL:[NSURL URLWithString:archiveUrl]];
-            [controller setInitialText:[NSString stringWithFormat:@"@Internet Archive - %@", self.archiveTitle]];
+            [controller setInitialText:[NSString stringWithFormat:@"Internet Archive - %@", self.archiveTitle]];
+            
             if(_image) {
-                //   [controller addImage:_image];
+                [controller addImage:_image];
             }
             
             [self presentViewController:controller animated:YES completion:nil];

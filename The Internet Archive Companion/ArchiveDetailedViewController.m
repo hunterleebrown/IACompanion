@@ -194,6 +194,7 @@
         ArchiveImageViewController *ivc = [segue destinationViewController];
         [ivc setUrl:sharedPhotoFile.url];
         [ivc setArchvieTitle:[StringUtils stringFromObject:_doc.title]];
+        [ivc setArchiveIdentifier:self.identifier];
     }
     
     if([[segue identifier] isEqualToString:@"viewCollection"]){
@@ -456,6 +457,12 @@
     
 }
 
+
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+}
+
 - (IBAction)dismissModal:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -467,12 +474,15 @@
 
 
 - (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
    [self.navigationController setNavigationBarHidden:YES animated:NO];
 
 
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     if(!player.fullscreen){
         [player stop];
     }
@@ -503,7 +513,7 @@
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results{
     _doc = [[results objectForKey:@"documents"] objectAtIndex:0];
     _docTitle.text = [StringUtils stringFromObject:_doc.title];
-    
+    _toolbarTitle.text = [StringUtils stringFromObject:_doc.title];
     
     
     [self loadAWebView:_description];
@@ -542,6 +552,7 @@
     
     if([[StringUtils stringFromObject:[metadata objectForKey:@"mediatype"]] isEqualToString:@"collection"]){
         [_viewCollectionButton setEnabled:YES];
+        [_collectionBanner setHidden:NO];
     }
     
     [_spinner stopAnimating];
@@ -571,7 +582,8 @@
 
 - (void) setIdentifier:(NSString *)identifier{
     _identifier = identifier;
-    [service getMetadataDocsWithIdentifier:identifier];
+    [service getMetadataDocsWithIdentifier:_identifier];
+
 
 }
 

@@ -30,15 +30,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotNavCellSelectNotification:) name:@"NavCellSelectNotification" object:nil];
 
 }
 
 - (void) viewDidAppear:(BOOL)animated{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotNavCellSelectNotification:) name:@"NavCellSelectNotification" object:nil];
 
     NSURL *blogUrl = [NSURL URLWithString:@"http://blog.archive.org/category/announcements/"];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:blogUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [_homeContentView.iABlogWebView loadRequest:req];
+    
+    
 }
 
 
@@ -72,6 +74,8 @@
         ArchiveDetailedViewController *detailViewController = [segue destinationViewController];
         //[detailViewController setTitle:doc.title];
         [detailViewController setIdentifier:doc.identifier];
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveOverNotification" object:nil];
 
     }
     

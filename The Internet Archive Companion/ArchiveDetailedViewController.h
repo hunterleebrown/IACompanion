@@ -27,7 +27,7 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *docTitle;
 @property (nonatomic, retain) ArchiveDetailDoc *doc;
-@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIWebView *description;
 @property (nonatomic, retain) IBOutlet UIView *movieView;
@@ -52,6 +52,9 @@
 @property (nonatomic, weak) IBOutlet UIButton *addFilesToPlayerButton;
 
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
+
+@property (nonatomic, weak) IBOutlet UILabel *toolbarTitle;
+@property (nonatomic, weak) IBOutlet UIImageView *collectionBanner;
 
 - (IBAction)dismiss;
 - (IBAction)openWebPage:(id)sender;

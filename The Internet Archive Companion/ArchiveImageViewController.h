@@ -13,10 +13,11 @@
 
 
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sharePhoto;
+@property (weak, nonatomic) IBOutlet UIButton *sharePhotoButton;
 @property (strong, nonatomic) NSString *url;
-@property (strong, nonatomic) IBOutlet AsyncImageView *view;
+@property (weak, nonatomic) IBOutlet AsyncImageView *imageView;
 @property (strong, nonatomic) NSString *archvieTitle;
+@property (strong, nonatomic) NSString *archiveIdentifier;
 
 
 - (IBAction)dismiss:(id)sender;
