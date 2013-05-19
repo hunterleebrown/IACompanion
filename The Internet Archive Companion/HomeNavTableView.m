@@ -167,11 +167,14 @@
             break;
     }
     if (indexPath.row == 0) {
-        [cell.contentView setBackgroundColor:[UIColor blackColor]];
         [cell.title setTextColor:[UIColor whiteColor]];
+        [cell.sectionCellBackground setHidden:NO];
+        [cell.plainCellBackground setHidden:YES];
+
     } else {
-        [cell.contentView setBackgroundColor:[UIColor whiteColor]];
         [cell.title setTextColor:[UIColor blackColor]];
+        [cell.sectionCellBackground setHidden:YES];
+        [cell.plainCellBackground setHidden:NO];
 
     }
 

@@ -60,4 +60,8 @@
 - (IBAction)openWebPage:(id)sender;
 - (IBAction)addFilesToPlayer:(id)sender;
 
+- (IBAction)toggleContent:(id)sender;
+- (IBAction)popToRoot:(id)sender;
+
+
 @end

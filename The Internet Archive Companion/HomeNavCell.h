@@ -13,5 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet AsyncImageView *navImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *sectionCellBackground;
+@property (weak, nonatomic) IBOutlet UIImageView *plainCellBackground;
 
 @end

@@ -105,7 +105,7 @@
 - (void) showPlayerDrawer{
 
     [UIView animateWithDuration:0.33 animations:^{
-        [_bottom setFrame:CGRectMake(self.view.bounds.size.width - _bottom.frame.size.width, _bottom.frame.origin.y, _bottom.frame.size.width, _bottom.frame.size.height)];
+        [_bottom setFrame:CGRectMake(_bottom.frame.origin.x, self.view.bounds.size.height - 398, _bottom.frame.size.width, _bottom.frame.size.height)];
     } completion:^(BOOL finished) {
         
     }];
@@ -114,7 +114,7 @@
 
 - (void) hidePlayerDrawer{
     [UIView animateWithDuration:0.33 animations:^{
-        [_bottom setFrame:CGRectMake(self.view.bounds.size.width - 22, _bottom.frame.origin.y, _bottom.frame.size.width, _bottom.frame.size.height)];
+        [_bottom setFrame:CGRectMake(_bottom.frame.origin.x, self.view.bounds.size.height - 22, _bottom.frame.size.width, _bottom.frame.size.height)];
     } completion:^(BOOL finished) {
         
     }];
@@ -123,11 +123,11 @@
 
 
 - (IBAction)togglerPlayer:(id)sender {
-    if(_bottom.frame.origin.x == self.view.bounds.size.width - _bottom.frame.size.width){
-        [self hidePlayerDrawer];
+    if(_bottom.frame.origin.y == self.view.bounds.size.height - 22){
+        [self showPlayerDrawer];
         
     } else {
-        [self showPlayerDrawer];
+        [self hidePlayerDrawer];
         
     }
     

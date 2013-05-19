@@ -13,12 +13,14 @@
 
 @property (nonatomic, weak) IBOutlet HomeContentParentView *contentParentView;
 @property (nonatomic, strong) NSString *identifier;
-@property (nonatomic, weak) IBOutlet UIBarButtonItem *back;
+@property (nonatomic, weak) IBOutlet UIButton *backButton;
 @property (nonatomic, weak) IBOutlet UILabel *collectionTitleLabel;
 @property (nonatomic, strong) NSString *collectionTitle;
 
 - (IBAction)popBack:(id)sender;
 
+- (IBAction)toggleContent:(id)sender;
+- (IBAction)popToRoot:(id)sender;
 
 
 @end

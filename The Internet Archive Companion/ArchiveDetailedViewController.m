@@ -604,4 +604,12 @@
     
 }
 
+- (IBAction)toggleContent:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];
+}
+
+- (IBAction)popToRoot:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 @end
