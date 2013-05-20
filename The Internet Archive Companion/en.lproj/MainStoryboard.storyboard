@@ -1686,7 +1686,6 @@
             <relationships>
                 <relationship kind="action" name="addFilesToPlayer:"/>
                 <relationship kind="action" name="dismiss"/>
-                <relationship kind="action" name="dismissModal:"/>
                 <relationship kind="action" name="openWebPage:"/>
                 <relationship kind="action" name="popToRoot:"/>
                 <relationship kind="action" name="toggleContent:"/>
@@ -1788,7 +1787,6 @@
                 <relationship kind="action" name="doPlayPause:"/>
                 <relationship kind="action" name="doPrevious:"/>
                 <relationship kind="action" name="editList:"/>
-                <relationship kind="action" name="goFullScreen:"/>
                 <relationship kind="action" name="hidePlayer:"/>
                 <relationship kind="action" name="sliderDidChangeValue:"/>
                 <relationship kind="action" name="togglePlayer:"/>
