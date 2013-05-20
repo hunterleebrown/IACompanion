@@ -205,6 +205,8 @@
     
     
     [self performSelectorOnMainThread:@selector(sendData:) withObject:json waitUntilDone:NO];
+    
+    
 }
 
 
@@ -255,8 +257,14 @@
 }
 
 - (void) getDocsWithCollectionIdentifier:(NSString *)identifier{
-    
     [self getDocsWithType:MediaTypeNone withIdentifier:identifier withSort:@"publicdate+desc"];
+}
+
+- (void) getStaffPicksDocsWithCollectionIdentifier:(NSString *)identifier {
+    testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@+pick:1&rows=50&page=1&output=json";
+    NSString *searchUrl = [NSString stringWithFormat:testUrl, identifier];
+    [self getDocsWithTest:searchUrl withStart:loadMoreStart];
+
 }
 
 

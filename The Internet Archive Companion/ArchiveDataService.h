@@ -25,7 +25,8 @@ typedef enum {
     MediaTypeVideo = 2,
     MediaTypeTexts = 3,
     MediaTypeImage = 4,
-    MediaTypeCollection = 5
+    MediaTypeCollection = 5,
+    MediaTypeAny = 6
 
 }MediaType;
 
@@ -49,6 +50,9 @@ typedef enum {
 - (void) loadMoreWithStart:(NSString *)loadMoreStart;
 - (void) getDocsWithCollectionIdentifier:(NSString *)identifier;
 - (void) doRangeRequestFromRange:(unsigned int)fromByte toRange:(unsigned int)toByte fromUrl:(NSString *)url;
+
+- (void) getDocsWithType:(MediaType)type withIdentifier:(NSString *)identifier withSort:(NSString *)sort;
+- (void) getStaffPicksDocsWithCollectionIdentifier:(NSString *)identifier;
 
 
 - (void) getMetadataDocsWithIdentifier:(NSString *)identifier;

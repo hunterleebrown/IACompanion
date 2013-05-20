@@ -10,6 +10,7 @@
 #import "HomeContentCell.h"
 #import "ArchiveSearchDoc.h"
 #import "ArchiveDetailedViewController.h"
+#import "ArchiveDataService.h"
 
 @interface ArchiveCollectionListViewController ()
 
@@ -34,6 +35,8 @@
     [self.contentParentView.homeContentTableView.service getDocsWithCollectionIdentifier:_identifier];
     [self.contentParentView hideSplashView];
     [self.collectionTitleLabel setText:_collectionTitle];
+    [_tabBar setSelectedItem:[_tabBar.items objectAtIndex:0]];
+
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -52,7 +55,6 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    [_tabBar setSelectedItem:[_tabBar.items objectAtIndex:0]];
     
 }
 
@@ -74,6 +76,26 @@
     }
     return NO;
     
+    
+}
+
+- (void) tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    int index = [tabBar.items indexOfObject:tabBar.selectedItem];
+    
+    
+    switch (index) {
+        case 0:
+            [_contentParentView.homeContentTableView.service getDocsWithCollectionIdentifier:_identifier];
+            break;
+        case 1:
+            [_contentParentView.homeContentTableView.service getDocsWithType:MediaTypeNone withIdentifier:_identifier withSort:@"downloads+desc"];
+            break;
+        case 2:
+            [_contentParentView.homeContentTableView.service getStaffPicksDocsWithCollectionIdentifier:_identifier];
+            break;
+        default:
+            break;
+    }
     
 }
 
