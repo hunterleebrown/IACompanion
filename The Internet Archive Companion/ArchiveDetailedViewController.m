@@ -18,6 +18,7 @@
 #import "ArchiveImageViewController.h"
 #import "ArchiveCollectionListViewController.h"
 #import "ArchivePhoneExtraDetailsViewController.h"
+#import "ArchiveItemMetaDetailsViewController.h"
 
 
 @interface ArchiveDetailedViewController (){
@@ -211,17 +212,34 @@
         [phoneDetails setMetadata:[_doc.rawDoc objectForKey:@"metadata"]];
     }
     
+    if ([[segue identifier] isEqualToString:@"itemDetailsPopover"]){
+        ArchiveItemMetaDetailsViewController *idvc = [segue destinationViewController];
+        metaDetailsPopover = ((UIStoryboardPopoverSegue *)segue).popoverController;
+        metaDetailsPopover.delegate = self;
+        [idvc setMetaData:[_doc.rawDoc objectForKey:@"metadata"]];
+
+    }
+    
    
 
 }
 
 - (void) popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
-    sharePopover = nil;
+    if(popoverController == sharePopover){
+        sharePopover = nil;
+    } else if(popoverController == metaDetailsPopover) {
+        metaDetailsPopover = nil;
+    }
 }
 
 - (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    
-    return sharePopover == nil ? YES : NO;
+    if([identifier isEqualToString:@"sharePopover"]) {
+        return sharePopover == nil ? YES : NO;
+    } else if([identifier isEqualToString:@"itemDetailsPopover"]){
+        return metaDetailsPopover == nil ? YES : NO;
+    } else {
+        return YES;
+    }
 }
 
 
@@ -548,7 +566,6 @@
     
     
         
-    [self.metadataTableView setMetadata:[_doc.rawDoc objectForKey:@"metadata"]];
     
     if([[StringUtils stringFromObject:[metadata objectForKey:@"mediatype"]] isEqualToString:@"collection"]){
         [_viewCollectionButton setEnabled:YES];

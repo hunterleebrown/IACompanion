@@ -52,7 +52,7 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+    [_tabBar setSelectedItem:[_tabBar.items objectAtIndex:0]];
     
 }
 

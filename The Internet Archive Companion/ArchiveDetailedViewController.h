@@ -22,6 +22,7 @@
     NSMutableArray *vbrs;
     MPMoviePlayerController *player;
     UIPopoverController *sharePopover;
+    UIPopoverController *metaDetailsPopover;
 
 }
 
@@ -48,13 +49,14 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *shareButton;
 
 
-@property (nonatomic, weak) IBOutlet ArchiveMetadataTableView *metadataTableView;
 @property (nonatomic, weak) IBOutlet UIButton *addFilesToPlayerButton;
 
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *toolbarTitle;
 @property (nonatomic, weak) IBOutlet UIImageView *collectionBanner;
+
+@property (nonatomic, weak) IBOutlet UIButton *itemDetailsButton;
 
 - (IBAction)dismiss;
 - (IBAction)openWebPage:(id)sender;

@@ -9,13 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "HomeContentParentView.h"
 
-@interface ArchiveCollectionListViewController : UIViewController
+@interface ArchiveCollectionListViewController : UIViewController<UITabBarDelegate>
 
 @property (nonatomic, weak) IBOutlet HomeContentParentView *contentParentView;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, weak) IBOutlet UIButton *backButton;
 @property (nonatomic, weak) IBOutlet UILabel *collectionTitleLabel;
 @property (nonatomic, strong) NSString *collectionTitle;
+
+@property (nonatomic, weak) IBOutlet UITabBar *tabBar;
+
 
 - (IBAction)popBack:(id)sender;
 
