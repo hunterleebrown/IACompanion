@@ -28,9 +28,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
+
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doSegueWithNotification:) name:@"CollectionCellNotification" object:nil];
 
-
+}
+- (void) viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"CollectionCellNotification"
+                                                  object:nil];
 }
 
 - (void)didReceiveMemoryWarning

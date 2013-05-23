@@ -389,10 +389,7 @@
 
 
 
-- (void)playbackDidFinish:(NSNotification *)notification{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
-}
+
 
 #pragma mark - orientation
 /*
