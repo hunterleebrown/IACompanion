@@ -24,7 +24,11 @@ typedef enum {
     FileFormatH264HD = 9,
     
     FileFormatDjVuTXT = 10,
-    FileFormatTxt = 11
+    FileFormatTxt = 11,
+    
+    FileFormat128KbpsMP3 = 12,
+    FileFormatMP3 = 13,
+    FileFormat96KbpsMP3 = 14
     
 } FileFormat;
 

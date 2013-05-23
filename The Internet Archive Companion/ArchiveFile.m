@@ -72,7 +72,13 @@
             _format = FileFormatMPEG4;
         } else if([[file objectForKey:@"format"] isEqualToString:@"512Kb MPEG4"]){
             _format = FileFormat512kbMPEG4;
-        }else if([[file objectForKey:@"format"] isEqualToString:@"JPEG"]){
+        } else if ([[file objectForKey:@"format"] isEqualToString:@"128Kbps MP3"]){
+            _format = FileFormat128KbpsMP3;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"MP3"]){
+            _format = FileFormatMP3;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"96Kbps MP3"]) {
+            _format = FileFormat96KbpsMP3;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"JPEG"]){
             _format = FileFormatJPEG;
         } else if([[file objectForKey:@"format"] isEqualToString:@"GIF"]){
             _format = FileFormatGIF;
