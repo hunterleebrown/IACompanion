@@ -162,6 +162,187 @@
             </objects>
             <point key="canvasLocation" x="-421" y="-1223"/>
         </scene>
+        <!--Archive Collection Detailed View Controller-->
+        <scene sceneID="xlo-Xz-g95">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="formSheet" id="KLd-NW-Hjj" customClass="ArchiveCollectionDetailedViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BM9-Fh-zAL">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" id="a2Y-gt-kIm">
+                                <rect key="frame" x="636" y="46" width="122" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="drg-LZ-0ke" customClass="AsyncImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" image="collection-banner.png" id="y5N-wa-Baf">
+                                <rect key="frame" x="0.0" y="158" width="768" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="NqR-dh-4Hs">
+                                <rect key="frame" x="20" y="51" width="535" height="76"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="24"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <webView opaque="NO" contentMode="scaleToFill" id="zlS-CA-dpL">
+                                <rect key="frame" x="10" y="220" width="374" height="764"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KLd-NW-Hjj" id="ciK-ST-fcN"/>
+                                </connections>
+                            </webView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" id="yE0-Ab-g8X">
+                                <rect key="frame" x="20" y="136" width="728" height="32"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5MT-I8-Et2" customClass="MediaToolBar">
+                                <rect key="frame" x="10" y="180" width="748" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <barButtonItem title="Meta Data" id="BMR-To-kfg">
+                                        <connections>
+                                            <segue destination="FRd-Ej-jZI" kind="popover" identifier="itemDetailsPopover" popoverAnchorBarButtonItem="BMR-To-kfg" id="t75-hP-PXV">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8zu-Iq-2nT"/>
+                                    <barButtonItem title="Visit Collection Web Page" id="U62-iM-2aS">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="openWebPage:" destination="KLd-NW-Hjj" id="lyb-Bc-VE7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PDs-Lp-Hl2"/>
+                                    <barButtonItem image="share-bbi.png" id="StO-3S-O4Q">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="l32-Zy-TBk" kind="popover" identifier="sharePopover" popoverAnchorBarButtonItem="StO-3S-O4Q" id="iur-LB-Wk0">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="XmK-As-KyA">
+                                <rect key="frame" x="277" y="78" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="h06-tR-ahN">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <barButtonItem image="list.png" id="bii-Oo-BM4">
+                                        <connections>
+                                            <action selector="toggleContent:" destination="KLd-NW-Hjj" id="3P1-2M-j7M"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="jBq-LT-Oyz">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jc9-et-zws">
+                                            <rect key="frame" x="54" y="7" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" image="search-button.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="popToRoot:" destination="KLd-NW-Hjj" eventType="touchUpInside" id="qJc-IQ-eIh"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="8Sw-d6-FhW">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CpC-gy-YIb">
+                                            <rect key="frame" x="94" y="2" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" image="left-arrow.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="dismiss" destination="KLd-NW-Hjj" eventType="touchUpInside" id="cJo-xl-1ot"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yOR-GK-oUV">
+                                <rect key="frame" x="146" y="0.0" width="602" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView contentMode="scaleToFill" id="dZ1-Yi-GA1">
+                                <rect key="frame" x="384" y="224" width="374" height="760"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="LTP-89-WoS" kind="embed" identifier="collectionViewController" id="mBG-qG-7pZ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TNr-59-4ke"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="aSyncImage" destination="drg-LZ-0ke" id="X00-QI-O89"/>
+                        <outlet property="closeButton" destination="CpC-gy-YIb" id="z2v-US-aXv"/>
+                        <outlet property="collectionBanner" destination="y5N-wa-Baf" id="Ict-rS-f7a"/>
+                        <outlet property="description" destination="zlS-CA-dpL" id="3aZ-wY-r9Q"/>
+                        <outlet property="docTitle" destination="NqR-dh-4Hs" id="jNj-gQ-u7R"/>
+                        <outlet property="metadataTableView" destination="qsM-Kr-6Cx" id="n43-YC-ADh"/>
+                        <outlet property="movieView" destination="a2Y-gt-kIm" id="feT-yI-rgc"/>
+                        <outlet property="shareButton" destination="StO-3S-O4Q" id="bl5-v2-au4"/>
+                        <outlet property="spinner" destination="XmK-As-KyA" id="4gE-K3-xVL"/>
+                        <outlet property="subject" destination="yE0-Ab-g8X" id="OZe-xz-9ta"/>
+                        <outlet property="toolbarTitle" destination="yOR-GK-oUV" id="khK-8G-mtw"/>
+                        <outlet property="viewWebPageButton" destination="U62-iM-2aS" id="ZZg-5E-nTt"/>
+                        <segue destination="5Hf-D6-IM6" kind="push" identifier="collectionCellDetailPush" id="nYH-2B-Szs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qul-ih-ibN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ug2-wl-yII">
+                    <rect key="frame" x="0.0" y="0.0" width="73" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <segue destination="KLd-NW-Hjj" kind="push" identifier="collectionCellCollectionPush" id="5AI-QO-vCi"/>
+                    </connections>
+                </button>
+            </objects>
+            <point key="canvasLocation" x="2580" y="-2518"/>
+        </scene>
         <!--Archive Detailed View Controller-->
         <scene sceneID="tUu-5H-6hW">
             <objects>
@@ -283,12 +464,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GJJ-qM-YPn"/>
-                                    <barButtonItem enabled="NO" title="View Collection List" id="Lfg-WW-q7Y">
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="LTP-89-WoS" kind="push" identifier="viewCollection" id="K10-66-4oC"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem title="Visit Item Web Page" id="oNv-Uz-WsW">
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -382,7 +557,6 @@
                         <outlet property="subject" destination="gKV-6L-2G6" id="21T-AY-F7q"/>
                         <outlet property="tableView" destination="9Np-SX-QeY" id="343-a4-GbX"/>
                         <outlet property="toolbarTitle" destination="E8d-fB-KuS" id="lw6-YU-TEN"/>
-                        <outlet property="viewCollectionButton" destination="Lfg-WW-q7Y" id="12v-Xz-LHb"/>
                         <outlet property="viewWebPageButton" destination="oNv-Uz-WsW" id="uEw-Up-VJp"/>
                         <segue destination="y53-fE-RS1" kind="modal" identifier="bookViewer" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="ocb-ZN-o1S"/>
                         <segue destination="aZb-Mp-738" kind="push" identifier="imageSegue" id="yoJ-9L-8zY"/>
@@ -397,26 +571,26 @@
             <objects>
                 <viewController id="FRd-Ej-jZI" customClass="ArchiveItemMetaDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="of0-aX-CI3">
-                        <rect key="frame" x="0.0" y="20" width="640" height="400"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Item/Collection Meta Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o4R-81-IfH">
-                                <rect key="frame" x="10" y="0.0" width="610" height="30"/>
+                                <rect key="frame" x="10" y="0.0" width="738" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="30" sectionHeaderHeight="22" sectionFooterHeight="22" id="qsM-Kr-6Cx" customClass="ArchiveMetadataTableView">
-                                <rect key="frame" x="0.0" y="29" width="640" height="371"/>
+                                <rect key="frame" x="0.0" y="29" width="768" height="975"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ArchiveMetadataTableViewCell" id="L5d-AD-n9W" customClass="ArchiveMetadataTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="640" height="30"/>
+                                        <rect key="frame" x="0.0" y="22" width="768" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="640" height="29"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="29"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="kFY-Ks-Cyc">
@@ -427,7 +601,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" id="8eO-ka-MKe">
-                                                    <rect key="frame" x="128" y="0.0" width="512" height="30"/>
+                                                    <rect key="frame" x="128" y="0.0" width="640" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -453,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5s-RH-q2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2219" y="166"/>
+            <point key="canvasLocation" x="1215" y="-2770"/>
         </scene>
         <!--Archive Image View Controller-->
         <scene sceneID="Eab-kJ-OvR">
@@ -576,7 +750,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUg-Ou-3El" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4362" y="-132"/>
+            <point key="canvasLocation" x="4458" y="-460"/>
         </scene>
         <!--Home Content View Controller-->
         <scene sceneID="Vrq-dQ-VPL">
@@ -970,6 +1144,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="homeContentView" destination="dGe-kY-kb9" id="fwF-Ic-M7J"/>
+                        <segue destination="KLd-NW-Hjj" kind="push" identifier="homeCollectionDetailPush" id="f1O-1M-oBo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgz-pD-7ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1371,63 +1546,62 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1447" y="-29"/>
+            <point key="canvasLocation" x="-621" y="351"/>
         </scene>
         <!--Archive Collection List View Controller-->
         <scene sceneID="xNr-BE-LuP">
             <objects>
                 <viewController id="LTP-89-WoS" customClass="ArchiveCollectionListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xm6-1M-gNa" customClass="HomeContentParentView">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="716"/>
+                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="EQV-Xm-86M" customClass="HomeContentTableView">
-                                <rect key="frame" x="0.0" y="88" width="768" height="872"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="EQV-Xm-86M" customClass="HomeContentTableView">
+                                <rect key="frame" x="0.0" y="49" width="374" height="668"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="homeContentCell" id="EUq-d8-ddg" customClass="HomeContentCell">
-                                        <rect key="frame" x="0.0" y="22" width="768" height="150"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="homeContentCell" rowHeight="81" id="EUq-d8-ddg" customClass="HomeContentCell">
+                                        <rect key="frame" x="0.0" y="22" width="374" height="81"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="NVM-MF-SV6">
-                                                    <rect key="frame" x="10" y="10" width="748" height="140"/>
+                                                    <rect key="frame" x="10" y="10" width="354" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="5a8-HA-TP0" customClass="AsyncImageView">
-                                                            <rect key="frame" x="0.0" y="0.0" width="190" height="140"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="95" height="70"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="joB-oF-468">
-                                                            <rect key="frame" x="208" y="20" width="392" height="43"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" id="joB-oF-468">
+                                                            <rect key="frame" x="103" y="5" width="250" height="33"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nP4-bI-Eh3">
-                                                            <rect key="frame" x="208" y="63" width="392" height="37"/>
+                                                            <rect key="frame" x="103" y="50" width="167" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eBf-ku-F46">
-                                                            <rect key="frame" x="208" y="108" width="290" height="21"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eBf-ku-F46">
+                                                            <rect key="frame" x="231" y="50" width="122" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ja3-WA-2Bw">
-                                                            <rect key="frame" x="208" y="5" width="70" height="21"/>
+                                                            <rect key="frame" x="283" y="0.0" width="70" height="15"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -1444,7 +1618,6 @@
                                             <outlet property="subject" destination="nP4-bI-Eh3" id="GWl-b3-hfr"/>
                                             <outlet property="title" destination="joB-oF-468" id="me7-YX-1F6"/>
                                             <outlet property="underlayView" destination="NVM-MF-SV6" id="IIn-Ui-drX"/>
-                                            <segue destination="5Hf-D6-IM6" kind="push" identifier="collectionCellPush" id="zQt-5f-2g4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1454,73 +1627,28 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadow.png" id="fhd-LM-Jf7">
-                                <rect key="frame" x="0.0" y="88" width="768" height="21"/>
+                                <rect key="frame" x="0.0" y="44" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertShadowBottom.png" id="xbT-ZC-nr3">
-                                <rect key="frame" x="0.0" y="938" width="768" height="21"/>
+                                <rect key="frame" x="0.0" y="696" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="Izq-wx-rgP">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <barButtonItem image="list.png" id="qK4-MJ-HpU">
-                                        <connections>
-                                            <action selector="toggleContent:" destination="LTP-89-WoS" id="mYr-Go-YgG"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="12r-70-DcM">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ils-L0-n2G">
-                                            <rect key="frame" x="54" y="7" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" title="Button" image="search-button.png">
-                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="popToRoot:" destination="LTP-89-WoS" eventType="touchUpInside" id="JyI-ba-S1a"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="shi-Ie-1rm">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bVC-Le-GY4">
-                                            <rect key="frame" x="94" y="2" width="40" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" image="left-arrow.png">
-                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="popBack:" destination="LTP-89-WoS" eventType="touchUpInside" id="JtI-4K-ZZa"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lKq-lv-qAB">
-                                <rect key="frame" x="140" y="0.0" width="608" height="44"/>
+                                <rect key="frame" x="140" y="0.0" width="214" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tabBar contentMode="scaleToFill" id="Sye-Y0-dxk">
-                                <rect key="frame" x="0.0" y="39" width="768" height="49"/>
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
                                     <tabBarItem systemItem="recents" id="sJj-nz-Aht"/>
-                                    <tabBarItem systemItem="mostViewed" id="yuz-oL-Y8l"/>
-                                    <tabBarItem systemItem="featured" id="zJn-n3-5X7"/>
+                                    <tabBarItem title="Most Downloaded" id="yuz-oL-Y8l"/>
+                                    <tabBarItem title="Staff Picks" id="zJn-n3-5X7"/>
                                     <tabBarItem systemItem="search" id="5GM-gZ-haF"/>
                                 </items>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1530,7 +1658,7 @@
                                 </connections>
                             </tabBar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Vz-Vz-AUR">
-                                <rect key="frame" x="604" y="53" width="144" height="21"/>
+                                <rect key="frame" x="564" y="20" width="144" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1547,7 +1675,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="backButton" destination="bVC-Le-GY4" id="lkL-K1-qti"/>
                         <outlet property="collectionTitleLabel" destination="lKq-lv-qAB" id="8sl-Eg-hOY"/>
                         <outlet property="contentParentView" destination="xm6-1M-gNa" id="E5H-S8-UGz"/>
                         <outlet property="tabBar" destination="Sye-Y0-dxk" id="naD-cE-Ka0"/>
@@ -1555,7 +1682,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prd-0C-Zry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3462" y="-2485"/>
+            <point key="canvasLocation" x="3529" y="-2457"/>
         </scene>
         <!--Archive Favorites View Controller-->
         <scene sceneID="aeG-m4-Ymh">
@@ -1669,13 +1796,279 @@
         <image name="vertShadow.png" width="320" height="19"/>
         <image name="vertShadowBottom.png" width="320" height="19"/>
     </resources>
+    <classes>
+        <class className="ArchiveCollectionDetailedViewController" superclassName="ArchiveDetailedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionDetailedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="collectionListViewController" candidateClass="ArchiveCollectionListViewController"/>
+            </relationships>
+        </class>
+        <class className="ArchiveCollectionListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="popBack:"/>
+                <relationship kind="action" name="popToRoot:"/>
+                <relationship kind="action" name="toggleContent:"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="collectionTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contentParentView" candidateClass="HomeContentParentView"/>
+                <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
+            </relationships>
+        </class>
+        <class className="ArchiveDetailedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addFilesToPlayer:"/>
+                <relationship kind="action" name="dismiss"/>
+                <relationship kind="action" name="openWebPage:"/>
+                <relationship kind="action" name="popToRoot:"/>
+                <relationship kind="action" name="toggleContent:"/>
+                <relationship kind="outlet" name="aSyncImage" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="addFilesToPlayerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="added" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="collectionBanner" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="creator" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="description" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="docTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="from" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemDetailsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="movieView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="publisher" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="toolbarTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="uploader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewCollectionButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="viewWebPageButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ArchiveFavoritesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveFavoritesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toggle:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="toggleFavoritesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ArchiveFileTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveFileTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchiveImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismiss:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="sharePhotoButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ArchiveItemMetaDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveItemMetaDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="metadataTableView" candidateClass="ArchiveMetadataTableView"/>
+            </relationships>
+        </class>
+        <class className="ArchiveMetadataTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveMetadataTableView.h"/>
+        </class>
+        <class className="ArchiveMetadataTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveMetadataTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="key" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="value" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchivePageTextSizeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePageTextSizeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressMinusButton:"/>
+                <relationship kind="action" name="didPressPlusButton:"/>
+                <relationship kind="outlet" name="minusButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="plusButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ArchivePageViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fontButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ArchivePlayerTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePlayerTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="identifierLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchivePlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePlayerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearList:"/>
+                <relationship kind="action" name="didTouchDown:"/>
+                <relationship kind="action" name="didTouchUp:"/>
+                <relationship kind="action" name="doBackwards:"/>
+                <relationship kind="action" name="doForwards:"/>
+                <relationship kind="action" name="doNext:"/>
+                <relationship kind="action" name="doPlayPause:"/>
+                <relationship kind="action" name="doPrevious:"/>
+                <relationship kind="action" name="editList:"/>
+                <relationship kind="action" name="hidePlayer:"/>
+                <relationship kind="action" name="sliderDidChangeValue:"/>
+                <relationship kind="action" name="togglePlayer:"/>
+                <relationship kind="outlet" name="backgroundImage" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="backwards" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="backwardsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="currentTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="editListButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwards" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwardsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fullScreenButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hidePlayerButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="instructions" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="next" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="numberOfFiles" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playPause" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playPauseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="previous" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="previousButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sliderMinLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="togglePlayerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="upupButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ArchiveShareViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveShareViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doShare:"/>
+                <relationship kind="outlet" name="faceBookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="twitterButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AsyncImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImageView.h"/>
+        </class>
+        <class className="HomeCombinedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeCombinedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="moveContentViewBack"/>
+                <relationship kind="action" name="moveContentViewOver"/>
+                <relationship kind="action" name="toggleContent:"/>
+                <relationship kind="outlet" name="homeContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="homeContentView" candidateClass="HomeContentParentView"/>
+                <relationship kind="outlet" name="homeNavTableView" candidateClass="HomeNavTableView"/>
+                <relationship kind="outlet" name="homeNavView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="moreInfoView" candidateClass="MoreInfoView"/>
+                <relationship kind="outlet" name="rightContentShadow" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="HomeContentCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aSyncImageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="collection" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="underlayView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="HomeContentParentView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentParentView.h"/>
+            <relationships>
+                <relationship kind="action" name="showSplashView"/>
+                <relationship kind="action" name="toggleContent:"/>
+                <relationship kind="action" name="toggleDetails:"/>
+                <relationship kind="action" name="toggleInstructions:"/>
+                <relationship kind="action" name="toggleSplashView:"/>
+                <relationship kind="outlet" name="aSearchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="descriptionShadow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="detailsButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="homeContentDescriptionView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
+                <relationship kind="outlet" name="iABlogWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="iAHomeSplashView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="iASplashImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="instructionsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchButtonHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchButtons" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="showListButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="toolBarTitle" candidateClass="UIBarItem"/>
+            </relationships>
+        </class>
+        <class className="HomeContentTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollDelegate"/>
+                <relationship kind="outlet" name="totalFound" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HomeContentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="homeContentView" candidateClass="HomeContentParentView"/>
+            </relationships>
+        </class>
+        <class className="HomeNavCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navImageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="plainCellBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="sectionCellBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HomeNavTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavTableView.h"/>
+        </class>
+        <class className="HomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="togglerPlayer:"/>
+                <relationship kind="outlet" name="animatedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bottom" candidateClass="UIView"/>
+                <relationship kind="outlet" name="favorites" candidateClass="UIView"/>
+                <relationship kind="outlet" name="favoritesController" candidateClass="ArchiveFavoritesViewController"/>
+                <relationship kind="outlet" name="playerController" candidateClass="ArchivePlayerViewController"/>
+                <relationship kind="outlet" name="shadow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="top" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="MediaToolBar" superclassName="UIToolbar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaToolBar.h"/>
+        </class>
+        <class className="MoreInfoView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreInfoView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="licenseWeb" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mbX-ep-fhz"/>
-        <segue reference="Q8z-3I-Pcp"/>
+        <segue reference="f1O-1M-oBo"/>
+        <segue reference="t75-hP-PXV"/>
+        <segue reference="nYH-2B-Szs"/>
+        <segue reference="iur-LB-Wk0"/>
     </inferredMetricsTieBreakers>
 </document>

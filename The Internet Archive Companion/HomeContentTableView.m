@@ -123,6 +123,14 @@
 }
 
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ArchiveSearchDoc *doc = [docs objectAtIndex:indexPath.row];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CollectionCellNotification" object:doc];
+
+
+}
+
 
 
 

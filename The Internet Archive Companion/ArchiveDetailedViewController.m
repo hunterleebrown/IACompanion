@@ -161,6 +161,8 @@
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    
     if([[segue identifier] isEqualToString:@"bookViewer"]){
         [self setPagesWithIndex:0];
         firstPage = [pages objectAtIndex:2];
@@ -216,6 +218,7 @@
     }
     
     if ([[segue identifier] isEqualToString:@"itemDetailsPopover"]){
+        
         ArchiveItemMetaDetailsViewController *idvc = [segue destinationViewController];
         metaDetailsPopover = ((UIStoryboardPopoverSegue *)segue).popoverController;
         metaDetailsPopover.delegate = self;

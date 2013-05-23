@@ -9,6 +9,7 @@
 #import "HomeContentViewController.h"
 #import "HomeContentCell.h"
 #import "ArchiveDetailedViewController.h"
+#import "ArchiveCollectionDetailedViewController.h"
 
 @interface HomeContentViewController ()
 
@@ -60,8 +61,13 @@
     ArchiveSearchDoc *aDoc = notification.object;
     HomeContentCell *cell = [HomeContentCell new];
     [cell setDoc:aDoc];
-    [self performSegueWithIdentifier:@"homeCellPush" sender:cell];
     
+    
+    if(aDoc.type == MediaTypeCollection){
+        [self performSegueWithIdentifier:@"homeCollectionDetailPush" sender:cell];
+    } else {
+        [self performSegueWithIdentifier:@"homeCellPush" sender:cell];
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -77,6 +83,19 @@
 
         [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveOverNotification" object:nil];
 
+    }
+
+    if([[segue identifier] isEqualToString:@"homeCollectionDetailPush"]){
+        
+        HomeContentCell *cell = (HomeContentCell *)sender;
+        ArchiveSearchDoc *doc = cell.doc;
+        
+        ArchiveCollectionDetailedViewController *detailViewController = [segue destinationViewController];
+        //[detailViewController setTitle:doc.title];
+        [detailViewController setIdentifier:doc.identifier];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveOverNotification" object:nil];
+        
     }
     
     

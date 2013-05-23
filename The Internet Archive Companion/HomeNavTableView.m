@@ -67,6 +67,7 @@
         ArchiveSearchDoc *topAudio = [ArchiveSearchDoc new];
         [topAudio setIdentifier:@"audio"];
         [topAudio setTitle:@"ALL AUDIO"];
+        [topAudio setType:MediaTypeCollection];
         [topAudio setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"audio"]];
         [audioDocs addObject:topAudio];
         [audioDocs addObjectsFromArray:[results objectForKey:@"documents"]];
@@ -74,6 +75,7 @@
     } else if([[results objectForKey:@"identifier"] isEqualToString:@"movies"]) {
         ArchiveSearchDoc *topVideo = [ArchiveSearchDoc new];
         [topVideo setIdentifier:@"movies"];
+        [topVideo setType:MediaTypeCollection];
         [topVideo setTitle:@"ALL VIDEO"];
         [topVideo setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"movies"]];
         [videoDocs addObject:topVideo];
@@ -83,6 +85,7 @@
     } else if([[results objectForKey:@"identifier"] isEqualToString:@"texts"]){
         ArchiveSearchDoc *topTexts = [ArchiveSearchDoc new];
         [topTexts setIdentifier:@"texts"];
+        [topTexts setType:MediaTypeCollection];
         [topTexts setTitle:@"ALL TEXTS"];
         [topTexts setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"texts"]];
         [textDocs addObject:topTexts];

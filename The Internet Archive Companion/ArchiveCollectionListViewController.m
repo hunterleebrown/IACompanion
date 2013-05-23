@@ -11,6 +11,7 @@
 #import "ArchiveSearchDoc.h"
 #import "ArchiveDetailedViewController.h"
 #import "ArchiveDataService.h"
+#import "ArchiveCollectionDetailedViewController.h"
 
 @interface ArchiveCollectionListViewController ()
 
@@ -32,6 +33,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
     [self.contentParentView.homeContentTableView.service getDocsWithCollectionIdentifier:_identifier];
     [self.contentParentView hideSplashView];
     [self.collectionTitleLabel setText:_collectionTitle];
@@ -39,18 +41,7 @@
 
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if([[segue identifier] isEqualToString:@"collectionCellPush"]){
-        
-        HomeContentCell *cell = (HomeContentCell *)sender;
-        ArchiveSearchDoc *doc = cell.doc;
-        
-        ArchiveDetailedViewController *detailViewController = [segue destinationViewController];
-        [detailViewController setTitle:doc.title];
-        [detailViewController setIdentifier:doc.identifier];
-    }
-}
+
 
 
 - (void) viewWillAppear:(BOOL)animated{

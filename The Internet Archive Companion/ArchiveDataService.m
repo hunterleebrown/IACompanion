@@ -81,6 +81,19 @@
                     [aDoc setPublicDate:[doc objectForKey:@"publicdate"]];
                     [aDoc setDate:[doc objectForKey:@"date"]];
                     
+                    if([[doc objectForKey:@"mediatype"] isEqualToString:@"collection"]){
+                        [aDoc setType:MediaTypeCollection];
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"audio"]){
+                        [aDoc setType:MediaTypeAudio];
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"video"]){
+                        [aDoc setType:MediaTypeVideo];
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"texts"]){
+                        [aDoc setType:MediaTypeTexts];
+                    } else {
+                        [aDoc setType:MediaTypeAny];
+                    }
+                    
+                    
                     [responseDocs addObject:aDoc];
                 }
             
@@ -103,7 +116,6 @@
         }
         [dDoc setDescription:[metadata objectForKey:@"description"]];
         [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];
-
         
         NSMutableArray *files = [NSMutableArray new];
         if([inData objectForKey:@"files"]){

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSString *publicDate;
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSDictionary *rawDoc;
+@property (nonatomic) MediaType type;
 
 
 @end
