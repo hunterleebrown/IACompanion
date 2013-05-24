@@ -33,6 +33,16 @@
     return self;
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"navController"]){
+        _homeNavContoller = [segue destinationViewController];
+    }
+    
+
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,6 +53,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doMoveOverForNotification) name:@"MoveOverNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveContentViewOver) name:@"MoveBackNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleContent:) name:@"ToggleContentNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:_homeNavContoller.visibleViewController selector:@selector(gotNavCellSelectNotification:) name:@"NavCellSelectNotification" object:nil];
 
     
     [_homeNavTableView.audioService getCollectionsWithIdentifier:@"audio"];

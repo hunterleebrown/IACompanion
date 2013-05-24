@@ -10,11 +10,12 @@
 #import "HomeContentParentView.h"
 #import "HomeNavTableView.h"
 #import "MoreInfoView.h"
+#import "HomeContentViewController.h"
 @interface HomeCombinedViewController : UIViewController
 
 
 
-
+@property (nonatomic, weak) IBOutlet UINavigationController *homeNavContoller;
 @property (nonatomic, weak) IBOutlet UIView *homeContainerView;
 @property (nonatomic, weak) IBOutlet HomeContentParentView *homeContentView;
 @property (nonatomic, weak) IBOutlet UIView *homeNavView;

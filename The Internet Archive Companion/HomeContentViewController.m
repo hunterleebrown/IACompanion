@@ -31,7 +31,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotNavCellSelectNotification:) name:@"NavCellSelectNotification" object:nil];
 
 }
 
@@ -40,10 +39,16 @@
     NSURL *blogUrl = [NSURL URLWithString:@"http://blog.archive.org/category/announcements/"];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:blogUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [_homeContentView.iABlogWebView loadRequest:req];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotNavCellSelectNotification:) name:@"CollectionCellNotification" object:nil];
+
     
 }
 
+- (void) viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"CollectionCellNotification" object:nil];
+
+    
+}
 
 
 

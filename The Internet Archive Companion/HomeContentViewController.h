@@ -13,4 +13,8 @@
 
 
 @property (nonatomic, weak) IBOutlet HomeContentParentView *homeContentView;
+
+- (void) gotNavCellSelectNotification:(NSNotification *)notification;
+
+
 @end
