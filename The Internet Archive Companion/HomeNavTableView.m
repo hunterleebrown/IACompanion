@@ -80,7 +80,6 @@
         [topVideo setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"movies"]];
         [videoDocs addObject:topVideo];
         [videoDocs addObjectsFromArray:[results objectForKey:@"documents"]];
-        [videoDocs addObjectsFromArray:[results objectForKey:@"documents"]];
 
     } else if([[results objectForKey:@"identifier"] isEqualToString:@"texts"]){
         ArchiveSearchDoc *topTexts = [ArchiveSearchDoc new];
@@ -89,8 +88,6 @@
         [topTexts setTitle:@"ALL TEXTS"];
         [topTexts setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"texts"]];
         [textDocs addObject:topTexts];
-        [textDocs addObjectsFromArray:[results objectForKey:@"documents"]];
-        
         [textDocs addObjectsFromArray:[results objectForKey:@"documents"]];
 
     }

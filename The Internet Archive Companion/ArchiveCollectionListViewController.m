@@ -76,18 +76,64 @@
     
     switch (index) {
         case 0:
+            [self hideSearch];
             [_contentParentView.homeContentTableView.service getDocsWithCollectionIdentifier:_identifier];
             break;
         case 1:
+            [self hideSearch];
             [_contentParentView.homeContentTableView.service getDocsWithType:MediaTypeNone withIdentifier:_identifier withSort:@"downloads+desc"];
             break;
         case 2:
+            [self hideSearch];
             [_contentParentView.homeContentTableView.service getStaffPicksDocsWithCollectionIdentifier:_identifier];
+            break;
+        case 3:
+            [self toggleSearch:nil];
             break;
         default:
             break;
     }
     
+}
+
+
+- (void) hideSearch{
+    [_searchBar resignFirstResponder];
+    [UIView animateWithDuration:0.3 animations:^{
+        [_searchView setFrame:CGRectMake(0, -20, _searchView.bounds.size.width, _searchView.bounds.size.height)];
+    }];
+}
+
+- (void) showSearch{
+    [UIView animateWithDuration:0.3 animations:^{
+        [_searchView setFrame:CGRectMake(0, 52, _searchView.bounds.size.width, _searchView.bounds.size.height)];
+        [_searchBar becomeFirstResponder];
+    }];
+}
+
+- (IBAction)toggleSearch:(id)sender {
+    
+    
+    if(_searchView.frame.origin.y != 52){
+        [self showSearch];
+    } else {
+        [self hideSearch];
+    }
+
+}
+
+- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    [self toggleSearch:nil];
+}
+
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSLog(@" search: %@", searchBar.text);
+    [searchBar resignFirstResponder];
+    [self toggleSearch:nil];
+    [_contentParentView.homeContentTableView.service getDocsWithQueryString:[NSString stringWithFormat:@"%@ collection:%@", searchBar.text,_identifier]];
+
 }
 
 

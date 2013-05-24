@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HomeContentParentView.h"
 
-@interface ArchiveCollectionListViewController : UIViewController<UITabBarDelegate>
+@interface ArchiveCollectionListViewController : UIViewController<UITabBarDelegate, UISearchBarDelegate>
 
 @property (nonatomic, weak) IBOutlet HomeContentParentView *contentParentView;
 @property (nonatomic, strong) NSString *identifier;
@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSString *collectionTitle;
 
 @property (nonatomic, weak) IBOutlet UITabBar *tabBar;
+
+@property (nonatomic, weak) IBOutlet UIView *searchView;
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 
 - (IBAction)popBack:(id)sender;

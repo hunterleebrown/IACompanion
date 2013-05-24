@@ -62,6 +62,9 @@
 		5A990BBC16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A990BBB16BA56AD00B4C058 /* ArchiveDetailedCollectionViewCell.m */; };
 		5AA29AA316BB8CD00082D3C4 /* ArchiveDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */; };
 		5AA2EDB916D2C140003EAD82 /* ArchiveCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2EDB816D2C140003EAD82 /* ArchiveCollectionListViewController.m */; };
+		5AAEE97C174F226400A64A18 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAEE97B174F226400A64A18 /* thumbs-up.png */; };
+		5AAEE97E174F22D800A64A18 /* mostdownloaded-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAEE97D174F22D800A64A18 /* mostdownloaded-button.png */; };
+		5AAEE980174F255A00A64A18 /* bylatest-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAEE97F174F255A00A64A18 /* bylatest-button.png */; };
 		5AB7AB5916CA3A230014D40C /* ArchiveBookPageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB7AB5816CA3A230014D40C /* ArchiveBookPageImageViewController.xib */; };
 		5AC008A317371B33002571CB /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC008A117371B33002571CB /* next.png */; };
 		5AC008A417371B33002571CB /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC008A217371B33002571CB /* previous.png */; };
@@ -220,6 +223,9 @@
 		5AA29AA216BB8CCF0082D3C4 /* ArchiveDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveDetailedViewController.m; sourceTree = "<group>"; };
 		5AA2EDB716D2C140003EAD82 /* ArchiveCollectionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionListViewController.h; sourceTree = "<group>"; };
 		5AA2EDB816D2C140003EAD82 /* ArchiveCollectionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionListViewController.m; sourceTree = "<group>"; };
+		5AAEE97B174F226400A64A18 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
+		5AAEE97D174F22D800A64A18 /* mostdownloaded-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mostdownloaded-button.png"; sourceTree = "<group>"; };
+		5AAEE97F174F255A00A64A18 /* bylatest-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bylatest-button.png"; sourceTree = "<group>"; };
 		5AB7AB5816CA3A230014D40C /* ArchiveBookPageImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArchiveBookPageImageViewController.xib; sourceTree = "<group>"; };
 		5AC008A117371B33002571CB /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		5AC008A217371B33002571CB /* previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previous.png; sourceTree = "<group>"; };
@@ -509,6 +515,9 @@
 				5A5065261736DDCD00D295E2 /* Multimedia */,
 				5A75EAE71731B83C007CEEA4 /* petabox.jpg */,
 				5AFB0ECF1749746100FAE78B /* ia-button.png */,
+				5AAEE97F174F255A00A64A18 /* bylatest-button.png */,
+				5AAEE97B174F226400A64A18 /* thumbs-up.png */,
+				5AAEE97D174F22D800A64A18 /* mostdownloaded-button.png */,
 				5AFB0ECD17496E9C00FAE78B /* search-button.png */,
 				5AFB0EC91749621600FAE78B /* section-cell-background.png */,
 				5AFB0ECB1749644A00FAE78B /* plain-cell-background.png */,
@@ -801,6 +810,9 @@
 				5AFB0ECC1749644B00FAE78B /* plain-cell-background.png in Resources */,
 				5AFB0ECE17496E9C00FAE78B /* search-button.png in Resources */,
 				5AFB0ED01749746100FAE78B /* ia-button.png in Resources */,
+				5AAEE97C174F226400A64A18 /* thumbs-up.png in Resources */,
+				5AAEE97E174F22D800A64A18 /* mostdownloaded-button.png in Resources */,
+				5AAEE980174F255A00A64A18 /* bylatest-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

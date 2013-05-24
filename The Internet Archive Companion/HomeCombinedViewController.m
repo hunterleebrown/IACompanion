@@ -56,11 +56,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:_homeNavContoller.visibleViewController selector:@selector(gotNavCellSelectNotification:) name:@"NavCellSelectNotification" object:nil];
 
     
+
+    
     [_homeNavTableView.audioService getCollectionsWithIdentifier:@"audio"];
     [_homeNavTableView.movieService getCollectionsWithIdentifier:@"movies"];
     [_homeNavTableView.textService getCollectionsWithIdentifier:@"texts"];
-    
-    
 
     
     [self doOrientationLayout:self.interfaceOrientation];

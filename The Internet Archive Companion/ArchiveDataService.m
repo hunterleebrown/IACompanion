@@ -281,6 +281,7 @@
 
 
 - (void) getCollectionsWithIdentifier:(NSString *)identifier{
+    
     [self getDocsWithType:MediaTypeCollection withIdentifier:identifier withSort:@"titleSorter+asc"];
 }
 
