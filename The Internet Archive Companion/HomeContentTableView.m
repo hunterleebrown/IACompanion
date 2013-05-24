@@ -199,8 +199,8 @@
 - (void)loadMoreItems:(id)sender {
     _didTriggerLoadMore = YES;
     start = start + 50;
-    NSLog(@"-----> trigger loadmore");
-    NSLog(@" docs.count:%i  numFound:%i   start:%i", docs.count, numFound, start);
+   // NSLog(@"-----> trigger loadmore");
+   // NSLog(@" docs.count:%i  numFound:%i   start:%i", docs.count, numFound, start);
 
     [_service loadMoreWithStart:[NSString stringWithFormat:@"%i", start]];
 }

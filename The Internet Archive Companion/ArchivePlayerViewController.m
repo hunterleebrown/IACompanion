@@ -201,7 +201,7 @@
         if (![context save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+           // NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
 
     }
@@ -214,8 +214,8 @@
 }
 
 - (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-    NSLog(@"->      sourceIndexPath.row: %i", sourceIndexPath.row);
-    NSLog(@"-> destinationIndexPath.row: %i", destinationIndexPath.row);
+  //  NSLog(@"->      sourceIndexPath.row: %i", sourceIndexPath.row);
+   // NSLog(@"-> destinationIndexPath.row: %i", destinationIndexPath.row);
 
     
     // Get a handle to the playlist we're moving
@@ -251,7 +251,7 @@
         [player stop];
     }
     PlayerFile *file = ((ArchivePlayerTableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).file;
-    NSLog(@"-----> file.url: %@", file.url);
+    //NSLog(@"-----> file.url: %@", file.url);
     
     
     [self startListWithFile:file];
@@ -274,7 +274,7 @@
         if (![context save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+          //  NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
     }
 
@@ -293,7 +293,7 @@
     if (![context save:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+      //  NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
     
 
@@ -332,7 +332,7 @@
 	if (![self.fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	   // NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	}
     
     return _fetchedResultsController;
@@ -435,7 +435,7 @@
          
          */
         
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+       // NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         
         
     }
@@ -485,7 +485,7 @@
 - (void) setSelectedCellOfPlayingFileForPlayer:(MPMoviePlayerController *)thePlayer{
     if ([[self.fetchedResultsController fetchedObjects] count]> 0) {
         int index = [self indexOfInFileFromUrl:thePlayer.contentURL];
-        NSLog(@"--------> playing index: %i", index);
+        //NSLog(@"--------> playing index: %i", index);
         
         if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
             [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];

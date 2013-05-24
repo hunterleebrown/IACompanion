@@ -324,7 +324,7 @@
 
 
 - (void) changeFontSizeOfChildControllers:(int)size{
-    NSLog(@" ---------> change child fontsize to: %i", size);
+ //   NSLog(@" ---------> change child fontsize to: %i", size);
     
     for(UIViewController *vc in pages){
         if([vc isKindOfClass:[ArchiveBookPageTextViewController class]]) {

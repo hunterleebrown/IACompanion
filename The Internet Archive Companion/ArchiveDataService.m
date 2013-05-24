@@ -208,7 +208,7 @@
     
 
     
-    NSLog(@"--->url: %@", inUrl);
+  //  NSLog(@"--->url: %@", inUrl);
     
     NSData* data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inUrl]];
     NSError *jsonParsingError = nil;
@@ -381,14 +381,14 @@
 
 - (void) doRangeRequestFromRange:(unsigned int)fromByte toRange:(unsigned int)toByte fromUrl:(NSString *)url{
 
-    NSLog(@"-----> url: %@", url);
+   // NSLog(@"-----> url: %@", url);
     
     //bookTextPageRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
     bookTextPageRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15];
     
     // Define the bytes we wish to download.
     NSString *range = [NSString stringWithFormat:@"bytes=%i-%i", fromByte, toByte];
-    NSLog(@"-----> range: %@", range);
+    //NSLog(@"-----> range: %@", range);
     
     [bookTextPageRequest setValue:range forHTTPHeaderField:@"Range"];
 
@@ -420,7 +420,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
 
-    NSLog(@"  response statusCode: %i", [httpResponse statusCode]);
+    //NSLog(@"  response statusCode: %i", [httpResponse statusCode]);
     [bookTextData setLength:0];
 
 
@@ -438,7 +438,7 @@
 {
     // do something with the data
     // receivedData is declared as a method instance elsewhere
-    NSLog(@"Succeeded! Received %d bytes of data",[bookTextData length]);
+   // NSLog(@"Succeeded! Received %d bytes of data",[bookTextData length]);
 
     
     NSString *myString = [[NSString alloc] initWithData:bookTextData encoding:NSUTF8StringEncoding];

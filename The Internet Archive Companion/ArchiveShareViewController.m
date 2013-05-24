@@ -52,7 +52,7 @@
 - (IBAction)doShare:(id)sender{
 
     UIButton *button = (UIButton *)sender;
-    NSLog(@"------> button.tag: %i", button.tag);
+   // NSLog(@"------> button.tag: %i", button.tag);
     if(_archiveIdentifier == nil){
        // [_myPopOverController dismissPopoverAnimated:YES];
         

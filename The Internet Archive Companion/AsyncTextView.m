@@ -79,7 +79,7 @@ static NSCache *cache = nil;
         [self displayView:cachedData];
       //  NSLog(@"CACHE HIT...");
     } else {
-        NSLog(@"NO CACHE HIT...");
+       // NSLog(@"NO CACHE HIT...");
         
         NSOperationQueue *queue = [NSOperationQueue new];
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]

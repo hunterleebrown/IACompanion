@@ -68,7 +68,8 @@
 }
 
 - (void) doFontSize:(NSNotification *)notification{
-    [self performSegueWithIdentifier:@"fontSizeSegue" sender:nil];
+    UIButton *button = notification.object;
+    [self changeFontSize:button.tag];
 }
 
 
