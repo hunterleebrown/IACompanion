@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kn-lX-54J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1426" y="-1154"/>
+            <point key="canvasLocation" x="-1394" y="-1234"/>
         </scene>
         <!--Home Combined View Controller-->
         <scene sceneID="JX5-LD-vo2">
@@ -341,7 +341,7 @@
                     </connections>
                 </button>
             </objects>
-            <point key="canvasLocation" x="2420" y="-2356"/>
+            <point key="canvasLocation" x="2596" y="-2336"/>
         </scene>
         <!--Archive Detailed View Controller-->
         <scene sceneID="tUu-5H-6hW">
@@ -564,7 +564,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsW-Dz-qyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2420" y="-1250"/>
+            <point key="canvasLocation" x="2612" y="-1024"/>
         </scene>
         <!--Archive Item Meta Details View Controller-->
         <scene sceneID="miq-Ve-u4l">
@@ -1180,7 +1180,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rtp-gz-Deb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="589" y="-1243"/>
+            <point key="canvasLocation" x="570" y="-1250"/>
         </scene>
         <!--Archive Page View Controller-->
         <scene sceneID="WKj-4q-RCS">
@@ -1808,7 +1808,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1426" y="-2328"/>
+            <point key="canvasLocation" x="-1426" y="-2464"/>
         </scene>
     </scenes>
     <resources>
@@ -1849,9 +1849,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MCp-X9-g7v"/>
+        <segue reference="nYH-2B-Szs"/>
         <segue reference="f1O-1M-oBo"/>
-        <segue reference="t75-hP-PXV"/>
         <segue reference="iur-LB-Wk0"/>
+        <segue reference="t75-hP-PXV"/>
     </inferredMetricsTieBreakers>
 </document>

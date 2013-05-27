@@ -45,6 +45,7 @@
 
 - (IBAction)toggleContent:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];
+    
 }
 
 
@@ -61,7 +62,7 @@
 }
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [_toolBarTitle setTitle:@""];
+ //   [_toolBarTitle setTitle:@""];
     [_homeContentTableView setDidTriggerLoadMore:NO];    
     MediaType type = (MediaType)_searchButtons.selectedSegmentIndex;
     [_homeContentTableView.service getDocsWithQueryString:searchBar.text forMediaType:type];
