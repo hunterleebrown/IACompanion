@@ -105,7 +105,7 @@
 - (void) showPlayerDrawer{
 
     [UIView animateWithDuration:0.33 animations:^{
-        [_bottom setFrame:CGRectMake(_bottom.frame.origin.x, self.view.bounds.size.height - 398, _bottom.frame.size.width, _bottom.frame.size.height)];
+        [_bottom setFrame:CGRectMake(_bottom.frame.origin.x, self.view.bounds.size.height - _bottom.frame.size.height, _bottom.frame.size.width, _bottom.frame.size.height)];
     } completion:^(BOOL finished) {
         
     }];
