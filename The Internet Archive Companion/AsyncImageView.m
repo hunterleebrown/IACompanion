@@ -39,7 +39,7 @@ static NSCache *cache = nil;
 - (id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self){
-        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [self addSubview:spinner];
 
 
@@ -50,7 +50,7 @@ static NSCache *cache = nil;
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if(self){
-        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [self addSubview:spinner];
     }
     return self;

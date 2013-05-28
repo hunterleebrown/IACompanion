@@ -158,4 +158,9 @@
     
 }
 
+- (IBAction)pop:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 @end

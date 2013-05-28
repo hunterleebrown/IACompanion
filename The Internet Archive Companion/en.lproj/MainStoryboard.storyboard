@@ -1201,7 +1201,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgN-lb-TLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3462" y="-1305"/>
+            <point key="canvasLocation" x="3731" y="-1643"/>
         </scene>
         <!--Archive Page Text Size View Controller-->
         <scene sceneID="V3V-8b-sqI">
@@ -1242,7 +1242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8V-ig-syT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4280" y="-1054"/>
+            <point key="canvasLocation" x="4612" y="-1176"/>
         </scene>
         <!--Archive Player View Controller-->
         <scene sceneID="3MO-ut-qkj">
@@ -1726,7 +1726,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prd-0C-Zry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3529" y="-2457"/>
+            <point key="canvasLocation" x="3731" y="-2523"/>
         </scene>
         <!--Archive Favorites View Controller-->
         <scene sceneID="aeG-m4-Ymh">
@@ -1843,13 +1843,282 @@
         <image name="vertShadow.png" width="320" height="19"/>
         <image name="vertShadowBottom.png" width="320" height="19"/>
     </resources>
+    <classes>
+        <class className="ArchiveCollectionDetailedViewController" superclassName="ArchiveDetailedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionDetailedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="collectionListViewController" candidateClass="ArchiveCollectionListViewController"/>
+            </relationships>
+        </class>
+        <class className="ArchiveCollectionListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCollectionListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="popBack:"/>
+                <relationship kind="action" name="popToRoot:"/>
+                <relationship kind="action" name="toggleContent:"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="collectionTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contentParentView" candidateClass="HomeContentParentView"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
+            </relationships>
+        </class>
+        <class className="ArchiveDetailedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDetailedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addFilesToPlayer:"/>
+                <relationship kind="action" name="dismiss"/>
+                <relationship kind="action" name="openWebPage:"/>
+                <relationship kind="action" name="popToRoot:"/>
+                <relationship kind="action" name="toggleContent:"/>
+                <relationship kind="outlet" name="aSyncImage" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="addFilesToPlayerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="added" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="collectionBanner" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="creator" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="description" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="docTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="from" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemDetailsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="movieView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="publisher" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="toolbarTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="uploader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewCollectionButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="viewWebPageButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ArchiveFavoritesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveFavoritesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toggle:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="toggleFavoritesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ArchiveFileTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveFileTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchiveImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismiss:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="sharePhotoButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ArchiveItemMetaDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveItemMetaDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="metadataTableView" candidateClass="ArchiveMetadataTableView"/>
+            </relationships>
+        </class>
+        <class className="ArchiveMetadataTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveMetadataTableView.h"/>
+        </class>
+        <class className="ArchiveMetadataTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveMetadataTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="key" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="value" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchivePageTextSizeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePageTextSizeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressMinusButton:"/>
+                <relationship kind="action" name="didPressPlusButton:"/>
+                <relationship kind="outlet" name="minusButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="plusButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ArchivePageViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fontButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ArchivePlayerTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePlayerTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="identifierLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ArchivePlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchivePlayerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearList:"/>
+                <relationship kind="action" name="didTouchDown:"/>
+                <relationship kind="action" name="didTouchUp:"/>
+                <relationship kind="action" name="doBackwards:"/>
+                <relationship kind="action" name="doForwards:"/>
+                <relationship kind="action" name="doNext:"/>
+                <relationship kind="action" name="doPlayPause:"/>
+                <relationship kind="action" name="doPrevious:"/>
+                <relationship kind="action" name="editList:"/>
+                <relationship kind="action" name="hidePlayer:"/>
+                <relationship kind="action" name="sliderDidChangeValue:"/>
+                <relationship kind="action" name="togglePlayer:"/>
+                <relationship kind="outlet" name="backgroundImage" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="backwards" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="backwardsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="clearButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="currentTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="editListButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwards" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwardsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fullScreenButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hidePlayerButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="instructions" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="next" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="numberOfFiles" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playPause" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playPauseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="previous" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="previousButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sliderMinLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="togglePlayerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="upupButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ArchiveShareViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveShareViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doShare:"/>
+                <relationship kind="action" name="pop:"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="faceBookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="twitterButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AsyncImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImageView.h"/>
+        </class>
+        <class className="HomeCombinedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeCombinedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="moveContentViewBack"/>
+                <relationship kind="action" name="moveContentViewOver"/>
+                <relationship kind="action" name="toggleContent:"/>
+                <relationship kind="outlet" name="homeContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="homeContentView" candidateClass="HomeContentParentView"/>
+                <relationship kind="outlet" name="homeNavContoller" candidateClass="UINavigationController"/>
+                <relationship kind="outlet" name="homeNavTableView" candidateClass="HomeNavTableView"/>
+                <relationship kind="outlet" name="homeNavView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="moreInfoView" candidateClass="MoreInfoView"/>
+                <relationship kind="outlet" name="rightContentShadow" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="HomeContentCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aSyncImageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="collection" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="underlayView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="HomeContentParentView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentParentView.h"/>
+            <relationships>
+                <relationship kind="action" name="showSplashView"/>
+                <relationship kind="action" name="toggleContent:"/>
+                <relationship kind="action" name="toggleDetails:"/>
+                <relationship kind="action" name="toggleInstructions:"/>
+                <relationship kind="action" name="toggleSplashView:"/>
+                <relationship kind="outlet" name="aSearchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="descriptionShadow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="detailsButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="homeContentDescriptionView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="homeContentTableView" candidateClass="HomeContentTableView"/>
+                <relationship kind="outlet" name="iABlogWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="iAHomeSplashView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="iASplashImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="instructionsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchButtonHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchButtons" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="showListButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="toolBarTitle" candidateClass="UIBarItem"/>
+            </relationships>
+        </class>
+        <class className="HomeContentTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollDelegate"/>
+                <relationship kind="outlet" name="totalFound" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HomeContentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeContentViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="homeContentView" candidateClass="HomeContentParentView"/>
+            </relationships>
+        </class>
+        <class className="HomeNavCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navImageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="plainCellBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="sectionCellBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HomeNavTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavTableView.h"/>
+        </class>
+        <class className="HomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="togglerPlayer:"/>
+                <relationship kind="outlet" name="animatedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bottom" candidateClass="UIView"/>
+                <relationship kind="outlet" name="favorites" candidateClass="UIView"/>
+                <relationship kind="outlet" name="favoritesController" candidateClass="ArchiveFavoritesViewController"/>
+                <relationship kind="outlet" name="playerController" candidateClass="ArchivePlayerViewController"/>
+                <relationship kind="outlet" name="shadow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="top" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="MediaToolBar" superclassName="UIToolbar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaToolBar.h"/>
+        </class>
+        <class className="MoreInfoView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreInfoView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="licenseWeb" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nYH-2B-Szs"/>
+        <segue reference="MCp-X9-g7v"/>
         <segue reference="f1O-1M-oBo"/>
         <segue reference="iur-LB-Wk0"/>
         <segue reference="t75-hP-PXV"/>

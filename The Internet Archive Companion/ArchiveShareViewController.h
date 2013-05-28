@@ -22,6 +22,9 @@
 @property (nonatomic, retain) NSString *archiveIdentifier;
 @property (nonatomic, retain) NSString *archiveTitle;
 @property (nonatomic, retain) UIImage *image;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem* closeButton;
+
+- (IBAction)pop:(id)sender;
 - (IBAction)doShare:(id)sender;
 
 @end
