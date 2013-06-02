@@ -10,7 +10,7 @@
 #import "AsyncImageView.h"
 #import "ArchiveBookPageViewController.h"
 
-@interface ArchiveBookPageImageViewController : ArchiveBookPageViewController
+@interface ArchiveBookPageImageViewController : ArchiveBookPageViewController<UIScrollViewDelegate>
 
 
 
@@ -22,6 +22,7 @@
 //@property (nonatomic) int index;
 @property (nonatomic, retain) NSString *url;
 @property (nonatomic, weak) IBOutlet UILabel *pageNumber;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 - (void) setPageWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(int)index;
 

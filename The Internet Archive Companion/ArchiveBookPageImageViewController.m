@@ -36,6 +36,14 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
         // Custom initialization
         
         [self.view setBackgroundColor:[UIColor whiteColor]];
+        
+        [_scrollView setUserInteractionEnabled:YES];
+        [_scrollView setShowsVerticalScrollIndicator:YES];
+        [_scrollView setShowsHorizontalScrollIndicator:YES];
+        [_scrollView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+        //set the zooming properties of the scroll view
+        _scrollView.minimumZoomScale = 1.0;
+        _scrollView.maximumZoomScale = 10.0;
 
         
     }
@@ -47,6 +55,9 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
     if(self){
     
         [self.view setBackgroundColor:[UIColor whiteColor]];
+        
+        
+        
 
     }
     return self;
@@ -114,5 +125,28 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
     
     
 }
+
+
+
+- (void) scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
+    NSLog(@"GOT A ZOOM");
+    
+}
+
+- (void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale {
+    NSLog(@"GOT A ZOOM DID END");
+    
+}
+
+- (void) scrollViewDidZoom:(UIScrollView *)scrollView {
+    
+    
+}
+
+
+- (UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return _aSyncImageView;
+}
+
 
 @end
