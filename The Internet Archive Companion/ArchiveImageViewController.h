@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AsyncImageView.h"
 
-@interface ArchiveImageViewController : UIViewController
+@interface ArchiveImageViewController : UIViewController<UIScrollViewDelegate>
 
 
 
@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet AsyncImageView *imageView;
 @property (strong, nonatomic) NSString *archvieTitle;
 @property (strong, nonatomic) NSString *archiveIdentifier;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 - (IBAction)dismiss:(id)sender;

@@ -59,6 +59,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [_scrollView setUserInteractionEnabled:YES];
+    [_scrollView setShowsVerticalScrollIndicator:YES];
+    [_scrollView setShowsHorizontalScrollIndicator:YES];
+    [_scrollView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    //set the zooming properties of the scroll view
+    _scrollView.minimumZoomScale = 1.0;
+    _scrollView.maximumZoomScale = 10.0;
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated  {
@@ -86,8 +94,32 @@
         return YES;
     }
     return NO;
+}
+
+
+
+- (void) scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
+    NSLog(@"GOT A ZOOM");
+    
+}
+
+- (void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale {
+    NSLog(@"GOT A ZOOM DID END");
+    
+}
+
+- (void) scrollViewDidZoom:(UIScrollView *)scrollView {
     
     
 }
+
+
+- (UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return _imageView;
+}
+
+
+
+
 
 @end

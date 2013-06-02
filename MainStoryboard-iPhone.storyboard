@@ -1154,10 +1154,19 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="420"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="mhX-tD-9Cm" customClass="AsyncImageView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rjl-6q-IQr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="mhX-tD-9Cm" customClass="AsyncImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="UgK-hH-v0y" id="GDS-Hj-jdR"/>
+                                </connections>
+                            </scrollView>
                             <button opaque="NO" alpha="0.50000000000000011" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rxE-AO-Sde">
                                 <rect key="frame" x="20" y="20" width="67" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1181,6 +1190,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="mhX-tD-9Cm" id="xjW-xZ-Jo4"/>
+                        <outlet property="scrollView" destination="rjl-6q-IQr" id="Ckt-xk-Guz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMc-1K-tGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1528,6 +1538,7 @@
             <relationships>
                 <relationship kind="action" name="addFilesToPlayer:"/>
                 <relationship kind="action" name="dismiss"/>
+                <relationship kind="action" name="dismissModal:"/>
                 <relationship kind="action" name="openWebPage:"/>
                 <relationship kind="action" name="popToRoot:"/>
                 <relationship kind="action" name="toggleContent:"/>
@@ -1574,6 +1585,7 @@
             <relationships>
                 <relationship kind="action" name="dismiss:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="AsyncImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="sharePhotoButton" candidateClass="UIButton"/>
             </relationships>
         </class>
