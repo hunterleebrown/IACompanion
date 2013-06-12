@@ -273,7 +273,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="w84-eJ-2mY" customClass="MediaToolBar">
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="w84-eJ-2mY">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <items>
@@ -502,14 +502,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <barButtonItem image="list.png" id="AYR-vM-ohx">
-                                        <connections>
-                                            <action selector="toggleContent:" destination="Bt4-SM-HOP" id="ic5-Rh-DzS"/>
-                                        </connections>
+                                    <barButtonItem style="plain" id="7Ky-7H-GCM">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CBB-3Z-mZV">
+                                            <rect key="frame" x="12" y="13" width="17" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" image="list.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="toggleContent:" destination="Bt4-SM-HOP" eventType="touchUpInside" id="7pv-tU-33x"/>
+                                            </connections>
+                                        </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="R6k-1a-fuP">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jEh-KA-css">
-                                            <rect key="frame" x="53" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="39" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" title="Button" image="left-arrow.png">
@@ -526,7 +538,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="dgR-CJ-gch">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lGB-ez-JqU">
-                                            <rect key="frame" x="103" y="6" width="32" height="33"/>
+                                            <rect key="frame" x="89" y="6" width="32" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" image="search-button.png">
@@ -691,14 +703,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <barButtonItem image="list.png" id="XrC-aw-9uM">
-                                        <connections>
-                                            <action selector="toggleContent:" destination="rwC-6V-2uG" id="g9l-Iz-E5l"/>
-                                        </connections>
+                                    <barButtonItem style="plain" id="oXb-Sd-YDP">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xs9-8y-g4V">
+                                            <rect key="frame" x="12" y="13" width="17" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" image="list.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="toggleContent:" destination="rwC-6V-2uG" eventType="touchUpInside" id="E0W-zR-Bqu"/>
+                                            </connections>
+                                        </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="gNi-01-XDe">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="56a-3i-KHY">
-                                            <rect key="frame" x="53" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="39" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" image="left-arrow.png">
@@ -715,7 +739,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="VLJ-tI-cAs">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jSo-j9-lf5">
-                                            <rect key="frame" x="103" y="6" width="32" height="33"/>
+                                            <rect key="frame" x="89" y="6" width="32" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" image="search-button.png">
@@ -1633,7 +1657,6 @@
                 <relationship kind="action" name="doPlayPause:"/>
                 <relationship kind="action" name="doPrevious:"/>
                 <relationship kind="action" name="editList:"/>
-                <relationship kind="action" name="goFullScreen:"/>
                 <relationship kind="action" name="hidePlayer:"/>
                 <relationship kind="action" name="sliderDidChangeValue:"/>
                 <relationship kind="action" name="togglePlayer:"/>
