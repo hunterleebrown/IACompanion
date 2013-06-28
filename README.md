@@ -1,5 +1,6 @@
 IACompanion
 ===========
+2.0 branch (this code shipped)
 
 Internet Archive iPad Browser
 
