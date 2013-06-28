@@ -339,6 +339,7 @@
 
 - (UIViewController *) newPageControllerWithIndex:(int)index{
     
+    
     if(bookFile.format == FileFormatDjVuTXT || bookFile.format == FileFormatTxt){
         
         ArchiveBookPageTextViewController *page = [[ArchiveBookPageTextViewController alloc] initWithNibName:@"ArchiveBookPageTextViewController" bundle:nil];
@@ -350,7 +351,7 @@
 
         return page;
         
-    } else if(bookFile.format == FileFormatProcessedJP2ZIP) {
+    } else {
 
         ArchiveBookPageImageViewController *page = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
         [page setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:index];

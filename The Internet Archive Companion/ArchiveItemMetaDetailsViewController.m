@@ -30,7 +30,8 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated{
-    [_metadataTableView setMetadata:_metaData];
+    NSMutableDictionary *mut = [NSMutableDictionary dictionaryWithDictionary:_metaData];
+    [_metadataTableView setMetadata:mut];
 }
 
 - (void)didReceiveMemoryWarning

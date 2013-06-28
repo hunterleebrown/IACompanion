@@ -32,8 +32,10 @@
 	// Do any additional setup after loading the view.
     
     [self loadWebView:_webContent];
-    [self.metadataTableView setMetadata:_metadata];
     
+    NSMutableDictionary *mut = [NSMutableDictionary dictionaryWithDictionary:_metadata];
+    [self.metadataTableView setMetadata:mut];
+
     [_description setDelegate:self];
     
 

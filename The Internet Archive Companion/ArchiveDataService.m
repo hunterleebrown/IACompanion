@@ -418,7 +418,6 @@
 
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
 
     //NSLog(@"  response statusCode: %i", [httpResponse statusCode]);
     [bookTextData setLength:0];

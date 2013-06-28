@@ -11,6 +11,7 @@
 
 @protocol ArchiveDataServiceDelegate <NSObject>
 
+@optional
 - (void) dataDidFinishLoadingWithDictionary:(NSDictionary *)results;
 - (void) dataDidFinishLoadingWithRangeRequestResults:(NSString *)results;
 - (void) dataDidFinishLoadingWithArchiveFile:(ArchiveFile *)file;

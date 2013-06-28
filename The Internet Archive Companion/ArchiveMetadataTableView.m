@@ -45,7 +45,7 @@
 }
 
 
-- (void) setMetadata:(NSDictionary *)metadata{
+- (void) setMetadata:(NSMutableDictionary *)metadata {
     metakeys = [metadata allKeys];
     for(NSString *k in metakeys){
         [_metadata setObject:[metadata objectForKey:k] forKey:k];
