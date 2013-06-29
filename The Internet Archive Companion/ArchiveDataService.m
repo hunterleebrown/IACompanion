@@ -45,6 +45,8 @@
     self = [super init];
     if(self){
         loadMoreStart = @"0";
+        queue = [NSOperationQueue new];
+
     }
     return self;
 }
@@ -180,7 +182,6 @@
     
     inUrl = url;
     
-    NSOperationQueue *queue = [NSOperationQueue new];
     NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                         initWithTarget:self
                                         selector:@selector(loadData)

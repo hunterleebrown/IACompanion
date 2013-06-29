@@ -15,6 +15,7 @@
 
 
 + (NSCache *)cache;
++ (NSOperationQueue *)queue;
 - (void) setAndLoadImageFromUrl:(NSString *)url;
 
 @end

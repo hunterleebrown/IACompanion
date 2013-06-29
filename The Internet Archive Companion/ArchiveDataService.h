@@ -39,6 +39,7 @@ typedef enum {
     id<ArchiveDataServiceDelegate> delegate;
     NSString *testUrl;
     NSString *loadMoreStart;
+    NSOperationQueue *queue;
 
 }
 @property (nonatomic, retain) id<ArchiveDataServiceDelegate> delegate;
