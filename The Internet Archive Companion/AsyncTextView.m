@@ -11,6 +11,7 @@
 @implementation AsyncTextView
 
 static NSCache *cache = nil;
+static NSOperationQueue *queue = nil;
 
 
 
@@ -20,6 +21,8 @@ static NSCache *cache = nil;
     if (self == [AsyncTextView class]) {
         cache = [[NSCache alloc] init];
         [cache setCountLimit:100];
+        
+        queue = [NSOperationQueue new];
         
         
     }
@@ -81,7 +84,6 @@ static NSCache *cache = nil;
     } else {
        // NSLog(@"NO CACHE HIT...");
         
-        NSOperationQueue *queue = [NSOperationQueue new];
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                             initWithTarget:self
                                             selector:@selector(loadData)

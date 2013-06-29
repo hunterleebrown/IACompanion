@@ -17,6 +17,7 @@
 }
 
 + (NSCache *)cache;
++ (NSOperationQueue *)queue;
 - (void) setAndLoadViewFromUrl:(NSString *)url withStartByte:(int)start withLength:(int)length;
 
 
