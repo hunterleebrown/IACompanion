@@ -58,9 +58,9 @@
     
     _backButton = [[UIBarButtonItem alloc] initWithCustomView:bibutton];
     
-    
+    [self.navigationItem setLeftBarButtonItems:@[_listButton]];
 
-    [self.navigationItem setLeftBarButtonItems:@[_listButton, _backButton]];
+
     [self.navigationItem setRightBarButtonItems:@[_searchButton]];
     
     if(_searchDoc){

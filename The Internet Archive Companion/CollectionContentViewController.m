@@ -28,9 +28,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
    
+    [self.navigationItem setLeftBarButtonItems:@[self.listButton, self.backButton]];
+
     
     
-    
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+
 }
 
 - (void)didReceiveMemoryWarning
