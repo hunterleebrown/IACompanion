@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IADataService.h"
 
-@interface IAJsonService : NSObject
+@interface IAJsonDataService : IADataService
+@property (nonatomic, strong) NSMutableDictionary *rawResults;
+
+
+- (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString;
 
 @end

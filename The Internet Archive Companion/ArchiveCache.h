@@ -10,4 +10,8 @@
 
 @interface ArchiveCache : NSObject
 
+@property (nonatomic, strong) NSCache *cache;
+
++ (ArchiveCache *)sharedInstance;
+
 @end

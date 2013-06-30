@@ -10,4 +10,7 @@
 
 @interface MainNavTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UILabel *navCellTitleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *navImageView;
+
 @end

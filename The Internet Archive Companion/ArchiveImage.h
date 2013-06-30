@@ -10,4 +10,15 @@
 
 @interface ArchiveImage : NSObject
 
+
+- (id)initWithUrlPath:(NSString *)path;
+- (void)startDownloading;
+- (void)readFromCache;
+
+@property (nonatomic, copy) NSString *urlPath;
+@property (nonatomic, retain) UIImage *contentImage;
+@property (nonatomic, getter = downloaded) BOOL downloaded;
+@property BOOL lazy;
+
+
 @end

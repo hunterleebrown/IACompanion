@@ -8,6 +8,14 @@
 
 #import "MainNavTableViewCell.h"
 
+
+@interface MainNavTableViewCell ()
+
+
+
+@end
+
+
 @implementation MainNavTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

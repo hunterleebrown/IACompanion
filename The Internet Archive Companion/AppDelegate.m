@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import "HomeViewController.h"
 #import <CoreData/CoreData.h>
 
 
@@ -20,6 +19,8 @@
 @synthesize managedObjectModel=_managedObjectModel;
 @synthesize persistentStoreCoordinator=_persistentStoreCoordinator;
 
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -28,8 +29,8 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
 
     
-    HomeViewController *controller = (HomeViewController *)self.window.rootViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+   // HomeViewController *controller = (HomeViewController *)self.window.rootViewController;
+    //controller.managedObjectContext = self.managedObjectContext;
     
     [self.window makeKeyAndVisible];
     return YES;

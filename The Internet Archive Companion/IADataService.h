@@ -7,7 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ArchiveFileDownloader.h"
 
-@interface IADataService : NSObject
+
+@class IADataService;
+@protocol IADataServiceDelegate <NSObject>
+
+- (void)dataDidBecomeAvailableForService:(IADataService *)service;
+@optional
+- (void)dataDidFailToLoadForService:(IADataService *)service;
+
+@end
+
+@interface IADataService : NSObject<ArchiveFileDownloaderDelegate>
+
+@property (nonatomic, assign) id<IADataServiceDelegate> delegate;
+@property (nonatomic, strong) NSString *urlStr;
+
+- (id)initWithUrlString:(NSString *)urlString;
+- (void)fetchData;
+- (void)forceFetchData;
+- (void)stopFetchingData;
 
 @end
