@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ContnetViewController.h"
+#import "ContentViewController.h"
 #import "MainNavViewController.h"
 
 @interface CentralViewController : UIViewController
 
 
-@property (nonatomic, weak) IBOutlet MainNavViewController *mainNavViewController;
-@property (nonatomic, weak) IBOutlet UINavigationController *contentNavController;
+@property (nonatomic, weak) MainNavViewController *mainNavViewController;
+@property (nonatomic, weak) UINavigationController *contentNavController;
+
+@property (nonatomic, weak) IBOutlet UIView *navView;
+@property (nonatomic, weak) IBOutlet UIView *contentView;
+
 
 @end

@@ -20,6 +20,7 @@
 		5A0A10D616A640A300CC70CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A10B116A640A300CC70CD /* Foundation.framework */; };
 		5A0A10DE16A640A300CC70CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A10DC16A640A300CC70CD /* InfoPlist.strings */; };
 		5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */; };
+		5A0D9A3017802F1F006D539C /* MainNavTableViewHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D9A2F17802F1F006D539C /* MainNavTableViewHeaderViewCell.m */; };
 		5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930616C3855400C3E107 /* ArchiveFile.m */; };
 		5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A23930816C3A07500C3E107 /* MediaPlayer.framework */; };
 		5A31D4FA16C7B2A200710DE0 /* leftContentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A31D4F816C7B2A200710DE0 /* leftContentShadow.png */; };
@@ -44,7 +45,7 @@
 		5A756DA1177FF0C600E7F922 /* ArchiveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756DA0177FF0C600E7F922 /* ArchiveImageView.m */; };
 		5A756DA5177FFE2800E7F922 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756DA4177FFE2800E7F922 /* InitialViewController.m */; };
 		5A756DAD1780025C00E7F922 /* CentralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756DAC1780025C00E7F922 /* CentralViewController.m */; };
-		5A756DB1178002A000E7F922 /* ContnetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756DB0178002A000E7F922 /* ContnetViewController.m */; };
+		5A756DB1178002A000E7F922 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756DB0178002A000E7F922 /* ContentViewController.m */; };
 		5A75EAE91731B83C007CEEA4 /* petabox.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A75EAE71731B83C007CEEA4 /* petabox.jpg */; };
 		5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */; };
 		5A8CA7E816D00D1800F97BF7 /* barIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7E716D00D1800F97BF7 /* barIcon.png */; };
@@ -141,6 +142,8 @@
 		5A0A10DD16A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A0A10DF16A640A300CC70CD /* The_Internet_Archive_CompanionTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = The_Internet_Archive_CompanionTests.h; sourceTree = "<group>"; };
 		5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Internet_Archive_CompanionTests.m; sourceTree = "<group>"; };
+		5A0D9A2E17802F1F006D539C /* MainNavTableViewHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavTableViewHeaderViewCell.h; sourceTree = "<group>"; };
+		5A0D9A2F17802F1F006D539C /* MainNavTableViewHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavTableViewHeaderViewCell.m; sourceTree = "<group>"; };
 		5A23930516C3855400C3E107 /* ArchiveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFile.h; sourceTree = "<group>"; };
 		5A23930616C3855400C3E107 /* ArchiveFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFile.m; sourceTree = "<group>"; };
 		5A23930816C3A07500C3E107 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -177,8 +180,8 @@
 		5A756DA4177FFE2800E7F922 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		5A756DAB1780025C00E7F922 /* CentralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CentralViewController.h; sourceTree = "<group>"; };
 		5A756DAC1780025C00E7F922 /* CentralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentralViewController.m; sourceTree = "<group>"; };
-		5A756DAF178002A000E7F922 /* ContnetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContnetViewController.h; sourceTree = "<group>"; };
-		5A756DB0178002A000E7F922 /* ContnetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContnetViewController.m; sourceTree = "<group>"; };
+		5A756DAF178002A000E7F922 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		5A756DB0178002A000E7F922 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		5A75EAE71731B83C007CEEA4 /* petabox.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = petabox.jpg; sourceTree = "<group>"; };
 		5A8A195A16B5DDD900F6A2E4 /* ArchiveSearchDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveSearchDoc.h; sourceTree = "<group>"; };
 		5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveSearchDoc.m; sourceTree = "<group>"; };
@@ -322,9 +325,9 @@
 		5A0A10B516A640A300CC70CD /* The Internet Archive Companion */ = {
 			isa = PBXGroup;
 			children = (
+				5ADAB7ED16C76E8100DBC072 /* IA Resources */,
 				5A756D81177FA31500E7F922 /* View Controllers */,
 				5A756DAE1780027500E7F922 /* ContentViewController */,
-				5ADAB7ED16C76E8100DBC072 /* IA Resources */,
 				CE3019CB16C5728700733B99 /* Utils */,
 				5AD2070E16A8F9460027CCA5 /* Data */,
 				5A0A10BE16A640A300CC70CD /* AppDelegate.h */,
@@ -414,6 +417,8 @@
 				5A756D83177FA35500E7F922 /* MainNavViewController.m */,
 				5A756D85177FA71600E7F922 /* MainNavTableViewCell.h */,
 				5A756D86177FA71600E7F922 /* MainNavTableViewCell.m */,
+				5A0D9A2E17802F1F006D539C /* MainNavTableViewHeaderViewCell.h */,
+				5A0D9A2F17802F1F006D539C /* MainNavTableViewHeaderViewCell.m */,
 			);
 			name = MainNavView;
 			sourceTree = "<group>";
@@ -481,8 +486,8 @@
 		5A756DAE1780027500E7F922 /* ContentViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5A756DAF178002A000E7F922 /* ContnetViewController.h */,
-				5A756DB0178002A000E7F922 /* ContnetViewController.m */,
+				5A756DAF178002A000E7F922 /* ContentViewController.h */,
+				5A756DB0178002A000E7F922 /* ContentViewController.m */,
 			);
 			name = ContentViewController;
 			sourceTree = "<group>";
@@ -756,7 +761,8 @@
 				5A756DA1177FF0C600E7F922 /* ArchiveImageView.m in Sources */,
 				5A756DA5177FFE2800E7F922 /* InitialViewController.m in Sources */,
 				5A756DAD1780025C00E7F922 /* CentralViewController.m in Sources */,
-				5A756DB1178002A000E7F922 /* ContnetViewController.m in Sources */,
+				5A756DB1178002A000E7F922 /* ContentViewController.m in Sources */,
+				5A0D9A3017802F1F006D539C /* MainNavTableViewHeaderViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

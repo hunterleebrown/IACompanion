@@ -8,6 +8,7 @@
 
 #import "MainNavViewController.h"
 #import "MainNavTableViewCell.h"
+#import "MainNavTableViewHeaderViewCell.h"
 #import "ArchiveSearchDoc.h"
 #import "IAJsonDataService.h"
 
@@ -56,6 +57,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor blackColor]];
+
     
     [audioService fetchData];
     [videoService fetchData];
@@ -156,7 +160,26 @@
             break;
     }
     
-    
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    MainNavTableViewHeaderViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"mainNavSectionHeader"];
+    switch (section) {
+        case 0:
+            headerCell.sectionLabel.text =  @"Audio Collections";
+            break;
+        case 1:
+            headerCell.sectionLabel.text =  @"Video Collections";
+            break;
+        case 2:
+            headerCell.sectionLabel.text =  @"Text Collections";
+            break;
+        default:
+            headerCell.sectionLabel.text =  @"";
+            break;
+    }
+    return headerCell;
+
 }
 
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContnetViewController : UIViewController
+@interface ContentViewController : UIViewController
 
 @end

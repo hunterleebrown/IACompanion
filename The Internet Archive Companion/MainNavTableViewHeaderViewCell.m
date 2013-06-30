@@ -1,23 +1,14 @@
 //
-//  MainNavTableViewCell.m
+//  MainNavTableViewHeaderViewCell.m
 //  IA
 //
-//  Created by Hunter on 6/29/13.
+//  Created by Hunter on 6/30/13.
 //  Copyright (c) 2013 Hunter Lee Brown. All rights reserved.
 //
 
-#import "MainNavTableViewCell.h"
-#import <QuartzCore/QuartzCore.h>
+#import "MainNavTableViewHeaderViewCell.h"
 
-
-@interface MainNavTableViewCell ()
-
-
-
-@end
-
-
-@implementation MainNavTableViewCell
+@implementation MainNavTableViewHeaderViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -33,13 +24,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-
-- (void) layoutSubviews{
-    [super layoutSubviews];
-    
-    _navImageView.layer.cornerRadius = 5;
-    _navImageView.layer.masksToBounds = YES;
 }
 
 @end
