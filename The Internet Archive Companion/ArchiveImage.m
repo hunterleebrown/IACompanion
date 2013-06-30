@@ -102,6 +102,7 @@
     return self.contentImage != nil;
 }
 
+
 - (UIImage *)contentImage {
     if (contentImage == nil) {
         if (urlPath != nil && [[ArchiveCache sharedInstance].cache objectForKey:urlPath]) {

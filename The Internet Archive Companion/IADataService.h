@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "ArchiveFileDownloader.h"
+#import "ArchiveFile.h"
 
 
 @class IADataService;
 @protocol IADataServiceDelegate <NSObject>
-
-- (void)dataDidBecomeAvailableForService:(IADataService *)service;
 @optional
+- (void)dataDidBecomeAvailableForService:(IADataService *)service;
+- (void)dataDidFinishLoadingWithArchiveFile:(ArchiveFile *)file;
 - (void)dataDidFailToLoadForService:(IADataService *)service;
 
 @end

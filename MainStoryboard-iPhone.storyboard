@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xcZ-1y-339">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gvj-T2-0T5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="xcZ-1y-339" customClass="MainNavViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qwo-qU-AhK">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="opd-i0-dxE">
@@ -22,7 +22,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QMB-bK-0LI">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QMB-bK-0LI" customClass="ArchiveImageView">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="8wl-P8-4Ux"/>
                                                     </constraints>
@@ -61,8 +61,8 @@
                         <constraints>
                             <constraint firstItem="opd-i0-dxE" firstAttribute="bottom" secondItem="Qwo-qU-AhK" secondAttribute="bottom" type="default" id="OkM-Dl-smq"/>
                             <constraint firstItem="opd-i0-dxE" firstAttribute="leading" secondItem="Qwo-qU-AhK" secondAttribute="leading" type="default" id="Wgc-Cb-Dxn"/>
-                            <constraint firstItem="opd-i0-dxE" firstAttribute="trailing" secondItem="Qwo-qU-AhK" secondAttribute="trailing" type="default" id="kDz-xV-9SG"/>
                             <constraint firstItem="opd-i0-dxE" firstAttribute="top" secondItem="Qwo-qU-AhK" secondAttribute="top" type="default" id="kyf-hD-l8s"/>
+                            <constraint firstItem="opd-i0-dxE" firstAttribute="trailing" secondItem="Qwo-qU-AhK" secondAttribute="trailing" type="default" id="nqx-BK-Nyg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -71,15 +71,132 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUo-pC-CfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693" y="145"/>
+            <point key="canvasLocation" x="1050" y="692"/>
+        </scene>
+        <!--Central View Controller-->
+        <scene sceneID="wj1-Hr-x1d">
+            <objects>
+                <viewController id="ovy-Sh-2mn" customClass="CentralViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fwa-CI-EZX">
+                        <rect key="frame" x="0.0" y="20" width="320" height="440"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7m-9b-w61">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="xcZ-1y-339" kind="embed" identifier="mainNavViewController" id="FHv-x6-nSq"/>
+                                </connections>
+                            </containerView>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rf4-J6-cRG">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="gW7-dQ-sli" kind="embed" identifier="contentNavController" id="WKV-7E-gr9"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d7m-9b-w61" firstAttribute="bottom" secondItem="Fwa-CI-EZX" secondAttribute="bottom" type="default" id="0LK-XG-uk6"/>
+                            <constraint firstItem="d7m-9b-w61" firstAttribute="top" secondItem="Fwa-CI-EZX" secondAttribute="top" type="default" id="Mz3-7y-yhW"/>
+                            <constraint firstItem="d7m-9b-w61" firstAttribute="trailing" secondItem="Fwa-CI-EZX" secondAttribute="trailing" type="default" id="Ncz-Zv-6DE"/>
+                            <constraint firstAttribute="trailing" secondItem="rf4-J6-cRG" secondAttribute="trailing" constant="-257" id="ZO5-hF-dxy"/>
+                            <constraint firstItem="rf4-J6-cRG" firstAttribute="leading" secondItem="Fwa-CI-EZX" secondAttribute="leading" constant="257" id="hiT-aU-OfP"/>
+                            <constraint firstItem="d7m-9b-w61" firstAttribute="leading" secondItem="Fwa-CI-EZX" secondAttribute="leading" type="default" id="j0q-Gl-bOb"/>
+                            <constraint firstItem="rf4-J6-cRG" firstAttribute="top" secondItem="Fwa-CI-EZX" secondAttribute="top" type="default" id="mf0-Oh-xr3"/>
+                            <constraint firstItem="rf4-J6-cRG" firstAttribute="bottom" secondItem="Fwa-CI-EZX" secondAttribute="bottom" type="default" id="rYi-1d-2ft"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRP-q3-TVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533" y="464"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vzq-V4-8aK">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="gW7-dQ-sli" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d4r-Qj-4rU">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5DB-Ie-EAF" kind="relationship" relationship="rootViewController" id="55d-uS-4oi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wjw-TC-iJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2030" y="698"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="c4S-zO-CZE">
+            <objects>
+                <viewController id="5DB-Ie-EAF" customClass="ContentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VRw-ce-b4a">
+                        <rect key="frame" x="0.0" y="64" width="320" height="376"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2406" y="456"/>
+        </scene>
+        <!--Initial View Controller-->
+        <scene sceneID="UA9-2x-QaZ">
+            <objects>
+                <viewController id="Gvj-T2-0T5" customClass="InitialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D1H-zc-ghf">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hze-UI-bhc">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="ovy-Sh-2mn" kind="embed" id="2gn-ra-s7D"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hze-UI-bhc" secondAttribute="trailing" constant="1" id="689-UE-n2y"/>
+                            <constraint firstItem="hze-UI-bhc" firstAttribute="leading" secondItem="D1H-zc-ghf" secondAttribute="leading" constant="-1" id="GPn-dS-usw"/>
+                            <constraint firstAttribute="bottom" secondItem="hze-UI-bhc" secondAttribute="bottom" constant="-1" id="h9T-jk-lPI"/>
+                            <constraint firstItem="hze-UI-bhc" firstAttribute="top" secondItem="D1H-zc-ghf" secondAttribute="top" constant="1" id="osl-l6-W65"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ab-lR-fDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533" y="-146"/>
         </scene>
     </scenes>
     <classes>
+        <class className="ArchiveImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageView.h"/>
+        </class>
+        <class className="CentralViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CentralViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentNavController" candidateClass="UINavigationController"/>
+                <relationship kind="outlet" name="contentViewController" candidateClass="ContnetViewController"/>
+                <relationship kind="outlet" name="mainNavViewController" candidateClass="MainNavViewController"/>
+            </relationships>
+        </class>
+        <class className="ContnetViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContnetViewController.h"/>
+        </class>
+        <class className="InitialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
+        </class>
         <class className="MainNavTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="navCellTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="navImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navImageView" candidateClass="ArchiveImageView"/>
             </relationships>
         </class>
         <class className="MainNavViewController" superclassName="UIViewController">

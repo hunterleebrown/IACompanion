@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArchiveImageView.h"
 
 @interface MainNavTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *navCellTitleLabel;
-@property (nonatomic, weak) IBOutlet UIImageView *navImageView;
+@property (nonatomic, weak) IBOutlet ArchiveImageView *navImageView;
 
 @end

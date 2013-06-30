@@ -34,7 +34,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="MQU-C6-c0X">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="MQU-C6-c0X" customClass="ArchiveImageView">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="5lk-27-2B2"/>
                                                         <constraint firstAttribute="width" constant="52" id="snN-Mx-IOD"/>
@@ -77,11 +77,14 @@
         </scene>
     </scenes>
     <classes>
+        <class className="ArchiveImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageView.h"/>
+        </class>
         <class className="MainNavTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="navCellTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="navImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navImageView" candidateClass="ArchiveImageView"/>
             </relationships>
         </class>
         <class className="MainNavViewController" superclassName="UIViewController">

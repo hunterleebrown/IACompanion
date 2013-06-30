@@ -41,6 +41,10 @@
 		5A756D97177FB14500E7F922 /* ArchiveFileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756D96177FB14400E7F922 /* ArchiveFileDownloader.m */; };
 		5A756D9B177FBF7B00E7F922 /* IADataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756D9A177FBF7B00E7F922 /* IADataService.m */; };
 		5A756D9E177FC57F00E7F922 /* IAJsonDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756D9D177FC57F00E7F922 /* IAJsonDataService.m */; };
+		5A756DA1177FF0C600E7F922 /* ArchiveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756DA0177FF0C600E7F922 /* ArchiveImageView.m */; };
+		5A756DA5177FFE2800E7F922 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756DA4177FFE2800E7F922 /* InitialViewController.m */; };
+		5A756DAD1780025C00E7F922 /* CentralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756DAC1780025C00E7F922 /* CentralViewController.m */; };
+		5A756DB1178002A000E7F922 /* ContnetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A756DB0178002A000E7F922 /* ContnetViewController.m */; };
 		5A75EAE91731B83C007CEEA4 /* petabox.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A75EAE71731B83C007CEEA4 /* petabox.jpg */; };
 		5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */; };
 		5A8CA7E816D00D1800F97BF7 /* barIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8CA7E716D00D1800F97BF7 /* barIcon.png */; };
@@ -167,6 +171,14 @@
 		5A756D9A177FBF7B00E7F922 /* IADataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IADataService.m; sourceTree = "<group>"; };
 		5A756D9C177FC57E00E7F922 /* IAJsonDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAJsonDataService.h; sourceTree = "<group>"; };
 		5A756D9D177FC57F00E7F922 /* IAJsonDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAJsonDataService.m; sourceTree = "<group>"; };
+		5A756D9F177FF0C600E7F922 /* ArchiveImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveImageView.h; sourceTree = "<group>"; };
+		5A756DA0177FF0C600E7F922 /* ArchiveImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveImageView.m; sourceTree = "<group>"; };
+		5A756DA3177FFE2800E7F922 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		5A756DA4177FFE2800E7F922 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		5A756DAB1780025C00E7F922 /* CentralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CentralViewController.h; sourceTree = "<group>"; };
+		5A756DAC1780025C00E7F922 /* CentralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentralViewController.m; sourceTree = "<group>"; };
+		5A756DAF178002A000E7F922 /* ContnetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContnetViewController.h; sourceTree = "<group>"; };
+		5A756DB0178002A000E7F922 /* ContnetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContnetViewController.m; sourceTree = "<group>"; };
 		5A75EAE71731B83C007CEEA4 /* petabox.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = petabox.jpg; sourceTree = "<group>"; };
 		5A8A195A16B5DDD900F6A2E4 /* ArchiveSearchDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveSearchDoc.h; sourceTree = "<group>"; };
 		5A8A195B16B5DDD900F6A2E4 /* ArchiveSearchDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveSearchDoc.m; sourceTree = "<group>"; };
@@ -311,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				5A756D81177FA31500E7F922 /* View Controllers */,
+				5A756DAE1780027500E7F922 /* ContentViewController */,
 				5ADAB7ED16C76E8100DBC072 /* IA Resources */,
 				CE3019CB16C5728700733B99 /* Utils */,
 				5AD2070E16A8F9460027CCA5 /* Data */,
@@ -387,6 +400,8 @@
 		5A756D81177FA31500E7F922 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A756DA2177FFE0600E7F922 /* InitialViewController */,
+				5A756DAA1780024200E7F922 /* Central View Controller */,
 				5A756D88177FA71D00E7F922 /* MainNavView */,
 			);
 			name = "View Controllers";
@@ -417,6 +432,8 @@
 			children = (
 				5A756D8E177FAEDF00E7F922 /* ArchiveImage.h */,
 				5A756D8F177FAEDF00E7F922 /* ArchiveImage.m */,
+				5A756D9F177FF0C600E7F922 /* ArchiveImageView.h */,
+				5A756DA0177FF0C600E7F922 /* ArchiveImageView.m */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -441,6 +458,33 @@
 				5A756D9D177FC57F00E7F922 /* IAJsonDataService.m */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		5A756DA2177FFE0600E7F922 /* InitialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5A756DA3177FFE2800E7F922 /* InitialViewController.h */,
+				5A756DA4177FFE2800E7F922 /* InitialViewController.m */,
+			);
+			name = InitialViewController;
+			sourceTree = "<group>";
+		};
+		5A756DAA1780024200E7F922 /* Central View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5A756DAB1780025C00E7F922 /* CentralViewController.h */,
+				5A756DAC1780025C00E7F922 /* CentralViewController.m */,
+			);
+			name = "Central View Controller";
+			sourceTree = "<group>";
+		};
+		5A756DAE1780027500E7F922 /* ContentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5A756DAF178002A000E7F922 /* ContnetViewController.h */,
+				5A756DB0178002A000E7F922 /* ContnetViewController.m */,
+			);
+			name = ContentViewController;
 			sourceTree = "<group>";
 		};
 		5AD2070E16A8F9460027CCA5 /* Data */ = {
@@ -709,6 +753,10 @@
 				5A756D97177FB14500E7F922 /* ArchiveFileDownloader.m in Sources */,
 				5A756D9B177FBF7B00E7F922 /* IADataService.m in Sources */,
 				5A756D9E177FC57F00E7F922 /* IAJsonDataService.m in Sources */,
+				5A756DA1177FF0C600E7F922 /* ArchiveImageView.m in Sources */,
+				5A756DA5177FFE2800E7F922 /* InitialViewController.m in Sources */,
+				5A756DAD1780025C00E7F922 /* CentralViewController.m in Sources */,
+				5A756DB1178002A000E7F922 /* ContnetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

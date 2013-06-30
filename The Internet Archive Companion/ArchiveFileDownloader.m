@@ -140,7 +140,7 @@
 }
 
 - (void)startDownloading {
-    //    NSLog(@"started dowloading %@", download.urlPath);
+        NSLog(@"started dowloading %@", download.urlPath);
     if ([[ArchiveCache sharedInstance].cache objectForKey:download.urlPath]) {
         NSLog(@"startDownloading: from cache");
         [self retrieveCurrentDownloadFromCache];

@@ -14,13 +14,14 @@
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *testUrl;
 @property (nonatomic, strong) NSString *loadMoreStart;
+@property (nonatomic, strong) NSString *fileNameIn;
 
 @end
 
 
 @implementation IAJsonDataService
 
-@synthesize rawResults, identifier, testUrl, loadMoreStart;
+@synthesize rawResults, identifier, testUrl, loadMoreStart, fileNameIn;
 
 
 - (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString{
@@ -29,9 +30,18 @@
         identifier = idString;
         loadMoreStart = @"0";
         self.urlStr = [self docsUrlStringsWithType:MediaTypeCollection withIdentifier:identifier withSort:@"titleSorter+asc"];
-
+        
     }
     
+    return self;
+}
+
+- (id) initForMetadataDocsWithIdentifier:(NSString *)ident{
+    self = [self init];
+    if(self){
+        testUrl = @"http://archive.org/metadata/%@";
+        self.urlStr = [NSString stringWithFormat:testUrl, identifier];
+    }
     return self;
 }
 
@@ -64,7 +74,7 @@
         return [self docsUrlStringWithTest:searchUrl withStart:loadMoreStart];
     }
     
-
+    
     
 }
 
@@ -77,134 +87,132 @@
 
 
 - (void) packageJsonResponeDictionary:(NSDictionary *)jsonResponse{
-
-        
-        rawResults = [NSMutableDictionary new];
-        [rawResults setObject:jsonResponse forKey:@"original"];
-        NSMutableArray *responseDocs = [NSMutableArray new];
-        
-        NSDictionary *response = [jsonResponse objectForKey:@"response"];
-        NSDictionary *metadata = [jsonResponse objectForKey:@"metadata"];
-        
-        
-        if(response){
-            NSArray *docs = [response objectForKey:@"docs"];
-            if(docs){
-                for(NSDictionary *doc in docs){
-                    if([doc objectForKey:@"description"] && [doc objectForKey:@"title"]){
-                        ArchiveSearchDoc *aDoc = [ArchiveSearchDoc new];
-                        [aDoc setRawDoc:doc];
-                        [aDoc setIdentifier:[doc objectForKey:@"identifier"]];
-                        [aDoc setTitle:[doc objectForKey:@"title"]];
+    
+    
+    rawResults = [NSMutableDictionary new];
+    [rawResults setObject:jsonResponse forKey:@"original"];
+    NSMutableArray *responseDocs = [NSMutableArray new];
+    
+    NSDictionary *response = [jsonResponse objectForKey:@"response"];
+    NSDictionary *metadata = [jsonResponse objectForKey:@"metadata"];
+    
+    
+    if(response){
+        NSArray *docs = [response objectForKey:@"docs"];
+        if(docs){
+            for(NSDictionary *doc in docs){
+                if([doc objectForKey:@"description"] && [doc objectForKey:@"title"]){
+                    ArchiveSearchDoc *aDoc = [ArchiveSearchDoc new];
+                    [aDoc setRawDoc:doc];
+                    [aDoc setIdentifier:[doc objectForKey:@"identifier"]];
+                    [aDoc setTitle:[doc objectForKey:@"title"]];
+                    
+                    if(![doc objectForKey:@"headerImage"]){
+                        [aDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", aDoc.identifier]];
+                        ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:aDoc.headerImageUrl];
+                        // [anImage startDownloading];
+                        [aDoc setArchiveImage:anImage];
                         
-                        if(![doc objectForKey:@"headerImage"]){
-                            [aDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", aDoc.identifier]];
-                            ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:aDoc.headerImageUrl];
-                            [anImage startDownloading];
-                            [aDoc setArchiveImage:anImage];
-                            
-                        } else {
-                            [aDoc setHeaderImageUrl:[doc objectForKey:@"headerImage"]];
-                        }
-                        [aDoc setDescription:[doc objectForKey:@"description"]];
-                        [aDoc setPublicDate:[doc objectForKey:@"publicdate"]];
-                        [aDoc setDate:[doc objectForKey:@"date"]];
-                        
-                        if([[doc objectForKey:@"mediatype"] isEqualToString:@"collection"]){
-                            [aDoc setType:MediaTypeCollection];
-                        } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"audio"]){
-                            [aDoc setType:MediaTypeAudio];
-                        } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"video"]){
-                            [aDoc setType:MediaTypeVideo];
-                        } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"texts"]){
-                            [aDoc setType:MediaTypeTexts];
-                        } else {
-                            [aDoc setType:MediaTypeAny];
-                        }
-                        
-                        
-                        [responseDocs addObject:aDoc];
+                    } else {
+                        [aDoc setHeaderImageUrl:[doc objectForKey:@"headerImage"]];
+                    }
+                    [aDoc setDescription:[doc objectForKey:@"description"]];
+                    [aDoc setPublicDate:[doc objectForKey:@"publicdate"]];
+                    [aDoc setDate:[doc objectForKey:@"date"]];
+                    
+                    if([[doc objectForKey:@"mediatype"] isEqualToString:@"collection"]){
+                        [aDoc setType:MediaTypeCollection];
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"audio"]){
+                        [aDoc setType:MediaTypeAudio];
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"video"]){
+                        [aDoc setType:MediaTypeVideo];
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"texts"]){
+                        [aDoc setType:MediaTypeTexts];
+                    } else {
+                        [aDoc setType:MediaTypeAny];
                     }
                     
+                    
+                    [responseDocs addObject:aDoc];
                 }
-                [rawResults setObject:responseDocs forKey:@"documents"];
-                [rawResults setObject:[response objectForKey:@"numFound"] forKey:@"numFound"];
+                
             }
-        }
-        
-        if(metadata){
-            ArchiveDetailDoc *dDoc = [ArchiveDetailDoc new];
-            [dDoc setRawDoc:jsonResponse];
-            NSDictionary *metadata = [jsonResponse objectForKey:@"metadata"];
-            [dDoc setIdentifier:[metadata objectForKey:@"identifier"]];
-            [dDoc setTitle:[StringUtils stringFromObject:[metadata objectForKey:@"title"]]];
-            if(![metadata objectForKey:@"headerImage"]){
-                [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", dDoc.identifier]];
-            } else {
-                [dDoc setHeaderImageUrl:[metadata objectForKey:@"headerImage"]];
-            }
-            [dDoc setDescription:[metadata objectForKey:@"description"]];
-            [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];
-            
-            NSMutableArray *files = [NSMutableArray new];
-            if([jsonResponse objectForKey:@"files"]){
-                for (NSDictionary *file in [jsonResponse objectForKey:@"files"]) {
-                    ArchiveFile *aFile = [[ArchiveFile alloc]initWithIdentifier:dDoc.identifier withIdentifierTitle:[StringUtils stringFromObject:dDoc.title] withServer:[jsonResponse objectForKey:@"server"] withDirectory:[jsonResponse objectForKey:@"dir"] withFile:file];
-                    [files addObject:aFile];
-                }
-            }
-            [dDoc setFiles:files];
-            
-            
-            
-            [responseDocs addObject:dDoc];
             [rawResults setObject:responseDocs forKey:@"documents"];
-            
+            [rawResults setObject:[response objectForKey:@"numFound"] forKey:@"numFound"];
         }
-        
-   //     if(identifierIn){
-    //        [rawResults setObject:identifierIn forKey:@"identifier"];
-    //    }
-        
-        /*
-        if(fileNameIn) {
-            ArchiveFile *aFile;
-            ArchiveDetailDoc *aDoc = [responseDocs objectAtIndex:0];
-            for(ArchiveFile *af in aDoc.files){
-                if([af.name isEqualToString:fileNameIn]){
-                    aFile = af;
-                }
-            }
-            if(aFile){
-                
-                
-                if(delegate && [delegate respondsToSelector:@selector(dataDidFinishLoadingWithArchiveFile:)]){
-                    [delegate dataDidFinishLoadingWithArchiveFile:aFile];
-                }
-            }
-            
-            
-            
-        } else {
-            
-            if(delegate && [delegate respondsToSelector:@selector(dataDidFinishLoadingWithDictionary:)]){
-                [delegate dataDidFinishLoadingWithDictionary:rawResults];
-            }
-        }
-        
-        
-        
-        */
-    
-    
-    if(self.delegate && [self.delegate respondsToSelector:@selector(dataDidBecomeAvailableForService:)]){
-        [self.delegate dataDidBecomeAvailableForService:self];
     }
     
+    if(metadata){
+        ArchiveDetailDoc *dDoc = [ArchiveDetailDoc new];
+        [dDoc setRawDoc:jsonResponse];
+        NSDictionary *metadata = [jsonResponse objectForKey:@"metadata"];
+        [dDoc setIdentifier:[metadata objectForKey:@"identifier"]];
+        [dDoc setTitle:[StringUtils stringFromObject:[metadata objectForKey:@"title"]]];
+        if(![metadata objectForKey:@"headerImage"]){
+            [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", dDoc.identifier]];
+        } else {
+            [dDoc setHeaderImageUrl:[metadata objectForKey:@"headerImage"]];
+        }
+        [dDoc setDescription:[metadata objectForKey:@"description"]];
+        [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];
+        
+        NSMutableArray *files = [NSMutableArray new];
+        if([jsonResponse objectForKey:@"files"]){
+            for (NSDictionary *file in [jsonResponse objectForKey:@"files"]) {
+                ArchiveFile *aFile = [[ArchiveFile alloc]initWithIdentifier:dDoc.identifier withIdentifierTitle:[StringUtils stringFromObject:dDoc.title] withServer:[jsonResponse objectForKey:@"server"] withDirectory:[jsonResponse objectForKey:@"dir"] withFile:file];
+                [files addObject:aFile];
+            }
+        }
+        [dDoc setFiles:files];
+        
+        
+        
+        [responseDocs addObject:dDoc];
+        [rawResults setObject:responseDocs forKey:@"documents"];
+        
+    }
+    
+    if(identifier){
+        [rawResults setObject:identifier forKey:@"identifier"];
+    }
+    
+    
+    if(fileNameIn) {
+        ArchiveFile *aFile;
+        ArchiveDetailDoc *aDoc = [responseDocs objectAtIndex:0];
+        for(ArchiveFile *af in aDoc.files){
+            if([af.name isEqualToString:fileNameIn]){
+                aFile = af;
+            }
+        }
+        if(aFile){
+            
+            
+            if(self.delegate && [self.delegate respondsToSelector:@selector(dataDidFinishLoadingWithArchiveFile:)]){
+                [self.delegate dataDidFinishLoadingWithArchiveFile:aFile];
+            }
+        }
+        
+        
+        
+    } else {
+        
+        if(self.delegate && [self.delegate respondsToSelector:@selector(dataDidBecomeAvailableForService:)]){
+            [self.delegate dataDidBecomeAvailableForService:self];
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
-
-
+    
+    
+    
 }
 
 
@@ -215,7 +223,7 @@
     
     NSError *error = nil;
     NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:download.data options:NSJSONReadingMutableContainers error:&error];
-
+    
     assert(jsonResponse != nil);
     [self packageJsonResponeDictionary:jsonResponse];
     

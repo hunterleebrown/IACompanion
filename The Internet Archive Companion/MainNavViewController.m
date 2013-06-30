@@ -134,7 +134,7 @@
     
     
     [cell.navCellTitleLabel setText:doc.title];
-    [cell.navImageView setImage:doc.archiveImage.contentImage];
+    [cell.navImageView setArchiveImage:doc.archiveImage];
     
     return cell;
 }
