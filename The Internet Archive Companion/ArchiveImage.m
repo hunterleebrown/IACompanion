@@ -28,7 +28,6 @@
         lazy = YES;
         downloader = [[ArchiveFileDownloader alloc] init];
         downloader.useCurrentRunLoop = YES;
-        [downloader addObserver:self forKeyPath:@"downloadStatus" options:NSKeyValueObservingOptionNew context:NULL];
 	}
     
 	return self;
@@ -37,7 +36,8 @@
 - (id)initWithUrlPath:(NSString *)path {
 	self = [self init];
 	self.urlPath = path;
-    
+    [downloader addObserver:self forKeyPath:@"downloadStatus" options:NSKeyValueObservingOptionNew context:NULL];
+
 	return self;
 }
 

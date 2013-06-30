@@ -7,6 +7,9 @@
 //
 
 #import "ContentViewController.h"
+#import "ArchiveSearchDoc.h"
+#import "CollectionContentViewController.h"
+#import "ItemContentViewController.h"
 
 @interface ContentViewController ()
 
@@ -28,47 +31,63 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIImage *image = [UIImage imageNamed:@"list.png"];
+    UIImage *image = [UIImage imageNamed:@"new-list.png"];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, image.size.width + 10, image.size.height);
     button.tag = 0;
     [button addTarget:self action:@selector(didPressListButton) forControlEvents:UIControlEventTouchUpInside];
     [button setImage:image forState:UIControlStateNormal];
-    
-    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    _listButton = [[UIBarButtonItem alloc] initWithCustomView:button];
 
     
-    UIImage *image2 = [UIImage imageNamed:@"search-button.png"];
+    UIImage *image2 = [UIImage imageNamed:@"search-button-plain.png"];
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button2.frame = CGRectMake(0, 0, image2.size.width /2.2, image2.size.height / 2.2);
+    button2.frame = CGRectMake(0, 0, image2.size.width + 10, image2.size.height);
     button2.tag = 0;
    // [button2 addTarget:self action:@selector(didPressListButton) forControlEvents:UIControlEventTouchUpInside];
     [button2 setImage:image2 forState:UIControlStateNormal];
-    
-    UIBarButtonItem *buttonItem2 = [[UIBarButtonItem alloc] initWithCustomView:button2];
-    
-    
-    UIImage *image3 = [UIImage imageNamed:@"ia-button.png"];
-    UIButton *button3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button3.frame = CGRectMake(0, 0, round(image3.size.width * .66), round(image3.size.height * .66));
-    button3.tag = 0;
-    
-    // [button2 addTarget:self action:@selector(didPressListButton) forControlEvents:UIControlEventTouchUpInside];
-    [button3 setImage:image3 forState:UIControlStateNormal];
+    _searchButton = [[UIBarButtonItem alloc] initWithCustomView:button2];
     
     
+    UIImage *bi = [UIImage imageNamed:@"back-button.png"];
+    UIButton *bibutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    bibutton.frame = CGRectMake(0, 0, bi.size.width, bi.size.height);
+    bibutton.tag = 0;
+    [bibutton addTarget:self action:@selector(didPressBackButton) forControlEvents:UIControlEventTouchUpInside];
+    [bibutton setImage:bi forState:UIControlStateNormal];
     
-    [self.navigationItem setLeftBarButtonItems:@[buttonItem]];
-    [self.navigationItem setRightBarButtonItems:@[buttonItem2]];
-    [self.navigationItem setTitleView:button3];
+    _backButton = [[UIBarButtonItem alloc] initWithCustomView:bibutton];
+    
+    
+
+    [self.navigationItem setLeftBarButtonItems:@[_listButton, _backButton]];
+    [self.navigationItem setRightBarButtonItems:@[_searchButton]];
+    
+    if(_searchDoc){
+        _contentTitleLabel.text = _searchDoc.title;
+    }
     
 }
 
-- (void) didPressListButton{
-   // [[NSNotificationCenter defaultCenter] pos]
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];
+- (void) viewDidAppear:(BOOL)animated  {
+    [super viewDidAppear:animated];
 
+}
+
+- (void) setSearchDoc:(ArchiveSearchDoc *)searchDoc{
+    _searchDoc = searchDoc;
+}
+
+
+
+- (void) didPressListButton{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];    
+}
+
+
+- (void) didPressBackButton{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

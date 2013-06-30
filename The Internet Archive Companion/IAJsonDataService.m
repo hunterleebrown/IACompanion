@@ -110,7 +110,7 @@
                     if(![doc objectForKey:@"headerImage"]){
                         [aDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", aDoc.identifier]];
                         ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:aDoc.headerImageUrl];
-                        // [anImage startDownloading];
+                        //[anImage startDownloading];
                         [aDoc setArchiveImage:anImage];
                         
                     } else {

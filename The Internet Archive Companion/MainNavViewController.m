@@ -182,5 +182,26 @@
 
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ArchiveSearchDoc *doc;
+    switch (indexPath.section) {
+        case 0:
+            doc = [audioSearchDocuments objectAtIndex:indexPath.row];
+            break;
+        case 1:
+            doc = [videoSearchDocuments objectAtIndex:indexPath.row];
+            break;
+        case 2:
+            doc = [textSearchDocuments objectAtIndex:indexPath.row];
+            break;
+        default:
+            break;
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NavCellNotification" object:doc];
+}
+
+
 
 @end

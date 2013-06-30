@@ -7,6 +7,8 @@
 //
 
 #import "CentralViewController.h"
+#import "ArchiveSearchDoc.h"
+#import "CollectionContentViewController.h"
 
 @interface CentralViewController ()
 
@@ -29,16 +31,37 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleContent:) name:@"ToggleContentNotification" object:nil];
 
 	// Do any additional setup after loading the view.
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNavCellSelectNotification:) name:@"NavCellNotification" object:nil];
+
 }
+
+
+- (void) didReceiveNavCellSelectNotification:(NSNotification *)notification{
+    
+    ArchiveSearchDoc *aDoc = notification.object;
+    
+    if(aDoc.type == MediaTypeCollection){
+        CollectionContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"collectionViewController"];
+        [cvc setSearchDoc:aDoc];
+        [_contentNavController pushViewController:cvc animated:YES];
+        [self toggleContent:nil];
+    
+    } else {
+        //      [self performSegueWithIdentifier:@"itemViewController" sender:nil];
+    }
+}
+
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"contentNavController"]){
         _contentNavController = [segue destinationViewController];        
     }
-    if([segue.identifier isEqualToString:@"mainNavViewController"]){
-        
+    
 
-    }
+   
 }
 
 

@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArchiveSearchDoc.h"
 
 @interface ContentViewController : UIViewController
+
+
+@property (nonatomic, strong) ArchiveSearchDoc *searchDoc;
+@property (nonatomic, weak) IBOutlet UILabel *contentTitleLabel;
+
+@property (nonatomic, strong) UIBarButtonItem *backButton;
+@property (nonatomic, strong) UIBarButtonItem *listButton;
+@property (nonatomic, strong) UIBarButtonItem *searchButton;
+
 
 @end

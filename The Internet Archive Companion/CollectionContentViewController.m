@@ -1,18 +1,18 @@
 //
-//  RootViewController.m
+//  CollectionContentViewController.m
 //  IA
 //
-//  Created by Hunter on 6/29/13.
+//  Created by Hunter on 6/30/13.
 //  Copyright (c) 2013 Hunter Lee Brown. All rights reserved.
 //
 
-#import "InitialViewController.h"
+#import "CollectionContentViewController.h"
 
-@interface InitialViewController ()
+@interface CollectionContentViewController ()
 
 @end
 
-@implementation InitialViewController
+@implementation CollectionContentViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,29 +27,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-}
-
-
-
-
-- (BOOL) shouldAutorotate {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        return YES;
-    }
-    return NO;
+   
+    
+    
     
 }
-
-
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 @end

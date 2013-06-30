@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUo-pC-CfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050" y="692"/>
+            <point key="canvasLocation" x="1128" y="484"/>
         </scene>
         <!--Central View Controller-->
         <scene sceneID="wj1-Hr-x1d">
@@ -148,11 +148,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="d7m-9b-w61" firstAttribute="bottom" secondItem="Fwa-CI-EZX" secondAttribute="bottom" type="default" id="0LK-XG-uk6"/>
+                            <constraint firstItem="rf4-J6-cRG" firstAttribute="leading" secondItem="Fwa-CI-EZX" secondAttribute="leading" type="default" id="4Ou-Uq-dSN"/>
+                            <constraint firstItem="rf4-J6-cRG" firstAttribute="trailing" secondItem="Fwa-CI-EZX" secondAttribute="trailing" type="default" id="Jf0-WV-icP"/>
                             <constraint firstAttribute="trailing" secondItem="d7m-9b-w61" secondAttribute="trailing" constant="64" id="MAx-qB-N0A"/>
                             <constraint firstItem="d7m-9b-w61" firstAttribute="top" secondItem="Fwa-CI-EZX" secondAttribute="top" type="default" id="Mz3-7y-yhW"/>
-                            <constraint firstItem="rf4-J6-cRG" firstAttribute="trailing" secondItem="Fwa-CI-EZX" secondAttribute="trailing" type="default" id="NuR-88-Vnt"/>
                             <constraint firstItem="d7m-9b-w61" firstAttribute="leading" secondItem="Fwa-CI-EZX" secondAttribute="leading" type="default" id="j0q-Gl-bOb"/>
-                            <constraint firstItem="rf4-J6-cRG" firstAttribute="leading" secondItem="Fwa-CI-EZX" secondAttribute="leading" type="default" id="mL5-Qh-Gsh"/>
                             <constraint firstItem="rf4-J6-cRG" firstAttribute="top" secondItem="Fwa-CI-EZX" secondAttribute="top" type="default" id="mf0-Oh-xr3"/>
                             <constraint firstItem="rf4-J6-cRG" firstAttribute="bottom" secondItem="Fwa-CI-EZX" secondAttribute="bottom" type="default" id="rYi-1d-2ft"/>
                         </constraints>
@@ -165,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRP-q3-TVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533" y="464"/>
+            <point key="canvasLocation" x="1549" y="474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vzq-V4-8aK">
@@ -191,14 +191,59 @@
                     <view key="view" contentMode="scaleToFill" id="VRw-ce-b4a">
                         <rect key="frame" x="0.0" y="20" width="320" height="420"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.52549019610000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2406" y="456"/>
+            <point key="canvasLocation" x="2425" y="999"/>
+        </scene>
+        <!--Item Content View Controller-->
+        <scene sceneID="h8M-VI-jwG">
+            <objects>
+                <viewController storyboardIdentifier="itemViewController" id="gp1-Y2-9gB" customClass="ItemContentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pDQ-bp-6vG">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wMY-FN-jmk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Y9-ij-32p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2446" y="404"/>
+        </scene>
+        <!--Collection Content View Controller-->
+        <scene sceneID="1ce-6d-7oR">
+            <objects>
+                <viewController storyboardIdentifier="collectionViewController" id="N1m-C5-JKW" customClass="CollectionContentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NSH-No-036">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="uvW-Ws-icj">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uvW-Ws-icj" firstAttribute="trailing" secondItem="NSH-No-036" secondAttribute="trailing" type="default" id="5IX-NO-kqp"/>
+                            <constraint firstItem="uvW-Ws-icj" firstAttribute="leading" secondItem="NSH-No-036" secondAttribute="leading" type="default" id="5Ym-zR-JMW"/>
+                            <constraint firstItem="uvW-Ws-icj" firstAttribute="top" secondItem="NSH-No-036" secondAttribute="top" constant="28" id="Cio-Ag-nFw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hwr-n3-V35"/>
+                    <connections>
+                        <outlet property="contentTitleLabel" destination="uvW-Ws-icj" id="xfW-Ax-z0r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOw-NU-Yza" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2446" y="-172"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="UA9-2x-QaZ">
@@ -230,46 +275,6 @@
             <point key="canvasLocation" x="1533" y="-146"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ArchiveImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageView.h"/>
-        </class>
-        <class className="CentralViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CentralViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="navView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="ContentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
-        </class>
-        <class className="InitialViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
-        </class>
-        <class className="MainNavTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="navCellTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="navImageView" candidateClass="ArchiveImageView"/>
-            </relationships>
-        </class>
-        <class className="MainNavTableViewHeaderViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewHeaderViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="sectionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MainNavViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="navTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
