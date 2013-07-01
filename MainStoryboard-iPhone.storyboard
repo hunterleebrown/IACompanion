@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUo-pC-CfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1128" y="484"/>
+            <point key="canvasLocation" x="2036" y="1024"/>
         </scene>
         <!--Central View Controller-->
         <scene sceneID="wj1-Hr-x1d">
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2425" y="999"/>
+            <point key="canvasLocation" x="2463" y="484"/>
         </scene>
         <!--Item Content View Controller-->
         <scene sceneID="h8M-VI-jwG">
@@ -213,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Y9-ij-32p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="404"/>
+            <point key="canvasLocation" x="2862" y="720"/>
         </scene>
         <!--Collection Content View Controller-->
         <scene sceneID="1ce-6d-7oR">
@@ -226,7 +226,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wle-pd-Z3W">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="qeC-n8-fen">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="258"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="kW7-vM-2jR" customClass="ArchiveImageView">
@@ -235,12 +235,12 @@
                                                 <constraint firstAttribute="height" constant="150" type="user" id="zbF-Cp-nYN"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-rM-wTy">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-rM-wTy">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" priority="1" constant="21" type="user" id="C3m-RB-1E7"/>
-                                                <constraint firstAttribute="width" constant="300" id="Ep7-Kw-Wfb"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" type="user" id="ymZ-f6-AN2"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" type="user" id="C3m-RB-1E7"/>
+                                                <constraint firstAttribute="width" constant="300" id="jvc-He-0Xa"/>
+                                                <constraint firstAttribute="height" priority="1" constant="23" type="user" id="oZR-fZ-svG"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -248,53 +248,133 @@
                                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="shadowOffset" width="1" height="1"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytd-pb-C0w">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBC-8T-5Cb">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" type="user" id="msT-to-tzx"/>
-                                                <constraint firstAttribute="width" constant="146" id="oNL-3O-4fb"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
-                                            <size key="titleShadowOffset" width="1" height="1"/>
-                                            <state key="normal" title="View Full Description">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocr-Jg-N3l">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="111" id="I9S-e7-ZbE"/>
+                                                <constraint firstAttribute="width" constant="142" id="hbU-FU-qb5"/>
+                                                <constraint firstAttribute="height" constant="19" type="user" id="rIr-Rl-bGg"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
                                             <size key="titleShadowOffset" width="1" height="1"/>
-                                            <state key="normal" title="View Metadata">
+                                            <state key="normal" title="Details">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted">
-                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BB-fz-ce7">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="142" id="b0P-bu-BRG"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                            <state key="normal" title="Metadata">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZU-8E-zRg">
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLw-R8-GoR">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" type="user" id="SX5-RT-rVG"/>
+                                                        <constraint firstAttribute="width" constant="49" id="ZBi-ce-aU4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                    <size key="titleShadowOffset" width="1" height="1"/>
+                                                    <state key="normal" title="Latest">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="5g6-Ri-jMN">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" type="user" id="b6k-il-xDC"/>
+                                                        <constraint firstAttribute="width" constant="91" id="hHQ-Ft-yGa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                    <size key="titleShadowOffset" width="1" height="1"/>
+                                                    <state key="normal" title="Most Downloaded">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="QRf-y3-mUc">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="39" id="Lb0-Sh-7gy"/>
+                                                        <constraint firstAttribute="height" constant="41" type="user" id="hiZ-KK-GW8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                    <size key="titleShadowOffset" width="1" height="1"/>
+                                                    <state key="normal" title="Staff Picks">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="JNl-ZT-yIr">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" type="user" id="geJ-eS-y0v"/>
+                                                        <constraint firstAttribute="width" constant="54" id="h2U-oS-nie"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                                    <size key="titleShadowOffset" width="1" height="1"/>
+                                                    <state key="normal" image="search-button-plain.png">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="JNl-ZT-yIr" firstAttribute="top" secondItem="QRf-y3-mUc" secondAttribute="top" type="default" id="0c7-pu-ung"/>
+                                                <constraint firstItem="QRf-y3-mUc" firstAttribute="centerY" secondItem="xZU-8E-zRg" secondAttribute="centerY" type="default" id="3i0-oM-CMg"/>
+                                                <constraint firstItem="JNl-ZT-yIr" firstAttribute="leading" secondItem="QRf-y3-mUc" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Mfh-mg-KtD"/>
+                                                <constraint firstItem="5g6-Ri-jMN" firstAttribute="top" secondItem="QRf-y3-mUc" secondAttribute="top" type="default" id="gve-JA-Te7"/>
+                                                <constraint firstItem="DLw-R8-GoR" firstAttribute="top" secondItem="5g6-Ri-jMN" secondAttribute="top" type="default" id="hRI-Ki-xwM"/>
+                                                <constraint firstItem="5g6-Ri-jMN" firstAttribute="leading" secondItem="DLw-R8-GoR" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="reI-OX-ZtR"/>
+                                                <constraint firstItem="QRf-y3-mUc" firstAttribute="leading" secondItem="5g6-Ri-jMN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ugd-xc-N7e"/>
+                                                <constraint firstItem="DLw-R8-GoR" firstAttribute="leading" secondItem="xZU-8E-zRg" secondAttribute="leading" constant="32" id="vlM-CN-ScH"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="ytd-pb-C0w" firstAttribute="leading" secondItem="BFu-rM-wTy" secondAttribute="leading" type="default" id="47w-J1-odb"/>
-                                        <constraint firstItem="BFu-rM-wTy" firstAttribute="centerX" secondItem="qeC-n8-fen" secondAttribute="centerX" type="default" id="7nn-i6-SBv"/>
-                                        <constraint firstItem="kW7-vM-2jR" firstAttribute="top" secondItem="BFu-rM-wTy" secondAttribute="top" type="user" id="DqV-gI-YEJ"/>
-                                        <constraint firstItem="ocr-Jg-N3l" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="160" type="user" id="Nqx-BR-qWy"/>
-                                        <constraint firstAttribute="bottom" secondItem="ocr-Jg-N3l" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="U3Y-in-wPV"/>
-                                        <constraint firstItem="ytd-pb-C0w" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="160" type="user" id="VNa-mR-1SI"/>
-                                        <constraint firstItem="ocr-Jg-N3l" firstAttribute="baseline" secondItem="ytd-pb-C0w" secondAttribute="baseline" type="user" id="fpb-aG-dLV"/>
-                                        <constraint firstItem="BFu-rM-wTy" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="10" type="user" id="n3X-cv-eoQ"/>
-                                        <constraint firstItem="ocr-Jg-N3l" firstAttribute="trailing" secondItem="BFu-rM-wTy" secondAttribute="trailing" type="default" id="pat-oQ-F18"/>
-                                        <constraint firstItem="BFu-rM-wTy" firstAttribute="centerX" secondItem="kW7-vM-2jR" secondAttribute="centerX" type="default" id="phX-PJ-iwY"/>
+                                        <constraint firstItem="7BB-fz-ce7" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="176" type="user" id="6kW-5U-STQ"/>
+                                        <constraint firstItem="7BB-fz-ce7" firstAttribute="trailing" secondItem="BFu-rM-wTy" secondAttribute="trailing" type="default" id="9GM-Jn-KOy"/>
+                                        <constraint firstItem="nBC-8T-5Cb" firstAttribute="bottom" secondItem="7BB-fz-ce7" secondAttribute="bottom" type="default" id="EFT-Qg-ara"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="bottom" secondItem="qeC-n8-fen" secondAttribute="bottom" type="default" id="KZ1-sC-CiH"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="leading" secondItem="qeC-n8-fen" secondAttribute="leading" type="default" id="LNy-t5-6HY"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="trailing" secondItem="qeC-n8-fen" secondAttribute="trailing" type="default" id="PCk-3n-hqx"/>
+                                        <constraint firstItem="nBC-8T-5Cb" firstAttribute="leading" secondItem="BFu-rM-wTy" secondAttribute="leading" type="default" id="QtL-fm-6DI"/>
+                                        <constraint firstItem="BFu-rM-wTy" firstAttribute="centerX" secondItem="kW7-vM-2jR" secondAttribute="centerX" type="default" id="SVA-4b-F9U"/>
+                                        <constraint firstItem="kW7-vM-2jR" firstAttribute="top" secondItem="BFu-rM-wTy" secondAttribute="top" type="default" id="V9J-Il-btM"/>
+                                        <constraint firstItem="nBC-8T-5Cb" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="176" type="user" id="XUP-C4-Mty"/>
+                                        <constraint firstItem="nBC-8T-5Cb" firstAttribute="baseline" secondItem="7BB-fz-ce7" secondAttribute="baseline" type="user" id="gzf-Pc-k0x"/>
+                                        <constraint firstItem="nBC-8T-5Cb" firstAttribute="top" secondItem="7BB-fz-ce7" secondAttribute="top" type="user" id="jok-F8-ryp"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="214" id="jtj-zw-gTB"/>
+                                        <constraint firstItem="kW7-vM-2jR" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="9" id="mCP-9A-vht"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="centerX" secondItem="kW7-vM-2jR" secondAttribute="centerX" type="default" id="sLp-sJ-T9m"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="psL-94-3B5">
-                                        <rect key="frame" x="0.0" y="246" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="280" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -323,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOw-NU-Yza" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="-172"/>
+            <point key="canvasLocation" x="2862" y="144"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="UA9-2x-QaZ">
@@ -352,9 +432,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ab-lR-fDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533" y="-146"/>
+            <point key="canvasLocation" x="1077" y="454"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="search-button-plain.png" width="30" height="30"/>
+    </resources>
     <classes>
         <class className="ArchiveImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageView.h"/>

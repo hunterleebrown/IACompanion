@@ -56,7 +56,7 @@
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = _tableHeaderView.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor darkGrayColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
     [_tableHeaderView.layer insertSublayer:gradient atIndex:1];
     
     
