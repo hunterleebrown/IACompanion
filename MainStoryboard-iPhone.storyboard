@@ -16,7 +16,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="mainNavCell" id="Voh-dj-hLF" customClass="MainNavTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainNavCell" id="Voh-dj-hLF" customClass="MainNavTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="256" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -223,22 +223,102 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="uvW-Ws-icj">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wle-pd-Z3W">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="qeC-n8-fen">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="kW7-vM-2jR" customClass="ArchiveImageView">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="LYZ-x5-Wea"/>
+                                                <constraint firstAttribute="height" constant="150" type="user" id="zbF-Cp-nYN"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-rM-wTy">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="1" constant="21" type="user" id="C3m-RB-1E7"/>
+                                                <constraint firstAttribute="width" constant="300" id="Ep7-Kw-Wfb"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" type="user" id="ymZ-f6-AN2"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytd-pb-C0w">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" type="user" id="msT-to-tzx"/>
+                                                <constraint firstAttribute="width" constant="146" id="oNL-3O-4fb"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
+                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                            <state key="normal" title="View Full Description">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocr-Jg-N3l">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="111" id="I9S-e7-ZbE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                            <state key="normal" title="View Metadata">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="ytd-pb-C0w" firstAttribute="leading" secondItem="BFu-rM-wTy" secondAttribute="leading" type="default" id="47w-J1-odb"/>
+                                        <constraint firstItem="BFu-rM-wTy" firstAttribute="centerX" secondItem="qeC-n8-fen" secondAttribute="centerX" type="default" id="7nn-i6-SBv"/>
+                                        <constraint firstItem="kW7-vM-2jR" firstAttribute="top" secondItem="BFu-rM-wTy" secondAttribute="top" type="user" id="DqV-gI-YEJ"/>
+                                        <constraint firstItem="ocr-Jg-N3l" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="160" type="user" id="Nqx-BR-qWy"/>
+                                        <constraint firstAttribute="bottom" secondItem="ocr-Jg-N3l" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="U3Y-in-wPV"/>
+                                        <constraint firstItem="ytd-pb-C0w" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="160" type="user" id="VNa-mR-1SI"/>
+                                        <constraint firstItem="ocr-Jg-N3l" firstAttribute="baseline" secondItem="ytd-pb-C0w" secondAttribute="baseline" type="user" id="fpb-aG-dLV"/>
+                                        <constraint firstItem="BFu-rM-wTy" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="10" type="user" id="n3X-cv-eoQ"/>
+                                        <constraint firstItem="ocr-Jg-N3l" firstAttribute="trailing" secondItem="BFu-rM-wTy" secondAttribute="trailing" type="default" id="pat-oQ-F18"/>
+                                        <constraint firstItem="BFu-rM-wTy" firstAttribute="centerX" secondItem="kW7-vM-2jR" secondAttribute="centerX" type="default" id="phX-PJ-iwY"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="psL-94-3B5">
+                                        <rect key="frame" x="0.0" y="246" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="uvW-Ws-icj" firstAttribute="trailing" secondItem="NSH-No-036" secondAttribute="trailing" type="default" id="5IX-NO-kqp"/>
-                            <constraint firstItem="uvW-Ws-icj" firstAttribute="leading" secondItem="NSH-No-036" secondAttribute="leading" type="default" id="5Ym-zR-JMW"/>
-                            <constraint firstItem="uvW-Ws-icj" firstAttribute="top" secondItem="NSH-No-036" secondAttribute="top" constant="28" id="Cio-Ag-nFw"/>
+                            <constraint firstItem="Wle-pd-Z3W" firstAttribute="bottom" secondItem="NSH-No-036" secondAttribute="bottom" type="default" id="NgU-lt-YEN"/>
+                            <constraint firstItem="Wle-pd-Z3W" firstAttribute="top" secondItem="NSH-No-036" secondAttribute="top" type="default" id="Oic-j5-dPR"/>
+                            <constraint firstItem="Wle-pd-Z3W" firstAttribute="trailing" secondItem="NSH-No-036" secondAttribute="trailing" type="default" id="TuK-jk-KpH"/>
+                            <constraint firstItem="Wle-pd-Z3W" firstAttribute="leading" secondItem="NSH-No-036" secondAttribute="leading" type="default" id="pCf-n4-UQe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hwr-n3-V35"/>
                     <connections>
-                        <outlet property="contentTitleLabel" destination="uvW-Ws-icj" id="xfW-Ax-z0r"/>
+                        <outlet property="imageView" destination="kW7-vM-2jR" id="zdT-Xy-JhM"/>
+                        <outlet property="tableHeaderView" destination="qeC-n8-fen" id="Mmj-Ex-OEF"/>
+                        <outlet property="tableView" destination="Wle-pd-Z3W" id="w5x-mJ-r5l"/>
+                        <outlet property="titleLabel" destination="BFu-rM-wTy" id="Bd5-IF-vVe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOw-NU-Yza" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -275,6 +355,62 @@
             <point key="canvasLocation" x="1533" y="-146"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ArchiveImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageView.h"/>
+        </class>
+        <class className="CentralViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CentralViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="navView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CollectionContentViewController" superclassName="ContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionContentViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="description" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
+                <relationship kind="outlet" name="tableHeaderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ContentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentTitleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="InitialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
+        </class>
+        <class className="ItemContentViewController" superclassName="ContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemContentViewController.h"/>
+        </class>
+        <class className="MainNavTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navCellTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="navImageView" candidateClass="ArchiveImageView"/>
+            </relationships>
+        </class>
+        <class className="MainNavTableViewHeaderViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewHeaderViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="sectionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MainNavViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

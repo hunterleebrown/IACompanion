@@ -40,6 +40,7 @@
     self = [self init];
     if(self){
         testUrl = @"http://archive.org/metadata/%@";
+        identifier = ident;
         self.urlStr = [NSString stringWithFormat:testUrl, identifier];
     }
     return self;
@@ -110,11 +111,12 @@
                     if(![doc objectForKey:@"headerImage"]){
                         [aDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", aDoc.identifier]];
                         ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:aDoc.headerImageUrl];
-                        //[anImage startDownloading];
                         [aDoc setArchiveImage:anImage];
                         
                     } else {
                         [aDoc setHeaderImageUrl:[doc objectForKey:@"headerImage"]];
+                        ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:aDoc.headerImageUrl];
+                        [aDoc setArchiveImage:anImage];
                     }
                     [aDoc setDescription:[doc objectForKey:@"description"]];
                     [aDoc setPublicDate:[doc objectForKey:@"publicdate"]];
@@ -150,8 +152,12 @@
         [dDoc setTitle:[StringUtils stringFromObject:[metadata objectForKey:@"title"]]];
         if(![metadata objectForKey:@"headerImage"]){
             [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", dDoc.identifier]];
+            ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:dDoc.headerImageUrl];
+            [dDoc setArchiveImage:anImage];
         } else {
             [dDoc setHeaderImageUrl:[metadata objectForKey:@"headerImage"]];
+            ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:dDoc.headerImageUrl];
+            [dDoc setArchiveImage:anImage];
         }
         [dDoc setDescription:[metadata objectForKey:@"description"]];
         [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];

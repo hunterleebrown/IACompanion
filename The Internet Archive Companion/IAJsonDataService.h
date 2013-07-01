@@ -14,5 +14,6 @@
 
 
 - (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString;
+- (id) initForMetadataDocsWithIdentifier:(NSString *)ident;
 
 @end

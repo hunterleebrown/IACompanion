@@ -11,11 +11,14 @@
 #import "CollectionContentViewController.h"
 #import "ItemContentViewController.h"
 
-@interface ContentViewController ()
+@interface ContentViewController () 
+
+
 
 @end
 
 @implementation ContentViewController
+@synthesize service;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,11 +66,8 @@
 
     [self.navigationItem setRightBarButtonItems:@[_searchButton]];
     
-    if(_searchDoc){
-        _contentTitleLabel.text = _searchDoc.title;
-    }
-    
 }
+    
 
 - (void) viewDidAppear:(BOOL)animated  {
     [super viewDidAppear:animated];
@@ -76,6 +76,8 @@
 
 - (void) setSearchDoc:(ArchiveSearchDoc *)searchDoc{
     _searchDoc = searchDoc;
+    self.service = [[IAJsonDataService alloc] initForMetadataDocsWithIdentifier:_searchDoc.identifier];
+    [self.service setDelegate:self];
 }
 
 

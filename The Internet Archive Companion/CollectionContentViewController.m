@@ -7,12 +7,21 @@
 //
 
 #import "CollectionContentViewController.h"
+#import "ArchiveImageView.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface CollectionContentViewController ()
+@interface CollectionContentViewController () <UITableViewDataSource, UITableViewDataSource, UIWebViewDelegate>
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UIView *tableHeaderView;
+@property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
+@property (nonatomic, weak) IBOutlet UIWebView *description;
 
 @end
 
 @implementation CollectionContentViewController
+@synthesize tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,10 +38,40 @@
 	// Do any additional setup after loading the view.
    
     [self.navigationItem setLeftBarButtonItems:@[self.listButton, self.backButton]];
-
+    [self.service fetchData];
     
     
 }
+
+- (void) dataDidBecomeAvailableForService:(IADataService *)service{
+    
+    //ArchiveDetailDoc *doc = ((IAJsonDataService *)service).rawResults
+    assert([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] != nil);
+    ArchiveDetailDoc *doc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
+    
+    _titleLabel.text = [NSString stringWithFormat:@"%@ Collection", doc.title];
+    if(doc.archiveImage){
+        [_imageView setArchiveImage:doc.archiveImage];
+    }
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = _tableHeaderView.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
+    [_tableHeaderView.layer insertSublayer:gradient atIndex:1];
+    
+    
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
+    
+    
+    NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
+    [_description loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
+             MIMEType:@"text/html"
+     textEncodingName:@"UTF-8"
+              baseURL:theBaseURL];
+    
+    
+}
+
 
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];

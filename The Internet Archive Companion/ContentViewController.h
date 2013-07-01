@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ArchiveSearchDoc.h"
+#import "IAJsonDataService.h"
 
-@interface ContentViewController : UIViewController
+
+@interface ContentViewController : UIViewController <IADataServiceDelegate>
 
 
 @property (nonatomic, strong) ArchiveSearchDoc *searchDoc;
@@ -18,6 +20,6 @@
 @property (nonatomic, strong) UIBarButtonItem *backButton;
 @property (nonatomic, strong) UIBarButtonItem *listButton;
 @property (nonatomic, strong) UIBarButtonItem *searchButton;
-
+@property (nonatomic, strong) IAJsonDataService *service;
 
 @end
