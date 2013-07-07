@@ -8,6 +8,7 @@
 
 #import "CollectionContentViewController.h"
 #import "ArchiveImageView.h"
+#import "CollectionDataHandlerAndHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface CollectionContentViewController () <UITableViewDataSource, UITableViewDataSource, UIWebViewDelegate>
@@ -18,10 +19,12 @@
 @property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIWebView *description;
 
+@property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
+
 @end
 
 @implementation CollectionContentViewController
-@synthesize tableView;
+@synthesize tableView, collectionHandlerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +43,8 @@
     [self.navigationItem setLeftBarButtonItems:@[self.listButton, self.backButton]];
     [self.service fetchData];
     
+    [collectionHandlerView setIdentifier:self.searchDoc.identifier];
+    
     
 }
 
@@ -56,12 +61,16 @@
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = _tableHeaderView.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor darkGrayColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
     [_tableHeaderView.layer insertSublayer:gradient atIndex:1];
     
     
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
     
+    [self setTitle:doc.title];
+    
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], UITextAttributeFont, nil]];
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
     [_description loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
@@ -71,6 +80,7 @@
     
     
 }
+
 
 
 - (void) viewDidAppear:(BOOL)animated{

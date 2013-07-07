@@ -41,9 +41,9 @@
         videoSearchDocuments = [NSMutableArray new];
         textSearchDocuments = [NSMutableArray new];
         
-        audioService = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:@"audio"];
-        videoService = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:@"movies"];
-        textService = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:@"texts"];
+        audioService = [[IAJsonDataService alloc] initForAllCollectionItemsWithCollectionIdentifier:@"audio" sortType:IADataServiceTitleAscending];
+        videoService = [[IAJsonDataService alloc] initForAllCollectionItemsWithCollectionIdentifier:@"movies" sortType:IADataServiceTitleAscending];
+        textService = [[IAJsonDataService alloc] initForAllCollectionItemsWithCollectionIdentifier:@"texts" sortType:IADataServiceTitleAscending];
 
         [audioService setDelegate:self];
         [videoService setDelegate:self];

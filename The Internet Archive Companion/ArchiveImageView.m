@@ -89,11 +89,7 @@
 }
 
 - (void)updateImage:(ArchiveImage *)img {
-    [self setAlpha:0.0];
-    [UIView animateWithDuration:0.15 animations:^{
-        self.image = img.contentImage;
-        [self setAlpha:1.0];
-    }];
+    self.image = img.contentImage;
 }
 
 #pragma mark - Download Handlers

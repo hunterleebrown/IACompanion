@@ -24,16 +24,36 @@
 @synthesize rawResults, identifier, testUrl, loadMoreStart, fileNameIn;
 
 
-- (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString{
+- (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type {
     self = [self init];
     if(self){
         identifier = idString;
         loadMoreStart = @"0";
-        self.urlStr = [self docsUrlStringsWithType:MediaTypeCollection withIdentifier:identifier withSort:@"titleSorter+asc"];
-        
+        self.urlStr = [self docsUrlStringsWithType:MediaTypeNone withIdentifier:identifier withSort:[self sortStringFromType:type]];
     }
     
     return self;
+}
+
+- (id) initForAllCollectionItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type {
+    self = [self init];
+    if(self){
+        identifier = idString;
+        loadMoreStart = @"0";
+        self.urlStr = [self docsUrlStringsWithType:MediaTypeCollection withIdentifier:identifier withSort:[self sortStringFromType:type]];
+    }
+    
+    return self;
+}
+
+- (NSString *)sortStringFromType:(IADataServiceSortType)type{
+    if(type == IADataServiceDownloadCount) {
+        return @"downloads+desc";
+    } else if(type == IADataServiceSortTypeDateDescending){
+        return  @"publicdate+desc";
+    } else {
+        return @"titleSorter+asc";
+    }
 }
 
 - (id) initForMetadataDocsWithIdentifier:(NSString *)ident{
@@ -46,6 +66,26 @@
     return self;
 }
 
+- (id) initStaffPicksDocsWithCollectionIdentifier:(NSString *)idString {
+    self = [self init];
+    if(self){
+        testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@+pick:1&rows=50&page=1&output=json";
+        identifier = idString;
+        loadMoreStart = @"0";
+        self.urlStr = [NSString stringWithFormat:testUrl, identifier];
+    }
+    return self;
+}
+
+- (void) changeSortType:(IADataServiceSortType *)type {
+    loadMoreStart = @"0";
+    self.urlStr = [self docsUrlStringsWithType:MediaTypeCollection withIdentifier:identifier withSort:[self sortStringFromType:type]];
+
+}
+
+- (void) setLoadMoreStart:(NSString *)lMS{
+    loadMoreStart = lMS;
+}
 
 
 - (NSString *) docsUrlStringsWithType:(MediaType)type withIdentifier:(NSString *)idString withSort:(NSString *)sort{
@@ -84,6 +124,12 @@
     testUrl = test;
     return [NSString stringWithFormat:@"%@&start=%@", testUrl, start];
 }
+
+
+
+
+
+
 
 
 
