@@ -53,7 +53,7 @@
 
     if(service.rawResults && [service.rawResults objectForKey:@"documents"]){
         
-        if(didTriggerLoadMore) {
+        if(!didTriggerLoadMore) {
             [searchDocuments removeAllObjects];
         }
         [searchDocuments addObjectsFromArray:[service.rawResults objectForKey:@"documents"]];

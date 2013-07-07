@@ -129,7 +129,7 @@
 - (void)notifyDelegatesWithSuccess {
     self.downloadStatus = ArchiveFileDownloaderDowloadStatusComplete;
     if (delegate != nil && [delegate respondsToSelector:@selector(didFinishFileDownload:)]) {
-        NSLog(@"notifyDelegatesWithSuccess: delegate callback");
+       // NSLog(@"notifyDelegatesWithSuccess: delegate callback");
         [delegate didFinishFileDownload:download];
 	}
     if (target != nil) {
@@ -140,19 +140,19 @@
 }
 
 - (void)startDownloading {
-        NSLog(@"started dowloading %@", download.urlPath);
+       // NSLog(@"started downloading %@", download.urlPath);
     if ([[ArchiveCache sharedInstance].cache objectForKey:download.urlPath]) {
-        NSLog(@"startDownloading: from cache");
+       // NSLog(@"startDownloading: from cache");
         [self retrieveCurrentDownloadFromCache];
     }
     else {
-        NSLog(@"startDownloading: from web");
+      //  NSLog(@"startDownloading: from web");
         [self retrieveCurrentDownloadFromWeb];
     }
 }
 
 - (void)startForcedDownloading {
-    NSLog(@"startForcedDownloading");
+   // NSLog(@"startForcedDownloading");
     [self retrieveCurrentDownloadFromWeb];
 }
 
@@ -196,7 +196,7 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"connectionDidFinishLoading");
+   // NSLog(@"connectionDidFinishLoading");
     
 	download.data = [NSData dataWithData:download.activeDownload];
     
