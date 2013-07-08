@@ -65,7 +65,7 @@
 
 
     [self.navigationItem setRightBarButtonItems:@[_searchButton]];
-    
+
 }
     
 

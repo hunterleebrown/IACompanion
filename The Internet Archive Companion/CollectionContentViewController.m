@@ -46,6 +46,8 @@
     [collectionHandlerView setIdentifier:self.searchDoc.identifier];
     
     
+    [tableView setScrollsToTop:YES];
+
 }
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{

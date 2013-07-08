@@ -29,6 +29,9 @@
     self = [super initWithCoder:aDecoder];
     if (self){
         
+        
+  
+        
     }
     return self;
 }
@@ -43,7 +46,6 @@
     service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDateDescending];
     [service setDelegate:self];
     [service fetchData];
-    
 
     
     
@@ -81,14 +83,15 @@
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    /*
     CGPoint contentOffset = [scrollView contentOffset];
-    if(contentOffset.y >= 215){
+    if(contentOffset.y > 200){
         [self setFrame:CGRectMake(0, contentOffset.y, self.frame.size.width, self.frame.size.height)];
     } else {
-        [self setFrame:CGRectMake(0,214, self.frame.size.width, self.frame.size.height)];
+        [self setFrame:CGRectMake(0, 200, self.frame.size.width, self.frame.size.height)];
 
     }
-    
+    */
     
     if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 300){
         if(searchDocuments.count > 0  && searchDocuments.count < numFound  && start < numFound && !didTriggerLoadMore){
@@ -99,6 +102,32 @@
     }
     
 }
+
+- (IBAction)segmentedControlIndexChanged:(id)sender {
+    UISegmentedControl *seggers = (UISegmentedControl *)sender;
+    switch (seggers.selectedSegmentIndex) {
+        case 0:
+            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDateDescending];
+            [service setDelegate:self];
+            [service fetchData];
+            break;
+        case 1:
+            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadCount];
+            [service setDelegate:self];
+            [service fetchData];
+            break;
+        case 2:
+            [service changeToStaffPicks];
+            [service fetchData];
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+
 
 - (void)loadMoreItems:(id)sender {
     didTriggerLoadMore = YES;

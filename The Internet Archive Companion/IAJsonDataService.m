@@ -47,7 +47,7 @@
 }
 
 - (NSString *)sortStringFromType:(IADataServiceSortType)type{
-    if(type == IADataServiceDownloadCount) {
+    if(type == IADataServiceSortTypeDownloadCount) {
         return @"downloads+desc";
     } else if(type == IADataServiceSortTypeDateDescending){
         return  @"publicdate+desc";
@@ -66,15 +66,10 @@
     return self;
 }
 
-- (id) initStaffPicksDocsWithCollectionIdentifier:(NSString *)idString {
-    self = [self init];
-    if(self){
-        testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@+pick:1&rows=50&page=1&output=json";
-        identifier = idString;
-        loadMoreStart = @"0";
-        self.urlStr = [NSString stringWithFormat:testUrl, identifier];
-    }
-    return self;
+- (void) changeToStaffPicks {
+    testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@+pick:1&rows=50&page=1&output=json";
+    loadMoreStart = @"0";
+    self.urlStr = [NSString stringWithFormat:testUrl, identifier];
 }
 
 - (void) changeSortType:(IADataServiceSortType *)type {

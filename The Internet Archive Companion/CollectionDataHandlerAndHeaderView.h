@@ -13,12 +13,11 @@
 
 
 @property (nonatomic, strong) IBOutlet UITableView *collectionTableView;
-@property (nonatomic, weak) IBOutlet UIButton *latestButton;
-@property (nonatomic, weak) IBOutlet UIButton *mostDownloadedButton;
-@property (nonatomic, weak) IBOutlet UIButton *staffPicksButton;
-@property (nonatomic, weak) IBOutlet UIButton *searchButton;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *filters;
 
 @property (nonatomic, strong) NSString *identifier;
+
+- (IBAction)segmentedControlIndexChanged:(id)sender;
 
 @end
 

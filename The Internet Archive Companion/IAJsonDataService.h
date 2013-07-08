@@ -11,7 +11,7 @@
 
 typedef enum {
     IADataServiceSortTypeDateDescending = 0,
-    IADataServiceDownloadCount = 1,
+    IADataServiceSortTypeDownloadCount = 1,
     IADataServiceTitleAscending = 2
 } IADataServiceSortType;
 
@@ -24,7 +24,7 @@ typedef enum {
 - (id) initForAllCollectionItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type;
 
 - (id) initForMetadataDocsWithIdentifier:(NSString *)ident;
-- (id) initStaffPicksDocsWithCollectionIdentifier:(NSString *)idString;
+- (void) changeToStaffPicks;
 - (void) changeSortType:(IADataServiceSortType *)type;
 - (void) setLoadMoreStart:(NSString *)lMS;
 

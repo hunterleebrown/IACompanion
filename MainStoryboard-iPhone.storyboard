@@ -227,7 +227,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="qeC-n8-fen">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="258"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="244"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="kW7-vM-2jR" customClass="ArchiveImageView">
@@ -280,115 +280,60 @@
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZU-8E-zRg" customClass="CollectionDataHandlerAndHeaderView">
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLw-R8-GoR">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bel-US-Jmz">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="49" id="ZBi-ce-aU4"/>
-                                                        <constraint firstAttribute="height" constant="41" id="mip-jd-r5s"/>
+                                                        <constraint firstAttribute="width" constant="300" id="BkF-W8-XaS"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
-                                                    <size key="titleShadowOffset" width="1" height="1"/>
-                                                    <state key="normal" title="Latest">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="5g6-Ri-jMN">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="91" id="hHQ-Ft-yGa"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
-                                                    <size key="titleShadowOffset" width="1" height="1"/>
-                                                    <state key="normal" title="Most Downloaded">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="QRf-y3-mUc">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="39" id="Lb0-Sh-7gy"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
-                                                    <size key="titleShadowOffset" width="1" height="1"/>
-                                                    <state key="normal" title="Staff Picks">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="JNl-ZT-yIr">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="54" id="h2U-oS-nie"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
-                                                    <size key="titleShadowOffset" width="1" height="1"/>
-                                                    <state key="normal" image="search-button-plain.png">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
+                                                    <segments>
+                                                        <segment title="Latest"/>
+                                                        <segment title="Popular"/>
+                                                        <segment title="Staff Picks"/>
+                                                        <segment title="" image="search-button-plain.png"/>
+                                                    </segments>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="segmentedControlIndexChanged:" destination="xZU-8E-zRg" eventType="valueChanged" id="xMt-xf-pdg"/>
+                                                    </connections>
+                                                </segmentedControl>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="5g6-Ri-jMN" firstAttribute="bottom" secondItem="QRf-y3-mUc" secondAttribute="bottom" type="default" id="7YW-ac-k7z"/>
-                                                <constraint firstItem="JNl-ZT-yIr" firstAttribute="top" secondItem="QRf-y3-mUc" secondAttribute="top" type="default" id="JvL-r4-qDx"/>
-                                                <constraint firstItem="JNl-ZT-yIr" firstAttribute="leading" secondItem="QRf-y3-mUc" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Mfh-mg-KtD"/>
-                                                <constraint firstItem="JNl-ZT-yIr" firstAttribute="centerY" secondItem="xZU-8E-zRg" secondAttribute="centerY" type="default" id="Pka-8I-9VI"/>
-                                                <constraint firstItem="5g6-Ri-jMN" firstAttribute="bottom" secondItem="DLw-R8-GoR" secondAttribute="bottom" type="default" id="TSZ-BD-msR"/>
-                                                <constraint firstItem="QRf-y3-mUc" firstAttribute="top" secondItem="5g6-Ri-jMN" secondAttribute="top" type="default" id="Vup-7m-cQS"/>
-                                                <constraint firstItem="DLw-R8-GoR" firstAttribute="top" secondItem="5g6-Ri-jMN" secondAttribute="top" type="default" id="hRI-Ki-xwM"/>
-                                                <constraint firstItem="JNl-ZT-yIr" firstAttribute="bottom" secondItem="QRf-y3-mUc" secondAttribute="bottom" type="default" id="qT3-Bw-LQ5"/>
-                                                <constraint firstItem="5g6-Ri-jMN" firstAttribute="leading" secondItem="DLw-R8-GoR" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="reI-OX-ZtR"/>
-                                                <constraint firstItem="QRf-y3-mUc" firstAttribute="leading" secondItem="5g6-Ri-jMN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ugd-xc-N7e"/>
-                                                <constraint firstItem="DLw-R8-GoR" firstAttribute="leading" secondItem="xZU-8E-zRg" secondAttribute="leading" constant="32" id="vlM-CN-ScH"/>
+                                                <constraint firstItem="Bel-US-Jmz" firstAttribute="top" secondItem="xZU-8E-zRg" secondAttribute="top" constant="7" id="4l8-Ey-Ro6"/>
+                                                <constraint firstItem="Bel-US-Jmz" firstAttribute="centerX" secondItem="xZU-8E-zRg" secondAttribute="centerX" type="default" id="tnz-Cz-aFX"/>
                                             </constraints>
                                             <connections>
                                                 <outlet property="collectionTableView" destination="Wle-pd-Z3W" id="dV0-JR-Xha"/>
-                                                <outlet property="latestButton" destination="DLw-R8-GoR" id="1T9-OC-vxX"/>
-                                                <outlet property="mostDownloadedButton" destination="5g6-Ri-jMN" id="7sG-wy-dI4"/>
-                                                <outlet property="searchButton" destination="JNl-ZT-yIr" id="eMC-2q-8LH"/>
-                                                <outlet property="staffPicksButton" destination="QRf-y3-mUc" id="Fiu-p8-mX2"/>
+                                                <outlet property="filters" destination="Bel-US-Jmz" id="j3i-Q9-D4N"/>
                                             </connections>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="7BB-fz-ce7" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="176" type="user" id="6kW-5U-STQ"/>
+                                        <constraint firstItem="BFu-rM-wTy" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="8" id="5UR-Xc-hxv"/>
                                         <constraint firstItem="7BB-fz-ce7" firstAttribute="trailing" secondItem="BFu-rM-wTy" secondAttribute="trailing" type="default" id="9GM-Jn-KOy"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="200" id="DXW-TH-NRc"/>
                                         <constraint firstItem="nBC-8T-5Cb" firstAttribute="bottom" secondItem="7BB-fz-ce7" secondAttribute="bottom" type="default" id="EFT-Qg-ara"/>
-                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="bottom" secondItem="qeC-n8-fen" secondAttribute="bottom" type="default" id="KZ1-sC-CiH"/>
-                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="leading" secondItem="qeC-n8-fen" secondAttribute="leading" type="default" id="LNy-t5-6HY"/>
-                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="trailing" secondItem="qeC-n8-fen" secondAttribute="trailing" type="default" id="PCk-3n-hqx"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="trailing" secondItem="qeC-n8-fen" secondAttribute="trailing" type="default" id="Kym-KF-2xF"/>
+                                        <constraint firstItem="kW7-vM-2jR" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="7" id="OcW-JS-yRe"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="centerX" secondItem="BFu-rM-wTy" secondAttribute="centerX" type="default" id="PAd-95-Hir"/>
                                         <constraint firstItem="nBC-8T-5Cb" firstAttribute="leading" secondItem="BFu-rM-wTy" secondAttribute="leading" type="default" id="QtL-fm-6DI"/>
                                         <constraint firstItem="BFu-rM-wTy" firstAttribute="centerX" secondItem="kW7-vM-2jR" secondAttribute="centerX" type="default" id="SVA-4b-F9U"/>
-                                        <constraint firstItem="kW7-vM-2jR" firstAttribute="top" secondItem="BFu-rM-wTy" secondAttribute="top" type="default" id="V9J-Il-btM"/>
-                                        <constraint firstItem="nBC-8T-5Cb" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="176" type="user" id="XUP-C4-Mty"/>
+                                        <constraint firstItem="nBC-8T-5Cb" firstAttribute="top" secondItem="kW7-vM-2jR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ZCv-UN-sQ4"/>
+                                        <constraint firstItem="7BB-fz-ce7" firstAttribute="top" secondItem="kW7-vM-2jR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="arm-n5-wqk"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="bottom" secondItem="qeC-n8-fen" secondAttribute="bottom" type="default" id="euy-QW-PqZ"/>
                                         <constraint firstItem="nBC-8T-5Cb" firstAttribute="baseline" secondItem="7BB-fz-ce7" secondAttribute="baseline" type="user" id="gzf-Pc-k0x"/>
-                                        <constraint firstItem="nBC-8T-5Cb" firstAttribute="top" secondItem="7BB-fz-ce7" secondAttribute="top" type="user" id="jok-F8-ryp"/>
-                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="214" id="jtj-zw-gTB"/>
-                                        <constraint firstItem="kW7-vM-2jR" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="9" id="mCP-9A-vht"/>
-                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="centerX" secondItem="kW7-vM-2jR" secondAttribute="centerX" type="default" id="sLp-sJ-T9m"/>
+                                        <constraint firstItem="xZU-8E-zRg" firstAttribute="leading" secondItem="qeC-n8-fen" secondAttribute="leading" type="default" id="ocd-um-jsr"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="collectionCell" rowHeight="88" id="psL-94-3B5" customClass="CollectionViewTableCell">
-                                        <rect key="frame" x="0.0" y="280" width="320" height="88"/>
+                                        <rect key="frame" x="0.0" y="266" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uIM-fr-7yF" customClass="ArchiveImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIM-fr-7yF" customClass="ArchiveImageView">
                                                     <color key="backgroundColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="84" id="lgG-H5-wke"/>
@@ -508,11 +453,9 @@
         <class className="CollectionDataHandlerAndHeaderView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionDataHandlerAndHeaderView.h"/>
             <relationships>
+                <relationship kind="action" name="segmentedControlIndexChanged:"/>
                 <relationship kind="outlet" name="collectionTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="latestButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mostDownloadedButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staffPicksButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="filters" candidateClass="UISegmentedControl"/>
             </relationships>
         </class>
         <class className="CollectionViewTableCell" superclassName="UITableViewCell">
