@@ -279,10 +279,11 @@
     NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:download.data options:NSJSONReadingMutableContainers error:&error];
     
     @try {
-        assert(jsonResponse != nil);
         [self packageJsonResponeDictionary:jsonResponse];
     } @catch (id exception) {
-        // not sure what to do
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Data Issue" message:[NSString stringWithFormat:@"%@", @"Something went wrong in interpreting data from the server. Try again."] delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
+        [alert show];
+    
     }
 
     

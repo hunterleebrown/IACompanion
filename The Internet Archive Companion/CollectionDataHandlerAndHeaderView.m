@@ -69,7 +69,7 @@
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
 
         [collectionTableView reloadData];
-        [_countLabel setText:[NSString stringWithFormat:@"%i items found", numFound]];
+        [_countLabel setText:[NSString stringWithFormat:@"%@ items found", [StringUtils decimalFormatNumberFromInteger:numFound]]];
     }
     didTriggerLoadMore = NO;
     [loadingIndicator stopAnimating];

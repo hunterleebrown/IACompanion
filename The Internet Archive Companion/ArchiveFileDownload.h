@@ -11,11 +11,11 @@
 @interface ArchiveFileDownload : NSObject
 
 
-@property (retain) NSMutableData *activeDownload;
-@property (retain) NSURLConnection *connection;
+@property (strong) NSMutableData *activeDownload;
+@property (strong) NSURLConnection *connection;
 
 @property (copy) NSString *urlPath;
-@property (retain) NSData *data;
+@property (strong) NSData *data;
 @property BOOL active;
 @property BOOL complete;
 
