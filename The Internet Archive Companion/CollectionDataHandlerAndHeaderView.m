@@ -134,11 +134,15 @@
             [service fetchData];
             break;
         case 1:
+            [service changeToSubCollections];
+            [service fetchData];
+            break;
+        case 2:
             service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadCount];
             [service setDelegate:self];
             [service fetchData];
             break;
-        case 2:
+        case 3:
             [service changeToStaffPicks];
             [service fetchData];
             break;
@@ -153,14 +157,16 @@
 
 
 - (void)loadMoreItems:(id)sender {
-    didTriggerLoadMore = YES;
-    start = start + 50;
-    // NSLog(@"-----> trigger loadmore");
-    // NSLog(@" docs.count:%i  numFound:%i   start:%i", docs.count, numFound, start);
-    
-    [loadingIndicator startAnimating];
-    [service setLoadMoreStart:[NSString stringWithFormat:@"%i", start]];
-    [service fetchData];
+    if(numFound > 50) {
+        didTriggerLoadMore = YES;
+        start = start + 50;
+        // NSLog(@"-----> trigger loadmore");
+        // NSLog(@" docs.count:%i  numFound:%i   start:%i", docs.count, numFound, start);
+        
+        [loadingIndicator startAnimating];
+        [service setLoadMoreStart:[NSString stringWithFormat:@"%i", start]];
+        [service fetchData];
+    }
 }
 
 @end

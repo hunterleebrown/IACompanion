@@ -25,6 +25,7 @@ typedef enum {
 
 - (id) initForMetadataDocsWithIdentifier:(NSString *)ident;
 - (void) changeToStaffPicks;
+- (void) changeToSubCollections;
 - (void) changeSortType:(IADataServiceSortType *)type;
 - (void) setLoadMoreStart:(NSString *)lMS;
 

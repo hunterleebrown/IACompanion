@@ -280,9 +280,10 @@
                                                     <constraint firstAttribute="width" constant="300" id="BkF-W8-XaS"/>
                                                 </constraints>
                                                 <segments>
-                                                    <segment title="Latest"/>
-                                                    <segment title="Popular"/>
-                                                    <segment title="Staff Picks"/>
+                                                    <segment title="New"/>
+                                                    <segment title="Sub Col."/>
+                                                    <segment title="Pop"/>
+                                                    <segment title="IA Pick"/>
                                                     <segment title="" image="search-button-plain.png"/>
                                                 </segments>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -417,6 +418,7 @@
                             <constraint firstItem="Wle-pd-Z3W" firstAttribute="trailing" secondItem="NSH-No-036" secondAttribute="trailing" type="default" id="TuK-jk-KpH"/>
                             <constraint firstItem="Wle-pd-Z3W" firstAttribute="leading" secondItem="NSH-No-036" secondAttribute="leading" type="default" id="Xcc-dC-ajz"/>
                             <constraint firstItem="i7K-jo-EbB" firstAttribute="trailing" secondItem="NSH-No-036" secondAttribute="trailing" type="default" id="cfW-Fr-pJu"/>
+                            <constraint firstItem="Wle-pd-Z3W" firstAttribute="bottom" secondItem="NSH-No-036" secondAttribute="bottom" type="user" id="evR-kM-835"/>
                             <constraint firstItem="qeC-n8-fen" firstAttribute="trailing" secondItem="NSH-No-036" secondAttribute="trailing" type="default" id="p7b-GR-DDy"/>
                             <constraint firstItem="qeC-n8-fen" firstAttribute="top" secondItem="NSH-No-036" secondAttribute="top" type="default" id="te6-S7-WP2"/>
                             <constraint firstItem="i7K-jo-EbB" firstAttribute="top" secondItem="NSH-No-036" secondAttribute="top" constant="148" id="zg3-nf-OT0"/>

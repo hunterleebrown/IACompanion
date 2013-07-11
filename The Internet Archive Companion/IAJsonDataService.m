@@ -67,10 +67,19 @@
 }
 
 - (void) changeToStaffPicks {
-    testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@+pick:1&rows=50&page=1&output=json";
+    testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@+pick:1&rows=50&output=json";
     loadMoreStart = @"0";
     self.urlStr = [NSString stringWithFormat:testUrl, identifier];
 }
+
+- (void) changeToSubCollections {
+    testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@+AND+mediatype:collection&sort[]=downloads+desc&rows=50&output=json";
+    loadMoreStart = @"0";
+    self.urlStr = [NSString stringWithFormat:testUrl, self.identifier];
+    
+    
+}
+
 
 - (void) changeSortType:(IADataServiceSortType *)type {
     loadMoreStart = @"0";
@@ -102,12 +111,12 @@
         }
         
         
-        testUrl = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json";
+        testUrl = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&output=json";
         NSString *searchUrl = [NSString stringWithFormat:testUrl, t, identifier, sort];
         return [self docsUrlStringWithTest:searchUrl withStart:loadMoreStart];
         
     } else {
-        testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&page=1&output=json";
+        testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&output=json";
         NSString *searchUrl = [NSString stringWithFormat:testUrl, identifier, sort];
         return [self docsUrlStringWithTest:searchUrl withStart:loadMoreStart];
     }
