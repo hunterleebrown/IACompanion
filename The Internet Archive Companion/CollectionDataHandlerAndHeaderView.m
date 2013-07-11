@@ -63,16 +63,21 @@
         
         if(!didTriggerLoadMore) {
             [searchDocuments removeAllObjects];
-            [collectionTableView setContentOffset:CGPointZero animated:YES];
-        }    
+        }
         [searchDocuments addObjectsFromArray:[service.rawResults objectForKey:@"documents"]];
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
 
         [collectionTableView reloadData];
         [_countLabel setText:[NSString stringWithFormat:@"%@ items found", [StringUtils decimalFormatNumberFromInteger:numFound]]];
+        
+        if(!didTriggerLoadMore) {
+            [collectionTableView setContentOffset:CGPointZero animated:YES];
+        }
     }
     didTriggerLoadMore = NO;
     [loadingIndicator stopAnimating];
+
+    
 
 }
 
