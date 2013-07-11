@@ -38,6 +38,9 @@
 
 
 - (void) setIdentifier:(NSString *)ident {
+    
+    [collectionTableView setScrollsToTop:YES];
+    
     searchDocuments = [NSMutableArray new];
     numFound = 0;
     start = 0;
@@ -47,7 +50,7 @@
     [service setDelegate:self];
     [service fetchData];
 
-    
+    [collectionTableView setScrollsToTop:YES];
     
 }
 
@@ -57,7 +60,8 @@
         
         if(!didTriggerLoadMore) {
             [searchDocuments removeAllObjects];
-        }
+            [collectionTableView setContentOffset:CGPointZero animated:YES];
+        }    
         [searchDocuments addObjectsFromArray:[service.rawResults objectForKey:@"documents"]];
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
 
@@ -78,9 +82,21 @@
     cell.title.text = doc.title;
     cell.archiveImageView.archiveImage = doc.archiveImage;
     
+    if(doc.type == MediaTypeCollection){
+        [cell.collectionBanner setHidden:NO];
+    } else {
+        
+        [cell.collectionBanner setHidden:YES];
+    }
+    
+    
     return cell;
 }
 
+- (BOOL) scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
+    
+    return YES;
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     /*

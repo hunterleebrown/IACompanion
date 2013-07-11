@@ -36,8 +36,6 @@
     if (self) {
         self.archiveImage = image;
 
-        //Adding observer in the setter
-        //[cbsiImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
     }
     return self;
 }
@@ -102,6 +100,14 @@
         }
     }
 }
+
+
+- (void) dealloc{
+    @try{
+        [archiveImage removeObserver:self forKeyPath:@"downloaded"];
+    }@catch(id anException){
+        //do nothing, obviously it wasn't attached because an exception was thrown
+    }}
 
 @end
 

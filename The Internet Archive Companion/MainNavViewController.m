@@ -64,7 +64,7 @@
     [audioService fetchData];
     [videoService fetchData];
     [textService fetchData];
-    
+    [navTable setScrollsToTop:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -202,6 +202,10 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NavCellNotification" object:doc];
 }
 
+- (BOOL) scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
+    
+    return NO;
+}
 
 
 @end

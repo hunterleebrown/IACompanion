@@ -114,4 +114,12 @@
     return contentImage;
 }
 
+- (void) dealloc{    
+    @try{
+        [downloader removeObserver:self forKeyPath:@"downloadStatus"];
+    }@catch(id anException){
+        //do nothing, obviously it wasn't attached because an exception was thrown
+    }
+}
+
 @end

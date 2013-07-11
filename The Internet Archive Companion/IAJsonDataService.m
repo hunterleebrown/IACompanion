@@ -265,7 +265,12 @@
 }
 
 
+- (void) didFailFileDownload:(ArchiveFileDownload *)download{
 
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download Failure" message:@"Couldn't complete request." delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
+    [alert show];
+    
+}
 
 - (void) didFinishFileDownload:(ArchiveFileDownload *)download{
     [super didFinishFileDownload:download];

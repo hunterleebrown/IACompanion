@@ -34,7 +34,7 @@ typedef enum {
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSDictionary *rawDoc;
 @property (strong, nonatomic) ArchiveImage *archiveImage;
-@property (nonatomic) MediaType type;
+@property (assign) MediaType type;
 
 
 @end
@@ -46,7 +46,7 @@ typedef enum {
 
 @property (strong, nonatomic) NSString *uploader;
 @property (strong, nonatomic) NSString *creator;
-@property (nonatomic) MediaType type;
+@property (assign) MediaType type;
 @property (strong, nonatomic) NSArray *files;
 
 @end

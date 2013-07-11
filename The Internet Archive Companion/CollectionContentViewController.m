@@ -11,20 +11,18 @@
 #import "CollectionDataHandlerAndHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface CollectionContentViewController () <UITableViewDataSource, UITableViewDataSource, UIWebViewDelegate>
+@interface CollectionContentViewController () <UIWebViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIView *tableHeaderView;
 @property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
-@property (nonatomic, weak) IBOutlet UIWebView *description;
 
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
 
 @end
 
 @implementation CollectionContentViewController
-@synthesize tableView, collectionHandlerView;
+@synthesize collectionHandlerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,9 +42,8 @@
     [self.service fetchData];
     
     [collectionHandlerView setIdentifier:self.searchDoc.identifier];
+    [collectionHandlerView.collectionTableView setScrollsToTop:YES];
     
-    
-    [tableView setScrollsToTop:YES];
 
 }
 
@@ -75,12 +72,14 @@
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], UITextAttributeFont, nil]];
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
+    
+    /*
     [_description loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
              MIMEType:@"text/html"
      textEncodingName:@"UTF-8"
               baseURL:theBaseURL];
     
-    
+    */
 }
 
 
