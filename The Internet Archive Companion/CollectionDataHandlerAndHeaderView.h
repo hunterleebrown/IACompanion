@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *collectionTableView;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *filters;
+@property (nonatomic, weak) IBOutlet UILabel *countLabel;
 
 @property (nonatomic, strong) NSString *identifier;
 

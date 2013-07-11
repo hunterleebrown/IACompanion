@@ -278,9 +278,13 @@
     NSError *error = nil;
     NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:download.data options:NSJSONReadingMutableContainers error:&error];
     
-    assert(jsonResponse != nil);
-    [self packageJsonResponeDictionary:jsonResponse];
-    
+    @try {
+        assert(jsonResponse != nil);
+        [self packageJsonResponeDictionary:jsonResponse];
+    } @catch (id exception) {
+        // not sure what to do
+    }
+
     
 }
 

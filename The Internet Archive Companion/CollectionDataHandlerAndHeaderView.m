@@ -11,6 +11,7 @@
 #import "ArchiveSearchDoc.h"
 #import "CollectionViewTableCell.h"
 #import "StringUtils.h"
+#import "ArchiveLoadingView.h"
 
 @interface CollectionDataHandlerAndHeaderView ()
 
@@ -19,18 +20,19 @@
 @property (assign) int numFound;
 @property (assign) int start;
 @property (assign) BOOL didTriggerLoadMore;
+@property (nonatomic, weak) IBOutlet ArchiveLoadingView *loadingIndicator;
 
 @end
 
 @implementation CollectionDataHandlerAndHeaderView
-@synthesize service, identifier, searchDocuments, collectionTableView, numFound, didTriggerLoadMore, start;
+@synthesize service, identifier, searchDocuments, collectionTableView, numFound, didTriggerLoadMore, start, loadingIndicator;
 
 - (id) initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self){
         
-        
-  
+
+    
         
     }
     return self;
@@ -38,6 +40,7 @@
 
 
 - (void) setIdentifier:(NSString *)ident {
+    
     
     [collectionTableView setScrollsToTop:YES];
     
@@ -51,7 +54,7 @@
     [service fetchData];
 
     [collectionTableView setScrollsToTop:YES];
-    
+    [loadingIndicator startAnimating];
 }
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv{
@@ -66,8 +69,11 @@
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
 
         [collectionTableView reloadData];
+        [_countLabel setText:[NSString stringWithFormat:@"%i items found", numFound]];
     }
     didTriggerLoadMore = NO;
+    [loadingIndicator stopAnimating];
+
 }
 
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -140,7 +146,8 @@
         default:
             break;
     }
-    
+    [loadingIndicator startAnimating];
+
 }
 
 
@@ -151,6 +158,7 @@
     // NSLog(@"-----> trigger loadmore");
     // NSLog(@" docs.count:%i  numFound:%i   start:%i", docs.count, numFound, start);
     
+    [loadingIndicator startAnimating];
     [service setLoadMoreStart:[NSString stringWithFormat:@"%i", start]];
     [service fetchData];
 }
