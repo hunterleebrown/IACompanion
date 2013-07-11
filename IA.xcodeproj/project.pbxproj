@@ -359,7 +359,6 @@
 				5ADAB7ED16C76E8100DBC072 /* IA Resources */,
 				5AD16C62178E305200B7E58C /* Common Views */,
 				5A756D81177FA31500E7F922 /* View Controllers */,
-				5A756DAE1780027500E7F922 /* ContentViewController */,
 				CE3019CB16C5728700733B99 /* Utils */,
 				5AD2070E16A8F9460027CCA5 /* Data */,
 				5A0A10BE16A640A300CC70CD /* AppDelegate.h */,
@@ -440,6 +439,7 @@
 				5A756DA2177FFE0600E7F922 /* InitialViewController */,
 				5A756DAA1780024200E7F922 /* Central View Controller */,
 				5A756D88177FA71D00E7F922 /* MainNavView */,
+				5A756DAE1780027500E7F922 /* ContentViewController */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

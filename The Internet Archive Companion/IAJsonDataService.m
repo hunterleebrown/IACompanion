@@ -89,7 +89,8 @@
 
 - (void) setLoadMoreStart:(NSString *)lMS{
     loadMoreStart = lMS;
-    self.urlStr = [self docsUrlStringWithTest:testUrl withStart:loadMoreStart];
+    NSString *pre =[NSString stringWithFormat:testUrl, self.identifier];
+    self.urlStr = [self docsUrlStringWithTest:pre withStart:loadMoreStart];
     
 }
 
