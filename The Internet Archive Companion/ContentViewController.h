@@ -10,18 +10,30 @@
 #import "ArchiveSearchDoc.h"
 #import "IAJsonDataService.h"
 #import "PopUpView.h"
-
+#import "ArchiveImageView.h"
+#import "ArchiveLoadingView.h"
 
 @interface ContentViewController : UIViewController <IADataServiceDelegate>
 
 
+
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UIView *tableHeaderView;
+@property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
+@property (nonatomic, strong) UIWebView *archiveDescription;
+
+@property (nonatomic, weak) IBOutlet UIButton *metaDataButton;
+@property (nonatomic, weak) IBOutlet UIButton *descriptionButton;
+
+
 @property (nonatomic, strong) ArchiveSearchDoc *searchDoc;
-@property (nonatomic, weak) IBOutlet UILabel *contentTitleLabel;
 
 @property (nonatomic, strong) UIBarButtonItem *backButton;
 @property (nonatomic, strong) UIBarButtonItem *listButton;
 @property (nonatomic, strong) UIBarButtonItem *searchButton;
 @property (nonatomic, strong) IAJsonDataService *service;
+
+
 
 
 @property (nonatomic, strong) PopUpView *popUpView;

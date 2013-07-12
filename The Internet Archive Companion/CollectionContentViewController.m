@@ -7,16 +7,11 @@
 //
 
 #import "CollectionContentViewController.h"
-#import "ArchiveImageView.h"
 #import "CollectionDataHandlerAndHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface CollectionContentViewController () <UIWebViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UIView *tableHeaderView;
-@property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
-@property (nonatomic, strong) UIWebView *description;
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
 
 
@@ -46,10 +41,10 @@
     [collectionHandlerView setIdentifier:self.searchDoc.identifier];
     [collectionHandlerView.collectionTableView setScrollsToTop:YES];
     
-    _description = [[UIWebView alloc] initWithFrame:CGRectZero];
-    _description.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
-    [_description setBackgroundColor:[UIColor clearColor]];
-    [_description setOpaque:NO];
+    self.archiveDescription = [[UIWebView alloc] initWithFrame:CGRectZero];
+    self.archiveDescription.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
+    [self.archiveDescription setBackgroundColor:[UIColor clearColor]];
+    [self.archiveDescription setOpaque:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -63,15 +58,15 @@
     assert([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] != nil);
     ArchiveDetailDoc *doc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
     
-    _titleLabel.text = [NSString stringWithFormat:@"%@ Collection", doc.title];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ Collection", doc.title];
     if(doc.archiveImage){
-        [_imageView setArchiveImage:doc.archiveImage];
+        [self.imageView setArchiveImage:doc.archiveImage];
     }
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = _tableHeaderView.bounds;
+    gradient.frame = self.tableHeaderView.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
-    [_tableHeaderView.layer insertSublayer:gradient atIndex:1];
+    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
     
     
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
@@ -84,7 +79,7 @@
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
     
     
-    [_description loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
+    [self.archiveDescription loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
              MIMEType:@"text/html"
      textEncodingName:@"UTF-8"
               baseURL:theBaseURL];
@@ -96,7 +91,7 @@
 - (IBAction) showPopUp:(id)sender{
     
     if(((UIButton *)sender).tag == 0){
-        [self.popUpView showWithSubView:_description];
+        [self.popUpView showWithSubView:self.archiveDescription];
 
     } else {
     

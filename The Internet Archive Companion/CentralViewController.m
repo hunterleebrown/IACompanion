@@ -9,6 +9,8 @@
 #import "CentralViewController.h"
 #import "ArchiveSearchDoc.h"
 #import "CollectionContentViewController.h"
+#import "ItemContentViewController.h"
+
 
 @interface CentralViewController ()
 
@@ -34,9 +36,11 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNavCellSelectNotification:) name:@"NavCellNotification" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveCollectionCellSelectNotification:) name:@"CollectionCellNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveCollectionCellSelectNotification:) name:@"CellSelectNotification" object:nil];
 
 }
+
+
 
 
 - (void) didReceiveNavCellSelectNotification:(NSNotification *)notification{
@@ -64,6 +68,9 @@
         [_contentNavController pushViewController:cvc animated:YES];
         
     } else {
+        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+        [cvc setSearchDoc:aDoc];
+        [_contentNavController pushViewController:cvc animated:YES];
     }
 }
 

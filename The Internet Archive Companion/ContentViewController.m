@@ -18,7 +18,7 @@
 @end
 
 @implementation ContentViewController
-@synthesize service, popUpView;
+@synthesize service, popUpView, archiveDescription, tableHeaderView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,6 +84,8 @@
     _searchDoc = searchDoc;
     self.service = [[IAJsonDataService alloc] initForMetadataDocsWithIdentifier:_searchDoc.identifier];
     [self.service setDelegate:self];
+    
+    
 }
 
 
