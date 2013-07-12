@@ -124,6 +124,7 @@
 		CEEA730D16DD30C80092FA84 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA730C16DD30C80092FA84 /* list.png */; };
 		CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731116DD53A40092FA84 /* rightContentShadow.png */; };
 		CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */; };
+		CEEF55D3178F6A2F0085E0CF /* PopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF55D2178F6A2F0085E0CF /* PopUpView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +283,8 @@
 		CEEA730C16DD30C80092FA84 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		CEEA731116DD53A40092FA84 /* rightContentShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightContentShadow.png; sourceTree = "<group>"; };
 		CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightContentShadow@2x.png"; sourceTree = "<group>"; };
+		CEEF55D1178F6A2F0085E0CF /* PopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpView.h; sourceTree = "<group>"; };
+		CEEF55D2178F6A2F0085E0CF /* PopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +550,8 @@
 			children = (
 				5AD16C63178E307F00B7E58C /* ArchiveLoadingView.h */,
 				5AD16C64178E307F00B7E58C /* ArchiveLoadingView.m */,
+				CEEF55D1178F6A2F0085E0CF /* PopUpView.h */,
+				CEEF55D2178F6A2F0085E0CF /* PopUpView.m */,
 			);
 			name = "Common Views";
 			sourceTree = "<group>";
@@ -841,6 +846,7 @@
 				5A7C05A217890CEA0044EC5B /* CollectionDataHandlerAndHeaderView.m in Sources */,
 				5A7C05A6178917410044EC5B /* CollectionViewTableCell.m in Sources */,
 				5AD16C65178E307F00B7E58C /* ArchiveLoadingView.m in Sources */,
+				CEEF55D3178F6A2F0085E0CF /* PopUpView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

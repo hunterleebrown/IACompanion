@@ -10,15 +10,15 @@
 #import "ArchiveSearchDoc.h"
 #import "CollectionContentViewController.h"
 #import "ItemContentViewController.h"
+#import "PopUpView.h"
 
 @interface ContentViewController () 
-
 
 
 @end
 
 @implementation ContentViewController
-@synthesize service;
+@synthesize service, popUpView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,6 +65,11 @@
 
 
     [self.navigationItem setRightBarButtonItems:@[_searchButton]];
+    
+    
+    popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:popUpView];
+    
 
 }
     
@@ -85,6 +90,9 @@
 - (void) didPressListButton{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];    
 }
+
+
+
 
 
 - (void) didPressBackButton{

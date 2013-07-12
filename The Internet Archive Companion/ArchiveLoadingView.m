@@ -52,7 +52,7 @@
         [self addSubview:archiveLogoView];
 
         
-        self.backgroundColor = [UIColor colorWithRed:57.0/255 green:67.0/255 blue:77.0/255 alpha:0.8];
+        self.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.8];
         activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         self.layer.cornerRadius = 10.0;
         self.layer.borderColor = [UIColor lightGrayColor].CGColor;

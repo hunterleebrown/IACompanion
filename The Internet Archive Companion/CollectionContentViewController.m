@@ -16,8 +16,10 @@
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIView *tableHeaderView;
 @property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
-
+@property (nonatomic, strong) UIWebView *description;
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
+
+
 
 @end
 
@@ -44,7 +46,10 @@
     [collectionHandlerView setIdentifier:self.searchDoc.identifier];
     [collectionHandlerView.collectionTableView setScrollsToTop:YES];
     
-
+    _description = [[UIWebView alloc] initWithFrame:CGRectZero];
+    _description.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
+    [_description setBackgroundColor:[UIColor clearColor]];
+    [_description setOpaque:NO];
 }
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
@@ -64,7 +69,7 @@
     [_tableHeaderView.layer insertSublayer:gradient atIndex:1];
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
     
     [self setTitle:doc.title];
     
@@ -73,15 +78,25 @@
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
     
-    /*
+    
     [_description loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
              MIMEType:@"text/html"
      textEncodingName:@"UTF-8"
               baseURL:theBaseURL];
     
-    */
+    
 }
 
+
+- (IBAction) showPopUp:(id)sender{
+    
+    if(((UIButton *)sender).tag == 0){
+        [self.popUpView showWithSubView:_description];
+
+    } else {
+    
+    }
+}
 
 
 - (void) viewDidAppear:(BOOL)animated{
