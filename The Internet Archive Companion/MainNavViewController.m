@@ -78,14 +78,44 @@
         
     if(serv == audioService && audioService.rawResults && [audioService.rawResults objectForKey:@"documents"]){
         [audioSearchDocuments removeAllObjects];
+        
+        ArchiveSearchDoc *allAudio = [ArchiveSearchDoc new];
+        [allAudio setType:MediaTypeCollection];
+        [allAudio setIdentifier:@"audio"];
+        [allAudio setTitle:@"ALL AUDIO"];
+        
+        ArchiveImage *audImage = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"audio"]];
+        [allAudio setArchiveImage:audImage];
+        
+        
+        [audioSearchDocuments addObject:allAudio];
+    
         [audioSearchDocuments addObjectsFromArray:[audioService.rawResults objectForKey:@"documents"]];
     }
     if(serv == videoService && videoService.rawResults && [videoService.rawResults objectForKey:@"documents"]){
         [videoSearchDocuments removeAllObjects];
+        
+        ArchiveSearchDoc *topVideo = [ArchiveSearchDoc new];
+        [topVideo setIdentifier:@"movies"];
+        [topVideo setType:MediaTypeCollection];
+        [topVideo setTitle:@"ALL VIDEO"];
+        ArchiveImage *vidImg = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"movies"]];
+        [topVideo setArchiveImage:vidImg];
+        [videoSearchDocuments addObject:topVideo];
+        
         [videoSearchDocuments addObjectsFromArray:[videoService.rawResults objectForKey:@"documents"]];
     }
     if(serv == textService && textService.rawResults && [textService.rawResults objectForKey:@"documents"]){
         [textSearchDocuments removeAllObjects];
+        
+        ArchiveSearchDoc *topTexts = [ArchiveSearchDoc new];
+        [topTexts setIdentifier:@"texts"];
+        [topTexts setType:MediaTypeCollection];
+        [topTexts setTitle:@"ALL TEXTS"];
+        ArchiveImage *textImg = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"texts"]];
+        [topTexts setArchiveImage:textImg];
+        [textSearchDocuments addObject:topTexts];
+        
         [textSearchDocuments addObjectsFromArray:[textService.rawResults objectForKey:@"documents"]];
     }
     [navTable reloadData];
@@ -118,6 +148,7 @@
     }
 }
 
+
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MainNavTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainNavCell"];
     
@@ -135,8 +166,7 @@
         default:
             break;
     }
-    
-    
+
     [cell.navCellTitleLabel setText:doc.title];
     [cell.navImageView setArchiveImage:doc.archiveImage];
     
