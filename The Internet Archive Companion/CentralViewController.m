@@ -34,6 +34,7 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNavCellSelectNotification:) name:@"NavCellNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveCollectionCellSelectNotification:) name:@"CollectionCellNotification" object:nil];
 
 }
 
@@ -49,7 +50,20 @@
         [self toggleContent:nil];
     
     } else {
-        //      [self performSegueWithIdentifier:@"itemViewController" sender:nil];
+    }
+}
+
+
+- (void) didReceiveCollectionCellSelectNotification:(NSNotification *)notification{
+    
+    ArchiveSearchDoc *aDoc = notification.object;
+    
+    if(aDoc.type == MediaTypeCollection){
+        CollectionContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"collectionViewController"];
+        [cvc setSearchDoc:aDoc];
+        [_contentNavController pushViewController:cvc animated:YES];
+        
+    } else {
     }
 }
 

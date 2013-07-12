@@ -52,6 +52,11 @@
     [_description setOpaque:NO];
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [collectionHandlerView.collectionTableView deselectRowAtIndexPath:collectionHandlerView.collectionTableView.indexPathForSelectedRow animated:YES];
+}
+
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
     
     //ArchiveDetailDoc *doc = ((IAJsonDataService *)service).rawResults

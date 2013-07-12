@@ -81,6 +81,12 @@
 
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CollectionCellNotification" object:doc];
+
+}
+
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [searchDocuments count];
 }

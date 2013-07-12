@@ -70,6 +70,7 @@
     popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:popUpView];
     
+    
 
 }
     
@@ -95,6 +96,7 @@
 
 
 
+
 - (void) didPressBackButton{
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -105,5 +107,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 @end
