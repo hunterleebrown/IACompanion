@@ -47,7 +47,8 @@
 - (id) initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if(self){
-        
+        [self setFrame:CGRectMake(self.superview.center.x - 50, self.superview.center.y - 50, 100, 100)];
+
         archiveLogoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ia-button-plain.png"]];
         [self addSubview:archiveLogoView];
 
@@ -79,9 +80,11 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
+   // [self setFrame:CGRectMake(self.superview.center.x - 50, self.superview.center.y - 50, 100, 100)];
+    
     [archiveLogoView setFrame:CGRectMake(round(self.frame.size.width / 2 - (archiveLogoView.frame.size.width / 2)), 5, archiveLogoView.frame.size.width, archiveLogoView.frame.size.height)];
     
-    [activityIndicatorView setFrame:CGRectMake(round(self.frame.size.width / 2 - (activityIndicatorView.frame.size.width / 2)), round(self.center.y - round(activityIndicatorView.frame.size.height /2)), activityIndicatorView.frame.size.width, activityIndicatorView.frame.size.height)];
+    [activityIndicatorView setFrame:CGRectMake(round(archiveLogoView.center.x - (activityIndicatorView.frame.size.width / 2)), archiveLogoView.frame.size.height + 8, activityIndicatorView.frame.size.width, activityIndicatorView.frame.size.height)];
     
      [loadingLabel setFrame:CGRectMake(0, activityIndicatorView.frame.origin.y + activityIndicatorView.frame.size.height + 5, loadingLabel.frame.size.width, loadingLabel.frame.size.height)];
 }

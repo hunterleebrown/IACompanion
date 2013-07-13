@@ -311,18 +311,37 @@
                                     <constraint firstItem="2CY-QX-PvT" firstAttribute="trailing" secondItem="Qwn-9J-vdZ" secondAttribute="trailing" type="default" id="zop-Vm-NGZ"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7Sy-pu-DXg">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="243" id="p73-eR-TdL"/>
+                                </constraints>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKG-u5-WGn" customClass="ArchiveLoadingView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" type="user" id="dIn-bW-HQv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="f2o-gT-210" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" type="default" id="4gc-VN-X0W"/>
+                            <constraint firstAttribute="centerY" secondItem="IKG-u5-WGn" secondAttribute="centerY" type="user" id="OAi-XJ-Fyv"/>
                             <constraint firstItem="f2o-gT-210" firstAttribute="trailing" secondItem="pDQ-bp-6vG" secondAttribute="trailing" type="default" id="Voa-ke-7HG"/>
                             <constraint firstItem="f2o-gT-210" firstAttribute="top" secondItem="pDQ-bp-6vG" secondAttribute="top" type="user" id="W84-Ir-w7c"/>
+                            <constraint firstAttribute="centerX" secondItem="IKG-u5-WGn" secondAttribute="centerX" type="user" id="XYD-MG-1kv"/>
+                            <constraint firstItem="7Sy-pu-DXg" firstAttribute="bottom" secondItem="pDQ-bp-6vG" secondAttribute="bottom" type="default" id="aRz-fr-YZZ"/>
+                            <constraint firstItem="7Sy-pu-DXg" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" type="default" id="g9Y-ss-70q"/>
+                            <constraint firstItem="IKG-u5-WGn" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" constant="110" id="mFQ-QZ-ALW"/>
                             <constraint firstAttribute="bottom" secondItem="f2o-gT-210" secondAttribute="bottom" constant="244" type="user" id="mwl-ff-zZP"/>
+                            <constraint firstItem="7Sy-pu-DXg" firstAttribute="trailing" secondItem="pDQ-bp-6vG" secondAttribute="trailing" type="default" id="uTn-t5-Dsy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wMY-FN-jmk"/>
                     <connections>
                         <outlet property="imageView" destination="Toy-rm-hHQ" id="vLd-Hc-Whl"/>
+                        <outlet property="loadingIndicator" destination="IKG-u5-WGn" id="Sp9-wq-AqG"/>
                         <outlet property="tableHeaderView" destination="f2o-gT-210" id="bVX-s5-Z1q"/>
                         <outlet property="titleLabel" destination="Qwn-9J-vdZ" id="t4F-wO-3rt"/>
                     </connections>
@@ -610,6 +629,7 @@
         <class className="CollectionContentViewController" superclassName="ContentViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionContentViewController.h"/>
             <relationships>
+                <relationship kind="action" name="showPopUp:"/>
                 <relationship kind="outlet" name="collectionHandlerView" candidateClass="CollectionDataHandlerAndHeaderView"/>
             </relationships>
         </class>
@@ -648,6 +668,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemContentViewController.h"/>
             <relationships>
                 <relationship kind="action" name="showPopUp:"/>
+                <relationship kind="outlet" name="loadingIndicator" candidateClass="ArchiveLoadingView"/>
             </relationships>
         </class>
         <class className="MainNavTableViewCell" superclassName="UITableViewCell">

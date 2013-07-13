@@ -8,13 +8,17 @@
 
 #import "ItemContentViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "ArchiveLoadingView.h"
 
 @interface ItemContentViewController ()
+
+@property (nonatomic, weak) IBOutlet ArchiveLoadingView *loadingIndicator;
+
 
 @end
 
 @implementation ItemContentViewController
+@synthesize loadingIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +42,8 @@
     self.archiveDescription.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     [self.archiveDescription setBackgroundColor:[UIColor clearColor]];
     [self.archiveDescription setOpaque:NO];
-    
+    [loadingIndicator startAnimating];
+
 }
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
@@ -72,6 +77,9 @@
                              MIMEType:@"text/html"
                      textEncodingName:@"UTF-8"
                               baseURL:theBaseURL];
+    
+    [loadingIndicator stopAnimating];
+
     
     
 }
