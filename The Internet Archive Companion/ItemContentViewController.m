@@ -53,7 +53,7 @@
     }
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = CGRectMake(0, 88, self.tableHeaderView.frame.size.width, self.tableHeaderView.frame.size.height - 88);
+    gradient.frame = CGRectMake(0, 88, self.tableHeaderView.frame.size.width, self.tableHeaderView.frame.size.height - 122);
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8] CGColor], (id)[[UIColor blackColor] CGColor], nil];
     [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
     

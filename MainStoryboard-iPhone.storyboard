@@ -216,26 +216,99 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Qwn-9J-vdZ">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="1" constant="23" type="user" id="20C-I0-hb1"/>
                                             <constraint firstAttribute="width" constant="300" id="7I7-IP-r2D"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" type="user" id="QbZ-EB-lQc"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" type="user" id="nVQ-fi-6ZH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cw-1S-Obw">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="86" id="i3j-KW-P3F"/>
+                                            <constraint firstAttribute="height" constant="44" id="vhP-yB-HgO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                        <state key="normal" title="Description">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showPopUp:" destination="gp1-Y2-9gB" eventType="touchUpInside" id="LYI-K8-h6u"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n48-BP-2jf">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="73" id="E71-TB-hSB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                        <state key="normal" title="Metadata">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showPopUp:" destination="gp1-Y2-9gB" eventType="touchUpInside" id="zJf-dx-5h1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSR-AQ-CIh">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="7R7-QU-aUk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                        <state key="normal" title="Web">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showPopUp:" destination="gp1-Y2-9gB" eventType="touchUpInside" id="Tei-JA-ARR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CY-QX-PvT">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="XbX-RG-X7F"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="share-bbi.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Toy-rm-hHQ" firstAttribute="leading" secondItem="f2o-gT-210" secondAttribute="leading" type="default" id="5bc-Hw-xD5"/>
-                                    <constraint firstItem="Toy-rm-hHQ" firstAttribute="top" secondItem="f2o-gT-210" secondAttribute="top" type="default" id="Ncu-tg-1X5"/>
+                                    <constraint firstItem="2CY-QX-PvT" firstAttribute="top" secondItem="CSR-AQ-CIh" secondAttribute="top" type="default" id="Dm3-1X-b50"/>
+                                    <constraint firstItem="n48-BP-2jf" firstAttribute="top" secondItem="2cw-1S-Obw" secondAttribute="top" type="default" id="EHZ-YR-OjY"/>
+                                    <constraint firstItem="Qwn-9J-vdZ" firstAttribute="bottom" secondItem="Toy-rm-hHQ" secondAttribute="bottom" type="default" id="GDb-wv-paS"/>
+                                    <constraint firstItem="n48-BP-2jf" firstAttribute="centerX" secondItem="Qwn-9J-vdZ" secondAttribute="centerX" type="default" id="JbW-AR-Rpa"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qwn-9J-vdZ" secondAttribute="bottom" constant="44" type="user" id="W66-iV-1X4"/>
                                     <constraint firstItem="Qwn-9J-vdZ" firstAttribute="centerX" secondItem="Toy-rm-hHQ" secondAttribute="centerX" type="default" id="XDO-aQ-fdZ"/>
-                                    <constraint firstItem="Toy-rm-hHQ" firstAttribute="bottom" secondItem="f2o-gT-210" secondAttribute="bottom" type="default" id="ebn-xG-WsV"/>
-                                    <constraint firstAttribute="bottom" secondItem="Qwn-9J-vdZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="fDb-ot-tAV"/>
+                                    <constraint firstItem="n48-BP-2jf" firstAttribute="bottom" secondItem="f2o-gT-210" secondAttribute="bottom" type="default" id="YFJ-hb-lv0"/>
+                                    <constraint firstItem="Qwn-9J-vdZ" firstAttribute="top" relation="lessThanOrEqual" secondItem="f2o-gT-210" secondAttribute="top" constant="151" type="user" id="YfL-0i-PBB"/>
+                                    <constraint firstItem="CSR-AQ-CIh" firstAttribute="bottom" secondItem="f2o-gT-210" secondAttribute="bottom" type="default" id="beX-al-yqy"/>
+                                    <constraint firstItem="2cw-1S-Obw" firstAttribute="leading" secondItem="Qwn-9J-vdZ" secondAttribute="leading" type="default" id="gPM-Tm-Q4h"/>
+                                    <constraint firstItem="CSR-AQ-CIh" firstAttribute="top" secondItem="n48-BP-2jf" secondAttribute="top" type="default" id="o9Y-c5-Ry0"/>
+                                    <constraint firstItem="Toy-rm-hHQ" firstAttribute="top" secondItem="f2o-gT-210" secondAttribute="top" type="default" id="p66-rr-UfP"/>
+                                    <constraint firstItem="2CY-QX-PvT" firstAttribute="bottom" secondItem="f2o-gT-210" secondAttribute="bottom" type="default" id="v5u-wi-apL"/>
+                                    <constraint firstAttribute="trailing" secondItem="CSR-AQ-CIh" secondAttribute="trailing" constant="67" id="vgP-VP-kEq"/>
+                                    <constraint firstItem="2cw-1S-Obw" firstAttribute="bottom" secondItem="f2o-gT-210" secondAttribute="bottom" type="default" id="xho-NN-ngh"/>
                                     <constraint firstItem="Toy-rm-hHQ" firstAttribute="trailing" secondItem="f2o-gT-210" secondAttribute="trailing" type="default" id="yod-PM-uHU"/>
-                                    <constraint firstAttribute="height" constant="172" type="user" id="zR4-e6-8oi"/>
+                                    <constraint firstItem="2CY-QX-PvT" firstAttribute="trailing" secondItem="Qwn-9J-vdZ" secondAttribute="trailing" type="default" id="zop-Vm-NGZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -243,7 +316,8 @@
                         <constraints>
                             <constraint firstItem="f2o-gT-210" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" type="default" id="4gc-VN-X0W"/>
                             <constraint firstItem="f2o-gT-210" firstAttribute="trailing" secondItem="pDQ-bp-6vG" secondAttribute="trailing" type="default" id="Voa-ke-7HG"/>
-                            <constraint firstItem="f2o-gT-210" firstAttribute="top" secondItem="pDQ-bp-6vG" secondAttribute="top" type="default" id="W84-Ir-w7c"/>
+                            <constraint firstItem="f2o-gT-210" firstAttribute="top" secondItem="pDQ-bp-6vG" secondAttribute="top" type="user" id="W84-Ir-w7c"/>
+                            <constraint firstAttribute="bottom" secondItem="f2o-gT-210" secondAttribute="bottom" constant="244" type="user" id="mwl-ff-zZP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wMY-FN-jmk"/>
@@ -280,7 +354,7 @@
                                             <constraint firstAttribute="width" constant="300" id="jvc-He-0Xa"/>
                                             <constraint firstAttribute="height" priority="1" constant="23" type="user" id="oZR-fZ-svG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -517,6 +591,7 @@
     </scenes>
     <resources>
         <image name="search-button-plain.png" width="30" height="30"/>
+        <image name="share-bbi.png" width="24" height="18"/>
     </resources>
     <classes>
         <class className="ArchiveImageView" superclassName="UIImageView">
@@ -535,7 +610,6 @@
         <class className="CollectionContentViewController" superclassName="ContentViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionContentViewController.h"/>
             <relationships>
-                <relationship kind="action" name="showPopUp:"/>
                 <relationship kind="outlet" name="collectionHandlerView" candidateClass="CollectionDataHandlerAndHeaderView"/>
             </relationships>
         </class>
