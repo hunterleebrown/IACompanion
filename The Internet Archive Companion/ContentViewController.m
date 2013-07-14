@@ -18,7 +18,7 @@
 @end
 
 @implementation ContentViewController
-@synthesize service, popUpView, archiveDescription, tableHeaderView;
+@synthesize service, popUpView, archiveDescription, tableHeaderView, metaPopUpView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,7 +70,8 @@
     popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:popUpView];
     
-    
+    metaPopUpView = [[MetaDataTablePopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:metaPopUpView];
 
 }
     

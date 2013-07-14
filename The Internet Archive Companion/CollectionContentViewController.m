@@ -13,13 +13,13 @@
 @interface CollectionContentViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
-
+@property (nonatomic, strong) ArchiveDetailDoc *detDoc;
 
 
 @end
 
 @implementation CollectionContentViewController
-@synthesize collectionHandlerView;
+@synthesize collectionHandlerView, detDoc;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,11 +56,11 @@
     
     //ArchiveDetailDoc *doc = ((IAJsonDataService *)service).rawResults
     assert([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] != nil);
-    ArchiveDetailDoc *doc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
+    detDoc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
     
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ Collection", doc.title];
-    if(doc.archiveImage){
-        [self.imageView setArchiveImage:doc.archiveImage];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ Collection", detDoc.title];
+    if(detDoc.archiveImage){
+        [self.imageView setArchiveImage:detDoc.archiveImage];
     }
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -69,9 +69,9 @@
     [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", detDoc.description];
     
-    [self setTitle:doc.title];
+    [self setTitle:detDoc.title];
     
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], UITextAttributeFont, nil]];
@@ -93,8 +93,9 @@
     if(((UIButton *)sender).tag == 0){
         [self.popUpView showWithSubView:self.archiveDescription title:@"Description" message:nil];
 
-    } else {
-    
+    } else if (((UIButton *)sender).tag == 1){
+        
+        [self.metaPopUpView showPopUpWithMetaData:[detDoc.rawDoc objectForKey:@"metadata"]];
     }
 }
 

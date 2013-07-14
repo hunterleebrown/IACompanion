@@ -11,7 +11,7 @@
 @interface MetaDataTablePopUpView : PopUpView
 
 
-- (void) showPopUpWith;
+- (void) showPopUpWithMetaData:(NSDictionary *)metadata;
 
 
 @end

@@ -10,6 +10,7 @@
 #import "ArchiveSearchDoc.h"
 #import "IAJsonDataService.h"
 #import "PopUpView.h"
+#import "MetaDataTablePopUpView.h"
 #import "ArchiveImageView.h"
 #import "ArchiveLoadingView.h"
 
@@ -37,5 +38,7 @@
 
 
 @property (nonatomic, strong) PopUpView *popUpView;
+@property (nonatomic, strong) MetaDataTablePopUpView *metaPopUpView;
+
 
 @end
