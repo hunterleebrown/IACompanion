@@ -13,4 +13,5 @@
 
 - (void) showWithSubView:(UIView *)view title:(NSString *)title message:(NSString *)message;
 - (void) dismiss;
+@property (assign) BOOL expanded;
 @end

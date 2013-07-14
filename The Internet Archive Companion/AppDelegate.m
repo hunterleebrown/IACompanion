@@ -46,9 +46,10 @@
 }
 
 - (void) showPopUpWithMessageNotification:(NSNotification *)notification{
-    [self.window bringSubviewToFront:popUpView];
-    [popUpView showWithSubView:nil title:@"Something went wrong..." message:notification.object];
-
+    if(!popUpView.expanded) {
+        [self.window bringSubviewToFront:popUpView];
+        [popUpView showWithSubView:nil title:@"Something went wrong..." message:notification.object];
+    }
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

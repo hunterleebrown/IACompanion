@@ -10,10 +10,10 @@
 #import "PopUpView.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define RED [UIColor colorWithRed:134.0/255 green:0.0/255 blue:0.0/255 alpha:1.0]
 
 @interface PopUpView ()
 
-@property (assign) BOOL expanded;
 @property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UILabel *popTitle;
@@ -91,7 +91,8 @@
         UILabel *view = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
         [view setFont:messageFont];
         [view setTextAlignment:NSTextAlignmentCenter];
-        [view setBackgroundColor:[UIColor clearColor]];
+        [view setBackgroundColor:RED];
+       // [containerView setBackgroundColor:[UIColor colorWithRed:94/255 green:0.0 blue:0.0 alpha:1.0]];
         [view setTextColor:[UIColor whiteColor]];
         [view setNumberOfLines:0];
         [view setText:message];
@@ -137,6 +138,12 @@
 
     
     [containerView setFrame:CGRectMake(5, 44, self.frame.size.width - 10, self.frame.size.height - 49)];
+    UIView *contentView;
+    if(containerView.subviews && containerView.subviews.count > 0) {
+        contentView = [containerView.subviews objectAtIndex:0];
+        [contentView setFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
+    }
+    
     
     [super layoutSubviews];
 }
