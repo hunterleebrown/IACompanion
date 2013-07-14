@@ -87,8 +87,7 @@
 - (IBAction) showPopUp:(id)sender{
     
     if(((UIButton *)sender).tag == 0){
-        [self.popUpView showWithSubView:self.archiveDescription];
-        
+        [self.popUpView showWithSubView:self.archiveDescription title:@"Description" message:nil];
     } else {
         
     }

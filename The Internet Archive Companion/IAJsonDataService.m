@@ -16,12 +16,15 @@
 @property (nonatomic, strong) NSString *loadMoreStart;
 @property (nonatomic, strong) NSString *fileNameIn;
 
+
 @end
 
 
 @implementation IAJsonDataService
 
 @synthesize rawResults, identifier, testUrl, loadMoreStart, fileNameIn;
+
+
 
 
 - (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type {
@@ -277,8 +280,10 @@
 
 - (void) didFailFileDownload:(ArchiveFileDownload *)download{
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download Failure" message:@"Couldn't complete request." delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
-    [alert show];
+   // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download Failure" message:@"Couldn't complete request." delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
+    //[alert show];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Download failed. Is your internet connection working?"];
+    
     
 }
 
@@ -291,8 +296,11 @@
     @try {
         [self packageJsonResponeDictionary:jsonResponse];
     } @catch (id exception) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Data Issue" message:[NSString stringWithFormat:@"%@", @"Something went wrong in interpreting data from the server. Try again."] delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
-        [alert show];
+        //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Data Issue" message:[NSString stringWithFormat:@"%@", @"Something went wrong in interpreting data from the server. Try again."] delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
+        //  [alert show];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Something went wrong with parsing data from the server. Try again."];
+        
     
     }
 

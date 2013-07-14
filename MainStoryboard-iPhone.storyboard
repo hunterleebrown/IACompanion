@@ -213,7 +213,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-rm-hHQ" customClass="ArchiveImageView">
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Qwn-9J-vdZ">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Qwn-9J-vdZ">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="7I7-IP-r2D"/>
@@ -629,7 +629,6 @@
         <class className="CollectionContentViewController" superclassName="ContentViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionContentViewController.h"/>
             <relationships>
-                <relationship kind="action" name="showPopUp:"/>
                 <relationship kind="outlet" name="collectionHandlerView" candidateClass="CollectionDataHandlerAndHeaderView"/>
             </relationships>
         </class>
@@ -667,7 +666,6 @@
         <class className="ItemContentViewController" superclassName="ContentViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemContentViewController.h"/>
             <relationships>
-                <relationship kind="action" name="showPopUp:"/>
                 <relationship kind="outlet" name="loadingIndicator" candidateClass="ArchiveLoadingView"/>
             </relationships>
         </class>

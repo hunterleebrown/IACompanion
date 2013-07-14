@@ -117,6 +117,8 @@
 		CE3019DA16C5953100733B99 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019D816C5953100733B99 /* Icon-72@2x.png */; };
 		CE3019DC16C5963000733B99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019DB16C5963000733B99 /* Icon.png */; };
 		CE752A2816C1799400A432AB /* uiglassbutton-template.png in Resources */ = {isa = PBXBuildFile; fileRef = CE752A2716C1799400A432AB /* uiglassbutton-template.png */; };
+		CEAE1A1217927FA10027AC5C /* x-done.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAE1A1017927FA10027AC5C /* x-done.png */; };
+		CEAE1A1317927FA10027AC5C /* x-done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAE1A1117927FA10027AC5C /* x-done@2x.png */; };
 		CEBA014016CEEFCE0038625F /* vertShadowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */; };
 		CEBA014116CEEFCE0038625F /* vertShadowBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */; };
 		CEBA014316CEF6B30038625F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014216CEF6B30038625F /* AVFoundation.framework */; };
@@ -275,6 +277,8 @@
 		CE3019D816C5953100733B99 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
 		CE3019DB16C5963000733B99 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 		CE752A2716C1799400A432AB /* uiglassbutton-template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uiglassbutton-template.png"; sourceTree = "<group>"; };
+		CEAE1A1017927FA10027AC5C /* x-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-done.png"; sourceTree = "<group>"; };
+		CEAE1A1117927FA10027AC5C /* x-done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-done@2x.png"; sourceTree = "<group>"; };
 		CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertShadowBottom.png; sourceTree = "<group>"; };
 		CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertShadowBottom@2x.png"; sourceTree = "<group>"; };
 		CEBA014216CEF6B30038625F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -578,6 +582,8 @@
 			isa = PBXGroup;
 			children = (
 				5A5065261736DDCD00D295E2 /* Multimedia */,
+				CEAE1A1017927FA10027AC5C /* x-done.png */,
+				CEAE1A1117927FA10027AC5C /* x-done@2x.png */,
 				5A75EAE71731B83C007CEEA4 /* petabox.jpg */,
 				5AFB0ECF1749746100FAE78B /* ia-button.png */,
 				5A23500C1780BDC50050C9A2 /* ia-button-plain.png */,
@@ -787,6 +793,8 @@
 				5A23501B1780C27D0050C9A2 /* new-list@2x.png in Resources */,
 				5A2350241780DA8A0050C9A2 /* back-button.png in Resources */,
 				5A2350251780DA8A0050C9A2 /* back-button@2x.png in Resources */,
+				CEAE1A1217927FA10027AC5C /* x-done.png in Resources */,
+				CEAE1A1317927FA10027AC5C /* x-done@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <CoreData/CoreData.h>
+#import "PopUpView.h"
 
+@interface AppDelegate ()
+
+@property (nonatomic, strong) PopUpView *popUpView;
+@end
 
 @implementation AppDelegate
 
@@ -18,6 +23,7 @@
 @synthesize managedObjectContext=_managedObjectContext;
 @synthesize managedObjectModel=_managedObjectModel;
 @synthesize persistentStoreCoordinator=_persistentStoreCoordinator;
+@synthesize popUpView;
 
 
 
@@ -28,12 +34,21 @@
 
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopUpWithMessageNotification:) name:@"NotifyUser" object:nil];
     
-   // HomeViewController *controller = (HomeViewController *)self.window.rootViewController;
-    //controller.managedObjectContext = self.managedObjectContext;
+    
+    popUpView = [[PopUpView alloc] initWithFrame:CGRectZero];
+    [self.window addSubview:popUpView];
+    
     
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void) showPopUpWithMessageNotification:(NSNotification *)notification{
+    [self.window bringSubviewToFront:popUpView];
+    [popUpView showWithSubView:nil title:@"Something went wrong..." message:notification.object];
+
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

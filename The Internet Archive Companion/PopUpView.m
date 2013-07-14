@@ -16,12 +16,13 @@
 @property (assign) BOOL expanded;
 @property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) UIView *containerView;
+@property (nonatomic, strong) UILabel *popTitle;
 
 @end
 
 @implementation PopUpView
 
-@synthesize expanded, closeButton, containerView;
+@synthesize expanded, closeButton, containerView, popTitle;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -41,21 +42,28 @@
         self.hidden = YES;
         expanded = NO;
         
-       //self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.0, 0.0);
         
         closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [closeButton setBackgroundColor:[UIColor clearColor]];
-        [closeButton setTitle:@"Close" forState:UIControlStateNormal];
-        [closeButton.titleLabel setFont:[UIFont fontWithName:@"AmericanTypewriter" size:15]];
+        UIImage *closeImage = [UIImage imageNamed:@"x-done.png"];
+        [closeButton setImage:closeImage forState:UIControlStateNormal];
+        [closeButton setFrame:CGRectMake(10, 10, closeImage.size.width, closeImage.size.height)];
         [closeButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:closeButton];
         
         [self setClipsToBounds:YES];
-      //  self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
 
         containerView = [[UIView alloc] initWithFrame:CGRectZero];
         [self addSubview:containerView];
         [containerView setBackgroundColor:[UIColor clearColor]];
+        
+        popTitle = [[UILabel alloc] initWithFrame:CGRectZero];
+        [popTitle setFont:[UIFont fontWithName:@"AmericanTypewriter" size:15]];
+        [popTitle setTextAlignment:NSTextAlignmentCenter];
+        [popTitle setBackgroundColor:[UIColor clearColor]];
+        [popTitle setTextColor:[UIColor whiteColor]];
+        [self addSubview:popTitle];
+        
         
     }
     return self;
@@ -71,22 +79,36 @@
 */
 
 
-- (void)showWithSubView:(UIView *)view{
+- (void) showWithSubView:(UIView *)view title:(NSString *)title message:(NSString *)message {
     [self setHidden:NO];
     expanded = YES;
     self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.09, 0.09);
-    [containerView addSubview:view];
     
+    if(!view && message){
+        UIFont *messageFont = [UIFont fontWithName:@"AmericanTypewriter" size:15];
+
+        
+        UILabel *view = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
+        [view setFont:messageFont];
+        [view setTextAlignment:NSTextAlignmentCenter];
+        [view setBackgroundColor:[UIColor clearColor]];
+        [view setTextColor:[UIColor whiteColor]];
+        [view setNumberOfLines:0];
+        [view setText:message];
+        [containerView addSubview:view];
+        [view sizeToFit];
+    } else {
+        [containerView addSubview:view];
+        [view setFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
+        [view sizeToFit];
+    }
     
-    [view setFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
-    [view sizeToFit];
     [UIView animateWithDuration:0.33 animations:^{
         [self layoutSubviews];
         self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
-        
-        
     }];
-    
+    popTitle.text = title;
+
     
 }
 
@@ -104,14 +126,16 @@
 }
 
 - (void) layoutSubviews{
+    
 
-  //  if(expanded){
-        [self setFrame:CGRectMake(10, 10, self.superview.frame.size.width - 20, self.superview.frame.size.height - 20)];
-  //  } else {
-    //    [self setFrame:CGRectMake(self.superview.center.x, self.superview.center.y, 2, 2)];
+    [self setFrame:CGRectMake(10, 20, 320 - 20, 480 - 100)];
+ 
+    
+    CGSize titleSize = [popTitle.text sizeWithFont:popTitle.font];
+    [popTitle setFrame:CGRectMake(self.center.x - round(titleSize.width/2) - 10, 0, titleSize.width, 44)];
+    
 
-   // }
-    [closeButton setFrame:CGRectMake(self.center.x - 50 - 10, 0, 100, 44)];
+    
     [containerView setFrame:CGRectMake(5, 44, self.frame.size.width - 10, self.frame.size.height - 49)];
     
     [super layoutSubviews];

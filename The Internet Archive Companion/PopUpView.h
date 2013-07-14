@@ -11,6 +11,6 @@
 @interface PopUpView : UIView
 
 
-- (void) showWithSubView:(UIView *)view;
+- (void) showWithSubView:(UIView *)view title:(NSString *)title message:(NSString *)message;
 - (void) dismiss;
 @end
