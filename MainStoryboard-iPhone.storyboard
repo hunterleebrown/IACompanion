@@ -629,6 +629,7 @@
         <class className="CollectionContentViewController" superclassName="ContentViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionContentViewController.h"/>
             <relationships>
+                <relationship kind="action" name="showPopUp:"/>
                 <relationship kind="outlet" name="collectionHandlerView" candidateClass="CollectionDataHandlerAndHeaderView"/>
             </relationships>
         </class>
@@ -666,6 +667,7 @@
         <class className="ItemContentViewController" superclassName="ContentViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemContentViewController.h"/>
             <relationships>
+                <relationship kind="action" name="showPopUp:"/>
                 <relationship kind="outlet" name="loadingIndicator" candidateClass="ArchiveLoadingView"/>
             </relationships>
         </class>
