@@ -238,4 +238,8 @@
 }
 
 
+- (IBAction)mediaPlayerOpen{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:self];
+}
+
 @end

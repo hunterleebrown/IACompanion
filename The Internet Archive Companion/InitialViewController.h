@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MainNavViewController.h"
 #import "CentralViewController.h"
+#import "MediaPlayerViewController.h"
 
 @interface InitialViewController : UIViewController
 
-
+@property (nonatomic, weak) IBOutlet UIView *mediaPlayerHolder;
 
 @end

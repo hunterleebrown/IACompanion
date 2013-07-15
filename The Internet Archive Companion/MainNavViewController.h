@@ -10,4 +10,9 @@
 
 @interface MainNavViewController : UIViewController
 
+
+- (IBAction)mediaPlayerOpen;
+
+
+
 @end
