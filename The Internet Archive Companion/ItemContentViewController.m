@@ -9,16 +9,19 @@
 #import "ItemContentViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ArchiveLoadingView.h"
+#import "ArchiveFile.h"
 
-@interface ItemContentViewController ()
+@interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet ArchiveLoadingView *loadingIndicator;
-
+@property (nonatomic, strong) NSMutableArray *mediaFiles;
+@property (nonatomic, strong) NSMutableDictionary *organizedMediaFiles;
+@property (nonatomic, weak) IBOutlet UITableView *mediaTable;
 
 @end
 
 @implementation ItemContentViewController
-@synthesize loadingIndicator;
+@synthesize loadingIndicator, mediaFiles, organizedMediaFiles, mediaTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,6 +46,9 @@
     [self.archiveDescription setBackgroundColor:[UIColor clearColor]];
     [self.archiveDescription setOpaque:NO];
     [loadingIndicator startAnimating];
+    
+    mediaFiles = [NSMutableArray new];
+    organizedMediaFiles = [NSMutableDictionary new];
 
 }
 
@@ -50,11 +56,11 @@
     
     //ArchiveDetailDoc *doc = ((IAJsonDataService *)service).rawResults
     assert([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] != nil);
-    ArchiveDetailDoc *doc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
+    self.detDoc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
     
-    self.titleLabel.text = doc.title;
-    if(doc.archiveImage){
-        [self.imageView setArchiveImage:doc.archiveImage];
+    self.titleLabel.text = self.detDoc.title;
+    if(self.detDoc.archiveImage){
+        [self.imageView setArchiveImage:self.detDoc.archiveImage];
     }
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -63,9 +69,9 @@
     [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", doc.description];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", self.detDoc.description];
     
-    [self setTitle:doc.title];
+    [self setTitle:self.detDoc.title];
     
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], UITextAttributeFont, nil]];
@@ -80,18 +86,69 @@
     
     [loadingIndicator stopAnimating];
 
+    [self.metaDataTable addMetadata:[self.detDoc.rawDoc objectForKey:@"metadata"]];
     
+    NSMutableArray *files = [NSMutableArray new];
+    for(ArchiveFile *file in self.detDoc.files){
+        if(file.format != FileFormatOther){
+            [files addObject:file];
+        }
+    }
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"track" ascending:YES];
+    [mediaFiles addObjectsFromArray:[files sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]]];
+    
+    [self orgainizeMediaFiles:mediaFiles];
     
 }
 
-- (IBAction) showPopUp:(id)sender{
-    
-    if(((UIButton *)sender).tag == 0){
-        [self.popUpView showWithSubView:self.archiveDescription title:@"Description" message:nil];
-    } else {
-        
+- (void) orgainizeMediaFiles:(NSMutableArray *)files{
+    for(ArchiveFile *f in files){
+        if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:f.format]] != nil){
+            [[organizedMediaFiles objectForKey:[NSNumber numberWithInt:f.format]] addObject:f];
+        } else {
+            NSMutableArray *filesForFormat = [NSMutableArray new];
+            [filesForFormat addObject:f];
+            [organizedMediaFiles setObject:filesForFormat forKey:[NSNumber numberWithInt:f.format]];
+        }
     }
+    
+    [mediaTable reloadData];
+    
 }
+
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if(organizedMediaFiles.count == 0){
+        return @"";
+    }
+    
+    ArchiveFile *firstFile;
+    firstFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] objectAtIndex:0];
+    return [firstFile.file objectForKey:@"format"];
+  
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaFileCell"];
+    
+    if(organizedMediaFiles.count > 0){
+        ArchiveFile *aFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        cell.textLabel.text = aFile.title;
+    }
+    
+    
+    return cell;
+
+}
+
+- (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if(organizedMediaFiles.count == 0){
+        return 0;
+    }
+    
+    return [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] count];
+}
+
 
 
 - (void)didReceiveMemoryWarning

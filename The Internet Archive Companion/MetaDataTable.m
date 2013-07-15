@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 Hunter Lee Brown. All rights reserved.
 //
 
-#import "MetaDataTablePopUpView.h"
+#import "MetaDataTable.h"
 #import "MetaCell.h"
 #import "StringUtils.h"
 
-@interface MetaDataTablePopUpView () <UITableViewDataSource, UITableViewDelegate>
+@interface MetaDataTable () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *metaTable;
 @property (nonatomic, strong) NSMutableDictionary *metaData;
 @end
 
-@implementation MetaDataTablePopUpView
+@implementation MetaDataTable
 @synthesize metaTable, metaData;
 
 
@@ -24,17 +24,19 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        metaTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.superview.frame.size.width, self.superview.frame.size.width)];
+        metaTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         [metaTable setDelegate:self];
         [metaTable setDataSource:self];
         metaData = [NSMutableDictionary new];
+        
+        [self addSubview:metaTable];
         
     }
     return self;
 }
 
 
-- (void) showPopUpWithMetaData:(NSDictionary *)metadata{
+- (void) addMetadata:(NSDictionary *)metadata{
 
     NSArray *metakeys;
     metakeys = [metadata allKeys];
@@ -50,7 +52,6 @@
     
     [metaTable reloadData];
 
-    [super showWithSubView:metaTable title:@"MetaData" message:nil];
     
 }
 
@@ -82,6 +83,12 @@
     [cell setTitle:titleText setValue:valueText];
     
     return cell;
+}
+
+- (void) layoutSubviews{
+    [super layoutSubviews];
+    
+    metaTable.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
 }
 
 

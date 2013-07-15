@@ -23,7 +23,7 @@
         // Initialization code
         
         titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 100, 39)];
-        valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 5, 170, 39)];
+        valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 5, 160, 39)];
         [titleLabel setNumberOfLines:0];
         [valueLabel setNumberOfLines:0];
 
@@ -35,13 +35,14 @@
         [titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
 
         [valueLabel setMinimumScaleFactor:0.25];
-       // [valueLabel setAdjustsFontSizeToFitWidth:YES];
         [valueLabel setLineBreakMode:NSLineBreakByWordWrapping];
 
         
         [self addSubview:titleLabel];
         [self addSubview:valueLabel];
         
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+
         
     }
     return self;
@@ -51,23 +52,21 @@
     [titleLabel setText:ts];
     [valueLabel setText:value];
 
-    CGSize valueSize = [value sizeWithFont:valueLabel.font constrainedToSize:titleLabel.frame.size lineBreakMode:NSLineBreakByWordWrapping];
-   [valueLabel setFrame:CGRectMake(valueLabel.frame.origin.x, valueLabel.frame.origin.y, 170, valueSize.height)];
+    CGSize valueSize = [value sizeWithFont:[UIFont  fontWithName:@"AmericanTypewriter" size:10] constrainedToSize:CGSizeMake(160, 200) lineBreakMode:NSLineBreakByWordWrapping];
+    [valueLabel setFrame:CGRectMake(valueLabel.frame.origin.x, valueLabel.frame.origin.y, 160, valueSize.height >= 44 ? valueSize.height : 44)];
     
 }
 
 + (float) heightForValue:(NSString *)value {
-    CGSize valueSize = [value sizeWithFont:[UIFont  fontWithName:@"AmericanTypewriter" size:10] constrainedToSize:CGSizeMake(190, 200) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize valueSize = [value sizeWithFont:[UIFont  fontWithName:@"AmericanTypewriter" size:10] constrainedToSize:CGSizeMake(160, 200) lineBreakMode:NSLineBreakByWordWrapping];
     
-    return valueSize.height;
+    return valueSize.height + 20;
 }
 
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 

@@ -13,13 +13,12 @@
 @interface CollectionContentViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
-@property (nonatomic, strong) ArchiveDetailDoc *detDoc;
 
 
 @end
 
 @implementation CollectionContentViewController
-@synthesize collectionHandlerView, detDoc;
+@synthesize collectionHandlerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,13 +53,12 @@
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
     
-    //ArchiveDetailDoc *doc = ((IAJsonDataService *)service).rawResults
     assert([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] != nil);
-    detDoc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
+    self.detDoc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
     
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ Collection", detDoc.title];
-    if(detDoc.archiveImage){
-        [self.imageView setArchiveImage:detDoc.archiveImage];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ Collection", self.detDoc.title];
+    if(self.detDoc.archiveImage){
+        [self.imageView setArchiveImage:self.detDoc.archiveImage];
     }
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -69,9 +67,9 @@
     [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", detDoc.description];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", self.detDoc.description];
     
-    [self setTitle:detDoc.title];
+    [self setTitle:self.detDoc.title];
     
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], UITextAttributeFont, nil]];
@@ -84,20 +82,12 @@
      textEncodingName:@"UTF-8"
               baseURL:theBaseURL];
     
+    [self.metaDataTable addMetadata:[self.detDoc.rawDoc objectForKey:@"metadata"]];
     
 }
 
 
-- (IBAction) showPopUp:(id)sender{
-    
-    if(((UIButton *)sender).tag == 0){
-        [self.popUpView showWithSubView:self.archiveDescription title:@"Description" message:nil];
 
-    } else if (((UIButton *)sender).tag == 1){
-        
-        [self.metaPopUpView showPopUpWithMetaData:[detDoc.rawDoc objectForKey:@"metadata"]];
-    }
-}
 
 
 - (void) viewDidAppear:(BOOL)animated{

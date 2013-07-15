@@ -103,6 +103,8 @@
         [containerView addSubview:view];
         [view setFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
         [view sizeToFit];
+        
+        
     }
     
     [UIView animateWithDuration:0.33 animations:^{
@@ -143,6 +145,8 @@
     if(containerView.subviews && containerView.subviews.count > 0) {
         contentView = [containerView.subviews objectAtIndex:0];
         [contentView setFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
+   
+    
     }
     
     

@@ -8,10 +8,10 @@
 
 #import "PopUpView.h"
 
-@interface MetaDataTablePopUpView : PopUpView
+@interface MetaDataTable : UIView
 
 
-- (void) showPopUpWithMetaData:(NSDictionary *)metadata;
+- (void) addMetadata:(NSDictionary *)metadata;
 
 
 @end

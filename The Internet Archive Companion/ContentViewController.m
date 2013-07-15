@@ -18,7 +18,7 @@
 @end
 
 @implementation ContentViewController
-@synthesize service, popUpView, archiveDescription, tableHeaderView, metaPopUpView;
+@synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable, detDoc;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,11 +70,18 @@
     popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:popUpView];
     
-    metaPopUpView = [[MetaDataTablePopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.view addSubview:metaPopUpView];
+    metaDataTable = [[MetaDataTable alloc] initWithFrame:CGRectZero];
 
 }
+
+- (IBAction) showPopUp:(id)sender{
     
+    if(((UIButton *)sender).tag == 0){
+        [self.popUpView showWithSubView:self.archiveDescription title:@"Description" message:nil];
+    } else if (((UIButton *)sender).tag == 1) {
+        [self.popUpView showWithSubView:self.metaDataTable title:@"MetaData" message:nil];
+    }
+}
 
 - (void) viewDidAppear:(BOOL)animated  {
     [super viewDidAppear:animated];
