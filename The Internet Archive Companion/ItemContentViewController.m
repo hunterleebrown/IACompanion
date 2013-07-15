@@ -141,6 +141,10 @@
 
 }
 
+- (int) numberOfSectionsInTableView:(UITableView *)tableView{
+    return organizedMediaFiles.count;
+}
+
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(organizedMediaFiles.count == 0){
         return 0;
