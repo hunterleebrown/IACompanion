@@ -116,6 +116,8 @@
 		CE3019D916C5953100733B99 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019D716C5953100733B99 /* Icon-72.png */; };
 		CE3019DA16C5953100733B99 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019D816C5953100733B99 /* Icon-72@2x.png */; };
 		CE3019DC16C5963000733B99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3019DB16C5963000733B99 /* Icon.png */; };
+		CE3FFD0D17943D8300709F5F /* MediaFileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FFD0C17943D8300709F5F /* MediaFileCell.m */; };
+		CE3FFD10179440D200709F5F /* MediaFileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */; };
 		CE6FFE2F17933EE0002A292B /* MetaDataTable.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6FFE2E17933EE0002A292B /* MetaDataTable.m */; };
 		CE6FFE32179345D6002A292B /* MetaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6FFE31179345D6002A292B /* MetaCell.m */; };
 		CE752A2816C1799400A432AB /* uiglassbutton-template.png in Resources */ = {isa = PBXBuildFile; fileRef = CE752A2716C1799400A432AB /* uiglassbutton-template.png */; };
@@ -278,6 +280,10 @@
 		CE3019D716C5953100733B99 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = SOURCE_ROOT; };
 		CE3019D816C5953100733B99 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
 		CE3019DB16C5963000733B99 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		CE3FFD0B17943D8300709F5F /* MediaFileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFileCell.h; sourceTree = "<group>"; };
+		CE3FFD0C17943D8300709F5F /* MediaFileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFileCell.m; sourceTree = "<group>"; };
+		CE3FFD0E179440D200709F5F /* MediaFileHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFileHeaderCell.h; sourceTree = "<group>"; };
+		CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFileHeaderCell.m; sourceTree = "<group>"; };
 		CE6FFE2D17933EE0002A292B /* MetaDataTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataTable.h; sourceTree = "<group>"; };
 		CE6FFE2E17933EE0002A292B /* MetaDataTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataTable.m; sourceTree = "<group>"; };
 		CE6FFE30179345D6002A292B /* MetaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaCell.h; sourceTree = "<group>"; };
@@ -566,6 +572,10 @@
 				CE6FFE2E17933EE0002A292B /* MetaDataTable.m */,
 				CE6FFE30179345D6002A292B /* MetaCell.h */,
 				CE6FFE31179345D6002A292B /* MetaCell.m */,
+				CE3FFD0B17943D8300709F5F /* MediaFileCell.h */,
+				CE3FFD0C17943D8300709F5F /* MediaFileCell.m */,
+				CE3FFD0E179440D200709F5F /* MediaFileHeaderCell.h */,
+				CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */,
 			);
 			name = "Common Views";
 			sourceTree = "<group>";
@@ -867,6 +877,8 @@
 				CEEF55D3178F6A2F0085E0CF /* PopUpView.m in Sources */,
 				CE6FFE2F17933EE0002A292B /* MetaDataTable.m in Sources */,
 				CE6FFE32179345D6002A292B /* MetaCell.m in Sources */,
+				CE3FFD0D17943D8300709F5F /* MediaFileCell.m in Sources */,
+				CE3FFD10179440D200709F5F /* MediaFileHeaderCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

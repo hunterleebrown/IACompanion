@@ -10,6 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ArchiveLoadingView.h"
 #import "ArchiveFile.h"
+#import "MediaFileCell.h"
+#import "MediaFileHeaderCell.h"
 
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -117,6 +119,7 @@
     
 }
 
+
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if(organizedMediaFiles.count == 0){
         return @"";
@@ -126,19 +129,33 @@
     firstFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] objectAtIndex:0];
     return [firstFile.file objectForKey:@"format"];
   
-}
+} 
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaFileCell"];
+    MediaFileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaFileCell"];
     
     if(organizedMediaFiles.count > 0){
         ArchiveFile *aFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-        cell.textLabel.text = aFile.title;
+        cell.fileTitle.text = aFile.title;
+        cell.fileFormat.text = [aFile.file objectForKey:@"format"];
+        cell.fileName.text = aFile.name;
+        
     }
     
     
     return cell;
 
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    MediaFileHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"mediaFileHeaderCell"];
+    
+    if(organizedMediaFiles.count > 0){
+        ArchiveFile *firstFile;
+        firstFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] objectAtIndex:0];
+        headerCell.sectionHeaderLabel.text = [firstFile.file objectForKey:@"format"];
+    }
+    return headerCell;
 }
 
 - (int) numberOfSectionsInTableView:(UITableView *)tableView{

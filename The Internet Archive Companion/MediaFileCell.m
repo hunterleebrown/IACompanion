@@ -1,34 +1,20 @@
 //
-//  CollectionViewTableCell.m
+//  MeidaFileCell.m
 //  IA
 //
-//  Created by Hunter on 7/6/13.
+//  Created by Hunter Brown on 7/15/13.
 //  Copyright (c) 2013 Hunter Lee Brown. All rights reserved.
 //
 
-#import "CollectionViewTableCell.h"
-#import <QuartzCore/QuartzCore.h>
+#import "MediaFileCell.h"
 
-@interface CollectionViewTableCell ()
-
-
-@property (nonatomic, strong) CAGradientLayer *gradient;
-
-@end
-
-
-
-
-@implementation CollectionViewTableCell
-@synthesize gradient;
+@implementation MediaFileCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        
-
     }
     return self;
 }
@@ -38,7 +24,7 @@
     if (self) {
         // Initialization code
         [self.contentView setBackgroundColor:[UIColor darkGrayColor]];
-   }
+    }
     return self;
 }
 
@@ -48,19 +34,5 @@
 
     // Configure the view for the selected state
 }
-
-- (void) layoutSubviews{
-    [super layoutSubviews];
-    
-    _archiveImageView.layer.cornerRadius = 5;
-    _archiveImageView.layer.masksToBounds = YES;
-    _archiveImageView.layer.borderColor = [UIColor blackColor].CGColor;
-    _archiveImageView.layer.borderWidth = 1.0;
-    
-
-}
-
-
-
 
 @end
