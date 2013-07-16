@@ -21,12 +21,13 @@
 @property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
 @property (nonatomic, strong) MPMoviePlayerController *player;
 @property (nonatomic, retain) IBOutlet UITableView *playerTableView;
-
+@property (nonatomic, weak) IBOutlet UIButton *playButton;
+@property (nonatomic, weak) IBOutlet UIView *playerHolder;
 
 @end
 
 @implementation MediaPlayerViewController
-@synthesize managedObjectContext, player, imageView;
+@synthesize managedObjectContext, player, imageView, playButton, playerHolder;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,13 +57,17 @@
     player = [[MPMoviePlayerController alloc] init];
     [player setControlStyle:MPMovieControlStyleNone];
     [player.view setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview: player.view];
-    [player.view setFrame: imageView.bounds];
- 
+    [playerHolder addSubview:player.view];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileAndPlayNotification:) name:@"AddToPlayerListFileAndPlayNotification" object:nil];
 
     
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    player.view.frame = CGRectMake(0, 0, playerHolder.frame.size.width, playerHolder.frame.size.height);
+
+
 }
 
 
@@ -125,12 +130,13 @@
             */
             
 
-            [player prepareToPlay];
             [player stop];
             [player setContentURL:[NSURL URLWithString:file.url]];
+            [player prepareToPlay];
             [player play];
-            
-            
+            [self setSelectedCellOfPlayingFileForPlayer:player];
+
+        
       
     }
     
@@ -162,7 +168,7 @@
     [newManagedObject setValue:file.url forKey:@"url"];
     [newManagedObject setValue:file.identifierTitle forKey:@"identifierTitle"];
     [newManagedObject setValue:[file.file objectForKey:@"format"] forKey:@"format"];
-    [newManagedObject setValue:[NSNumber numberWithInt:[[self.fetchedResultsController fetchedObjects]count]] forKey:@"displayOrder"];
+    [newManagedObject setValue:[NSNumber numberWithInt:[[self.fetchedResultsController fetchedObjects]count] + 1] forKey:@"displayOrder"];
     
     // Save the context.
     
@@ -184,7 +190,6 @@
     }
     
     
-    // [self addToPlayerListFile:file];
     
     
     
@@ -390,5 +395,162 @@
 }
 
 
+- (BOOL) shouldAutorotate{
+    return YES;
+}
+
+- (int) indexOfInFileFromUrl:(NSURL *)url{
+    
+    NSArray *loadedFiles = [self.fetchedResultsController fetchedObjects];
+    for(PlayerFile *file in loadedFiles){
+        if([file.url isEqualToString:url.absoluteString]){
+            return [loadedFiles indexOfObject:file];
+        }
+        
+    }
+    return -1;
+}
+
+
+- (void) setSelectedCellOfPlayingFileForPlayer:(MPMoviePlayerController *)thePlayer{
+    if ([[self.fetchedResultsController fetchedObjects] count]> 0) {
+        int index = [self indexOfInFileFromUrl:thePlayer.contentURL];
+        //NSLog(@"--------> playing index: %i", index);
+        
+        if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
+            [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+            
+            
+        }
+        
+        //        PlayerFile *file = [self.fetchedResultsController objectAtIndex:index];
+        
+        
+        PlayerFile *file = (PlayerFile *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+        
+        //[imageView.archiveImage setUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", file.identifier]];
+       // [imageView.archiveImage startDownloading];
+        
+        //[_instructions setHidden:YES];
+        
+        [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+
+        
+        
+    }
+    
+}
+
+
+#pragma mark - controls
+
+- (IBAction)doPlayPause:(id)sender{
+    
+    
+    if(player.playbackState == MPMoviePlaybackStatePlaying){
+        
+        [player pause];
+        [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+        
+        
+    } else if(player.playbackState == MPMoviePlaybackStatePaused){
+        
+        [player play];
+        [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+
+        
+    } else if(player.playbackState == MPMoviePlaybackStateSeekingBackward || player.playbackState == MPMoviePlaybackStateSeekingForward){
+        [player endSeeking];
+        [player pause];
+        [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+
+        
+    } else if(player.playbackState == MPMoviePlaybackStateStopped){
+        
+        [player play];
+        [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+        
+        
+    }
+    
+    
+}
+
+- (IBAction)doNext:(id)sender{
+    [self playNext];
+}
+
+
+- (IBAction)doPrevious:(id)sender{
+    [self playPrevious];
+    
+}
+
+- (IBAction)doForwards:(id)sender{
+    if((player && player.playbackState == MPMoviePlaybackStatePlaying) || (player && player.playbackState == MPMoviePlaybackStateSeekingBackward)){
+        [player beginSeekingForward];
+        
+    } else if(player && player.playbackState == MPMoviePlaybackStateSeekingForward){
+        [player endSeeking];
+    }
+    
+}
+
+- (IBAction)doBackwards:(id)sender{
+    if((player && player.playbackState == MPMoviePlaybackStatePlaying) || (player && player.playbackState == MPMoviePlaybackStateSeekingForward)){
+        [player beginSeekingBackward];
+        
+    } else if(player && player.playbackState == MPMoviePlaybackStateSeekingBackward){
+        [player endSeeking];
+    }
+    
+}
+
+
+- (void) playNext{
+    int index = [self indexOfInFileFromUrl:player.contentURL];
+    if(index >= 0) {
+        int newIndex = index +1;
+        if(newIndex == [[self.fetchedResultsController fetchedObjects ]count]){
+            // Remove this class from the observers
+            [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                            name:MPMoviePlayerPlaybackDidFinishNotification
+                                                          object:player];
+        } else {
+            PlayerFile *newFile = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:newIndex inSection:0]];
+            [player setContentURL:[NSURL URLWithString:newFile.url]];
+            [player stop];
+            [player play];
+            
+            [self setSelectedCellOfPlayingFileForPlayer:player];
+          //  [self monitorPlaybackTime];
+            
+        }
+        
+    } else {
+        /*don't think this will ever happen */
+        return;
+    }
+}
+
+- (void) playPrevious {
+    int index = [self indexOfInFileFromUrl:player.contentURL];
+    if(index > 0) {
+        int newIndex = index - 1;
+        PlayerFile *newFile = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:newIndex inSection:0]];
+        [player setContentURL:[NSURL URLWithString:newFile.url]];
+        [player stop];
+        [player play];
+        
+        [self setSelectedCellOfPlayingFileForPlayer:player];
+       // [self monitorPlaybackTime];
+        
+        
+    } else {
+        return;
+    }
+    
+    
+}
 
 @end
