@@ -11,11 +11,12 @@
 
 @interface InitialViewController ()
 
+@property (nonatomic, strong)  MediaPlayerViewController *mediaPlayerViewController;
 
 @end
 
 @implementation InitialViewController
-@synthesize mediaPlayerHolder;
+@synthesize mediaPlayerHolder, mediaPlayerViewController, managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +40,8 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"mediaPlayer"]){
         
-       //mediaPlayer = [segue destinationViewController];
+        mediaPlayerViewController = [segue destinationViewController];
+        [mediaPlayerViewController setManagedObjectContext:self.managedObjectContext];
         
     }
 

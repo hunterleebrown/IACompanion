@@ -149,6 +149,9 @@
         [self.popUpView showWithSubView:self.archiveDescription title:@"Description" message:nil];
     } else if (((UIButton *)sender).tag == 1) {
         [self.popUpView showWithSubView:self.metaDataTable title:@"MetaData" message:nil];
+    } else if (((UIButton *)sender).tag == 2) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
+        [[UIApplication sharedApplication] openURL:url];
     }
 }
 

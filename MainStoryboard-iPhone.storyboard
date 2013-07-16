@@ -764,15 +764,100 @@
                                     <constraint firstItem="Qwe-Gw-pi9" firstAttribute="centerX" secondItem="eYa-Yv-iaA" secondAttribute="centerX" type="default" id="xiv-tW-uTa"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ovf-1o-oWt" customClass="ArchiveImageView">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="suY-fZ-2MS"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxF-R6-FUy">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxQ-4W-uLu">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" type="user" id="3sH-YI-ErH"/>
+                                            <constraint firstAttribute="width" constant="40" type="user" id="5pk-hj-bXE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="play-button.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhN-Lq-6Rc">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" type="user" id="Scs-zm-igv"/>
+                                            <constraint firstAttribute="height" constant="40" type="user" id="iuY-WY-4Z9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="reverse-button.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tq-Oy-aV8">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" type="user" id="3Fh-IY-VFP"/>
+                                            <constraint firstAttribute="height" constant="40" type="user" id="F4l-tR-c0x"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="forward-button.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="1tq-Oy-aV8" firstAttribute="top" secondItem="cxQ-4W-uLu" secondAttribute="top" type="default" id="1Bg-Jo-xVc"/>
+                                    <constraint firstItem="cxQ-4W-uLu" firstAttribute="leading" secondItem="jhN-Lq-6Rc" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="7ci-Zz-LRN"/>
+                                    <constraint firstItem="cxQ-4W-uLu" firstAttribute="top" secondItem="LxF-R6-FUy" secondAttribute="top" constant="2" type="user" id="8Z7-8Y-FUY"/>
+                                    <constraint firstItem="1tq-Oy-aV8" firstAttribute="leading" secondItem="cxQ-4W-uLu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="DpY-dg-cZO"/>
+                                    <constraint firstAttribute="height" constant="44" type="user" id="LOZ-cn-1d0"/>
+                                    <constraint firstItem="cxQ-4W-uLu" firstAttribute="centerX" secondItem="LxF-R6-FUy" secondAttribute="centerX" type="default" id="gVa-MK-S0k"/>
+                                    <constraint firstItem="jhN-Lq-6Rc" firstAttribute="top" secondItem="cxQ-4W-uLu" secondAttribute="top" type="default" id="u2G-pp-HIA"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-8G-Vle">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132" type="user" id="z9n-sG-Fbe"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ovf-1o-oWt" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="105-5p-79l"/>
+                            <constraint firstItem="LxF-R6-FUy" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="284" type="user" id="3e9-Fe-9YZ"/>
                             <constraint firstItem="eYa-Yv-iaA" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" type="user" id="4eD-4j-pps"/>
+                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="4wY-Y2-Q8n"/>
+                            <constraint firstItem="ovf-1o-oWt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dHA-4g-vhn" secondAttribute="top" constant="44" type="user" id="6K7-Jt-ulT"/>
+                            <constraint firstItem="LxF-R6-FUy" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="AnI-GK-wl5"/>
+                            <constraint firstItem="LxF-R6-FUy" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="GT4-fe-VtQ"/>
+                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="bottom" secondItem="dHA-4g-vhn" secondAttribute="bottom" type="user" id="IXP-PI-bCJ"/>
                             <constraint firstItem="eYa-Yv-iaA" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="L7c-M5-6ti"/>
+                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="bottom" secondItem="dHA-4g-vhn" secondAttribute="bottom" type="user" id="Rdv-LW-8Zs"/>
+                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="328" type="user" id="Yop-Fw-YdK"/>
+                            <constraint firstItem="LxF-R6-FUy" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="284" type="user" id="cdk-Wf-0AY"/>
                             <constraint firstItem="eYa-Yv-iaA" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="fpF-Fd-68q"/>
+                            <constraint firstItem="ovf-1o-oWt" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="w3i-0m-UAI"/>
+                            <constraint firstAttribute="bottom" secondItem="LxF-R6-FUy" secondAttribute="bottom" constant="132" type="user" id="wZ4-ct-LJC"/>
+                            <constraint firstItem="ovf-1o-oWt" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="44" id="yPi-eF-z0m"/>
+                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="zX0-DW-E01"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="imageView" destination="ovf-1o-oWt" id="g35-UM-r79"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nng-KL-zCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -781,9 +866,116 @@
     </scenes>
     <resources>
         <image name="close-button.png" width="40" height="40"/>
+        <image name="forward-button.png" width="40" height="40"/>
+        <image name="play-button.png" width="40" height="40"/>
+        <image name="reverse-button.png" width="40" height="40"/>
         <image name="search-button-plain.png" width="30" height="30"/>
         <image name="share-bbi.png" width="24" height="18"/>
     </resources>
+    <classes>
+        <class className="ArchiveImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageView.h"/>
+        </class>
+        <class className="CentralViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CentralViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="navView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CollectionContentViewController" superclassName="ContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionContentViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="collectionHandlerView" candidateClass="CollectionDataHandlerAndHeaderView"/>
+            </relationships>
+        </class>
+        <class className="CollectionDataHandlerAndHeaderView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionDataHandlerAndHeaderView.h"/>
+            <relationships>
+                <relationship kind="action" name="segmentedControlIndexChanged:"/>
+                <relationship kind="outlet" name="collectionTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="countLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="filters" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="CollectionViewTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionViewTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="archiveImageView" candidateClass="ArchiveImageView"/>
+                <relationship kind="outlet" name="collectionBanner" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ContentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPopUp:"/>
+                <relationship kind="outlet" name="descriptionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
+                <relationship kind="outlet" name="metaDataButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="moreInfoView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="tableHeaderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="InitialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mediaPlayerHolder" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="ItemContentViewController" superclassName="ContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemContentViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mediaTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MainNavTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navCellTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="navImageView" candidateClass="ArchiveImageView"/>
+            </relationships>
+        </class>
+        <class className="MainNavTableViewHeaderViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewHeaderViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="sectionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MainNavViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="mediaPlayerOpen"/>
+                <relationship kind="outlet" name="navTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MediaFileCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaFileCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MediaFileHeaderCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaFileHeaderCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="sectionHeaderLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MediaPlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaPlayerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closePlayer"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

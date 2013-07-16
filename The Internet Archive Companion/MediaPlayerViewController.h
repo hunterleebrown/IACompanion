@@ -10,6 +10,8 @@
 
 @interface MediaPlayerViewController : UIViewController
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
 - (IBAction)closePlayer;
 
 

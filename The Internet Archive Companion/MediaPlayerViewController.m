@@ -7,14 +7,19 @@
 //
 
 #import "MediaPlayerViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import "ArchiveImageView.h"
 
 @interface MediaPlayerViewController ()
 
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
 
 @end
 
 @implementation MediaPlayerViewController
+@synthesize managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +34,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // using the device audio session
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    
+    NSError *setCategoryError = nil;
+    BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+    if (!success) {    }
+    
+    NSError *activationError = nil;
+    success = [audioSession setActive:YES error:&activationError];
+    if (!success) {  }
+    
+
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

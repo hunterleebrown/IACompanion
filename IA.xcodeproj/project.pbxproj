@@ -135,6 +135,14 @@
 		CEBA014316CEF6B30038625F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014216CEF6B30038625F /* AVFoundation.framework */; };
 		CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014616CEFFB60038625F /* AudioToolbox.framework */; };
 		CEE4AC4F1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */; };
+		CEE4AC5A1795E48100FAE34F /* play-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC581795E48100FAE34F /* play-button.png */; };
+		CEE4AC5B1795E48100FAE34F /* play-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC591795E48100FAE34F /* play-button@2x.png */; };
+		CEE4AC621795E6EA00FAE34F /* forward-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC5C1795E6EA00FAE34F /* forward-button.png */; };
+		CEE4AC631795E6EA00FAE34F /* forward-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC5D1795E6EA00FAE34F /* forward-button@2x.png */; };
+		CEE4AC641795E6EA00FAE34F /* pause-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC5E1795E6EA00FAE34F /* pause-button.png */; };
+		CEE4AC651795E6EA00FAE34F /* pause-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC5F1795E6EA00FAE34F /* pause-button@2x.png */; };
+		CEE4AC661795E6EA00FAE34F /* reverse-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC601795E6EA00FAE34F /* reverse-button.png */; };
+		CEE4AC671795E6EA00FAE34F /* reverse-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC611795E6EA00FAE34F /* reverse-button@2x.png */; };
 		CEEA730D16DD30C80092FA84 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA730C16DD30C80092FA84 /* list.png */; };
 		CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731116DD53A40092FA84 /* rightContentShadow.png */; };
 		CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */; };
@@ -314,6 +322,14 @@
 		CEBA014616CEFFB60038625F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEE4AC4D1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionViewControllerHelper.h; sourceTree = "<group>"; };
 		CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionViewControllerHelper.m; sourceTree = "<group>"; };
+		CEE4AC581795E48100FAE34F /* play-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button.png"; sourceTree = "<group>"; };
+		CEE4AC591795E48100FAE34F /* play-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button@2x.png"; sourceTree = "<group>"; };
+		CEE4AC5C1795E6EA00FAE34F /* forward-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-button.png"; sourceTree = "<group>"; };
+		CEE4AC5D1795E6EA00FAE34F /* forward-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-button@2x.png"; sourceTree = "<group>"; };
+		CEE4AC5E1795E6EA00FAE34F /* pause-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button.png"; sourceTree = "<group>"; };
+		CEE4AC5F1795E6EA00FAE34F /* pause-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button@2x.png"; sourceTree = "<group>"; };
+		CEE4AC601795E6EA00FAE34F /* reverse-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverse-button.png"; sourceTree = "<group>"; };
+		CEE4AC611795E6EA00FAE34F /* reverse-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverse-button@2x.png"; sourceTree = "<group>"; };
 		CEEA730C16DD30C80092FA84 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		CEEA731116DD53A40092FA84 /* rightContentShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightContentShadow.png; sourceTree = "<group>"; };
 		CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightContentShadow@2x.png"; sourceTree = "<group>"; };
@@ -453,6 +469,14 @@
 		5A5065261736DDCD00D295E2 /* Multimedia */ = {
 			isa = PBXGroup;
 			children = (
+				CEE4AC5C1795E6EA00FAE34F /* forward-button.png */,
+				CEE4AC5D1795E6EA00FAE34F /* forward-button@2x.png */,
+				CEE4AC5E1795E6EA00FAE34F /* pause-button.png */,
+				CEE4AC5F1795E6EA00FAE34F /* pause-button@2x.png */,
+				CEE4AC601795E6EA00FAE34F /* reverse-button.png */,
+				CEE4AC611795E6EA00FAE34F /* reverse-button@2x.png */,
+				CEE4AC581795E48100FAE34F /* play-button.png */,
+				CEE4AC591795E48100FAE34F /* play-button@2x.png */,
 				CE89EFF31795927300E05EE3 /* player-button.png */,
 				CE89EFF41795927300E05EE3 /* player-button@2x.png */,
 				5A2350221780DA8A0050C9A2 /* back-button.png */,
@@ -479,6 +503,7 @@
 				5A756DAA1780024200E7F922 /* Central View Controller */,
 				5A756D88177FA71D00E7F922 /* MainNavView */,
 				5A756DAE1780027500E7F922 /* ContentViewController */,
+				CE3FFD1117944F7A00709F5F /* MeidaPlayerController */,
 				CEE4AC4D1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.h */,
 				CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */,
 			);
@@ -545,7 +570,6 @@
 			children = (
 				5A756DA3177FFE2800E7F922 /* InitialViewController.h */,
 				5A756DA4177FFE2800E7F922 /* InitialViewController.m */,
-				CE3FFD1117944F7A00709F5F /* MeidaPlayerController */,
 			);
 			name = InitialViewController;
 			sourceTree = "<group>";
@@ -857,6 +881,14 @@
 				CE89EFFA179595C200E05EE3 /* toolbar@2x.png in Resources */,
 				CE89F0051795A21500E05EE3 /* close-button.png in Resources */,
 				CE89F0061795A21500E05EE3 /* close-button@2x.png in Resources */,
+				CEE4AC5A1795E48100FAE34F /* play-button.png in Resources */,
+				CEE4AC5B1795E48100FAE34F /* play-button@2x.png in Resources */,
+				CEE4AC621795E6EA00FAE34F /* forward-button.png in Resources */,
+				CEE4AC631795E6EA00FAE34F /* forward-button@2x.png in Resources */,
+				CEE4AC641795E6EA00FAE34F /* pause-button.png in Resources */,
+				CEE4AC651795E6EA00FAE34F /* pause-button@2x.png in Resources */,
+				CEE4AC661795E6EA00FAE34F /* reverse-button.png in Resources */,
+				CEE4AC671795E6EA00FAE34F /* reverse-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import <CoreData/CoreData.h>
 #import "PopUpView.h"
 #import "ArchiveLoadingView.h"
+#import "InitialViewController.h"
 
 @interface AppDelegate ()
 
@@ -33,6 +34,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    
+    InitialViewController *controller = (InitialViewController *)self.window.rootViewController;
+    controller.managedObjectContext = self.managedObjectContext;
     
 
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
