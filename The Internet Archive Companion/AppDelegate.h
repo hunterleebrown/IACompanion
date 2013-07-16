@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UIAppearanceContainer>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;

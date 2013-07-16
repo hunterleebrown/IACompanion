@@ -128,18 +128,20 @@
 
 #pragma mark - table
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 4;
 }
 
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:
+            return 1;
+        case 1:
             return [audioSearchDocuments count];
             break;
-        case 1:
+        case 2:
             return [videoSearchDocuments count];
             break;
-        case 2:
+        case 3:
             return [textSearchDocuments count];
             break;
         default:
@@ -155,18 +157,27 @@
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
         case 0:
-            doc = [audioSearchDocuments objectAtIndex:indexPath.row];
+           // cell.textLabel.text = @"Media Player";
+            [cell.navCellTitleLabel setText:@"Media Player"];
+            [cell.navImageView setImage:[UIImage imageNamed:@"player-button.png"]];
+            [cell.navImageView setBackgroundColor:[UIColor blackColor]];
+            [cell setBackgroundColor:[UIColor blackColor]];
+            return cell;
             break;
         case 1:
-            doc = [videoSearchDocuments objectAtIndex:indexPath.row];
+            doc = [audioSearchDocuments objectAtIndex:indexPath.row];
             break;
         case 2:
+            doc = [videoSearchDocuments objectAtIndex:indexPath.row];
+            break;
+        case 3:
             doc = [textSearchDocuments objectAtIndex:indexPath.row];
             break;
         default:
             break;
     }
-
+    [cell.navCellTitleLabel setHidden:NO];
+    [cell.navImageView setHidden:NO];
     [cell.navCellTitleLabel setText:doc.title];
     [cell.navImageView setArchiveImage:doc.archiveImage];
     
@@ -177,12 +188,15 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return @"Audio Collections";
+            return nil;
             break;
         case 1:
-            return @"Video Collections";
+            return @"Audio Collections";
             break;
         case 2:
+            return @"Video Collections";
+            break;
+        case 3:
             return @"Text Collections";
             break;
         default:
@@ -191,17 +205,29 @@
     }
     
 }
+- (float) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    switch (section) {
+        case 0:
+            return 0;
+            break;            
+        default:
+            return 22;
+            break;
+    }
 
+}
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     MainNavTableViewHeaderViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"mainNavSectionHeader"];
     switch (section) {
         case 0:
+            return nil;
+        case 1:
             headerCell.sectionLabel.text =  @"Audio Collections";
             break;
-        case 1:
+        case 2:
             headerCell.sectionLabel.text =  @"Video Collections";
             break;
-        case 2:
+        case 3:
             headerCell.sectionLabel.text =  @"Text Collections";
             break;
         default:
@@ -217,12 +243,16 @@
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
         case 0:
-            doc = [audioSearchDocuments objectAtIndex:indexPath.row];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+            return;
             break;
         case 1:
-            doc = [videoSearchDocuments objectAtIndex:indexPath.row];
+            doc = [audioSearchDocuments objectAtIndex:indexPath.row];
             break;
         case 2:
+            doc = [videoSearchDocuments objectAtIndex:indexPath.row];
+            break;
+        case 3:
             doc = [textSearchDocuments objectAtIndex:indexPath.row];
             break;
         default:
@@ -238,8 +268,6 @@
 }
 
 
-- (IBAction)mediaPlayerOpen{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:self];
-}
+
 
 @end

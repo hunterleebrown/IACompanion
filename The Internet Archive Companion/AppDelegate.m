@@ -42,6 +42,12 @@
     
     
     [self.window makeKeyAndVisible];
+    
+    
+    
+    UIImage *image = [UIImage imageNamed:@"toolbar.png"];
+    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 

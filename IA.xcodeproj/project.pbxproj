@@ -122,6 +122,10 @@
 		CE6FFE2F17933EE0002A292B /* MetaDataTable.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6FFE2E17933EE0002A292B /* MetaDataTable.m */; };
 		CE6FFE32179345D6002A292B /* MetaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6FFE31179345D6002A292B /* MetaCell.m */; };
 		CE752A2816C1799400A432AB /* uiglassbutton-template.png in Resources */ = {isa = PBXBuildFile; fileRef = CE752A2716C1799400A432AB /* uiglassbutton-template.png */; };
+		CE89EFF51795927300E05EE3 /* player-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89EFF31795927300E05EE3 /* player-button.png */; };
+		CE89EFF61795927300E05EE3 /* player-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89EFF41795927300E05EE3 /* player-button@2x.png */; };
+		CE89EFF9179595C200E05EE3 /* toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89EFF7179595C200E05EE3 /* toolbar.png */; };
+		CE89EFFA179595C200E05EE3 /* toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89EFF8179595C200E05EE3 /* toolbar@2x.png */; };
 		CEAE1A1217927FA10027AC5C /* x-done.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAE1A1017927FA10027AC5C /* x-done.png */; };
 		CEAE1A1317927FA10027AC5C /* x-done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAE1A1117927FA10027AC5C /* x-done@2x.png */; };
 		CEBA014016CEEFCE0038625F /* vertShadowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */; };
@@ -292,6 +296,10 @@
 		CE6FFE30179345D6002A292B /* MetaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaCell.h; sourceTree = "<group>"; };
 		CE6FFE31179345D6002A292B /* MetaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaCell.m; sourceTree = "<group>"; };
 		CE752A2716C1799400A432AB /* uiglassbutton-template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uiglassbutton-template.png"; sourceTree = "<group>"; };
+		CE89EFF31795927300E05EE3 /* player-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player-button.png"; sourceTree = "<group>"; };
+		CE89EFF41795927300E05EE3 /* player-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player-button@2x.png"; sourceTree = "<group>"; };
+		CE89EFF7179595C200E05EE3 /* toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar.png; sourceTree = "<group>"; };
+		CE89EFF8179595C200E05EE3 /* toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar@2x.png"; sourceTree = "<group>"; };
 		CEAE1A1017927FA10027AC5C /* x-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-done.png"; sourceTree = "<group>"; };
 		CEAE1A1117927FA10027AC5C /* x-done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-done@2x.png"; sourceTree = "<group>"; };
 		CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertShadowBottom.png; sourceTree = "<group>"; };
@@ -438,6 +446,8 @@
 		5A5065261736DDCD00D295E2 /* Multimedia */ = {
 			isa = PBXGroup;
 			children = (
+				CE89EFF31795927300E05EE3 /* player-button.png */,
+				CE89EFF41795927300E05EE3 /* player-button@2x.png */,
 				5A2350221780DA8A0050C9A2 /* back-button.png */,
 				5A2350231780DA8A0050C9A2 /* back-button@2x.png */,
 				5AFB0EC71749578600FAE78B /* speaker-button.png */,
@@ -608,6 +618,8 @@
 				5A5065261736DDCD00D295E2 /* Multimedia */,
 				CEAE1A1017927FA10027AC5C /* x-done.png */,
 				CEAE1A1117927FA10027AC5C /* x-done@2x.png */,
+				CE89EFF7179595C200E05EE3 /* toolbar.png */,
+				CE89EFF8179595C200E05EE3 /* toolbar@2x.png */,
 				5A75EAE71731B83C007CEEA4 /* petabox.jpg */,
 				5AFB0ECF1749746100FAE78B /* ia-button.png */,
 				5A23500C1780BDC50050C9A2 /* ia-button-plain.png */,
@@ -828,6 +840,10 @@
 				5A2350251780DA8A0050C9A2 /* back-button@2x.png in Resources */,
 				CEAE1A1217927FA10027AC5C /* x-done.png in Resources */,
 				CEAE1A1317927FA10027AC5C /* x-done@2x.png in Resources */,
+				CE89EFF51795927300E05EE3 /* player-button.png in Resources */,
+				CE89EFF61795927300E05EE3 /* player-button@2x.png in Resources */,
+				CE89EFF9179595C200E05EE3 /* toolbar.png in Resources */,
+				CE89EFFA179595C200E05EE3 /* toolbar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

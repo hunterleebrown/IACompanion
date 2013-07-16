@@ -12,13 +12,14 @@
 #import "ItemContentViewController.h"
 #import "PopUpView.h"
 
-@interface ContentViewController () 
+@interface ContentViewController () <UIWebViewDelegate>
+@property (nonatomic, weak) IBOutlet UIWebView *moreInfoView;
 
 
 @end
 
 @implementation ContentViewController
-@synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable, detDoc;
+@synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable, detDoc, moreInfoView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -71,8 +72,34 @@
     [self.view addSubview:popUpView];
     
     metaDataTable = [[MetaDataTable alloc] initWithFrame:CGRectZero];
-
+    
+    
+    NSString *content = @"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/3.0/deed.en_US\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><br /><span xmlns:dct=\"http://purl.org/dc/terms/\" href=\"http://purl.org/dc/dcmitype/InteractiveResource\" property=\"dct:title\" rel=\"dct:type\">Internet Archive Companion</span> <p>by <a xmlns:cc=\"http://creativecommons.org/ns#\" href=\"http://www.hunterleebrown.com/IACompanion\" property=\"cc:attributionName\" rel=\"cc:attributionURL\">Hunter Lee Brown</a> </p><p>is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/3.0/deed.en_US\">Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</p><p>This application was not produced by nor is it officially associated with <a href=\"http://archive.org/about\">The Internet Archive</a>.</p>";
+    
+    
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}body{text-align:center;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@<p>Internet Archive Companion, version %@</p></body></html>", content, [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+    
+    
+    
+    
+    
+    [moreInfoView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
+                              MIMEType:@"text/html"
+                      textEncodingName:@"UTF-8"
+                               baseURL:nil];
+    
+    
+    [moreInfoView.scrollView setScrollEnabled:NO];
 }
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    if(navigationType == UIWebViewNavigationTypeLinkClicked){
+       [[UIApplication sharedApplication] openURL:request.URL];
+        return NO;
+    }
+    return YES;
+}
+
 
 - (IBAction) showPopUp:(id)sender{
     
