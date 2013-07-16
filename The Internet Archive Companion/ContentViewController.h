@@ -14,7 +14,7 @@
 #import "ArchiveImageView.h"
 #import "ArchiveLoadingView.h"
 
-@interface ContentViewController : UIViewController <IADataServiceDelegate>
+@interface ContentViewController : UIViewController <IADataServiceDelegate, UIWebViewDelegate>
 
 
 

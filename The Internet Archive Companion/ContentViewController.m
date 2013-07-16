@@ -11,8 +11,9 @@
 #import "CollectionContentViewController.h"
 #import "ItemContentViewController.h"
 #import "PopUpView.h"
+#import "ArchiveCollectionViewControllerHelper.h"
 
-@interface ContentViewController () <UIWebViewDelegate>
+@interface ContentViewController () 
 @property (nonatomic, weak) IBOutlet UIWebView *moreInfoView;
 
 
@@ -99,11 +100,39 @@
     
     
     [moreInfoView.scrollView setScrollEnabled:NO];
+    [self.archiveDescription setScalesPageToFit:YES];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    NSString *urlString = request.URL.absoluteString;
     if(navigationType == UIWebViewNavigationTypeLinkClicked){
-       [[UIApplication sharedApplication] openURL:request.URL];
+        NSString *detailURL;
+        
+        NSArray *slashes = [urlString componentsSeparatedByString:@"/"];
+     
+        for(int i=0; i < [slashes count]; i++){
+            NSString *slash = [slashes objectAtIndex:i];
+            NSRange textRange;
+            textRange = [slash rangeOfString:@"details"];
+     
+            if(textRange.location != NSNotFound) {
+                NSLog(@"  second slash: %@", [slashes objectAtIndex:i+1]);
+                NSString *identifier = [slashes objectAtIndex:i+1];
+                ArchiveSearchDoc *doc = [ArchiveSearchDoc new];
+                doc.identifier = identifier;
+                doc.type = MediaTypeAny;
+                ArchiveCollectionViewControllerHelper *helper = [ArchiveCollectionViewControllerHelper new];
+                [helper setSearchDoc:doc];
+                return NO;
+            }
+            
+        }
+        if(detailURL){
+            
+        } else {
+            
+            [[UIApplication sharedApplication] openURL:request.URL];
+        }
         return NO;
     }
     return YES;
@@ -135,6 +164,7 @@
     
     
 }
+
 
 
 

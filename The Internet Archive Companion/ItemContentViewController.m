@@ -8,14 +8,12 @@
 
 #import "ItemContentViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ArchiveLoadingView.h"
 #import "ArchiveFile.h"
 #import "MediaFileCell.h"
 #import "MediaFileHeaderCell.h"
 
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, weak) IBOutlet ArchiveLoadingView *loadingIndicator;
 @property (nonatomic, strong) NSMutableArray *mediaFiles;
 @property (nonatomic, strong) NSMutableDictionary *organizedMediaFiles;
 @property (nonatomic, weak) IBOutlet UITableView *mediaTable;
@@ -23,7 +21,7 @@
 @end
 
 @implementation ItemContentViewController
-@synthesize loadingIndicator, mediaFiles, organizedMediaFiles, mediaTable;
+@synthesize mediaFiles, organizedMediaFiles, mediaTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,12 +45,17 @@
     self.archiveDescription.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     [self.archiveDescription setBackgroundColor:[UIColor clearColor]];
     [self.archiveDescription setOpaque:NO];
-    [loadingIndicator startAnimating];
+    [self.archiveDescription setDelegate:self];
     
     mediaFiles = [NSMutableArray new];
     organizedMediaFiles = [NSMutableDictionary new];
 
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
+    
 }
+
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
     
@@ -86,7 +89,6 @@
                      textEncodingName:@"UTF-8"
                               baseURL:theBaseURL];
     
-    [loadingIndicator stopAnimating];
 
     [self.metaDataTable addMetadata:[self.detDoc.rawDoc objectForKey:@"metadata"]];
     
@@ -101,6 +103,9 @@
     [mediaFiles addObjectsFromArray:[files sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]]];
     
     [self orgainizeMediaFiles:mediaFiles];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
+
     
 }
 

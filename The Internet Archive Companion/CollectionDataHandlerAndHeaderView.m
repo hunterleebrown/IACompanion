@@ -11,7 +11,6 @@
 #import "ArchiveSearchDoc.h"
 #import "CollectionViewTableCell.h"
 #import "StringUtils.h"
-#import "ArchiveLoadingView.h"
 
 @interface CollectionDataHandlerAndHeaderView ()
 
@@ -20,12 +19,11 @@
 @property (assign) int numFound;
 @property (assign) int start;
 @property (assign) BOOL didTriggerLoadMore;
-@property (nonatomic, weak) IBOutlet ArchiveLoadingView *loadingIndicator;
 
 @end
 
 @implementation CollectionDataHandlerAndHeaderView
-@synthesize service, identifier, searchDocuments, collectionTableView, numFound, didTriggerLoadMore, start, loadingIndicator;
+@synthesize service, identifier, searchDocuments, collectionTableView, numFound, didTriggerLoadMore, start;
 
 - (id) initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
@@ -52,12 +50,14 @@
     service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDateDescending];
     [service setDelegate:self];
     [service fetchData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
 
     [collectionTableView setScrollsToTop:YES];
-    [loadingIndicator startAnimating];
 }
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
 
     if(service.rawResults && [service.rawResults objectForKey:@"documents"]){
         
@@ -75,7 +75,6 @@
         }
     }
     didTriggerLoadMore = NO;
-    [loadingIndicator stopAnimating];
 
     
 
@@ -116,17 +115,8 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    /*
-    CGPoint contentOffset = [scrollView contentOffset];
-    if(contentOffset.y > 200){
-        [self setFrame:CGRectMake(0, contentOffset.y, self.frame.size.width, self.frame.size.height)];
-    } else {
-        [self setFrame:CGRectMake(0, 200, self.frame.size.width, self.frame.size.height)];
-
-    }
-    */
     
-    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 300){
+    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
         if(searchDocuments.count > 0  && searchDocuments.count < numFound  && start < numFound && !didTriggerLoadMore){
             [self loadMoreItems:nil];
 
@@ -144,11 +134,11 @@
             [service setDelegate:self];
             [service fetchData];
             break;
-        case 1:
+        case 2:
             [service changeToSubCollections];
             [service fetchData];
             break;
-        case 2:
+        case 1:
             service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadCount];
             [service setDelegate:self];
             [service fetchData];
@@ -161,7 +151,9 @@
         default:
             break;
     }
-    [loadingIndicator startAnimating];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
 
 }
 
@@ -171,12 +163,11 @@
     if(numFound > 50) {
         didTriggerLoadMore = YES;
         start = start + 50;
-        // NSLog(@"-----> trigger loadmore");
-        // NSLog(@" docs.count:%i  numFound:%i   start:%i", docs.count, numFound, start);
-        
-        [loadingIndicator startAnimating];
+
         [service setLoadMoreStart:[NSString stringWithFormat:@"%i", start]];
         [service fetchData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
     }
 }
 

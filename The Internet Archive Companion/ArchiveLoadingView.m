@@ -27,18 +27,28 @@
     if (self) {
         // Initialization code
         
+        archiveLogoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ia-button-plain.png"]];
+        [self addSubview:archiveLogoView];
+        
+        
         self.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.8];
         activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        self.layer.cornerRadius = 20.0;
-        
+        self.layer.cornerRadius = 10.0;
+        self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        self.layer.borderWidth = 2;
+        self.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.layer.shadowOffset = CGSizeMake(10, 10);
+        self.layer.shadowOpacity = 0.8;
+        self.layer.shadowRadius = 5.0;
         [self addSubview:activityIndicatorView];
         
         loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 21.0)];
         loadingLabel.textColor = [UIColor whiteColor];
         loadingLabel.backgroundColor = [UIColor clearColor];
-        loadingLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        loadingLabel.font = [UIFont fontWithName:@"AmericanTypewriter" size:15];
         loadingLabel.text = @"LOADING";
         loadingLabel.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:loadingLabel];
         
     }
     return self;
@@ -71,7 +81,6 @@
         loadingLabel.text = @"LOADING";
         loadingLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:loadingLabel];
-       // [activityIndicatorView startAnimating];
     }
     return self;
 }
@@ -114,5 +123,6 @@
     // Drawing code
 }
 */
+
 
 @end

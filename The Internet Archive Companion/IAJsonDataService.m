@@ -227,7 +227,17 @@
         }
         [dDoc setFiles:files];
         
-        
+        if([[metadata objectForKey:@"mediatype"] isEqualToString:@"collection"]){
+            [dDoc setType:MediaTypeCollection];
+        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"audio"]){
+            [dDoc setType:MediaTypeAudio];
+        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"video"]){
+            [dDoc setType:MediaTypeVideo];
+        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"texts"]){
+            [dDoc setType:MediaTypeTexts];
+        } else {
+            [dDoc setType:MediaTypeAny];
+        }
         
         [responseDocs addObject:dDoc];
         [rawResults setObject:responseDocs forKey:@"documents"];

@@ -154,6 +154,9 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MainNavTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainNavCell"];
     
+    [cell.navImageView setHidden:YES];
+    [cell.navImageView setBackgroundColor:[UIColor whiteColor]];
+    
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
         case 0:
@@ -169,8 +172,7 @@
                 [cell.navImageView setBackgroundColor:[UIColor blackColor]];
                 [cell setBackgroundColor:[UIColor blackColor]];
             }
-            
-            
+            [cell.navImageView setHidden:NO];
             return cell;
             
             

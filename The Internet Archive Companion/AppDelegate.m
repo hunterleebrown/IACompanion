@@ -11,10 +11,13 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <CoreData/CoreData.h>
 #import "PopUpView.h"
+#import "ArchiveLoadingView.h"
 
 @interface AppDelegate ()
 
 @property (nonatomic, strong) PopUpView *popUpView;
+@property (nonatomic, strong) ArchiveLoadingView *loadingView;
+
 @end
 
 @implementation AppDelegate
@@ -24,7 +27,7 @@
 @synthesize managedObjectModel=_managedObjectModel;
 @synthesize persistentStoreCoordinator=_persistentStoreCoordinator;
 @synthesize popUpView;
-
+@synthesize loadingView;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -35,21 +38,39 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopUpWithMessageNotification:) name:@"NotifyUser" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoadingIndicatorNotification:) name:@"ShowLoadingIndicator" object:nil];
     
     popUpView = [[PopUpView alloc] initWithFrame:CGRectZero];
     [self.window addSubview:popUpView];
     
     
-    [self.window makeKeyAndVisible];
     
+    
+    loadingView = [[ArchiveLoadingView alloc] initWithFrame:CGRectMake(self.window.center.x - 50, self.window.center.y - 50, 100, 100)];
+    [self.window addSubview:loadingView];
     
     
     UIImage *image = [UIImage imageNamed:@"toolbar.png"];
     [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
+
+- (void) showLoadingIndicatorNotification:(NSNotification *)notification{
+    [self.window bringSubviewToFront:loadingView];
+
+    if([notification.object boolValue]){
+        [loadingView startAnimating];
+
+    } else {
+        [loadingView stopAnimating];
+    }
+
+}
+
+
 
 - (void) showPopUpWithMessageNotification:(NSNotification *)notification{
     if(!popUpView.expanded) {

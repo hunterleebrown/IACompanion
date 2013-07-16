@@ -99,10 +99,14 @@
         [view setText:message];
         [containerView addSubview:view];
         [view sizeToFit];
+
     } else {
         [containerView addSubview:view];
         [view setFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
         [view sizeToFit];
+        if([view isKindOfClass:[UIWebView class]]){
+            [((UIWebView *)view) setScalesPageToFit:YES];
+        }
         
         
     }
@@ -146,7 +150,9 @@
         contentView = [containerView.subviews objectAtIndex:0];
         [contentView setFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
    
-    
+        if([contentView isKindOfClass:[UIWebView class]]){
+            [((UIWebView *)contentView) setScalesPageToFit:YES];
+        }
     }
     
     

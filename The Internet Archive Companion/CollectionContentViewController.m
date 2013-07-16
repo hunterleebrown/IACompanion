@@ -10,7 +10,7 @@
 #import "CollectionDataHandlerAndHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface CollectionContentViewController () <UIWebViewDelegate>
+@interface CollectionContentViewController () 
 
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
 
@@ -44,12 +44,16 @@
     self.archiveDescription.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     [self.archiveDescription setBackgroundColor:[UIColor clearColor]];
     [self.archiveDescription setOpaque:NO];
+    [self.archiveDescription setDelegate:self];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [collectionHandlerView.collectionTableView deselectRowAtIndexPath:collectionHandlerView.collectionTableView.indexPathForSelectedRow animated:YES];
 }
+
+
+
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
     

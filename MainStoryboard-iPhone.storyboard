@@ -428,23 +428,14 @@
                                     <outlet property="delegate" destination="gp1-Y2-9gB" id="iTM-bf-nKD"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKG-u5-WGn" customClass="ArchiveLoadingView">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" type="user" id="dIn-bW-HQv"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="f2o-gT-210" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" type="default" id="4gc-VN-X0W"/>
-                            <constraint firstAttribute="centerY" secondItem="IKG-u5-WGn" secondAttribute="centerY" type="user" id="OAi-XJ-Fyv"/>
                             <constraint firstItem="f2o-gT-210" firstAttribute="trailing" secondItem="pDQ-bp-6vG" secondAttribute="trailing" type="default" id="Voa-ke-7HG"/>
                             <constraint firstItem="f2o-gT-210" firstAttribute="top" secondItem="pDQ-bp-6vG" secondAttribute="top" type="user" id="W84-Ir-w7c"/>
-                            <constraint firstAttribute="centerX" secondItem="IKG-u5-WGn" secondAttribute="centerX" type="user" id="XYD-MG-1kv"/>
                             <constraint firstItem="7Sy-pu-DXg" firstAttribute="bottom" secondItem="pDQ-bp-6vG" secondAttribute="bottom" type="default" id="aRz-fr-YZZ"/>
                             <constraint firstItem="7Sy-pu-DXg" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" type="default" id="g9Y-ss-70q"/>
-                            <constraint firstItem="IKG-u5-WGn" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" constant="110" id="mFQ-QZ-ALW"/>
                             <constraint firstAttribute="bottom" secondItem="f2o-gT-210" secondAttribute="bottom" constant="244" type="user" id="mwl-ff-zZP"/>
                             <constraint firstItem="7Sy-pu-DXg" firstAttribute="trailing" secondItem="pDQ-bp-6vG" secondAttribute="trailing" type="default" id="uTn-t5-Dsy"/>
                         </constraints>
@@ -453,7 +444,6 @@
                     <connections>
                         <outlet property="descriptionButton" destination="2cw-1S-Obw" id="EBx-yc-MWH"/>
                         <outlet property="imageView" destination="Toy-rm-hHQ" id="vLd-Hc-Whl"/>
-                        <outlet property="loadingIndicator" destination="IKG-u5-WGn" id="Sp9-wq-AqG"/>
                         <outlet property="mediaTable" destination="7Sy-pu-DXg" id="pi2-ze-inJ"/>
                         <outlet property="metaDataButton" destination="n48-BP-2jf" id="rGn-AC-rYC"/>
                         <outlet property="tableHeaderView" destination="f2o-gT-210" id="bVX-s5-Z1q"/>
@@ -536,8 +526,8 @@
                                                 </constraints>
                                                 <segments>
                                                     <segment title="Newest"/>
-                                                    <segment title="Sub Coll"/>
                                                     <segment title="Popular"/>
+                                                    <segment title="Sub Coll"/>
                                                     <segment title="IA Pick"/>
                                                     <segment title="" image="search-button-plain.png"/>
                                                 </segments>
@@ -556,11 +546,7 @@
                                             <outlet property="collectionTableView" destination="Wle-pd-Z3W" id="dV0-JR-Xha"/>
                                             <outlet property="countLabel" destination="i7K-jo-EbB" id="6db-ST-eFC"/>
                                             <outlet property="filters" destination="Bel-US-Jmz" id="j3i-Q9-D4N"/>
-                                            <outlet property="loadingIndicator" destination="LnY-17-2oD" id="OU9-42-cn2"/>
                                         </connections>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LnY-17-2oD" customClass="ArchiveLoadingView">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -570,19 +556,15 @@
                                     <constraint firstItem="7BB-fz-ce7" firstAttribute="trailing" secondItem="BFu-rM-wTy" secondAttribute="trailing" type="default" id="9GM-Jn-KOy"/>
                                     <constraint firstItem="kW7-vM-2jR" firstAttribute="centerY" secondItem="qeC-n8-fen" secondAttribute="centerY" type="default" id="BWN-cS-o7a"/>
                                     <constraint firstItem="xZU-8E-zRg" firstAttribute="trailing" secondItem="qeC-n8-fen" secondAttribute="trailing" type="default" id="Kym-KF-2xF"/>
-                                    <constraint firstItem="LnY-17-2oD" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="13" id="M07-qy-W6c"/>
                                     <constraint firstAttribute="height" constant="172" type="user" id="OCP-R1-oFt"/>
                                     <constraint firstItem="nBC-8T-5Cb" firstAttribute="leading" secondItem="BFu-rM-wTy" secondAttribute="leading" type="default" id="QtL-fm-6DI"/>
-                                    <constraint firstAttribute="bottom" secondItem="LnY-17-2oD" secondAttribute="bottom" constant="59" id="RcD-gw-YRg"/>
                                     <constraint firstItem="7BB-fz-ce7" firstAttribute="bottom" secondItem="nBC-8T-5Cb" secondAttribute="bottom" type="default" id="Scp-y3-UpL"/>
                                     <constraint firstItem="kW7-vM-2jR" firstAttribute="centerX" secondItem="xZU-8E-zRg" secondAttribute="centerX" type="default" id="VZi-20-8Vi"/>
-                                    <constraint firstItem="LnY-17-2oD" firstAttribute="centerX" secondItem="BFu-rM-wTy" secondAttribute="centerX" type="default" id="c5N-E3-0xy"/>
-                                    <constraint firstItem="LnY-17-2oD" firstAttribute="leading" secondItem="qeC-n8-fen" secondAttribute="leading" constant="110" id="eQi-MJ-7OV"/>
                                     <constraint firstItem="nBC-8T-5Cb" firstAttribute="baseline" secondItem="7BB-fz-ce7" secondAttribute="baseline" type="user" id="gzf-Pc-k0x"/>
                                     <constraint firstItem="xZU-8E-zRg" firstAttribute="leading" secondItem="qeC-n8-fen" secondAttribute="leading" type="default" id="ocd-um-jsr"/>
                                     <constraint firstItem="xZU-8E-zRg" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="109" id="qsW-Nj-O91"/>
                                     <constraint firstItem="7BB-fz-ce7" firstAttribute="top" secondItem="nBC-8T-5Cb" secondAttribute="top" type="default" id="smk-Ak-hiM"/>
-                                    <constraint firstItem="LnY-17-2oD" firstAttribute="centerX" secondItem="xZU-8E-zRg" secondAttribute="centerX" type="default" id="xx6-c9-sU2"/>
+                                    <constraint firstItem="BFu-rM-wTy" firstAttribute="centerX" secondItem="xZU-8E-zRg" secondAttribute="centerX" type="default" id="tgK-Et-kkd"/>
                                     <constraint firstAttribute="bottom" secondItem="nBC-8T-5Cb" secondAttribute="bottom" constant="66" id="yGv-mq-P33"/>
                                 </constraints>
                             </view>
@@ -802,114 +784,6 @@
         <image name="search-button-plain.png" width="30" height="30"/>
         <image name="share-bbi.png" width="24" height="18"/>
     </resources>
-    <classes>
-        <class className="ArchiveImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageView.h"/>
-        </class>
-        <class className="ArchiveLoadingView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveLoadingView.h"/>
-        </class>
-        <class className="CentralViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CentralViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="navView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="CollectionContentViewController" superclassName="ContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionContentViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="collectionHandlerView" candidateClass="CollectionDataHandlerAndHeaderView"/>
-            </relationships>
-        </class>
-        <class className="CollectionDataHandlerAndHeaderView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionDataHandlerAndHeaderView.h"/>
-            <relationships>
-                <relationship kind="action" name="segmentedControlIndexChanged:"/>
-                <relationship kind="outlet" name="collectionTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="countLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="filters" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="loadingIndicator" candidateClass="ArchiveLoadingView"/>
-            </relationships>
-        </class>
-        <class className="CollectionViewTableCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionViewTableCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="archiveImageView" candidateClass="ArchiveImageView"/>
-                <relationship kind="outlet" name="collectionBanner" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ContentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showPopUp:"/>
-                <relationship kind="outlet" name="descriptionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
-                <relationship kind="outlet" name="metaDataButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="moreInfoView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="tableHeaderView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="InitialViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mediaPlayerHolder" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="ItemContentViewController" superclassName="ContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemContentViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="loadingIndicator" candidateClass="ArchiveLoadingView"/>
-                <relationship kind="outlet" name="mediaTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MainNavTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="navCellTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="navImageView" candidateClass="ArchiveImageView"/>
-            </relationships>
-        </class>
-        <class className="MainNavTableViewHeaderViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewHeaderViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="sectionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MainNavViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="mediaPlayerOpen"/>
-                <relationship kind="outlet" name="navTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MediaFileCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaFileCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="fileFormat" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fileName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MediaFileHeaderCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaFileHeaderCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="sectionHeaderLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MediaPlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaPlayerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closePlayer"/>
-                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
