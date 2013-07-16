@@ -45,9 +45,9 @@
         
         closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [closeButton setBackgroundColor:[UIColor clearColor]];
-        UIImage *closeImage = [UIImage imageNamed:@"x-done.png"];
+        UIImage *closeImage = [UIImage imageNamed:@"close-button.png"];
         [closeButton setImage:closeImage forState:UIControlStateNormal];
-        [closeButton setFrame:CGRectMake(10, 10, closeImage.size.width, closeImage.size.height)];
+        [closeButton setFrame:CGRectMake(10, 2, closeImage.size.width, closeImage.size.height)];
         [closeButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:closeButton];
         
@@ -58,7 +58,7 @@
         [containerView setBackgroundColor:[UIColor clearColor]];
         
         popTitle = [[UILabel alloc] initWithFrame:CGRectZero];
-        [popTitle setFont:[UIFont fontWithName:@"AmericanTypewriter" size:15]];
+        [popTitle setFont:[UIFont fontWithName:@"AmericanTypewriter-Bold" size:15]];
         [popTitle setTextAlignment:NSTextAlignmentCenter];
         [popTitle setBackgroundColor:[UIColor clearColor]];
         [popTitle setTextColor:[UIColor whiteColor]];

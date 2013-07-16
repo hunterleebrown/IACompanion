@@ -134,7 +134,7 @@
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return 1;
+            return 2;
         case 1:
             return [audioSearchDocuments count];
             break;
@@ -157,12 +157,23 @@
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
         case 0:
-           // cell.textLabel.text = @"Media Player";
-            [cell.navCellTitleLabel setText:@"Media Player"];
-            [cell.navImageView setImage:[UIImage imageNamed:@"player-button.png"]];
-            [cell.navImageView setBackgroundColor:[UIColor blackColor]];
-            [cell setBackgroundColor:[UIColor blackColor]];
+            
+            if(indexPath.row == 0) {
+                [cell.navCellTitleLabel setText:@"Home"];
+                [cell.navImageView setImage:[UIImage imageNamed:@"ia-button-plain.png"]];
+                [cell.navImageView setBackgroundColor:[UIColor blackColor]];
+                [cell setBackgroundColor:[UIColor blackColor]];
+            } else if(indexPath.row == 1) {
+                [cell.navCellTitleLabel setText:@"Media Player"];
+                [cell.navImageView setImage:[UIImage imageNamed:@"player-button.png"]];
+                [cell.navImageView setBackgroundColor:[UIColor blackColor]];
+                [cell setBackgroundColor:[UIColor blackColor]];
+            }
+            
+            
             return cell;
+            
+            
             break;
         case 1:
             doc = [audioSearchDocuments objectAtIndex:indexPath.row];
@@ -243,8 +254,16 @@
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
         case 0:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
-            return;
+            
+            if(indexPath.row == 0){
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PopToHome" object:nil];
+                return;
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+                return;
+            }
+            
+            
             break;
         case 1:
             doc = [audioSearchDocuments objectAtIndex:indexPath.row];

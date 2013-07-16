@@ -65,7 +65,16 @@
     [self.navigationItem setLeftBarButtonItems:@[_listButton]];
 
 
-    [self.navigationItem setRightBarButtonItems:@[_searchButton]];
+    
+    UIImage *mpi = [UIImage imageNamed:@"player-button.png"];
+    UIButton *mpbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    mpbutton.frame = CGRectMake(0, 0, mpi.size.width, mpi.size.height);
+    mpbutton.tag = 1;
+    [mpbutton addTarget:self action:@selector(didPressMPButton) forControlEvents:UIControlEventTouchUpInside];
+    [mpbutton setImage:mpi forState:UIControlStateNormal];
+    UIBarButtonItem *mpBarButton = [[UIBarButtonItem alloc] initWithCustomView:mpbutton];
+    
+    [self.navigationItem setRightBarButtonItems:@[_searchButton, mpBarButton]];
     
     
     popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
@@ -100,6 +109,10 @@
     return YES;
 }
 
+
+- (void) didPressMPButton {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+}
 
 - (IBAction) showPopUp:(id)sender{
     
