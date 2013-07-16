@@ -128,6 +128,7 @@
 		CE89EFFA179595C200E05EE3 /* toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89EFF8179595C200E05EE3 /* toolbar@2x.png */; };
 		CE89F0051795A21500E05EE3 /* close-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89F0031795A21500E05EE3 /* close-button.png */; };
 		CE89F0061795A21500E05EE3 /* close-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89F0041795A21500E05EE3 /* close-button@2x.png */; };
+		CEA7553E1795F21B008E9DF2 /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4AC6C1795EFDD00FAE34F /* PlayerTableViewCell.m */; };
 		CEAE1A1217927FA10027AC5C /* x-done.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAE1A1017927FA10027AC5C /* x-done.png */; };
 		CEAE1A1317927FA10027AC5C /* x-done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAE1A1117927FA10027AC5C /* x-done@2x.png */; };
 		CEBA014016CEEFCE0038625F /* vertShadowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */; };
@@ -143,6 +144,7 @@
 		CEE4AC651795E6EA00FAE34F /* pause-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC5F1795E6EA00FAE34F /* pause-button@2x.png */; };
 		CEE4AC661795E6EA00FAE34F /* reverse-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC601795E6EA00FAE34F /* reverse-button.png */; };
 		CEE4AC671795E6EA00FAE34F /* reverse-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC611795E6EA00FAE34F /* reverse-button@2x.png */; };
+		CEE4AC6D1795EFDD00FAE34F /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4AC6C1795EFDD00FAE34F /* PlayerTableViewCell.m */; };
 		CEEA730D16DD30C80092FA84 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA730C16DD30C80092FA84 /* list.png */; };
 		CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731116DD53A40092FA84 /* rightContentShadow.png */; };
 		CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */; };
@@ -330,6 +332,8 @@
 		CEE4AC5F1795E6EA00FAE34F /* pause-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button@2x.png"; sourceTree = "<group>"; };
 		CEE4AC601795E6EA00FAE34F /* reverse-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverse-button.png"; sourceTree = "<group>"; };
 		CEE4AC611795E6EA00FAE34F /* reverse-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverse-button@2x.png"; sourceTree = "<group>"; };
+		CEE4AC6B1795EFDD00FAE34F /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
+		CEE4AC6C1795EFDD00FAE34F /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
 		CEEA730C16DD30C80092FA84 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		CEEA731116DD53A40092FA84 /* rightContentShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightContentShadow.png; sourceTree = "<group>"; };
 		CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightContentShadow@2x.png"; sourceTree = "<group>"; };
@@ -721,6 +725,8 @@
 			children = (
 				CE3FFD1217944FAB00709F5F /* MediaPlayerViewController.h */,
 				CE3FFD1317944FAB00709F5F /* MediaPlayerViewController.m */,
+				CEE4AC6B1795EFDD00FAE34F /* PlayerTableViewCell.h */,
+				CEE4AC6C1795EFDD00FAE34F /* PlayerTableViewCell.m */,
 			);
 			name = MeidaPlayerController;
 			sourceTree = "<group>";
@@ -923,6 +929,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA7553E1795F21B008E9DF2 /* PlayerTableViewCell.m in Sources */,
 				5A0A10BC16A640A300CC70CD /* main.m in Sources */,
 				5A0A10C016A640A300CC70CD /* AppDelegate.m in Sources */,
 				5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */,
@@ -963,6 +970,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */,
+				CEE4AC6D1795EFDD00FAE34F /* PlayerTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

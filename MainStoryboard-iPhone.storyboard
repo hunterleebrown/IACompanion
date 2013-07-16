@@ -831,6 +831,51 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="132" type="user" id="z9n-sG-Fbe"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="playerCell" id="QU3-Y2-wDF" customClass="PlayerTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Z0c-Yq-JMZ">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="IEx-GP-5RB"/>
+                                                        <constraint firstAttribute="height" constant="16" id="qto-E8-xd1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-ga-ly2">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="uMt-nN-gju"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Z0c-Yq-JMZ" firstAttribute="leading" secondItem="Ryq-ga-ly2" secondAttribute="leading" type="default" id="6BV-Oe-QV3"/>
+                                            <constraint firstItem="Z0c-Yq-JMZ" firstAttribute="centerX" secondItem="QU3-Y2-wDF" secondAttribute="centerX" type="default" id="OAw-3Y-n9R"/>
+                                            <constraint firstItem="Ryq-ga-ly2" firstAttribute="trailing" secondItem="Z0c-Yq-JMZ" secondAttribute="trailing" type="default" id="QR0-Re-Gnk"/>
+                                            <constraint firstItem="Z0c-Yq-JMZ" firstAttribute="top" secondItem="QU3-Y2-wDF" secondAttribute="top" constant="7" id="UDf-Og-Th5"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ryq-ga-ly2" secondAttribute="bottom" constant="1" id="b06-To-lry"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="fileTitle" destination="Z0c-Yq-JMZ" id="d0Q-RZ-WOf"/>
+                                            <outlet property="identifierLabel" destination="Ryq-ga-ly2" id="hoK-jJ-KlP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="YFe-rc-yeM" id="Usc-8v-jMS"/>
+                                    <outlet property="delegate" destination="YFe-rc-yeM" id="wH0-Ry-ZCW"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -857,6 +902,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="imageView" destination="ovf-1o-oWt" id="g35-UM-r79"/>
+                        <outlet property="playerTableView" destination="Uy7-8G-Vle" id="c9V-TU-6Lu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nng-KL-zCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -970,10 +1016,18 @@
                 <relationship kind="action" name="closePlayer"/>
                 <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
+                <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PlayerTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="identifierLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
