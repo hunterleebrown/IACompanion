@@ -74,7 +74,7 @@
 
 
     
-    UIImage *mpi = [UIImage imageNamed:@"player-button.png"];
+    UIImage *mpi = [UIImage imageNamed:@"open-player-button.png"];
     UIButton *mpbutton = [UIButton buttonWithType:UIButtonTypeCustom];
     mpbutton.frame = CGRectMake(0, 0, mpi.size.width, mpi.size.height);
     mpbutton.tag = 1;

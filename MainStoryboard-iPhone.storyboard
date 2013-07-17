@@ -229,11 +229,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="VXG-MU-9EP" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" constant="8" type="user" id="JlD-CQ-a2a"/>
                                     <constraint firstItem="zXK-P2-wkO" firstAttribute="trailing" secondItem="4E1-yI-Fgk" secondAttribute="trailing" type="default" id="OaN-ZT-llt"/>
-                                    <constraint firstItem="zXK-P2-wkO" firstAttribute="bottom" secondItem="4E1-yI-Fgk" secondAttribute="bottom" type="user" id="TwN-sB-ewH"/>
-                                    <constraint firstItem="zXK-P2-wkO" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" constant="44" type="user" id="gDF-C3-iei"/>
+                                    <constraint firstAttribute="bottom" secondItem="VXG-MU-9EP" secondAttribute="bottom" constant="11" id="SZp-S1-rRO"/>
+                                    <constraint firstItem="zXK-P2-wkO" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" type="default" id="f4C-T1-RuH"/>
                                     <constraint firstItem="zXK-P2-wkO" firstAttribute="leading" secondItem="4E1-yI-Fgk" secondAttribute="leading" type="default" id="h5R-Mz-zhf"/>
+                                    <constraint firstItem="VXG-MU-9EP" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" constant="48" scoringType="5" id="ui0-XB-0b8"/>
                                     <constraint firstItem="zXK-P2-wkO" firstAttribute="centerX" secondItem="VXG-MU-9EP" secondAttribute="centerX" type="default" id="vH7-P3-v6f"/>
                                 </constraints>
                             </view>
@@ -466,11 +466,17 @@
                                     <outlet property="delegate" destination="gp1-Y2-9gB" id="iTM-bf-nKD"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLF-Sq-ZBF">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TB5-XH-Bb4">
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q8N-3g-8Zg">
+                                    <searchBar contentMode="redraw" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="WDT-BZ-ILO">
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="5DB-Ie-EAF" id="vaC-IM-42G"/>
+                                        </connections>
+                                    </searchBar>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FxO-pD-8x6">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="HDz-Cg-opL"/>
+                                            <constraint firstAttribute="width" constant="300" id="Tdj-KQ-Ail"/>
                                         </constraints>
                                         <segments>
                                             <segment title="All"/>
@@ -481,35 +487,29 @@
                                         </segments>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </segmentedControl>
-                                    <searchBar contentMode="redraw" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="5KU-sm-bd7">
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="5DB-Ie-EAF" id="njt-bu-j8D"/>
-                                        </connections>
-                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="5KU-sm-bd7" firstAttribute="bottom" secondItem="rLF-Sq-ZBF" secondAttribute="bottom" type="user" id="7uJ-NO-g2j"/>
-                                    <constraint firstItem="5KU-sm-bd7" firstAttribute="leading" secondItem="rLF-Sq-ZBF" secondAttribute="leading" type="default" id="RCl-1u-901"/>
-                                    <constraint firstItem="5KU-sm-bd7" firstAttribute="centerX" secondItem="Q8N-3g-8Zg" secondAttribute="centerX" type="default" id="fCn-zE-Gaf"/>
-                                    <constraint firstItem="5KU-sm-bd7" firstAttribute="top" secondItem="rLF-Sq-ZBF" secondAttribute="top" constant="44" type="user" id="foP-wf-YbH"/>
-                                    <constraint firstItem="5KU-sm-bd7" firstAttribute="trailing" secondItem="rLF-Sq-ZBF" secondAttribute="trailing" type="default" id="g8c-f7-O0n"/>
-                                    <constraint firstItem="Q8N-3g-8Zg" firstAttribute="top" secondItem="rLF-Sq-ZBF" secondAttribute="top" constant="8" type="user" id="kd3-OL-Inu"/>
+                                    <constraint firstItem="WDT-BZ-ILO" firstAttribute="leading" secondItem="TB5-XH-Bb4" secondAttribute="leading" type="default" id="1N6-W0-Irn"/>
+                                    <constraint firstAttribute="height" constant="88" type="user" id="7EI-it-eJ2"/>
+                                    <constraint firstAttribute="bottom" secondItem="FxO-pD-8x6" secondAttribute="bottom" constant="11" id="U4q-WG-ym2"/>
+                                    <constraint firstItem="WDT-BZ-ILO" firstAttribute="trailing" secondItem="TB5-XH-Bb4" secondAttribute="trailing" type="default" id="V1j-Cq-C8r"/>
+                                    <constraint firstItem="WDT-BZ-ILO" firstAttribute="centerX" secondItem="FxO-pD-8x6" secondAttribute="centerX" type="default" id="gb8-XV-qG4"/>
+                                    <constraint firstItem="WDT-BZ-ILO" firstAttribute="top" secondItem="TB5-XH-Bb4" secondAttribute="top" type="default" id="yqa-bJ-e2k"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="f2o-gT-210" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" type="default" id="4gc-VN-X0W"/>
-                            <constraint firstItem="rLF-Sq-ZBF" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" type="default" id="E3t-eE-08y"/>
+                            <constraint firstItem="TB5-XH-Bb4" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" type="default" id="D5d-4U-WHf"/>
+                            <constraint firstItem="TB5-XH-Bb4" firstAttribute="top" secondItem="pDQ-bp-6vG" secondAttribute="top" constant="-88" id="SmV-Fj-Pse"/>
                             <constraint firstItem="f2o-gT-210" firstAttribute="trailing" secondItem="pDQ-bp-6vG" secondAttribute="trailing" type="default" id="Voa-ke-7HG"/>
                             <constraint firstItem="f2o-gT-210" firstAttribute="top" secondItem="pDQ-bp-6vG" secondAttribute="top" type="user" id="W84-Ir-w7c"/>
                             <constraint firstItem="7Sy-pu-DXg" firstAttribute="bottom" secondItem="pDQ-bp-6vG" secondAttribute="bottom" type="default" id="aRz-fr-YZZ"/>
                             <constraint firstItem="7Sy-pu-DXg" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" type="default" id="g9Y-ss-70q"/>
-                            <constraint firstItem="rLF-Sq-ZBF" firstAttribute="top" secondItem="pDQ-bp-6vG" secondAttribute="top" constant="-88" id="iOb-h9-zyO"/>
-                            <constraint firstItem="rLF-Sq-ZBF" firstAttribute="trailing" secondItem="pDQ-bp-6vG" secondAttribute="trailing" type="default" id="mej-Rm-VtA"/>
                             <constraint firstAttribute="bottom" secondItem="f2o-gT-210" secondAttribute="bottom" constant="244" type="user" id="mwl-ff-zZP"/>
+                            <constraint firstItem="TB5-XH-Bb4" firstAttribute="trailing" secondItem="pDQ-bp-6vG" secondAttribute="trailing" type="default" id="pK2-rc-YUW"/>
                             <constraint firstItem="7Sy-pu-DXg" firstAttribute="trailing" secondItem="pDQ-bp-6vG" secondAttribute="trailing" type="default" id="uTn-t5-Dsy"/>
                         </constraints>
                     </view>
@@ -519,9 +519,7 @@
                         <outlet property="imageView" destination="Toy-rm-hHQ" id="vLd-Hc-Whl"/>
                         <outlet property="mediaTable" destination="7Sy-pu-DXg" id="pi2-ze-inJ"/>
                         <outlet property="metaDataButton" destination="n48-BP-2jf" id="rGn-AC-rYC"/>
-                        <outlet property="searchDialog" destination="rLF-Sq-ZBF" id="qZj-pX-7ka"/>
-                        <outlet property="searchFilters" destination="Q8N-3g-8Zg" id="z3t-r3-X47"/>
-                        <outlet property="searchInput" destination="5KU-sm-bd7" id="Apb-ef-Ygm"/>
+                        <outlet property="searchDialog" destination="TB5-XH-Bb4" id="k8D-vF-ge0"/>
                         <outlet property="tableHeaderView" destination="f2o-gT-210" id="bVX-s5-Z1q"/>
                         <outlet property="titleLabel" destination="Qwn-9J-vdZ" id="t4F-wO-3rt"/>
                     </connections>
@@ -745,12 +743,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="5D4-Ml-D3x" firstAttribute="top" secondItem="WgX-cd-iFr" secondAttribute="top" constant="44" type="user" id="Jwb-gI-bj5"/>
                                     <constraint firstItem="5D4-Ml-D3x" firstAttribute="trailing" secondItem="WgX-cd-iFr" secondAttribute="trailing" type="default" id="SLF-NK-neo"/>
-                                    <constraint firstItem="4ct-kV-bmr" firstAttribute="top" secondItem="WgX-cd-iFr" secondAttribute="top" constant="8" type="user" id="XCJ-UM-mAz"/>
+                                    <constraint firstAttribute="bottom" secondItem="4ct-kV-bmr" secondAttribute="bottom" constant="7" id="Xbv-m4-gwx"/>
                                     <constraint firstItem="5D4-Ml-D3x" firstAttribute="centerX" secondItem="4ct-kV-bmr" secondAttribute="centerX" type="default" id="Zsf-PX-K3v"/>
+                                    <constraint firstItem="5D4-Ml-D3x" firstAttribute="top" secondItem="WgX-cd-iFr" secondAttribute="top" type="default" id="cSh-Gl-UHs"/>
                                     <constraint firstItem="5D4-Ml-D3x" firstAttribute="leading" secondItem="WgX-cd-iFr" secondAttribute="leading" type="default" id="o7e-3y-ch3"/>
-                                    <constraint firstItem="5D4-Ml-D3x" firstAttribute="bottom" secondItem="WgX-cd-iFr" secondAttribute="bottom" type="user" id="w5D-zZ-tSg"/>
+                                    <constraint firstItem="4ct-kV-bmr" firstAttribute="top" secondItem="WgX-cd-iFr" secondAttribute="top" constant="52" scoringType="5" id="x6z-ev-jbA"/>
                                 </constraints>
                             </view>
                         </subviews>
