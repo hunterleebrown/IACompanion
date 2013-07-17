@@ -23,11 +23,13 @@
 @property (nonatomic, retain) IBOutlet UITableView *playerTableView;
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
 @property (nonatomic, weak) IBOutlet UIView *playerHolder;
+@property (nonatomic) BOOL tableIsEditing;
+@property (nonatomic, weak) IBOutlet UIButton *editListButton;
 
 @end
 
 @implementation MediaPlayerViewController
-@synthesize managedObjectContext, player, imageView, playButton, playerHolder;
+@synthesize managedObjectContext, player, imageView, playButton, playerHolder, tableIsEditing;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,7 +63,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileAndPlayNotification:) name:@"AddToPlayerListFileAndPlayNotification" object:nil];
 
-    
+    tableIsEditing = NO;
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -153,6 +155,28 @@
     
 }
 
+- (IBAction)editList:(id)sender{
+    tableIsEditing = !tableIsEditing;
+    [_editListButton.titleLabel setText:tableIsEditing ? @"Done" : @"Edit"];
+    [_playerTableView setEditing:tableIsEditing animated:YES];
+    if(player){
+       // [self setSelectedCellOfPlayingFileForPlayer:player];
+    }
+    
+    if(!tableIsEditing){
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        // Save the managed object context
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            //  NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+    }
+    
+}
+
 - (void) addToPlayerListFileNotification:(NSNotification *)notification{
     ArchiveFile *file = notification.object;
     
@@ -215,8 +239,6 @@
 
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
- //   [_numberOfFiles setTitle:[NSString stringWithFormat:@"%i file%@", [sectionInfo numberOfObjects], [sectionInfo numberOfObjects] == 1 ? @"": @"s"]];
-    
     return [sectionInfo numberOfObjects];
     
 }
@@ -417,11 +439,11 @@
         int index = [self indexOfInFileFromUrl:thePlayer.contentURL];
         //NSLog(@"--------> playing index: %i", index);
         
-        if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
+       // if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
             [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
             
             
-        }
+      //  }
         
         //        PlayerFile *file = [self.fetchedResultsController objectAtIndex:index];
         

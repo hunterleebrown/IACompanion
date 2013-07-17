@@ -13,14 +13,19 @@
 #import "PopUpView.h"
 #import "ArchiveCollectionViewControllerHelper.h"
 
-@interface ContentViewController () 
+@interface ContentViewController () <UISearchBarDelegate>
 @property (nonatomic, weak) IBOutlet UIWebView *moreInfoView;
+@property (nonatomic, weak) IBOutlet UIView *searchDialog;
+@property (nonatomic) BOOL searchIsShowing;
 
+@property (nonatomic, weak) IBOutlet UISearchBar *searchInput;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *searchFilters;
 
 @end
 
 @implementation ContentViewController
-@synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable, detDoc, moreInfoView;
+@synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable;
+@synthesize detDoc, moreInfoView, searchDialog, searchIsShowing, searchInput, searchFilters;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +35,8 @@
     }
     return self;
 }
+
+
 
 - (void)viewDidLoad
 {
@@ -49,7 +56,7 @@
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
     button2.frame = CGRectMake(0, 0, image2.size.width + 10, image2.size.height);
     button2.tag = 0;
-   // [button2 addTarget:self action:@selector(didPressListButton) forControlEvents:UIControlEventTouchUpInside];
+    [button2 addTarget:self action:@selector(didPressSearchButton) forControlEvents:UIControlEventTouchUpInside];
     [button2 setImage:image2 forState:UIControlStateNormal];
     _searchButton = [[UIBarButtonItem alloc] initWithCustomView:button2];
     
@@ -101,6 +108,16 @@
     
     [moreInfoView.scrollView setScrollEnabled:NO];
     [self.archiveDescription setScalesPageToFit:YES];
+    
+    self.searchIsShowing = NO;
+    
+    [searchInput setPlaceholder:@"Search the Internet Archive..."];
+    
+}
+
+
+- (void) viewDidDisappear:(BOOL)animated {
+    [self hideSearch];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
@@ -137,6 +154,37 @@
     }
     return YES;
 }
+
+- (void) didPressSearchButton{
+    
+    
+    if(self.searchIsShowing){
+        [self hideSearch];
+    } else {
+        
+        [self showSearch];
+    }
+}
+
+- (void) showSearch{
+ [UIView animateWithDuration:0.33 animations:^{
+     [self.searchDialog setFrame:CGRectMake(0, 0, searchDialog.frame.size.width, searchDialog.frame.size.height)];
+     
+     
+ } completion:^(BOOL finished) {
+     self.searchIsShowing = YES;
+ }];
+}
+
+- (void) hideSearch {
+    [UIView animateWithDuration:0.33 animations:^{
+        [searchDialog setFrame:CGRectMake(0, -88, searchDialog.frame.size.width, searchDialog.frame.size.height)];
+    } completion:^(BOOL finished) {
+        self.searchIsShowing = NO;
+        [searchInput resignFirstResponder];
+    }];
+}
+
 
 
 - (void) didPressMPButton {
