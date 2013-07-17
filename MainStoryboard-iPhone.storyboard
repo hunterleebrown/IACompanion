@@ -1040,12 +1040,10 @@
                             <constraint firstItem="Uy7-8G-Vle" firstAttribute="bottom" secondItem="dHA-4g-vhn" secondAttribute="bottom" type="user" id="Rdv-LW-8Zs"/>
                             <constraint firstItem="Uy7-8G-Vle" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="328" type="user" id="Yop-Fw-YdK"/>
                             <constraint firstItem="Sq7-b0-vPh" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="Zfz-K5-Qd7"/>
-                            <constraint firstItem="LxF-R6-FUy" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="284" type="user" id="cdk-Wf-0AY"/>
                             <constraint firstItem="eYa-Yv-iaA" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="fpF-Fd-68q"/>
                             <constraint firstItem="Sq7-b0-vPh" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="j5U-Z9-ElU"/>
                             <constraint firstAttribute="bottom" secondItem="Sq7-b0-vPh" secondAttribute="bottom" constant="176" id="oZq-94-1jQ"/>
                             <constraint firstItem="Sq7-b0-vPh" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="44" type="user" id="q9Y-JV-15q"/>
-                            <constraint firstAttribute="bottom" secondItem="LxF-R6-FUy" secondAttribute="bottom" constant="132" type="user" id="wZ4-ct-LJC"/>
                             <constraint firstItem="Uy7-8G-Vle" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="zX0-DW-E01"/>
                         </constraints>
                     </view>
@@ -1071,6 +1069,124 @@
         <image name="search-button-plain.png" width="30" height="30"/>
         <image name="share-bbi.png" width="24" height="18"/>
     </resources>
+    <classes>
+        <class className="ArchiveImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveImageView.h"/>
+        </class>
+        <class className="CentralViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CentralViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="navView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CollectionContentViewController" superclassName="ContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionContentViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="collectionHandlerView" candidateClass="CollectionDataHandlerAndHeaderView"/>
+            </relationships>
+        </class>
+        <class className="CollectionDataHandlerAndHeaderView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionDataHandlerAndHeaderView.h"/>
+            <relationships>
+                <relationship kind="action" name="segmentedControlIndexChanged:"/>
+                <relationship kind="outlet" name="collectionTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="countLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="filters" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="CollectionViewTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionViewTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="archiveImageView" candidateClass="ArchiveImageView"/>
+                <relationship kind="outlet" name="collectionBanner" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ContentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPopUp:"/>
+                <relationship kind="outlet" name="descriptionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
+                <relationship kind="outlet" name="metaDataButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="moreInfoView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="searchDialog" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchFilters" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="searchInput" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="tableHeaderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="InitialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mediaPlayerHolder" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="ItemContentViewController" superclassName="ContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemContentViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mediaTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MainNavTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navCellTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="navImageView" candidateClass="ArchiveImageView"/>
+            </relationships>
+        </class>
+        <class className="MainNavTableViewHeaderViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavTableViewHeaderViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="sectionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MainNavViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="mediaPlayerOpen"/>
+                <relationship kind="outlet" name="navTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MediaFileCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaFileCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MediaFileHeaderCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaFileHeaderCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="sectionHeaderLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MediaPlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaPlayerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closePlayer"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="editListButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="playerHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PlayerTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="identifierLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
