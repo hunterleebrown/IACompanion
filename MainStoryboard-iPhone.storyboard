@@ -205,7 +205,7 @@
                                     <outlet property="delegate" destination="5DB-Ie-EAF" id="tkB-Ii-3Yd"/>
                                 </connections>
                             </webView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4E1-yI-Fgk">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4E1-yI-Fgk" customClass="SearchView">
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VXG-MU-9EP">
                                         <constraints>
@@ -236,6 +236,10 @@
                                     <constraint firstItem="VXG-MU-9EP" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" constant="48" scoringType="5" id="ui0-XB-0b8"/>
                                     <constraint firstItem="zXK-P2-wkO" firstAttribute="centerX" secondItem="VXG-MU-9EP" secondAttribute="centerX" type="default" id="vH7-P3-v6f"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="searchBar" destination="zXK-P2-wkO" id="cfv-aY-C3b"/>
+                                    <outlet property="searchFilters" destination="VXG-MU-9EP" id="cpw-xC-bU6"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -252,7 +256,7 @@
                             <constraint firstItem="4af-fQ-xeh" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mId-Y7-rYd"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="KmD-OS-GA1" appends="YES" id="qMG-SE-tAm"/>
+                            <outletCollection property="gestureRecognizers" destination="KmD-OS-GA1" appends="YES" id="V0z-9S-nvV"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
@@ -260,8 +264,6 @@
                     <connections>
                         <outlet property="moreInfoView" destination="4af-fQ-xeh" id="5Vd-Ge-thy"/>
                         <outlet property="searchDialog" destination="4E1-yI-Fgk" id="F2m-GY-8yu"/>
-                        <outlet property="searchFilters" destination="VXG-MU-9EP" id="cvH-wK-dMw"/>
-                        <outlet property="searchInput" destination="zXK-P2-wkO" id="TdL-Ni-dgy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -474,7 +476,7 @@
                                     <outlet property="delegate" destination="gp1-Y2-9gB" id="iTM-bf-nKD"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TB5-XH-Bb4">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TB5-XH-Bb4" customClass="SearchView">
                                 <subviews>
                                     <searchBar contentMode="redraw" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="WDT-BZ-ILO">
                                         <textInputTraits key="textInputTraits"/>
@@ -505,6 +507,10 @@
                                     <constraint firstItem="WDT-BZ-ILO" firstAttribute="centerX" secondItem="FxO-pD-8x6" secondAttribute="centerX" type="default" id="gb8-XV-qG4"/>
                                     <constraint firstItem="WDT-BZ-ILO" firstAttribute="top" secondItem="TB5-XH-Bb4" secondAttribute="top" type="default" id="yqa-bJ-e2k"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="searchBar" destination="WDT-BZ-ILO" id="PvE-yM-p4V"/>
+                                    <outlet property="searchFilters" destination="FxO-pD-8x6" id="9Pn-2Y-etW"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -735,7 +741,7 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgX-cd-iFr">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgX-cd-iFr" customClass="SearchView">
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4ct-kV-bmr">
                                         <constraints>
@@ -766,6 +772,10 @@
                                     <constraint firstItem="5D4-Ml-D3x" firstAttribute="leading" secondItem="WgX-cd-iFr" secondAttribute="leading" type="default" id="o7e-3y-ch3"/>
                                     <constraint firstItem="4ct-kV-bmr" firstAttribute="top" secondItem="WgX-cd-iFr" secondAttribute="top" constant="52" scoringType="5" id="x6z-ev-jbA"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="searchBar" destination="5D4-Ml-D3x" id="K4E-Sf-qcH"/>
+                                    <outlet property="searchFilters" destination="4ct-kV-bmr" id="hmD-O3-Ule"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -795,8 +805,6 @@
                         <outlet property="imageView" destination="kW7-vM-2jR" id="zdT-Xy-JhM"/>
                         <outlet property="metaDataButton" destination="7BB-fz-ce7" id="FT0-JQ-vV8"/>
                         <outlet property="searchDialog" destination="WgX-cd-iFr" id="AXF-WT-WG3"/>
-                        <outlet property="searchFilters" destination="4ct-kV-bmr" id="mBC-e4-LCg"/>
-                        <outlet property="searchInput" destination="5D4-Ml-D3x" id="hCr-xN-I2N"/>
                         <outlet property="tableHeaderView" destination="qeC-n8-fen" id="Mmj-Ex-OEF"/>
                         <outlet property="titleLabel" destination="BFu-rM-wTy" id="Bd5-IF-vVe"/>
                     </connections>
@@ -1129,9 +1137,7 @@
                 <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
                 <relationship kind="outlet" name="metaDataButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="moreInfoView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="searchDialog" candidateClass="UIView"/>
-                <relationship kind="outlet" name="searchFilters" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="searchInput" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchDialog" candidateClass="SearchView"/>
                 <relationship kind="outlet" name="tableHeaderView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
@@ -1202,6 +1208,13 @@
             <relationships>
                 <relationship kind="outlet" name="fileTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="identifierLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SearchView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchFilters" candidateClass="UISegmentedControl"/>
             </relationships>
         </class>
     </classes>

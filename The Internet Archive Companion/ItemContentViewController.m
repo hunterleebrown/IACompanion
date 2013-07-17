@@ -56,6 +56,10 @@
     
 }
 
+- (void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+}
+
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
     

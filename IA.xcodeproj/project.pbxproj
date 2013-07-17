@@ -137,6 +137,7 @@
 		CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014616CEFFB60038625F /* AudioToolbox.framework */; };
 		CEC5DAD01796FE840083893F /* open-player-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC5DACE1796FE840083893F /* open-player-button.png */; };
 		CEC5DAD11796FE840083893F /* open-player-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC5DACF1796FE840083893F /* open-player-button@2x.png */; };
+		CEC5DAD417972BA80083893F /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC5DAD317972BA80083893F /* SearchView.m */; };
 		CEE4AC4F1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */; };
 		CEE4AC5A1795E48100FAE34F /* play-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC581795E48100FAE34F /* play-button.png */; };
 		CEE4AC5B1795E48100FAE34F /* play-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC591795E48100FAE34F /* play-button@2x.png */; };
@@ -326,6 +327,8 @@
 		CEBA014616CEFFB60038625F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEC5DACE1796FE840083893F /* open-player-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open-player-button.png"; sourceTree = "<group>"; };
 		CEC5DACF1796FE840083893F /* open-player-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open-player-button@2x.png"; sourceTree = "<group>"; };
+		CEC5DAD217972BA80083893F /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
+		CEC5DAD317972BA80083893F /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
 		CEE4AC4D1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionViewControllerHelper.h; sourceTree = "<group>"; };
 		CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionViewControllerHelper.m; sourceTree = "<group>"; };
 		CEE4AC581795E48100FAE34F /* play-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button.png"; sourceTree = "<group>"; };
@@ -633,6 +636,8 @@
 				CE3FFD0C17943D8300709F5F /* MediaFileCell.m */,
 				CE3FFD0E179440D200709F5F /* MediaFileHeaderCell.h */,
 				CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */,
+				CEC5DAD217972BA80083893F /* SearchView.h */,
+				CEC5DAD317972BA80083893F /* SearchView.m */,
 			);
 			name = "Common Views";
 			sourceTree = "<group>";
@@ -970,6 +975,7 @@
 				CE3FFD10179440D200709F5F /* MediaFileHeaderCell.m in Sources */,
 				CE3FFD1417944FAB00709F5F /* MediaPlayerViewController.m in Sources */,
 				CEE4AC4F1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m in Sources */,
+				CEC5DAD417972BA80083893F /* SearchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

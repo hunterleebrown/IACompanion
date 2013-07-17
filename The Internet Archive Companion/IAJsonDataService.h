@@ -22,11 +22,14 @@ typedef enum {
 
 - (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type;
 - (id) initForAllCollectionItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type;
+- (id) initWithQueryString:(NSString *)query;
+
 
 - (id) initForMetadataDocsWithIdentifier:(NSString *)ident;
 - (void) changeToStaffPicks;
 - (void) changeToSubCollections;
 - (void) changeSortType:(IADataServiceSortType *)type;
 - (void) setLoadMoreStart:(NSString *)lMS;
+
 
 @end

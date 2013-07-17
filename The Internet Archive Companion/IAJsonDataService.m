@@ -28,7 +28,7 @@
 
 
 - (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type {
-    self = [self init];
+    self = [super init];
     if(self){
         identifier = idString;
         loadMoreStart = @"0";
@@ -39,7 +39,7 @@
 }
 
 - (id) initForAllCollectionItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type {
-    self = [self init];
+    self = [super init];
     if(self){
         identifier = idString;
         loadMoreStart = @"0";
@@ -48,6 +48,23 @@
     
     return self;
 }
+
+- (id) initWithQueryString:(NSString *)query {
+    self = [super init];
+    if(self){
+        NSString *realQuery = [NSString stringWithFormat:@"%@+AND+NOT+collection:web+AND+NOT+collection:webwidecrawl", query];
+      //  NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)realQuery,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
+        
+        testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@&output=json&rows=50", realQuery];
+        self.urlStr = testUrl;
+    }
+    
+    return self;
+}
+
+
+
+
 
 - (NSString *)sortStringFromType:(IADataServiceSortType)type{
     if(type == IADataServiceSortTypeDownloadCount) {

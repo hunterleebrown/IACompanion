@@ -12,21 +12,20 @@
 #import "ItemContentViewController.h"
 #import "PopUpView.h"
 #import "ArchiveCollectionViewControllerHelper.h"
+#import "SearchView.h"
 
 @interface ContentViewController () <UISearchBarDelegate, UIAlertViewDelegate>
 @property (nonatomic, weak) IBOutlet UIWebView *moreInfoView;
-@property (nonatomic, weak) IBOutlet UIView *searchDialog;
+@property (nonatomic, weak) IBOutlet SearchView *searchDialog;
 @property (nonatomic) BOOL searchIsShowing;
 
-@property (nonatomic, weak) IBOutlet UISearchBar *searchInput;
-@property (nonatomic, weak) IBOutlet UISegmentedControl *searchFilters;
 @property (nonatomic, strong) NSURL *externalUrl;
 
 @end
 
 @implementation ContentViewController
 @synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable, externalUrl;
-@synthesize detDoc, moreInfoView, searchDialog, searchIsShowing, searchInput, searchFilters;
+@synthesize detDoc, moreInfoView, searchDialog, searchIsShowing;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -112,14 +111,17 @@
     
     self.searchIsShowing = NO;
     
-    [searchInput setPlaceholder:@"Search the Internet Archive..."];
+    [searchDialog.searchBar setPlaceholder:@"Search the Internet Archive..."];
     
     
 
 }
 
 
+
+
 - (void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     [self hideSearch];
 }
 
@@ -198,10 +200,10 @@
 
 - (void) hideSearch {
     [UIView animateWithDuration:0.33 animations:^{
-        [searchDialog setFrame:CGRectMake(0, -88, searchDialog.frame.size.width, searchDialog.frame.size.height)];
+        [self.searchDialog setFrame:CGRectMake(0, -88, searchDialog.frame.size.width, searchDialog.frame.size.height)];
     } completion:^(BOOL finished) {
         self.searchIsShowing = NO;
-        [searchInput resignFirstResponder];
+        [searchDialog.searchBar resignFirstResponder];
     }];
 }
 
