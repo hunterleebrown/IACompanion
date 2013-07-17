@@ -42,5 +42,7 @@
 @property (nonatomic, strong) MetaDataTable *metaDataTable;
 
 - (IBAction) showPopUp:(id)sender;
+- (IBAction)gotTap:(id)sender;
+
 
 @end

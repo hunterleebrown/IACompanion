@@ -13,18 +13,19 @@
 #import "PopUpView.h"
 #import "ArchiveCollectionViewControllerHelper.h"
 
-@interface ContentViewController () <UISearchBarDelegate>
+@interface ContentViewController () <UISearchBarDelegate, UIAlertViewDelegate>
 @property (nonatomic, weak) IBOutlet UIWebView *moreInfoView;
 @property (nonatomic, weak) IBOutlet UIView *searchDialog;
 @property (nonatomic) BOOL searchIsShowing;
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchInput;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *searchFilters;
+@property (nonatomic, strong) NSURL *externalUrl;
 
 @end
 
 @implementation ContentViewController
-@synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable;
+@synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable, externalUrl;
 @synthesize detDoc, moreInfoView, searchDialog, searchIsShowing, searchInput, searchFilters;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -113,6 +114,8 @@
     
     [searchInput setPlaceholder:@"Search the Internet Archive..."];
     
+    
+
 }
 
 
@@ -147,13 +150,30 @@
         if(detailURL){
             
         } else {
+            externalUrl = request.URL;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+            [alert show];
             
-            [[UIApplication sharedApplication] openURL:request.URL];
         }
         return NO;
     }
     return YES;
 }
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        [[UIApplication sharedApplication] openURL:externalUrl];
+
+    }
+}
+
+- (IBAction)gotTap:(id)sender{
+    UIGestureRecognizer *gesture = sender;
+    if([gesture locationInView:self.view].y > 88) {
+        [self hideSearch];
+    }
+}
+
 
 - (void) didPressSearchButton{
     
