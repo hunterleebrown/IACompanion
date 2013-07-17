@@ -646,9 +646,6 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wle-pd-Z3W">
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="288" type="user" id="WCh-pW-1OK"/>
-                                </constraints>
                                 <color key="separatorColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="collectionCell" rowHeight="88" id="psL-94-3B5" customClass="CollectionViewTableCell">
@@ -882,14 +879,17 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ovf-1o-oWt" customClass="ArchiveImageView">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="240" type="user" id="TYe-E1-06h"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ovf-1o-oWt" firstAttribute="trailing" secondItem="Sq7-b0-vPh" secondAttribute="trailing" type="default" id="Bp2-gH-6Gp"/>
-                                    <constraint firstItem="ovf-1o-oWt" firstAttribute="top" secondItem="Sq7-b0-vPh" secondAttribute="top" type="default" id="DNV-S0-e7T"/>
-                                    <constraint firstItem="ovf-1o-oWt" firstAttribute="bottom" secondItem="Sq7-b0-vPh" secondAttribute="bottom" type="default" id="RBN-uv-xPm"/>
+                                    <constraint firstItem="ovf-1o-oWt" firstAttribute="top" secondItem="Sq7-b0-vPh" secondAttribute="top" type="default" id="DAr-bH-J0v"/>
                                     <constraint firstItem="ovf-1o-oWt" firstAttribute="leading" secondItem="Sq7-b0-vPh" secondAttribute="leading" type="default" id="guC-MR-O0K"/>
+                                    <constraint firstAttribute="height" constant="240" type="user" id="wBn-Zg-a44"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxF-R6-FUy">
@@ -976,11 +976,8 @@
                                     <constraint firstItem="jhN-Lq-6Rc" firstAttribute="top" secondItem="cxQ-4W-uLu" secondAttribute="top" type="default" id="u2G-pp-HIA"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-8G-Vle">
+                            <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-8G-Vle">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="132" type="user" id="z9n-sG-Fbe"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="playerCell" id="QU3-Y2-wDF" customClass="PlayerTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -1030,20 +1027,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="LxF-R6-FUy" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="284" type="user" id="3e9-Fe-9YZ"/>
                             <constraint firstItem="eYa-Yv-iaA" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" type="user" id="4eD-4j-pps"/>
                             <constraint firstItem="Uy7-8G-Vle" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="4wY-Y2-Q8n"/>
                             <constraint firstItem="LxF-R6-FUy" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="AnI-GK-wl5"/>
                             <constraint firstItem="LxF-R6-FUy" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="GT4-fe-VtQ"/>
-                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="bottom" secondItem="dHA-4g-vhn" secondAttribute="bottom" type="user" id="IXP-PI-bCJ"/>
                             <constraint firstItem="eYa-Yv-iaA" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="L7c-M5-6ti"/>
-                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="bottom" secondItem="dHA-4g-vhn" secondAttribute="bottom" type="user" id="Rdv-LW-8Zs"/>
-                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="328" type="user" id="Yop-Fw-YdK"/>
+                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="bottom" secondItem="dHA-4g-vhn" secondAttribute="bottom" type="user" id="OnP-38-z7A"/>
+                            <constraint firstItem="LxF-R6-FUy" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="284" id="VmE-Qs-gPK"/>
                             <constraint firstItem="Sq7-b0-vPh" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="Zfz-K5-Qd7"/>
                             <constraint firstItem="eYa-Yv-iaA" firstAttribute="trailing" secondItem="dHA-4g-vhn" secondAttribute="trailing" type="default" id="fpF-Fd-68q"/>
                             <constraint firstItem="Sq7-b0-vPh" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="j5U-Z9-ElU"/>
-                            <constraint firstAttribute="bottom" secondItem="Sq7-b0-vPh" secondAttribute="bottom" constant="176" id="oZq-94-1jQ"/>
                             <constraint firstItem="Sq7-b0-vPh" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="44" type="user" id="q9Y-JV-15q"/>
+                            <constraint firstItem="Uy7-8G-Vle" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="328" type="user" id="tyx-VT-EFF"/>
                             <constraint firstItem="Uy7-8G-Vle" firstAttribute="leading" secondItem="dHA-4g-vhn" secondAttribute="leading" type="default" id="zX0-DW-E01"/>
                         </constraints>
                     </view>
@@ -1168,6 +1163,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaPlayerViewController.h"/>
             <relationships>
                 <relationship kind="action" name="closePlayer"/>
+                <relationship kind="action" name="doBackwards:"/>
+                <relationship kind="action" name="doForwards:"/>
+                <relationship kind="action" name="doNext:"/>
+                <relationship kind="action" name="doPlayPause:"/>
+                <relationship kind="action" name="doPrevious:"/>
+                <relationship kind="action" name="editList:"/>
                 <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="editListButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
