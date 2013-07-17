@@ -52,7 +52,7 @@
 - (void) layoutSubviews{
     [super layoutSubviews];
     
-    _archiveImageView.layer.cornerRadius = 5;
+    _archiveImageView.layer.cornerRadius = 10;
     _archiveImageView.layer.masksToBounds = YES;
     _archiveImageView.layer.borderColor = [UIColor blackColor].CGColor;
     _archiveImageView.layer.borderWidth = 1.0;

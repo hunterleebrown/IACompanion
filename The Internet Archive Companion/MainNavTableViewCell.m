@@ -38,7 +38,7 @@
 - (void) layoutSubviews{
     [super layoutSubviews];
     
-    _navImageView.layer.cornerRadius = 5;
+    _navImageView.layer.cornerRadius = 10;
     _navImageView.layer.masksToBounds = YES;
 }
 

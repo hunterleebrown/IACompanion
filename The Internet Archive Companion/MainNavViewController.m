@@ -169,6 +169,7 @@
             } else if(indexPath.row == 1) {
                 [cell.navCellTitleLabel setText:@"Media Player"];
                 [cell.navImageView setImage:[UIImage imageNamed:@"open-player-button.png"]];
+                [cell.navImageView setBackgroundColor:[UIColor blackColor]];
                 [cell setBackgroundColor:[UIColor blackColor]];
             }
             [cell.navImageView setHidden:NO];

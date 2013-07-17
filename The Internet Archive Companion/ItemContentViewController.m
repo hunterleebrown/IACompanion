@@ -37,7 +37,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self.navigationItem setLeftBarButtonItems:@[self.listButton, self.backButton]];
+    [self.navigationItem setLeftBarButtonItems:@[self.listButton, self.mpBarButton, self.searchButton, self.backButton]];
     [self.service fetchData];
     
     

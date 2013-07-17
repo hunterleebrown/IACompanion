@@ -32,6 +32,7 @@
 @property (nonatomic, strong) UIBarButtonItem *backButton;
 @property (nonatomic, strong) UIBarButtonItem *listButton;
 @property (nonatomic, strong) UIBarButtonItem *searchButton;
+@property (nonatomic, strong) UIBarButtonItem *mpBarButton;
 @property (nonatomic, strong) IAJsonDataService *service;
 
 

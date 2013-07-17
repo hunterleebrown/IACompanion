@@ -70,7 +70,6 @@
     
     _backButton = [[UIBarButtonItem alloc] initWithCustomView:bibutton];
     
-    [self.navigationItem setLeftBarButtonItems:@[_listButton]];
 
 
     
@@ -80,9 +79,13 @@
     mpbutton.tag = 1;
     [mpbutton addTarget:self action:@selector(didPressMPButton) forControlEvents:UIControlEventTouchUpInside];
     [mpbutton setImage:mpi forState:UIControlStateNormal];
-    UIBarButtonItem *mpBarButton = [[UIBarButtonItem alloc] initWithCustomView:mpbutton];
+    _mpBarButton = [[UIBarButtonItem alloc] initWithCustomView:mpbutton];
     
-    [self.navigationItem setRightBarButtonItems:@[_searchButton, mpBarButton]];
+    [self.navigationItem setLeftBarButtonItems:@[_listButton, _mpBarButton, _searchButton]];
+
+    
+    
+   // [self.navigationItem setRightBarButtonItems:@[_searchButton]];
     
     
     popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
