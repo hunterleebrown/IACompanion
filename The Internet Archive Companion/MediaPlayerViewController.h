@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface MediaPlayerViewController : UIViewController
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;

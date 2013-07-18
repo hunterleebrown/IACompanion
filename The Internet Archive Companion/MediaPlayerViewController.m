@@ -13,6 +13,7 @@
 #import "ArchiveFile.h"
 #import "PlayerFile.h"
 #import "PlayerTableViewCell.h"
+#import "BufferingView.h"
 
 @interface MediaPlayerViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -25,11 +26,12 @@
 @property (nonatomic, weak) IBOutlet UIView *playerHolder;
 @property (nonatomic) BOOL tableIsEditing;
 @property (nonatomic, weak) IBOutlet UIButton *editListButton;
+@property (nonatomic, weak) IBOutlet BufferingView *bufferingView;
 
 @end
 
 @implementation MediaPlayerViewController
-@synthesize managedObjectContext, player, imageView, playButton, playerHolder, tableIsEditing;
+@synthesize managedObjectContext, player, imageView, playButton, playerHolder, tableIsEditing, bufferingView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,17 +64,21 @@
     [playerHolder addSubview:player.view];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileAndPlayNotification:) name:@"AddToPlayerListFileAndPlayNotification" object:nil];
-
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerLoadStateNotification:) name:@"MPMoviePlayerLoadStateDidChangeNotification" object:player];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playBackStateChangeNotification:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:player];
+    
     tableIsEditing = NO;
+    
+    [playerHolder bringSubviewToFront:bufferingView];
 }
 
 - (void) viewDidAppear:(BOOL)animated{
     player.view.frame = CGRectMake(0, 0, playerHolder.frame.size.width, playerHolder.frame.size.height);
-
-
+    
+    
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -82,6 +88,74 @@
 
 - (IBAction)closePlayer{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseMediaPlayer" object:nil];
+}
+
+- (void) playerLoadStateNotification:(NSNotification *)notification {
+    MPMoviePlayerController *p = [notification object];
+    NSLog(@"--> loadstate: %i", p.loadState);
+    
+    MPMovieLoadState state = [p loadState];
+    if((state & MPMovieLoadStatePlayable) == MPMovieLoadStatePlayable) {
+        [bufferingView stopAnimating];
+    }  else {
+        [bufferingView startAnimating];
+    }
+    
+    if((state & MPMovieLoadStateStalled) == MPMovieLoadStateStalled) {
+        [bufferingView startAnimating];
+
+    }
+
+    
+}
+
+- (void) playBackStateChangeNotification:(NSNotification *)notification{
+    switch(player.playbackState) {
+        case MPMoviePlaybackStatePlaying: {
+            
+            // Turn on remote control event delivery
+            [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+            
+            // Set itself as the first responder
+            [self becomeFirstResponder];
+            [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+            
+            int index = [self indexOfInFileFromUrl:player.contentURL];
+            PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+            NSDictionary *songInfo;
+            if(imageView.image){
+                MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:imageView.image];
+                songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                            file.title, MPMediaItemPropertyTitle,
+                            file.identifierTitle, MPMediaItemPropertyAlbumTitle,
+                            file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
+                            [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                            art, MPMediaItemPropertyArtwork,
+                            nil];
+            } else {
+                songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                            file.title, MPMediaItemPropertyTitle,
+                            file.identifierTitle, MPMediaItemPropertyAlbumTitle,
+                            file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
+                            [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                            nil];
+            }
+            
+            [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+        }
+            break;
+            
+        case MPMoviePlaybackStatePaused: {
+            [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+
+            
+        }
+            break;
+        default:
+            break;
+            
+    }
+    
 }
 
 
@@ -98,15 +172,15 @@
         switch (receivedEvent.subtype) {
                 
             case UIEventSubtypeRemoteControlTogglePlayPause:
-                //[self doPlayPause:nil];
+                    [self doPlayPause:nil];
                 break;
                 
             case UIEventSubtypeRemoteControlPreviousTrack:
-               // [self playPrevious];
+                    [self playPrevious];
                 break;
                 
             case UIEventSubtypeRemoteControlNextTrack:
-               // [self playNext];
+                    [self playNext];
                 break;
                 
             default:
@@ -122,24 +196,25 @@
         
         
         
-
-           
-            /*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playBackStateChangeNotification:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:player];
-            
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidEnterFullscreenNotification object:player];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidExitFullscreenNotification object:player];
-            */
-            
-
-            [player stop];
-            [player setContentURL:[NSURL URLWithString:file.url]];
-            [player prepareToPlay];
-            [player play];
-            [self setSelectedCellOfPlayingFileForPlayer:player];
-
         
-      
+        
+        /*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playBackStateChangeNotification:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:player];
+         
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidEnterFullscreenNotification object:player];
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidExitFullscreenNotification object:player];
+         */
+        
+        
+        [player stop];
+        [player setContentURL:[NSURL URLWithString:file.url]];
+        [player prepareToPlay];
+        [player play];
+        [self setSelectedCellOfPlayingFileForPlayer:player];
+        
+        
+        
+        
     }
     
 }
@@ -160,7 +235,7 @@
     [_editListButton.titleLabel setText:tableIsEditing ? @"Done" : @"Edit"];
     [_playerTableView setEditing:tableIsEditing animated:YES];
     if(player){
-       // [self setSelectedCellOfPlayingFileForPlayer:player];
+        // [self setSelectedCellOfPlayingFileForPlayer:player];
     }
     
     if(!tableIsEditing){
@@ -231,7 +306,7 @@
     
     cell.fileTitle.text = file.title;
     cell.identifierLabel.text = file.identifierTitle;
-   // cell.fileFormat.text = file.format;
+    // cell.fileFormat.text = file.format;
     cell.showsReorderControl = YES;
     [cell setFile:file];
     
@@ -439,24 +514,26 @@
         int index = [self indexOfInFileFromUrl:thePlayer.contentURL];
         //NSLog(@"--------> playing index: %i", index);
         
-       // if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
-            [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-            
-            
-      //  }
+        // if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
+        [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+        
+        
+        //  }
         
         //        PlayerFile *file = [self.fetchedResultsController objectAtIndex:index];
         
         
         PlayerFile *file = (PlayerFile *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+
         
-        //[imageView.archiveImage setUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", file.identifier]];
-       // [imageView.archiveImage startDownloading];
+        ArchiveImage *mediaPicture = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", file.identifier]];
+        [imageView setArchiveImage:mediaPicture];
+        
         
         //[_instructions setHidden:YES];
         
         [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
-
+        [bufferingView startAnimating];
         
         
     }
@@ -473,25 +550,28 @@
         
         [player pause];
         [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
-        
+       // [bufferingView stopAnimating];
         
     } else if(player.playbackState == MPMoviePlaybackStatePaused){
         
         [player play];
         [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+       // [bufferingView startAnimating];
 
         
     } else if(player.playbackState == MPMoviePlaybackStateSeekingBackward || player.playbackState == MPMoviePlaybackStateSeekingForward){
         [player endSeeking];
         [player pause];
         [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+        //[bufferingView stopAnimating];
 
         
     } else if(player.playbackState == MPMoviePlaybackStateStopped){
         
         [player play];
         [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
-        
+       // [bufferingView startAnimating];
+
         
     }
     
@@ -545,7 +625,7 @@
             [player play];
             
             [self setSelectedCellOfPlayingFileForPlayer:player];
-          //  [self monitorPlaybackTime];
+            //  [self monitorPlaybackTime];
             
         }
         
@@ -565,7 +645,7 @@
         [player play];
         
         [self setSelectedCellOfPlayingFileForPlayer:player];
-       // [self monitorPlaybackTime];
+        // [self monitorPlaybackTime];
         
         
     } else {

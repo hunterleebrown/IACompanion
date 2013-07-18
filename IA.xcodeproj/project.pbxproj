@@ -128,6 +128,7 @@
 		CE89EFFA179595C200E05EE3 /* toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89EFF8179595C200E05EE3 /* toolbar@2x.png */; };
 		CE89F0051795A21500E05EE3 /* close-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89F0031795A21500E05EE3 /* close-button.png */; };
 		CE89F0061795A21500E05EE3 /* close-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE89F0041795A21500E05EE3 /* close-button@2x.png */; };
+		CE94FC331798233500660A44 /* BufferingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE94FC321798233500660A44 /* BufferingView.m */; };
 		CEA7553E1795F21B008E9DF2 /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4AC6C1795EFDD00FAE34F /* PlayerTableViewCell.m */; };
 		CEAE1A1217927FA10027AC5C /* x-done.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAE1A1017927FA10027AC5C /* x-done.png */; };
 		CEAE1A1317927FA10027AC5C /* x-done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAE1A1117927FA10027AC5C /* x-done@2x.png */; };
@@ -318,6 +319,8 @@
 		CE89EFF8179595C200E05EE3 /* toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar@2x.png"; sourceTree = "<group>"; };
 		CE89F0031795A21500E05EE3 /* close-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-button.png"; sourceTree = "<group>"; };
 		CE89F0041795A21500E05EE3 /* close-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-button@2x.png"; sourceTree = "<group>"; };
+		CE94FC311798233500660A44 /* BufferingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferingView.h; sourceTree = "<group>"; };
+		CE94FC321798233500660A44 /* BufferingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BufferingView.m; sourceTree = "<group>"; };
 		CEAE1A1017927FA10027AC5C /* x-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-done.png"; sourceTree = "<group>"; };
 		CEAE1A1117927FA10027AC5C /* x-done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-done@2x.png"; sourceTree = "<group>"; };
 		CEBA013E16CEEFCE0038625F /* vertShadowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertShadowBottom.png; sourceTree = "<group>"; };
@@ -738,6 +741,8 @@
 				CE3FFD1317944FAB00709F5F /* MediaPlayerViewController.m */,
 				CEE4AC6B1795EFDD00FAE34F /* PlayerTableViewCell.h */,
 				CEE4AC6C1795EFDD00FAE34F /* PlayerTableViewCell.m */,
+				CE94FC311798233500660A44 /* BufferingView.h */,
+				CE94FC321798233500660A44 /* BufferingView.m */,
 			);
 			name = MeidaPlayerController;
 			sourceTree = "<group>";
@@ -976,6 +981,7 @@
 				CE3FFD1417944FAB00709F5F /* MediaPlayerViewController.m in Sources */,
 				CEE4AC4F1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m in Sources */,
 				CEC5DAD417972BA80083893F /* SearchView.m in Sources */,
+				CE94FC331798233500660A44 /* BufferingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
