@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchView : UIView
+@interface SearchView : UIView <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UISegmentedControl *searchFilters;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, weak) IBOutlet UITableView *searchResultsTable;
 @end

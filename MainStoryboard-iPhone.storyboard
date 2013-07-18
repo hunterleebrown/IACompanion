@@ -198,17 +198,28 @@
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KmD-OS-GA1" appends="YES" id="cgb-m4-rQ4"/>
+                                </connections>
                             </label>
                             <webView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4af-fQ-xeh">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="5DB-Ie-EAF" id="tkB-Ii-3Yd"/>
+                                    <outletCollection property="gestureRecognizers" destination="KmD-OS-GA1" appends="YES" id="80Y-rU-mDz"/>
                                 </connections>
                             </webView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4E1-yI-Fgk" customClass="SearchView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4E1-yI-Fgk" customClass="SearchView">
                                 <subviews>
+                                    <searchBar contentMode="redraw" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="zXK-P2-wkO">
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="4E1-yI-Fgk" id="A3R-a8-7Ix"/>
+                                        </connections>
+                                    </searchBar>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VXG-MU-9EP">
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="29" type="user" id="YoY-Mo-1I8"/>
                                             <constraint firstAttribute="width" constant="300" id="f0R-Tz-Mz7"/>
                                         </constraints>
                                         <segments>
@@ -220,25 +231,91 @@
                                         </segments>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </segmentedControl>
-                                    <searchBar contentMode="redraw" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="zXK-P2-wkO">
-                                        <textInputTraits key="textInputTraits"/>
+                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4gg-er-B2i">
+                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="288" type="user" id="Xug-6R-4lI"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="resultsCell" selectionStyle="gray" indentationWidth="10" reuseIdentifier="resultsCell" rowHeight="88" id="Avw-A1-7ry" customClass="CollectionViewTableCell">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="88"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YQF-Nr-DW9" customClass="ArchiveImageView">
+                                                            <color key="backgroundColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="84" id="Cae-uu-nNJ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="VLx-H7-MJT">
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="214" id="0yd-Zo-S09"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                        </label>
+                                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" text="collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-qc-5ML">
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="84" id="145-IA-EYQ"/>
+                                                                <constraint firstAttribute="height" constant="21" id="KLf-ao-KXJ"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <size key="shadowOffset" width="1" height="1"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="YQF-Nr-DW9" firstAttribute="centerY" secondItem="Avw-A1-7ry" secondAttribute="centerY" type="default" id="5B4-Od-9PK"/>
+                                                    <constraint firstItem="VLx-H7-MJT" firstAttribute="top" secondItem="YQF-Nr-DW9" secondAttribute="top" type="default" id="6eK-d7-xWA"/>
+                                                    <constraint firstItem="YQF-Nr-DW9" firstAttribute="leading" secondItem="Avw-A1-7ry" secondAttribute="leading" constant="2" id="9Fi-8c-884"/>
+                                                    <constraint firstItem="VLx-H7-MJT" firstAttribute="leading" secondItem="Avw-A1-7ry" secondAttribute="leading" constant="96" id="Bnv-FY-U1W"/>
+                                                    <constraint firstItem="VLx-H7-MJT" firstAttribute="bottom" secondItem="Avw-A1-7ry" secondAttribute="bottom" type="default" id="QUE-PQ-9Mc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ZpA-qc-5ML" secondAttribute="bottom" constant="8" id="bAU-7C-aWS"/>
+                                                    <constraint firstItem="ZpA-qc-5ML" firstAttribute="leading" secondItem="YQF-Nr-DW9" secondAttribute="leading" type="default" id="jG7-Hd-TZA"/>
+                                                    <constraint firstItem="YQF-Nr-DW9" firstAttribute="trailing" secondItem="ZpA-qc-5ML" secondAttribute="trailing" type="default" id="ou3-eC-M26"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="archiveImageView" destination="YQF-Nr-DW9" id="PKn-ZN-b8I"/>
+                                                    <outlet property="collectionBanner" destination="ZpA-qc-5ML" id="qVT-b4-d8f"/>
+                                                    <outlet property="title" destination="VLx-H7-MJT" id="zou-x4-ZnH"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                         <connections>
-                                            <outlet property="delegate" destination="5DB-Ie-EAF" id="Stj-b8-RjD"/>
+                                            <outlet property="dataSource" destination="4E1-yI-Fgk" id="sy3-m4-e0X"/>
+                                            <outlet property="delegate" destination="4E1-yI-Fgk" id="Rn6-YU-PIl"/>
                                         </connections>
-                                    </searchBar>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="4gg-er-B2i" firstAttribute="leading" secondItem="4E1-yI-Fgk" secondAttribute="leading" type="default" id="09Z-Q6-2aM"/>
                                     <constraint firstItem="zXK-P2-wkO" firstAttribute="trailing" secondItem="4E1-yI-Fgk" secondAttribute="trailing" type="default" id="OaN-ZT-llt"/>
-                                    <constraint firstAttribute="bottom" secondItem="VXG-MU-9EP" secondAttribute="bottom" constant="11" id="SZp-S1-rRO"/>
-                                    <constraint firstItem="zXK-P2-wkO" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" type="default" id="f4C-T1-RuH"/>
+                                    <constraint firstItem="4gg-er-B2i" firstAttribute="trailing" secondItem="4E1-yI-Fgk" secondAttribute="trailing" type="default" id="VJ0-jU-pp9"/>
+                                    <constraint firstItem="zXK-P2-wkO" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" type="default" id="Xvb-HZ-DMV"/>
+                                    <constraint firstItem="4gg-er-B2i" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" constant="88" type="user" id="d93-R3-y3J"/>
                                     <constraint firstItem="zXK-P2-wkO" firstAttribute="leading" secondItem="4E1-yI-Fgk" secondAttribute="leading" type="default" id="h5R-Mz-zhf"/>
-                                    <constraint firstItem="VXG-MU-9EP" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" constant="48" scoringType="5" id="ui0-XB-0b8"/>
                                     <constraint firstItem="zXK-P2-wkO" firstAttribute="centerX" secondItem="VXG-MU-9EP" secondAttribute="centerX" type="default" id="vH7-P3-v6f"/>
+                                    <constraint firstItem="4gg-er-B2i" firstAttribute="bottom" secondItem="4E1-yI-Fgk" secondAttribute="bottom" type="user" id="wFJ-T2-EBy"/>
+                                    <constraint firstItem="VXG-MU-9EP" firstAttribute="top" secondItem="4E1-yI-Fgk" secondAttribute="top" constant="52" id="yz6-aZ-drj"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="searchBar" destination="zXK-P2-wkO" id="cfv-aY-C3b"/>
                                     <outlet property="searchFilters" destination="VXG-MU-9EP" id="cpw-xC-bU6"/>
+                                    <outlet property="searchResultsTable" destination="4gg-er-B2i" id="xeO-S6-Tdh"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -252,12 +329,10 @@
                             <constraint firstItem="4E1-yI-Fgk" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" type="default" id="PEq-T4-voI"/>
                             <constraint firstItem="t4W-sB-iDl" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="22" type="user" id="WqV-2W-q22"/>
                             <constraint firstItem="4E1-yI-Fgk" firstAttribute="trailing" secondItem="VRw-ce-b4a" secondAttribute="trailing" type="default" id="e5d-gc-nNW"/>
-                            <constraint firstItem="4E1-yI-Fgk" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="-88" id="efs-La-ARy"/>
+                            <constraint firstItem="4E1-yI-Fgk" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" type="user" id="iMI-Ep-9Ba"/>
                             <constraint firstItem="4af-fQ-xeh" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mId-Y7-rYd"/>
+                            <constraint firstItem="4E1-yI-Fgk" firstAttribute="bottom" secondItem="VRw-ce-b4a" secondAttribute="bottom" type="user" id="nKf-Q4-NVe"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="KmD-OS-GA1" appends="YES" id="V0z-9S-nvV"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -1227,6 +1302,7 @@
             <relationships>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="searchFilters" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="searchResultsTable" candidateClass="UITableView"/>
             </relationships>
         </class>
     </classes>

@@ -192,9 +192,11 @@
 }
 
 - (void) showSearch{
+    [self.searchDialog setAlpha:0.0];
+    [self.searchDialog setHidden:NO];
+
  [UIView animateWithDuration:0.33 animations:^{
-     [self.searchDialog setFrame:CGRectMake(0, 0, searchDialog.frame.size.width, searchDialog.frame.size.height)];
-     
+     [self.searchDialog setAlpha:1.0];
      
  } completion:^(BOOL finished) {
      self.searchIsShowing = YES;
@@ -203,10 +205,14 @@
 
 - (void) hideSearch {
     [UIView animateWithDuration:0.33 animations:^{
-        [self.searchDialog setFrame:CGRectMake(0, -88, searchDialog.frame.size.width, searchDialog.frame.size.height)];
+       // [self.searchDialog setFrame:CGRectMake(0, -88, searchDialog.frame.size.width, searchDialog.frame.size.height)];
+        [self.searchDialog setAlpha:0.0];
+
     } completion:^(BOOL finished) {
         self.searchIsShowing = NO;
         [searchDialog.searchBar resignFirstResponder];
+        [self.searchDialog setHidden:YES];
+
     }];
 }
 
