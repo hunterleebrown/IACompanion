@@ -12,4 +12,6 @@
 @property (nonatomic, weak) IBOutlet UISegmentedControl *searchFilters;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) IBOutlet UITableView *searchResultsTable;
+
+- (IBAction)searchFilterChange:(id)sender;
 @end

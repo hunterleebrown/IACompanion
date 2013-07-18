@@ -48,6 +48,44 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 }
 
+- (IBAction)searchFilterChange:(id)sender{
+    UISegmentedControl *segment = (UISegmentedControl *)sender;
+    int selectedSegment = segment.selectedSegmentIndex;
+    // audio, video, text, image
+    
+    NSString *extraSearchParam = @"";
+    
+    switch (selectedSegment) {
+        case 0:
+
+            break;
+        case 1:
+            extraSearchParam = @"+AND+mediatype:audio";
+            break;
+        case 2:
+            extraSearchParam = @"+AND+mediatype:movies";
+            break;
+        case 3:
+            extraSearchParam = @"+AND+mediatype:texts";            
+            break;
+        case 4:
+            extraSearchParam = @"+AND+mediatype:image";            
+            break;
+        default:
+            break;
+    }
+ 
+    
+    if(![searchBar.text isEqualToString:@""]){
+        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, extraSearchParam]];
+        [service setDelegate:self];
+        [service fetchData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+    }
+    
+}
+
+
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
     
@@ -72,7 +110,30 @@
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     [searchBar resignFirstResponder];
+    
+    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
+        if(searchDocuments.count > 0  && searchDocuments.count < numFound  && start < numFound && !didTriggerLoadMore){
+            [self loadMoreItems:nil];
+        }
+    }
+    
+    
 }
+
+- (void)loadMoreItems:(id)sender {
+    if(numFound > 50) {
+        didTriggerLoadMore = YES;
+        start = start + 50;
+        
+        [service setLoadMoreStart:[NSString stringWithFormat:@"%i", start]];
+        [service fetchData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+        
+    }
+}
+
+
+
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];

@@ -120,12 +120,14 @@
 
 }
 
-
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [searchDialog.searchResultsTable deselectRowAtIndexPath:searchDialog.searchResultsTable.indexPathForSelectedRow animated:YES];
+}
 
 
 - (void) viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [self hideSearch];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
