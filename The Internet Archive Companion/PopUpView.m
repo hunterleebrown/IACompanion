@@ -125,7 +125,7 @@
     [UIView animateWithDuration:0.33 animations:^{
         [self layoutSubviews];
        // self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0, 0);
-        self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.09, 0.09);
+        self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.01, 0.01);
 
     } completion:^(BOOL finished) {
         [self setHidden:YES];
@@ -136,7 +136,7 @@
 - (void) layoutSubviews{
     
 
-    [self setFrame:CGRectMake(10, 20, 320 - 20, 480 - 100)];
+    [self setFrame:CGRectMake(10, 20, self.superview.frame.size.width - 20, self.superview.frame.size.height - 44)];
  
     
     CGSize titleSize = [popTitle.text sizeWithFont:popTitle.font];

@@ -136,6 +136,7 @@
 		CEBA014116CEEFCE0038625F /* vertShadowBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBA013F16CEEFCE0038625F /* vertShadowBottom@2x.png */; };
 		CEBA014316CEF6B30038625F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014216CEF6B30038625F /* AVFoundation.framework */; };
 		CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014616CEFFB60038625F /* AudioToolbox.framework */; };
+		CEC57063179AEB9400A7B713 /* MediaImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC57062179AEB9400A7B713 /* MediaImageViewController.m */; };
 		CEC5DAD01796FE840083893F /* open-player-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC5DACE1796FE840083893F /* open-player-button.png */; };
 		CEC5DAD11796FE840083893F /* open-player-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC5DACF1796FE840083893F /* open-player-button@2x.png */; };
 		CEC5DAD417972BA80083893F /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC5DAD317972BA80083893F /* SearchView.m */; };
@@ -328,6 +329,8 @@
 		CEBA014216CEF6B30038625F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CEBA014416CEFF580038625F /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		CEBA014616CEFFB60038625F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CEC57061179AEB9400A7B713 /* MediaImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaImageViewController.h; sourceTree = "<group>"; };
+		CEC57062179AEB9400A7B713 /* MediaImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaImageViewController.m; sourceTree = "<group>"; };
 		CEC5DACE1796FE840083893F /* open-player-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open-player-button.png"; sourceTree = "<group>"; };
 		CEC5DACF1796FE840083893F /* open-player-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open-player-button@2x.png"; sourceTree = "<group>"; };
 		CEC5DAD217972BA80083893F /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
@@ -522,6 +525,8 @@
 				CE3FFD1117944F7A00709F5F /* MeidaPlayerController */,
 				CEE4AC4D1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.h */,
 				CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */,
+				CEC57061179AEB9400A7B713 /* MediaImageViewController.h */,
+				CEC57062179AEB9400A7B713 /* MediaImageViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -982,6 +987,7 @@
 				CEE4AC4F1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m in Sources */,
 				CEC5DAD417972BA80083893F /* SearchView.m in Sources */,
 				CE94FC331798233500660A44 /* BufferingView.m in Sources */,
+				CEC57063179AEB9400A7B713 /* MediaImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

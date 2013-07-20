@@ -11,6 +11,7 @@
 #import "ArchiveFile.h"
 #import "MediaFileCell.h"
 #import "MediaFileHeaderCell.h"
+#import "MediaImageViewController.h"
 
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -159,8 +160,19 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(organizedMediaFiles.count > 0){
         ArchiveFile *aFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileAndPlayNotification" object:aFile];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF) {
+            MediaImageViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"mediaImageViewController"];
+            [vc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+            
+           // NSLog(@"   aFile.url: %@", aFile.url);
+            
+            ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:aFile.url];
+            [vc setImage:image];
+            [self presentViewController:vc animated:YES completion:nil];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileAndPlayNotification" object:aFile];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+        }
     }
 }
 
