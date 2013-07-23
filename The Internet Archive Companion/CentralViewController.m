@@ -10,6 +10,7 @@
 #import "ArchiveSearchDoc.h"
 #import "CollectionContentViewController.h"
 #import "ItemContentViewController.h"
+#import "SearchViewController.h"
 
 
 @interface CentralViewController ()
@@ -37,8 +38,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNavCellSelectNotification:) name:@"NavCellNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveCollectionCellSelectNotification:) name:@"CellSelectNotification" object:nil];
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceivePopToHome:) name:@"PopToHome" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonPressNotification:) name:@"SearchViewController" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonClosePressNotification:) name:@"SearchViewControllerClose" object:nil];
 
     
 }
@@ -50,7 +52,7 @@
 }
 
 - (void) didReceiveNavCellSelectNotification:(NSNotification *)notification{
-    
+    [self closeSearch];
     ArchiveSearchDoc *aDoc = notification.object;
     
     if(aDoc.type == MediaTypeCollection){
@@ -65,7 +67,8 @@
 
 
 - (void) didReceiveCollectionCellSelectNotification:(NSNotification *)notification{
-    
+    [self closeSearch];
+
     ArchiveSearchDoc *aDoc = notification.object;
     
     if(aDoc.type == MediaTypeCollection){
@@ -81,12 +84,48 @@
 }
 
 
+- (void) didReceiveSearchButtonPressNotification:(NSNotification *)notification{
+   // SearchViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"searchViewController"];
+    //[_contentNavController pushViewController:svc animated:YES];
+    [_searchView setHidden:NO];
+    [UIView animateWithDuration:0.33 animations:^{
+        [_searchView setAlpha:1.0];
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+}
+
+- (void) didReceiveSearchButtonClosePressNotification:(NSNotification *)notification{
+    // SearchViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"searchViewController"];
+    //[_contentNavController pushViewController:svc animated:YES];
+    [UIView animateWithDuration:0.33 animations:^{
+        [_searchView setAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [_searchView setHidden:YES];
+
+    }];
+    
+}
+
+
+- (void) closeSearch{
+    [_searchView setAlpha:0.0];
+    [_searchView setHidden:YES];
+    [_searchViewController.searchBar resignFirstResponder];
+    [_searchViewController.searchResultsTable deselectRowAtIndexPath:_searchViewController.searchResultsTable.indexPathForSelectedRow animated:YES];
+
+}
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"contentNavController"]){
         _contentNavController = [segue destinationViewController];        
     }
-    
+
+    if([segue.identifier isEqualToString:@"searchEmbed"]){
+        _searchViewController = [segue destinationViewController];
+    }
 
    
 }

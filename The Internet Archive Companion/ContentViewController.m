@@ -12,12 +12,9 @@
 #import "ItemContentViewController.h"
 #import "PopUpView.h"
 #import "ArchiveCollectionViewControllerHelper.h"
-#import "SearchView.h"
 
 @interface ContentViewController () <UISearchBarDelegate, UIAlertViewDelegate>
 @property (nonatomic, weak) IBOutlet UIWebView *moreInfoView;
-@property (nonatomic, weak) IBOutlet SearchView *searchDialog;
-@property (nonatomic) BOOL searchIsShowing;
 
 @property (nonatomic, strong) NSURL *externalUrl;
 
@@ -25,7 +22,7 @@
 
 @implementation ContentViewController
 @synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable, externalUrl;
-@synthesize detDoc, moreInfoView, searchDialog, searchIsShowing;
+@synthesize detDoc, moreInfoView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -112,9 +109,7 @@
     [moreInfoView.scrollView setScrollEnabled:NO];
     [self.archiveDescription setScalesPageToFit:YES];
     
-    self.searchIsShowing = NO;
     
-    [searchDialog.searchBar setPlaceholder:@"Search the Internet Archive..."];
     
     
 
@@ -122,7 +117,6 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [searchDialog.searchResultsTable deselectRowAtIndexPath:searchDialog.searchResultsTable.indexPathForSelectedRow animated:YES];
 }
 
 
@@ -174,49 +168,25 @@
     }
 }
 
-- (IBAction)gotTap:(id)sender{
-    UIGestureRecognizer *gesture = sender;
-    if([gesture locationInView:self.view].y > 88) {
-        [self hideSearch];
-    }
-}
 
 
 - (void) didPressSearchButton{
     
-    
+    /*
     if(self.searchIsShowing){
         [self hideSearch];
     } else {
         
         [self showSearch];
     }
+    */
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewController" object:nil];
+    
 }
 
-- (void) showSearch{
-    [self.searchDialog setAlpha:0.0];
-    [self.searchDialog setHidden:NO];
 
- [UIView animateWithDuration:0.33 animations:^{
-     [self.searchDialog setAlpha:1.0];
-     
- } completion:^(BOOL finished) {
-     self.searchIsShowing = YES;
- }];
-}
 
-- (void) hideSearch {
-    [UIView animateWithDuration:0.33 animations:^{
-       // [self.searchDialog setFrame:CGRectMake(0, -88, searchDialog.frame.size.width, searchDialog.frame.size.height)];
-        [self.searchDialog setAlpha:0.0];
 
-    } completion:^(BOOL finished) {
-        self.searchIsShowing = NO;
-        [searchDialog.searchBar resignFirstResponder];
-        [self.searchDialog setHidden:YES];
-
-    }];
-}
 
 
 
@@ -231,10 +201,15 @@
     } else if (((UIButton *)sender).tag == 1) {
         [self.popUpView showWithSubView:self.metaDataTable title:@"MetaData" message:nil];
     } else if (((UIButton *)sender).tag == 2) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
-        [[UIApplication sharedApplication] openURL:url];
+        externalUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        [alert show];
+        
     }
 }
+
+
+
 
 - (void) viewDidAppear:(BOOL)animated  {
     [super viewDidAppear:animated];

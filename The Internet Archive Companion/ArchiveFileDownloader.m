@@ -177,6 +177,9 @@
     
     self.downloadStatus = ArchiveFileDownloaderDowloadStatusFailed;
     
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:[NSString stringWithFormat:@"Download failed. \n %@", error.localizedDescription]];
+    
     if (delegate != nil && [delegate respondsToSelector:@selector(didFailFileDownload:)]) {
         [delegate didFailFileDownload:download];
 	}

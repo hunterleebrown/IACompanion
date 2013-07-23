@@ -1,44 +1,128 @@
 //
-//  SearchView.m
+//  SearchViewController.m
 //  IA
 //
-//  Created by Hunter Brown on 7/17/13.
+//  Created by Hunter on 7/23/13.
 //  Copyright (c) 2013 Hunter Lee Brown. All rights reserved.
 //
 
-#import "SearchView.h"
+#import "SearchViewController.h"
 #import "IAJsonDataService.h"
-#import "CollectionViewTableCell.h"
 #import "ArchiveSearchDoc.h"
+#import "CollectionViewTableCell.h"
+#import "StringUtils.h"
 
-@interface SearchView () <IADataServiceDelegate>
-
+@interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
 @property (nonatomic, strong) NSMutableArray *searchDocuments;
 @property (assign) int numFound;
 @property (assign) int start;
 @property (assign) BOOL didTriggerLoadMore;
+
+@property (nonatomic, weak) IBOutlet UILabel *numFoundLabel;
+
 @end
 
-@implementation SearchView
+@implementation SearchViewController
 @synthesize service, searchResultsTable, searchBar, searchFilters, searchDocuments, numFound, start, didTriggerLoadMore;
 
-- (id)initWithFrame:(CGRect)frame
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Initialization code
+        // Custom initialization
     }
     return self;
 }
 
-- (id) initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
-    if(self){
-        searchDocuments = [NSMutableArray new];
-        didTriggerLoadMore = NO;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
+    searchDocuments = [NSMutableArray new];
+    didTriggerLoadMore = NO;
+    
+    
+    
+    UIImage *image = [UIImage imageNamed:@"new-list.png"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, image.size.width + 10, image.size.height);
+    button.tag = 0;
+    [button addTarget:self action:@selector(didPressListButton) forControlEvents:UIControlEventTouchUpInside];
+    [button setImage:image forState:UIControlStateNormal];
+    UIBarButtonItem *listButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+ 
+    
+    
+    UIImage *bi = [UIImage imageNamed:@"back-button.png"];
+    UIButton *bibutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    bibutton.frame = CGRectMake(0, 0, bi.size.width, bi.size.height);
+    bibutton.tag = 0;
+    [bibutton addTarget:self action:@selector(didPressBackButton) forControlEvents:UIControlEventTouchUpInside];
+    [bibutton setImage:bi forState:UIControlStateNormal];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:bibutton];
+    
+    
+    
+    
+    UIImage *mpi = [UIImage imageNamed:@"open-player-button.png"];
+    UIButton *mpbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    mpbutton.frame = CGRectMake(0, 0, mpi.size.width, mpi.size.height);
+    mpbutton.tag = 1;
+    [mpbutton addTarget:self action:@selector(didPressMPButton) forControlEvents:UIControlEventTouchUpInside];
+    [mpbutton setImage:mpi forState:UIControlStateNormal];
+    UIBarButtonItem* mpBarButton = [[UIBarButtonItem alloc] initWithCustomView:mpbutton];
+    
+    [self.navigationItem setLeftBarButtonItems:@[listButton, mpBarButton, backButton]];
+    
+
+
+}
+- (void) viewDidAppear:(BOOL)animated {
+    for(id subview in [searchBar subviews])
+    {
+        if ([subview isKindOfClass:[UIButton class]]) {
+            [subview setEnabled:YES];
+        }
     }
-    return self;
+
+}
+
+- (void) viewDidDisappear:(BOOL)animated{
+    [searchBar resignFirstResponder];
+    [searchResultsTable deselectRowAtIndexPath:searchResultsTable.indexPathForSelectedRow animated:YES];
+
+}
+
+
+- (void) didPressListButton{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];
+}
+
+
+- (void) didPressMPButton {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+}
+
+
+- (void) didPressBackButton{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
+    [searchBar resignFirstResponder];
 }
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -46,6 +130,8 @@
     [service setDelegate:self];
     [service fetchData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+    [searchBar resignFirstResponder];
+
 }
 
 - (IBAction)searchFilterChange:(id)sender{
@@ -57,7 +143,7 @@
     
     switch (selectedSegment) {
         case 0:
-
+            
             break;
         case 1:
             extraSearchParam = @"+AND+mediatype:audio";
@@ -66,21 +152,22 @@
             extraSearchParam = @"+AND+mediatype:movies";
             break;
         case 3:
-            extraSearchParam = @"+AND+mediatype:texts";            
+            extraSearchParam = @"+AND+mediatype:texts";
             break;
         case 4:
-            extraSearchParam = @"+AND+mediatype:image";            
+            extraSearchParam = @"+AND+mediatype:image";
             break;
         default:
             break;
     }
- 
+    
     
     if(![searchBar.text isEqualToString:@""]){
         service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, extraSearchParam]];
         [service setDelegate:self];
         [service fetchData];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+        [searchBar resignFirstResponder];
     }
     
 }
@@ -98,7 +185,7 @@
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
         
         [searchResultsTable reloadData];
-       // [_countLabel setText:[NSString stringWithFormat:@"%@ items found", [StringUtils decimalFormatNumberFromInteger:numFound]]];
+        [_numFoundLabel setText:[NSString stringWithFormat:@"%@ items found", [StringUtils decimalFormatNumberFromInteger:numFound]]];
         
         if(!didTriggerLoadMore) {
             [searchResultsTable setContentOffset:CGPointZero animated:YES];
@@ -162,16 +249,7 @@
     
     
     return cell;
-
+    
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

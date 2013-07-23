@@ -27,8 +27,8 @@
         [titleLabel setNumberOfLines:0];
         [valueLabel setNumberOfLines:0];
 
-        [titleLabel setFont:[UIFont fontWithName:@"AmericanTypewriter-Bold" size:10]];
-        [valueLabel setFont:[UIFont fontWithName:@"AmericanTypewriter" size:10]];
+        [titleLabel setFont:[UIFont fontWithName:@"AmericanTypewriter-Bold" size:12]];
+        [valueLabel setFont:[UIFont fontWithName:@"AmericanTypewriter" size:12]];
         
         [titleLabel setMinimumScaleFactor:0.25];
         [titleLabel setAdjustsFontSizeToFitWidth:YES];

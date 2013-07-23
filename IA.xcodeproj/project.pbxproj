@@ -90,6 +90,7 @@
 		5AED60EB1745F6BC009320E0 /* favorites-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AED60E91745F6BC009320E0 /* favorites-tab.png */; };
 		5AED60EE174600BB009320E0 /* close-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AED60ED174600BB009320E0 /* close-btn.png */; };
 		5AED60F01746125F009320E0 /* close-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AED60EF1746125F009320E0 /* close-tab.png */; };
+		5AEE7662179F1FD200CF8C23 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE7661179F1FD200CF8C23 /* SearchViewController.m */; };
 		5AF2310616D7551800262B09 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310516D7551800262B09 /* Icon-57.png */; };
 		5AF2310816D7552300262B09 /* Icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310716D7552300262B09 /* Icon-57@2x.png */; };
 		5AF2310A16D756BC00262B09 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AF2310916D756BC00262B09 /* Default.png */; };
@@ -139,7 +140,6 @@
 		CEC57063179AEB9400A7B713 /* MediaImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC57062179AEB9400A7B713 /* MediaImageViewController.m */; };
 		CEC5DAD01796FE840083893F /* open-player-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC5DACE1796FE840083893F /* open-player-button.png */; };
 		CEC5DAD11796FE840083893F /* open-player-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC5DACF1796FE840083893F /* open-player-button@2x.png */; };
-		CEC5DAD417972BA80083893F /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC5DAD317972BA80083893F /* SearchView.m */; };
 		CEE4AC4F1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */; };
 		CEE4AC5A1795E48100FAE34F /* play-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC581795E48100FAE34F /* play-button.png */; };
 		CEE4AC5B1795E48100FAE34F /* play-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC591795E48100FAE34F /* play-button@2x.png */; };
@@ -275,6 +275,8 @@
 		5AED60E91745F6BC009320E0 /* favorites-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorites-tab.png"; sourceTree = "<group>"; };
 		5AED60ED174600BB009320E0 /* close-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-btn.png"; sourceTree = "<group>"; };
 		5AED60EF1746125F009320E0 /* close-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-tab.png"; sourceTree = "<group>"; };
+		5AEE7660179F1FD200CF8C23 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		5AEE7661179F1FD200CF8C23 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		5AF2310516D7551800262B09 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57.png"; path = "../Icon-57.png"; sourceTree = "<group>"; };
 		5AF2310716D7552300262B09 /* Icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57@2x.png"; path = "../Icon-57@2x.png"; sourceTree = "<group>"; };
 		5AF2310916D756BC00262B09 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -333,8 +335,6 @@
 		CEC57062179AEB9400A7B713 /* MediaImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaImageViewController.m; sourceTree = "<group>"; };
 		CEC5DACE1796FE840083893F /* open-player-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open-player-button.png"; sourceTree = "<group>"; };
 		CEC5DACF1796FE840083893F /* open-player-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open-player-button@2x.png"; sourceTree = "<group>"; };
-		CEC5DAD217972BA80083893F /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
-		CEC5DAD317972BA80083893F /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
 		CEE4AC4D1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionViewControllerHelper.h; sourceTree = "<group>"; };
 		CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionViewControllerHelper.m; sourceTree = "<group>"; };
 		CEE4AC581795E48100FAE34F /* play-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button.png"; sourceTree = "<group>"; };
@@ -518,7 +518,8 @@
 		5A756D81177FA31500E7F922 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5A756DA2177FFE0600E7F922 /* InitialViewController */,
+				5AEE765F179F1EEF00CF8C23 /* Search View Controller */,
+				5A756DA2177FFE0600E7F922 /* Initial View Controller */,
 				5A756DAA1780024200E7F922 /* Central View Controller */,
 				5A756D88177FA71D00E7F922 /* MainNavView */,
 				5A756DAE1780027500E7F922 /* ContentViewController */,
@@ -586,13 +587,13 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		5A756DA2177FFE0600E7F922 /* InitialViewController */ = {
+		5A756DA2177FFE0600E7F922 /* Initial View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5A756DA3177FFE2800E7F922 /* InitialViewController.h */,
 				5A756DA4177FFE2800E7F922 /* InitialViewController.m */,
 			);
-			name = InitialViewController;
+			name = "Initial View Controller";
 			sourceTree = "<group>";
 		};
 		5A756DAA1780024200E7F922 /* Central View Controller */ = {
@@ -644,8 +645,6 @@
 				CE3FFD0C17943D8300709F5F /* MediaFileCell.m */,
 				CE3FFD0E179440D200709F5F /* MediaFileHeaderCell.h */,
 				CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */,
-				CEC5DAD217972BA80083893F /* SearchView.h */,
-				CEC5DAD317972BA80083893F /* SearchView.m */,
 			);
 			name = "Common Views";
 			sourceTree = "<group>";
@@ -728,6 +727,15 @@
 				CE752A2716C1799400A432AB /* uiglassbutton-template.png */,
 			);
 			name = "IA Resources";
+			sourceTree = "<group>";
+		};
+		5AEE765F179F1EEF00CF8C23 /* Search View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5AEE7660179F1FD200CF8C23 /* SearchViewController.h */,
+				5AEE7661179F1FD200CF8C23 /* SearchViewController.m */,
+			);
+			name = "Search View Controller";
 			sourceTree = "<group>";
 		};
 		CE3019CB16C5728700733B99 /* Utils */ = {
@@ -985,9 +993,9 @@
 				CE3FFD10179440D200709F5F /* MediaFileHeaderCell.m in Sources */,
 				CE3FFD1417944FAB00709F5F /* MediaPlayerViewController.m in Sources */,
 				CEE4AC4F1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m in Sources */,
-				CEC5DAD417972BA80083893F /* SearchView.m in Sources */,
 				CE94FC331798233500660A44 /* BufferingView.m in Sources */,
 				CEC57063179AEB9400A7B713 /* MediaImageViewController.m in Sources */,
+				5AEE7662179F1FD200CF8C23 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

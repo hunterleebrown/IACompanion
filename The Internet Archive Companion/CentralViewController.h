@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ContentViewController.h"
 #import "MainNavViewController.h"
+#import "SearchViewController.h"
 
 @interface CentralViewController : UIViewController
 
 
 @property (nonatomic, weak) MainNavViewController *mainNavViewController;
 @property (nonatomic, weak) UINavigationController *contentNavController;
+@property (nonatomic, weak) SearchViewController *searchViewController;
+
 
 @property (nonatomic, weak) IBOutlet UIView *navView;
 @property (nonatomic, weak) IBOutlet UIView *contentView;
+@property (nonatomic, weak) IBOutlet UIView *searchView;
 
 
 @end
