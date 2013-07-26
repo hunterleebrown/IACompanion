@@ -14,8 +14,9 @@
 #import "PlayerFile.h"
 #import "PlayerTableViewCell.h"
 #import "BufferingView.h"
+#import "StringUtils.h"
 
-@interface MediaPlayerViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface MediaPlayerViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -28,10 +29,20 @@
 @property (nonatomic, weak) IBOutlet UIButton *editListButton;
 @property (nonatomic, weak) IBOutlet BufferingView *bufferingView;
 
+@property (nonatomic, weak) IBOutlet UILabel *currentTimeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *sliderMinLabel;
+@property (nonatomic, weak) IBOutlet UILabel *sliderMaxLabel;
+@property (nonatomic, weak) IBOutlet UISlider *slider;
+
+@property (nonatomic, weak) IBOutlet UIView *sliderHolder;
+@property (nonatomic) BOOL sliderIsTouched;
+@property (nonatomic, assign) NSTimeInterval totalVideoTime;
+
+
 @end
 
 @implementation MediaPlayerViewController
-@synthesize managedObjectContext, player, imageView, playButton, playerHolder, tableIsEditing, bufferingView;
+@synthesize managedObjectContext, player, imageView, playButton, playerHolder, tableIsEditing, bufferingView, sliderIsTouched;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,6 +73,7 @@
     [player setControlStyle:MPMovieControlStyleNone];
     [player.view setBackgroundColor:[UIColor clearColor]];
     [playerHolder addSubview:player.view];
+    [player.view setUserInteractionEnabled:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileAndPlayNotification:) name:@"AddToPlayerListFileAndPlayNotification" object:nil];
     
@@ -69,9 +81,24 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playBackStateChangeNotification:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:player];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidEnterFullscreenNotification object:player];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidExitFullscreenNotification object:player];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+
+    
     tableIsEditing = NO;
     
     [playerHolder bringSubviewToFront:bufferingView];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleSlider)];
+    [tapRecognizer setDelegate:self];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.numberOfTouchesRequired = 1;
+    [player.view addGestureRecognizer: tapRecognizer];
+
+    sliderIsTouched = NO;
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -79,6 +106,120 @@
     
     
 }
+
+#pragma mark - gesture delegate
+// this allows you to dispatch touches
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    
+    
+    return YES;
+}
+// this enables you to handle multiple recognizers on single view
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    
+    
+    return YES;
+}
+
+
+- (void) toggleSlider{
+    
+    
+    if(_sliderHolder.hidden){
+        [self showSlider];
+    } else {
+        [self hideSlider];
+    }
+
+}
+
+- (void) hideSlider {
+    [UIView animateWithDuration:0.33 animations:^{
+        [_sliderHolder setAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [_sliderHolder setHidden:YES];
+    }];
+}
+
+- (void) showSlider {
+    [_sliderHolder setHidden:NO];
+
+    [UIView animateWithDuration:0.33 animations:^{
+        [_sliderHolder setAlpha:1.0];
+    }];
+}
+
+
+- (IBAction)didTouchDown:(id)sender{
+    sliderIsTouched = YES;
+    [_currentTimeLabel setHidden:NO];
+}
+
+- (IBAction)didTouchUp:(id)sender{
+    // player.currentPlaybackTime = _slider.value;
+    sliderIsTouched = NO;
+    [_currentTimeLabel setHidden:YES];
+    [self monitorPlaybackTime];
+}
+
+- (IBAction) sliderDidChangeValue:(id)sender{
+    player.currentPlaybackTime = _slider.value;
+    _currentTimeLabel.text = [StringUtils timeFormatted:_slider.value];
+    _sliderMaxLabel.text = [StringUtils timeFormatted:player.duration - player.currentPlaybackTime];
+    _sliderMinLabel.text = [StringUtils timeFormatted:player.currentPlaybackTime];
+}
+
+
+- (void)playlistFinishedCallback:(NSNotification *)notification{
+    
+    MPMoviePlayerController *thePlayer = [notification object];
+    NSNumber *finishReason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    
+    // Dismiss the view controller ONLY when the reason is not "playback ended"
+    if ([finishReason intValue] != MPMovieFinishReasonPlaybackEnded)
+    {
+        // Remove this class from the observers
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:MPMoviePlayerPlaybackDidFinishNotification
+                                                      object:thePlayer];
+    } else {
+        [self playNext];
+    }
+}
+
+-(void)monitorPlaybackTime {
+    
+    if (sliderIsTouched)
+    {
+        return;
+    }
+    
+    self.slider.minimumValue = 0.0;
+    self.slider.maximumValue = player.duration;
+    self.totalVideoTime = player.duration;
+    _slider.value = player.currentPlaybackTime;
+    
+    
+    _sliderMaxLabel.text = [StringUtils timeFormatted:player.duration - player.currentPlaybackTime];
+    _sliderMinLabel.text = [StringUtils timeFormatted:player.currentPlaybackTime];
+    
+    
+    //NSLog(@"currenttime: %f   touched: %@", player.currentPlaybackTime, [NSString stringWithFormat:@"%@", sliderIsTouched ? @"YES" : @"NO"]);
+    
+    //keep checking for the end of video
+    if ((self.totalVideoTime != 0 && player.currentPlaybackTime >= _totalVideoTime) || player.playbackState == MPMoviePlaybackStatePaused)
+    {
+        // [player pause];
+        //  [btnPlay setImage:[UIImage imageNamed:@"UIButtonBarPlayGray.png"] forState:UIControlStateNormal];
+        // btnPlay.tag = 0;
+    }
+    else
+    {
+        [self performSelector:@selector(monitorPlaybackTime) withObject:nil afterDelay:0.1];
+    }
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -89,6 +230,25 @@
 - (IBAction)closePlayer{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseMediaPlayer" object:nil];
 }
+
+
+- (IBAction)goFullScreen:(id)sender {
+    [player setFullscreen:YES animated:YES];
+}
+
+
+- (void)fullScreenToggleNotification:(NSNotification *)notification {
+    if(player.isFullscreen){
+        [player setControlStyle:MPMovieControlStyleDefault];
+    } else {
+        [player setControlStyle:MPMovieControlStyleNone];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+
+        
+    }
+    
+}
+
 
 - (void) playerLoadStateNotification:(NSNotification *)notification {
     MPMoviePlayerController *p = [notification object];
@@ -112,7 +272,8 @@
 - (void) playBackStateChangeNotification:(NSNotification *)notification{
     switch(player.playbackState) {
         case MPMoviePlaybackStatePlaying: {
-            
+            [self monitorPlaybackTime];
+
             // Turn on remote control event delivery
             [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
             
@@ -193,28 +354,11 @@
 
 - (void)startListWithFile:(PlayerFile *)file{
     if([[self.fetchedResultsController fetchedObjects] count] > 0){
-        
-        
-        
-        
-        
-        /*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playlistFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
-         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playBackStateChangeNotification:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:player];
-         
-         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidEnterFullscreenNotification object:player];
-         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenToggleNotification:) name:MPMoviePlayerDidExitFullscreenNotification object:player];
-         */
-        
-        
         [player stop];
         [player setContentURL:[NSURL URLWithString:file.url]];
         [player prepareToPlay];
         [player play];
-        [self setSelectedCellOfPlayingFileForPlayer:player];
-        
-        
-        
-        
+        [self setSelectedCellOfPlayingFileForPlayer:player];        
     }
     
 }
