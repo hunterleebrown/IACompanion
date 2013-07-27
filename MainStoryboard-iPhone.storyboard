@@ -280,7 +280,7 @@
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rvY-sS-u1i">
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="328" type="user" id="wGe-kP-BSD"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="328" type="user" id="kuo-Tz-Cfy"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="resultsCell" selectionStyle="gray" indentationWidth="10" reuseIdentifier="resultsCell" rowHeight="88" id="Wze-Ti-vnZ" customClass="CollectionViewTableCell">
@@ -348,17 +348,17 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rvY-sS-u1i" firstAttribute="trailing" secondItem="jw3-cD-TaP" secondAttribute="trailing" type="default" id="0SJ-vU-NbR"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" type="default" id="Ej0-fg-1Ke"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="leading" secondItem="HB2-Ev-PlD" secondAttribute="leading" type="default" id="Mtd-jc-usu"/>
-                            <constraint firstItem="ykI-sc-EGX" firstAttribute="centerX" secondItem="02l-d9-364" secondAttribute="centerX" type="default" id="UuP-yl-q0x"/>
                             <constraint firstItem="jw3-cD-TaP" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" type="default" id="XBV-6c-BBQ"/>
-                            <constraint firstItem="rvY-sS-u1i" firstAttribute="bottom" secondItem="02l-d9-364" secondAttribute="bottom" type="user" id="Yw0-0e-jHo"/>
-                            <constraint firstItem="rvY-sS-u1i" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="112" type="user" id="fMz-cr-zEz"/>
-                            <constraint firstItem="ykI-sc-EGX" firstAttribute="centerX" secondItem="rvY-sS-u1i" secondAttribute="centerX" type="default" id="k8y-GD-Cgs"/>
+                            <constraint firstItem="rvY-sS-u1i" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="112" type="user" id="nKY-2V-MT3"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="53" id="osJ-r4-Woo"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="trailing" secondItem="HB2-Ev-PlD" secondAttribute="trailing" type="default" id="sKf-OD-thM"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="88" id="sbh-VE-IOM"/>
+                            <constraint firstItem="rvY-sS-u1i" firstAttribute="bottom" secondItem="02l-d9-364" secondAttribute="bottom" type="default" id="stH-H4-Ewv"/>
                             <constraint firstItem="jw3-cD-TaP" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" type="default" id="uEZ-mD-Uh8"/>
+                            <constraint firstItem="rvY-sS-u1i" firstAttribute="trailing" secondItem="02l-d9-364" secondAttribute="trailing" type="default" id="vqY-Dl-slc"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="centerX" secondItem="jw3-cD-TaP" secondAttribute="centerX" type="default" id="vzf-3y-5Os"/>
                         </constraints>
                     </view>
