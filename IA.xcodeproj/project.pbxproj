@@ -72,6 +72,22 @@
 		5A9003191735B6E3000C6304 /* PlayerFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9003181735B6E3000C6304 /* PlayerFile.m */; };
 		5A90031B1735B9DF000C6304 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A90031A1735B9DF000C6304 /* CoreData.framework */; };
 		5A9003B91735C9A3000C6304 /* IA.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 5A9003141735B507000C6304 /* IA.xcdatamodeld */; };
+		5A93EBB117A4505400D6CB38 /* ArchiveBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */; };
+		5A93EBB217A4505400D6CB38 /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA817A4505400D6CB38 /* ArchiveBookPageImageViewController.m */; };
+		5A93EBB317A4505400D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBA917A4505400D6CB38 /* ArchiveBookPageImageViewController.xib */; };
+		5A93EBB417A4505400D6CB38 /* ArchiveBookPageTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBAB17A4505400D6CB38 /* ArchiveBookPageTextViewController.m */; };
+		5A93EBB517A4505400D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBAC17A4505400D6CB38 /* ArchiveBookPageTextViewController.xib */; };
+		5A93EBB617A4505400D6CB38 /* ArchivePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBAE17A4505400D6CB38 /* ArchivePageViewController.m */; };
+		5A93EBB717A4505400D6CB38 /* ArchivePageTextSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBB017A4505400D6CB38 /* ArchivePageTextSizeViewController.m */; };
+		5A93EBBA17A453F500D6CB38 /* AsyncTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBB917A453F500D6CB38 /* AsyncTextView.m */; };
+		5A93EBBB17A456F100D6CB38 /* ArchivePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBAE17A4505400D6CB38 /* ArchivePageViewController.m */; };
+		5A93EBBC17A458F800D6CB38 /* ArchiveBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */; };
+		5A93EBBD17A458F800D6CB38 /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA817A4505400D6CB38 /* ArchiveBookPageImageViewController.m */; };
+		5A93EBBE17A458F800D6CB38 /* ArchiveBookPageTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBAB17A4505400D6CB38 /* ArchiveBookPageTextViewController.m */; };
+		5A93EBBF17A458F800D6CB38 /* ArchivePageTextSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBB017A4505400D6CB38 /* ArchivePageTextSizeViewController.m */; };
+		5A93EBC017A458F800D6CB38 /* AsyncTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBB917A453F500D6CB38 /* AsyncTextView.m */; };
+		5A93EBC117A4598600D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBA917A4505400D6CB38 /* ArchiveBookPageImageViewController.xib */; };
+		5A93EBC217A4598600D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBAC17A4505400D6CB38 /* ArchiveBookPageTextViewController.xib */; };
 		5A942D4616D5F545001CB01B /* MainStoryboard-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */; };
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
 		5AAEE97C174F226400A64A18 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAEE97B174F226400A64A18 /* thumbs-up.png */; };
@@ -258,6 +274,20 @@
 		5A9003171735B6E3000C6304 /* PlayerFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerFile.h; sourceTree = "<group>"; };
 		5A9003181735B6E3000C6304 /* PlayerFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerFile.m; sourceTree = "<group>"; };
 		5A90031A1735B9DF000C6304 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5A93EBA517A4505400D6CB38 /* ArchiveBookPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageViewController.h; sourceTree = "<group>"; };
+		5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageViewController.m; sourceTree = "<group>"; };
+		5A93EBA717A4505400D6CB38 /* ArchiveBookPageImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageImageViewController.h; sourceTree = "<group>"; };
+		5A93EBA817A4505400D6CB38 /* ArchiveBookPageImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageImageViewController.m; sourceTree = "<group>"; };
+		5A93EBA917A4505400D6CB38 /* ArchiveBookPageImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArchiveBookPageImageViewController.xib; sourceTree = "<group>"; };
+		5A93EBAA17A4505400D6CB38 /* ArchiveBookPageTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageTextViewController.h; sourceTree = "<group>"; };
+		5A93EBAB17A4505400D6CB38 /* ArchiveBookPageTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageTextViewController.m; sourceTree = "<group>"; };
+		5A93EBAC17A4505400D6CB38 /* ArchiveBookPageTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArchiveBookPageTextViewController.xib; sourceTree = "<group>"; };
+		5A93EBAD17A4505400D6CB38 /* ArchivePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePageViewController.h; sourceTree = "<group>"; };
+		5A93EBAE17A4505400D6CB38 /* ArchivePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePageViewController.m; sourceTree = "<group>"; };
+		5A93EBAF17A4505400D6CB38 /* ArchivePageTextSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivePageTextSizeViewController.h; sourceTree = "<group>"; };
+		5A93EBB017A4505400D6CB38 /* ArchivePageTextSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePageTextSizeViewController.m; sourceTree = "<group>"; };
+		5A93EBB817A453F500D6CB38 /* AsyncTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTextView.h; sourceTree = "<group>"; };
+		5A93EBB917A453F500D6CB38 /* AsyncTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTextView.m; sourceTree = "<group>"; };
 		5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "MainStoryboard-iPhone.storyboard"; path = "../MainStoryboard-iPhone.storyboard"; sourceTree = "<group>"; };
 		5A990BA616B9F2E500B4C058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5AAEE97B174F226400A64A18 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
@@ -529,6 +559,7 @@
 				5A756DAA1780024200E7F922 /* Central View Controller */,
 				5A756D88177FA71D00E7F922 /* MainNavView */,
 				5A756DAE1780027500E7F922 /* ContentViewController */,
+				5A93EBA017A44E8600D6CB38 /* Book View Controller */,
 				CE3FFD1117944F7A00709F5F /* MeidaPlayerController */,
 				CEE4AC4D1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.h */,
 				CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */,
@@ -634,6 +665,35 @@
 				5A7C05A5178917410044EC5B /* CollectionViewTableCell.m */,
 			);
 			name = "CollectionView Table Cells";
+			sourceTree = "<group>";
+		};
+		5A93EBA017A44E8600D6CB38 /* Book View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5A93EBAD17A4505400D6CB38 /* ArchivePageViewController.h */,
+				5A93EBAE17A4505400D6CB38 /* ArchivePageViewController.m */,
+				5A93EBA417A4504800D6CB38 /* Pages */,
+			);
+			name = "Book View Controller";
+			sourceTree = "<group>";
+		};
+		5A93EBA417A4504800D6CB38 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				5A93EBA517A4505400D6CB38 /* ArchiveBookPageViewController.h */,
+				5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */,
+				5A93EBA717A4505400D6CB38 /* ArchiveBookPageImageViewController.h */,
+				5A93EBA817A4505400D6CB38 /* ArchiveBookPageImageViewController.m */,
+				5A93EBA917A4505400D6CB38 /* ArchiveBookPageImageViewController.xib */,
+				5A93EBAA17A4505400D6CB38 /* ArchiveBookPageTextViewController.h */,
+				5A93EBAB17A4505400D6CB38 /* ArchiveBookPageTextViewController.m */,
+				5A93EBAC17A4505400D6CB38 /* ArchiveBookPageTextViewController.xib */,
+				5A93EBAF17A4505400D6CB38 /* ArchivePageTextSizeViewController.h */,
+				5A93EBB017A4505400D6CB38 /* ArchivePageTextSizeViewController.m */,
+				5A93EBB817A453F500D6CB38 /* AsyncTextView.h */,
+				5A93EBB917A453F500D6CB38 /* AsyncTextView.m */,
+			);
+			name = Pages;
 			sourceTree = "<group>";
 		};
 		5AD16C62178E305200B7E58C /* Common Views */ = {
@@ -837,6 +897,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A93EBC117A4598600D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */,
+				5A93EBC217A4598600D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */,
 				5A9003B91735C9A3000C6304 /* IA.xcdatamodeld in Resources */,
 				5A0A10BA16A640A300CC70CD /* InfoPlist.strings in Resources */,
 				5A0A10C916A640A300CC70CD /* MainStoryboard.storyboard in Resources */,
@@ -942,6 +1004,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A0A10DE16A640A300CC70CD /* InfoPlist.strings in Resources */,
+				5A93EBB317A4505400D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */,
+				5A93EBB517A4505400D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -968,6 +1032,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A93EBBC17A458F800D6CB38 /* ArchiveBookPageViewController.m in Sources */,
+				5A93EBBD17A458F800D6CB38 /* ArchiveBookPageImageViewController.m in Sources */,
+				5A93EBBE17A458F800D6CB38 /* ArchiveBookPageTextViewController.m in Sources */,
+				5A93EBBF17A458F800D6CB38 /* ArchivePageTextSizeViewController.m in Sources */,
+				5A93EBC017A458F800D6CB38 /* AsyncTextView.m in Sources */,
+				5A93EBBB17A456F100D6CB38 /* ArchivePageViewController.m in Sources */,
 				CEA7553E1795F21B008E9DF2 /* PlayerTableViewCell.m in Sources */,
 				5A0A10BC16A640A300CC70CD /* main.m in Sources */,
 				5A0A10C016A640A300CC70CD /* AppDelegate.m in Sources */,
@@ -1013,6 +1083,12 @@
 			files = (
 				5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */,
 				CEE4AC6D1795EFDD00FAE34F /* PlayerTableViewCell.m in Sources */,
+				5A93EBB117A4505400D6CB38 /* ArchiveBookPageViewController.m in Sources */,
+				5A93EBB217A4505400D6CB38 /* ArchiveBookPageImageViewController.m in Sources */,
+				5A93EBB417A4505400D6CB38 /* ArchiveBookPageTextViewController.m in Sources */,
+				5A93EBB617A4505400D6CB38 /* ArchivePageViewController.m in Sources */,
+				5A93EBB717A4505400D6CB38 /* ArchivePageTextSizeViewController.m in Sources */,
+				5A93EBBA17A453F500D6CB38 /* AsyncTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "MediaFileCell.h"
 #import "MediaFileHeaderCell.h"
 #import "MediaImageViewController.h"
+#import "ArchivePageViewController.h"
 
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -166,6 +167,13 @@
             ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:aFile.url];
             [vc setImage:image];
             [self presentViewController:vc animated:YES completion:nil];
+        } else if (aFile.format == FileFormatDjVuTXT || aFile.format == FileFormatProcessedJP2ZIP || aFile.format == FileFormatTxt) {
+            ArchivePageViewController *pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"archivePageViewController"];
+            [pageViewController setIdentifier:self.searchDoc.identifier];
+            [pageViewController setBookFile:aFile];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenBookViewer" object:pageViewController];
+
+        
         } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileAndPlayNotification" object:aFile];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];

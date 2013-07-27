@@ -8,6 +8,7 @@
 
 #import "InitialViewController.h"
 #import "MediaPlayerViewController.h"
+#import "ArchivePageViewController.h"
 
 @interface InitialViewController ()
 
@@ -33,6 +34,7 @@
 	// Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closePlayer) name:@"CloseMediaPlayer" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openPlayer) name:@"OpenMediaPlayer" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBookViewControllerNotification:) name:@"OpenBookViewer" object:nil];
     
 }
 
@@ -59,6 +61,14 @@
     [UIView animateWithDuration:0.33 animations:^{
         [mediaPlayerHolder setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     }];
+}
+
+
+- (void) showBookViewControllerNotification:(NSNotification *)notification{
+    ArchivePageViewController *bookViewControllers = notification.object;
+    [bookViewControllers setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController:bookViewControllers animated:YES completion:nil];
+
 }
 
 
