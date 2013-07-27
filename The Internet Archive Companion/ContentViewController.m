@@ -14,9 +14,10 @@
 #import "ArchiveCollectionViewControllerHelper.h"
 
 @interface ContentViewController () <UISearchBarDelegate, UIAlertViewDelegate>
-@property (nonatomic, weak) IBOutlet UIWebView *moreInfoView;
+@property (nonatomic, strong)  UIWebView *moreInfoView;
 
 @property (nonatomic, strong) NSURL *externalUrl;
+@property (nonatomic, weak) IBOutlet UIButton *creditsButton;
 
 @end
 
@@ -98,7 +99,8 @@
     
     
     
-    
+    moreInfoView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    [moreInfoView setDelegate:self];
     
     [moreInfoView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
                               MIMEType:@"text/html"
@@ -204,7 +206,8 @@
         externalUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
         [alert show];
-        
+    } else if (((UIButton *)sender).tag == 3) {
+        [self.popUpView showWithSubView:moreInfoView title:@"Credits" message:nil];
     }
 }
 
