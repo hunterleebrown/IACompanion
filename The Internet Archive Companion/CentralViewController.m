@@ -85,13 +85,16 @@
 
 
 - (void) didReceiveSearchButtonPressNotification:(NSNotification *)notification{
-   // SearchViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"searchViewController"];
-    //[_contentNavController pushViewController:svc animated:YES];
+    
+    
     [_searchView setHidden:NO];
     [UIView animateWithDuration:0.33 animations:^{
         [_searchView setAlpha:1.0];
     } completion:^(BOOL finished) {
-        
+        if(notification.object){
+            NSString *collectionId = notification.object;
+            [_searchViewController.searchBar setText:[NSString stringWithFormat:@"collection:%@ ", collectionId]];
+        }
     }];
     
 }

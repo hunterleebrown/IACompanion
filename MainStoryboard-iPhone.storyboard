@@ -252,7 +252,7 @@
                                     <outlet property="delegate" destination="qSn-LB-gda" id="JXz-hG-ess"/>
                                 </connections>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HB2-Ev-PlD">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HB2-Ev-PlD">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" type="user" id="6gk-HD-xKs"/>
                                 </constraints>

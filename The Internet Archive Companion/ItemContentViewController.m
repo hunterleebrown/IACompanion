@@ -163,9 +163,6 @@
         if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF) {
             MediaImageViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"mediaImageViewController"];
             [vc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-            
-           // NSLog(@"   aFile.url: %@", aFile.url);
-            
             ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:aFile.url];
             [vc setImage:image];
             [self presentViewController:vc animated:YES completion:nil];

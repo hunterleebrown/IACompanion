@@ -133,26 +133,35 @@
             service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDateDescending];
             [service setDelegate:self];
             [service fetchData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
             break;
         case 2:
             [service changeToSubCollections];
             [service fetchData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
             break;
         case 1:
             service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadCount];
             [service setDelegate:self];
             [service fetchData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
             break;
         case 3:
             [service changeToStaffPicks];
             [service fetchData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
             break;
-            
+        case 4:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewController" object:identifier];
+            break;
         default:
             break;
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
 
 }
