@@ -12,7 +12,6 @@
 #import "PopUpView.h"
 #import "MetaDataTable.h"
 #import "ArchiveImageView.h"
-#import "ArchiveLoadingView.h"
 
 @interface ContentViewController : UIViewController <IADataServiceDelegate, UIWebViewDelegate>
 

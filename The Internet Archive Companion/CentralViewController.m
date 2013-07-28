@@ -42,9 +42,17 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonPressNotification:) name:@"SearchViewController" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonClosePressNotification:) name:@"SearchViewControllerClose" object:nil];
 
-    
+    //[self doOrientationLayout:self.interfaceOrientation];
+
+
 }
 
+
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self doOrientationLayout:self.interfaceOrientation];
+
+}
 
 - (void) didReceivePopToHome:(NSNotification *)notification{
     [_contentNavController popToRootViewControllerAnimated:NO];
@@ -138,6 +146,12 @@
 
 
 - (void) toggleContent:(id)sender {
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+            return;
+        }
+    }
 
     if(_contentView.frame.origin.x == 256){
         [self moveContentViewOver];
@@ -160,10 +174,12 @@
         
         if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
             whereToGoLeft = -256;
+            
         }
         
     } else if(_contentView.frame.origin.x == -256){
         whereToGoLeft = -256;
+        
     }
     
     [UIView animateWithDuration:0.3 animations:^{
@@ -233,6 +249,26 @@
 
 
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    [self doOrientationLayout:toInterfaceOrientation];
+    
+}
+
+- (void) doOrientationLayout:(UIInterfaceOrientation)toInterfaceOrientation{
+
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation)){
+            
+            
+            [_contentView setFrame:CGRectMake(256, 0, _contentView.bounds.size.width, _contentView.bounds.size.height)];
+            
+
+        }
+        
+    }
+    
+}
 
 
 

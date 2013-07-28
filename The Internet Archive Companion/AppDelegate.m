@@ -11,13 +11,11 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <CoreData/CoreData.h>
 #import "PopUpView.h"
-#import "ArchiveLoadingView.h"
 #import "InitialViewController.h"
 
 @interface AppDelegate ()
 
 @property (nonatomic, strong) PopUpView *popUpView;
-@property (nonatomic, strong) ArchiveLoadingView *loadingView;
 
 @end
 
@@ -28,7 +26,6 @@
 @synthesize managedObjectModel=_managedObjectModel;
 @synthesize persistentStoreCoordinator=_persistentStoreCoordinator;
 @synthesize popUpView;
-@synthesize loadingView;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -43,16 +40,12 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopUpWithMessageNotification:) name:@"NotifyUser" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoadingIndicatorNotification:) name:@"ShowLoadingIndicator" object:nil];
     
     popUpView = [[PopUpView alloc] initWithFrame:CGRectZero];
     [self.window addSubview:popUpView];
     
     
-    
-    
-    loadingView = [[ArchiveLoadingView alloc] initWithFrame:CGRectMake(self.window.center.x - 50, self.window.center.y - 50, 100, 100)];
-    [self.window addSubview:loadingView];
+
     
     
     UIImage *image = [UIImage imageNamed:@"toolbar.png"];
@@ -63,21 +56,13 @@
     return YES;
 }
 
-- (void) showLoadingIndicatorNotification:(NSNotification *)notification{
-    [self.window bringSubviewToFront:loadingView];
 
-    if([notification.object boolValue]){
-        [loadingView startAnimating];
 
-    } else {
-        [loadingView stopAnimating];
-    }
-
-}
 
 
 
 - (void) showPopUpWithMessageNotification:(NSNotification *)notification{
+
     if(!popUpView.expanded) {
         [self.window bringSubviewToFront:popUpView];
         [popUpView showWithSubView:nil title:@"Something went wrong..." message:notification.object];

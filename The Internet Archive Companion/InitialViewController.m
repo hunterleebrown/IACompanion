@@ -9,6 +9,7 @@
 #import "InitialViewController.h"
 #import "MediaPlayerViewController.h"
 #import "ArchivePageViewController.h"
+#import "LoadingViewController.h"
 
 @interface InitialViewController ()
 
@@ -17,7 +18,7 @@
 @end
 
 @implementation InitialViewController
-@synthesize mediaPlayerHolder, mediaPlayerViewController, managedObjectContext;
+@synthesize mediaPlayerHolder, mediaPlayerViewController, managedObjectContext, loadingIndicatorHolder, loadingIndicatorViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,31 +36,44 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closePlayer) name:@"CloseMediaPlayer" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openPlayer) name:@"OpenMediaPlayer" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBookViewControllerNotification:) name:@"OpenBookViewer" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoadingIndicatorNotification:) name:@"ShowLoadingIndicator" object:nil];
+   
 }
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"mediaPlayer"]){
-        
         mediaPlayerViewController = [segue destinationViewController];
         [mediaPlayerViewController setManagedObjectContext:self.managedObjectContext];
-        
     }
+    if([segue.identifier isEqualToString:@"loadingViewController"]){
+        loadingIndicatorViewController = [segue destinationViewController];
+    }
+    
 
+}
+
+- (void) showLoadingIndicatorNotification:(NSNotification *)notification{
+   // [self.window bringSubviewToFront:loadingView];
+    
+    [loadingIndicatorHolder setHidden:![notification.object boolValue]];
+    [self.view bringSubviewToFront:loadingIndicatorHolder];
+    [loadingIndicatorViewController startAnimating:[notification.object boolValue]];
+    
+    
 }
 
 
 - (void) closePlayer{
     [UIView animateWithDuration:0.33 animations:^{
-        [mediaPlayerHolder setFrame:CGRectMake(- mediaPlayerHolder.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        [mediaPlayerHolder setFrame:CGRectMake(- mediaPlayerHolder.frame.size.width, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
     }];
 
 }
 
 - (void) openPlayer {
     [UIView animateWithDuration:0.33 animations:^{
-        [mediaPlayerHolder setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        [mediaPlayerHolder setFrame:CGRectMake(0, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
     }];
 }
 
