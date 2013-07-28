@@ -12,6 +12,7 @@
 #import "ItemContentViewController.h"
 #import "PopUpView.h"
 #import "ArchiveCollectionViewControllerHelper.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ContentViewController () <UISearchBarDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong)  UIWebView *moreInfoView;
@@ -19,11 +20,16 @@
 @property (nonatomic, strong) NSURL *externalUrl;
 @property (nonatomic, weak) IBOutlet UIButton *creditsButton;
 
+@property (nonatomic, weak) IBOutlet UIView *listIconButton;
+@property (nonatomic, weak) IBOutlet UIView *playerIconButton;
+@property (nonatomic, weak) IBOutlet UIView *searchIconButton;
+
+
 @end
 
 @implementation ContentViewController
 @synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable, externalUrl;
-@synthesize detDoc, moreInfoView;
+@synthesize detDoc, moreInfoView, listIconButton, playerIconButton, searchIconButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -92,7 +98,7 @@
     metaDataTable = [[MetaDataTable alloc] initWithFrame:CGRectZero];
     
     
-    NSString *content = @"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/3.0/deed.en_US\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><br /><span xmlns:dct=\"http://purl.org/dc/terms/\" href=\"http://purl.org/dc/dcmitype/InteractiveResource\" property=\"dct:title\" rel=\"dct:type\">Internet Archive Companion</span> <p>by <a xmlns:cc=\"http://creativecommons.org/ns#\" href=\"http://www.hunterleebrown.com/IACompanion\" property=\"cc:attributionName\" rel=\"cc:attributionURL\">Hunter Lee Brown</a> </p><p>is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/3.0/deed.en_US\">Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</p><p>This application was not produced by nor is it officially associated with <a href=\"http://archive.org/about\">The Internet Archive</a>.</p>";
+    NSString *content = @"<span xmlns:dct=\"http://purl.org/dc/terms/\" href=\"http://purl.org/dc/dcmitype/InteractiveResource\" property=\"dct:title\" rel=\"dct:type\">Internet Archive Companion</span> <p>by <a xmlns:cc=\"http://creativecommons.org/ns#\" href=\"http://www.hunterleebrown.com/IACompanion\" property=\"cc:attributionName\" rel=\"cc:attributionURL\">Hunter Lee Brown</a> </p><p>is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/3.0/deed.en_US\">Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</p><p><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/3.0/deed.en_US\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a></p><p>This application was not produced by nor is it officially associated with <a href=\"http://archive.org/about\">The Internet Archive</a>.</p>";
     
     
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}body{text-align:center;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Courier New\"'>%@<p>Internet Archive Companion, version %@</p></body></html>", content, [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
@@ -112,7 +118,7 @@
     [self.archiveDescription setScalesPageToFit:YES];
     
     
-    
+
     
 
 }
@@ -121,6 +127,13 @@
     [super viewWillAppear:animated];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [listIconButton.layer setCornerRadius:10];
+    [playerIconButton.layer setCornerRadius:10];
+    [searchIconButton.layer setCornerRadius:10];
+
+}
 
 - (void) viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -214,10 +227,7 @@
 
 
 
-- (void) viewDidAppear:(BOOL)animated  {
-    [super viewDidAppear:animated];
 
-}
 
 - (void) setSearchDoc:(ArchiveSearchDoc *)searchDoc{
     _searchDoc = searchDoc;
