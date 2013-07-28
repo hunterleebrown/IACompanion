@@ -222,7 +222,49 @@
 
 
 
-
+#pragma mark - page view controller spine
+- (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation{
+    if(UIInterfaceOrientationIsLandscape(orientation)){
+        
+        
+        NSArray *viewControllers = nil;
+        ArchiveBookPageViewController *currentViewController = (ArchiveBookPageViewController*)[pages objectAtIndex:2];
+        
+        
+        NSUInteger currentIndex = currentViewController.index;
+        if(currentIndex == 0 || currentIndex %2 == 0)
+        {
+            ArchiveBookPageViewController *nextViewController = (ArchiveBookPageViewController *)[self pageViewController:self viewControllerAfterViewController:currentViewController];
+            
+            
+            viewControllers = [NSArray arrayWithObjects:currentViewController, nextViewController, nil];
+        }
+        else
+        {
+            
+            ArchiveBookPageViewController *previousViewController = (ArchiveBookPageViewController *)[self pageViewController:self viewControllerBeforeViewController:currentViewController];
+            
+            
+            
+            viewControllers = [NSArray arrayWithObjects:previousViewController, currentViewController, nil];
+        }
+        [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+        
+        return UIPageViewControllerSpineLocationMid;
+    } else {
+        
+        
+        ArchiveBookPageViewController *currentViewController = (ArchiveBookPageViewController*)[pages objectAtIndex:2];
+        
+        NSArray *viewControllers = [NSArray arrayWithObject:currentViewController];
+        [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+        
+        self.doubleSided = NO;
+        
+        return UIPageViewControllerSpineLocationMin;
+    }
+    
+}
 
 
 

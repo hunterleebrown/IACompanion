@@ -52,7 +52,7 @@
 
 - (void) closePlayer{
     [UIView animateWithDuration:0.33 animations:^{
-        [mediaPlayerHolder setFrame:CGRectMake(-320, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        [mediaPlayerHolder setFrame:CGRectMake(- mediaPlayerHolder.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height)];
     }];
 
 }
