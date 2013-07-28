@@ -235,7 +235,7 @@
                                     <constraint firstAttribute="height" constant="64" id="cNq-HE-6f8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="open-player-button.png" translatesAutoresizingMaskIntoConstraints="NO" id="DVC-Ct-x2e">
@@ -250,7 +250,7 @@
                                     <constraint firstAttribute="height" constant="64" id="wWe-lS-w4Z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="search-button-plain.png" translatesAutoresizingMaskIntoConstraints="NO" id="X3w-yM-hl0">
@@ -261,7 +261,7 @@
                                     <constraint firstAttribute="height" constant="64" type="user" id="DrA-4P-A4Z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -292,6 +292,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="creditsButton" destination="L9x-mO-jYw" id="xbn-Tt-3At"/>
+                        <outlet property="listIconButton" destination="geG-0g-QHB" id="3fg-u0-VjS"/>
+                        <outlet property="playerIconButton" destination="DVC-Ct-x2e" id="Irg-oG-7h0"/>
+                        <outlet property="searchIconButton" destination="X3w-yM-hl0" id="n6u-Nr-hxe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1362,7 +1368,10 @@
                 <relationship kind="outlet" name="creditsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="descriptionButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="ArchiveImageView"/>
+                <relationship kind="outlet" name="listIconButton" candidateClass="UIView"/>
                 <relationship kind="outlet" name="metaDataButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="playerIconButton" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchIconButton" candidateClass="UIView"/>
                 <relationship kind="outlet" name="tableHeaderView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
