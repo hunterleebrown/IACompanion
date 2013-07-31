@@ -23,7 +23,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
-        [self.contentView setBackgroundColor:[UIColor darkGrayColor]];
+       [self.contentView setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
 }

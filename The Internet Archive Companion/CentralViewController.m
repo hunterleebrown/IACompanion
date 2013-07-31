@@ -54,6 +54,17 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self doOrientationLayout:self.interfaceOrientation];
+
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self doOrientationLayout:self.interfaceOrientation];
+
+}
+
 - (void) didReceivePopToHome:(NSNotification *)notification{
     [_contentNavController popToRootViewControllerAnimated:NO];
     [self toggleContent:nil];
@@ -261,7 +272,7 @@
         if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation)){
             
             
-            [_contentView setFrame:CGRectMake(256, 0, _contentView.bounds.size.width, _contentView.bounds.size.height)];
+           [_contentView setFrame:CGRectMake(256, 0, _contentView.bounds.size.width, _contentView.bounds.size.height)];
             
 
         }

@@ -61,7 +61,17 @@
 - (void) viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
 }
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = CGRectMake(0,0, self.tableHeaderView.bounds.size.width, self.tableHeaderView.bounds.size.height);
+    [gradient setStartPoint:CGPointMake(0.0, 0.5)];
+    [gradient setEndPoint:CGPointMake(1.0, 0.5)];
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
 
+}
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
     
@@ -74,10 +84,7 @@
         [self.imageView setArchiveImage:self.detDoc.archiveImage];
     }
     
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = CGRectMake(0, 88, self.tableHeaderView.frame.size.width, self.tableHeaderView.frame.size.height - 122);
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
+
     
     
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", self.detDoc.description];

@@ -45,11 +45,16 @@
     [self.archiveDescription setBackgroundColor:[UIColor clearColor]];
     [self.archiveDescription setOpaque:NO];
     [self.archiveDescription setDelegate:self];
+    
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [collectionHandlerView.collectionTableView deselectRowAtIndexPath:collectionHandlerView.collectionTableView.indexPathForSelectedRow animated:YES];
+    
+    
+    
 }
 
 
@@ -68,10 +73,7 @@
         [self.imageView setArchiveImage:self.detDoc.archiveImage];
     }
     
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = self.tableHeaderView.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
-    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
+
     
     
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", self.detDoc.description];
@@ -100,7 +102,10 @@
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 
-
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = CGRectMake(0, self.tableHeaderView.bounds.size.height /2, self.tableHeaderView.bounds.size.width, self.tableHeaderView.bounds.size.height /2);
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
 }
 
 - (void)didReceiveMemoryWarning
