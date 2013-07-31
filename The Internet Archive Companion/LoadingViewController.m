@@ -41,11 +41,14 @@
     self.view.layer.cornerRadius = 10.0;
     self.view.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.view.layer.borderWidth = 2;
+    
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
     self.view.layer.shadowOffset = CGSizeMake(10, 10);
     self.view.layer.shadowOpacity = 0.8;
     self.view.layer.shadowRadius = 5.0;
     
+
+     
     activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [self.view addSubview:activityIndicatorView];
     

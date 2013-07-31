@@ -39,7 +39,7 @@
 
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopUpWithMessageNotification:) name:@"NotifyUser" object:nil];
+  //  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopUpWithMessageNotification:) name:@"NotifyUser" object:nil];
     
     popUpView = [[PopUpView alloc] initWithFrame:CGRectZero];
     [self.window addSubview:popUpView];

@@ -316,7 +316,7 @@
 
 - (void) didFinishFileDownload:(ArchiveFileDownload *)download{
     [super didFinishFileDownload:download];
-    
+
     NSError *error = nil;
     NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:download.data options:NSJSONReadingMutableContainers error:&error];
     
@@ -326,7 +326,7 @@
         //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Data Issue" message:[NSString stringWithFormat:@"%@", @"Something went wrong in interpreting data from the server. Try again."] delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
         //  [alert show];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Something went wrong with parsing data from the server. Try again."];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Something went wrong with parsing data from the Internet Archive Server. Try again."];
         
     
     }

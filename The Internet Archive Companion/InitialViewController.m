@@ -37,6 +37,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openPlayer) name:@"OpenMediaPlayer" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBookViewControllerNotification:) name:@"OpenBookViewer" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoadingIndicatorNotification:) name:@"ShowLoadingIndicator" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopUpControllerNotification:) name:@"NotifyUser" object:nil];
    
 }
 
@@ -49,9 +50,24 @@
     if([segue.identifier isEqualToString:@"loadingViewController"]){
         loadingIndicatorViewController = [segue destinationViewController];
     }
-    
+
 
 }
+
+- (void) showPopUpControllerNotification:(NSNotification *)notification{
+    PopUpViewController *popUpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"popUpViewController"];
+    [popUpVC setModalPresentationStyle:UIModalPresentationFormSheet];
+    [popUpVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+
+    [popUpVC showWithSubView:nil title:@"Something went wrong" message:notification.object];
+    [self presentViewController:popUpVC animated:YES completion:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EndRefreshing" object:nil];
+
+    
+}
+
+
 
 - (void) showLoadingIndicatorNotification:(NSNotification *)notification{
    // [self.window bringSubviewToFront:loadingView];

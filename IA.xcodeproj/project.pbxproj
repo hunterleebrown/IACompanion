@@ -21,6 +21,7 @@
 		5A0A10DE16A640A300CC70CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A10DC16A640A300CC70CD /* InfoPlist.strings */; };
 		5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */; };
 		5A0D9A3017802F1F006D539C /* MainNavTableViewHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D9A2F17802F1F006D539C /* MainNavTableViewHeaderViewCell.m */; };
+		5A22BFDE17A8C36600220753 /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A22BFDD17A8C36600220753 /* PopUpViewController.m */; };
 		5A2350091780BC7C0050C9A2 /* ia-button-plain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2350081780BC7C0050C9A2 /* ia-button-plain@2x.png */; };
 		5A23500D1780BDC50050C9A2 /* ia-button-plain.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A23500C1780BDC50050C9A2 /* ia-button-plain.png */; };
 		5A2350101780BE9D0050C9A2 /* search-button-plain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A23500E1780BE9D0050C9A2 /* search-button-plain@2x.png */; };
@@ -205,6 +206,8 @@
 		5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Internet_Archive_CompanionTests.m; sourceTree = "<group>"; };
 		5A0D9A2E17802F1F006D539C /* MainNavTableViewHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavTableViewHeaderViewCell.h; sourceTree = "<group>"; };
 		5A0D9A2F17802F1F006D539C /* MainNavTableViewHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavTableViewHeaderViewCell.m; sourceTree = "<group>"; };
+		5A22BFDC17A8C36600220753 /* PopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpViewController.h; sourceTree = "<group>"; };
+		5A22BFDD17A8C36600220753 /* PopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpViewController.m; sourceTree = "<group>"; };
 		5A2350081780BC7C0050C9A2 /* ia-button-plain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ia-button-plain@2x.png"; sourceTree = "<group>"; };
 		5A23500C1780BDC50050C9A2 /* ia-button-plain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ia-button-plain.png"; sourceTree = "<group>"; };
 		5A23500E1780BE9D0050C9A2 /* search-button-plain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button-plain@2x.png"; sourceTree = "<group>"; };
@@ -464,6 +467,7 @@
 				5AD16C62178E305200B7E58C /* Common Views */,
 				5A756D81177FA31500E7F922 /* View Controllers */,
 				5AB7369D17A5B8E800967D4D /* Loading View Controller */,
+				5A22BFDB17A8C34800220753 /* Pop Up View Controller */,
 				CE3019CB16C5728700733B99 /* Utils */,
 				5AD2070E16A8F9460027CCA5 /* Data */,
 				5A0A10BE16A640A300CC70CD /* AppDelegate.h */,
@@ -516,6 +520,15 @@
 				5A0A10DC16A640A300CC70CD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A22BFDB17A8C34800220753 /* Pop Up View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5A22BFDC17A8C36600220753 /* PopUpViewController.h */,
+				5A22BFDD17A8C36600220753 /* PopUpViewController.m */,
+			);
+			name = "Pop Up View Controller";
 			sourceTree = "<group>";
 		};
 		5A5065261736DDCD00D295E2 /* Multimedia */ = {
@@ -1082,6 +1095,7 @@
 				CEC57063179AEB9400A7B713 /* MediaImageViewController.m in Sources */,
 				5AEE7662179F1FD200CF8C23 /* SearchViewController.m in Sources */,
 				5AB736A017A5B91700967D4D /* LoadingViewController.m in Sources */,
+				5A22BFDE17A8C36600220753 /* PopUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

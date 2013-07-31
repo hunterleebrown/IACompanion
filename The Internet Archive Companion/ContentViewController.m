@@ -245,7 +245,13 @@
 }
 
 
+- (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    [UIView animateWithDuration:0.35 animations:^{
+        [popUpView setFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
+    }];
 
+}
 
 
 

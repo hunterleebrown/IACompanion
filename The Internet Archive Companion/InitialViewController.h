@@ -11,6 +11,7 @@
 #import "CentralViewController.h"
 #import "MediaPlayerViewController.h"
 #import "LoadingViewController.h"
+#import "PopUpViewController.h"
 
 @interface InitialViewController : UIViewController
 
@@ -18,5 +19,6 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, weak) IBOutlet UIView *loadingIndicatorHolder;
 @property (nonatomic, strong) LoadingViewController *loadingIndicatorViewController;
+
 
 @end

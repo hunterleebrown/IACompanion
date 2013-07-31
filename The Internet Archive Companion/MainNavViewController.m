@@ -24,14 +24,14 @@
 @property (nonatomic, strong) IAJsonDataService *audioService;
 @property (nonatomic, strong) IAJsonDataService *videoService;
 @property (nonatomic, strong) IAJsonDataService *textService;
-
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 
 @implementation MainNavViewController
 
 @synthesize navTable;
-@synthesize audioSearchDocuments, videoSearchDocuments, textSearchDocuments;
+@synthesize audioSearchDocuments, videoSearchDocuments, textSearchDocuments, refreshControl;
 @synthesize audioService, videoService, textService;
 
 - (id) initWithCoder:(NSCoder *)aDecoder{
@@ -49,8 +49,19 @@
         [videoService setDelegate:self];
         [textService setDelegate:self];
         
+        
+
+        
     }
     return self;
+}
+
+- (void) handleRefresh {
+    
+    [audioService fetchData];
+    [videoService fetchData];
+    [textService fetchData];
+
 }
 
 - (void)viewDidLoad
@@ -59,12 +70,23 @@
 	// Do any additional setup after loading the view.
     
     [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor blackColor]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endRefreshing) name:@"EndRefreshing" object:nil];
 
     
     [audioService fetchData];
     [videoService fetchData];
     [textService fetchData];
     [navTable setScrollsToTop:NO];
+    
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+    [navTable addSubview:refreshControl];
+}
+
+- (void) endRefreshing
+{
+    [refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,7 +97,9 @@
 
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv{
-        
+    [refreshControl endRefreshing];
+
+    
     if(serv == audioService && audioService.rawResults && [audioService.rawResults objectForKey:@"documents"]){
         [audioSearchDocuments removeAllObjects];
         

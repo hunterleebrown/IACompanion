@@ -34,10 +34,10 @@
         self.layer.cornerRadius = 10.0;
         self.layer.borderColor = [UIColor lightGrayColor].CGColor;
         self.layer.borderWidth = 2;
-        self.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.layer.shadowOffset = CGSizeMake(10, 10);
-        self.layer.shadowOpacity = 0.8;
-        self.layer.shadowRadius = 5.0;
+
+        CGPathRef path = CGPathCreateWithRect(self.bounds, NULL);
+        self.layer.shadowPath = path;
+        CGPathRelease(path);
         
         self.hidden = YES;
         expanded = NO;
