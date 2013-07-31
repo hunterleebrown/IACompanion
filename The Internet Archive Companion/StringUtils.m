@@ -34,7 +34,15 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 }
 
 
-
++ (NSString *) stringByStrippingHTML:(NSString *)inString {
+    if (inString == nil) return @"";
+    
+    NSRange r;
+    NSString *s = [inString copy];
+    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s;
+}
 
 
 

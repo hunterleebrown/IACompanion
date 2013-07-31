@@ -239,6 +239,7 @@
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
     cell.title.text = doc.title;
     cell.archiveImageView.archiveImage = doc.archiveImage;
+    cell.decription.text = [StringUtils stringByStrippingHTML:doc.description];
     
     if(doc.type == MediaTypeCollection){
         [cell.collectionBanner setHidden:NO];

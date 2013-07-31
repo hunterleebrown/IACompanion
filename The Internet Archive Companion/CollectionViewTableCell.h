@@ -15,5 +15,6 @@
 @property (nonatomic, weak) IBOutlet ArchiveImageView *archiveImageView;
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic, weak) IBOutlet UILabel *collectionBanner;
+@property (nonatomic, weak) IBOutlet UILabel *decription;
 
 @end

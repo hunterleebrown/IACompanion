@@ -18,6 +18,7 @@
 + (NSString *) stringFromObject:(NSObject *)object;
 + (NSString *) decimalFormatNumberFromInteger:(int)input;
 + (NSString *)timeFormatted:(int)totalSecond;
++ (NSString *) stringByStrippingHTML:(NSString *)inString;
 
 
 @end

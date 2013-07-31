@@ -66,7 +66,7 @@
 }
 
 - (void) didReceivePopToHome:(NSNotification *)notification{
-    [_contentNavController popToRootViewControllerAnimated:NO];
+    [_contentNavController popToRootViewControllerAnimated:YES];
     [self toggleContent:nil];
 }
 
