@@ -15,6 +15,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Ty-9r-Ijs">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" type="user" id="7c9-33-YgM"/>
+                                </constraints>
                                 <color key="separatorColor" red="0.37254901959999998" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainNavCell" id="v6k-ky-fqE" customClass="MainNavTableViewCell">
@@ -111,9 +114,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5Ty-9r-Ijs" firstAttribute="leading" secondItem="gzm-hC-McI" secondAttribute="leading" type="default" id="6qF-sh-AU9"/>
+                            <constraint firstItem="5Ty-9r-Ijs" firstAttribute="leading" secondItem="gzm-hC-McI" secondAttribute="leading" type="user" id="6qF-sh-AU9"/>
                             <constraint firstItem="5Ty-9r-Ijs" firstAttribute="bottom" secondItem="gzm-hC-McI" secondAttribute="bottom" type="default" id="9L7-MT-UX7"/>
-                            <constraint firstItem="5Ty-9r-Ijs" firstAttribute="trailing" secondItem="gzm-hC-McI" secondAttribute="trailing" type="default" id="V0N-c4-cHL"/>
+                            <constraint firstItem="5Ty-9r-Ijs" firstAttribute="trailing" secondItem="gzm-hC-McI" secondAttribute="trailing" type="user" id="V0N-c4-cHL"/>
                             <constraint firstItem="5Ty-9r-Ijs" firstAttribute="top" secondItem="gzm-hC-McI" secondAttribute="top" type="default" id="mxn-q1-ZF1"/>
                         </constraints>
                     </view>
@@ -136,6 +139,9 @@
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rP-re-NoS">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" type="user" id="esK-mp-BQc"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="PeC-EU-53U" kind="embed" identifier="mainNavViewController" id="4Wh-ze-7PM"/>
                                 </connections>
@@ -161,10 +167,10 @@
                             <constraint firstItem="0pi-VT-Edv" firstAttribute="leading" secondItem="2Jh-WU-NUb" secondAttribute="leading" type="default" id="0rK-0P-1gt"/>
                             <constraint firstItem="aTf-gc-Mub" firstAttribute="top" secondItem="2Jh-WU-NUb" secondAttribute="top" type="default" id="173-ZX-l1r"/>
                             <constraint firstItem="1rP-re-NoS" firstAttribute="bottom" secondItem="2Jh-WU-NUb" secondAttribute="bottom" type="default" id="2Pw-hX-llP"/>
-                            <constraint firstAttribute="trailing" secondItem="1rP-re-NoS" secondAttribute="trailing" constant="512" id="2WP-jt-zTc"/>
+                            <constraint firstAttribute="trailing" secondItem="1rP-re-NoS" secondAttribute="trailing" constant="512" type="user" id="2WP-jt-zTc"/>
                             <constraint firstItem="1rP-re-NoS" firstAttribute="top" secondItem="2Jh-WU-NUb" secondAttribute="top" type="default" id="JgJ-rc-s5K"/>
                             <constraint firstItem="0pi-VT-Edv" firstAttribute="top" secondItem="2Jh-WU-NUb" secondAttribute="top" type="default" id="Mb7-Y1-e7A"/>
-                            <constraint firstItem="1rP-re-NoS" firstAttribute="leading" secondItem="2Jh-WU-NUb" secondAttribute="leading" type="default" id="UTe-TT-B5C"/>
+                            <constraint firstItem="1rP-re-NoS" firstAttribute="leading" secondItem="2Jh-WU-NUb" secondAttribute="leading" type="user" id="UTe-TT-B5C"/>
                             <constraint firstItem="aTf-gc-Mub" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2Jh-WU-NUb" secondAttribute="leading" type="user" id="Wgo-G2-9cc"/>
                             <constraint firstItem="0pi-VT-Edv" firstAttribute="bottom" secondItem="2Jh-WU-NUb" secondAttribute="bottom" type="default" id="ddi-JG-8I1"/>
                             <constraint firstItem="aTf-gc-Mub" firstAttribute="leading" secondItem="2Jh-WU-NUb" secondAttribute="leading" type="default" id="guT-gt-zeS"/>
@@ -841,7 +847,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="g0l-WE-blf" firstAttribute="centerX" secondItem="7Of-U8-TF0" secondAttribute="centerX" type="default" id="rn6-t0-TVv"/>
-                                            <constraint firstItem="g0l-WE-blf" firstAttribute="top" secondItem="7Of-U8-TF0" secondAttribute="top" type="default" id="v6o-nZ-ObK"/>
+                                            <constraint firstItem="g0l-WE-blf" firstAttribute="top" secondItem="7Of-U8-TF0" secondAttribute="top" constant="-1" id="z2W-LF-P1i"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="collectionTableView" destination="uon-Ig-iW9" id="yLm-ok-xgA"/>
@@ -1198,9 +1204,9 @@
                                     <constraint firstItem="tEm-WI-QaB" firstAttribute="top" secondItem="C1B-v7-wjj" secondAttribute="top" type="default" id="SFc-0w-h8N"/>
                                     <constraint firstItem="BkU-cA-Qno" firstAttribute="leading" secondItem="QIQ-RF-bBO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="b8d-aC-max"/>
                                     <constraint firstItem="qCl-Fu-kJm" firstAttribute="leading" secondItem="QIQ-RF-bBO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="l3z-kh-EFI"/>
+                                    <constraint firstItem="qCl-Fu-kJm" firstAttribute="top" secondItem="QIQ-RF-bBO" secondAttribute="top" constant="-1" id="vTI-gr-50Y"/>
                                     <constraint firstAttribute="trailing" secondItem="qCl-Fu-kJm" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xAe-pF-X26"/>
                                     <constraint firstItem="BkU-cA-Qno" firstAttribute="top" secondItem="C1B-v7-wjj" secondAttribute="top" type="default" id="xcB-yU-Qlk"/>
-                                    <constraint firstItem="qCl-Fu-kJm" firstAttribute="top" secondItem="QIQ-RF-bBO" secondAttribute="top" type="default" id="y4J-K5-vxC"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mqy-xc-l3l">
