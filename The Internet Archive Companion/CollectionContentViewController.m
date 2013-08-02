@@ -68,7 +68,7 @@
     assert([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] != nil);
     self.detDoc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
     
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ Collection", self.detDoc.title];
+    self.titleLabel.text = self.detDoc.title;
     if(self.detDoc.archiveImage){
         [self.imageView setArchiveImage:self.detDoc.archiveImage];
     }
