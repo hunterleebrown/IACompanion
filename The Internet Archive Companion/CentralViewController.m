@@ -160,6 +160,7 @@
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+            [self moveContentViewBack];
             return;
         }
     }

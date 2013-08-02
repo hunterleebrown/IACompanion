@@ -10,15 +10,17 @@
 #import "MediaPlayerViewController.h"
 #import "ArchivePageViewController.h"
 #import "LoadingViewController.h"
+#import "CentralViewController.h"
 
 @interface InitialViewController ()
 
 @property (nonatomic, strong)  MediaPlayerViewController *mediaPlayerViewController;
+@property (nonatomic, strong) CentralViewController *centralViewController;
 
 @end
 
 @implementation InitialViewController
-@synthesize mediaPlayerHolder, mediaPlayerViewController, managedObjectContext, loadingIndicatorHolder, loadingIndicatorViewController;
+@synthesize mediaPlayerHolder, mediaPlayerViewController, managedObjectContext, loadingIndicatorHolder, loadingIndicatorViewController, centralViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +52,10 @@
     if([segue.identifier isEqualToString:@"loadingViewController"]){
         loadingIndicatorViewController = [segue destinationViewController];
     }
+    if ([segue.identifier isEqualToString:@"centralViewController"]) {
+        centralViewController = [segue destinationViewController];
+    
+    }
 
 
 }
@@ -67,7 +73,10 @@
     
 }
 
-
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [centralViewController toggleContent:nil];
+}
 
 - (void) showLoadingIndicatorNotification:(NSNotification *)notification{
    // [self.window bringSubviewToFront:loadingView];
