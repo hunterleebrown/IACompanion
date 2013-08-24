@@ -1317,10 +1317,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="738" translatesAutoresizingMaskIntoConstraints="NO" id="1nx-V2-SRg">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="48" translatesAutoresizingMaskIntoConstraints="NO" id="1nx-V2-SRg">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="738" type="user" id="Fp4-bv-gBg"/>
-                                                        <constraint firstAttribute="height" constant="16" id="XAj-lV-NiW"/>
+                                                        <constraint firstAttribute="width" priority="1" constant="748" type="user" id="rRe-1e-MCS"/>
+                                                        <constraint firstAttribute="height" constant="18" id="uf3-oZ-Jio"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1329,8 +1329,7 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYp-b2-nh8">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="398" type="user" id="29P-dS-HVQ"/>
-                                                        <constraint firstAttribute="height" constant="17" id="gm1-Ii-b6F"/>
+                                                        <constraint firstAttribute="width" priority="1" constant="398" type="user" id="oD0-8l-MH6"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1340,9 +1339,13 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="fYp-b2-nh8" secondAttribute="bottom" constant="1" id="8pg-ZZ-ZuA"/>
-                                            <constraint firstItem="1nx-V2-SRg" firstAttribute="top" secondItem="B7y-zR-Ju5" secondAttribute="top" constant="7" id="RAL-fR-90l"/>
-                                            <constraint firstAttribute="trailing" secondItem="1nx-V2-SRg" secondAttribute="trailing" constant="20" type="default" id="g7B-Ee-Huu"/>
+                                            <constraint firstItem="1nx-V2-SRg" firstAttribute="top" secondItem="B7y-zR-Ju5" secondAttribute="top" constant="7" id="37i-PA-JfG"/>
+                                            <constraint firstAttribute="trailing" secondItem="1nx-V2-SRg" secondAttribute="trailing" constant="10" id="AnZ-hK-ugY"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1nx-V2-SRg" secondAttribute="trailing" constant="10" type="user" id="Q9f-RF-k1V"/>
+                                            <constraint firstAttribute="bottom" secondItem="fYp-b2-nh8" secondAttribute="bottom" constant="4" id="mxU-lq-jKN"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1nx-V2-SRg" secondAttribute="trailing" priority="1" constant="10" type="user" id="nvY-yQ-ux4"/>
+                                            <constraint firstItem="1nx-V2-SRg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B7y-zR-Ju5" secondAttribute="leading" constant="10" type="user" id="owH-Bq-Udt"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fYp-b2-nh8" secondAttribute="trailing" constant="10" type="user" id="sHE-tj-E1A"/>
                                             <constraint firstAttribute="trailing" secondItem="fYp-b2-nh8" secondAttribute="trailing" constant="20" type="default" id="usZ-br-YLu"/>
                                         </constraints>
                                         <connections>
