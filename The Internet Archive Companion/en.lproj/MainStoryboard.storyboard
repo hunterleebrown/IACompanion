@@ -1322,9 +1322,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="48" translatesAutoresizingMaskIntoConstraints="NO" id="1nx-V2-SRg">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Track" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="1nx-V2-SRg">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" priority="1" constant="748" type="user" id="rRe-1e-MCS"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="748" type="user" id="rRe-1e-MCS"/>
                                                         <constraint firstAttribute="height" constant="18" id="uf3-oZ-Jio"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
@@ -1332,9 +1332,9 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYp-b2-nh8">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Identifier" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYp-b2-nh8">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" priority="1" constant="398" type="user" id="oD0-8l-MH6"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="421" type="user" id="CFL-AX-vEq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1345,13 +1345,11 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="1nx-V2-SRg" firstAttribute="top" secondItem="B7y-zR-Ju5" secondAttribute="top" constant="7" id="37i-PA-JfG"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1nx-V2-SRg" secondAttribute="trailing" constant="10" type="user" id="Q9f-RF-k1V"/>
-                                            <constraint firstAttribute="bottom" secondItem="fYp-b2-nh8" secondAttribute="bottom" constant="4" id="mxU-lq-jKN"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1nx-V2-SRg" secondAttribute="trailing" priority="1" constant="10" type="user" id="nvY-yQ-ux4"/>
-                                            <constraint firstItem="1nx-V2-SRg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B7y-zR-Ju5" secondAttribute="leading" constant="10" type="user" id="owH-Bq-Udt"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fYp-b2-nh8" secondAttribute="trailing" constant="10" type="user" id="sHE-tj-E1A"/>
-                                            <constraint firstAttribute="trailing" secondItem="fYp-b2-nh8" secondAttribute="trailing" constant="276" id="vBz-Cf-fa9"/>
-                                            <constraint firstAttribute="trailing" secondItem="1nx-V2-SRg" secondAttribute="trailing" constant="266" id="wJO-Vj-KFG"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fYp-b2-nh8" secondAttribute="trailing" constant="10" type="user" id="4Rp-UI-a36"/>
+                                            <constraint firstItem="1nx-V2-SRg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B7y-zR-Ju5" secondAttribute="leading" constant="10" type="user" id="WaE-RE-5R6"/>
+                                            <constraint firstItem="1nx-V2-SRg" firstAttribute="leading" secondItem="B7y-zR-Ju5" secondAttribute="leading" priority="1" constant="10" type="user" id="f0v-ml-Xhw"/>
+                                            <constraint firstAttribute="trailing" secondItem="fYp-b2-nh8" secondAttribute="trailing" constant="20" type="default" id="gKv-dD-1H4"/>
+                                            <constraint firstAttribute="bottom" secondItem="fYp-b2-nh8" secondAttribute="bottom" constant="1" id="tG8-hi-on4"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="fileTitle" destination="1nx-V2-SRg" id="M0e-KV-AJL"/>
@@ -1375,7 +1373,6 @@
                             <constraint firstItem="neL-gD-OkP" firstAttribute="trailing" secondItem="Qks-RD-av5" secondAttribute="trailing" type="default" id="NWs-b8-wLO"/>
                             <constraint firstItem="H0i-3c-OSD" firstAttribute="top" secondItem="Qks-RD-av5" secondAttribute="top" constant="44" type="user" id="Qyy-Aj-QoY"/>
                             <constraint firstItem="Mqy-xc-l3l" firstAttribute="top" secondItem="Qks-RD-av5" secondAttribute="top" constant="470" type="user" id="RBd-Ue-EQB"/>
-                            <constraint firstItem="f2J-0Y-nmK" firstAttribute="leading" secondItem="Qks-RD-av5" secondAttribute="leading" type="user" id="SJP-XB-zxs"/>
                             <constraint firstItem="H0i-3c-OSD" firstAttribute="leading" secondItem="Qks-RD-av5" secondAttribute="leading" type="default" id="dxp-eC-qA0"/>
                             <constraint firstItem="f2J-0Y-nmK" firstAttribute="bottom" secondItem="Qks-RD-av5" secondAttribute="bottom" type="default" id="ig2-VL-pgZ"/>
                             <constraint firstItem="neL-gD-OkP" firstAttribute="leading" secondItem="Qks-RD-av5" secondAttribute="leading" type="default" id="qJA-7s-t5k"/>
