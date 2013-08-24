@@ -10,7 +10,7 @@
             <objects>
                 <viewController id="PeC-EU-53U" customClass="MainNavViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzm-hC-McI">
-                        <rect key="frame" x="0.0" y="20" width="256" height="708"/>
+                        <rect key="frame" x="0.0" y="20" width="256" height="964"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Ty-9r-Ijs">
@@ -119,7 +119,6 @@
                             <constraint firstItem="5Ty-9r-Ijs" firstAttribute="trailing" secondItem="gzm-hC-McI" secondAttribute="trailing" type="user" id="V0N-c4-cHL"/>
                             <constraint firstItem="5Ty-9r-Ijs" firstAttribute="top" secondItem="gzm-hC-McI" secondAttribute="top" type="default" id="mxn-q1-ZF1"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
@@ -135,7 +134,7 @@
             <objects>
                 <viewController id="4ec-c3-3dZ" customClass="CentralViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Jh-WU-NUb">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="728"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="984"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rP-re-NoS">
@@ -176,7 +175,6 @@
                             <constraint firstItem="0pi-VT-Edv" firstAttribute="trailing" secondItem="2Jh-WU-NUb" secondAttribute="trailing" type="default" id="mq2-tx-VLC"/>
                             <constraint firstItem="aTf-gc-Mub" firstAttribute="bottom" secondItem="2Jh-WU-NUb" secondAttribute="bottom" type="default" id="pBc-eW-U2M"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
@@ -210,7 +208,7 @@
             <objects>
                 <viewController id="2Va-EF-XDK" customClass="ContentViewController" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Qlq-gI-pbV">
-                        <rect key="frame" x="0.0" y="64" width="768" height="664"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="920"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="left" text="Internet Archive Companion" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="Jr0-Lz-Zh5">
@@ -299,7 +297,6 @@
                             <constraint firstAttribute="trailing" secondItem="3uu-AM-wJk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="uYb-CR-uPx"/>
                             <constraint firstAttribute="trailing" secondItem="USh-P2-olq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xSx-n6-d9R"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="RHT-Zp-gGA"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
@@ -319,7 +316,7 @@
             <objects>
                 <viewController storyboardIdentifier="searchViewController" id="MEy-hl-BNz" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OFV-J0-xNG">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="708"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="964"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" barStyle="blackOpaque" placeholder="Search The Internet Archive" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2tE-p8-XXs">
@@ -359,16 +356,16 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="328" type="user" id="rV9-xD-rfp"/>
                                 </constraints>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="64c-Gn-QDH">
-                                    <rect key="frame" x="0.0" y="154" width="1024" height="44"/>
+                                    <rect key="frame" x="0.0" y="154" width="768" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="resultsCell" selectionStyle="gray" indentationWidth="10" reuseIdentifier="resultsCell" id="329-z3-DYr" customClass="CollectionViewTableCell">
-                                        <rect key="frame" x="0.0" y="22" width="1024" height="132"/>
+                                        <rect key="frame" x="0.0" y="22" width="768" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="131"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="131"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5C-mG-ady" customClass="ArchiveImageView">
@@ -457,7 +454,6 @@
                             <constraint firstItem="6mJ-L9-c7B" firstAttribute="top" secondItem="OFV-J0-xNG" secondAttribute="top" constant="53" id="uJC-fh-qDR"/>
                             <constraint firstItem="kLk-7e-95n" firstAttribute="top" secondItem="OFV-J0-xNG" secondAttribute="top" constant="88" id="xzS-Lj-jMJ"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
@@ -1016,7 +1012,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHB-UD-tw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1028,7 +1023,7 @@
             <objects>
                 <viewController id="3gD-Z8-dZH" customClass="InitialViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1bP-UM-eR6">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exs-cY-N0G">
@@ -1070,10 +1065,8 @@
                             <constraint firstItem="Fku-VQ-2zk" firstAttribute="centerY" secondItem="exs-cY-N0G" secondAttribute="centerY" type="user" id="xpZ-Cb-HnU"/>
                             <constraint firstItem="Fku-VQ-2zk" firstAttribute="top" relation="lessThanOrEqual" secondItem="1bP-UM-eR6" secondAttribute="top" constant="452" type="user" id="ynD-nw-FBC"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="loadingIndicatorHolder" destination="Fku-VQ-2zk" id="gxS-ih-62u"/>
                         <outlet property="mediaPlayerHolder" destination="2am-TB-jAj" id="PmL-57-8Ik"/>
@@ -1088,7 +1081,7 @@
             <objects>
                 <viewController id="NTw-XV-4qs" customClass="MediaPlayerViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Qks-RD-av5">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="728"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" restorationIdentifier="A" translatesAutoresizingMaskIntoConstraints="NO" id="neL-gD-OkP">
@@ -1316,10 +1309,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="playerCell" id="B7y-zR-Ju5" customClass="PlayerTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="1024" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Track" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="1nx-V2-SRg">
@@ -1334,7 +1327,7 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Identifier" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYp-b2-nh8">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="421" type="user" id="CFL-AX-vEq"/>
+                                                        <constraint firstAttribute="width" constant="421" id="PPT-DR-2v5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1345,11 +1338,10 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="1nx-V2-SRg" firstAttribute="top" secondItem="B7y-zR-Ju5" secondAttribute="top" constant="7" id="37i-PA-JfG"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fYp-b2-nh8" secondAttribute="trailing" constant="10" type="user" id="4Rp-UI-a36"/>
+                                            <constraint firstItem="fYp-b2-nh8" firstAttribute="top" secondItem="B7y-zR-Ju5" secondAttribute="top" constant="29" id="6yl-y2-dw6"/>
+                                            <constraint firstAttribute="trailing" secondItem="fYp-b2-nh8" secondAttribute="trailing" constant="10" type="user" id="JlO-yt-5VH"/>
                                             <constraint firstItem="1nx-V2-SRg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B7y-zR-Ju5" secondAttribute="leading" constant="10" type="user" id="WaE-RE-5R6"/>
                                             <constraint firstItem="1nx-V2-SRg" firstAttribute="leading" secondItem="B7y-zR-Ju5" secondAttribute="leading" priority="1" constant="10" type="user" id="f0v-ml-Xhw"/>
-                                            <constraint firstAttribute="trailing" secondItem="fYp-b2-nh8" secondAttribute="trailing" constant="20" type="default" id="gKv-dD-1H4"/>
-                                            <constraint firstAttribute="bottom" secondItem="fYp-b2-nh8" secondAttribute="bottom" constant="1" id="tG8-hi-on4"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="fileTitle" destination="1nx-V2-SRg" id="M0e-KV-AJL"/>
@@ -1382,7 +1374,6 @@
                             <constraint firstItem="QIQ-RF-bBO" firstAttribute="leading" secondItem="Qks-RD-av5" secondAttribute="leading" type="default" id="vp6-E0-pRe"/>
                             <constraint firstItem="H0i-3c-OSD" firstAttribute="trailing" secondItem="Qks-RD-av5" secondAttribute="trailing" type="default" id="ziB-bQ-7Gi"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
