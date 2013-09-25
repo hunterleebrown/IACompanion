@@ -1,6 +1,10 @@
 IACompanion
 ===========
-THIS is a rewrite of the entire code, for version 3.0   Still needs to be optimized for iOS 7 and has some layout contraint conflicts I'm still working out. When this is all complete, this will be the new master branch and sent to the app store.
+THIS is a rewrite of the entire code, for version 3.0   
+
+Still needs to be optimized for iOS 7 and has some layout contraint conflicts I'm still working out. When this is all complete, this will be the new master branch and sent to the app store.
+
+
 
 Internet Archive iPad Browser
 
