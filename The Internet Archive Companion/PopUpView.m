@@ -136,7 +136,7 @@
 - (void) layoutSubviews{
     
 
-    [self setFrame:CGRectMake(10, 20, self.superview.frame.size.width - 20, self.superview.frame.size.height - 44)];
+    [self setFrame:CGRectMake(10, 44, self.superview.frame.size.width - 20, self.superview.frame.size.height - 64)];
  
     
     CGSize titleSize = [popTitle.text sizeWithFont:popTitle.font];
