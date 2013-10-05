@@ -13,6 +13,8 @@
 #import "MediaFileHeaderCell.h"
 #import "MediaImageViewController.h"
 #import "ArchivePageViewController.h"
+#import <Social/Social.h>
+
 
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -225,6 +227,91 @@
     return [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] count];
 }
 
+
+
+
+- (IBAction)showSharingActionsSheet:(id)sender{
+    UIActionSheet *sharingActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", @"Email", nil];
+    [sharingActionSheet setActionSheetStyle:UIActionSheetStyleAutomatic];
+    [sharingActionSheet showInView:self.view];
+    
+}
+
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 0 || buttonIndex == 1) {
+        
+        NSString *serviceType = buttonIndex == 0 ? SLServiceTypeFacebook : SLServiceTypeTwitter;
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:serviceType];
+        
+        NSString *archiveUrl = [NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier];
+        [controller addURL:[NSURL URLWithString:archiveUrl]];
+        [controller setInitialText:[NSString stringWithFormat:@"Internet Archive - %@", self.detDoc.title]];
+        
+
+        [self presentViewController:controller animated:YES completion:nil];
+        
+    }  else if (buttonIndex == 2) {
+        
+        if ([MFMailComposeViewController canSendMail]) {
+            MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+            mailViewController.mailComposeDelegate = self;
+            [mailViewController setSubject:self.detDoc.title];
+            [mailViewController setMessageBody:[self shareMessage] isHTML:YES];
+            [self presentViewController:mailViewController animated:YES completion:nil];
+        } else {
+            [self displayUnableToSendEmailMessage];
+        }
+    }
+    
+}
+
+- (void)displayEmailSentMessage {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email Sent"
+                                                    message:@"Your message was successfully sent."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:( MFMailComposeResult)result error:(NSError *)error {
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            //  NSLog(@"Message Canceled");
+            break;
+        case MFMailComposeResultSaved:
+            //  NSLog(@"Message Saved");
+            break;
+        case MFMailComposeResultSent:
+            [self displayEmailSentMessage];
+            break;
+        case MFMailComposeResultFailed:
+            [self displayUnableToSendEmailMessage];
+            break;
+        default:
+            //  NSLog(@"Message Not Sent");
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (void)displayUnableToSendEmailMessage {
+    NSString *errorMessage = @"The device is unable to send email in its current state.";
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't Send Email"
+                                                    message:errorMessage
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+- (NSString *)shareMessage{
+    
+    return [NSString stringWithFormat:@"From the Internet Archive: %@", [NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
+}
 
 
 - (void)didReceiveMemoryWarning

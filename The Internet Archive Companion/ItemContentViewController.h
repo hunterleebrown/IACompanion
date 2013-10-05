@@ -7,7 +7,11 @@
 //
 
 #import "ContentViewController.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface ItemContentViewController : ContentViewController
+@interface ItemContentViewController : ContentViewController<UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
+
+- (IBAction)showSharingActionsSheet:(id)sender;
 @end

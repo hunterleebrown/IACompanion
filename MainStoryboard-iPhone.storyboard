@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gvj-T2-0T5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gvj-T2-0T5">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -342,7 +342,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="black" placeholder="Search The Internet Archive" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
+                            <searchBar contentMode="redraw" placeholder="Search The Internet Archive" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -577,6 +577,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="showSharingActionsSheet:" destination="gp1-Y2-9gB" eventType="touchUpInside" id="LRo-eI-L9E"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -804,7 +807,7 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-rM-wTy">
-                                        <rect key="frame" x="10" y="3.9999999963467614" width="300" height="21"/>
+                                        <rect key="frame" x="10" y="3.9999999962761033" width="300" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="C3m-RB-1E7"/>
@@ -1474,14 +1477,12 @@
     </scenes>
     <resources>
         <image name="close-button.png" width="40" height="40"/>
-        <image name="close-button.png" width="40" height="40"/>
         <image name="forward-button.png" width="40" height="40"/>
         <image name="fullscreen-button.png" width="40" height="40"/>
         <image name="new-list.png" width="30" height="30"/>
         <image name="open-player-button.png" width="40" height="40"/>
         <image name="play-button.png" width="40" height="40"/>
         <image name="reverse-button.png" width="40" height="40"/>
-        <image name="search-button-plain.png" width="30" height="30"/>
         <image name="search-button-plain.png" width="30" height="30"/>
         <image name="share-bbi.png" width="24" height="18"/>
     </resources>
