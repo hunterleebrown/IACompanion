@@ -100,6 +100,11 @@
         [cvc setSearchDoc:aDoc];
         [_contentNavController pushViewController:cvc animated:YES];
     }
+    
+    
+    if(_contentView.frame.origin.x == 256 && !UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+        [self moveContentViewOver];
+    }
 }
 
 
@@ -156,7 +161,7 @@
 
 
 
-- (void) toggleContent:(id)sender {
+- (IBAction) toggleContent:(id)sender {
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
@@ -175,7 +180,7 @@
 
 
 
-- (void) moveContentViewOver{
+- (IBAction)moveContentViewOver{
     // swipe left
     
     float whereToGoLeft = 0.0;
@@ -216,7 +221,7 @@
 
 
 
-- (void) moveContentViewBack{
+- (IBAction)moveContentViewBack{
     // swipe right
     
     float whereToGoLeft = 256;

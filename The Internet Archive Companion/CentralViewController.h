@@ -23,7 +23,7 @@
 @property (nonatomic, weak) IBOutlet UIView *contentView;
 @property (nonatomic, weak) IBOutlet UIView *searchView;
 
-- (void) toggleContent:(id)sender;
+- (IBAction)toggleContent:(id)sender;
 
 
 @end

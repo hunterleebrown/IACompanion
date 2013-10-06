@@ -229,6 +229,12 @@
 
 
 
+- (IBAction)addFavorite:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.searchDoc];
+
+
+}
+
 
 - (IBAction)showSharingActionsSheet:(id)sender{
     UIActionSheet *sharingActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", @"Email", nil];

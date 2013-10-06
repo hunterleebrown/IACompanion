@@ -11,11 +11,14 @@
 #import "ArchivePageViewController.h"
 #import "LoadingViewController.h"
 #import "CentralViewController.h"
+#import "FavoritesTableViewController.h"
 
-@interface InitialViewController ()
+@interface InitialViewController () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong)  MediaPlayerViewController *mediaPlayerViewController;
 @property (nonatomic, strong) CentralViewController *centralViewController;
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -37,9 +40,14 @@
 	// Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closePlayer) name:@"CloseMediaPlayer" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openPlayer) name:@"OpenMediaPlayer" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openFavoritesNotification:) name:@"OpenFavorites" object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBookViewControllerNotification:) name:@"OpenBookViewer" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoadingIndicatorNotification:) name:@"ShowLoadingIndicator" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopUpControllerNotification:) name:@"NotifyUser" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openFavoritesNotification:) name:@"AddFavoriteNotification" object:nil];
+
     
     if([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]){
         [self setNeedsStatusBarAppearanceUpdate];
@@ -108,6 +116,33 @@
         [mediaPlayerHolder setFrame:CGRectMake(0, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
     }];
 }
+
+
+- (void) openFavoritesNotification:(NSNotification *)notification {
+    ArchiveSearchDoc *doc = notification.object;
+    
+    UINavigationController *favoritesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"favoritesVC"];
+    [favoritesVC setModalPresentationStyle:UIModalPresentationFormSheet];
+    [favoritesVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    FavoritesTableViewController *favs = (FavoritesTableViewController *)[favoritesVC.viewControllers objectAtIndex:0];
+
+    [favs setManagedObjectContext:self.managedObjectContext];
+    
+    [self presentViewController:favoritesVC animated:YES completion:^{
+        if(doc){
+            [favs addFavorite:doc];
+        }
+    }];
+
+}
+
+
+
+
+
+
+
+
 
 
 - (void) showBookViewControllerNotification:(NSNotification *)notification{

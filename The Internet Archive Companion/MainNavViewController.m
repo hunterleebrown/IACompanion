@@ -158,7 +158,7 @@
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return 2;
+            return 3;
         case 1:
             return [audioSearchDocuments count];
             break;
@@ -196,6 +196,13 @@
                 [cell.navImageView setBackgroundColor:[UIColor blackColor]];
                 [cell setBackgroundColor:[UIColor blackColor]];
             }
+            else if(indexPath.row == 2) {
+                [cell.navCellTitleLabel setText:@"Favorites"];
+                [cell.navImageView setImage:[UIImage imageNamed:@"favorites_button.png"]];
+                [cell.navImageView setBackgroundColor:[UIColor blackColor]];
+                [cell setBackgroundColor:[UIColor blackColor]];
+            }
+            
             [cell.navImageView setHidden:NO];
             return cell;
             
@@ -285,8 +292,11 @@
             if(indexPath.row == 0){
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"PopToHome" object:nil];
                 return;
-            } else {
+            } else if(indexPath.row == 1){
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+                return;
+            } else if(indexPath.row == 2){
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenFavorites" object:nil];
                 return;
             }
             

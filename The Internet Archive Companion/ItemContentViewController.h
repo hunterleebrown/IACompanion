@@ -14,4 +14,7 @@
 
 
 - (IBAction)showSharingActionsSheet:(id)sender;
+
+- (IBAction)addFavorite:(id)sender;
+
 @end
