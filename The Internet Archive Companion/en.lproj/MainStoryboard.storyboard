@@ -251,7 +251,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJD-PV-kPa">
-                                <rect key="frame" x="348" y="889" width="73" height="31"/>
+                                <rect key="frame" x="279" y="889" width="73" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="OkU-kZ-XXN"/>
                                 </constraints>
@@ -329,16 +329,34 @@
                                     <constraint firstAttribute="height" constant="30" id="qZk-CX-BFl"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDZ-Yu-2Ap">
+                                <rect key="frame" x="360" y="889" width="167" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="kIp-Rp-s8h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="15"/>
+                                <state key="normal" title="Internet Archive Blog">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPopUp:" destination="2Va-EF-XDK" eventType="touchUpInside" id="oXu-F8-Vh8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="13L-wr-0H7" firstAttribute="leading" secondItem="Zj1-zP-h55" secondAttribute="trailing" constant="8" symbolic="YES" id="1XO-9v-lQR"/>
-                            <constraint firstItem="SJD-PV-kPa" firstAttribute="centerX" secondItem="Jr0-Lz-Zh5" secondAttribute="centerX" id="88t-2t-p54"/>
+                            <constraint firstItem="SJD-PV-kPa" firstAttribute="centerX" secondItem="Jr0-Lz-Zh5" secondAttribute="centerX" constant="-68.5" id="88t-2t-p54"/>
                             <constraint firstItem="Jr0-Lz-Zh5" firstAttribute="trailing" secondItem="USh-P2-olq" secondAttribute="trailing" id="8FA-9T-xmL"/>
                             <constraint firstItem="9AR-FJ-2F5" firstAttribute="leading" secondItem="0H8-FB-HtX" secondAttribute="trailing" constant="8" symbolic="YES" id="9q8-C8-9Qw"/>
                             <constraint firstItem="0H8-FB-HtX" firstAttribute="centerY" secondItem="9AR-FJ-2F5" secondAttribute="centerY" id="BMN-EJ-9jC"/>
                             <constraint firstAttribute="bottom" secondItem="SJD-PV-kPa" secondAttribute="bottom" constant="20" symbolic="YES" id="DQX-Id-JKm"/>
                             <constraint firstItem="3uu-AM-wJk" firstAttribute="leading" secondItem="13L-wr-0H7" secondAttribute="leading" id="FPc-aq-W6k"/>
+                            <constraint firstItem="fDZ-Yu-2Ap" firstAttribute="baseline" secondItem="SJD-PV-kPa" secondAttribute="baseline" id="GZW-gg-Zh0"/>
                             <constraint firstItem="Jnn-Br-fZk" firstAttribute="top" secondItem="Jr0-Lz-Zh5" secondAttribute="bottom" constant="33" id="J3R-5w-QXn"/>
                             <constraint firstItem="9AR-FJ-2F5" firstAttribute="top" secondItem="13L-wr-0H7" secondAttribute="bottom" constant="46" id="JxK-NX-HnU"/>
                             <constraint firstItem="3uu-AM-wJk" firstAttribute="leading" secondItem="0Ix-sz-hnf" secondAttribute="trailing" constant="8" symbolic="YES" id="MKG-5E-6Ta"/>
@@ -347,6 +365,7 @@
                             <constraint firstItem="Zj1-zP-h55" firstAttribute="leading" secondItem="Jnn-Br-fZk" secondAttribute="leading" id="Pdx-yv-Zng"/>
                             <constraint firstItem="0H8-FB-HtX" firstAttribute="leading" secondItem="Zj1-zP-h55" secondAttribute="leading" id="RVD-cg-KUy"/>
                             <constraint firstItem="13L-wr-0H7" firstAttribute="leading" secondItem="USh-P2-olq" secondAttribute="leading" id="Wh7-VG-hib"/>
+                            <constraint firstItem="fDZ-Yu-2Ap" firstAttribute="leading" secondItem="SJD-PV-kPa" secondAttribute="trailing" constant="8" symbolic="YES" id="asv-Pg-wbk"/>
                             <constraint firstItem="USh-P2-olq" firstAttribute="top" secondItem="eVb-HJ-PGj" secondAttribute="bottom" constant="136" id="g30-wa-yWe"/>
                             <constraint firstItem="USh-P2-olq" firstAttribute="leading" secondItem="Jnn-Br-fZk" secondAttribute="trailing" constant="8" symbolic="YES" id="id4-bE-r3I"/>
                             <constraint firstAttribute="trailing" secondItem="Jr0-Lz-Zh5" secondAttribute="trailing" constant="20" symbolic="YES" id="lBJ-55-W98"/>

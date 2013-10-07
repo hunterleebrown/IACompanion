@@ -221,6 +221,10 @@
         [alert show];
     } else if (((UIButton *)sender).tag == 3) {
         [self.popUpView showWithSubView:moreInfoView title:@"Credits" message:nil];
+    } else if (((UIButton *)sender).tag == 4) {
+        externalUrl = [NSURL URLWithString:@"http://blog.archive.org"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        [alert show];
     }
 }
 

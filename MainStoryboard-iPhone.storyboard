@@ -243,10 +243,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9x-mO-jYw">
-                                <rect key="frame" x="124" y="324" width="73" height="31"/>
+                                <rect key="frame" x="41" y="321" width="63" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="5mx-gu-C4d"/>
-                                    <constraint firstAttribute="width" constant="73" id="Te4-so-WfO"/>
+                                    <constraint firstAttribute="width" constant="63" id="Te4-so-WfO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="15"/>
                                 <state key="normal" title="Credits">
@@ -316,10 +316,28 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5x-zT-6zp">
+                                <rect key="frame" x="112" y="321" width="167" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="jZM-ul-dS0"/>
+                                    <constraint firstAttribute="height" constant="31" id="xgn-hg-a27"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="15"/>
+                                <state key="normal" title="Internet Archive Blog">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPopUp:" destination="5DB-Ie-EAF" eventType="touchUpInside" id="nBk-sr-H3e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="L9x-mO-jYw" firstAttribute="centerX" secondItem="t4W-sB-iDl" secondAttribute="centerX" id="4iJ-s2-ymC"/>
+                            <constraint firstItem="L9x-mO-jYw" firstAttribute="centerX" secondItem="t4W-sB-iDl" secondAttribute="centerX" constant="-87.5" id="4iJ-s2-ymC"/>
                             <constraint firstItem="wy9-G8-Z51" firstAttribute="leading" secondItem="qvd-Cs-V2d" secondAttribute="trailing" constant="8" symbolic="YES" id="54c-ZB-IEb"/>
                             <constraint firstItem="3OY-eg-MDD" firstAttribute="leading" secondItem="DVC-Ct-x2e" secondAttribute="trailing" constant="8" symbolic="YES" id="6BF-bB-3ct"/>
                             <constraint firstAttribute="trailing" secondItem="t4W-sB-iDl" secondAttribute="trailing" constant="20" symbolic="YES" id="80X-Fw-AHD"/>
@@ -338,14 +356,16 @@
                             <constraint firstItem="X3w-yM-hl0" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" constant="20" symbolic="YES" id="hbS-RW-F5Z"/>
                             <constraint firstAttribute="trailing" secondItem="UnJ-qN-evd" secondAttribute="trailing" constant="20" symbolic="YES" id="iP7-Wq-ce5"/>
                             <constraint firstItem="wy9-G8-Z51" firstAttribute="trailing" secondItem="UnJ-qN-evd" secondAttribute="trailing" id="ir7-N6-CUO"/>
-                            <constraint firstAttribute="bottom" secondItem="L9x-mO-jYw" secondAttribute="bottom" constant="17" id="ivn-Cm-yrF"/>
+                            <constraint firstAttribute="bottom" secondItem="L9x-mO-jYw" secondAttribute="bottom" constant="20" id="ivn-Cm-yrF"/>
                             <constraint firstItem="UnJ-qN-evd" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="206" id="izS-1q-q70"/>
                             <constraint firstItem="qvd-Cs-V2d" firstAttribute="top" secondItem="X3w-yM-hl0" secondAttribute="bottom" constant="25" id="lz6-Oe-0W0"/>
                             <constraint firstItem="DVC-Ct-x2e" firstAttribute="centerY" secondItem="3OY-eg-MDD" secondAttribute="centerY" id="m11-5d-NEd"/>
+                            <constraint firstItem="d5x-zT-6zp" firstAttribute="baseline" secondItem="L9x-mO-jYw" secondAttribute="baseline" id="qLY-TW-9eM"/>
                             <constraint firstItem="geG-0g-QHB" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" constant="20" symbolic="YES" id="rFW-dX-1Pa"/>
                             <constraint firstItem="DVC-Ct-x2e" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" constant="20" symbolic="YES" id="sLc-rk-mCL"/>
                             <constraint firstItem="X3w-yM-hl0" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="223" id="sSD-pX-k1J"/>
                             <constraint firstItem="F1L-aG-kLd" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="93" id="u4e-R3-PXz"/>
+                            <constraint firstItem="d5x-zT-6zp" firstAttribute="leading" secondItem="L9x-mO-jYw" secondAttribute="trailing" constant="8" symbolic="YES" id="vgt-ec-Aod"/>
                             <constraint firstItem="wy9-G8-Z51" firstAttribute="leading" secondItem="UnJ-qN-evd" secondAttribute="leading" id="vqd-k2-EOB"/>
                         </constraints>
                     </view>
@@ -849,7 +869,7 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-rM-wTy">
-                                        <rect key="frame" x="10" y="3.9999999962747368" width="300" height="21"/>
+                                        <rect key="frame" x="10" y="3.9999999962747061" width="300" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="C3m-RB-1E7"/>
@@ -1577,7 +1597,6 @@
     </scenes>
     <resources>
         <image name="close-button.png" width="40" height="40"/>
-        <image name="close-button.png" width="40" height="40"/>
         <image name="favorite_icon.png" width="34" height="44"/>
         <image name="favorites_button.png" width="40" height="40"/>
         <image name="forward-button.png" width="40" height="40"/>
@@ -1586,7 +1605,6 @@
         <image name="open-player-button.png" width="40" height="40"/>
         <image name="play-button.png" width="40" height="40"/>
         <image name="reverse-button.png" width="40" height="40"/>
-        <image name="search-button-plain.png" width="30" height="30"/>
         <image name="search-button-plain.png" width="30" height="30"/>
         <image name="share-bbi.png" width="24" height="18"/>
     </resources>
