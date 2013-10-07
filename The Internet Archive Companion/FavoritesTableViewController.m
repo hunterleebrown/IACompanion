@@ -45,8 +45,16 @@
     
     self.navigationItem.leftBarButtonItem = closeButton;
     
-    [self.navigationItem setTitle:@"Favorites"];
-    [self.navigationItem.titleView setTintColor:[UIColor whiteColor]];
+    //[self.navigationItem.titleView setTintColor:[UIColor whiteColor]];
+    UIFont *titleFont = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16];
+    CGSize titleSize = [@"Favorites" sizeWithFont:titleFont];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, titleSize.width, 40)];
+    [title setFont:titleFont];
+    [title setText:@"Favorites"];
+    [title setTextColor:[UIColor whiteColor]];
+    [self.navigationItem setTitleView:title];
+    [title setBackgroundColor:[UIColor clearColor]];
+    
 }
 
 - (void) close{

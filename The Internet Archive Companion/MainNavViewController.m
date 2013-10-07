@@ -177,7 +177,8 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MainNavTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainNavCell"];
-    
+    [cell.navImageView setArchiveImage:nil];
+
     [cell.navImageView setHidden:YES];
     [cell.navImageView setBackgroundColor:[UIColor whiteColor]];
     
