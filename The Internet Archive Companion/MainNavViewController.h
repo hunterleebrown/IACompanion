@@ -11,7 +11,6 @@
 @interface MainNavViewController : UIViewController
 
 
-- (IBAction)mediaPlayerOpen;
 
 
 

@@ -120,17 +120,17 @@
 }
 
 
-- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+- (void) searchBarCancelButtonClicked:(UISearchBar *)inSearchBar{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
-    [searchBar resignFirstResponder];
+    [inSearchBar resignFirstResponder];
 }
 
-- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+- (void) searchBarSearchButtonClicked:(UISearchBar *)inSearchBar{
     service = [[IAJsonDataService alloc] initWithQueryString:searchBar.text];
     [service setDelegate:self];
     [service fetchData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
-    [searchBar resignFirstResponder];
+    [inSearchBar resignFirstResponder];
 
 }
 

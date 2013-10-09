@@ -28,9 +28,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 }
 
-- (void) dataDidBecomeAvailableForService:(IADataService *)service{
+- (void) dataDidBecomeAvailableForService:(IADataService *)inService{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
-    ArchiveDetailDoc *doc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
+    ArchiveDetailDoc *doc = [[((IAJsonDataService *)inService).rawResults objectForKey:@"documents"] objectAtIndex:0];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
 }
 
