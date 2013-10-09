@@ -253,7 +253,7 @@
         
         NSString *archiveUrl = [NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier];
         [controller addURL:[NSURL URLWithString:archiveUrl]];
-        [controller setInitialText:[NSString stringWithFormat:@"Internet Archive - %@", self.detDoc.title]];
+  //      [controller setInitialText:[NSString stringWithFormat:@"Internet Archive - %@", self.detDoc.title]];
         
 
         [self presentViewController:controller animated:YES completion:nil];
