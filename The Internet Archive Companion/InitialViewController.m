@@ -90,7 +90,7 @@
 
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [centralViewController toggleContent:nil];
+  //  [centralViewController toggleContent:nil];
 }
 
 - (void) showLoadingIndicatorNotification:(NSNotification *)notification{
@@ -106,14 +106,19 @@
 
 - (void) closePlayer{
     [UIView animateWithDuration:0.33 animations:^{
-        [mediaPlayerHolder setFrame:CGRectMake(- mediaPlayerHolder.frame.size.width, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
+        //[mediaPlayerHolder setFrame:CGRectMake(- mediaPlayerHolder.frame.size.width, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
+        [mediaPlayerHolder setAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [mediaPlayerHolder setHidden:YES];
     }];
 
 }
 
 - (void) openPlayer {
+    [mediaPlayerHolder setHidden:NO];
     [UIView animateWithDuration:0.33 animations:^{
-        [mediaPlayerHolder setFrame:CGRectMake(0, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
+        //[mediaPlayerHolder setFrame:CGRectMake(0, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
+        [mediaPlayerHolder setAlpha:1.0];
     }];
 }
 
@@ -147,7 +152,7 @@
 
 - (void) showBookViewControllerNotification:(NSNotification *)notification{
     ArchivePageViewController *bookViewControllers = notification.object;
-    [bookViewControllers setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [bookViewControllers setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:bookViewControllers animated:YES completion:nil];
 
 }

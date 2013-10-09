@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gvj-T2-0T5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gvj-T2-0T5">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -869,7 +869,7 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-rM-wTy">
-                                        <rect key="frame" x="10" y="3.9999999962747101" width="300" height="21"/>
+                                        <rect key="frame" x="10" y="3.9999999962747097" width="300" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="C3m-RB-1E7"/>
@@ -1113,8 +1113,8 @@
                                     <segue destination="ovy-Sh-2mn" kind="embed" id="2gn-ra-s7D"/>
                                 </connections>
                             </containerView>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-dv-Xwh">
-                                <rect key="frame" x="-320" y="0.0" width="320" height="416"/>
+                            <containerView hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-dv-Xwh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="YFe-rc-yeM" kind="embed" identifier="mediaPlayer" id="fA2-2h-lQk"/>
@@ -1142,8 +1142,8 @@
                             <constraint firstItem="GXP-dv-Xwh" firstAttribute="top" secondItem="D1H-zc-ghf" secondAttribute="top" id="hOr-fm-CVe"/>
                             <constraint firstItem="hze-UI-bhc" firstAttribute="leading" secondItem="D1H-zc-ghf" secondAttribute="leading" id="hUs-b2-esD"/>
                             <constraint firstItem="GXP-dv-Xwh" firstAttribute="bottom" secondItem="D1H-zc-ghf" secondAttribute="bottom" id="wVx-Xk-Fv5"/>
-                            <constraint firstItem="GXP-dv-Xwh" firstAttribute="leading" secondItem="D1H-zc-ghf" secondAttribute="leading" constant="-320" id="yPC-o2-cf1"/>
-                            <constraint firstAttribute="trailing" secondItem="GXP-dv-Xwh" secondAttribute="trailing" constant="320" id="zAZ-fQ-29F"/>
+                            <constraint firstItem="GXP-dv-Xwh" firstAttribute="leading" secondItem="D1H-zc-ghf" secondAttribute="leading" id="yPC-o2-cf1"/>
+                            <constraint firstAttribute="trailing" secondItem="GXP-dv-Xwh" secondAttribute="trailing" id="zAZ-fQ-29F"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -1192,6 +1192,7 @@
                             <outlet property="delegate" destination="xTT-pW-a0u" id="31H-F7-xny"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Favorites" id="EXH-me-DvF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCa-Nt-E0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1543,6 +1544,7 @@
         <scene sceneID="rGv-8h-KQf">
             <objects>
                 <navigationController storyboardIdentifier="favoritesVC" title="Favorites" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fGs-Zj-dcC" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hnz-5E-u04">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1597,7 +1599,6 @@
     </scenes>
     <resources>
         <image name="close-button.png" width="40" height="40"/>
-        <image name="close-button.png" width="40" height="40"/>
         <image name="favorite_icon.png" width="34" height="44"/>
         <image name="favorites_button.png" width="40" height="40"/>
         <image name="forward-button.png" width="40" height="40"/>
@@ -1606,7 +1607,6 @@
         <image name="open-player-button.png" width="40" height="40"/>
         <image name="play-button.png" width="40" height="40"/>
         <image name="reverse-button.png" width="40" height="40"/>
-        <image name="search-button-plain.png" width="30" height="30"/>
         <image name="search-button-plain.png" width="30" height="30"/>
         <image name="share-bbi.png" width="24" height="18"/>
     </resources>
