@@ -1286,13 +1286,13 @@
 		5A0A10E516A640A300CC70CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hunter L Brown";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
 				PRODUCT_NAME = IA;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "A94CCDD8-2096-4435-B930-3F02CC00D110";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1301,13 +1301,13 @@
 		5A0A10E616A640A300CC70CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hunter L Brown";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
 				PRODUCT_NAME = IA;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "A94CCDD8-2096-4435-B930-3F02CC00D110";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
