@@ -171,7 +171,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="d7m-9b-w61" firstAttribute="bottom" secondItem="Fwa-CI-EZX" secondAttribute="bottom" id="0LK-XG-uk6"/>
                             <constraint firstItem="rf4-J6-cRG" firstAttribute="leading" secondItem="Fwa-CI-EZX" secondAttribute="leading" id="4Ou-Uq-dSN"/>
@@ -213,8 +213,11 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="gW7-dQ-sli" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="d4r-Qj-4rU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="d4r-Qj-4rU">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="5DB-Ie-EAF" kind="relationship" relationship="rootViewController" id="55d-uS-4oi"/>
@@ -369,7 +372,7 @@
                             <constraint firstItem="wy9-G8-Z51" firstAttribute="leading" secondItem="UnJ-qN-evd" secondAttribute="leading" id="vqd-k2-EOB"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
                     <connections>
                         <outlet property="creditsButton" destination="L9x-mO-jYw" id="xbn-Tt-3At"/>

@@ -14,7 +14,7 @@
 #import "ArchiveCollectionViewControllerHelper.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ContentViewController () <UISearchBarDelegate, UIAlertViewDelegate>
+@interface ContentViewController () <UISearchBarDelegate, UIAlertViewDelegate, UIToolbarDelegate>
 @property (nonatomic, strong)  UIWebView *moreInfoView;
 
 @property (nonatomic, strong) NSURL *externalUrl;
@@ -42,10 +42,14 @@
 
 
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+
     
     UIImage *image = [UIImage imageNamed:@"new-list.png"];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -162,7 +162,7 @@
                             </containerView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTf-gc-Mub">
                                 <rect key="frame" x="256" y="0.0" width="768" height="1004"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="768" id="PJQ-7W-jKr"/>
                                 </constraints>
@@ -180,7 +180,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0pi-VT-Edv" firstAttribute="leading" secondItem="2Jh-WU-NUb" secondAttribute="leading" id="0rK-0P-1gt"/>
                             <constraint firstItem="1rP-re-NoS" firstAttribute="leading" secondItem="2Jh-WU-NUb" secondAttribute="leading" id="13i-vu-ZVV"/>
@@ -221,8 +221,9 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="2PT-YC-Jeg" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="mEU-CF-AgH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="mEU-CF-AgH">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="2Va-EF-XDK" kind="relationship" relationship="rootViewController" id="G0N-pA-G3t"/>
@@ -347,7 +348,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="13L-wr-0H7" firstAttribute="leading" secondItem="Zj1-zP-h55" secondAttribute="trailing" constant="8" symbolic="YES" id="1XO-9v-lQR"/>
                             <constraint firstItem="SJD-PV-kPa" firstAttribute="centerX" secondItem="Jr0-Lz-Zh5" secondAttribute="centerX" constant="-68.5" id="88t-2t-p54"/>
@@ -381,7 +382,7 @@
                             <constraint firstItem="13L-wr-0H7" firstAttribute="top" secondItem="USh-P2-olq" secondAttribute="bottom" constant="1" id="zKa-aW-dPI"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="RHT-Zp-gGA"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>

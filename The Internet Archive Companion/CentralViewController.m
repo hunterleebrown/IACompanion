@@ -11,6 +11,7 @@
 #import "CollectionContentViewController.h"
 #import "ItemContentViewController.h"
 #import "SearchViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface CentralViewController ()
@@ -44,6 +45,9 @@
 
     //[self doOrientationLayout:self.interfaceOrientation];
 
+    self.contentView.layer.cornerRadius = 10;
+    self.contentView.layer.masksToBounds = YES;
+    
 
 }
 
