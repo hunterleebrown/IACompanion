@@ -191,7 +191,7 @@
                         ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:aDoc.headerImageUrl];
                         [aDoc setArchiveImage:anImage];
                     }
-                    [aDoc setDescription:[doc objectForKey:@"description"]];
+                    [aDoc setDetails:[doc objectForKey:@"description"]];
                     [aDoc setPublicDate:[doc objectForKey:@"publicdate"]];
                     [aDoc setDate:[doc objectForKey:@"date"]];
                     
@@ -232,7 +232,7 @@
             ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:dDoc.headerImageUrl];
             [dDoc setArchiveImage:anImage];
         }
-        [dDoc setDescription:[metadata objectForKey:@"description"]];
+        [dDoc setDetails:[metadata objectForKey:@"description"]];
         [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];
         
         NSMutableArray *files = [NSMutableArray new];

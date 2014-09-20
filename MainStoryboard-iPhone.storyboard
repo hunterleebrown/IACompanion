@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gvj-T2-0T5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gvj-T2-0T5">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Main Nav View Controller-->
@@ -872,7 +872,7 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-rM-wTy">
-                                        <rect key="frame" x="10" y="3.9999999962747097" width="300" height="21"/>
+                                        <rect key="frame" x="10" y="4" width="300" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="C3m-RB-1E7"/>
@@ -1351,7 +1351,7 @@
                                 <rect key="frame" x="0.0" y="304" width="320" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxQ-4W-uLu">
-                                        <rect key="frame" x="140" y="2" width="40" height="40"/>
+                                        <rect key="frame" x="106" y="2" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="3sH-YI-ErH"/>
                                             <constraint firstAttribute="width" constant="40" id="5pk-hj-bXE"/>
@@ -1369,7 +1369,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhN-Lq-6Rc">
-                                        <rect key="frame" x="92" y="2" width="40" height="40"/>
+                                        <rect key="frame" x="58" y="2" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Scs-zm-igv"/>
                                             <constraint firstAttribute="height" constant="40" id="iuY-WY-4Z9"/>
@@ -1387,7 +1387,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tq-Oy-aV8">
-                                        <rect key="frame" x="188" y="2" width="40" height="40"/>
+                                        <rect key="frame" x="154" y="2" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="3Fh-IY-VFP"/>
                                             <constraint firstAttribute="height" constant="40" id="F4l-tR-c0x"/>
@@ -1421,6 +1421,23 @@
                                             <action selector="editList:" destination="YFe-rc-yeM" eventType="touchUpInside" id="FD3-ud-ts6"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHa-9E-FL0">
+                                        <rect key="frame" x="202" y="2" width="49" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="2CH-vs-uy9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
+                                        <state key="normal" title="Clear">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearList:" destination="YFe-rc-yeM" eventType="touchDragInside" id="HIT-xh-1E7"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceJ-oM-2MP">
                                         <rect key="frame" x="10" y="2" width="40" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1440,6 +1457,7 @@
                                 <constraints>
                                     <constraint firstItem="1tq-Oy-aV8" firstAttribute="top" secondItem="cxQ-4W-uLu" secondAttribute="top" id="1Bg-Jo-xVc"/>
                                     <constraint firstItem="jGV-Bd-0c4" firstAttribute="top" secondItem="1tq-Oy-aV8" secondAttribute="top" id="5cP-0k-FaZ"/>
+                                    <constraint firstItem="FHa-9E-FL0" firstAttribute="top" secondItem="1tq-Oy-aV8" secondAttribute="top" id="5pd-Te-TrN"/>
                                     <constraint firstItem="cxQ-4W-uLu" firstAttribute="leading" secondItem="jhN-Lq-6Rc" secondAttribute="trailing" constant="8" symbolic="YES" id="7ci-Zz-LRN"/>
                                     <constraint firstItem="cxQ-4W-uLu" firstAttribute="top" secondItem="LxF-R6-FUy" secondAttribute="top" constant="2" id="8Z7-8Y-FUY"/>
                                     <constraint firstItem="ceJ-oM-2MP" firstAttribute="top" secondItem="jhN-Lq-6Rc" secondAttribute="top" id="Aa7-Jl-M5L"/>
@@ -1448,8 +1466,10 @@
                                     <constraint firstAttribute="height" constant="44" id="LOZ-cn-1d0"/>
                                     <constraint firstAttribute="trailing" secondItem="jGV-Bd-0c4" secondAttribute="trailing" constant="10" id="N15-sg-QzR"/>
                                     <constraint firstItem="ceJ-oM-2MP" firstAttribute="leading" secondItem="LxF-R6-FUy" secondAttribute="leading" constant="10" id="V1x-lV-ujn"/>
+                                    <constraint firstItem="FHa-9E-FL0" firstAttribute="bottom" secondItem="1tq-Oy-aV8" secondAttribute="bottom" id="Wib-qT-fve"/>
                                     <constraint firstItem="ceJ-oM-2MP" firstAttribute="top" secondItem="cxQ-4W-uLu" secondAttribute="top" id="Xjv-PF-r2F"/>
-                                    <constraint firstItem="cxQ-4W-uLu" firstAttribute="centerX" secondItem="LxF-R6-FUy" secondAttribute="centerX" id="gVa-MK-S0k"/>
+                                    <constraint firstItem="FHa-9E-FL0" firstAttribute="leading" secondItem="1tq-Oy-aV8" secondAttribute="trailing" constant="8" symbolic="YES" id="dSE-4y-P3Y"/>
+                                    <constraint firstItem="cxQ-4W-uLu" firstAttribute="centerX" secondItem="LxF-R6-FUy" secondAttribute="centerX" constant="-34" id="gVa-MK-S0k"/>
                                 </constraints>
                             </view>
                             <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-8G-Vle">
@@ -1527,6 +1547,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="bufferingView" destination="AdI-j9-iex" id="8lR-i7-8JX"/>
+                        <outlet property="clearButton" destination="FHa-9E-FL0" id="oLH-Zx-J5h"/>
                         <outlet property="currentTimeLabel" destination="HXI-Sq-U7r" id="65J-ee-P15"/>
                         <outlet property="editListButton" destination="jGV-Bd-0c4" id="cr1-7k-HZV"/>
                         <outlet property="imageView" destination="ovf-1o-oWt" id="g35-UM-r79"/>

@@ -21,14 +21,11 @@ typedef enum {
     
 }MediaType;
 
-@interface ArchiveSearchDoc : NSObject {
-
-
-}
+@interface ArchiveSearchDoc : NSObject
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *headerImageUrl;
-@property (strong, nonatomic) NSString *description;
+@property (strong, nonatomic) NSString *details;
 @property (strong, nonatomic) NSString *identifier;
 @property (strong, nonatomic) NSString *publicDate;
 @property (strong, nonatomic) NSString *date;

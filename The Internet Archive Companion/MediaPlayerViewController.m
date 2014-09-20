@@ -27,6 +27,8 @@
 @property (nonatomic, weak) IBOutlet UIView *playerHolder;
 @property (nonatomic) BOOL tableIsEditing;
 @property (nonatomic, weak) IBOutlet UIButton *editListButton;
+@property (nonatomic, weak) IBOutlet UIButton *clearButton;
+
 @property (nonatomic, weak) IBOutlet BufferingView *bufferingView;
 
 @property (nonatomic, weak) IBOutlet UILabel *currentTimeLabel;
@@ -380,6 +382,33 @@
     
 }
 
+
+
+- (IBAction)clearList:(id)sender{
+    //[playerFiles removeAllObjects];
+
+
+    
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    
+    [context processPendingChanges];
+
+    
+    for(PlayerFile *f in [self.fetchedResultsController fetchedObjects]){
+        [context deleteObject:f];
+        
+    }
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        //  NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    
+    
+}
+
+
 - (IBAction)editList:(id)sender{
     tableIsEditing = !tableIsEditing;
     [_editListButton.titleLabel setText:tableIsEditing ? @"Done" : @"Edit"];
@@ -437,7 +466,6 @@
         
         
     }
-    
     
     
     
