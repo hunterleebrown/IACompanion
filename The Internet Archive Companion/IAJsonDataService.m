@@ -182,7 +182,7 @@
                     [aDoc setTitle:[doc objectForKey:@"title"]];
                     
                     if(![doc objectForKey:@"headerImage"]){
-                        [aDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", aDoc.identifier]];
+                        [aDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/img/%@", aDoc.identifier]];
                         ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:aDoc.headerImageUrl];
                         [aDoc setArchiveImage:anImage];
                         
@@ -224,7 +224,7 @@
         [dDoc setIdentifier:[metadata objectForKey:@"identifier"]];
         [dDoc setTitle:[StringUtils stringFromObject:[metadata objectForKey:@"title"]]];
         if(![metadata objectForKey:@"headerImage"]){
-            [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", dDoc.identifier]];
+            [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/img/%@", dDoc.identifier]];
             ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:dDoc.headerImageUrl];
             [dDoc setArchiveImage:anImage];
         } else {

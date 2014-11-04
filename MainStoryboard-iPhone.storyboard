@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gvj-T2-0T5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gvj-T2-0T5">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Main Nav View Controller-->
@@ -549,7 +549,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2o-gT-210">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-rm-hHQ" customClass="ArchiveImageView">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-rm-hHQ" customClass="ArchiveImageView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="172"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
@@ -638,7 +638,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q83-Zf-4pl">
                                         <rect key="frame" x="276" y="128" width="34" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="favorite_icon.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1160,7 +1159,7 @@
             </objects>
             <point key="canvasLocation" x="1077" y="454"/>
         </scene>
-        <!--Favorites Table View Controller - Favorites-->
+        <!--Favorites-->
         <scene sceneID="Woe-91-oGS">
             <objects>
                 <tableViewController storyboardIdentifier="favoritesTableVC" title="Favorites" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xTT-pW-a0u" customClass="FavoritesTableViewController" sceneMemberID="viewController">
@@ -1178,7 +1177,6 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7dz-za-3BF">
                                             <rect key="frame" x="20" y="11" width="280" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -1282,9 +1280,8 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PU9-0c-QPs">
-                                <rect key="frame" x="0.0" y="238" width="320" height="0.0"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dHH-ZA-r5X">
+                                    <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dHH-ZA-r5X">
                                         <rect key="frame" x="10" y="10" width="300" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="296" id="KGh-Gi-94I"/>
@@ -1564,7 +1561,7 @@
             </objects>
             <point key="canvasLocation" x="1186" y="1116"/>
         </scene>
-        <!--Navigation Controller - Favorites-->
+        <!--Favorites-->
         <scene sceneID="rGv-8h-KQf">
             <objects>
                 <navigationController storyboardIdentifier="favoritesVC" title="Favorites" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fGs-Zj-dcC" sceneMemberID="viewController">

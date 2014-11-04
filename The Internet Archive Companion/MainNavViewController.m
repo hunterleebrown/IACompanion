@@ -108,7 +108,7 @@
         [allAudio setIdentifier:@"audio"];
         [allAudio setTitle:@"ALL AUDIO"];
         
-        ArchiveImage *audImage = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"audio"]];
+        ArchiveImage *audImage = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/img/%@", @"audio"]];
         [allAudio setArchiveImage:audImage];
         
         
@@ -123,7 +123,7 @@
         [topVideo setIdentifier:@"movies"];
         [topVideo setType:MediaTypeCollection];
         [topVideo setTitle:@"ALL VIDEO"];
-        ArchiveImage *vidImg = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"movies"]];
+        ArchiveImage *vidImg = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/img/%@", @"movies"]];
         [topVideo setArchiveImage:vidImg];
         [videoSearchDocuments addObject:topVideo];
         
@@ -136,7 +136,7 @@
         [topTexts setIdentifier:@"texts"];
         [topTexts setType:MediaTypeCollection];
         [topTexts setTitle:@"ALL TEXTS"];
-        ArchiveImage *textImg = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", @"texts"]];
+        ArchiveImage *textImg = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/img/%@", @"texts"]];
         [topTexts setArchiveImage:textImg];
         [textSearchDocuments addObject:topTexts];
         

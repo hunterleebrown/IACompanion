@@ -704,7 +704,7 @@
         PlayerFile *file = (PlayerFile *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 
         
-        ArchiveImage *mediaPicture = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/get-item-image.php?identifier=%@", file.identifier]];
+        ArchiveImage *mediaPicture = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/img/%@", file.identifier]];
         [imageView setArchiveImage:mediaPicture];
         
         
