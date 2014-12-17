@@ -50,6 +50,7 @@
 		5A51FA4A16E3C464004E5C44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A51FA4916E3C464004E5C44 /* MessageUI.framework */; };
 		5A51FA4D16E3C6C5004E5C44 /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A51FA4B16E3C6C5004E5C44 /* email-icon.png */; };
 		5A51FA4E16E3C6C5004E5C44 /* email-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A51FA4C16E3C6C5004E5C44 /* email-icon@2x.png */; };
+		5A5A0AF51A422BD00009CBC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A0AF41A422BD00009CBC2 /* Images.xcassets */; };
 		5A727D771800C90A00EEF8C2 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A727D761800C90A00EEF8C2 /* FavoritesTableViewController.m */; };
 		5A727D7E1800CBAB00EEF8C2 /* favorites_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A727D7C1800CBAB00EEF8C2 /* favorites_button.png */; };
 		5A727D7F1800CBAB00EEF8C2 /* favorites_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A727D7D1800CBAB00EEF8C2 /* favorites_button@2x.png */; };
@@ -82,6 +83,7 @@
 		5A9003191735B6E3000C6304 /* PlayerFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9003181735B6E3000C6304 /* PlayerFile.m */; };
 		5A90031B1735B9DF000C6304 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A90031A1735B9DF000C6304 /* CoreData.framework */; };
 		5A9003B91735C9A3000C6304 /* IA.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 5A9003141735B507000C6304 /* IA.xcdatamodeld */; };
+		5A928B851A2BE4A700F17649 /* Version4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A928B841A2BE4A700F17649 /* Version4.storyboard */; };
 		5A93EBB117A4505400D6CB38 /* ArchiveBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */; };
 		5A93EBB217A4505400D6CB38 /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA817A4505400D6CB38 /* ArchiveBookPageImageViewController.m */; };
 		5A93EBB317A4505400D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBA917A4505400D6CB38 /* ArchiveBookPageImageViewController.xib */; };
@@ -255,6 +257,7 @@
 		5A51FA4916E3C464004E5C44 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5A51FA4B16E3C6C5004E5C44 /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
 		5A51FA4C16E3C6C5004E5C44 /* email-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon@2x.png"; sourceTree = "<group>"; };
+		5A5A0AF41A422BD00009CBC2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = IA/Images.xcassets; sourceTree = "<group>"; };
 		5A727D751800C90A00EEF8C2 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		5A727D761800C90A00EEF8C2 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		5A727D7C1800CBAB00EEF8C2 /* favorites_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_button.png; sourceTree = "<group>"; };
@@ -305,6 +308,7 @@
 		5A9003171735B6E3000C6304 /* PlayerFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerFile.h; sourceTree = "<group>"; };
 		5A9003181735B6E3000C6304 /* PlayerFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerFile.m; sourceTree = "<group>"; };
 		5A90031A1735B9DF000C6304 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5A928B841A2BE4A700F17649 /* Version4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Version4.storyboard; sourceTree = "<group>"; };
 		5A93EBA517A4505400D6CB38 /* ArchiveBookPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageViewController.h; sourceTree = "<group>"; };
 		5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageViewController.m; sourceTree = "<group>"; };
 		5A93EBA717A4505400D6CB38 /* ArchiveBookPageImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageImageViewController.h; sourceTree = "<group>"; };
@@ -456,6 +460,7 @@
 		5A0A10A016A640A300CC70CD = {
 			isa = PBXGroup;
 			children = (
+				5A5A0AF41A422BD00009CBC2 /* Images.xcassets */,
 				5A0A10B516A640A300CC70CD /* The Internet Archive Companion */,
 				5A0A10D916A640A300CC70CD /* The Internet Archive CompanionTests */,
 				5A0A10AE16A640A300CC70CD /* Frameworks */,
@@ -505,6 +510,7 @@
 				5A0A10BF16A640A300CC70CD /* AppDelegate.m */,
 				5A0A10C716A640A300CC70CD /* MainStoryboard.storyboard */,
 				5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */,
+				5A928B841A2BE4A700F17649 /* Version4.storyboard */,
 				5A0A10B616A640A300CC70CD /* Supporting Files */,
 			);
 			path = "The Internet Archive Companion";
@@ -951,7 +957,7 @@
 		5A0A10A216A640A300CC70CD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastTestingUpgradeCheck = 0600;
+				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Hunter Lee Brown";
 				TargetAttributes = {
@@ -1014,6 +1020,7 @@
 				5A8CA7EC16D0365000F97BF7 /* share-bbi@2x.png in Resources */,
 				5A8CA7F416D0423600F97BF7 /* W-share-FB.png in Resources */,
 				5A8CA7F516D0423600F97BF7 /* W-share-FB@2x.png in Resources */,
+				5A5A0AF51A422BD00009CBC2 /* Images.xcassets in Resources */,
 				5A727D7F1800CBAB00EEF8C2 /* favorites_button@2x.png in Resources */,
 				5A8CA7F616D0423600F97BF7 /* W-share-twitter.png in Resources */,
 				5A8CA7F716D0423600F97BF7 /* W-share-twitter@2x.png in Resources */,
@@ -1023,6 +1030,7 @@
 				5AF2310A16D756BC00262B09 /* Default.png in Resources */,
 				5AF2310C16D756C500262B09 /* Default@2x.png in Resources */,
 				5AF2311016D758F900262B09 /* Default-568h@2x.png in Resources */,
+				5A928B851A2BE4A700F17649 /* Version4.storyboard in Resources */,
 				CEEA730D16DD30C80092FA84 /* list.png in Resources */,
 				CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */,
 				5A727D7E1800CBAB00EEF8C2 /* favorites_button.png in Resources */,
@@ -1251,11 +1259,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1275,11 +1283,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1287,11 +1295,14 @@
 		5A0A10E516A640A300CC70CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = IA;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1302,11 +1313,14 @@
 		5A0A10E616A640A300CC70CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = IA;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
