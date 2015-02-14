@@ -128,7 +128,8 @@
     if(!subView && alertMessage){
         UIFont *messageFont = [UIFont fontWithName:@"AmericanTypewriter" size:15];
         
-        CGSize alertSize = [alertMessage sizeWithFont:messageFont constrainedToSize:containerView.bounds.size lineBreakMode:NSLineBreakByWordWrapping];
+//        CGSize alertSize = [alertMessage sizeWithFont:messageFont constrainedToSize:containerView.bounds.size lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize alertSize = [alertMessage boundingRectWithSize:containerView.bounds.size options:nil attributes:@{NSFontAttributeName: messageFont} context:nil].size;
         
         UILabel *view = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, alertSize.width, alertSize.height)];
         [view setFont:messageFont];
@@ -158,11 +159,10 @@
     
     
     
-    CGSize titleSize = [popTitle.text sizeWithFont:popTitle.font];
+//    CGSize titleSize = [popTitle.text sizeWithFont:popTitle.font];
+    CGSize titleSize = [popTitle.text sizeWithAttributes:@{NSFontAttributeName : popTitle.font}];
     [popTitle setFrame:CGRectMake(self.view.center.x - round(titleSize.width/2) - 10, 0, titleSize.width, 44)];
-    
-    
-    
+        
     UIView *contentView;
     if(containerView.subviews && containerView.subviews.count > 0) {
         contentView = [containerView.subviews objectAtIndex:0];

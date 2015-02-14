@@ -11,13 +11,13 @@
 @interface AsyncTextView : UITextView {
     NSString *fileUrl;
     UIActivityIndicatorView *spinner;
-    int startByte;
-    int readLength;
+    NSInteger startByte;
+    NSInteger readLength;
 
 }
 
 + (NSCache *)cache;
-- (void) setAndLoadViewFromUrl:(NSString *)url withStartByte:(int)start withLength:(int)length;
+- (void) setAndLoadViewFromUrl:(NSString *)url withStartByte:(NSInteger)start withLength:(NSInteger)length;
 
 
 @end

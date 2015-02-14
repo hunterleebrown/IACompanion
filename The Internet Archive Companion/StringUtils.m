@@ -128,10 +128,10 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 
 
 
-+ (NSString *) decimalFormatNumberFromInteger:(int)input{
++ (NSString *) decimalFormatNumberFromInteger:(NSInteger)input{
     NSNumberFormatter *formatter = [NSNumberFormatter new];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInt:input]];
+    NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:input]];
     return formatted;
 
 }
@@ -139,14 +139,14 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 
 
 
-+ (NSString *)timeFormatted:(int)totalSeconds
++ (NSString *)timeFormatted:(NSInteger)totalSeconds
 {
     
-    int seconds = totalSeconds % 60;
-    int minutes = (totalSeconds / 60) % 60;
-    int hours = totalSeconds / 3600;
+    NSInteger seconds = totalSeconds % 60;
+    NSInteger minutes = (totalSeconds / 60) % 60;
+    NSInteger hours = totalSeconds / 3600;
     
-    return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
+    return [NSString stringWithFormat:@"%02ld:%02ld:%02ld",(long)hours, (long)minutes, (long)seconds];
 }
 
 

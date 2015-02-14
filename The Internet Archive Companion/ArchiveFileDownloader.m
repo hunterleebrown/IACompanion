@@ -134,7 +134,9 @@
 	}
     if (target != nil) {
         if (didFinishSelector != nil) {
-            [target performSelector:didFinishSelector withObject:download];
+            IMP imp = [target methodForSelector:didFinishSelector];
+            void (*func)(id, SEL) = (void *)imp;
+            func(target, didFinishSelector);
         }
     }
 }
@@ -185,12 +187,20 @@
 	}
     if (target != nil) {
         if (didFailSelector != nil) {
-            [target performSelector:didFailSelector withObject:download];
+            if([target respondsToSelector:didFailSelector]) {
+//                [target performSelector:didFailSelector withObject:download];
+
+                IMP imp = [target methodForSelector:didFailSelector];
+                void (*func)(id, SEL, ArchiveFileDownload*) = (void *)imp;
+                func(target, didFailSelector, download);
+            }
         }
     }
     if (delegate != nil) {
 		if (didFailSelector != nil) {
-            [delegate performSelector:didFailSelector withObject:download];
+            if([delegate respondsToSelector:didFailSelector]) {
+                [delegate performSelector:didFailSelector withObject:download];
+            }
         }
         else if ([delegate respondsToSelector:@selector(didFailFileDownload:)]) {
             [delegate didFailFileDownload:download];

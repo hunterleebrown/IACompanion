@@ -24,6 +24,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *pageNumber;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
-- (void) setPageWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(int)index;
+- (void) setPageWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(NSInteger)index;
 
 @end

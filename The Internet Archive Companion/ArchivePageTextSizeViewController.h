@@ -10,7 +10,7 @@
 
 @protocol ArchivePageTextSizeDelegate <NSObject>
 
-- (void) changeFontSize:(int)size;
+- (void) changeFontSize:(NSInteger)size;
 
 
 @end

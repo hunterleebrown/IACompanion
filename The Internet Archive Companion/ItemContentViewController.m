@@ -107,7 +107,7 @@
     [self setTitle:self.detDoc.title];
     
     
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], UITextAttributeFont, nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], NSFontAttributeName, nil]];
     
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
     

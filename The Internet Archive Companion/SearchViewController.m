@@ -15,8 +15,8 @@
 @interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
 @property (nonatomic, strong) NSMutableArray *searchDocuments;
-@property (assign) int numFound;
-@property (assign) int start;
+@property (assign) NSInteger numFound;
+@property (assign) NSInteger start;
 @property (assign) BOOL didTriggerLoadMore;
 
 @property (nonatomic, weak) IBOutlet UILabel *numFoundLabel;
@@ -136,7 +136,7 @@
 
 - (IBAction)searchFilterChange:(id)sender{
     UISegmentedControl *segment = (UISegmentedControl *)sender;
-    int selectedSegment = segment.selectedSegmentIndex;
+    NSInteger selectedSegment = segment.selectedSegmentIndex;
     // audio, video, text, image
     
     NSString *extraSearchParam = @"";
@@ -212,7 +212,7 @@
         didTriggerLoadMore = YES;
         start = start + 50;
         
-        [service setLoadMoreStart:[NSString stringWithFormat:@"%i", start]];
+        [service setLoadMoreStart:[NSString stringWithFormat:@"%li", (long)start]];
         [service fetchData];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
         
@@ -228,7 +228,7 @@
     
 }
 
-- (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [searchDocuments count];
 }
 

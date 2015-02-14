@@ -12,7 +12,7 @@
 
 @protocol PageFontChangeDelegate <NSObject>
 
-- (void)changeFontSizeOfChildControllers:(int)size;
+- (void)changeFontSizeOfChildControllers:(NSInteger)size;
 
 @end
 
@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) UIPopoverController *popper;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *fontButton;
-@property (nonatomic) int fontSizeForAll;
+@property (nonatomic) NSInteger fontSizeForAll;
 @property (nonatomic, strong) id<PageFontChangeDelegate> fontChangeDelegate;
 
 

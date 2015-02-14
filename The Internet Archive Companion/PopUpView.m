@@ -138,8 +138,8 @@
 
     [self setFrame:CGRectMake(10, 44, self.superview.frame.size.width - 20, self.superview.frame.size.height - 64)];
  
-    
-    CGSize titleSize = [popTitle.text sizeWithFont:popTitle.font];
+    CGSize titleSize = [popTitle.text sizeWithAttributes:@{NSFontAttributeName : popTitle.font}];
+
     [popTitle setFrame:CGRectMake(self.center.x - round(titleSize.width/2) - 10, 0, titleSize.width, 44)];
     
 

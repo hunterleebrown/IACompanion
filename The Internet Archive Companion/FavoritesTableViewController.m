@@ -47,7 +47,8 @@
     
     //[self.navigationItem.titleView setTintColor:[UIColor whiteColor]];
     UIFont *titleFont = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16];
-    CGSize titleSize = [@"Favorites" sizeWithFont:titleFont];
+    CGSize titleSize = [@"Favorites" sizeWithAttributes:@{NSFontAttributeName : titleFont}];
+
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, titleSize.width, 40)];
     [title setFont:titleFont];
     [title setText:@"Favorites"];
@@ -122,7 +123,7 @@
     [newManagedObject setValue:@"URL" forKey:@"url"];
     [newManagedObject setValue:doc.title forKey:@"identifierTitle"];
     [newManagedObject setValue:@"NONE" forKey:@"format"];
-    [newManagedObject setValue:[NSNumber numberWithInt:[[self.fetchedResultsController fetchedObjects]count] + 1] forKey:@"displayOrder"];
+    [newManagedObject setValue:[NSNumber numberWithInteger:[[self.fetchedResultsController fetchedObjects]count] + 1] forKey:@"displayOrder"];
     
     // Save the context.
     
@@ -209,9 +210,11 @@
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+
         case NSFetchedResultsChangeDelete:
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default:
             break;
     }
 }
@@ -301,7 +304,7 @@
     // Update the order of them all according to their index in the mutable array
     [sortedFiles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Favorite *zeFavorite = (Favorite *)obj;
-        zeFavorite.displayOrder = [NSNumber numberWithInt:idx];
+        zeFavorite.displayOrder = [NSNumber numberWithInteger:idx];
     }];
     
     

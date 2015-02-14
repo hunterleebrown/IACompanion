@@ -15,9 +15,9 @@
 {
     
     NSString *useUrl;
-    int start;
-    int end;
-    int ReadPageBytesLength;
+    NSInteger start;
+    NSInteger end;
+    NSInteger ReadPageBytesLength;
 
 }
 @end
@@ -86,7 +86,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     [_pageNumber setText:[NSString stringWithFormat:@"%i", self.index + 1]];
     
     
-    int paddingDenom = 10;
+    NSInteger paddingDenom = 10;
     float topPadding = 40;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         float padding = round(self.view.bounds.size.width / paddingDenom);
@@ -97,7 +97,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 }
 
 
-- (void) setFontSize:(int)fontSize{
+- (void) setFontSize:(NSInteger)fontSize{
     _fontSize = fontSize;
     _bodyTextView.font = [UIFont fontWithName:_bodyTextView.font.fontName size:_fontSize];
 }
@@ -140,7 +140,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 }
 
 
-- (void) getPageWithFile:(ArchiveFile *)file withIndex:(int)index fontSize:(int)size{
+- (void) getPageWithFile:(ArchiveFile *)file withIndex:(NSInteger)index fontSize:(NSInteger)size{
     self.index = index;
     start = 0;
     _file = file;

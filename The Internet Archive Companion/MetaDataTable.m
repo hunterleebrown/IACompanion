@@ -55,17 +55,19 @@
     
 }
 
-- (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return metaData.count;
 }
 
-- (int) numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
-- (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
     NSString *valueText = [StringUtils stringFromObject:[metaData objectForKey:[metaData.allKeys objectAtIndex:indexPath.row]]];
-    return [MetaCell heightForValue:valueText] > 44 ? [MetaCell heightForValue:valueText] : 44;
+
+    return [MetaCell heightForValue:valueText forWidth:round(self.frame.size.width * 0.5)];
 }
 
 
@@ -89,6 +91,7 @@
     [super layoutSubviews];
     
     metaTable.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    [self.metaTable reloadData];
 }
 
 

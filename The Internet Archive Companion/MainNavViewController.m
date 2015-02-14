@@ -155,7 +155,7 @@
     return 4;
 }
 
-- (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:
             return 3;
@@ -251,7 +251,7 @@
     }
     
 }
-- (float) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     switch (section) {
         case 0:
             return 0;

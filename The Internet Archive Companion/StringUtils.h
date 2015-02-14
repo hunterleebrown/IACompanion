@@ -16,8 +16,8 @@
 + (NSString *) displayDateFromArchiveMetaDateString:(NSString *)metaDate;
 + (NSString *) displayDateFromArchiveDayString:(NSString *)metaDate;
 + (NSString *) stringFromObject:(NSObject *)object;
-+ (NSString *) decimalFormatNumberFromInteger:(int)input;
-+ (NSString *)timeFormatted:(int)totalSecond;
++ (NSString *) decimalFormatNumberFromInteger:(NSInteger)input;
++ (NSString *)timeFormatted:(NSInteger)totalSecond;
 + (NSString *) stringByStrippingHTML:(NSString *)inString;
 
 

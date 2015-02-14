@@ -15,6 +15,9 @@
 
 
 @implementation MetaCell
+
+static CGFloat padding = 10.0f;
+
 @synthesize titleLabel, valueLabel;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -22,8 +25,8 @@
     if (self) {
         // Initialization code
         
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 100, 39)];
-        valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 5, 160, 39)];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(padding, 5, round(self.contentView.bounds.size.width * 0.5) - (2 * padding), self.contentView.bounds.size.height)];
+        valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(round(self.contentView.bounds.size.width * 0.5) - 20, 5, round(self.contentView.bounds.size.width * 0.5) - 20, self.bounds.size.height)];
         [titleLabel setNumberOfLines:0];
         [valueLabel setNumberOfLines:0];
 
@@ -38,8 +41,8 @@
         [valueLabel setLineBreakMode:NSLineBreakByWordWrapping];
 
         
-        [self addSubview:titleLabel];
-        [self addSubview:valueLabel];
+        [self.contentView addSubview:titleLabel];
+        [self.contentView addSubview:valueLabel];
         
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
 
@@ -48,19 +51,67 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+
+
+    CGRect titRect = self.titleLabel.frame;
+    titRect.size.height = [self heightForLabel:self.titleLabel];
+    titRect.size.width = round(self.bounds.size.width * 0.5) - (2 * padding);
+    titRect.origin.x = padding;
+    self.titleLabel.frame = titRect;
+
+    CGRect valRect = self.valueLabel.frame;
+    valRect.size.height = [self heightForLabel:self.valueLabel];
+    valRect.size.width = round(self.bounds.size.width * 0.5) - (2 *padding);
+    valRect.origin.x = titRect.origin.x + titRect.size.width + padding;
+
+    self.valueLabel.frame = valRect;
+
+
+
+//    for(UIView *view in self.contentView.subviews)
+//    {
+//        view.layer.borderColor = [UIColor redColor].CGColor;
+//        view.layer.borderWidth = 1.0;
+//    }
+
+
+}
+
+
+- (CGFloat) heightForLabel:(UILabel *)lab
+{
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:lab.text
+                                                                         attributes:@{NSFontAttributeName: [UIFont  fontWithName:@"AmericanTypewriter" size:10]}];
+
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){round(self.bounds.size.width * 0.5), CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context: nil];
+
+
+
+    return rect.size.height + padding;
+}
+
 - (void) setTitle:(NSString *)ts setValue:(NSString *)value{
     [titleLabel setText:ts];
     [valueLabel setText:value];
 
-    CGSize valueSize = [value sizeWithFont:[UIFont  fontWithName:@"AmericanTypewriter" size:10] constrainedToSize:CGSizeMake(160, 200) lineBreakMode:NSLineBreakByWordWrapping];
-    [valueLabel setFrame:CGRectMake(valueLabel.frame.origin.x, valueLabel.frame.origin.y, 160, valueSize.height >= 44 ? valueSize.height : 44)];
-    
+    [self setNeedsLayout];
 }
 
-+ (float) heightForValue:(NSString *)value {
-    CGSize valueSize = [value sizeWithFont:[UIFont  fontWithName:@"AmericanTypewriter" size:10] constrainedToSize:CGSizeMake(160, 200) lineBreakMode:NSLineBreakByWordWrapping];
-    
-    return valueSize.height + 20;
++ (CGFloat) heightForValue:(NSString *)value forWidth:(CGFloat)width{
+
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:value
+                                                                         attributes:@{NSFontAttributeName: [UIFont  fontWithName:@"AmericanTypewriter" size:10]}];
+
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+
+    return rect.size.height + (padding * 2);
 }
 
 

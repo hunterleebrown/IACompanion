@@ -86,7 +86,7 @@
 #pragma mark - page view controller
 /* Stupid, but works */
 
-- (ArchiveBookPageImageViewController *) pageControllerForIndex:(int)index{
+- (ArchiveBookPageImageViewController *) pageControllerForIndex:(NSInteger)index{
     
     
     ArchiveBookPageImageViewController *p0;
@@ -147,7 +147,7 @@
     
 }
 
-- (void) setPagesWithIndex:(int)index{
+- (void) setPagesWithIndex:(NSInteger)index{
     [pages setObject:[self newPageControllerWithIndex:index - 2] atIndexedSubscript:0];
     [pages setObject:[self newPageControllerWithIndex:index - 1] atIndexedSubscript:1];
     [pages setObject:[self newPageControllerWithIndex:index] atIndexedSubscript:2];
@@ -157,7 +157,7 @@
 }
 
 
-- (void) changeFontSizeOfChildControllers:(int)size{
+- (void) changeFontSizeOfChildControllers:(NSInteger)size{
     //   NSLog(@" ---------> change child fontsize to: %i", size);
     
     for(UIViewController *vc in pages){
@@ -170,16 +170,16 @@
     
 }
 
-- (UIViewController *) newPageControllerWithIndex:(int)index{
+- (UIViewController *) newPageControllerWithIndex:(NSInteger)index{
     
     
     if(bookFile.format == FileFormatDjVuTXT || bookFile.format == FileFormatTxt){
         
         ArchiveBookPageTextViewController *page = [[ArchiveBookPageTextViewController alloc] initWithNibName:@"ArchiveBookPageTextViewController" bundle:nil];
-        int fontSize = 14;
-            fontSize = self.fontSizeForAll;
+        NSInteger fontSize = 14;
+        fontSize = self.fontSizeForAll;
         [page getPageWithFile:bookFile withIndex:index fontSize:fontSize];
-        
+
         return page;
         
     } else {
@@ -302,7 +302,7 @@
 }
 
 
-- (void) changeFontSize:(int)size{
+- (void) changeFontSize:(NSInteger)size{
     if(_fontSizeForAll + size >= 10 && _fontSizeForAll + size <= 24) {
         _fontSizeForAll = _fontSizeForAll + size;
         for(UIViewController *child in self.childViewControllers) {

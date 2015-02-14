@@ -289,7 +289,7 @@
             [self becomeFirstResponder];
             [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
             
-            int index = [self indexOfInFileFromUrl:player.contentURL];
+            NSInteger index = [self indexOfInFileFromUrl:player.contentURL];
             PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
             NSDictionary *songInfo;
             if(imageView.image){
@@ -298,7 +298,7 @@
                             file.title, MPMediaItemPropertyTitle,
                             file.identifierTitle, MPMediaItemPropertyAlbumTitle,
                             file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
-                            [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                            [NSString stringWithFormat:@"%lu", (unsigned long)[[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
                             art, MPMediaItemPropertyArtwork,
                             nil];
             } else {
@@ -306,7 +306,7 @@
                             file.title, MPMediaItemPropertyTitle,
                             file.identifierTitle, MPMediaItemPropertyAlbumTitle,
                             file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
-                            [NSString stringWithFormat:@"%i", [[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                            [NSString stringWithFormat:@"%lu", (unsigned long)[[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
                             nil];
             }
             
@@ -627,9 +627,11 @@
         case NSFetchedResultsChangeInsert:
             [_playerTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+
         case NSFetchedResultsChangeDelete:
             [_playerTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default:
             break;
     }
 }
@@ -674,7 +676,7 @@
     return YES;
 }
 
-- (int) indexOfInFileFromUrl:(NSURL *)url{
+- (NSInteger) indexOfInFileFromUrl:(NSURL *)url{
     
     NSArray *loadedFiles = [self.fetchedResultsController fetchedObjects];
     for(PlayerFile *file in loadedFiles){
@@ -689,7 +691,7 @@
 
 - (void) setSelectedCellOfPlayingFileForPlayer:(MPMoviePlayerController *)thePlayer{
     if ([[self.fetchedResultsController fetchedObjects] count]> 0) {
-        int index = [self indexOfInFileFromUrl:thePlayer.contentURL];
+        NSInteger index = [self indexOfInFileFromUrl:thePlayer.contentURL];
         //NSLog(@"--------> playing index: %i", index);
         
         // if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
@@ -788,9 +790,9 @@
 
 
 - (void) playNext{
-    int index = [self indexOfInFileFromUrl:player.contentURL];
+    NSInteger index = [self indexOfInFileFromUrl:player.contentURL];
     if(index >= 0) {
-        int newIndex = index +1;
+        NSInteger newIndex = index +1;
         if(newIndex == [[self.fetchedResultsController fetchedObjects ]count]){
             // Remove this class from the observers
             [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -814,9 +816,9 @@
 }
 
 - (void) playPrevious {
-    int index = [self indexOfInFileFromUrl:player.contentURL];
+    NSInteger index = [self indexOfInFileFromUrl:player.contentURL];
     if(index > 0) {
-        int newIndex = index - 1;
+        NSInteger newIndex = index - 1;
         PlayerFile *newFile = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:newIndex inSection:0]];
         [player setContentURL:[NSURL URLWithString:newFile.url]];
         [player stop];

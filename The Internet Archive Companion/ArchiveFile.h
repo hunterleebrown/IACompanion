@@ -40,7 +40,7 @@ typedef enum {
 @property (nonatomic) FileFormat format;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic) int track;
+@property (nonatomic) NSInteger track;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *server;
@@ -48,7 +48,7 @@ typedef enum {
 @property (nonatomic, strong) NSString *height;
 @property (nonatomic, strong) NSString *width;
 @property (nonatomic, strong) NSString *identifierTitle;
-@property (nonatomic) int size;
+@property (nonatomic) NSInteger size;
 
 
 

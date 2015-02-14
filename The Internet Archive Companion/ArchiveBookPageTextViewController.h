@@ -14,12 +14,12 @@
 @interface ArchiveBookPageTextViewController : ArchiveBookPageViewController
 
 
-- (void) getPageWithFile:(ArchiveFile *)file withIndex:(int)index fontSize:(int)size;
+- (void) getPageWithFile:(ArchiveFile *)file withIndex:(NSInteger)index fontSize:(NSInteger)size;
 
 @property (nonatomic, weak) IBOutlet AsyncTextView *bodyTextView;
 @property (nonatomic, weak) IBOutlet UILabel *pageNumber;
 //@property (nonatomic) int index;
-@property (nonatomic) int fontSize;
+@property (nonatomic) NSInteger fontSize;
 @property (nonatomic, retain) ArchiveFile *file;
 @property (nonatomic, retain) IBOutlet UIButton *fontSizePlusButton;
 @property (nonatomic, retain) IBOutlet UIButton *fontSizeMinusButton;

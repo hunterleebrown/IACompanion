@@ -65,7 +65,7 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
 
 
 
-- (void) setPageWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(int)index{
+- (void) setPageWithServer:(NSString *)server withZipFileLocation:(NSString *)zipFile withFileName:(NSString *)name withIdentifier:(NSString *)identifier withIndex:(NSInteger)index{
 
     _server = server;
     _zipFile = zipFile;
@@ -74,13 +74,13 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
     _name = name;
 
     NSString *page = [name substringWithRange:NSMakeRange(0, (name.length - 8))];
-    _url = [NSString stringWithFormat:@"http://%@%@zip=%@&file=%@_jp2/%@_%@.jp2&scale=2", _server, BookReaderImagesPHP, _zipFile, page, page, [NSString stringWithFormat:@"%04d", self.index]];
+    _url = [NSString stringWithFormat:@"http://%@%@zip=%@&file=%@_jp2/%@_%@.jp2&scale=2", _server, BookReaderImagesPHP, _zipFile, page, page, [NSString stringWithFormat:@"%04ld", (long)self.index]];
   //  NSLog(@"------> page: %@", page);
    // NSLog(@"------> url: %@", _url);
     
     ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:_url];
     [_aSyncImageView setArchiveImage:anImage];
-    [_pageNumber setText:[NSString stringWithFormat:@"%i", self.index ]];
+    [_pageNumber setText:[NSString stringWithFormat:@"%li", (long)self.index ]];
 }
 
 
@@ -135,7 +135,7 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
     
 }
 
-- (void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale {
+- (void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
     NSLog(@"GOT A ZOOM DID END");
     
 }

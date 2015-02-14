@@ -66,7 +66,7 @@ static NSOperationQueue *queue = nil;
     
 }
 
-- (void) setAndLoadViewFromUrl:(NSString *)url withStartByte:(int)start withLength:(int)length {
+- (void) setAndLoadViewFromUrl:(NSString *)url withStartByte:(NSInteger)start withLength:(NSInteger)length {
     fileUrl = url;
     startByte = start;
     readLength = length;
@@ -125,14 +125,14 @@ static NSOperationQueue *queue = nil;
 - (void)displayView:(NSData *)inData {
     NSRange range = NSMakeRange(startByte, readLength);
     
-    int dataLength = inData.length;
+    NSInteger dataLength = inData.length;
     if(startByte > dataLength) {
         [self setText:@"[--- RAN OUT OF FILE ---]"];
         [spinner stopAnimating];
         return;
     }
     if(dataLength < (startByte + readLength)){
-        int difference = dataLength - startByte;
+        NSInteger difference = dataLength - startByte;
         if(difference < 0){
             [self setText:@"[--- RAN OUT OF FILE ---]"];
             return;

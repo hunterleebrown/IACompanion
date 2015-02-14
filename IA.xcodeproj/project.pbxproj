@@ -257,7 +257,7 @@
 		5A51FA4916E3C464004E5C44 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5A51FA4B16E3C6C5004E5C44 /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
 		5A51FA4C16E3C6C5004E5C44 /* email-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon@2x.png"; sourceTree = "<group>"; };
-		5A5A0AF41A422BD00009CBC2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = IA/Images.xcassets; sourceTree = "<group>"; };
+		5A5A0AF41A422BD00009CBC2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../IA/Images.xcassets; sourceTree = "<group>"; };
 		5A727D751800C90A00EEF8C2 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		5A727D761800C90A00EEF8C2 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		5A727D7C1800CBAB00EEF8C2 /* favorites_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_button.png; sourceTree = "<group>"; };
@@ -460,7 +460,6 @@
 		5A0A10A016A640A300CC70CD = {
 			isa = PBXGroup;
 			children = (
-				5A5A0AF41A422BD00009CBC2 /* Images.xcassets */,
 				5A0A10B516A640A300CC70CD /* The Internet Archive Companion */,
 				5A0A10D916A640A300CC70CD /* The Internet Archive CompanionTests */,
 				5A0A10AE16A640A300CC70CD /* Frameworks */,
@@ -519,6 +518,7 @@
 		5A0A10B616A640A300CC70CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5A5A0AF41A422BD00009CBC2 /* Images.xcassets */,
 				5A32CBD518060125008C9543 /* Default-Portrait-1024@2x~ipad.png */,
 				5A32CBD4180600D8008C9543 /* Default-Portrait-1024~ipad.png */,
 				5A867BA618015A0900513BA9 /* Default-Landscape-1024@2x~ipad.png */,
@@ -957,7 +957,7 @@
 		5A0A10A216A640A300CC70CD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastTestingUpgradeCheck = 0610;
+				LastTestingUpgradeCheck = 0620;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Hunter Lee Brown";
 				TargetAttributes = {

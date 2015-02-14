@@ -16,6 +16,6 @@
 
 - (void) setTitle:(NSString *)title setValue:(NSString *)value;
 
-+ (float) heightForValue:(NSString *)value;
++ (CGFloat) heightForValue:(NSString *)value forWidth:(CGFloat)width;
 
 @end

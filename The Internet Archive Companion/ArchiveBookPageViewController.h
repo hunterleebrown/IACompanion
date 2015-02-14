@@ -11,7 +11,7 @@
 @interface ArchiveBookPageViewController : UIViewController
 
 
-@property (nonatomic) int index;
+@property (nonatomic) NSInteger index;
 
 @property (nonatomic, retain) IBOutlet UIImageView *leftShadow;
 @property (nonatomic, retain) IBOutlet UIImageView *rightShadow;
