@@ -60,6 +60,9 @@
 - (IBAction)gotATap:(id)sender
 {
     UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[archiveImageView.image] applicationActivities:nil];
+    if([shareViewController respondsToSelector:@selector(popoverPresentationController)]){
+        [shareViewController.popoverPresentationController setSourceView:self.view];
+    }
     [self presentViewController:shareViewController animated:YES completion:nil];
 }
 

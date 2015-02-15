@@ -244,6 +244,9 @@
 
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
     UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
+    if([shareViewController respondsToSelector:@selector(popoverPresentationController)]){
+        [shareViewController.popoverPresentationController setSourceView:sender];
+    }
     [self presentViewController:shareViewController animated:YES completion:nil];
     
 }

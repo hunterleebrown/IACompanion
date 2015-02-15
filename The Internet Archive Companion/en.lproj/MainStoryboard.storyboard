@@ -725,7 +725,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="showSharingActionsSheet:" destination="MWy-Or-TRJ" eventType="touchUpInside" id="PJ0-1x-Ru5"/>
+                                            <action selector="showSharingActionsSheet:" destination="MWy-Or-TRJ" eventType="touchUpInside" id="rwE-sP-Ode"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3W-Xt-4As">
@@ -908,6 +908,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="P47-SM-Si7" id="q20-Om-dSp"/>
+                                    <outletCollection property="gestureRecognizers" destination="IgW-KA-14i" appends="YES" id="AEq-iN-NtL"/>
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pI1-Tv-pX7">
@@ -943,9 +944,15 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="scrollView" destination="6DO-IM-dYm" id="ov8-75-ymK"/>
+                        <outlet property="tapGestureRecognizer" destination="IgW-KA-14i" id="pwH-Td-CNt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaY-8m-LSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IgW-KA-14i">
+                    <connections>
+                        <action selector="gotATap:" destination="P47-SM-Si7" id="xSt-oV-euI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2656" y="1380"/>
         </scene>
