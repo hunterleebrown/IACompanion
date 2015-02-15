@@ -402,11 +402,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search The Internet Archive" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petabox-blur" translatesAutoresizingMaskIntoConstraints="NO" id="g6d-Ei-35B">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </imageView>
+                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search The Internet Archive" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="qSn-LB-gda" id="JXz-hG-ess"/>
@@ -431,17 +434,18 @@
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykI-sc-EGX">
                                 <rect key="frame" x="10" y="108" width="300" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4ya-Ek-IFl"/>
                                     <constraint firstAttribute="width" constant="300" id="F6N-wY-bhN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="15"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rvY-sS-u1i">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rvY-sS-u1i">
                                 <rect key="frame" x="0.0" y="132" width="320" height="392"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="328" id="kuo-Tz-Cfy"/>
                                 </constraints>
@@ -466,7 +470,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="214" id="D6d-xx-akL"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -479,15 +483,16 @@
                                                         <constraint firstAttribute="width" constant="84" id="8aW-Y0-3Ke"/>
                                                         <constraint firstAttribute="height" constant="21" id="SNT-dl-bkc"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="1oX-Pj-vdy" firstAttribute="trailing" secondItem="O6F-MF-pgI" secondAttribute="trailing" id="DZt-1h-6Uc"/>
                                             <constraint firstItem="G92-qq-ugo" firstAttribute="top" secondItem="1oX-Pj-vdy" secondAttribute="top" id="JAv-O0-2Vl"/>
@@ -516,16 +521,28 @@
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="trailing" secondItem="jw3-cD-TaP" secondAttribute="trailing" id="0SJ-vU-NbR"/>
                             <constraint firstAttribute="bottom" secondItem="rvY-sS-u1i" secondAttribute="bottom" constant="-44" id="8jv-sC-TLh"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" id="Ej0-fg-1Ke"/>
+                            <constraint firstItem="g6d-Ei-35B" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" id="M6J-vL-10q"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="leading" secondItem="HB2-Ev-PlD" secondAttribute="leading" id="Mtd-jc-usu"/>
+                            <constraint firstAttribute="trailing" secondItem="HB2-Ev-PlD" secondAttribute="trailing" constant="10" id="Nhy-1b-Nj0"/>
+                            <constraint firstItem="cD8-Of-WG6" firstAttribute="top" secondItem="g6d-Ei-35B" secondAttribute="bottom" id="Pmu-m0-kO3"/>
+                            <constraint firstAttribute="trailing" secondItem="g6d-Ei-35B" secondAttribute="trailing" id="T4c-kx-bAD"/>
                             <constraint firstItem="jw3-cD-TaP" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="20" id="XBV-6c-BBQ"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="132" id="nKY-2V-MT3"/>
+                            <constraint firstItem="HB2-Ev-PlD" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" constant="10" id="oaR-Su-ZGb"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="73" id="osJ-r4-Woo"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="trailing" secondItem="HB2-Ev-PlD" secondAttribute="trailing" id="sKf-OD-thM"/>
+                            <constraint firstItem="g6d-Ei-35B" firstAttribute="top" secondItem="NEd-oQ-XuM" secondAttribute="bottom" id="sVL-kp-6aZ"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="108" id="sbh-VE-IOM"/>
                             <constraint firstItem="jw3-cD-TaP" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" id="uEZ-mD-Uh8"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="trailing" secondItem="02l-d9-364" secondAttribute="trailing" id="vqY-Dl-slc"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="centerX" secondItem="jw3-cD-TaP" secondAttribute="centerX" id="vzf-3y-5Os"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Mtd-jc-usu"/>
+                                <exclude reference="sKf-OD-thM"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
