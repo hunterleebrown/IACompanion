@@ -241,9 +241,10 @@
 
 
 - (IBAction)showSharingActionsSheet:(id)sender{
-    UIActionSheet *sharingActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", @"Email", nil];
-    [sharingActionSheet setActionSheetStyle:UIActionSheetStyleAutomatic];
-    [sharingActionSheet showInView:self.view];
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
+    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
+    [self presentViewController:shareViewController animated:YES completion:nil];
     
 }
 
