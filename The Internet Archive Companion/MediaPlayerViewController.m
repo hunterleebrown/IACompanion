@@ -265,6 +265,8 @@
     MPMovieLoadState state = [p loadState];
     if((state & MPMovieLoadStatePlayable) == MPMovieLoadStatePlayable) {
         [bufferingView stopAnimating];
+        [self updateRemote];
+
     }  else {
         [bufferingView startAnimating];
     }
@@ -274,7 +276,6 @@
 
     }
 
-    
 }
 
 - (void) playBackStateChangeNotification:(NSNotification *)notification{
@@ -288,36 +289,12 @@
             // Set itself as the first responder
             [self becomeFirstResponder];
             [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
-            
-            NSInteger index = [self indexOfInFileFromUrl:player.contentURL];
-            PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-            NSDictionary *songInfo;
-            if(imageView.image){
-                MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:imageView.image];
-                songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                            file.title, MPMediaItemPropertyTitle,
-                            file.identifierTitle, MPMediaItemPropertyAlbumTitle,
-                            file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
-                            [NSString stringWithFormat:@"%lu", (unsigned long)[[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
-                            art, MPMediaItemPropertyArtwork,
-                            nil];
-            } else {
-                songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                            file.title, MPMediaItemPropertyTitle,
-                            file.identifierTitle, MPMediaItemPropertyAlbumTitle,
-                            file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
-                            [NSString stringWithFormat:@"%lu", (unsigned long)[[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
-                            nil];
-            }
-            
-            [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+
         }
             break;
-            
         case MPMoviePlaybackStatePaused: {
             [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
 
-            
         }
             break;
         default:
@@ -325,6 +302,35 @@
             
     }
     
+}
+
+- (void)updateRemote
+{
+    NSInteger index = [self indexOfInFileFromUrl:player.contentURL];
+    PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    NSDictionary *songInfo;
+
+    if(imageView.image){
+        MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:imageView.image];
+        songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                    file.title, MPMediaItemPropertyTitle,
+                    file.identifierTitle, MPMediaItemPropertyAlbumTitle,
+                    file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
+                    [NSString stringWithFormat:@"%lu", (unsigned long)[[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                    art, MPMediaItemPropertyArtwork,
+                    [NSNumber numberWithDouble:player.duration], MPMediaItemPropertyPlaybackDuration,
+                    nil];
+    } else {
+        songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                    file.title, MPMediaItemPropertyTitle,
+                    file.identifierTitle, MPMediaItemPropertyAlbumTitle,
+                    file.displayOrder, MPMediaItemPropertyAlbumTrackNumber,
+                    [NSString stringWithFormat:@"%lu", (unsigned long)[[self.fetchedResultsController fetchedObjects] count]], MPMediaItemPropertyAlbumTrackCount,
+                    [NSNumber numberWithDouble:player.duration], MPMediaItemPropertyPlaybackDuration,
+                    nil];
+    }
+
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
 }
 
 
@@ -335,23 +341,29 @@
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent {
-    
+
     if (receivedEvent.type == UIEventTypeRemoteControl) {
-        
+        NSLog(@"--------->%li", receivedEvent.subtype );
         switch (receivedEvent.subtype) {
-                
+            case UIEventSubtypeRemoteControlPause:
+                [self doPlayPause:nil];
+                break;
+            case UIEventSubtypeRemoteControlPlay:
+                [self doPlayPause:nil];
+                break;
+            case UIEventSubtypeRemoteControlStop:
+                [self doPlayPause:nil];
+                break;
             case UIEventSubtypeRemoteControlTogglePlayPause:
-                    [self doPlayPause:nil];
+                [self doPlayPause:nil];
                 break;
-                
             case UIEventSubtypeRemoteControlPreviousTrack:
-                    [self playPrevious];
+                [self playPrevious];
                 break;
-                
             case UIEventSubtypeRemoteControlNextTrack:
-                    [self playNext];
+                [self playNext];
                 break;
-                
+
             default:
                 break;
         }
@@ -447,7 +459,7 @@
     [newManagedObject setValue:file.identifierTitle forKey:@"identifierTitle"];
     [newManagedObject setValue:[file.file objectForKey:@"format"] forKey:@"format"];
     [newManagedObject setValue:[NSNumber numberWithInteger:[[self.fetchedResultsController fetchedObjects]count] + 1] forKey:@"displayOrder"];
-    
+
     // Save the context.
     
     NSError *error = nil;
@@ -736,26 +748,23 @@
         
         [player play];
         [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
-       // [bufferingView startAnimating];
 
-        
+
     } else if(player.playbackState == MPMoviePlaybackStateSeekingBackward || player.playbackState == MPMoviePlaybackStateSeekingForward){
         [player endSeeking];
         [player pause];
         [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
-        //[bufferingView stopAnimating];
 
         
     } else if(player.playbackState == MPMoviePlaybackStateStopped){
         
         [player play];
         [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
-       // [bufferingView startAnimating];
 
-        
     }
-    
-    
+
+
+
 }
 
 - (IBAction)doNext:(id)sender{

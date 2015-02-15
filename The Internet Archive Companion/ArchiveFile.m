@@ -103,7 +103,9 @@
     } else {
         _format = FileFormatOther;
     }
-    
+
+
+
 }
 
 - (NSString *) url{

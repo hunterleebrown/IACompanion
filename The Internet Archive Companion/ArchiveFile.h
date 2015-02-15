@@ -37,18 +37,18 @@ typedef enum {
 @interface ArchiveFile : NSObject
 
 @property (nonatomic, strong) NSDictionary *file;
-@property (nonatomic) FileFormat format;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic) NSInteger track;
-@property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSString *identifier;
-@property (nonatomic, strong) NSString *server;
-@property (nonatomic, strong) NSString *directory;
-@property (nonatomic, strong) NSString *height;
-@property (nonatomic, strong) NSString *width;
-@property (nonatomic, strong) NSString *identifierTitle;
-@property (nonatomic) NSInteger size;
+@property (nonatomic)         FileFormat   format;
+@property (nonatomic, strong) NSString     *name;
+@property (nonatomic, strong) NSString     *title;
+@property (nonatomic)         NSInteger    track;
+@property (nonatomic, strong) NSString     *url;
+@property (nonatomic, strong) NSString     *identifier;
+@property (nonatomic, strong) NSString     *server;
+@property (nonatomic, strong) NSString     *directory;
+@property (nonatomic, strong) NSString     *height;
+@property (nonatomic, strong) NSString     *width;
+@property (nonatomic, strong) NSString     *identifierTitle;
+@property (nonatomic)         NSInteger    size;
 
 
 

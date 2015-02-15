@@ -1360,7 +1360,7 @@
                                     <constraint firstAttribute="height" constant="240" id="wBn-Zg-a44"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PU9-0c-QPs">
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PU9-0c-QPs">
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dHH-ZA-r5X">
                                         <rect key="frame" x="10" y="10" width="300" height="31"/>
@@ -1587,9 +1587,9 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="oRy-Nx-W7n"/>
                                                     <exclude reference="CtC-6B-b5y"/>
                                                     <exclude reference="bE1-ms-Lgm"/>
+                                                    <exclude reference="oRy-Nx-W7n"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
