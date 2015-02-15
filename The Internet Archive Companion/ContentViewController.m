@@ -23,6 +23,8 @@
 @property (nonatomic, weak) IBOutlet UIView *listIconButton;
 @property (nonatomic, weak) IBOutlet UIView *playerIconButton;
 @property (nonatomic, weak) IBOutlet UIView *searchIconButton;
+@property (nonatomic, weak) IBOutlet UIView *favoritesIconButton;
+@property (nonatomic, weak) IBOutlet UIImageView *iaIcon;
 
 
 @end
@@ -136,6 +138,8 @@
     [listIconButton.layer setCornerRadius:10];
     [playerIconButton.layer setCornerRadius:10];
     [searchIconButton.layer setCornerRadius:10];
+    [self.favoritesIconButton.layer setCornerRadius:10];
+    [self.iaIcon.layer setCornerRadius:10];
 
 }
 
