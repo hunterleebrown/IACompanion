@@ -1550,7 +1550,7 @@
                                     <constraint firstItem="cxQ-4W-uLu" firstAttribute="centerX" secondItem="LxF-R6-FUy" secondAttribute="centerX" constant="-34" id="gVa-MK-S0k"/>
                                 </constraints>
                             </view>
-                            <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-8G-Vle">
+                            <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-8G-Vle">
                                 <rect key="frame" x="0.0" y="348" width="320" height="68"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1561,31 +1561,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Z0c-Yq-JMZ">
-                                                    <rect key="frame" x="10" y="2" width="300" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="9mw-Cl-hnQ"/>
-                                                        <constraint firstAttribute="height" constant="21" id="FmN-TY-LMu"/>
-                                                    </constraints>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FILE TITLE" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Z0c-Yq-JMZ">
+                                                    <rect key="frame" x="108" y="8" width="105" height="21"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-ga-ly2">
-                                                    <rect key="frame" x="10" y="26" width="300" height="17"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FILE NAME" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-ga-ly2">
+                                                    <rect key="frame" x="18" y="24" width="284" height="17"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ryq-ga-ly2" firstAttribute="top" secondItem="Z0c-Yq-JMZ" secondAttribute="bottom" constant="3" id="EJU-uZ-cQd"/>
-                                                <constraint firstItem="Ryq-ga-ly2" firstAttribute="centerX" secondItem="RFT-FD-BDB" secondAttribute="centerX" id="Khm-xY-hBv"/>
-                                                <constraint firstItem="Z0c-Yq-JMZ" firstAttribute="leading" secondItem="Ryq-ga-ly2" secondAttribute="leading" id="OSy-Bb-SiU"/>
-                                                <constraint firstItem="Z0c-Yq-JMZ" firstAttribute="trailing" secondItem="Ryq-ga-ly2" secondAttribute="trailing" id="fIv-CM-hbn"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ryq-ga-ly2" secondAttribute="bottom" id="nyg-WR-7pl"/>
-                                                <constraint firstAttribute="bottom" secondItem="Z0c-Yq-JMZ" secondAttribute="bottom" constant="20" symbolic="YES" id="qT2-4V-BLt"/>
+                                                <constraint firstItem="Ryq-ga-ly2" firstAttribute="bottom" secondItem="RFT-FD-BDB" secondAttribute="bottomMargin" id="6Xf-uF-2Xa"/>
+                                                <constraint firstItem="Ryq-ga-ly2" firstAttribute="centerX" secondItem="Z0c-Yq-JMZ" secondAttribute="centerX" id="7DJ-iq-cp9"/>
+                                                <constraint firstItem="Ryq-ga-ly2" firstAttribute="top" secondItem="Z0c-Yq-JMZ" secondAttribute="bottom" id="CtC-6B-b5y"/>
+                                                <constraint firstItem="Ryq-ga-ly2" firstAttribute="leading" secondItem="RFT-FD-BDB" secondAttribute="leadingMargin" constant="10" id="HkR-IP-0y9"/>
+                                                <constraint firstItem="Ryq-ga-ly2" firstAttribute="centerX" secondItem="RFT-FD-BDB" secondAttribute="centerX" id="Sqp-DL-M4F"/>
+                                                <constraint firstItem="Ryq-ga-ly2" firstAttribute="top" secondItem="Z0c-Yq-JMZ" secondAttribute="bottom" id="bE1-ms-Lgm"/>
+                                                <constraint firstItem="Z0c-Yq-JMZ" firstAttribute="leading" secondItem="RFT-FD-BDB" secondAttribute="leadingMargin" id="oRy-Nx-W7n"/>
+                                                <constraint firstItem="Ryq-ga-ly2" firstAttribute="top" secondItem="RFT-FD-BDB" secondAttribute="topMargin" constant="16" id="oeW-JZ-Zfh"/>
+                                                <constraint firstItem="Z0c-Yq-JMZ" firstAttribute="top" secondItem="RFT-FD-BDB" secondAttribute="topMargin" id="y9n-LH-z5Q"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="oRy-Nx-W7n"/>
+                                                    <exclude reference="CtC-6B-b5y"/>
+                                                    <exclude reference="bE1-ms-Lgm"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fileTitle" destination="Z0c-Yq-JMZ" id="d0Q-RZ-WOf"/>

@@ -15,11 +15,6 @@
 		5A0A10BC16A640A300CC70CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10BB16A640A300CC70CD /* main.m */; };
 		5A0A10C016A640A300CC70CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10BF16A640A300CC70CD /* AppDelegate.m */; };
 		5A0A10C916A640A300CC70CD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A10C716A640A300CC70CD /* MainStoryboard.storyboard */; };
-		5A0A10D416A640A300CC70CD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A10D316A640A300CC70CD /* SenTestingKit.framework */; };
-		5A0A10D516A640A300CC70CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A10AF16A640A300CC70CD /* UIKit.framework */; };
-		5A0A10D616A640A300CC70CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A10B116A640A300CC70CD /* Foundation.framework */; };
-		5A0A10DE16A640A300CC70CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A10DC16A640A300CC70CD /* InfoPlist.strings */; };
-		5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10E016A640A300CC70CD /* The_Internet_Archive_CompanionTests.m */; };
 		5A0D9A3017802F1F006D539C /* MainNavTableViewHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D9A2F17802F1F006D539C /* MainNavTableViewHeaderViewCell.m */; };
 		5A22BFDE17A8C36600220753 /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A22BFDD17A8C36600220753 /* PopUpViewController.m */; };
 		5A2350091780BC7C0050C9A2 /* ia-button-plain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2350081780BC7C0050C9A2 /* ia-button-plain@2x.png */; };
@@ -83,14 +78,6 @@
 		5A9003191735B6E3000C6304 /* PlayerFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9003181735B6E3000C6304 /* PlayerFile.m */; };
 		5A90031B1735B9DF000C6304 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A90031A1735B9DF000C6304 /* CoreData.framework */; };
 		5A9003B91735C9A3000C6304 /* IA.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 5A9003141735B507000C6304 /* IA.xcdatamodeld */; };
-		5A93EBB117A4505400D6CB38 /* ArchiveBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */; };
-		5A93EBB217A4505400D6CB38 /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA817A4505400D6CB38 /* ArchiveBookPageImageViewController.m */; };
-		5A93EBB317A4505400D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBA917A4505400D6CB38 /* ArchiveBookPageImageViewController.xib */; };
-		5A93EBB417A4505400D6CB38 /* ArchiveBookPageTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBAB17A4505400D6CB38 /* ArchiveBookPageTextViewController.m */; };
-		5A93EBB517A4505400D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBAC17A4505400D6CB38 /* ArchiveBookPageTextViewController.xib */; };
-		5A93EBB617A4505400D6CB38 /* ArchivePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBAE17A4505400D6CB38 /* ArchivePageViewController.m */; };
-		5A93EBB717A4505400D6CB38 /* ArchivePageTextSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBB017A4505400D6CB38 /* ArchivePageTextSizeViewController.m */; };
-		5A93EBBA17A453F500D6CB38 /* AsyncTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBB917A453F500D6CB38 /* AsyncTextView.m */; };
 		5A93EBBB17A456F100D6CB38 /* ArchivePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBAE17A4505400D6CB38 /* ArchivePageViewController.m */; };
 		5A93EBBC17A458F800D6CB38 /* ArchiveBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */; };
 		5A93EBBD17A458F800D6CB38 /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA817A4505400D6CB38 /* ArchiveBookPageImageViewController.m */; };
@@ -178,7 +165,6 @@
 		CEE4AC651795E6EA00FAE34F /* pause-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC5F1795E6EA00FAE34F /* pause-button@2x.png */; };
 		CEE4AC661795E6EA00FAE34F /* reverse-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC601795E6EA00FAE34F /* reverse-button.png */; };
 		CEE4AC671795E6EA00FAE34F /* reverse-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE4AC611795E6EA00FAE34F /* reverse-button@2x.png */; };
-		CEE4AC6D1795EFDD00FAE34F /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4AC6C1795EFDD00FAE34F /* PlayerTableViewCell.m */; };
 		CEEA730D16DD30C80092FA84 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA730C16DD30C80092FA84 /* list.png */; };
 		CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731116DD53A40092FA84 /* rightContentShadow.png */; };
 		CEEA731416DD53A40092FA84 /* rightContentShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA731216DD53A40092FA84 /* rightContentShadow@2x.png */; };
@@ -186,16 +172,6 @@
 		CEFC27FA17A1E3250097C712 /* fullscreen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFC27F817A1E3250097C712 /* fullscreen-button.png */; };
 		CEFC27FB17A1E3250097C712 /* fullscreen-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFC27F917A1E3250097C712 /* fullscreen-button@2x.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5A0A10D716A640A300CC70CD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A0A10A216A640A300CC70CD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5A0A10AA16A640A300CC70CD;
-			remoteInfo = "The Internet Archive Companion";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5A04CEC217447A0E00AA3EE6 /* fullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullscreen.png; sourceTree = "<group>"; };
@@ -210,7 +186,6 @@
 		5A0A10BE16A640A300CC70CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A0A10BF16A640A300CC70CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5A0A10C816A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		5A0A10D216A640A300CC70CD /* IATests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IATests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0A10D316A640A300CC70CD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5A0A10DB16A640A300CC70CD /* IATests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IATests-Info.plist"; sourceTree = "<group>"; };
 		5A0A10DD16A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -442,16 +417,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A0A10CE16A640A300CC70CD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5A0A10D416A640A300CC70CD /* SenTestingKit.framework in Frameworks */,
-				5A0A10D516A640A300CC70CD /* UIKit.framework in Frameworks */,
-				5A0A10D616A640A300CC70CD /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -469,7 +434,6 @@
 			isa = PBXGroup;
 			children = (
 				5A0A10AB16A640A300CC70CD /* IA.app */,
-				5A0A10D216A640A300CC70CD /* IATests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -929,25 +893,6 @@
 			productReference = 5A0A10AB16A640A300CC70CD /* IA.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5A0A10D116A640A300CC70CD /* IATests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5A0A10E716A640A300CC70CD /* Build configuration list for PBXNativeTarget "IATests" */;
-			buildPhases = (
-				5A0A10CD16A640A300CC70CD /* Sources */,
-				5A0A10CE16A640A300CC70CD /* Frameworks */,
-				5A0A10CF16A640A300CC70CD /* Resources */,
-				5A0A10D016A640A300CC70CD /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5A0A10D816A640A300CC70CD /* PBXTargetDependency */,
-			);
-			name = IATests;
-			productName = "The Internet Archive CompanionTests";
-			productReference = 5A0A10D216A640A300CC70CD /* IATests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -976,7 +921,6 @@
 			projectRoot = "";
 			targets = (
 				5A0A10AA16A640A300CC70CD /* IA */,
-				5A0A10D116A640A300CC70CD /* IATests */,
 			);
 		};
 /* End PBXProject section */
@@ -1097,33 +1041,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A0A10CF16A640A300CC70CD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5A0A10DE16A640A300CC70CD /* InfoPlist.strings in Resources */,
-				5A93EBB317A4505400D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */,
-				5A93EBB517A4505400D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5A0A10D016A640A300CC70CD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5A0A10A716A640A300CC70CD /* Sources */ = {
@@ -1179,30 +1097,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A0A10CD16A640A300CC70CD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5A0A10E116A640A300CC70CD /* The_Internet_Archive_CompanionTests.m in Sources */,
-				CEE4AC6D1795EFDD00FAE34F /* PlayerTableViewCell.m in Sources */,
-				5A93EBB117A4505400D6CB38 /* ArchiveBookPageViewController.m in Sources */,
-				5A93EBB217A4505400D6CB38 /* ArchiveBookPageImageViewController.m in Sources */,
-				5A93EBB417A4505400D6CB38 /* ArchiveBookPageTextViewController.m in Sources */,
-				5A93EBB617A4505400D6CB38 /* ArchivePageViewController.m in Sources */,
-				5A93EBB717A4505400D6CB38 /* ArchivePageTextSizeViewController.m in Sources */,
-				5A93EBBA17A453F500D6CB38 /* AsyncTextView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5A0A10D816A640A300CC70CD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5A0A10AA16A640A300CC70CD /* IA */;
-			targetProxy = 5A0A10D716A640A300CC70CD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5A0A10B816A640A300CC70CD /* InfoPlist.strings */ = {
@@ -1324,40 +1219,6 @@
 			};
 			name = Release;
 		};
-		5A0A10E816A640A300CC70CD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/The Internet Archive Companion.app/The Internet Archive Companion";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "The Internet Archive Companion/The Internet Archive Companion-Prefix.pch";
-				INFOPLIST_FILE = "The Internet Archive CompanionTests/IATests-Info.plist";
-				PRODUCT_NAME = IATests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		5A0A10E916A640A300CC70CD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/The Internet Archive Companion.app/The Internet Archive Companion";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "The Internet Archive Companion/The Internet Archive Companion-Prefix.pch";
-				INFOPLIST_FILE = "The Internet Archive CompanionTests/IATests-Info.plist";
-				PRODUCT_NAME = IATests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1375,15 +1236,6 @@
 			buildConfigurations = (
 				5A0A10E516A640A300CC70CD /* Debug */,
 				5A0A10E616A640A300CC70CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5A0A10E716A640A300CC70CD /* Build configuration list for PBXNativeTarget "IATests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5A0A10E816A640A300CC70CD /* Debug */,
-				5A0A10E916A640A300CC70CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
