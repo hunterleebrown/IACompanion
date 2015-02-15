@@ -83,7 +83,6 @@
 		5A9003191735B6E3000C6304 /* PlayerFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9003181735B6E3000C6304 /* PlayerFile.m */; };
 		5A90031B1735B9DF000C6304 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A90031A1735B9DF000C6304 /* CoreData.framework */; };
 		5A9003B91735C9A3000C6304 /* IA.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 5A9003141735B507000C6304 /* IA.xcdatamodeld */; };
-		5A928B851A2BE4A700F17649 /* Version4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A928B841A2BE4A700F17649 /* Version4.storyboard */; };
 		5A93EBB117A4505400D6CB38 /* ArchiveBookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */; };
 		5A93EBB217A4505400D6CB38 /* ArchiveBookPageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBA817A4505400D6CB38 /* ArchiveBookPageImageViewController.m */; };
 		5A93EBB317A4505400D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBA917A4505400D6CB38 /* ArchiveBookPageImageViewController.xib */; };
@@ -308,7 +307,6 @@
 		5A9003171735B6E3000C6304 /* PlayerFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerFile.h; sourceTree = "<group>"; };
 		5A9003181735B6E3000C6304 /* PlayerFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerFile.m; sourceTree = "<group>"; };
 		5A90031A1735B9DF000C6304 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		5A928B841A2BE4A700F17649 /* Version4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Version4.storyboard; sourceTree = "<group>"; };
 		5A93EBA517A4505400D6CB38 /* ArchiveBookPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageViewController.h; sourceTree = "<group>"; };
 		5A93EBA617A4505400D6CB38 /* ArchiveBookPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveBookPageViewController.m; sourceTree = "<group>"; };
 		5A93EBA717A4505400D6CB38 /* ArchiveBookPageImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveBookPageImageViewController.h; sourceTree = "<group>"; };
@@ -509,7 +507,6 @@
 				5A0A10BF16A640A300CC70CD /* AppDelegate.m */,
 				5A0A10C716A640A300CC70CD /* MainStoryboard.storyboard */,
 				5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */,
-				5A928B841A2BE4A700F17649 /* Version4.storyboard */,
 				5A0A10B616A640A300CC70CD /* Supporting Files */,
 			);
 			path = "The Internet Archive Companion";
@@ -1030,7 +1027,6 @@
 				5AF2310A16D756BC00262B09 /* Default.png in Resources */,
 				5AF2310C16D756C500262B09 /* Default@2x.png in Resources */,
 				5AF2311016D758F900262B09 /* Default-568h@2x.png in Resources */,
-				5A928B851A2BE4A700F17649 /* Version4.storyboard in Resources */,
 				CEEA730D16DD30C80092FA84 /* list.png in Resources */,
 				CEEA731316DD53A40092FA84 /* rightContentShadow.png in Resources */,
 				5A727D7E1800CBAB00EEF8C2 /* favorites_button.png in Resources */,

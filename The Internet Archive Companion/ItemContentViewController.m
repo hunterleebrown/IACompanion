@@ -56,6 +56,10 @@
 
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
+    if ([self.mediaTable respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.mediaTable setSeparatorInset:UIEdgeInsetsZero];
+    }
     
 }
 
