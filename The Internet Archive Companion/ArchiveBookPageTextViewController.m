@@ -83,7 +83,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     } else {
         [_bodyTextView setAndLoadViewFromUrl:useUrl withStartByte:start withLength:ReadPageBytesLength];
     }
-    [_pageNumber setText:[NSString stringWithFormat:@"%i", self.index + 1]];
+    [_pageNumber setText:[NSString stringWithFormat:@"%li", self.index + 1]];
     
     
     NSInteger paddingDenom = 10;

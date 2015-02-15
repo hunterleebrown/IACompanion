@@ -215,11 +215,11 @@
     return headerCell;
 }
 
-- (int) numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return organizedMediaFiles.count;
 }
 
-- (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(organizedMediaFiles.count == 0){
         return 0;
     }

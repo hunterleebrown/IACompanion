@@ -260,7 +260,7 @@
 
 - (void) playerLoadStateNotification:(NSNotification *)notification {
     MPMoviePlayerController *p = [notification object];
-    NSLog(@"--> loadstate: %i", p.loadState);
+    NSLog(@"--> loadstate: %lu", p.loadState);
     
     MPMovieLoadState state = [p loadState];
     if((state & MPMovieLoadStatePlayable) == MPMovieLoadStatePlayable) {
@@ -446,7 +446,7 @@
     [newManagedObject setValue:file.url forKey:@"url"];
     [newManagedObject setValue:file.identifierTitle forKey:@"identifierTitle"];
     [newManagedObject setValue:[file.file objectForKey:@"format"] forKey:@"format"];
-    [newManagedObject setValue:[NSNumber numberWithInt:[[self.fetchedResultsController fetchedObjects]count] + 1] forKey:@"displayOrder"];
+    [newManagedObject setValue:[NSNumber numberWithInteger:[[self.fetchedResultsController fetchedObjects]count] + 1] forKey:@"displayOrder"];
     
     // Save the context.
     
@@ -473,7 +473,7 @@
 }
 
 
-- (int) numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return [[self.fetchedResultsController sections] count];
 }
 
@@ -490,7 +490,7 @@
     
 }
 
-- (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
     
@@ -551,7 +551,7 @@
     // Update the order of them all according to their index in the mutable array
     [sortedFiles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         PlayerFile *zePlayerFile = (PlayerFile *)obj;
-        zePlayerFile.displayOrder = [NSNumber numberWithInt:idx];
+        zePlayerFile.displayOrder = [NSNumber numberWithInteger:idx];
     }];
     
     
