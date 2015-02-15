@@ -11,6 +11,7 @@
 @interface MediaImageViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
+@property (nonatomic, weak) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 
 @end
 
@@ -56,9 +57,17 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)gotATap:(id)sender
+{
+    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[archiveImageView.image] applicationActivities:nil];
+    [self presentViewController:shareViewController animated:YES completion:nil];
+}
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return archiveImageView;
 }
+
+
+
 
 @end

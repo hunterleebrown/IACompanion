@@ -889,6 +889,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="wbw-aD-2M9" id="GVn-5d-6QR"/>
+                                    <outletCollection property="gestureRecognizers" destination="Wkb-ei-Gso" appends="YES" id="CQY-vg-TP1"/>
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxv-NJ-APx">
@@ -924,9 +925,15 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="scrollView" destination="gTz-y0-Ptr" id="1yc-RS-vjk"/>
+                        <outlet property="tapGestureRecognizer" destination="Wkb-ei-Gso" id="bRh-hs-G8t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9x-xH-sM1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Wkb-ei-Gso">
+                    <connections>
+                        <action selector="gotATap:" destination="wbw-aD-2M9" id="RrK-4c-385"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5330" y="964"/>
         </scene>
