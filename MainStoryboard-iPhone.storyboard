@@ -1306,20 +1306,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYa-Yv-iaA">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPU-3a-4Z3">
-                                        <rect key="frame" x="10" y="7" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPU-3a-4Z3">
+                                        <rect key="frame" x="10" y="0.0" width="44" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="d14-H0-jqa"/>
-                                            <constraint firstAttribute="height" constant="30" id="gtn-IG-daE"/>
+                                            <constraint firstAttribute="width" constant="44" id="d14-H0-jqa"/>
+                                            <constraint firstAttribute="height" constant="44" id="gtn-IG-daE"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="close-button">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <state key="normal" title="Close"/>
                                         <connections>
                                             <action selector="closePlayer" destination="YFe-rc-yeM" eventType="touchUpInside" id="grc-4M-mq1"/>
                                         </connections>
@@ -1329,12 +1322,10 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="152" id="Q7q-Yn-nFK"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="16"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="P13-aU-ys9"/>
                                     <constraint firstItem="ZPU-3a-4Z3" firstAttribute="leading" secondItem="eYa-Yv-iaA" secondAttribute="leading" constant="10" id="Wmq-eh-VNl"/>
@@ -1358,7 +1349,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ovf-1o-oWt" firstAttribute="trailing" secondItem="Sq7-b0-vPh" secondAttribute="trailing" id="Bp2-gH-6Gp"/>
                                     <constraint firstItem="ovf-1o-oWt" firstAttribute="top" secondItem="Sq7-b0-vPh" secondAttribute="top" id="DAr-bH-J0v"/>
@@ -1392,33 +1383,30 @@
                                             <constraint firstAttribute="width" constant="60" id="8Zm-nb-LK0"/>
                                             <constraint firstAttribute="height" constant="21" id="a0k-cy-kvU"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="13"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="1" height="1"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXI-Sq-U7r">
                                         <rect key="frame" x="130" y="-6" width="60" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="o4b-i7-upy"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="13"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="1" height="1"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MH-hS-4gC">
                                         <rect key="frame" x="248" y="-6" width="60" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="ABq-IM-g2f"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="13"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="1" height="1"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1439,25 +1427,18 @@
                                 <rect key="frame" x="0.0" y="304" width="320" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxQ-4W-uLu">
-                                        <rect key="frame" x="106" y="2" width="40" height="40"/>
+                                        <rect key="frame" x="140" y="4" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="3sH-YI-ErH"/>
                                             <constraint firstAttribute="width" constant="40" id="5pk-hj-bXE"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="play-button">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <state key="normal" image="play-button"/>
                                         <connections>
                                             <action selector="doPlayPause:" destination="YFe-rc-yeM" eventType="touchUpInside" id="cRJ-ca-ahX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhN-Lq-6Rc">
-                                        <rect key="frame" x="58" y="2" width="40" height="40"/>
+                                        <rect key="frame" x="92" y="4" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Scs-zm-igv"/>
                                             <constraint firstAttribute="height" constant="40" id="iuY-WY-4Z9"/>
@@ -1475,7 +1456,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tq-Oy-aV8">
-                                        <rect key="frame" x="154" y="2" width="40" height="40"/>
+                                        <rect key="frame" x="188" y="4" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="3Fh-IY-VFP"/>
                                             <constraint firstAttribute="height" constant="40" id="F4l-tR-c0x"/>
@@ -1492,42 +1473,30 @@
                                             <action selector="doNext:" destination="YFe-rc-yeM" eventType="touchUpInside" id="fj5-9c-wbQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGV-Bd-0c4">
-                                        <rect key="frame" x="261" y="2" width="49" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHa-9E-FL0">
+                                        <rect key="frame" x="232" y="0.0" width="44" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="49" id="UyN-SX-D9e"/>
+                                            <constraint firstAttribute="width" constant="44" id="2CH-vs-uy9"/>
+                                            <constraint firstAttribute="height" constant="44" id="gGK-U8-hjD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
-                                        <state key="normal" title="Edit">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="editList:" destination="YFe-rc-yeM" eventType="touchUpInside" id="FD3-ud-ts6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHa-9E-FL0">
-                                        <rect key="frame" x="202" y="2" width="49" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="49" id="2CH-vs-uy9"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="14"/>
-                                        <state key="normal" title="Clear">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <state key="normal" title="Clear"/>
                                         <connections>
                                             <action selector="clearList:" destination="YFe-rc-yeM" eventType="touchDragInside" id="HIT-xh-1E7"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGV-Bd-0c4">
+                                        <rect key="frame" x="276" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="UyN-SX-D9e"/>
+                                            <constraint firstAttribute="height" constant="44" id="eBK-ql-MHA"/>
+                                        </constraints>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editList:" destination="YFe-rc-yeM" eventType="touchUpInside" id="FD3-ud-ts6"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceJ-oM-2MP">
-                                        <rect key="frame" x="10" y="2" width="40" height="40"/>
+                                        <rect key="frame" x="10" y="4" width="40" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="fullscreen-button">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1541,24 +1510,48 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="1tq-Oy-aV8" firstAttribute="top" secondItem="cxQ-4W-uLu" secondAttribute="top" id="1Bg-Jo-xVc"/>
+                                    <constraint firstItem="jGV-Bd-0c4" firstAttribute="leading" secondItem="FHa-9E-FL0" secondAttribute="trailing" id="2X7-Pf-qy6"/>
+                                    <constraint firstAttribute="bottom" secondItem="cxQ-4W-uLu" secondAttribute="bottom" id="3AP-bD-zUZ"/>
                                     <constraint firstItem="jGV-Bd-0c4" firstAttribute="top" secondItem="1tq-Oy-aV8" secondAttribute="top" id="5cP-0k-FaZ"/>
                                     <constraint firstItem="FHa-9E-FL0" firstAttribute="top" secondItem="1tq-Oy-aV8" secondAttribute="top" id="5pd-Te-TrN"/>
+                                    <constraint firstAttribute="trailing" secondItem="FHa-9E-FL0" secondAttribute="trailing" constant="5" id="5rW-7A-hhk"/>
                                     <constraint firstItem="cxQ-4W-uLu" firstAttribute="leading" secondItem="jhN-Lq-6Rc" secondAttribute="trailing" constant="8" symbolic="YES" id="7ci-Zz-LRN"/>
                                     <constraint firstItem="cxQ-4W-uLu" firstAttribute="top" secondItem="LxF-R6-FUy" secondAttribute="top" constant="2" id="8Z7-8Y-FUY"/>
                                     <constraint firstItem="ceJ-oM-2MP" firstAttribute="top" secondItem="jhN-Lq-6Rc" secondAttribute="top" id="Aa7-Jl-M5L"/>
                                     <constraint firstItem="1tq-Oy-aV8" firstAttribute="leading" secondItem="cxQ-4W-uLu" secondAttribute="trailing" constant="8" symbolic="YES" id="DpY-dg-cZO"/>
                                     <constraint firstItem="jGV-Bd-0c4" firstAttribute="bottom" secondItem="1tq-Oy-aV8" secondAttribute="bottom" id="GMH-RA-0Oo"/>
                                     <constraint firstAttribute="height" constant="44" id="LOZ-cn-1d0"/>
-                                    <constraint firstAttribute="trailing" secondItem="jGV-Bd-0c4" secondAttribute="trailing" constant="10" id="N15-sg-QzR"/>
+                                    <constraint firstAttribute="trailing" secondItem="jGV-Bd-0c4" secondAttribute="trailing" id="N15-sg-QzR"/>
+                                    <constraint firstAttribute="trailing" secondItem="FHa-9E-FL0" secondAttribute="trailing" constant="5" id="Sd8-GT-r6N"/>
                                     <constraint firstItem="ceJ-oM-2MP" firstAttribute="leading" secondItem="LxF-R6-FUy" secondAttribute="leading" constant="10" id="V1x-lV-ujn"/>
                                     <constraint firstItem="FHa-9E-FL0" firstAttribute="bottom" secondItem="1tq-Oy-aV8" secondAttribute="bottom" id="Wib-qT-fve"/>
                                     <constraint firstItem="ceJ-oM-2MP" firstAttribute="top" secondItem="cxQ-4W-uLu" secondAttribute="top" id="Xjv-PF-r2F"/>
+                                    <constraint firstAttribute="bottom" secondItem="1tq-Oy-aV8" secondAttribute="bottom" id="cXU-uf-TPX"/>
+                                    <constraint firstAttribute="bottom" secondItem="jhN-Lq-6Rc" secondAttribute="bottom" id="dLJ-UF-HEP"/>
                                     <constraint firstItem="FHa-9E-FL0" firstAttribute="leading" secondItem="1tq-Oy-aV8" secondAttribute="trailing" constant="8" symbolic="YES" id="dSE-4y-P3Y"/>
-                                    <constraint firstItem="cxQ-4W-uLu" firstAttribute="centerX" secondItem="LxF-R6-FUy" secondAttribute="centerX" constant="-34" id="gVa-MK-S0k"/>
+                                    <constraint firstItem="cxQ-4W-uLu" firstAttribute="centerX" secondItem="LxF-R6-FUy" secondAttribute="centerX" id="gVa-MK-S0k"/>
+                                    <constraint firstAttribute="bottom" secondItem="jGV-Bd-0c4" secondAttribute="bottom" id="ihh-bB-zy0"/>
+                                    <constraint firstAttribute="bottom" secondItem="ceJ-oM-2MP" secondAttribute="bottom" id="nZ9-mg-2Hs"/>
+                                    <constraint firstAttribute="bottom" secondItem="FHa-9E-FL0" secondAttribute="bottom" id="qhi-00-oSX"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Aa7-Jl-M5L"/>
+                                        <exclude reference="Xjv-PF-r2F"/>
+                                        <exclude reference="8Z7-8Y-FUY"/>
+                                        <exclude reference="1Bg-Jo-xVc"/>
+                                        <exclude reference="5pd-Te-TrN"/>
+                                        <exclude reference="5rW-7A-hhk"/>
+                                        <exclude reference="Sd8-GT-r6N"/>
+                                        <exclude reference="Wib-qT-fve"/>
+                                        <exclude reference="dSE-4y-P3Y"/>
+                                        <exclude reference="5cP-0k-FaZ"/>
+                                        <exclude reference="GMH-RA-0Oo"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-8G-Vle">
                                 <rect key="frame" x="0.0" y="348" width="320" height="132"/>
@@ -1572,14 +1565,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FILE TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Z0c-Yq-JMZ">
-                                                    <rect key="frame" x="10" y="8" width="300" height="21"/>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
+                                                    <rect key="frame" x="10" y="8" width="300" height="20"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FILE NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-ga-ly2">
-                                                    <rect key="frame" x="10" y="29" width="300" height="14"/>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
+                                                    <rect key="frame" x="10" y="28" width="300" height="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -1633,7 +1626,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eYa-Yv-iaA" firstAttribute="top" secondItem="dHA-4g-vhn" secondAttribute="top" constant="20" id="4eD-4j-pps"/>
@@ -1734,7 +1727,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close-button" width="40" height="40"/>
         <image name="close-button.png" width="40" height="40"/>
         <image name="favorite_icon.png" width="34" height="44"/>
         <image name="favorites_button.png" width="40" height="40"/>
