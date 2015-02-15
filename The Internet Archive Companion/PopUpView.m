@@ -32,8 +32,8 @@
         
         self.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.95];
         self.layer.cornerRadius = 10.0;
-        self.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        self.layer.borderWidth = 2;
+        self.layer.borderColor = [UIColor blackColor].CGColor;
+        self.layer.borderWidth = 1;
 
         CGPathRef path = CGPathCreateWithRect(self.bounds, NULL);
         self.layer.shadowPath = path;
@@ -58,7 +58,7 @@
         [containerView setBackgroundColor:[UIColor clearColor]];
         
         popTitle = [[UILabel alloc] initWithFrame:CGRectZero];
-        [popTitle setFont:[UIFont fontWithName:@"AmericanTypewriter-Bold" size:15]];
+        [popTitle setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]];
         [popTitle setTextAlignment:NSTextAlignmentCenter];
         [popTitle setBackgroundColor:[UIColor clearColor]];
         [popTitle setTextColor:[UIColor whiteColor]];
@@ -86,7 +86,7 @@
     self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.09, 0.09);
     
     if(!view && message){
-        UIFont *messageFont = [UIFont fontWithName:@"AmericanTypewriter" size:15];
+        UIFont *messageFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 
         
         UILabel *view = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];

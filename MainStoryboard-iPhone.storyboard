@@ -1432,13 +1432,18 @@
                             <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PU9-0c-QPs">
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dHH-ZA-r5X">
-                                        <rect key="frame" x="10" y="10" width="300" height="31"/>
+                                        <rect key="frame" x="8" y="10" width="304" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="296" id="KGh-Gi-94I"/>
                                         </constraints>
                                         <color key="minimumTrackTintColor" red="0.59607843140000005" green="0.1529411765" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="KGh-Gi-94I"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <action selector="didTouchDown:" destination="YFe-rc-yeM" eventType="touchDown" id="d4c-yZ-n9E"/>
                                             <action selector="didTouchUp:" destination="YFe-rc-yeM" eventType="touchUpInside" id="ALh-1e-lEt"/>
@@ -1446,7 +1451,7 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfV-UP-4pd">
-                                        <rect key="frame" x="12" y="-6" width="60" height="21"/>
+                                        <rect key="frame" x="10" y="-6" width="60" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="8Zm-nb-LK0"/>
                                             <constraint firstAttribute="height" constant="21" id="a0k-cy-kvU"/>
@@ -1467,7 +1472,7 @@
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MH-hS-4gC">
-                                        <rect key="frame" x="248" y="-6" width="60" height="21"/>
+                                        <rect key="frame" x="250" y="-6" width="60" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="ABq-IM-g2f"/>
                                         </constraints>
@@ -1477,8 +1482,9 @@
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.70999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6MH-hS-4gC" secondAttribute="trailing" constant="10" id="8sj-gK-aeV"/>
                                     <constraint firstItem="dHH-ZA-r5X" firstAttribute="top" secondItem="PU9-0c-QPs" secondAttribute="top" constant="10" id="8uh-6f-9SR"/>
                                     <constraint firstItem="BfV-UP-4pd" firstAttribute="top" secondItem="PU9-0c-QPs" secondAttribute="top" constant="-6" id="Er6-WM-NOY"/>
                                     <constraint firstItem="HXI-Sq-U7r" firstAttribute="baseline" secondItem="6MH-hS-4gC" secondAttribute="baseline" id="FxI-5i-gIw"/>
@@ -1486,10 +1492,21 @@
                                     <constraint firstItem="dHH-ZA-r5X" firstAttribute="centerX" secondItem="PU9-0c-QPs" secondAttribute="centerX" id="HXh-Ld-xcp"/>
                                     <constraint firstItem="BfV-UP-4pd" firstAttribute="top" secondItem="HXI-Sq-U7r" secondAttribute="top" id="IkW-L6-lEd"/>
                                     <constraint firstItem="HXI-Sq-U7r" firstAttribute="baseline" secondItem="BfV-UP-4pd" secondAttribute="baseline" id="QsU-gI-5cb"/>
+                                    <constraint firstItem="dHH-ZA-r5X" firstAttribute="leading" secondItem="PU9-0c-QPs" secondAttribute="leading" constant="10" id="aAL-ZA-me3"/>
+                                    <constraint firstAttribute="trailing" secondItem="dHH-ZA-r5X" secondAttribute="trailing" constant="10" id="dcl-VY-TvP"/>
                                     <constraint firstItem="HXI-Sq-U7r" firstAttribute="top" secondItem="6MH-hS-4gC" secondAttribute="top" id="eou-Y8-Otr"/>
+                                    <constraint firstItem="BfV-UP-4pd" firstAttribute="leading" secondItem="PU9-0c-QPs" secondAttribute="leading" constant="10" id="hBf-S2-trt"/>
                                     <constraint firstItem="6MH-hS-4gC" firstAttribute="trailing" secondItem="dHH-ZA-r5X" secondAttribute="trailing" id="jRu-tu-jmO"/>
+                                    <constraint firstAttribute="centerX" secondItem="HXI-Sq-U7r" secondAttribute="centerX" id="jom-dw-boS"/>
                                     <constraint firstItem="HXI-Sq-U7r" firstAttribute="centerX" secondItem="dHH-ZA-r5X" secondAttribute="centerX" id="wbR-bB-e2N"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GpI-NC-tBZ"/>
+                                        <exclude reference="wbR-bB-e2N"/>
+                                        <exclude reference="jRu-tu-jmO"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxF-R6-FUy">
                                 <rect key="frame" x="0.0" y="284" width="320" height="44"/>
@@ -1634,7 +1651,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FILE TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Z0c-Yq-JMZ">
                                                     <rect key="frame" x="10" y="8" width="300" height="20"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>

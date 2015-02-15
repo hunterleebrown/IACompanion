@@ -35,7 +35,7 @@
         self.layer.cornerRadius = 10;
         self.layer.borderColor = [UIColor darkGrayColor].CGColor;
         title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 18)];
-        [title setFont:[UIFont fontWithName:@"AmericanTypewriter" size:12]];
+        [title setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]];
         [title setTextColor:[UIColor whiteColor]];
         [title setShadowColor:[UIColor darkGrayColor]];
         [title setShadowOffset:CGSizeMake(1, 1)];

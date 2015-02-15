@@ -47,7 +47,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.95];
     self.view.layer.cornerRadius = 10.0;
     self.view.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.view.layer.borderWidth = 2;
+    self.view.layer.borderWidth = 1;
     
     CGPathRef path = CGPathCreateWithRect(self.view.bounds, NULL);
     self.view.layer.shadowPath = path;
@@ -71,7 +71,9 @@
     [containerView setBackgroundColor:[UIColor clearColor]];
     
     popTitle = [[UILabel alloc] initWithFrame:CGRectZero];
-    [popTitle setFont:[UIFont fontWithName:@"AmericanTypewriter-Bold" size:15]];
+
+//    [popTitle setFont:[UIFont fontWithName:@"AmericanTypewriter-Bold" size:15]];
+    [popTitle setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]];
     [popTitle setTextAlignment:NSTextAlignmentCenter];
     [popTitle setBackgroundColor:[UIColor clearColor]];
     [popTitle setTextColor:[UIColor whiteColor]];
@@ -126,7 +128,7 @@
 
 
     if(!subView && alertMessage){
-        UIFont *messageFont = [UIFont fontWithName:@"AmericanTypewriter" size:15];
+        UIFont *messageFont = [UIFont systemFontOfSize:15.0f];
         
 //        CGSize alertSize = [alertMessage sizeWithFont:messageFont constrainedToSize:containerView.bounds.size lineBreakMode:NSLineBreakByWordWrapping];
         CGSize alertSize = [alertMessage boundingRectWithSize:containerView.bounds.size options:nil attributes:@{NSFontAttributeName: messageFont} context:nil].size;
