@@ -719,7 +719,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7Sy-pu-DXg">
+                            <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7Sy-pu-DXg">
                                 <rect key="frame" x="0.0" y="194" width="600" height="406"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <color key="separatorColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
@@ -733,10 +733,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiQ-vJ-Zu5">
-                                                    <rect key="frame" x="18" y="8" width="564" height="21"/>
+                                                    <rect key="frame" x="18" y="8" width="564" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Fvx-Ga-ZsL"/>
-                                                        <constraint firstAttribute="height" constant="21" id="GHL-dp-f1G"/>
+                                                        <constraint firstAttribute="height" constant="22" id="GHL-dp-f1G"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -747,9 +747,10 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAN-o5-89Y">
-                                                    <rect key="frame" x="550" y="62" width="32" height="14"/>
+                                                    <rect key="frame" x="550" y="30" width="32" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="AbW-yD-4j2"/>
+                                                        <constraint firstAttribute="height" constant="22" id="d2P-GC-XgR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -764,18 +765,22 @@
                                             <constraints>
                                                 <constraint firstItem="RiQ-vJ-Zu5" firstAttribute="leading" secondItem="lHd-DO-0f6" secondAttribute="leadingMargin" constant="10" id="8WR-XN-5as"/>
                                                 <constraint firstItem="vAN-o5-89Y" firstAttribute="leading" secondItem="lHd-DO-0f6" secondAttribute="leadingMargin" constant="10" id="Fst-3x-nWW"/>
+                                                <constraint firstItem="vAN-o5-89Y" firstAttribute="top" secondItem="RiQ-vJ-Zu5" secondAttribute="bottom" id="GFZ-v1-cBH"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="vAN-o5-89Y" secondAttribute="bottom" id="Iwh-LN-Ya7"/>
                                                 <constraint firstItem="vAN-o5-89Y" firstAttribute="top" secondItem="lHd-DO-0f6" secondAttribute="topMargin" id="VRj-5b-2DA"/>
                                                 <constraint firstItem="RiQ-vJ-Zu5" firstAttribute="top" secondItem="lHd-DO-0f6" secondAttribute="topMargin" id="Ya8-4k-xaA"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="RiQ-vJ-Zu5" secondAttribute="trailing" constant="10" id="cZh-Ys-Oc0"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="vAN-o5-89Y" secondAttribute="trailing" constant="10" id="fBI-SQ-UxQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vAN-o5-89Y" secondAttribute="trailing" constant="10" id="n04-ze-JMe"/>
                                                 <constraint firstItem="vAN-o5-89Y" firstAttribute="top" secondItem="RiQ-vJ-Zu5" secondAttribute="bottom" constant="10" id="pNy-ka-IZy"/>
                                                 <constraint firstItem="vAN-o5-89Y" firstAttribute="top" secondItem="lHd-DO-0f6" secondAttribute="topMargin" id="q7C-04-Xov"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="Fst-3x-nWW"/>
+                                                    <exclude reference="Iwh-LN-Ya7"/>
                                                     <exclude reference="VRj-5b-2DA"/>
+                                                    <exclude reference="fBI-SQ-UxQ"/>
                                                     <exclude reference="pNy-ka-IZy"/>
                                                     <exclude reference="q7C-04-Xov"/>
                                                 </mask>
