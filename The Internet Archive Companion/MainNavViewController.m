@@ -51,7 +51,6 @@
         
         
 
-        
     }
     return self;
 }
@@ -68,7 +67,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+
+
     [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor blackColor]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endRefreshing) name:@"EndRefreshing" object:nil];
 
@@ -190,18 +190,18 @@
                 [cell.navCellTitleLabel setText:@"Home"];
                 [cell.navImageView setImage:[UIImage imageNamed:@"ia-button-plain.png"]];
                 [cell.navImageView setBackgroundColor:[UIColor blackColor]];
-                [cell setBackgroundColor:[UIColor blackColor]];
+//                [cell setBackgroundColor:[UIColor blackColor]];
             } else if(indexPath.row == 1) {
                 [cell.navCellTitleLabel setText:@"Media Player"];
                 [cell.navImageView setImage:[UIImage imageNamed:@"open-player-button.png"]];
                 [cell.navImageView setBackgroundColor:[UIColor blackColor]];
-                [cell setBackgroundColor:[UIColor blackColor]];
+//                [cell setBackgroundColor:[UIColor blackColor]];
             }
             else if(indexPath.row == 2) {
                 [cell.navCellTitleLabel setText:@"Favorites"];
                 [cell.navImageView setImage:[UIImage imageNamed:@"favorites_button.png"]];
                 [cell.navImageView setBackgroundColor:[UIColor blackColor]];
-                [cell setBackgroundColor:[UIColor blackColor]];
+//                [cell setBackgroundColor:[UIColor blackColor]];
             }
             
             [cell.navImageView setHidden:NO];
