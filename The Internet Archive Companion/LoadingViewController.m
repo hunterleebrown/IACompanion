@@ -55,7 +55,7 @@
     loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 21.0)];
     loadingLabel.textColor = [UIColor whiteColor];
     loadingLabel.backgroundColor = [UIColor clearColor];
-    loadingLabel.font = [UIFont fontWithName:@"AmericanTypewriter" size:15];
+    loadingLabel.font = [UIFont systemFontOfSize:15.0];
     loadingLabel.text = @"LOADING";
     loadingLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:loadingLabel];

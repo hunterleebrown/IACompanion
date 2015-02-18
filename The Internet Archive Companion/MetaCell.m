@@ -30,8 +30,8 @@ static CGFloat padding = 10.0f;
         [titleLabel setNumberOfLines:0];
         [valueLabel setNumberOfLines:0];
 
-        [titleLabel setFont:[UIFont fontWithName:@"AmericanTypewriter-Bold" size:12]];
-        [valueLabel setFont:[UIFont fontWithName:@"AmericanTypewriter" size:12]];
+        [titleLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]];
+        [valueLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1]];
         
         [titleLabel setMinimumScaleFactor:0.25];
         [titleLabel setAdjustsFontSizeToFitWidth:YES];
@@ -84,7 +84,7 @@ static CGFloat padding = 10.0f;
 - (CGFloat) heightForLabel:(UILabel *)lab
 {
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:lab.text
-                                                                         attributes:@{NSFontAttributeName: [UIFont  fontWithName:@"AmericanTypewriter" size:10]}];
+                                                                         attributes:@{NSFontAttributeName: [UIFont  preferredFontForTextStyle:UIFontTextStyleCaption1]}];
 
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){round(self.bounds.size.width * 0.5), CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
@@ -105,7 +105,7 @@ static CGFloat padding = 10.0f;
 + (CGFloat) heightForValue:(NSString *)value forWidth:(CGFloat)width{
 
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:value
-                                                                         attributes:@{NSFontAttributeName: [UIFont  fontWithName:@"AmericanTypewriter" size:10]}];
+                                                                         attributes:@{NSFontAttributeName: [UIFont  preferredFontForTextStyle:UIFontTextStyleCaption1]}];
 
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin

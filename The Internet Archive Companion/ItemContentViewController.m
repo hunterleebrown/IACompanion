@@ -22,6 +22,9 @@
 @property (nonatomic, strong) NSMutableDictionary *organizedMediaFiles;
 @property (nonatomic, weak) IBOutlet UITableView *mediaTable;
 
+@property (nonatomic, weak) IBOutlet UIButton *favoritesButton;
+@property (nonatomic, weak) IBOutlet UIButton *shareButton;
+
 @end
 
 @implementation ItemContentViewController
@@ -60,7 +63,16 @@
     if ([self.mediaTable respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.mediaTable setSeparatorInset:UIEdgeInsetsZero];
     }
-    
+
+
+    self.imageView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.imageView.layer.borderWidth = 1.0f;
+
+
+    for(UIView *view in @[self.favoritesButton, self.shareButton, self.imageView]){
+        view.layer.cornerRadius = 5.0f;
+    }
+
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
@@ -111,8 +123,8 @@
     [self setTitle:self.detDoc.title];
     
     
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], NSFontAttributeName, nil]];
-    
+//    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], NSFontAttributeName, nil]];
+
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
     
     
