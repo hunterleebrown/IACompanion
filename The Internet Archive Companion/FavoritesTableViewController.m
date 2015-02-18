@@ -46,7 +46,7 @@
     self.navigationItem.leftBarButtonItem = closeButton;
     
     //[self.navigationItem.titleView setTintColor:[UIColor whiteColor]];
-    UIFont *titleFont = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16];
+    UIFont *titleFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     CGSize titleSize = [@"Favorites" sizeWithAttributes:@{NSFontAttributeName : titleFont}];
 
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, titleSize.width, 40)];
