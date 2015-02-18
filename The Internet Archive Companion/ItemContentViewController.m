@@ -71,7 +71,7 @@
 
 
     for(UIView *view in @[self.favoritesButton, self.shareButton, self.imageView]){
-        view.layer.cornerRadius = 5.0f;
+        view.layer.cornerRadius = 10.0f;
     }
 
 }
