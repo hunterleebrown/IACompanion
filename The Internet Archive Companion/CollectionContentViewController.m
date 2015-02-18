@@ -76,7 +76,7 @@
 
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", self.detDoc.details];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Helvetica\"'>%@</body></html>", self.detDoc.details];
     
     [self setTitle:self.detDoc.title];
     
@@ -102,10 +102,14 @@
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = CGRectMake(0, self.tableHeaderView.bounds.size.height /2, self.tableHeaderView.bounds.size.width, self.tableHeaderView.bounds.size.height /2);
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
+    self.imageView.layer.cornerRadius = 10.0f;
+    self.imageView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.imageView.layer.borderWidth = 1.0f;
+
+//    CAGradientLayer *gradient = [CAGradientLayer layer];
+//    gradient.frame = CGRectMake(0, self.tableHeaderView.bounds.size.height /2, self.tableHeaderView.bounds.size.width, self.tableHeaderView.bounds.size.height /2);
+//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+//    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
 }
 
 - (void)didReceiveMemoryWarning

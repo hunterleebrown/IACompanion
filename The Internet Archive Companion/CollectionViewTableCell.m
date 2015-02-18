@@ -56,6 +56,10 @@
     _archiveImageView.layer.masksToBounds = YES;
     _archiveImageView.layer.borderColor = [UIColor blackColor].CGColor;
     _archiveImageView.layer.borderWidth = 1.0;
+
+    self.paddedView.layer.cornerRadius = 5.0f;
+    self.paddedView.layer.borderWidth = 1.0f;
+    self.paddedView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     
 
 }

@@ -69,26 +69,26 @@
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [gradient setStartPoint:CGPointMake(0.0, 0.5)];
-        [gradient setEndPoint:CGPointMake(1.0, 0.5)];
-        gradient.frame = CGRectMake(0,0, self.tableHeaderView.bounds.size.width, self.tableHeaderView.bounds.size.height);
+//    CAGradientLayer *gradient = [CAGradientLayer layer];
+//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+//        [gradient setStartPoint:CGPointMake(0.0, 0.5)];
+//        [gradient setEndPoint:CGPointMake(1.0, 0.5)];
+//        gradient.frame = CGRectMake(0,0, self.tableHeaderView.bounds.size.width, self.tableHeaderView.bounds.size.height);
+//
+//    } else {
+//        gradient.frame = CGRectMake(0, self.descriptionButton.frame.origin.y, self.tableHeaderView.bounds.size.width, self.descriptionButton.bounds.size.height);
+//    }
+//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+//    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
+//
+//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+//        CAGradientLayer *gradient2 = [CAGradientLayer layer];
+//        gradient2.frame = CGRectMake(0, 0, self.tableHeaderView.bounds.size.width, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height);
+//        gradient2.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
+//        [self.tableHeaderView.layer insertSublayer:gradient2 atIndex:1];
+//
+//    }
 
-    } else {
-        gradient.frame = CGRectMake(0, self.descriptionButton.frame.origin.y, self.tableHeaderView.bounds.size.width, self.descriptionButton.bounds.size.height);
-    }
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
-
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        CAGradientLayer *gradient2 = [CAGradientLayer layer];
-        gradient2.frame = CGRectMake(0, 0, self.tableHeaderView.bounds.size.width, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height);
-        gradient2.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
-        [self.tableHeaderView.layer insertSublayer:gradient2 atIndex:1];
-
-    }
-    
     
 }
 
@@ -106,7 +106,7 @@
 
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#FAEBD7; color:#000; font-size:14px; font-family:\"Courier New\"'>%@</body></html>", self.detDoc.details];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'>%@</body></html>", self.detDoc.details];
     
     [self setTitle:self.detDoc.title];
     

@@ -16,5 +16,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic, weak) IBOutlet UILabel *collectionBanner;
 @property (nonatomic, weak) IBOutlet UILabel *decription;
+@property (nonatomic, weak) IBOutlet UIView *paddedView;
 
 @end
