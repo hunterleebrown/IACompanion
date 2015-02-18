@@ -123,7 +123,8 @@
     [moreInfoView.scrollView setScrollEnabled:NO];
     [self.archiveDescription setScalesPageToFit:YES];
     
-    
+    self.middleWebView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
+
 
     
 
@@ -150,6 +151,14 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSString *urlString = request.URL.absoluteString;
     if(navigationType == UIWebViewNavigationTypeLinkClicked){
+        
+//        if(webView == self.middleWebView){
+//            externalUrl = request.URL;
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+//            [alert show];
+//            return NO;
+//        }
+        
         NSString *detailURL;
         
         NSArray *slashes = [urlString componentsSeparatedByString:@"/"];
@@ -221,6 +230,24 @@
     
     if(((UIButton *)sender).tag == 0){
         [self.popUpView showWithSubView:self.archiveDescription title:@"Description" message:nil];
+        
+        
+//        if(self.middleWebViewHeight.constant == 0) {
+//            self.middleWebViewHeight.constant = 200;
+//            self.upperViewHeight.constant += self.middleWebViewHeight.constant;
+//        } else {
+//            self.middleWebViewHeight.constant = 0;
+//            self.upperViewHeight.constant = 220;
+//
+//        }
+//        [self.middleWebView setNeedsUpdateConstraints];
+//        [self.tableHeaderView setNeedsUpdateConstraints];
+//        
+//        [UIView animateWithDuration:0.33 animations:^{
+//            [self.view layoutIfNeeded];
+//        }];
+        
+        
     } else if (((UIButton *)sender).tag == 1) {
         [self.popUpView showWithSubView:self.metaDataTable title:@"MetaData" message:nil];
     } else if (((UIButton *)sender).tag == 2) {
