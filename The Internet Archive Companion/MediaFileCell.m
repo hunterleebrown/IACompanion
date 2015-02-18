@@ -23,10 +23,19 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
-       [self.contentView setBackgroundColor:[UIColor whiteColor]];
+
     }
     return self;
 }
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self.backView.layer setCornerRadius:5.0f];
+
+
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

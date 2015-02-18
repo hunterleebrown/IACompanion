@@ -12,4 +12,5 @@
 @property (nonatomic, weak) IBOutlet UILabel *fileTitle;
 @property (nonatomic, weak) IBOutlet UILabel *fileName;
 @property (nonatomic, weak) IBOutlet UILabel *fileFormat;
+@property (nonatomic, weak) IBOutlet UIView *backView;
 @end
