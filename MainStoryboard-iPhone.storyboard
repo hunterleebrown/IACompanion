@@ -645,7 +645,7 @@
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wV6-fM-eDy">
                                         <rect key="frame" x="0.0" y="120" width="600" height="44"/>
                                         <items>
-                                            <barButtonItem tag="1" title="Description" id="8LL-FY-ufn">
+                                            <barButtonItem title="Description" id="8LL-FY-ufn">
                                                 <connections>
                                                     <action selector="showPopUp:" destination="gp1-Y2-9gB" id="hma-s4-656"/>
                                                 </connections>
@@ -1024,7 +1024,7 @@
                                             <action selector="showPopUp:" destination="N1m-C5-JKW" eventType="touchUpInside" id="R5E-oc-2h7"/>
                                         </connections>
                                     </button>
-                                    <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8v8-LX-Q7g">
+                                    <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8v8-LX-Q7g">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="TKu-ef-XKe"/>
