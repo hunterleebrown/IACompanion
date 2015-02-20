@@ -414,6 +414,7 @@
     
     [player stop];
     [player setContentURL:nil];
+    [imageView setImage:nil];
 }
 
 
