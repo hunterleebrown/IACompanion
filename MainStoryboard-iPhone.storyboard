@@ -655,6 +655,7 @@
                                                     <action selector="showPopUp:" destination="gp1-Y2-9gB" id="ljo-LQ-8yk"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="jdw-Nb-icg"/>
                                             <barButtonItem title="Play All" id="w4q-mC-yUd">
                                                 <connections>
                                                     <action selector="playAll:" destination="gp1-Y2-9gB" id="vBm-Re-9cW"/>
