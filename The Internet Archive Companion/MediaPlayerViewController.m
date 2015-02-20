@@ -78,6 +78,7 @@
     [player.view setUserInteractionEnabled:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileAndPlayNotification:) name:@"AddToPlayerListFileAndPlayNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addToPlayerListFileNotification:) name:@"AddToPlayerListFileNotification" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerLoadStateNotification:) name:@"MPMoviePlayerLoadStateDidChangeNotification" object:player];
     
@@ -266,7 +267,8 @@
     if((state & MPMovieLoadStatePlayable) == MPMovieLoadStatePlayable) {
         [bufferingView stopAnimating];
         [self updateRemote];
-
+    } else if ((state & MPMovieLoadStateUnknown) == MPMovieLoadStateUnknown) {
+        [bufferingView stopAnimating];
     }  else {
         [bufferingView startAnimating];
     }
@@ -395,20 +397,13 @@
 }
 
 
-
-- (IBAction)clearList:(id)sender{
-    //[playerFiles removeAllObjects];
-
-
-    
+- (void)clearPlayerFiles
+{
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    
     [context processPendingChanges];
-
     
     for(PlayerFile *f in [self.fetchedResultsController fetchedObjects]){
         [context deleteObject:f];
-        
     }
     NSError *error = nil;
     if (![context save:&error]) {
@@ -417,7 +412,22 @@
         //  NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
     
-    
+    [player stop];
+    [player setContentURL:nil];
+}
+
+
+- (IBAction)clearList:(id)sender{
+    if(self.fetchedResultsController.fetchedObjects.count > 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Clear PLaylist" message:@"Do you want to clear your playlist?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        [alert show];
+    }
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        [self clearPlayerFiles];
+    }
 }
 
 
