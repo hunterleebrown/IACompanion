@@ -41,6 +41,12 @@
 @property (nonatomic, strong) PopUpView *popUpView;
 @property (nonatomic, strong) MetaDataTable *metaDataTable;
 
+
+@property (nonatomic, weak) IBOutlet UIButton *homeListButton;
+@property (nonatomic, weak) IBOutlet UIButton *homeMediaPlayerButton;
+@property (nonatomic, weak) IBOutlet UIButton *homeSearchButton;
+@property (nonatomic, weak) IBOutlet UIButton *homeFavoritesButton;
+
 - (IBAction) showPopUp:(id)sender;
 
 

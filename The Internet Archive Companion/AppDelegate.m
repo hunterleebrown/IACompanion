@@ -31,27 +31,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
-    
+
     InitialViewController *controller = (InitialViewController *)self.window.rootViewController;
     controller.managedObjectContext = self.managedObjectContext;
-    
 
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
 
-  //  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopUpWithMessageNotification:) name:@"NotifyUser" object:nil];
-    
     popUpView = [[PopUpView alloc] initWithFrame:CGRectZero];
     [self.window addSubview:popUpView];
-    
-    
 
-    
-    
-    UIImage *image = [UIImage imageNamed:@"toolbar.png"];
-    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    
     [self.window makeKeyAndVisible];
+
+
+
+
+
+    for (NSString* family in [UIFont familyNames])
+    {
+        NSLog(@"%@", family);
+
+        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+        {
+            NSLog(@"  %@", name);
+        }
+    }
+
+
 
     return YES;
 }

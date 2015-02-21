@@ -74,6 +74,7 @@
         view.layer.cornerRadius = 10.0f;
     }
 
+
 }
 
 - (void) viewDidDisappear:(BOOL)animated{

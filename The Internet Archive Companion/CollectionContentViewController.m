@@ -102,9 +102,9 @@
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 
-    self.imageView.layer.cornerRadius = 10.0f;
-    self.imageView.layer.borderColor = [UIColor blackColor].CGColor;
-    self.imageView.layer.borderWidth = 1.0f;
+//    self.imageView.layer.cornerRadius = 10.0f;
+//    self.imageView.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.imageView.layer.borderWidth = 1.0f;
 
 //    CAGradientLayer *gradient = [CAGradientLayer layer];
 //    gradient.frame = CGRectMake(0, self.tableHeaderView.bounds.size.height /2, self.tableHeaderView.bounds.size.width, self.tableHeaderView.bounds.size.height /2);

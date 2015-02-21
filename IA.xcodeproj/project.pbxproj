@@ -20,6 +20,7 @@
 		5A2350211780C47A0050C9A2 /* CollectionContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2350201780C47A0050C9A2 /* CollectionContentViewController.m */; };
 		5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930616C3855400C3E107 /* ArchiveFile.m */; };
 		5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A23930816C3A07500C3E107 /* MediaPlayer.framework */; };
+		5A33984E1A9839F50001C7A4 /* Iconochive-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */; };
 		5A51FA4A16E3C464004E5C44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A51FA4916E3C464004E5C44 /* MessageUI.framework */; };
 		5A5A0AF51A422BD00009CBC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A0AF41A422BD00009CBC2 /* Images.xcassets */; };
 		5A727D771800C90A00EEF8C2 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A727D761800C90A00EEF8C2 /* FavoritesTableViewController.m */; };
@@ -104,9 +105,11 @@
 		5A2393461801565E00B5793E /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~ipad.png"; path = "../Default~ipad.png"; sourceTree = "<group>"; };
 		5A32CBD4180600D8008C9543 /* Default-Portrait-1024~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait-1024~ipad.png"; path = "../Default-Portrait-1024~ipad.png"; sourceTree = "<group>"; };
 		5A32CBD518060125008C9543 /* Default-Portrait-1024@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait-1024@2x~ipad.png"; path = "../Default-Portrait-1024@2x~ipad.png"; sourceTree = "<group>"; };
+		5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Iconochive-Regular.ttf"; sourceTree = "<group>"; };
 		5A5169EB180159A1004ABA0B /* Default-Landscape-1024~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape-1024~ipad.png"; path = "../Default-Landscape-1024~ipad.png"; sourceTree = "<group>"; };
 		5A51FA4916E3C464004E5C44 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5A5A0AF41A422BD00009CBC2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../IA/Images.xcassets; sourceTree = "<group>"; };
+		5A5B8C981A9921DE00B8528B /* FontMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontMapping.h; sourceTree = "<group>"; };
 		5A727D751800C90A00EEF8C2 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		5A727D761800C90A00EEF8C2 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		5A727D801800CC2B00EEF8C2 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
@@ -323,6 +326,14 @@
 			name = "Pop Up View Controller";
 			sourceTree = "<group>";
 		};
+		5A33984C1A9838060001C7A4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		5A5065261736DDCD00D295E2 /* Multimedia */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +520,7 @@
 				CE3FFD0C17943D8300709F5F /* MediaFileCell.m */,
 				CE3FFD0E179440D200709F5F /* MediaFileHeaderCell.h */,
 				CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */,
+				5A5B8C981A9921DE00B8528B /* FontMapping.h */,
 			);
 			name = "Common Views";
 			sourceTree = "<group>";
@@ -536,6 +548,7 @@
 		5ADAB7ED16C76E8100DBC072 /* IA Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A33984C1A9838060001C7A4 /* Fonts */,
 				5A5065261736DDCD00D295E2 /* Multimedia */,
 				5AD456BD1A907E7F0035FBA1 /* Media.xcassets */,
 			);
@@ -630,6 +643,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A33984E1A9839F50001C7A4 /* Iconochive-Regular.ttf in Resources */,
 				5A93EBC117A4598600D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */,
 				5A93EBC217A4598600D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */,
 				5A0A10BA16A640A300CC70CD /* InfoPlist.strings in Resources */,
