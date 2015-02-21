@@ -14,6 +14,8 @@
 #define MEDIAPLAYER @"\U0001F3AC"
 #define SEARCH @"\U0001F50D"
 #define HEART @"\u2661"
+#define BACK @"\u02c2"
+
 #define ARCHIVE @"\U0001F3DB"
 
 #endif

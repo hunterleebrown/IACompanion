@@ -283,6 +283,9 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressListButton" destination="5DB-Ie-EAF" eventType="touchUpInside" id="Fma-LP-4oJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the list icon to reveal and choose the very top collections of the Archive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="F1L-aG-kLd">
                                 <rect key="frame" x="80" y="100" width="204" height="44"/>
@@ -304,6 +307,9 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressMPButton" destination="5DB-Ie-EAF" eventType="touchUpInside" id="fey-8z-GCs"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the media player button to reveal your playlist of audio and video files with embedded player." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="3OY-eg-MDD">
                                 <rect key="frame" x="80" y="154" width="204" height="44"/>
@@ -325,6 +331,9 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressSearchButton" destination="5DB-Ie-EAF" eventType="touchUpInside" id="t7r-bd-zah"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the magnifying glass icon to open the search pane and look for anything in the Archive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="UnJ-qN-evd">
                                 <rect key="frame" x="80" y="208" width="220" height="54"/>
@@ -346,6 +355,9 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressFavorites" destination="5DB-Ie-EAF" eventType="touchUpInside" id="f5w-7Z-jv3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9x-mO-jYw">
                                 <rect key="frame" x="36" y="385" width="63" height="31"/>
@@ -469,6 +481,11 @@
                     <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
                     <connections>
                         <outlet property="creditsButton" destination="L9x-mO-jYw" id="xbn-Tt-3At"/>
+                        <outlet property="homeFavoritesButton" destination="1fZ-Rr-lAm" id="xVC-Q6-Wdt"/>
+                        <outlet property="homeListButton" destination="QkF-LC-d7M" id="XN9-mn-3s2"/>
+                        <outlet property="homeMediaPlayerButton" destination="HWp-V0-4oI" id="UZ4-Vu-2IR"/>
+                        <outlet property="homeSearchButton" destination="mBN-LY-ZcK" id="aIZ-9T-rSu"/>
+                        <outlet property="topArchiveLogo" destination="rxT-h9-K8j" id="gJw-Xc-D3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1887,8 +1904,6 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hnz-5E-u04">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="xTT-pW-a0u" kind="relationship" relationship="rootViewController" id="4NZ-ug-IE3"/>
@@ -1948,5 +1963,5 @@
         <image name="search-button-plain" width="30" height="30"/>
         <image name="share-bbi" width="24" height="18"/>
     </resources>
-    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

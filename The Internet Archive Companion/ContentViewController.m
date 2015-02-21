@@ -54,53 +54,29 @@
 	// Do any additional setup after loading the view.
     
 
-    
-////    UIImage *image = [UIImage imageNamed:@"new-list.png"];
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-////    button.frame = CGRectMake(0, 0, image.size.width + 10, image.size.height);
-//    [button.titleLabel setFont:[UIFont fontWithName:@"Iconochive-Regular" size:15]];
-//    button.tag = 0;
-//    [button setTitle:@"" forState:UIControlStateNormal]
-//    [button addTarget:self action:@selector(didPressListButton) forControlEvents:UIControlEventTouchUpInside];
-////    [button setImage:image forState:UIControlStateNormal];
+    [self.homeListButton setTitle:HAMBURGER forState:UIControlStateNormal];
+    [self.homeSearchButton setTitle:SEARCH forState:UIControlStateNormal];
+    [self.homeMediaPlayerButton setTitle:MEDIAPLAYER forState:UIControlStateNormal];
+    [self.homeFavoritesButton setTitle:HEART forState:UIControlStateNormal];
+
+    [self.topArchiveLogo setText:ARCHIVE];
+
 
 
 
     _listButton = [[UIBarButtonItem alloc] initWithTitle:HAMBURGER style:UIBarButtonItemStylePlain target:self action:@selector(didPressListButton)];
     [_listButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
     
-    UIImage *image2 = [UIImage imageNamed:@"search-button-plain.png"];
-    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button2.frame = CGRectMake(0, 0, image2.size.width + 10, image2.size.height);
-    button2.tag = 0;
-    [button2 addTarget:self action:@selector(didPressSearchButton) forControlEvents:UIControlEventTouchUpInside];
-    [button2 setImage:image2 forState:UIControlStateNormal];
-//    _searchButton = [[UIBarButtonItem alloc] initWithCustomView:button2];
+
 
     _searchButton = [[UIBarButtonItem alloc] initWithTitle:SEARCH style:UIBarButtonItemStylePlain target:self action:@selector(didPressSearchButton)];
     [_searchButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
+    
+    _backButton = [[UIBarButtonItem alloc] initWithTitle:BACK style:UIBarButtonItemStylePlain target:self action:@selector(didPressSearchButton)];
+    [_backButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
-    
-    UIImage *bi = [UIImage imageNamed:@"back-button.png"];
-    UIButton *bibutton = [UIButton buttonWithType:UIButtonTypeCustom];
-    bibutton.frame = CGRectMake(0, 0, bi.size.width, bi.size.height);
-    bibutton.tag = 0;
-    [bibutton addTarget:self action:@selector(didPressBackButton) forControlEvents:UIControlEventTouchUpInside];
-    [bibutton setImage:bi forState:UIControlStateNormal];
-    
-    _backButton = [[UIBarButtonItem alloc] initWithCustomView:bibutton];
-    
 
-//
-//    UIImage *mpi = [UIImage imageNamed:@"open-player-button.png"];
-//    UIButton *mpbutton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    mpbutton.frame = CGRectMake(0, 0, mpi.size.width, mpi.size.height);
-//    mpbutton.tag = 1;
-//    [mpbutton addTarget:self action:@selector(didPressMPButton) forControlEvents:UIControlEventTouchUpInside];
-//    [mpbutton setImage:mpi forState:UIControlStateNormal];
-//    _mpBarButton = [[UIBarButtonItem alloc] initWithCustomView:mpbutton];
-//
     _mpBarButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
     [_mpBarButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
@@ -150,18 +126,6 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    [listIconButton.layer setCornerRadius:10];
-//    [playerIconButton.layer setCornerRadius:10];
-//    [searchIconButton.layer setCornerRadius:10];
-//    [self.favoritesIconButton.layer setCornerRadius:10];
-//    [self.iaIcon.layer setCornerRadius:10];
-
-    [self.homeListButton setTitle:HAMBURGER forState:UIControlStateNormal];
-    [self.homeSearchButton setTitle:SEARCH forState:UIControlStateNormal];
-    [self.homeMediaPlayerButton setTitle:MEDIAPLAYER forState:UIControlStateNormal];
-    [self.homeFavoritesButton setTitle:HEART forState:UIControlStateNormal];
-
-    [self.topArchiveLogo setText:ARCHIVE];
 
 }
 
@@ -223,7 +187,13 @@
 
 
 
-- (void) didPressSearchButton{
+- (IBAction)didPressFavorites
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenFavorites" object:nil];
+
+}
+
+- (IBAction)didPressSearchButton{
     
     /*
     if(self.searchIsShowing){
@@ -238,12 +208,15 @@
 }
 
 
+- (IBAction)didPressListButton{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];
+}
 
 
 
 
 
-- (void) didPressMPButton {
+- (IBAction) didPressMPButton {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
 }
 
@@ -300,9 +273,6 @@
 
 
 
-- (void) didPressListButton{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];    
-}
 
 
 - (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{

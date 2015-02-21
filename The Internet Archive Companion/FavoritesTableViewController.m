@@ -9,6 +9,7 @@
 #import "FavoritesTableViewController.h"
 #import "Favorite.h"
 #import "FavoritesCell.h"
+#import "FontMapping.h"
 
 @interface FavoritesTableViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -45,17 +46,7 @@
     
     self.navigationItem.leftBarButtonItem = closeButton;
     
-    //[self.navigationItem.titleView setTintColor:[UIColor whiteColor]];
-    UIFont *titleFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    CGSize titleSize = [@"Favorites" sizeWithAttributes:@{NSFontAttributeName : titleFont}];
-
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, titleSize.width, 40)];
-    [title setFont:titleFont];
-    [title setText:@"Favorites"];
-    [title setTextColor:[UIColor whiteColor]];
-    [self.navigationItem setTitleView:title];
-    [title setBackgroundColor:[UIColor clearColor]];
-    
+    self.title = HEART;
 }
 
 - (void) close{
