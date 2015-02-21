@@ -10,6 +10,10 @@
     <customFonts key="customFonts">
         <mutableArray key="Iconochive-Regular.ttf">
             <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -268,30 +272,81 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Use the list icon to reveal and choose the very top collections of the Archive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="F1L-aG-kLd">
-                                <rect key="frame" x="58" y="100" width="242" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkF-LC-d7M">
+                                <rect key="frame" x="26" y="100" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="r9a-f7-fcY"/>
+                                    <constraint firstAttribute="height" constant="44" id="u5V-2U-MCC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
+                                <state key="normal" title="L">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the list icon to reveal and choose the very top collections of the Archive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="F1L-aG-kLd">
+                                <rect key="frame" x="80" y="100" width="204" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1RE-YJ-zZs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Use the media player button to reveal your playlist of audio and video files with embedded player." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="3OY-eg-MDD">
-                                <rect key="frame" x="58" y="154" width="242" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWp-V0-4oI">
+                                <rect key="frame" x="26" y="154" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="yNA-MW-EdV"/>
+                                    <constraint firstAttribute="width" constant="44" id="ybk-O6-XEj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
+                                <state key="normal" title="M">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the media player button to reveal your playlist of audio and video files with embedded player." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="3OY-eg-MDD">
+                                <rect key="frame" x="80" y="154" width="204" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Vpq-Kc-A7C"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Use the magnifying glass icon to open the search pane and look for anything in the Archive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="UnJ-qN-evd">
-                                <rect key="frame" x="58" y="208" width="242" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-LY-ZcK">
+                                <rect key="frame" x="26" y="213" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="RXY-nV-I9a"/>
+                                    <constraint firstAttribute="width" constant="44" id="kUW-xb-Pvz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
+                                <state key="normal" title="S">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the magnifying glass icon to open the search pane and look for anything in the Archive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="UnJ-qN-evd">
+                                <rect key="frame" x="80" y="208" width="220" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="F4H-en-u8i"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Add a favorite, or view your list of favorite archive items." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="wy9-G8-Z51">
-                                <rect key="frame" x="58" y="272" width="236" height="44"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fZ-Rr-lAm">
+                                <rect key="frame" x="26" y="272" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="5eF-2X-jC9"/>
+                                    <constraint firstAttribute="height" constant="44" id="9yg-mx-zE3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
+                                <state key="normal" title="F">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9x-mO-jYw">
                                 <rect key="frame" x="36" y="385" width="63" height="31"/>
                                 <constraints>
@@ -314,31 +369,68 @@
                                     <action selector="showPopUp:" destination="5DB-Ie-EAF" eventType="touchUpInside" id="nBk-sr-H3e"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add a favorite, or view your list of favorite archive items." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="wy9-G8-Z51">
+                                <rect key="frame" x="80" y="272" width="204" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="BGk-eV-ya0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wy9-G8-Z51" firstAttribute="top" secondItem="UnJ-qN-evd" secondAttribute="bottom" constant="10" id="12h-Aj-noG"/>
+                            <constraint firstAttribute="trailing" secondItem="3OY-eg-MDD" secondAttribute="trailing" constant="20" id="28t-YG-bMW"/>
+                            <constraint firstItem="3OY-eg-MDD" firstAttribute="leading" secondItem="UnJ-qN-evd" secondAttribute="leading" id="2Ga-tu-Ob6"/>
                             <constraint firstItem="L9x-mO-jYw" firstAttribute="centerX" secondItem="t4W-sB-iDl" secondAttribute="centerX" constant="-87.5" id="4iJ-s2-ymC"/>
+                            <constraint firstItem="UnJ-qN-evd" firstAttribute="leading" secondItem="wy9-G8-Z51" secondAttribute="leading" id="4y0-8Z-A8J"/>
+                            <constraint firstItem="UnJ-qN-evd" firstAttribute="trailing" secondItem="3OY-eg-MDD" secondAttribute="trailing" id="5NZ-Ct-LDF"/>
                             <constraint firstItem="L9x-mO-jYw" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leadingMargin" constant="20" id="5a4-s9-Uef"/>
+                            <constraint firstItem="mBN-LY-ZcK" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leadingMargin" constant="10" id="6Xa-gB-HUf"/>
                             <constraint firstItem="UnJ-qN-evd" firstAttribute="top" secondItem="F1L-aG-kLd" secondAttribute="bottom" constant="5" id="78f-mw-BPQ"/>
+                            <constraint firstItem="wy9-G8-Z51" firstAttribute="leading" secondItem="1fZ-Rr-lAm" secondAttribute="trailing" constant="10" id="7eD-hn-V40"/>
                             <constraint firstAttribute="trailing" secondItem="t4W-sB-iDl" secondAttribute="trailing" constant="20" symbolic="YES" id="80X-Fw-AHD"/>
+                            <constraint firstItem="3OY-eg-MDD" firstAttribute="leading" secondItem="F1L-aG-kLd" secondAttribute="leading" id="86u-wd-1W1"/>
                             <constraint firstAttribute="centerX" secondItem="rxT-h9-K8j" secondAttribute="centerX" id="8bF-QU-Msb"/>
+                            <constraint firstItem="QkF-LC-d7M" firstAttribute="centerY" secondItem="F1L-aG-kLd" secondAttribute="centerY" id="9y1-ZM-ejA"/>
+                            <constraint firstItem="wy9-G8-Z51" firstAttribute="top" secondItem="UnJ-qN-evd" secondAttribute="bottom" constant="10" id="9y5-5R-ya2"/>
                             <constraint firstItem="UnJ-qN-evd" firstAttribute="leading" secondItem="3OY-eg-MDD" secondAttribute="leading" id="ASP-Pv-fd8"/>
                             <constraint firstItem="UnJ-qN-evd" firstAttribute="trailing" secondItem="wy9-G8-Z51" secondAttribute="trailing" id="Ab7-Dz-x3e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wy9-G8-Z51" secondAttribute="trailing" constant="20" id="BXA-WK-C7e"/>
                             <constraint firstItem="wy9-G8-Z51" firstAttribute="top" secondItem="3OY-eg-MDD" secondAttribute="bottom" constant="46" id="C7c-9e-Ye4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F1L-aG-kLd" secondAttribute="trailing" constant="20" id="CDK-pv-lfG"/>
+                            <constraint firstItem="HWp-V0-4oI" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leadingMargin" constant="10" id="FP8-UI-brA"/>
                             <constraint firstItem="F1L-aG-kLd" firstAttribute="top" secondItem="t4W-sB-iDl" secondAttribute="bottom" constant="20" id="He8-J6-C9L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3OY-eg-MDD" secondAttribute="trailing" constant="20" id="HfE-2x-jdh"/>
+                            <constraint firstAttribute="trailing" secondItem="F1L-aG-kLd" secondAttribute="trailing" constant="20" id="Hfj-Li-cd6"/>
                             <constraint firstItem="t4W-sB-iDl" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" constant="20" symbolic="YES" id="LRF-NG-ffY"/>
+                            <constraint firstItem="F1L-aG-kLd" firstAttribute="trailing" secondItem="t4W-sB-iDl" secondAttribute="trailing" id="Lsf-uG-4ok"/>
                             <constraint firstItem="3OY-eg-MDD" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="151" id="N81-M8-5u5"/>
                             <constraint firstItem="rxT-h9-K8j" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" constant="10" id="OgZ-iR-9Vl"/>
                             <constraint firstItem="F1L-aG-kLd" firstAttribute="top" secondItem="t4W-sB-iDl" secondAttribute="bottom" constant="20" id="RQw-Lu-P0b"/>
                             <constraint firstItem="t4W-sB-iDl" firstAttribute="top" secondItem="rxT-h9-K8j" secondAttribute="bottom" constant="10" id="TNd-57-0Ip"/>
+                            <constraint firstItem="UnJ-qN-evd" firstAttribute="centerY" secondItem="mBN-LY-ZcK" secondAttribute="centerY" id="Tdf-5Y-LVi"/>
                             <constraint firstItem="t4W-sB-iDl" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="20" id="WqV-2W-q22"/>
                             <constraint firstItem="3OY-eg-MDD" firstAttribute="top" secondItem="F1L-aG-kLd" secondAttribute="bottom" constant="5" id="Ygd-EB-Zr2"/>
+                            <constraint firstItem="1fZ-Rr-lAm" firstAttribute="centerY" secondItem="wy9-G8-Z51" secondAttribute="centerY" id="a7w-kJ-7T0"/>
+                            <constraint firstItem="1fZ-Rr-lAm" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leadingMargin" constant="10" id="aXj-F6-IIV"/>
+                            <constraint firstItem="UnJ-qN-evd" firstAttribute="leading" secondItem="mBN-LY-ZcK" secondAttribute="trailing" constant="10" id="bMK-q1-mJL"/>
+                            <constraint firstItem="3OY-eg-MDD" firstAttribute="centerY" secondItem="HWp-V0-4oI" secondAttribute="centerY" id="bXk-dZ-W9c"/>
+                            <constraint firstItem="UnJ-qN-evd" firstAttribute="top" secondItem="3OY-eg-MDD" secondAttribute="bottom" constant="10" id="fqV-7l-ahA"/>
+                            <constraint firstItem="F1L-aG-kLd" firstAttribute="leading" secondItem="QkF-LC-d7M" secondAttribute="trailing" constant="10" id="g6S-s0-VTU"/>
+                            <constraint firstItem="3OY-eg-MDD" firstAttribute="leading" secondItem="HWp-V0-4oI" secondAttribute="trailing" constant="10" id="grX-Gf-eGd"/>
                             <constraint firstItem="wy9-G8-Z51" firstAttribute="trailing" secondItem="UnJ-qN-evd" secondAttribute="trailing" id="ir7-N6-CUO"/>
                             <constraint firstAttribute="bottom" secondItem="L9x-mO-jYw" secondAttribute="bottom" constant="20" id="ivn-Cm-yrF"/>
                             <constraint firstItem="UnJ-qN-evd" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="206" id="izS-1q-q70"/>
                             <constraint firstItem="F1L-aG-kLd" firstAttribute="top" secondItem="t4W-sB-iDl" secondAttribute="bottom" constant="20" id="kNw-Kb-pqP"/>
+                            <constraint firstAttribute="trailing" secondItem="UnJ-qN-evd" secondAttribute="trailing" constant="20" id="lVf-zq-Uu8"/>
+                            <constraint firstItem="F1L-aG-kLd" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leadingMargin" constant="10" id="p2s-8L-L8J"/>
                             <constraint firstItem="d5x-zT-6zp" firstAttribute="baseline" secondItem="L9x-mO-jYw" secondAttribute="baseline" id="qLY-TW-9eM"/>
+                            <constraint firstItem="QkF-LC-d7M" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leadingMargin" constant="10" id="qdz-jz-OWB"/>
+                            <constraint firstItem="F1L-aG-kLd" firstAttribute="top" secondItem="t4W-sB-iDl" secondAttribute="bottom" constant="20" id="rxE-o5-kAd"/>
+                            <constraint firstItem="3OY-eg-MDD" firstAttribute="top" secondItem="F1L-aG-kLd" secondAttribute="bottom" constant="10" id="thc-BK-4li"/>
                             <constraint firstAttribute="trailing" secondItem="d5x-zT-6zp" secondAttribute="trailing" constant="20" id="u3R-gc-C1d"/>
                             <constraint firstItem="F1L-aG-kLd" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="93" id="u4e-R3-PXz"/>
                             <constraint firstItem="d5x-zT-6zp" firstAttribute="leading" secondItem="L9x-mO-jYw" secondAttribute="trailing" constant="8" symbolic="YES" id="vgt-ec-Aod"/>
@@ -348,11 +440,19 @@
                             <mask key="constraints">
                                 <exclude reference="WqV-2W-q22"/>
                                 <exclude reference="He8-J6-C9L"/>
+                                <exclude reference="Hfj-Li-cd6"/>
+                                <exclude reference="Lsf-uG-4ok"/>
                                 <exclude reference="RQw-Lu-P0b"/>
                                 <exclude reference="kNw-Kb-pqP"/>
+                                <exclude reference="p2s-8L-L8J"/>
                                 <exclude reference="u4e-R3-PXz"/>
+                                <exclude reference="28t-YG-bMW"/>
+                                <exclude reference="2Ga-tu-Ob6"/>
+                                <exclude reference="86u-wd-1W1"/>
                                 <exclude reference="N81-M8-5u5"/>
                                 <exclude reference="Ygd-EB-Zr2"/>
+                                <exclude reference="4y0-8Z-A8J"/>
+                                <exclude reference="5NZ-Ct-LDF"/>
                                 <exclude reference="78f-mw-BPQ"/>
                                 <exclude reference="ASP-Pv-fd8"/>
                                 <exclude reference="Ab7-Dz-x3e"/>
