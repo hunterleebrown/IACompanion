@@ -26,6 +26,10 @@
 @property (nonatomic, weak) IBOutlet UIButton *descriptionButton;
 
 
+@property (nonatomic, weak) IBOutlet UIWebView *middleWebView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *middleWebViewHeight;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *upperViewHeight;
+
 @property (nonatomic, strong) ArchiveSearchDoc *searchDoc;
 
 @property (nonatomic, strong) UIBarButtonItem *backButton;

@@ -70,7 +70,7 @@
     self.imageView.layer.borderWidth = 1.0f;
 
 
-    for(UIView *view in @[self.favoritesButton, self.shareButton, self.imageView]){
+    for(UIView *view in @[self.imageView]){
         view.layer.cornerRadius = 10.0f;
     }
 
@@ -197,6 +197,29 @@
     return cell;
 
 }
+
+
+- (IBAction)playAll:(id)sender
+{
+    
+    for(ArchiveFile *aFile in mediaFiles) {
+        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF)
+        {
+            
+        }
+        else if (aFile.format == FileFormatDjVuTXT || aFile.format == FileFormatProcessedJP2ZIP || aFile.format == FileFormatTxt)
+        {
+            
+        } else
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:aFile];
+        }
+    }
+
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+}
+
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(organizedMediaFiles.count > 0){

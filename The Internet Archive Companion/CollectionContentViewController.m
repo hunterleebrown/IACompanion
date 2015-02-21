@@ -76,7 +76,7 @@
 
     
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#000; font-size:14px; font-family:\"Helvetica\"'>%@</body></html>", self.detDoc.details];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#fff; color:#000;  font-family:\"Helvetica\";'>%@</body></html>", self.detDoc.details];
     
     [self setTitle:self.detDoc.title];
     
@@ -90,6 +90,14 @@
              MIMEType:@"text/html"
      textEncodingName:@"UTF-8"
               baseURL:theBaseURL];
+    
+    
+//    [self.middleWebView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
+//                             MIMEType:@"text/html"
+//                     textEncodingName:@"UTF-8"
+//                              baseURL:theBaseURL];
+    
+    
     
     [self.metaDataTable addMetadata:[self.detDoc.rawDoc objectForKey:@"metadata"]];
     
