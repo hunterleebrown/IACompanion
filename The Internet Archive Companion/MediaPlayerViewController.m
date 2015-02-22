@@ -138,11 +138,11 @@
 
 }
 
-
-- (BOOL)prefersStatusBarHidden
+- (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return YES;
+    return UIStatusBarStyleDefault;
 }
+
 
 - (void) viewDidAppear:(BOOL)animated{
     player.view.frame = CGRectMake(0, 0, playerHolder.frame.size.width, playerHolder.frame.size.height);
@@ -553,7 +553,8 @@
 
     cell.showsReorderControl = YES;
     [cell setFile:file];
-    
+    [cell setBackgroundColor:[UIColor clearColor]];
+    [cell.contentView setBackgroundColor:[UIColor clearColor]];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

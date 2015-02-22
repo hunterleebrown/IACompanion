@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
+@property (nonatomic) UIStatusBarStyle statusBarStyle;
+
 @end
 
 @implementation InitialViewController
@@ -48,26 +50,45 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openFavoritesNotification:) name:@"AddFavoriteNotification" object:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatusBarWhite) name:@"ChangeStatusBarWhite" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatusBarBlack) name:@"ChangeStatusBarBlack" object:nil];
+
+
+
     
 //    if([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]){
 //        [self setNeedsStatusBarAppearanceUpdate];
 //    }
 
 
+    [self.mediaPlayerHolder setBackgroundColor:[UIColor clearColor]];
 
+    self.statusBarStyle = UIStatusBarStyleDefault;
 
 }
 
+- (void)changeStatusBarWhite
+{
+    self.statusBarStyle = UIStatusBarStyleLightContent;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
 
-//- (UIStatusBarStyle)preferredStatusBarStyle
-//{
-//    return UIStatusBarStyleLightContent;
-//}
+- (void)changeStatusBarBlack
+{
+    self.statusBarStyle = UIStatusBarStyleDefault;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+   return self.statusBarStyle;
+}
 
 
 - (BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 
@@ -120,9 +141,15 @@
 
 
 - (void) closePlayer{
+    [self.centralViewHolder setHidden:NO];
+    self.statusBarStyle = UIStatusBarStyleDefault;
+
     [UIView animateWithDuration:0.33 animations:^{
         //[mediaPlayerHolder setFrame:CGRectMake(- mediaPlayerHolder.frame.size.width, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
         [mediaPlayerHolder setAlpha:0.0];
+        [self.centralViewHolder setAlpha:1.0];
+        [self setNeedsStatusBarAppearanceUpdate];
+
     } completion:^(BOOL finished) {
         [mediaPlayerHolder setHidden:YES];
     }];
@@ -131,11 +158,21 @@
 
 - (void) openPlayer {
     [mediaPlayerHolder setHidden:NO];
+    self.statusBarStyle = UIStatusBarStyleLightContent;
     [UIView animateWithDuration:0.33 animations:^{
         //[mediaPlayerHolder setFrame:CGRectMake(0, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
         [mediaPlayerHolder setAlpha:1.0];
+        [self.centralViewHolder setAlpha:0.0];
+        [self setNeedsStatusBarAppearanceUpdate];
+
+    } completion:^(BOOL finished) {
+        [self.centralViewHolder setHidden:YES];
     }];
 }
+
+
+
+
 
 
 - (void) openFavoritesNotification:(NSNotification *)notification {

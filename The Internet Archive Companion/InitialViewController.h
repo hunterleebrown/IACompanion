@@ -16,6 +16,8 @@
 @interface InitialViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIView *mediaPlayerHolder;
+@property (nonatomic, weak) IBOutlet UIView *centralViewHolder;
+
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, weak) IBOutlet UIView *loadingIndicatorHolder;
 @property (nonatomic, strong) LoadingViewController *loadingIndicatorViewController;

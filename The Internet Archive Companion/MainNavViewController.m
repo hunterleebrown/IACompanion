@@ -231,7 +231,9 @@
     [cell.navImageView setHidden:NO];
     [cell.navCellTitleLabel setText:doc.title];
     [cell.navImageView setArchiveImage:doc.archiveImage];
-    
+    [cell setBackgroundColor:[UIColor clearColor]];
+    [cell.contentView setBackgroundColor:[UIColor clearColor]];
+
     return cell;
 }
 
@@ -304,6 +306,9 @@
             headerCell.sectionLabel.text =  @"";
             break;
     }
+
+    [headerCell setBackgroundColor:[UIColor blackColor]];
+    [headerCell.contentView setBackgroundColor:[UIColor blackColor]];
     return headerCell;
 
 }

@@ -78,7 +78,7 @@
     UIBarButtonItem* mpBarButton = [[UIBarButtonItem alloc] initWithCustomView:mpbutton];
     
     [self.navigationItem setLeftBarButtonItems:@[listButton, mpBarButton, backButton]];
-    
+
 
 
 }
@@ -247,8 +247,11 @@
         
         [cell.collectionBanner setHidden:YES];
     }
-    
-    
+
+    [cell setBackgroundColor:[UIColor clearColor]];
+    [cell.contentView setBackgroundColor:[UIColor clearColor]];
+
+
     return cell;
     
 }
