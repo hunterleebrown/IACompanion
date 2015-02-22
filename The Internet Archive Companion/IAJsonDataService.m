@@ -129,6 +129,8 @@
             t = @"texts";
         } else if(type == MediaTypeCollection){
             t = @"collection";
+        } else if(type == MediaTypeImage){
+            t = @"image";
         }
         
         
@@ -203,6 +205,9 @@
                         [aDoc setType:MediaTypeVideo];
                     } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"texts"]){
                         [aDoc setType:MediaTypeTexts];
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"image"]){
+                        [aDoc setType:MediaTypeImage];
+
                     } else {
                         [aDoc setType:MediaTypeAny];
                     }

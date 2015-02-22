@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ArchiveImageView.h"
+#import "ArchiveSearchDoc.h"
 
 @interface CollectionViewTableCell : UITableViewCell
 
@@ -17,5 +18,10 @@
 @property (nonatomic, weak) IBOutlet UILabel *collectionBanner;
 @property (nonatomic, weak) IBOutlet UILabel *decription;
 @property (nonatomic, weak) IBOutlet UIView *paddedView;
+
+@property (nonatomic, weak) IBOutlet UILabel *typeLabel;
+
+
+- (void)setTypeLabelStringFromMediaType:(MediaType)type;
 
 @end

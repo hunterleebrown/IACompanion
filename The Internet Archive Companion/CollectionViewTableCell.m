@@ -8,6 +8,7 @@
 
 #import "CollectionViewTableCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MediaUtils.h"
 
 @interface CollectionViewTableCell ()
 
@@ -33,6 +34,12 @@
     return self;
 }
 
+- (void)setTypeLabelStringFromMediaType:(MediaType)type
+{
+    self.typeLabel.text = [MediaUtils iconStringFromMediaType:type];
+    [self.typeLabel setTextColor:[MediaUtils colorFromMediaType:type]];
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -54,13 +61,14 @@
     
     _archiveImageView.layer.cornerRadius = 10;
     _archiveImageView.layer.masksToBounds = YES;
-    _archiveImageView.layer.borderColor = [UIColor blackColor].CGColor;
-    _archiveImageView.layer.borderWidth = 1.0;
 
     self.paddedView.layer.cornerRadius = 5.0f;
 //    self.paddedView.layer.borderWidth = 1.0f;
 //    self.paddedView.layer.borderColor = [UIColor whiteColor].CGColor;
 
+
+    [self.contentView setBackgroundColor:[UIColor clearColor]];
+    [self setBackgroundColor:[UIColor clearColor]];
 
 }
 

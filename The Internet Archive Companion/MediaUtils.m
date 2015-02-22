@@ -8,11 +8,81 @@
 
 #import "MediaUtils.h"
 #import "FontMapping.h"
+#import "ArchiveSearchDoc.h"
 
 @implementation MediaUtils
 
 
 
+
++ (NSString *)iconStringFromMediaType:(MediaType)type
+{
+    switch (type) {
+        case MediaTypeAudio:
+            return AUDIO;
+            break;
+
+        case MediaTypeCollection:
+            return COLLECTION;
+            break;
+
+        case MediaTypeImage:
+            return IMAGE;
+            break;
+
+        case MediaTypeTexts:
+            return BOOK;
+            break;
+
+        case MediaTypeVideo:
+            return VIDEO;
+            break;
+
+        case MediaTypeAny:
+            return ARCHIVE;
+            break;
+
+        default:
+            return ARCHIVE;
+            break;
+    }
+
+}
+
+
++ (UIColor *)colorFromMediaType:(MediaType)type
+{
+    switch (type) {
+        case MediaTypeAudio:
+            return AUDIO_COLOR;
+            break;
+
+        case MediaTypeCollection:
+            return COLLECTION_COLOR;
+            break;
+
+        case MediaTypeImage:
+            return IMAGE_COLOR;
+            break;
+
+        case MediaTypeTexts:
+            return BOOK_COLOR;
+            break;
+
+        case MediaTypeVideo:
+            return VIDEO_COLOR;
+            break;
+
+        case MediaTypeAny:
+            return [UIColor blackColor];
+            break;
+
+        default:
+            return [UIColor blackColor];
+            break;
+    }
+    
+}
 
 + (NSString *)iconStringFromFormat:(FileFormat)format
 {

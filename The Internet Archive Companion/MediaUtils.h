@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "ArchiveFile.h"
+#import "ArchiveSearchDoc.h"
 
 @interface MediaUtils : NSObject
 
-
++ (NSString *)iconStringFromMediaType:(MediaType)type;
 + (NSString *)iconStringFromFormat:(FileFormat)format;
 + (FileFormat)formatFromString:(NSString *)name;
 + (UIColor *)colorForFileFormat:(FileFormat)format;
++ (UIColor *)colorFromMediaType:(MediaType)type;
+
 @end

@@ -11,6 +11,8 @@
 #import "ArchiveSearchDoc.h"
 #import "CollectionViewTableCell.h"
 #import "StringUtils.h"
+#import "MediaUtils.h"
+#import "FontMapping.h"
 
 @interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
@@ -240,6 +242,7 @@
     cell.title.text = doc.title;
     cell.archiveImageView.archiveImage = doc.archiveImage;
     cell.decription.text = [StringUtils stringByStrippingHTML:doc.details];
+    [cell setTypeLabelStringFromMediaType:doc.type];
     
     if(doc.type == MediaTypeCollection){
         [cell.collectionBanner setHidden:NO];
