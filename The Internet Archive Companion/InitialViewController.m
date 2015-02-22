@@ -54,19 +54,30 @@
 //    }
 
 
-//    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent];
 
 
 }
 
-//-(UIStatusBarStyle)preferredStatusBarStyle{
+
+//- (UIStatusBarStyle)preferredStatusBarStyle
+//{
 //    return UIStatusBarStyleLightContent;
 //}
+
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"mediaPlayer"]){
         mediaPlayerViewController = [segue destinationViewController];
         [mediaPlayerViewController setManagedObjectContext:self.managedObjectContext];
+        [self setNeedsStatusBarAppearanceUpdate];
     }
     if([segue.identifier isEqualToString:@"loadingViewController"]){
         loadingIndicatorViewController = [segue destinationViewController];

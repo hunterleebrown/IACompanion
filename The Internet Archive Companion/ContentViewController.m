@@ -46,7 +46,10 @@
 
 
 
-
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
 
 - (void)viewDidLoad
 {

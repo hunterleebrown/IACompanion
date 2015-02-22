@@ -138,6 +138,12 @@
 
 }
 
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 - (void) viewDidAppear:(BOOL)animated{
     player.view.frame = CGRectMake(0, 0, playerHolder.frame.size.width, playerHolder.frame.size.height);
     
