@@ -13,5 +13,6 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *navCellTitleLabel;
 @property (nonatomic, weak) IBOutlet ArchiveImageView *navImageView;
+@property (nonatomic, strong) UILabel *fontLabel;
 
 @end

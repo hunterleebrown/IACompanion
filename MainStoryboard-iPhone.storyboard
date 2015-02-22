@@ -40,7 +40,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="256" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QMB-bK-0LI" customClass="ArchiveImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMB-bK-0LI" customClass="ArchiveImageView">
                                                     <rect key="frame" x="5" y="12" width="40" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -1036,7 +1036,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeC-n8-fen">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="kW7-vM-2jR" customClass="ArchiveImageView">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="kW7-vM-2jR" customClass="ArchiveImageView">
                                         <rect key="frame" x="5" y="5" width="100" height="100"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1086,15 +1086,6 @@
                                             <action selector="showPopUp:" destination="N1m-C5-JKW" eventType="touchUpInside" id="R5E-oc-2h7"/>
                                         </connections>
                                     </button>
-                                    <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8v8-LX-Q7g">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" id="TKu-ef-XKe"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="delegate" destination="N1m-C5-JKW" id="bnE-RG-uOS"/>
-                                        </connections>
-                                    </webView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZU-8E-zRg" customClass="CollectionDataHandlerAndHeaderView">
                                         <rect key="frame" x="0.0" y="166" width="600" height="32"/>
                                         <subviews>
@@ -1164,7 +1155,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="kW7-vM-2jR" firstAttribute="bottom" secondItem="qeC-n8-fen" secondAttribute="bottom" id="0oD-XZ-bNT"/>
-                                    <constraint firstAttribute="trailing" secondItem="8v8-LX-Q7g" secondAttribute="trailing" constant="10" id="2EQ-r2-uZP"/>
                                     <constraint firstItem="i7K-jo-EbB" firstAttribute="leading" secondItem="qeC-n8-fen" secondAttribute="leading" id="3ba-Co-6tu"/>
                                     <constraint firstItem="7BB-fz-ce7" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="10" id="3xA-Hn-2yU"/>
                                     <constraint firstItem="nBC-8T-5Cb" firstAttribute="leading" secondItem="BFu-rM-wTy" secondAttribute="leading" id="4PJ-P2-S7c"/>
@@ -1184,7 +1174,6 @@
                                     <constraint firstItem="BFu-rM-wTy" firstAttribute="leading" secondItem="qeC-n8-fen" secondAttribute="leading" id="P7b-bK-QOG"/>
                                     <constraint firstItem="nBC-8T-5Cb" firstAttribute="leading" secondItem="BFu-rM-wTy" secondAttribute="leading" id="QtL-fm-6DI"/>
                                     <constraint firstItem="7BB-fz-ce7" firstAttribute="bottom" secondItem="nBC-8T-5Cb" secondAttribute="bottom" id="Scp-y3-UpL"/>
-                                    <constraint firstItem="8v8-LX-Q7g" firstAttribute="top" secondItem="7BB-fz-ce7" secondAttribute="bottom" id="awH-Lc-qkG"/>
                                     <constraint firstItem="nBC-8T-5Cb" firstAttribute="top" secondItem="kW7-vM-2jR" secondAttribute="bottom" constant="10" id="cBZ-Tl-icj"/>
                                     <constraint firstAttribute="trailing" secondItem="7BB-fz-ce7" secondAttribute="trailing" constant="10" id="eIP-ZM-CI6"/>
                                     <constraint firstItem="i7K-jo-EbB" firstAttribute="top" secondItem="xZU-8E-zRg" secondAttribute="bottom" id="exK-Ra-9Vn"/>
@@ -1192,7 +1181,6 @@
                                     <constraint firstAttribute="trailing" secondItem="kW7-vM-2jR" secondAttribute="trailing" multiplier="2" id="gWE-Xf-uH5"/>
                                     <constraint firstItem="nBC-8T-5Cb" firstAttribute="baseline" secondItem="7BB-fz-ce7" secondAttribute="baseline" id="gzf-Pc-k0x"/>
                                     <constraint firstAttribute="trailing" secondItem="BFu-rM-wTy" secondAttribute="trailing" constant="10" id="hpd-d6-Va9"/>
-                                    <constraint firstItem="8v8-LX-Q7g" firstAttribute="leading" secondItem="qeC-n8-fen" secondAttribute="leading" constant="10" id="jsB-zs-cfg"/>
                                     <constraint firstItem="7BB-fz-ce7" firstAttribute="baseline" secondItem="nBC-8T-5Cb" secondAttribute="baseline" id="lqi-mc-s3i"/>
                                     <constraint firstItem="BFu-rM-wTy" firstAttribute="top" secondItem="qeC-n8-fen" secondAttribute="top" constant="5" id="no1-bx-0dg"/>
                                     <constraint firstItem="xZU-8E-zRg" firstAttribute="leading" secondItem="qeC-n8-fen" secondAttribute="leading" id="ocd-um-jsr"/>
@@ -1373,8 +1361,6 @@
                         <outlet property="descriptionButton" destination="nBC-8T-5Cb" id="b36-hp-r28"/>
                         <outlet property="imageView" destination="kW7-vM-2jR" id="zdT-Xy-JhM"/>
                         <outlet property="metaDataButton" destination="7BB-fz-ce7" id="FT0-JQ-vV8"/>
-                        <outlet property="middleWebView" destination="8v8-LX-Q7g" id="cNg-ue-1Uq"/>
-                        <outlet property="middleWebViewHeight" destination="TKu-ef-XKe" id="7c1-tT-j2i"/>
                         <outlet property="tableHeaderView" destination="qeC-n8-fen" id="Mmj-Ex-OEF"/>
                         <outlet property="titleLabel" destination="BFu-rM-wTy" id="Bd5-IF-vVe"/>
                         <outlet property="upperViewHeight" destination="OCP-R1-oFt" id="v5r-oh-86F"/>

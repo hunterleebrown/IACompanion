@@ -182,7 +182,8 @@
 
     [cell.navImageView setHidden:YES];
     [cell.navImageView setBackgroundColor:[UIColor whiteColor]];
-    
+    [cell.fontLabel setHidden:YES];
+
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
         case 0:
@@ -199,19 +200,21 @@
                 [cell.navCellTitleLabel setText:@"Favorites"];
                 [self setArchiveIconForCell:cell titleName:HEART];
             }
-
+            cell.fontLabel.hidden = NO;
             return cell;
-            
             
             break;
         case 1:
             doc = [audioSearchDocuments objectAtIndex:indexPath.row];
+            cell.fontLabel.hidden = YES;
             break;
         case 2:
             doc = [videoSearchDocuments objectAtIndex:indexPath.row];
+            cell.fontLabel.hidden = YES;
             break;
         case 3:
             doc = [textSearchDocuments objectAtIndex:indexPath.row];
+            cell.fontLabel.hidden = YES;
             break;
         default:
             break;
@@ -228,18 +231,18 @@
 
 - (void) setArchiveIconForCell:(MainNavTableViewCell *)cell titleName:(NSString *)titleName
 {
-    UILabel *home = [[UILabel alloc] initWithFrame:cell.imageView.bounds];
-    home.text = titleName;
-    [home setFont:[UIFont fontWithName:@"Iconochive-Regular" size:30]];
-    [home setTextColor:[UIColor whiteColor]];
-    [cell.contentView addSubview:home];
-    CGRect f = home.frame;
+    cell.fontLabel = [[UILabel alloc] initWithFrame:cell.imageView.bounds];
+    cell.fontLabel.text = titleName;
+    [cell.fontLabel setFont:[UIFont fontWithName:@"Iconochive-Regular" size:30]];
+    [cell.fontLabel setTextColor:[UIColor whiteColor]];
+    [cell.contentView addSubview:cell.fontLabel];
+    CGRect f = cell.fontLabel.frame;
     f.origin.x = 0;
     f.origin.y = 0;
     f.size.height = 30;
     f.size.width = 30;
-    home.frame = f;
-    home.center = cell.navImageView.center;
+    cell.fontLabel.frame = f;
+    cell.fontLabel.center = cell.navImageView.center;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

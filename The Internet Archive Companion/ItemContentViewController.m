@@ -66,13 +66,7 @@
     }
 
 
-    self.imageView.layer.borderColor = [UIColor blackColor].CGColor;
-    self.imageView.layer.borderWidth = 1.0f;
 
-
-    for(UIView *view in @[self.imageView]){
-        view.layer.cornerRadius = 10.0f;
-    }
 
 
 }
