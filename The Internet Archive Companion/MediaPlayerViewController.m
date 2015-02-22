@@ -15,6 +15,7 @@
 #import "PlayerTableViewCell.h"
 #import "BufferingView.h"
 #import "StringUtils.h"
+#import "FontMapping.h"
 
 @interface MediaPlayerViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
@@ -40,6 +41,9 @@
 @property (nonatomic) BOOL sliderIsTouched;
 @property (nonatomic, assign) NSTimeInterval totalVideoTime;
 
+
+@property (nonatomic, weak) IBOutlet UIButton *closeButtonButton;
+@property (nonatomic, weak) IBOutlet UIButton *mediaPlayerButton;
 
 @end
 
@@ -102,7 +106,8 @@
 
     sliderIsTouched = NO;
 
-    
+    [self.closeButtonButton setTitle:CLOSE forState:UIControlStateNormal];
+    [self.mediaPlayerButton setTitle:MEDIAPLAYER forState:UIControlStateNormal];
 }
 
 - (void) viewDidAppear:(BOOL)animated{

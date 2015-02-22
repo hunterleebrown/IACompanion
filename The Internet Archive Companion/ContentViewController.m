@@ -81,11 +81,11 @@
     [_mpBarButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
 
-    [self.navigationItem setLeftBarButtonItems:@[_listButton, _mpBarButton, _searchButton]];
+    [self.navigationItem setLeftBarButtonItems:@[_listButton, _mpBarButton]];
 
     
     
-   // [self.navigationItem setRightBarButtonItems:@[_searchButton]];
+    [self.navigationItem setRightBarButtonItems:@[_searchButton]];
     
     
     popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
@@ -116,12 +116,12 @@
     self.middleWebView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
 
 
-    if(self.imageView){
-        for(UIView *view in @[self.imageView]){
-            view.layer.cornerRadius = view.bounds.size.width / 2;
-            view.layer.masksToBounds = YES;
-        }
-    }
+//    if(self.imageView){
+//        for(UIView *view in @[self.imageView]){
+//            view.layer.cornerRadius = view.bounds.size.width / 2;
+//            view.layer.masksToBounds = YES;
+//        }
+//    }
 
 
 }

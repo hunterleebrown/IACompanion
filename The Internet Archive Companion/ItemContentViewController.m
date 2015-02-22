@@ -45,7 +45,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self.navigationItem setLeftBarButtonItems:@[self.listButton, self.mpBarButton, self.searchButton, self.backButton]];
+    [self.navigationItem setLeftBarButtonItems:@[self.backButton, self.listButton, self.mpBarButton]];
     [self.service fetchData];
     
     
@@ -116,8 +116,8 @@
     
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'>%@</body></html>", self.detDoc.details];
     
-    [self setTitle:self.detDoc.title];
-    
+//    [self setTitle:self.detDoc.title];
+
     
 //    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], NSFontAttributeName, nil]];
 
