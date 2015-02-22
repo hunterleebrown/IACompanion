@@ -7,6 +7,14 @@
 //
 
 #import "PlayerTableViewCell.h"
+#import "ArchiveFile.h"
+#import "MediaUtils.h"
+
+@interface PlayerTableViewCell ()
+
+@property (nonatomic) FileFormat fileFormat;
+
+@end
 
 @implementation PlayerTableViewCell
 
@@ -24,7 +32,29 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+
+    if(selected){
+        [self.fileTitle setTextColor:[UIColor redColor]];
+        [self.fileTitle setFont:[UIFont boldSystemFontOfSize:self.fileTitle.font.pointSize]];
+    } else {
+        [self.fileTitle setTextColor:[UIColor whiteColor]];
+        [self.fileTitle setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+
+    }
+
 }
+
+- (void) setFormat:(NSString *)format
+{
+    self.fileFormat = format;
+    self.formatLabel.text = [MediaUtils iconStringFromFormat:[MediaUtils formatFromString:format]];
+    [self.formatLabel setTextColor:[MediaUtils colorForFileFormat:[MediaUtils formatFromString:format]]];
+}
+
+
+
+
+
 
 - (void)awakeFromNib {
     

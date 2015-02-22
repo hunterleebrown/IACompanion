@@ -14,6 +14,8 @@
 @property (nonatomic, strong) PlayerFile *file;
 @property (nonatomic, weak) IBOutlet UILabel *fileTitle;
 @property (nonatomic, weak) IBOutlet UILabel *identifierLabel;
+@property (nonatomic, weak) IBOutlet UILabel *formatLabel;
 
+- (void)setFormat:(NSString *)format;
 
 @end

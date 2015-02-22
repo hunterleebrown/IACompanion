@@ -283,12 +283,15 @@
             return nil;
         case 1:
             headerCell.sectionLabel.text =  @"Audio Collections";
+            headerCell.sectionLabel.textColor = AUDIO_COLOR;
             break;
         case 2:
             headerCell.sectionLabel.text =  @"Video Collections";
+            headerCell.sectionLabel.textColor = VIDEO_COLOR;
             break;
         case 3:
             headerCell.sectionLabel.text =  @"Text Collections";
+            headerCell.sectionLabel.textColor = BOOK_COLOR;
             break;
         default:
             headerCell.sectionLabel.text =  @"";

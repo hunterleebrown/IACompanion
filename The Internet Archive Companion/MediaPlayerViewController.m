@@ -24,7 +24,13 @@
 @property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
 @property (nonatomic, strong) MPMoviePlayerController *player;
 @property (nonatomic, retain) IBOutlet UITableView *playerTableView;
+
+@property (nonatomic, weak) IBOutlet UIButton *ffButton;
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
+@property (nonatomic, weak) IBOutlet UIButton *rwButton;
+@property (nonatomic, weak) IBOutlet UIButton *fullScreenButton;
+
+
 @property (nonatomic, weak) IBOutlet UIView *playerHolder;
 @property (nonatomic) BOOL tableIsEditing;
 @property (nonatomic, weak) IBOutlet UIButton *editListButton;
@@ -44,6 +50,9 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *closeButtonButton;
 @property (nonatomic, weak) IBOutlet UIButton *mediaPlayerButton;
+
+@property (nonatomic, weak) IBOutlet UIToolbar *playerToolbar;
+@property (nonatomic, weak) IBOutlet UIToolbar *topToolbar;
 
 @end
 
@@ -108,6 +117,24 @@
 
     [self.closeButtonButton setTitle:CLOSE forState:UIControlStateNormal];
     [self.mediaPlayerButton setTitle:MEDIAPLAYER forState:UIControlStateNormal];
+    [self.playButton setTitle:PLAY forState:UIControlStateNormal];
+    [self.ffButton setTitle:FFORWARD forState:UIControlStateNormal];
+    [self.rwButton setTitle:RREVERSE forState:UIControlStateNormal];
+    [self.fullScreenButton setTitle:FULLSCREEN forState:UIControlStateNormal];
+
+
+    [self.playerToolbar setBackgroundImage:[UIImage new]
+                  forToolbarPosition:UIToolbarPositionAny
+                          barMetrics:UIBarMetricsDefault];
+
+    [self.playerToolbar setBackgroundColor:[UIColor clearColor]];
+
+    [self.topToolbar setBackgroundImage:[UIImage new]
+                        forToolbarPosition:UIToolbarPositionAny
+                                barMetrics:UIBarMetricsDefault];
+    [self.topToolbar setBackgroundColor:[UIColor clearColor]];
+
+
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -296,12 +323,14 @@
             
             // Set itself as the first responder
             [self becomeFirstResponder];
-            [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+//            [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+            [playButton setTitle:PAUSE forState:UIControlStateNormal];
 
         }
             break;
         case MPMoviePlaybackStatePaused: {
-            [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+//            [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+            [playButton setTitle:PLAY forState:UIControlStateNormal];
 
         }
             break;
@@ -513,7 +542,8 @@
     
     cell.fileTitle.text = file.title;
     cell.identifierLabel.text = file.identifierTitle;
-    // cell.fileFormat.text = file.format;
+    cell.format = file.format;
+
     cell.showsReorderControl = YES;
     [cell setFile:file];
     
@@ -741,7 +771,8 @@
         
         //[_instructions setHidden:YES];
         
-        [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+//        [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+        [playButton setTitle:PAUSE forState:UIControlStateNormal];
         [bufferingView startAnimating];
         
         
@@ -758,25 +789,29 @@
     if(player.playbackState == MPMoviePlaybackStatePlaying){
         
         [player pause];
-        [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+//        [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+
        // [bufferingView stopAnimating];
-        
+
+        [playButton setTitle:PLAY forState:UIControlStateNormal];
+
+
     } else if(player.playbackState == MPMoviePlaybackStatePaused){
         
         [player play];
-        [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+        [playButton setTitle:PAUSE forState:UIControlStateNormal];
 
 
     } else if(player.playbackState == MPMoviePlaybackStateSeekingBackward || player.playbackState == MPMoviePlaybackStateSeekingForward){
         [player endSeeking];
         [player pause];
-        [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+        [playButton setTitle:PLAY forState:UIControlStateNormal];
 
         
     } else if(player.playbackState == MPMoviePlaybackStateStopped){
         
         [player play];
-        [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+        [playButton setTitle:PAUSE forState:UIControlStateNormal];
 
     }
 
