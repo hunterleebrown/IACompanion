@@ -9,6 +9,7 @@
 #import "CollectionContentViewController.h"
 #import "CollectionDataHandlerAndHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MediaUtils.h"
 
 @interface CollectionContentViewController () 
 
@@ -68,7 +69,9 @@
     
     assert([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] != nil);
     self.detDoc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
-    
+
+//    [self.tableHeaderView setBackgroundColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
+
     self.titleLabel.text = self.detDoc.title;
     if(self.detDoc.archiveImage){
         [self.imageView setArchiveImage:self.detDoc.archiveImage];

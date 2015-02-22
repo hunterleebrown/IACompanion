@@ -26,6 +26,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *favoritesButton;
 @property (nonatomic, weak) IBOutlet UIButton *shareButton;
 
+@property (nonatomic, weak) IBOutlet UILabel *typeLabel;
+
 
 @end
 
