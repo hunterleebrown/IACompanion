@@ -70,7 +70,7 @@
 	// Do any additional setup after loading the view.
 
 
-    [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor blackColor]];
+//    [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor blackColor]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endRefreshing) name:@"EndRefreshing" object:nil];
 
     

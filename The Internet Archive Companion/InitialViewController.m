@@ -49,15 +49,19 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openFavoritesNotification:) name:@"AddFavoriteNotification" object:nil];
 
     
-    if([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]){
-        [self setNeedsStatusBarAppearanceUpdate];
-    }
-   
+//    if([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]){
+//        [self setNeedsStatusBarAppearanceUpdate];
+//    }
+
+
+//    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent];
+
+
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
+//-(UIStatusBarStyle)preferredStatusBarStyle{
+//    return UIStatusBarStyleLightContent;
+//}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"mediaPlayer"]){
