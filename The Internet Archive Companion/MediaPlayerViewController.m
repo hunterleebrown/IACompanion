@@ -101,6 +101,7 @@
     [player.view addGestureRecognizer: tapRecognizer];
 
     sliderIsTouched = NO;
+
     
 }
 

@@ -11,6 +11,7 @@
 #import "MainNavTableViewHeaderViewCell.h"
 #import "ArchiveSearchDoc.h"
 #import "IAJsonDataService.h"
+#import "FontMapping.h"
 
 
 
@@ -188,23 +189,17 @@
             
             if(indexPath.row == 0) {
                 [cell.navCellTitleLabel setText:@"Home"];
-                [cell.navImageView setImage:[UIImage imageNamed:@"ia-button-plain.png"]];
-                [cell.navImageView setBackgroundColor:[UIColor blackColor]];
-//                [cell setBackgroundColor:[UIColor blackColor]];
+                [self setArchiveIconForCell:cell titleName:ARCHIVE];
+
             } else if(indexPath.row == 1) {
                 [cell.navCellTitleLabel setText:@"Media Player"];
-                [cell.navImageView setImage:[UIImage imageNamed:@"open-player-button.png"]];
-                [cell.navImageView setBackgroundColor:[UIColor blackColor]];
-//                [cell setBackgroundColor:[UIColor blackColor]];
+                [self setArchiveIconForCell:cell titleName:MEDIAPLAYER];
             }
             else if(indexPath.row == 2) {
                 [cell.navCellTitleLabel setText:@"Favorites"];
-                [cell.navImageView setImage:[UIImage imageNamed:@"favorites_button.png"]];
-                [cell.navImageView setBackgroundColor:[UIColor blackColor]];
-//                [cell setBackgroundColor:[UIColor blackColor]];
+                [self setArchiveIconForCell:cell titleName:HEART];
             }
-            
-            [cell.navImageView setHidden:NO];
+
             return cell;
             
             
@@ -230,6 +225,22 @@
     return cell;
 }
 
+
+- (void) setArchiveIconForCell:(MainNavTableViewCell *)cell titleName:(NSString *)titleName
+{
+    UILabel *home = [[UILabel alloc] initWithFrame:cell.imageView.bounds];
+    home.text = titleName;
+    [home setFont:[UIFont fontWithName:@"Iconochive-Regular" size:30]];
+    [home setTextColor:[UIColor whiteColor]];
+    [cell.contentView addSubview:home];
+    CGRect f = home.frame;
+    f.origin.x = 0;
+    f.origin.y = 0;
+    f.size.height = 30;
+    f.size.width = 30;
+    home.frame = f;
+    home.center = cell.navImageView.center;
+}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
