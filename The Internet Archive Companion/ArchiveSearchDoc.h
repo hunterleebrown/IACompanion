@@ -18,7 +18,8 @@ typedef enum {
     MediaTypeImage = 4,
     MediaTypeCollection = 5,
     MediaTypeAny = 6,
-    MediaTypeSoftware = 7
+    MediaTypeSoftware = 7,
+    MediaTypeEtree = 8
     
 }MediaType;
 

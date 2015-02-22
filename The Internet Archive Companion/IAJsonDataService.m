@@ -133,6 +133,8 @@
             t = @"image";
         } else if(type == MediaTypeSoftware){
             t = @"software";
+        } else if(type == MediaTypeEtree){
+            t = @"etree";
         }
 
         
@@ -212,6 +214,8 @@
                         [aDoc setType:MediaTypeImage];
                     } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"software"]){
                         [aDoc setType:MediaTypeSoftware];
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"etree"]){
+                        [aDoc setType:MediaTypeEtree];
                     } else {
                         [aDoc setType:MediaTypeAny];
                     }
@@ -261,6 +265,12 @@
             [dDoc setType:MediaTypeVideo];
         } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"texts"]){
             [dDoc setType:MediaTypeTexts];
+        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"movies"]){
+            [dDoc setType:MediaTypeVideo];
+        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"etree"]){
+            [dDoc setType:MediaTypeEtree];
+        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"software"]){
+            [dDoc setType:MediaTypeSoftware];
         } else {
             [dDoc setType:MediaTypeAny];
         }

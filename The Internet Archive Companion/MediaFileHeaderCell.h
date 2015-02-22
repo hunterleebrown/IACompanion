@@ -11,5 +11,9 @@
 @interface MediaFileHeaderCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *sectionHeaderLabel;
+@property (nonatomic, weak) IBOutlet UILabel *sectionHeaderTypeLabel;
+
+- (void)setTypeLabelIconFromFileTypeString:(NSString *)string;
+
 
 @end

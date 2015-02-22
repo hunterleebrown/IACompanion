@@ -14,6 +14,7 @@
 #import "MediaImageViewController.h"
 #import "ArchivePageViewController.h"
 #import <Social/Social.h>
+#import "MediaUtils.h"
 
 
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -100,6 +101,8 @@
     
 }
 
+#pragma mark - Results
+
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
     
     //ArchiveDetailDoc *doc = ((IAJsonDataService *)service).rawResults
@@ -112,7 +115,7 @@
     }
     
 
-    
+    [self.tableHeaderView setBackgroundColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
     
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'>%@</body></html>", self.detDoc.details];
     
@@ -149,6 +152,8 @@
     
 }
 
+#pragma mark -
+
 - (void) orgainizeMediaFiles:(NSMutableArray *)files{
     for(ArchiveFile *f in files){
         if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:f.format]] != nil){
@@ -164,7 +169,7 @@
     
 }
 
-
+#pragma mark - Table Stuff
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if(organizedMediaFiles.count == 0){
         return @"";
@@ -192,6 +197,57 @@
 
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(organizedMediaFiles.count > 0){
+        ArchiveFile *aFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF) {
+            MediaImageViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"mediaImageViewController"];
+            [vc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+            ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:aFile.url];
+            [vc setImage:image];
+            [self presentViewController:vc animated:YES completion:nil];
+        } else if (aFile.format == FileFormatDjVuTXT || aFile.format == FileFormatProcessedJP2ZIP || aFile.format == FileFormatTxt) {
+            ArchivePageViewController *pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"archivePageViewController"];
+            [pageViewController setIdentifier:self.searchDoc.identifier];
+            [pageViewController setBookFile:aFile];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenBookViewer" object:pageViewController];
+
+
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileAndPlayNotification" object:aFile];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+        }
+    }
+}
+
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    MediaFileHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"mediaFileHeaderCell"];
+
+    if(organizedMediaFiles.count > 0){
+        ArchiveFile *firstFile;
+        firstFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] objectAtIndex:0];
+        headerCell.sectionHeaderLabel.text = [firstFile.file objectForKey:@"format"];
+        [headerCell setTypeLabelIconFromFileTypeString:[firstFile.file objectForKey:@"format"]];
+    }
+    return headerCell;
+}
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
+    return organizedMediaFiles.count;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if(organizedMediaFiles.count == 0){
+        return 0;
+    }
+
+    return [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] count];
+}
+
+
+#pragma mark -
+
 
 - (IBAction)playAll:(id)sender
 {
@@ -215,52 +271,7 @@
 }
 
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(organizedMediaFiles.count > 0){
-        ArchiveFile *aFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF) {
-            MediaImageViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"mediaImageViewController"];
-            [vc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-            ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:aFile.url];
-            [vc setImage:image];
-            [self presentViewController:vc animated:YES completion:nil];
-        } else if (aFile.format == FileFormatDjVuTXT || aFile.format == FileFormatProcessedJP2ZIP || aFile.format == FileFormatTxt) {
-            ArchivePageViewController *pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"archivePageViewController"];
-            [pageViewController setIdentifier:self.searchDoc.identifier];
-            [pageViewController setBookFile:aFile];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenBookViewer" object:pageViewController];
 
-        
-        } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileAndPlayNotification" object:aFile];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
-        }
-    }
-}
-
-
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    MediaFileHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"mediaFileHeaderCell"];
-    
-    if(organizedMediaFiles.count > 0){
-        ArchiveFile *firstFile;
-        firstFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] objectAtIndex:0];
-        headerCell.sectionHeaderLabel.text = [firstFile.file objectForKey:@"format"];
-    }
-    return headerCell;
-}
-
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return organizedMediaFiles.count;
-}
-
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(organizedMediaFiles.count == 0){
-        return 0;
-    }
-    
-    return [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] count];
-}
 
 
 

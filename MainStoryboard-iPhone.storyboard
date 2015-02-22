@@ -22,6 +22,7 @@
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -717,7 +718,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-rm-hHQ" customClass="ArchiveImageView">
                                         <rect key="frame" x="10" y="5" width="100" height="100"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="8Wy-Cp-2SI"/>
                                             <constraint firstAttribute="height" constant="150" id="Bxd-KO-V8M"/>
@@ -909,7 +910,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ve-6S-z0q">
-                                                    <rect key="frame" x="18" y="0.0" width="564" height="21"/>
+                                                    <rect key="frame" x="18" y="0.0" width="513" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="YHl-OW-vD0"/>
@@ -922,12 +923,22 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaF-yc-28w">
+                                                    <rect key="frame" x="536" y="-1" width="54" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="9ve-6S-z0q" firstAttribute="top" secondItem="hLQ-wQ-5zd" secondAttribute="topMargin" id="BOS-Ae-6el"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="9ve-6S-z0q" secondAttribute="bottom" id="Ei6-qT-PYm"/>
+                                                <constraint firstAttribute="centerY" secondItem="iaF-yc-28w" secondAttribute="centerY" id="K2E-8e-lXd"/>
+                                                <constraint firstItem="iaF-yc-28w" firstAttribute="trailing" secondItem="hLQ-wQ-5zd" secondAttribute="trailingMargin" constant="20" id="M7S-Uo-3GN"/>
+                                                <constraint firstItem="iaF-yc-28w" firstAttribute="leading" secondItem="9ve-6S-z0q" secondAttribute="trailing" constant="5" id="PYP-rF-ZJB"/>
                                                 <constraint firstItem="9ve-6S-z0q" firstAttribute="top" secondItem="hLQ-wQ-5zd" secondAttribute="topMargin" id="Vqg-YJ-fOQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="iaF-yc-28w" secondAttribute="trailing" constant="10" id="lbJ-FU-3ws"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9ve-6S-z0q" secondAttribute="trailing" constant="10" id="lfl-LH-Bmw"/>
                                                 <constraint firstItem="9ve-6S-z0q" firstAttribute="top" secondItem="hLQ-wQ-5zd" secondAttribute="top" id="mdA-uw-cnb"/>
                                                 <constraint firstItem="9ve-6S-z0q" firstAttribute="leading" secondItem="hLQ-wQ-5zd" secondAttribute="leadingMargin" constant="10" id="qGW-Qb-M9v"/>
@@ -939,13 +950,16 @@
                                                     <exclude reference="BOS-Ae-6el"/>
                                                     <exclude reference="Ei6-qT-PYm"/>
                                                     <exclude reference="Vqg-YJ-fOQ"/>
+                                                    <exclude reference="lfl-LH-Bmw"/>
                                                     <exclude reference="umO-BZ-rwY"/>
+                                                    <exclude reference="M7S-Uo-3GN"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="sectionHeaderLabel" destination="9ve-6S-z0q" id="MZz-KA-gLU"/>
+                                            <outlet property="sectionHeaderTypeLabel" destination="iaF-yc-28w" id="nPK-7m-dC7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -987,7 +1001,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Y9-ij-32p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4392" y="965"/>
+            <point key="canvasLocation" x="4392" y="964"/>
         </scene>
         <!--Media Image View Controller-->
         <scene sceneID="uMN-S5-8WI">

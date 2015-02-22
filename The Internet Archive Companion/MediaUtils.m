@@ -38,6 +38,10 @@
             return VIDEO;
             break;
 
+        case MediaTypeEtree:
+            return AUDIO;
+            break;
+
         case MediaTypeAny:
             return ARCHIVE;
             break;
@@ -81,6 +85,10 @@
             return SOFTWARE_COLOR;
             break;
 
+        case MediaTypeEtree:
+            return AUDIO_COLOR;
+            break;
+
         case MediaTypeAny:
             return [UIColor blackColor];
             break;
@@ -104,6 +112,23 @@
         case FileFormat512kbMPEG4:
             return VIDEO;
             break;
+
+        case FileFormatDjVuTXT:
+            return BOOK;
+            break;
+
+        case FileFormatProcessedJP2ZIP:
+            return BOOK;
+            break;
+
+        case FileFormatTxt:
+            return BOOK;
+            break;
+
+        case FileFormatJPEG:
+            return IMAGE;
+            break;
+
         default:
             return AUDIO;
             break;

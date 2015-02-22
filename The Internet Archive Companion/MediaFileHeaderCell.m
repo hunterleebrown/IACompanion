@@ -7,6 +7,7 @@
 //
 
 #import "MediaFileHeaderCell.h"
+#import "MediaUtils.h"
 
 @implementation MediaFileHeaderCell
 
@@ -24,6 +25,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+
+- (void)setTypeLabelIconFromFileTypeString:(NSString *)string
+{
+    self.sectionHeaderTypeLabel.text = [MediaUtils iconStringFromFormat:[MediaUtils formatFromString:string]];
+    [self.sectionHeaderTypeLabel setTextColor:[MediaUtils colorForFileFormat:[MediaUtils formatFromString:string]]];
+
 }
 
 @end
