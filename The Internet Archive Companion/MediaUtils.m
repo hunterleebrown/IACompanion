@@ -42,6 +42,10 @@
             return ARCHIVE;
             break;
 
+        case MediaTypeSoftware:
+            return SOFTWARE;
+            break;
+
         default:
             return ARCHIVE;
             break;
@@ -71,6 +75,10 @@
 
         case MediaTypeVideo:
             return VIDEO_COLOR;
+            break;
+
+        case MediaTypeSoftware:
+            return SOFTWARE_COLOR;
             break;
 
         case MediaTypeAny:

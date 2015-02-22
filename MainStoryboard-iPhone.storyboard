@@ -21,6 +21,7 @@
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -657,7 +658,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.83000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="trailing" secondItem="jw3-cD-TaP" secondAttribute="trailing" id="0SJ-vU-NbR"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="top" secondItem="jw3-cD-TaP" secondAttribute="bottom" id="7oM-wI-pgI"/>
@@ -1267,7 +1268,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ju-cA-bxf">
                                                     <rect key="frame" x="10" y="5" width="580" height="85"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uIM-fr-7yF" customClass="ArchiveImageView">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIM-fr-7yF" customClass="ArchiveImageView">
                                                             <rect key="frame" x="5" y="6" width="74" height="74"/>
                                                             <color key="backgroundColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -1276,7 +1277,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-uc-9Tf">
-                                                            <rect key="frame" x="89" y="10" width="481" height="65"/>
+                                                            <rect key="frame" x="89" y="10" width="427" height="65"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="214" id="C1u-pg-mTb"/>
@@ -1305,11 +1306,22 @@
                                                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             <size key="shadowOffset" width="1" height="1"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LH-k0-HYk">
+                                                            <rect key="frame" x="526" y="21" width="44" height="44"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="jne-dy-LcH"/>
+                                                                <constraint firstAttribute="width" constant="44" id="n2p-Cd-nYo"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="iAn-uc-9Tf" firstAttribute="top" secondItem="9Ju-cA-bxf" secondAttribute="top" constant="10" id="0eT-ch-48Y"/>
                                                         <constraint firstItem="woc-MO-8uq" firstAttribute="leading" secondItem="uIM-fr-7yF" secondAttribute="leading" id="7pO-SP-9zT"/>
+                                                        <constraint firstItem="4LH-k0-HYk" firstAttribute="leading" secondItem="iAn-uc-9Tf" secondAttribute="trailing" constant="10" id="8fa-wJ-RaU"/>
                                                         <constraint firstItem="iAn-uc-9Tf" firstAttribute="leading" secondItem="woc-MO-8uq" secondAttribute="trailing" constant="15" id="AN8-19-x8y"/>
                                                         <constraint firstItem="woc-MO-8uq" firstAttribute="trailing" secondItem="uIM-fr-7yF" secondAttribute="trailing" id="KWX-zP-aR1"/>
                                                         <constraint firstItem="woc-MO-8uq" firstAttribute="bottom" secondItem="9Ju-cA-bxf" secondAttribute="bottomMargin" id="OAG-63-sks"/>
@@ -1318,12 +1330,14 @@
                                                         <constraint firstAttribute="trailing" secondItem="iAn-uc-9Tf" secondAttribute="trailing" constant="10" id="WcN-1k-vbH"/>
                                                         <constraint firstItem="woc-MO-8uq" firstAttribute="trailing" secondItem="uIM-fr-7yF" secondAttribute="trailing" id="XCM-pH-Br3"/>
                                                         <constraint firstAttribute="bottom" secondItem="iAn-uc-9Tf" secondAttribute="bottom" constant="10" id="XWk-T0-UHM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="4LH-k0-HYk" secondAttribute="trailing" constant="10" id="aGs-u2-v7t"/>
                                                         <constraint firstItem="woc-MO-8uq" firstAttribute="leading" secondItem="uIM-fr-7yF" secondAttribute="leading" id="aHm-r5-KQe"/>
                                                         <constraint firstItem="uIM-fr-7yF" firstAttribute="top" secondItem="9Ju-cA-bxf" secondAttribute="top" constant="5" id="abA-U8-1vo"/>
                                                         <constraint firstItem="iAn-uc-9Tf" firstAttribute="leading" secondItem="woc-MO-8uq" secondAttribute="trailing" constant="10" id="bFf-0W-0gY"/>
                                                         <constraint firstItem="woc-MO-8uq" firstAttribute="top" secondItem="9Ju-cA-bxf" secondAttribute="top" constant="49" id="iE9-Mk-Ssl"/>
                                                         <constraint firstItem="iAn-uc-9Tf" firstAttribute="leading" secondItem="woc-MO-8uq" secondAttribute="trailing" constant="10" id="kzq-NC-y5n"/>
                                                         <constraint firstItem="iAn-uc-9Tf" firstAttribute="leading" secondItem="woc-MO-8uq" secondAttribute="trailing" constant="66" id="pTX-fX-yV6"/>
+                                                        <constraint firstAttribute="centerY" secondItem="4LH-k0-HYk" secondAttribute="centerY" id="tVF-eG-PmF"/>
                                                         <constraint firstAttribute="bottom" secondItem="uIM-fr-7yF" secondAttribute="bottom" constant="5" id="u28-Y9-5LL"/>
                                                         <constraint firstItem="uIM-fr-7yF" firstAttribute="leading" secondItem="9Ju-cA-bxf" secondAttribute="leading" constant="5" id="uER-6X-YIg"/>
                                                         <constraint firstItem="uIM-fr-7yF" firstAttribute="leading" secondItem="9Ju-cA-bxf" secondAttribute="leading" constant="5" id="vbZ-VX-NUZ"/>
@@ -1341,6 +1355,7 @@
                                                             <exclude reference="aHm-r5-KQe"/>
                                                             <exclude reference="AN8-19-x8y"/>
                                                             <exclude reference="T8L-72-rOQ"/>
+                                                            <exclude reference="WcN-1k-vbH"/>
                                                             <exclude reference="bFf-0W-0gY"/>
                                                             <exclude reference="pTX-fX-yV6"/>
                                                         </mask>
@@ -1360,6 +1375,7 @@
                                             <outlet property="collectionBanner" destination="woc-MO-8uq" id="v78-wR-aU7"/>
                                             <outlet property="paddedView" destination="9Ju-cA-bxf" id="SQ1-xO-H6w"/>
                                             <outlet property="title" destination="iAn-uc-9Tf" id="BVw-GR-nEe"/>
+                                            <outlet property="typeLabel" destination="4LH-k0-HYk" id="vkJ-XW-YIb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

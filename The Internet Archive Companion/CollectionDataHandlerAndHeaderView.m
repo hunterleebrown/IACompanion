@@ -98,6 +98,7 @@
     cell.title.text = doc.title;
     cell.archiveImageView.archiveImage = doc.archiveImage;
     cell.decription.text = [StringUtils stringByStrippingHTML:doc.details];
+    [cell setTypeLabelStringFromMediaType:doc.type];
     
     if(doc.type == MediaTypeCollection){
         [cell.collectionBanner setHidden:NO];

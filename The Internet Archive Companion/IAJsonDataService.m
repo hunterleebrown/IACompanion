@@ -131,7 +131,10 @@
             t = @"collection";
         } else if(type == MediaTypeImage){
             t = @"image";
+        } else if(type == MediaTypeSoftware){
+            t = @"software";
         }
+
         
         
         testUrl = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&output=json";
@@ -201,13 +204,14 @@
                         [aDoc setType:MediaTypeCollection];
                     } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"audio"]){
                         [aDoc setType:MediaTypeAudio];
-                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"video"]){
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"movies"]){
                         [aDoc setType:MediaTypeVideo];
                     } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"texts"]){
                         [aDoc setType:MediaTypeTexts];
                     } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"image"]){
                         [aDoc setType:MediaTypeImage];
-
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"software"]){
+                        [aDoc setType:MediaTypeSoftware];
                     } else {
                         [aDoc setType:MediaTypeAny];
                     }
