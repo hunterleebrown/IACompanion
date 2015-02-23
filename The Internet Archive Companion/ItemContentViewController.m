@@ -25,8 +25,8 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *favoritesButton;
 @property (nonatomic, weak) IBOutlet UIButton *shareButton;
-
 @property (nonatomic, weak) IBOutlet UILabel *typeLabel;
+
 
 
 @end
@@ -116,9 +116,12 @@
         [self.imageView setArchiveImage:self.detDoc.archiveImage];
     }
     
+    self.typeLabel.text = [MediaUtils iconStringFromMediaType:self.detDoc.type];
+    [self.typeLabel setTextColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
 
-    [self.tableHeaderView setBackgroundColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
-    
+
+//    [self.tableHeaderView setBackgroundColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
+
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'>%@</body></html>", self.detDoc.details];
     
 //    [self setTitle:self.detDoc.title];

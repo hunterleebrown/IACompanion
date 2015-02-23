@@ -51,6 +51,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *homeSearchButton;
 @property (nonatomic, weak) IBOutlet UIButton *homeFavoritesButton;
 
+
+
 - (IBAction) showPopUp:(id)sender;
 
 

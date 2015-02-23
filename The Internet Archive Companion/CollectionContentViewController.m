@@ -14,6 +14,8 @@
 @interface CollectionContentViewController () 
 
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
+@property (nonatomic, weak) IBOutlet UILabel *typeLabel;
+
 
 
 @end
@@ -70,7 +72,8 @@
     assert([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] != nil);
     self.detDoc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
 
-//    [self.tableHeaderView setBackgroundColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
+    self.typeLabel.text = [MediaUtils iconStringFromMediaType:self.detDoc.type];
+    [self.typeLabel setTextColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
 
     self.titleLabel.text = self.detDoc.title;
     if(self.detDoc.archiveImage){
