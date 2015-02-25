@@ -18,6 +18,7 @@
 #define SEARCH @"\U0001F50D"
 #define HEART @"\u2661"
 #define BACK @"\u02c2"
+#define INFO @"\u0069"
 
 #define ARCHIVE @"\U0001F3DB"
 #define CLOSE @"\U0001F5D9"

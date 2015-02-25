@@ -15,6 +15,7 @@
 #import "ArchivePageViewController.h"
 #import <Social/Social.h>
 #import "MediaUtils.h"
+#import "FontMapping.h"
 
 
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -68,6 +69,10 @@
         [self.mediaTable setSeparatorInset:UIEdgeInsetsZero];
     }
 
+    if(self.favoritesButton)
+    {
+        [self.favoritesButton setTitle:HEART forState:UIControlStateNormal];
+    }
 
 
 

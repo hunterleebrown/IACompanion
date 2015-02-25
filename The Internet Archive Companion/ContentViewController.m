@@ -119,6 +119,9 @@
     self.middleWebView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
 
 
+
+
+
 //    if(self.imageView){
 //        for(UIView *view in @[self.imageView]){
 //            view.layer.cornerRadius = view.bounds.size.width / 2;
