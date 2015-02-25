@@ -235,7 +235,7 @@
 - (IBAction) showPopUp:(id)sender{
     
     if(((UIButton *)sender).tag == 0){
-        [self.popUpView showWithSubView:self.archiveDescription title:@"Description" message:nil];
+        [self.popUpView showWithSubView:self.archiveDescription title:@"About" message:nil];
         
         
 //        if(self.middleWebViewHeight.constant == 0) {

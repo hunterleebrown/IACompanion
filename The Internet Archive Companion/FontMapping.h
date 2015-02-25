@@ -19,6 +19,8 @@
 #define HEART @"\u2661"
 #define BACK @"\u02c2"
 #define INFO @"\u0069"
+#define SHARE @"\U0001F381"
+#define GLOBE @"\U0001F5FA"
 
 #define ARCHIVE @"\U0001F3DB"
 #define CLOSE @"\U0001F5D9"

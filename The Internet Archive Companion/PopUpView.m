@@ -9,6 +9,7 @@
 
 #import "PopUpView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "FontMapping.h"
 
 #define RED [UIColor colorWithRed:134.0/255 green:0.0/255 blue:0.0/255 alpha:1.0]
 
@@ -44,10 +45,9 @@
         
         
         closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [closeButton setBackgroundColor:[UIColor clearColor]];
-        UIImage *closeImage = [UIImage imageNamed:@"close-button.png"];
-        [closeButton setImage:closeImage forState:UIControlStateNormal];
-        [closeButton setFrame:CGRectMake(10, 2, closeImage.size.width, closeImage.size.height)];
+        [closeButton setFrame:CGRectMake(10, 2, 44, 44)];
+        [closeButton.titleLabel setFont:ICONOCHIVE_FONT];
+        [closeButton setTitle:CLOSE forState:UIControlStateNormal];
         [closeButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:closeButton];
         

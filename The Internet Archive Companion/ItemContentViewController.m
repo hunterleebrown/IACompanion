@@ -27,6 +27,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *favoritesButton;
 @property (nonatomic, weak) IBOutlet UIButton *shareButton;
 @property (nonatomic, weak) IBOutlet UILabel *typeLabel;
+@property (nonatomic, weak) IBOutlet UIButton *wwwButton;
 
 
 
@@ -74,8 +75,15 @@
         [self.favoritesButton setTitle:HEART forState:UIControlStateNormal];
     }
 
+    if(self.shareButton)
+    {
+        [self.shareButton setTitle:SHARE forState:UIControlStateNormal];
+    }
 
-
+    if(self.wwwButton)
+    {
+        [self.wwwButton setTitle:GLOBE forState:UIControlStateNormal];
+    }
 
 }
 
@@ -198,6 +206,7 @@
         ArchiveFile *aFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
         cell.fileTitle.text = aFile.title;
         cell.fileFormat.text = [aFile.file objectForKey:@"format"];
+        cell.durationLabel.text = [aFile.file objectForKey:@"duration"];
         cell.fileName.text = aFile.name;
         
     }
