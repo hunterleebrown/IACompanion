@@ -13,7 +13,6 @@
 		5A0A10BA16A640A300CC70CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A10B816A640A300CC70CD /* InfoPlist.strings */; };
 		5A0A10BC16A640A300CC70CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10BB16A640A300CC70CD /* main.m */; };
 		5A0A10C016A640A300CC70CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A10BF16A640A300CC70CD /* AppDelegate.m */; };
-		5A0A10C916A640A300CC70CD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A10C716A640A300CC70CD /* MainStoryboard.storyboard */; };
 		5A0D9A3017802F1F006D539C /* MainNavTableViewHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D9A2F17802F1F006D539C /* MainNavTableViewHeaderViewCell.m */; };
 		5A22BFDE17A8C36600220753 /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A22BFDD17A8C36600220753 /* PopUpViewController.m */; };
 		5A23501E1780C44D0050C9A2 /* ItemContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23501D1780C44D0050C9A2 /* ItemContentViewController.m */; };
@@ -85,7 +84,6 @@
 		5A0A10BD16A640A300CC70CD /* IA-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IA-Prefix.pch"; sourceTree = "<group>"; };
 		5A0A10BE16A640A300CC70CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A0A10BF16A640A300CC70CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5A0A10C816A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5A0A10D316A640A300CC70CD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5A0A10DB16A640A300CC70CD /* IATests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IATests-Info.plist"; sourceTree = "<group>"; };
 		5A0A10DD16A640A300CC70CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 				5AD2070E16A8F9460027CCA5 /* Data */,
 				5A0A10BE16A640A300CC70CD /* AppDelegate.h */,
 				5A0A10BF16A640A300CC70CD /* AppDelegate.m */,
-				5A0A10C716A640A300CC70CD /* MainStoryboard.storyboard */,
 				5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */,
 				5A0A10B616A640A300CC70CD /* Supporting Files */,
 			);
@@ -652,7 +649,6 @@
 				5A93EBC117A4598600D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */,
 				5A93EBC217A4598600D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */,
 				5A0A10BA16A640A300CC70CD /* InfoPlist.strings in Resources */,
-				5A0A10C916A640A300CC70CD /* MainStoryboard.storyboard in Resources */,
 				5A5A0AF51A422BD00009CBC2 /* Images.xcassets in Resources */,
 				5A942D4616D5F545001CB01B /* MainStoryboard-iPhone.storyboard in Resources */,
 				5AD456BE1A907E7F0035FBA1 /* Media.xcassets in Resources */,
@@ -725,14 +721,6 @@
 				5A0A10B916A640A300CC70CD /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5A0A10C716A640A300CC70CD /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5A0A10C816A640A300CC70CD /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		5A0A10DC16A640A300CC70CD /* InfoPlist.strings */ = {

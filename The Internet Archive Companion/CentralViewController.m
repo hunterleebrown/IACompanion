@@ -274,7 +274,28 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        CGRect cf = _contentView.frame;
+        cf.size.height = 1024;
+        _contentView.frame = cf;
+    }
 
+
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        CGRect cf = _contentView.frame;
+        cf.size.width = 768;
+        _contentView.frame = cf;
+    }
+}
 
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
