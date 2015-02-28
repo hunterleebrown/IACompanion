@@ -39,7 +39,7 @@
             break;
 
         case MediaTypeEtree:
-            return AUDIO;
+            return ETREE;
             break;
 
         case MediaTypeAny:
@@ -86,7 +86,7 @@
             break;
 
         case MediaTypeEtree:
-            return AUDIO_COLOR;
+            return ETREE_COLOR;
             break;
 
         case MediaTypeAny:

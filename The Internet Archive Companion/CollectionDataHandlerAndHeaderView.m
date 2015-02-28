@@ -47,7 +47,7 @@
     start = 0;
     didTriggerLoadMore = NO;
     identifier = ident;
-    service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDateDescending];
+    service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadCount];
     [service setDelegate:self];
     [service fetchData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
@@ -95,18 +95,7 @@
     
     CollectionViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"collectionCell"];
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    cell.title.text = doc.title;
-    cell.archiveImageView.archiveImage = doc.archiveImage;
-    cell.decription.text = [StringUtils stringByStrippingHTML:doc.details];
-    [cell setTypeLabelStringFromMediaType:doc.type];
-    
-    if(doc.type == MediaTypeCollection){
-        [cell.collectionBanner setHidden:NO];
-    } else {
-        
-        [cell.collectionBanner setHidden:YES];
-    }
-    
+    [cell load:doc];
     
     return cell;
 }
@@ -132,7 +121,7 @@
     UISegmentedControl *seggers = (UISegmentedControl *)sender;
     switch (seggers.selectedSegmentIndex) {
         case 0:
-            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDateDescending];
+            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadCount];
             [service setDelegate:self];
             [service fetchData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
@@ -145,7 +134,7 @@
 
             break;
         case 1:
-            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadCount];
+            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDateDescending];
             [service setDelegate:self];
             [service fetchData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];

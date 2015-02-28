@@ -236,24 +236,8 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CollectionViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultsCell"];
-    
-    
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    cell.title.text = doc.title;
-    cell.archiveImageView.archiveImage = doc.archiveImage;
-    cell.decription.text = [StringUtils stringByStrippingHTML:doc.details];
-    [cell setTypeLabelStringFromMediaType:doc.type];
-    
-    if(doc.type == MediaTypeCollection){
-        [cell.collectionBanner setHidden:NO];
-    } else {
-        
-        [cell.collectionBanner setHidden:YES];
-    }
-
-    [cell setBackgroundColor:[UIColor clearColor]];
-    [cell.contentView setBackgroundColor:[UIColor clearColor]];
-
+    [cell load:doc];
 
     return cell;
     

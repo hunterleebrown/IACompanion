@@ -12,6 +12,24 @@
 
 
 
+- (NSString *)creator
+{
+    NSObject *creat = [self.rawDoc objectForKey:@"creator"];
+    if([creat isKindOfClass:[NSArray class]])
+    {
+        return [((NSArray *)creat) objectAtIndex:0];
+    } else
+    {
+        if([creat isKindOfClass:[NSNull class]])
+        {
+            return  nil;
+        } else
+        {
+            return (NSString *)creat;
+        }
+    }
+}
+
 
 
 @end
