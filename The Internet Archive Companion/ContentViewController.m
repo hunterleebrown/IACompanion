@@ -138,6 +138,10 @@
         [self.folderButton setTitle:FOLDER forState:UIControlStateNormal];
     }
 
+    if(self.collectionButton)
+    {
+        [self.collectionButton setTitle:COLLECTION forState:UIControlStateNormal];
+    }
 
     if(self.itemToolbar)
     {
@@ -183,7 +187,16 @@
             textRange = [slash rangeOfString:@"details"];
      
             if(textRange.location != NSNotFound) {
-                NSLog(@"  second slash: %@", [slashes objectAtIndex:i+1]);
+                NSString *secondSlash = [slashes objectAtIndex:i+1];
+                if([secondSlash rangeOfString:@"#"].length != 0)
+                {
+                    externalUrl = request.URL;
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+                    [alert show];
+                    return NO;
+                }
+
+                NSLog(@"  second slash: %@", secondSlash);
                 NSString *identifier = [slashes objectAtIndex:i+1];
                 ArchiveSearchDoc *doc = [ArchiveSearchDoc new];
                 doc.identifier = identifier;

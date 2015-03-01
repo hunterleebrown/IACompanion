@@ -27,6 +27,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *metaDataButton;
 @property (nonatomic, weak) IBOutlet UIButton *descriptionButton;
 @property (nonatomic, weak) IBOutlet UIButton *folderButton;
+@property (nonatomic, weak) IBOutlet UIButton *collectionButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *collectionBarButton;
 
 
 @property (nonatomic, weak) IBOutlet UIWebView *middleWebView;
@@ -64,6 +66,7 @@
 @property (nonatomic, strong) NSString *itemImageUrl;
 @property (nonatomic) CGFloat itemImageWidth;
 
+@property (nonatomic, weak) IBOutlet UIView *titleHolder;
 
 - (IBAction)showPopUp:(id)sender;
 - (IBAction)toggleViews:(id)sender;

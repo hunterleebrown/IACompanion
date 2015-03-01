@@ -84,7 +84,7 @@
     ArchiveSearchDoc *aDoc = notification.object;
     
     if(aDoc.type == MediaTypeCollection){
-        CollectionContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"collectionViewController"];
+        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
         [cvc setSearchDoc:aDoc];
         [_contentNavController pushViewController:cvc animated:YES];
         [self toggleContent:nil];
@@ -100,7 +100,7 @@
     ArchiveSearchDoc *aDoc = notification.object;
     
     if(aDoc.type == MediaTypeCollection){
-        CollectionContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"collectionViewController"];
+        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
         [cvc setSearchDoc:aDoc];
         [_contentNavController pushViewController:cvc animated:YES];
         

@@ -143,7 +143,30 @@
 
     NSLog(@"------> imageUrl:%f", self.itemImageWidth);
 
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'><img style='display:block; margin-left:auto; margin-right:auto; width:%fpx;' src='%@'/><br/>%@</body></html>", self.itemImageWidth == 0 ? self.itemWebView.bounds.size.width - 20 : self.itemImageWidth, self.itemImageUrl, self.detDoc.details];
+    NSString *imgHtml = [NSString stringWithFormat:@"<img style='display:block; margin-left:auto; margin-right:auto; width:%fpx;' src='%@'/><br/>", self.itemImageWidth, self.itemImageUrl];
+
+
+    if(self.detDoc.type == MediaTypeCollection)
+    {
+        imgHtml = @"";
+        [self.typeLabel setTextColor:[UIColor whiteColor]];
+        [self.titleLabel setTextColor:[UIColor whiteColor]];
+        [self.titleLabel setText:[NSString stringWithFormat:@"%@ Collection", self.detDoc.title]];
+        [self.titleHolder setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
+        [self.byLabel setTextColor:[UIColor whiteColor]];
+    } else
+    {
+        NSMutableArray *mItems = [NSMutableArray new];
+        for (UIBarButtonItem *i in self.itemToolbar.items) {
+            if(i != self.collectionBarButton)
+            {
+                [mItems addObject:i];
+            }
+        }
+        [self.itemToolbar setItems:mItems];
+    }
+
+    NSString *html = [NSString stringWithFormat:@"<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'/><style>img{max-width:%fpx !important;} a:link{color:#666; text-decoration:none;}</style></head><body style='margin-left:10px; margin-right:10px; background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'>%@%@</body></html>", self.itemImageWidth, imgHtml, self.detDoc.details];
     
 
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
