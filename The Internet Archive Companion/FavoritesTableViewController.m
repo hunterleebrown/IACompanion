@@ -51,7 +51,7 @@
     
     self.navigationItem.leftBarButtonItem = closeButton;
     
-    self.title = HEART;
+    self.title = FAVORITE;
 }
 
 - (void) close{

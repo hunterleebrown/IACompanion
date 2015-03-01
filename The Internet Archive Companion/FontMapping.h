@@ -16,7 +16,7 @@
 #define HAMBURGER @"\u21f6"
 #define MEDIAPLAYER @"\U0001F3AC"
 #define SEARCH @"\U0001F50D"
-#define HEART @"\u2661"
+#define FAVORITE @"\u2605"
 #define BACK @"\u02c2"
 #define INFO @"\u0069"
 #define SHARE @"\U0001F381"

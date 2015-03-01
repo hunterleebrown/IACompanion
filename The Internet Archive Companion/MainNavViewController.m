@@ -205,7 +205,7 @@
             }
             else if(indexPath.row == 2) {
                 [cell.navCellTitleLabel setText:@"Favorites"];
-                [self setArchiveIconForCell:cell titleName:HEART];
+                [self setArchiveIconForCell:cell titleName:FAVORITE];
             }
             cell.fontLabel.hidden = NO;
             return cell;

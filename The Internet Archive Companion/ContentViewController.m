@@ -60,7 +60,7 @@
     [self.homeListButton setTitle:HAMBURGER forState:UIControlStateNormal];
     [self.homeSearchButton setTitle:SEARCH forState:UIControlStateNormal];
     [self.homeMediaPlayerButton setTitle:MEDIAPLAYER forState:UIControlStateNormal];
-    [self.homeFavoritesButton setTitle:HEART forState:UIControlStateNormal];
+    [self.homeFavoritesButton setTitle:FAVORITE forState:UIControlStateNormal];
 
     [self.topArchiveLogo setText:ARCHIVE];
 

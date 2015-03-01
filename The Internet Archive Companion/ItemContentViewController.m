@@ -72,7 +72,7 @@
 
     if(self.favoritesButton)
     {
-        [self.favoritesButton setTitle:HEART forState:UIControlStateNormal];
+        [self.favoritesButton setTitle:FAVORITE forState:UIControlStateNormal];
     }
 
     if(self.shareButton)
