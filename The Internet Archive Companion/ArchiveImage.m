@@ -45,7 +45,7 @@
     self = [self init];
     
     self.downloaded = YES;
-    urlPath = [[aDecoder decodeObjectForKey:@"RIUrlPath"] copy];
+    self.urlPath = [[aDecoder decodeObjectForKey:@"RIUrlPath"] copy];
     self.contentImage = [UIImage imageWithData:[aDecoder decodeObjectForKey:@"RIContentImage"]];
     
     return self;
@@ -76,7 +76,7 @@
 
 - (void)startDownloading {
     if (isDownloading) return;
-    
+
     isDownloading = YES;
     [downloader startDownloading];
 }

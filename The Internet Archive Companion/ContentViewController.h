@@ -23,8 +23,10 @@
 @property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;
 @property (nonatomic, strong) UIWebView *archiveDescription;
 
+@property (nonatomic, weak) IBOutlet UIToolbar *itemToolbar;
 @property (nonatomic, weak) IBOutlet UIButton *metaDataButton;
 @property (nonatomic, weak) IBOutlet UIButton *descriptionButton;
+@property (nonatomic, weak) IBOutlet UIButton *folderButton;
 
 
 @property (nonatomic, weak) IBOutlet UIWebView *middleWebView;

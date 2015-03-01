@@ -22,6 +22,7 @@
 #define SHARE @"\U0001F381"
 #define GLOBE @"\U0001F5FA"
 #define VIEWS @"\U0001F441"
+#define FOLDER @"\U0001F5C3"
 
 #define ARCHIVE @"\U0001F3DB"
 #define CLOSE @"\U0001F5D9"

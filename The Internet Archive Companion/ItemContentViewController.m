@@ -29,6 +29,10 @@
 @property (nonatomic, weak) IBOutlet UILabel *typeLabel;
 @property (nonatomic, weak) IBOutlet UIButton *wwwButton;
 
+@property (nonatomic, strong) NSString *itemImageUrl;
+@property (nonatomic) CGFloat itemImageWidth;
+
+@property (nonatomic, weak) IBOutlet UIWebView *itemWebView;
 
 
 @end
@@ -54,12 +58,12 @@
     [self.service fetchData];
     
     
-    self.archiveDescription = [[UIWebView alloc] initWithFrame:CGRectZero];
-    self.archiveDescription.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
-    [self.archiveDescription setBackgroundColor:[UIColor clearColor]];
-    [self.archiveDescription setOpaque:NO];
-    [self.archiveDescription setDelegate:self];
-    
+//    self.archiveDescription = [[UIWebView alloc] initWithFrame:CGRectZero];
+//    self.archiveDescription.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
+//    [self.archiveDescription setBackgroundColor:[UIColor clearColor]];
+//    [self.archiveDescription setOpaque:NO];
+//    [self.archiveDescription setDelegate:self];
+
     mediaFiles = [NSMutableArray new];
     organizedMediaFiles = [NSMutableDictionary new];
 
@@ -85,6 +89,21 @@
         [self.wwwButton setTitle:GLOBE forState:UIControlStateNormal];
     }
 
+    if(self.folderButton)
+    {
+        [self.folderButton setTitle:FOLDER forState:UIControlStateNormal];
+    }
+
+    [self.descriptionButton setSelected:YES];
+
+
+    [self.itemWebView setOpaque:NO];
+    self.itemWebView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
+    [self.itemWebView setBackgroundColor:[UIColor whiteColor]];
+
+
+    [self.itemToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.itemToolbar setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
@@ -109,31 +128,12 @@
     self.titleLabel.text = self.detDoc.title;
     if(self.detDoc.archiveImage){
         [self.imageView setArchiveImage:self.detDoc.archiveImage];
-    }
-    
-    self.typeLabel.text = [MediaUtils iconStringFromMediaType:self.detDoc.type];
-    [self.typeLabel setTextColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
+        self.itemImageUrl = self.detDoc.archiveImage.urlPath;
+        self.itemImageWidth = self.detDoc.archiveImage.contentImage.size.width;
 
-    if(self.detDoc.creator)
-    {
-        [self.byLabel setText:[NSString stringWithFormat:@"by %@", self.detDoc.creator]];
     }
 
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'>%@</body></html>", self.detDoc.details];
-    
 
-    NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
-    
-    
-    [self.archiveDescription loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
-                             MIMEType:@"text/html"
-                     textEncodingName:@"UTF-8"
-                              baseURL:theBaseURL];
-    
-
-    [self.metaDataTable addMetadata:[self.detDoc.rawDoc objectForKey:@"metadata"]];
-    
-    
     BOOL gotAnImage = NO;
     NSMutableArray *files = [NSMutableArray new];
     for(ArchiveFile *file in self.detDoc.files){
@@ -145,11 +145,46 @@
                     ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
                     [self.imageView setArchiveImage:image];
                     gotAnImage = YES;
+                    self.itemImageUrl = file.url;
+                    self.itemImageWidth = image.contentImage.size.width;
                 }
             }
-            
+
         }
     }
+
+
+
+    self.typeLabel.text = [MediaUtils iconStringFromMediaType:self.detDoc.type];
+    [self.typeLabel setTextColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
+
+
+
+
+
+    if(self.detDoc.creator)
+    {
+        [self.byLabel setText:[NSString stringWithFormat:@"by %@", self.detDoc.creator]];
+    }
+
+    NSLog(@"------> imageUrl:%f", self.itemImageWidth);
+
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'><img style='margin:auto 0; width:%fpx;' src='%@'/><br/>%@</body></html>", self.itemImageWidth == 0 ? self.itemWebView.bounds.size.width - 20 : self.itemImageWidth, self.itemImageUrl, self.detDoc.details];
+    
+
+    NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
+    
+    
+    [self.itemWebView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
+                             MIMEType:@"text/html"
+                     textEncodingName:@"UTF-8"
+                              baseURL:theBaseURL];
+    
+
+    [self.metaDataTable addMetadata:[self.detDoc.rawDoc objectForKey:@"metadata"]];
+    
+    
+
     
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"track" ascending:YES];
     [mediaFiles addObjectsFromArray:[files sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]]];
@@ -161,16 +196,37 @@
     
 }
 
+
+#pragma mark - toggle about and folders
+
+- (IBAction)toggleViews:(id)sender
+{
+    self.mediaTable.hidden = !self.mediaTable.hidden;
+    self.itemWebView.hidden = !self.itemWebView.hidden;
+
+    self.folderButton.selected = !self.folderButton.selected;
+    self.descriptionButton.selected = !self.descriptionButton.selected;
+
+}
+
 #pragma mark -
 
 - (void) orgainizeMediaFiles:(NSMutableArray *)files{
     for(ArchiveFile *f in files){
         if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:f.format]] != nil){
+
+            if(f.format == FileFormatPNG && [[f.file objectForKey:@"source"] isEqualToString: @"derivative"] )
+            { } else {
             [[organizedMediaFiles objectForKey:[NSNumber numberWithInt:f.format]] addObject:f];
+            }
+
         } else {
-            NSMutableArray *filesForFormat = [NSMutableArray new];
-            [filesForFormat addObject:f];
-            [organizedMediaFiles setObject:filesForFormat forKey:[NSNumber numberWithInt:f.format]];
+
+            if(f.format == FileFormatPNG && [[f.file objectForKey:@"source"] isEqualToString: @"derivative"] )
+            { } else {
+                NSMutableArray *filesForFormat = [NSMutableArray new];
+                [filesForFormat addObject:f];
+                [organizedMediaFiles setObject:filesForFormat forKey:[NSNumber numberWithInt:f.format]];            }
         }
     }
     
