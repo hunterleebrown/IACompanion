@@ -16,6 +16,7 @@
 #import <Social/Social.h>
 #import "MediaUtils.h"
 #import "FontMapping.h"
+#import "CollectionDataHandlerAndHeaderView.h"
 
 
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -23,9 +24,11 @@
 @property (nonatomic, strong) NSMutableArray *mediaFiles;
 @property (nonatomic, strong) NSMutableDictionary *organizedMediaFiles;
 @property (nonatomic, weak) IBOutlet UITableView *mediaTable;
+@property (nonatomic, weak) IBOutlet UIView *collectionHolderView;
 
 
 
+@property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
 
 
 
@@ -154,6 +157,13 @@
         [self.titleLabel setText:[NSString stringWithFormat:@"%@ Collection", self.detDoc.title]];
         [self.titleHolder setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
         [self.byLabel setTextColor:[UIColor whiteColor]];
+
+
+        [self.collectionHandlerView setIdentifier:self.searchDoc.identifier];
+        [self.collectionHandlerView.collectionTableView setScrollsToTop:YES];
+
+
+
     } else
     {
         NSMutableArray *mItems = [NSMutableArray new];
@@ -198,11 +208,14 @@
 
 - (IBAction)toggleViews:(id)sender
 {
-    self.mediaTable.hidden = !self.mediaTable.hidden;
-    self.itemWebView.hidden = !self.itemWebView.hidden;
 
-    self.folderButton.selected = !self.folderButton.selected;
-    self.descriptionButton.selected = !self.descriptionButton.selected;
+    self.mediaTable.hidden = sender != self.folderButton;
+    self.itemWebView.hidden = sender != self.descriptionButton;
+    self.collectionHolderView.hidden = sender != self.collectionButton;
+
+    self.folderButton.selected = sender == self.folderButton;
+    self.descriptionButton.selected = sender == self.descriptionButton;
+    self.collectionButton.selected = sender == self.collectionButton;
 
 }
 
