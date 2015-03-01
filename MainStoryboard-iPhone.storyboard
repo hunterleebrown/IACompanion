@@ -861,16 +861,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2o-gT-210">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="360"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-rm-hHQ" customClass="ArchiveImageView">
-                                        <rect key="frame" x="210" y="5" width="180" height="120"/>
+                                        <rect key="frame" x="140" y="0.0" width="320" height="240"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="8Wy-Cp-2SI"/>
                                             <constraint firstAttribute="height" constant="150" id="Bxd-KO-V8M"/>
-                                            <constraint firstAttribute="height" constant="120" id="TsV-Jj-MSM"/>
-                                            <constraint firstAttribute="width" constant="180" id="U7T-bI-UPt"/>
+                                            <constraint firstAttribute="height" constant="240" id="TsV-Jj-MSM"/>
+                                            <constraint firstAttribute="width" constant="320" id="U7T-bI-UPt"/>
                                             <constraint firstAttribute="width" secondItem="Toy-rm-hHQ" secondAttribute="height" multiplier="1:1" id="ajE-GO-9XL"/>
                                             <constraint firstAttribute="height" constant="100" id="jNJ-ic-e3z"/>
                                             <constraint firstAttribute="width" constant="100" id="oDt-om-Tpd"/>
@@ -886,7 +886,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAk-1E-D4k">
-                                        <rect key="frame" x="5" y="130" width="44" height="44"/>
+                                        <rect key="frame" x="5" y="245" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="U5w-O8-WAd"/>
                                             <constraint firstAttribute="height" constant="44" id="cfF-sT-EbM"/>
@@ -895,8 +895,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Qwn-9J-vdZ">
-                                        <rect key="frame" x="54" y="130" width="536" height="44"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" text="Super Title Super Title Super Title Super Title Super Title Super Title Super Title Super Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Qwn-9J-vdZ">
+                                        <rect key="frame" x="54" y="245" width="536" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="7I7-IP-r2D"/>
@@ -917,7 +917,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-Xr-HXL">
-                                        <rect key="frame" x="54" y="174" width="536" height="17"/>
+                                        <rect key="frame" x="54" y="289" width="536" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="vW0-JN-KNF"/>
                                         </constraints>
@@ -926,7 +926,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wV6-fM-eDy">
-                                        <rect key="frame" x="0.0" y="206" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="316" width="600" height="44"/>
                                         <items>
                                             <barButtonItem style="plain" id="Dof-m7-xFq">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bia-sE-06Y">
@@ -999,11 +999,12 @@
                                     <constraint firstItem="Toy-rm-hHQ" firstAttribute="leading" secondItem="f2o-gT-210" secondAttribute="leading" constant="5" id="5bc-Hw-xD5"/>
                                     <constraint firstItem="Qwn-9J-vdZ" firstAttribute="leading" secondItem="Toy-rm-hHQ" secondAttribute="trailing" constant="8" symbolic="YES" id="89R-p5-4uL"/>
                                     <constraint firstAttribute="height" constant="265" id="AaG-pc-5qc"/>
-                                    <constraint firstAttribute="height" constant="250" id="BE4-11-wRr"/>
+                                    <constraint firstAttribute="height" constant="360" id="BE4-11-wRr"/>
                                     <constraint firstItem="Qwn-9J-vdZ" firstAttribute="bottom" secondItem="Toy-rm-hHQ" secondAttribute="bottom" id="Efe-zZ-GlS"/>
                                     <constraint firstItem="Qwn-9J-vdZ" firstAttribute="leading" secondItem="f2o-gT-210" secondAttribute="leading" id="L2D-2P-iHV"/>
                                     <constraint firstItem="Qwn-9J-vdZ" firstAttribute="top" secondItem="Toy-rm-hHQ" secondAttribute="top" id="M8M-gd-N9f"/>
                                     <constraint firstItem="Qwn-9J-vdZ" firstAttribute="leading" secondItem="vAk-1E-D4k" secondAttribute="trailing" constant="5" id="PF8-Ul-gAk"/>
+                                    <constraint firstItem="Toy-rm-hHQ" firstAttribute="top" secondItem="f2o-gT-210" secondAttribute="top" id="S4d-65-6BH"/>
                                     <constraint firstItem="Qwn-9J-vdZ" firstAttribute="leading" secondItem="f2o-gT-210" secondAttribute="leading" multiplier="2" constant="1" id="Scp-Pj-dZe"/>
                                     <constraint firstAttribute="trailing" secondItem="Qwn-9J-vdZ" secondAttribute="trailing" constant="10" id="UwB-zI-cYz"/>
                                     <constraint firstItem="Qwn-9J-vdZ" firstAttribute="top" secondItem="f2o-gT-210" secondAttribute="top" id="W0l-dc-gaz"/>
@@ -1036,6 +1037,11 @@
                                     <mask key="constraints">
                                         <exclude reference="AaG-pc-5qc"/>
                                         <exclude reference="g2l-4D-b2p"/>
+                                        <exclude reference="5bc-Hw-xD5"/>
+                                        <exclude reference="iAm-H1-Ee3"/>
+                                        <exclude reference="p66-rr-UfP"/>
+                                        <exclude reference="vlj-4J-Vxz"/>
+                                        <exclude reference="yod-PM-uHU"/>
                                         <exclude reference="q4f-wa-Ukp"/>
                                         <exclude reference="0WO-71-m7O"/>
                                         <exclude reference="1eO-ev-0aa"/>
@@ -1054,15 +1060,11 @@
                                         <exclude reference="xGf-mr-82T"/>
                                         <exclude reference="yQU-jz-UaG"/>
                                         <exclude reference="u7y-Gb-GL7"/>
-                                        <exclude reference="5bc-Hw-xD5"/>
-                                        <exclude reference="iAm-H1-Ee3"/>
-                                        <exclude reference="vlj-4J-Vxz"/>
-                                        <exclude reference="yod-PM-uHU"/>
                                     </mask>
                                 </variation>
                             </view>
                             <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="50" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Sy-pu-DXg">
-                                <rect key="frame" x="0.0" y="250" width="600" height="350"/>
+                                <rect key="frame" x="0.0" y="360" width="600" height="240"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1551,7 +1553,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="1" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-uc-9Tf">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-uc-9Tf">
                                                             <rect key="frame" x="5" y="90" width="570" height="44"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>

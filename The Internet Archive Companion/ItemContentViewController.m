@@ -133,10 +133,21 @@
 
     [self.metaDataTable addMetadata:[self.detDoc.rawDoc objectForKey:@"metadata"]];
     
+    
+    BOOL gotAnImage = NO;
     NSMutableArray *files = [NSMutableArray new];
     for(ArchiveFile *file in self.detDoc.files){
         if(file.format != FileFormatOther){
             [files addObject:file];
+            if(file.format == FileFormatJPEG) {
+                if(gotAnImage == NO)
+                {
+                    ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
+                    [self.imageView setArchiveImage:image];
+                    gotAnImage = YES;
+                }
+            }
+            
         }
     }
     

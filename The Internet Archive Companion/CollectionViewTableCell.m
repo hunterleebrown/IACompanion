@@ -91,7 +91,7 @@
             [self.creator setTextColor:[UIColor whiteColor]];
             [self.paddedView setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
 
-            imageRect.size.width = 120;
+            imageRect.size.width = 80;
             self.archiveImageView.frame = imageRect;
 
             self.archiveImageView.layer.cornerRadius = self.archiveImageView.bounds.size.width / 2;
@@ -111,7 +111,7 @@
             [self.creator setTextColor:[UIColor darkGrayColor]];
             [self.paddedView setBackgroundColor:[UIColor whiteColor]];
 
-            imageRect.size.width = 180;
+            imageRect.size.width = 80;
             self.archiveImageView.frame = imageRect;
 
             self.archiveImageView.layer.cornerRadius = 0;
