@@ -216,6 +216,8 @@
                         [aDoc setType:MediaTypeSoftware];
                     } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"etree"]){
                         [aDoc setType:MediaTypeEtree];
+                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"image"]){
+                        [aDoc setType:MediaTypeImage];
                     } else {
                         [aDoc setType:MediaTypeAny];
                     }
@@ -271,6 +273,8 @@
             [dDoc setType:MediaTypeEtree];
         } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"software"]){
             [dDoc setType:MediaTypeSoftware];
+        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"image"]){
+            [dDoc setType:MediaTypeImage];
         } else {
             [dDoc setType:MediaTypeAny];
         }

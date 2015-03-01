@@ -41,6 +41,10 @@
     _navImageView.layer.cornerRadius = _navImageView.bounds.size.width / 2;
     _navImageView.layer.masksToBounds = YES;
 
+    _paddedView.layer.cornerRadius = 5.0f;
+
+
+
     [self setBackgroundColor:[UIColor clearColor]];
     [self.contentView setBackgroundColor:[UIColor clearColor]];
 

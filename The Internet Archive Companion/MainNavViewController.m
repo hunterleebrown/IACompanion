@@ -244,14 +244,18 @@
     cell.fontLabel.text = titleName;
     [cell.fontLabel setFont:[UIFont fontWithName:@"Iconochive-Regular" size:30]];
     [cell.fontLabel setTextColor:[UIColor whiteColor]];
+    [cell.fontLabel setTextAlignment:NSTextAlignmentCenter];
     [cell.contentView addSubview:cell.fontLabel];
     CGRect f = cell.fontLabel.frame;
-    f.origin.x = 0;
+    f.origin.x = 5;
     f.origin.y = 0;
-    f.size.height = 30;
-    f.size.width = 30;
+    f.size.height = 44;
+    f.size.width = 44;
     cell.fontLabel.frame = f;
-    cell.fontLabel.center = cell.navImageView.center;
+    cell.fontLabel.center = CGPointMake(cell.fontLabel.center.x, cell.paddedView.center.y);
+
+
+
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

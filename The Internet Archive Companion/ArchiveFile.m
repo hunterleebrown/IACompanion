@@ -95,6 +95,8 @@
         } else if([[file objectForKey:@"format"] isEqualToString:@"Text"]){
             _title = @"Flip Through Text as Pages";
             _format = FileFormatTxt;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"PNG"]){
+            _format = FileFormatPNG;
         }
         else {
             _format = FileFormatOther;

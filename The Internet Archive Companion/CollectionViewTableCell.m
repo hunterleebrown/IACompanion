@@ -116,13 +116,14 @@
 
             self.archiveImageView.layer.cornerRadius = 0;
             self.archiveImageView.layer.masksToBounds = YES;
-            [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
+            [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFit];
             [self.archiveImageView setClipsToBounds:YES];
 
 
             self.paddedView.layer.cornerRadius = 0.0f;
             self.viewsCountLabel.hidden = NO;
             self.viewsIconLabel.hidden = NO;
+
 
             [self setTypeLabelStringFromMediaType:self.doc.type];
 

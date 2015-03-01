@@ -129,6 +129,14 @@
             return IMAGE;
             break;
 
+        case FileFormatPNG:
+            return IMAGE;
+            break;
+
+        case FileFormatGIF:
+            return IMAGE;
+            break;
+
         default:
             return AUDIO;
             break;
@@ -149,6 +157,10 @@
             break;
 
         case FileFormatJPEG:
+            return IMAGE_COLOR;
+            break;
+
+        case FileFormatPNG:
             return IMAGE_COLOR;
             break;
 
@@ -188,6 +200,10 @@
             break;
 
         case FileFormat96KbpsMP3:
+            return AUDIO_COLOR;
+            break;
+
+        case FileFormat64KbpsMP3:
             return AUDIO_COLOR;
             break;
 
@@ -231,6 +247,8 @@
             format = FileFormatDjVuTXT;
         } else if([name isEqualToString:@"Text"]){
             format = FileFormatTxt;
+        } else if([name isEqualToString:@"PNG"]){
+            format = FileFormatPNG;
         }
         else {
             format = FileFormatOther;

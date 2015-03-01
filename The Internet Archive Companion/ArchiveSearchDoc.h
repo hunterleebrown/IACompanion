@@ -44,9 +44,7 @@ typedef enum {
 
 @interface ArchiveDetailDoc : ArchiveSearchDoc
 
-
 @property (strong, nonatomic) NSString *uploader;
-@property (strong, nonatomic) NSString *creator;
 @property (assign) MediaType type;
 @property (strong, nonatomic) NSArray *files;
 

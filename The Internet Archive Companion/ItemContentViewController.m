@@ -93,25 +93,7 @@
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-//        [gradient setStartPoint:CGPointMake(0.0, 0.5)];
-//        [gradient setEndPoint:CGPointMake(1.0, 0.5)];
-//        gradient.frame = CGRectMake(0,0, self.tableHeaderView.bounds.size.width, self.tableHeaderView.bounds.size.height);
-//
-//    } else {
-//        gradient.frame = CGRectMake(0, self.descriptionButton.frame.origin.y, self.tableHeaderView.bounds.size.width, self.descriptionButton.bounds.size.height);
-//    }
-//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-//    [self.tableHeaderView.layer insertSublayer:gradient atIndex:1];
-//
-//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-//        CAGradientLayer *gradient2 = [CAGradientLayer layer];
-//        gradient2.frame = CGRectMake(0, 0, self.tableHeaderView.bounds.size.width, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height);
-//        gradient2.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
-//        [self.tableHeaderView.layer insertSublayer:gradient2 atIndex:1];
-//
-//    }
+
 
     
 }
@@ -132,15 +114,13 @@
     self.typeLabel.text = [MediaUtils iconStringFromMediaType:self.detDoc.type];
     [self.typeLabel setTextColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
 
-
-//    [self.tableHeaderView setBackgroundColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
+    if(self.detDoc.creator)
+    {
+        [self.byLabel setText:[NSString stringWithFormat:@"by %@", self.detDoc.creator]];
+    }
 
     NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'>%@</body></html>", self.detDoc.details];
     
-//    [self setTitle:self.detDoc.title];
-
-    
-//    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"AmericanTypewriter-Bold" size:16], NSFontAttributeName, nil]];
 
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
     
@@ -219,7 +199,7 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(organizedMediaFiles.count > 0){
         ArchiveFile *aFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF) {
+        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF || aFile.format == FileFormatPNG) {
             MediaImageViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"mediaImageViewController"];
             [vc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
             ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:aFile.url];
@@ -272,7 +252,7 @@
 {
     
     for(ArchiveFile *aFile in mediaFiles) {
-        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF)
+        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF || aFile.format == FileFormatPNG)
         {
             
         }
