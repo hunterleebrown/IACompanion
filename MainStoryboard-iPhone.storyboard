@@ -895,7 +895,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" text="Suicide queen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Qwn-9J-vdZ">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Qwn-9J-vdZ">
                                         <rect key="frame" x="54" y="130" width="536" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1321,7 +1321,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="The demise of the western hemisphere due to global warming and eating too much red meat and being selfish in congress" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.54999999999999982" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-rM-wTy">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.54999999999999982" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-rM-wTy">
                                         <rect key="frame" x="55" y="127" width="490" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
