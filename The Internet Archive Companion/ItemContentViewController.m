@@ -100,10 +100,7 @@
     [self.itemWebView setOpaque:NO];
     self.itemWebView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     [self.itemWebView setBackgroundColor:[UIColor whiteColor]];
-
-
-    [self.itemToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    [self.itemToolbar setBackgroundColor:[UIColor clearColor]];
+    
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
@@ -129,7 +126,7 @@
     if(self.detDoc.archiveImage){
         [self.imageView setArchiveImage:self.detDoc.archiveImage];
         self.itemImageUrl = self.detDoc.archiveImage.urlPath;
-        self.itemImageWidth = self.detDoc.archiveImage.contentImage.size.width;
+        self.itemImageWidth = 300.0f;
 
     }
 
@@ -139,14 +136,14 @@
     for(ArchiveFile *file in self.detDoc.files){
         if(file.format != FileFormatOther){
             [files addObject:file];
-            if(file.format == FileFormatJPEG) {
+            if((file.format == FileFormatJPEG || file.format == FileFormatPNG) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
                 if(gotAnImage == NO)
                 {
                     ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
                     [self.imageView setArchiveImage:image];
                     gotAnImage = YES;
                     self.itemImageUrl = file.url;
-                    self.itemImageWidth = image.contentImage.size.width;
+                    self.itemImageWidth = self.itemWebView.bounds.size.width > 320 ? ceil(self.itemWebView.bounds.size.width * 0.75)  : 300;
                 }
             }
 
@@ -169,7 +166,7 @@
 
     NSLog(@"------> imageUrl:%f", self.itemImageWidth);
 
-    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'><img style='margin:auto 0; width:%fpx;' src='%@'/><br/>%@</body></html>", self.itemImageWidth == 0 ? self.itemWebView.bounds.size.width - 20 : self.itemImageWidth, self.itemImageUrl, self.detDoc.details];
+    NSString *html = [NSString stringWithFormat:@"<html><head><style>a:link{color:#666; text-decoration:none;}</style></head><body style='background-color:#ffffff; color:#000; font-size:14px; font-family:\"Helvetica\"'><img style='display:block; margin-left:auto; margin-right:auto; width:%fpx;' src='%@'/><br/>%@</body></html>", self.itemImageWidth == 0 ? self.itemWebView.bounds.size.width - 20 : self.itemImageWidth, self.itemImageUrl, self.detDoc.details];
     
 
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];

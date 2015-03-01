@@ -35,4 +35,12 @@
 
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.backgroundColor = [UIColor clearColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
+    self.sectionHeaderLabel.backgroundColor = [UIColor clearColor];
+}
+
 @end
