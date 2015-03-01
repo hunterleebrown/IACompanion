@@ -24,15 +24,10 @@
 @property (nonatomic, strong) NSMutableDictionary *organizedMediaFiles;
 @property (nonatomic, weak) IBOutlet UITableView *mediaTable;
 
-@property (nonatomic, weak) IBOutlet UIButton *favoritesButton;
-@property (nonatomic, weak) IBOutlet UIButton *shareButton;
-@property (nonatomic, weak) IBOutlet UILabel *typeLabel;
-@property (nonatomic, weak) IBOutlet UIButton *wwwButton;
 
-@property (nonatomic, strong) NSString *itemImageUrl;
-@property (nonatomic) CGFloat itemImageWidth;
 
-@property (nonatomic, weak) IBOutlet UIWebView *itemWebView;
+
+
 
 
 @end
@@ -74,25 +69,7 @@
         [self.mediaTable setSeparatorInset:UIEdgeInsetsZero];
     }
 
-    if(self.favoritesButton)
-    {
-        [self.favoritesButton setTitle:FAVORITE forState:UIControlStateNormal];
-    }
 
-    if(self.shareButton)
-    {
-        [self.shareButton setTitle:SHARE forState:UIControlStateNormal];
-    }
-
-    if(self.wwwButton)
-    {
-        [self.wwwButton setTitle:GLOBE forState:UIControlStateNormal];
-    }
-
-    if(self.folderButton)
-    {
-        [self.folderButton setTitle:FOLDER forState:UIControlStateNormal];
-    }
 
     [self.descriptionButton setSelected:YES];
 
@@ -338,23 +315,6 @@
 
 
 
-- (IBAction)addFavorite:(id)sender{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.searchDoc];
-
-
-}
-
-
-- (IBAction)showSharingActionsSheet:(id)sender{
-
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
-    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
-    if([shareViewController respondsToSelector:@selector(popoverPresentationController)]){
-        [shareViewController.popoverPresentationController setSourceView:sender];
-    }
-    [self presentViewController:shareViewController animated:YES completion:nil];
-    
-}
 
 
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{

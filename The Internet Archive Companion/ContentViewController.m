@@ -118,7 +118,25 @@
     
     self.middleWebView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
 
+    if(self.favoritesButton)
+    {
+        [self.favoritesButton setTitle:FAVORITE forState:UIControlStateNormal];
+    }
 
+    if(self.shareButton)
+    {
+        [self.shareButton setTitle:SHARE forState:UIControlStateNormal];
+    }
+
+    if(self.wwwButton)
+    {
+        [self.wwwButton setTitle:GLOBE forState:UIControlStateNormal];
+    }
+
+    if(self.folderButton)
+    {
+        [self.folderButton setTitle:FOLDER forState:UIControlStateNormal];
+    }
 
 
     if(self.itemToolbar)
@@ -225,10 +243,35 @@
 
 
 
+- (IBAction)addFavorite:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.searchDoc];
+
+
+}
+
+
+- (IBAction)showSharingActionsSheet:(id)sender{
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
+    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
+    if([shareViewController respondsToSelector:@selector(popoverPresentationController)]){
+        [shareViewController.popoverPresentationController setSourceView:sender];
+    }
+    [self presentViewController:shareViewController animated:YES completion:nil];
+    
+}
 
 
 - (IBAction) didPressMPButton {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+}
+
+
+- (IBAction)showWeb:(id)sender
+{
+    externalUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
 }
 
 - (IBAction) showPopUp:(id)sender{

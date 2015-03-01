@@ -55,8 +55,20 @@
 @property (nonatomic, weak) IBOutlet UIButton *homeFavoritesButton;
 
 
+@property (nonatomic, weak) IBOutlet UIButton *favoritesButton;
+@property (nonatomic, weak) IBOutlet UIButton *shareButton;
+@property (nonatomic, weak) IBOutlet UILabel *typeLabel;
+@property (nonatomic, weak) IBOutlet UIButton *wwwButton;
 
-- (IBAction) showPopUp:(id)sender;
+@property (nonatomic, weak) IBOutlet UIWebView *itemWebView;
+@property (nonatomic, strong) NSString *itemImageUrl;
+@property (nonatomic) CGFloat itemImageWidth;
+
+
+- (IBAction)showPopUp:(id)sender;
+- (IBAction)toggleViews:(id)sender;
+
+
 
 
 @end
