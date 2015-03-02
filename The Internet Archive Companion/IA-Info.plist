@@ -41,7 +41,7 @@
 		<string>audio</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>MainStoryboard-iPhone</string>
+	<string>MainStoryboard</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>MainStoryboard-iPhone</string>
 	<key>UIRequiredDeviceCapabilities</key>

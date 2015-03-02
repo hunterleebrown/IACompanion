@@ -51,7 +51,7 @@
 		5A93EBC017A458F800D6CB38 /* AsyncTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93EBB917A453F500D6CB38 /* AsyncTextView.m */; };
 		5A93EBC117A4598600D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBA917A4505400D6CB38 /* ArchiveBookPageImageViewController.xib */; };
 		5A93EBC217A4598600D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93EBAC17A4505400D6CB38 /* ArchiveBookPageTextViewController.xib */; };
-		5A942D4616D5F545001CB01B /* MainStoryboard-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */; };
+		5A942D4616D5F545001CB01B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A942D4516D5F545001CB01B /* MainStoryboard.storyboard */; };
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
 		5AB736A017A5B91700967D4D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7369F17A5B91700967D4D /* LoadingViewController.m */; };
 		5AD456BE1A907E7F0035FBA1 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD456BD1A907E7F0035FBA1 /* Media.xcassets */; };
@@ -162,7 +162,7 @@
 		5A93EBB017A4505400D6CB38 /* ArchivePageTextSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivePageTextSizeViewController.m; sourceTree = "<group>"; };
 		5A93EBB817A453F500D6CB38 /* AsyncTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTextView.h; sourceTree = "<group>"; };
 		5A93EBB917A453F500D6CB38 /* AsyncTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTextView.m; sourceTree = "<group>"; };
-		5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "MainStoryboard-iPhone.storyboard"; path = "../MainStoryboard-iPhone.storyboard"; sourceTree = "<group>"; };
+		5A942D4516D5F545001CB01B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5A990BA616B9F2E500B4C058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5AB7369E17A5B91700967D4D /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		5AB7369F17A5B91700967D4D /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 				5AD2070E16A8F9460027CCA5 /* Data */,
 				5A0A10BE16A640A300CC70CD /* AppDelegate.h */,
 				5A0A10BF16A640A300CC70CD /* AppDelegate.m */,
-				5A942D4516D5F545001CB01B /* MainStoryboard-iPhone.storyboard */,
+				5A942D4516D5F545001CB01B /* MainStoryboard.storyboard */,
 				5A0A10B616A640A300CC70CD /* Supporting Files */,
 			);
 			path = "The Internet Archive Companion";
@@ -645,7 +645,7 @@
 				5A93EBC217A4598600D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */,
 				5A0A10BA16A640A300CC70CD /* InfoPlist.strings in Resources */,
 				5A5A0AF51A422BD00009CBC2 /* Images.xcassets in Resources */,
-				5A942D4616D5F545001CB01B /* MainStoryboard-iPhone.storyboard in Resources */,
+				5A942D4616D5F545001CB01B /* MainStoryboard.storyboard in Resources */,
 				5AD456BE1A907E7F0035FBA1 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
