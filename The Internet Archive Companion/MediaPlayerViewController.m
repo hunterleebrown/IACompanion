@@ -462,7 +462,7 @@
 
 - (IBAction)clearList:(id)sender{
     if(self.fetchedResultsController.fetchedObjects.count > 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Clear PLaylist" message:@"Do you want to clear your playlist?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Clear Playlist" message:@"Do you want to clear your playlist?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
         [alert show];
     }
 }
