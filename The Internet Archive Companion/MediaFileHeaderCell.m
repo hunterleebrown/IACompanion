@@ -8,6 +8,7 @@
 
 #import "MediaFileHeaderCell.h"
 #import "MediaUtils.h"
+#import "FontMapping.h"
 
 @implementation MediaFileHeaderCell
 
@@ -32,6 +33,8 @@
 {
     self.sectionHeaderTypeLabel.text = [MediaUtils iconStringFromFormat:[MediaUtils formatFromString:string]];
     [self.sectionHeaderTypeLabel setTextColor:[MediaUtils colorForFileFormat:[MediaUtils formatFromString:string]]];
+
+    [self.sectionPlayAllButton setTitle:PLUS forState:UIControlStateNormal];
 
 }
 

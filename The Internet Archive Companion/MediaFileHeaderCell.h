@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *sectionHeaderLabel;
 @property (nonatomic, weak) IBOutlet UILabel *sectionHeaderTypeLabel;
+@property (nonatomic, weak) IBOutlet UIButton *sectionPlayAllButton;
 
 - (void)setTypeLabelIconFromFileTypeString:(NSString *)string;
 

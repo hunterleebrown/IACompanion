@@ -303,8 +303,15 @@
     if(organizedMediaFiles.count > 0){
         ArchiveFile *firstFile;
         firstFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:section]] objectAtIndex:0];
-        headerCell.sectionHeaderLabel.text = [firstFile.file objectForKey:@"format"];
-        [headerCell setTypeLabelIconFromFileTypeString:[firstFile.file objectForKey:@"format"]];
+        NSString *format = [firstFile.file objectForKey:@"format"];
+
+        headerCell.sectionHeaderLabel.text = format;
+        [headerCell setTypeLabelIconFromFileTypeString:format];
+
+        MediaType *type = [MediaUtils mediaTypeFromFileFormat:[MediaUtils formatFromString:format]];
+        headerCell.sectionPlayAllButton.hidden = type == MediaTypeNone;
+        [headerCell.sectionPlayAllButton setTag:section];
+        [headerCell.sectionPlayAllButton addTarget:self action:@selector(playAll:) forControlEvents:UIControlEventTouchUpInside];
     }
     return headerCell;
 }
@@ -328,26 +335,30 @@
 - (IBAction)playAll:(id)sender
 {
     
-    for(ArchiveFile *aFile in mediaFiles) {
-        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF || aFile.format == FileFormatPNG)
-        {
-            
-        }
-        else if (aFile.format == FileFormatDjVuTXT || aFile.format == FileFormatProcessedJP2ZIP || aFile.format == FileFormatTxt)
-        {
-            
-        } else
-        {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:aFile];
-        }
+
+
+    UIButton *button = sender;
+    NSArray *files = [organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:button.tag]];
+    for(ArchiveFile *aFile in files)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileNotification" object:aFile];
     }
 
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+    [button.titleLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]];
+    [button setTitle:[NSString stringWithFormat:@"%lu file%@ added to media player", (unsigned long)files.count, files.count > 1 ? @"s" : @""] forState:UIControlStateNormal];
+
+    [self performSelector:@selector(changeTextBackForButton:) withObject:button afterDelay:3.0];
+
 }
 
 
+- (void)changeTextBackForButton:(UIButton *)button
+{
+    [button setTitle:@"" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:20]];
+    [button setTitle:PLUS forState:UIControlStateNormal];
 
+}
 
 
 

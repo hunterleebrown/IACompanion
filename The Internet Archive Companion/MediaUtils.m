@@ -14,6 +14,52 @@
 
 
 
++ (MediaType)mediaTypeFromFileFormat:(FileFormat)format
+{
+    switch (format) {
+        case FileFormat128KbpsMP3:
+            return MediaTypeAudio;
+            break;
+
+        case FileFormat64KbpsMP3:
+            return MediaTypeAudio;
+            break;
+
+        case FileFormatH264:
+            return MediaTypeVideo;
+            break;
+
+        case FileFormatH264HD:
+            return MediaTypeAudio;
+            break;
+
+        case FileFormatMP3:
+            return MediaTypeAudio;
+            break;
+
+        case FileFormatMPEG4:
+            return MediaTypeVideo;
+            break;
+
+        case FileFormatVBRMP3:
+            return MediaTypeAudio;
+            break;
+
+        case FileFormat96KbpsMP3:
+            return MediaTypeAudio;
+            break;
+
+        case FileFormat512kbMPEG4:
+            return MediaTypeVideo;
+            break;
+
+        default:
+            return MediaTypeNone;
+            break;
+    }
+    
+}
+
 
 + (NSString *)iconStringFromMediaType:(MediaType)type
 {

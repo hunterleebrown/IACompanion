@@ -17,5 +17,6 @@
 + (FileFormat)formatFromString:(NSString *)name;
 + (UIColor *)colorForFileFormat:(FileFormat)format;
 + (UIColor *)colorFromMediaType:(MediaType)type;
++ (MediaType)mediaTypeFromFileFormat:(FileFormat)format;
 
 @end

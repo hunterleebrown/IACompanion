@@ -23,6 +23,7 @@
 #define GLOBE @"\U0001F5FA"
 #define VIEWS @"\U0001F441"
 #define FOLDER @"\U0001F5C3"
+#define PLUS @"\u2295"
 
 #define ARCHIVE @"\U0001F3DB"
 #define CLOSE @"\U0001F5D9"
