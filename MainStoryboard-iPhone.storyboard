@@ -592,7 +592,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Universal Access to Knowlege" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Universal Access to Knowledge" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

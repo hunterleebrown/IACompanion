@@ -75,9 +75,22 @@
     NSLog(@"---->parent: %@", self.parentViewController.restorationIdentifier);
     if([self.parentViewController.restorationIdentifier isEqualToString:@"searchNav"])
     {
-        [self.navigationItem setLeftBarButtonItems:nil];
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:BACK style:UIBarButtonItemStylePlain target:self action:@selector(didPressBackButton)];
+        [backButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
+        
+        UIBarButtonItem *mediaButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
+        [mediaButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
+        
+        [self.navigationItem setLeftBarButtonItems:@[backButton, mediaButton]];
+        
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
+        [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
+        
         [self.navigationItem setRightBarButtonItems:@[closeItem]];
+        
+        
+        
     }
 
 
@@ -107,6 +120,11 @@
     [super viewDidAppear:animated];
 }
 
+
+
+- (void) didPressMPButton {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+}
 
 - (void)closeSearch
 {

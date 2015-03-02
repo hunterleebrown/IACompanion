@@ -48,52 +48,11 @@
     searchDocuments = [NSMutableArray new];
     didTriggerLoadMore = NO;
     
-    
-    
-    UIImage *image = [UIImage imageNamed:@"new-list.png"];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, image.size.width + 10, image.size.height);
-    button.tag = 0;
-    [button addTarget:self action:@selector(didPressListButton) forControlEvents:UIControlEventTouchUpInside];
-    [button setImage:image forState:UIControlStateNormal];
-    UIBarButtonItem *listButton = [[UIBarButtonItem alloc] initWithCustomView:button];
-    
- 
-    
-    
-    UIImage *bi = [UIImage imageNamed:@"back-button.png"];
-    UIButton *bibutton = [UIButton buttonWithType:UIButtonTypeCustom];
-    bibutton.frame = CGRectMake(0, 0, bi.size.width, bi.size.height);
-    bibutton.tag = 0;
-    [bibutton addTarget:self action:@selector(didPressBackButton) forControlEvents:UIControlEventTouchUpInside];
-    [bibutton setImage:bi forState:UIControlStateNormal];
-    
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:bibutton];
-    
-    
-    
-    
-    UIImage *mpi = [UIImage imageNamed:@"open-player-button.png"];
-    UIButton *mpbutton = [UIButton buttonWithType:UIButtonTypeCustom];
-    mpbutton.frame = CGRectMake(0, 0, mpi.size.width, mpi.size.height);
-    mpbutton.tag = 1;
-    [mpbutton addTarget:self action:@selector(didPressMPButton) forControlEvents:UIControlEventTouchUpInside];
-    [mpbutton setImage:mpi forState:UIControlStateNormal];
-    UIBarButtonItem* mpBarButton = [[UIBarButtonItem alloc] initWithCustomView:mpbutton];
-    
-//    [self.navigationItem setLeftBarButtonItems:@[listButton, mpBarButton, backButton]];
-
-        [self.navigationItem setLeftBarButtonItems:nil];
-
-//    [self.closeButton setTitle:CLOSE forState:UIControlStateNormal];
-//    [self.closeButton.titleLabel setFont:ICONOCHIVE_FONT];
-//    [self.closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [self.closeButton addTarget:self action:@selector(searchBarCancelButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [self.navigationItem setLeftBarButtonItems:nil];
+   
     UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
+    [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
     [self.navigationItem setRightBarButtonItems:@[closeItem]];
-
-
 
 }
 - (void) viewDidAppear:(BOOL)animated {
@@ -116,6 +75,7 @@
 - (void) didPressListButton{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];
 }
+
 
 
 - (void) didPressMPButton {
