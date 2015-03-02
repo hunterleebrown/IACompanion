@@ -84,6 +84,10 @@
     self.itemWebView.alpha = 1.0;
     self.collectionHolderView.alpha = 0;
     self.mediaTable.alpha = 0;
+    
+    self.imageView.layer.cornerRadius = self.imageView.bounds.size.width / 2;
+    self.imageView.layer.masksToBounds = YES;
+
 
 
 }
@@ -121,17 +125,19 @@
     for(ArchiveFile *file in self.detDoc.files){
         if(file.format != FileFormatOther){
             [files addObject:file];
-            if((file.format == FileFormatJPEG || file.format == FileFormatPNG) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
-                if(gotAnImage == NO)
-                {
-                    ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
-                    [self.imageView setArchiveImage:image];
-                    gotAnImage = YES;
-                    self.itemImageUrl = file.url;
-                    self.itemImageWidth = self.itemWebView.bounds.size.width > 320 ? ceil(self.itemWebView.bounds.size.width * 0.75)  : 300;
+            
+            if(self.detDoc.type != MediaTypeCollection) {
+                if((file.format == FileFormatJPEG || file.format == FileFormatPNG) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
+                    if(gotAnImage == NO)
+                    {
+                        ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
+                        [self.imageView setArchiveImage:image];
+                        gotAnImage = YES;
+                        self.itemImageUrl = file.url;
+                        self.itemImageWidth = self.itemWebView.bounds.size.width > 320 ? ceil(self.itemWebView.bounds.size.width * 0.75)  : 300;
+                    }
                 }
             }
-
         }
     }
 
@@ -167,10 +173,13 @@
         [self.collectionHandlerView setIdentifier:self.searchDoc.identifier];
         [self.collectionHandlerView.collectionTableView setScrollsToTop:YES];
 
-
+        self.imageView.hidden = NO;
+        self.typeLabel.hidden = YES;
 
     } else
     {
+        self.imageView.hidden = YES;
+        
         NSMutableArray *mItems = [NSMutableArray new];
         for (UIBarButtonItem *i in self.itemToolbar.items) {
             if(i != self.collectionBarButton)

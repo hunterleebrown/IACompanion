@@ -865,8 +865,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lse-8P-wqK">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                         <subviews>
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cxa-oA-01W" customClass="ArchiveImageView">
+                                                <rect key="frame" x="10" y="10" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="hFC-vb-Nfm"/>
+                                                    <constraint firstAttribute="height" constant="44" id="ymW-M0-waZ"/>
+                                                </constraints>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAk-1E-D4k">
-                                                <rect key="frame" x="10" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="10" y="10" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="U5w-O8-WAd"/>
                                                     <constraint firstAttribute="height" constant="44" id="cfF-sT-EbM"/>
@@ -876,11 +883,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Qwn-9J-vdZ">
-                                                <rect key="frame" x="59" y="0.0" width="531" height="44"/>
+                                                <rect key="frame" x="59" y="0.0" width="531" height="39"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="7I7-IP-r2D"/>
-                                                    <constraint firstAttribute="height" constant="44" id="LhD-ce-Nbx"/>
+                                                    <constraint firstAttribute="height" constant="39" id="LhD-ce-Nbx"/>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="V0D-T3-a9P"/>
                                                     <constraint firstAttribute="height" constant="100" id="tiM-Fb-6QL"/>
                                                 </constraints>
@@ -897,9 +904,8 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-Xr-HXL">
-                                                <rect key="frame" x="59" y="44" width="536" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="vW0-JN-KNF"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="vW0-JN-KNF"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -910,17 +916,28 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Qwn-9J-vdZ" secondAttribute="trailing" constant="10" id="02g-zc-V4Z"/>
                                             <constraint firstItem="vAk-1E-D4k" firstAttribute="leading" secondItem="lse-8P-wqK" secondAttribute="leading" constant="10" id="24Z-1H-eEc"/>
+                                            <constraint firstItem="Cxa-oA-01W" firstAttribute="leading" secondItem="lse-8P-wqK" secondAttribute="leading" constant="10" id="BeW-tU-1DG"/>
                                             <constraint firstAttribute="trailing" secondItem="Xal-Xr-HXL" secondAttribute="trailing" constant="5" id="BsL-dZ-Egv"/>
                                             <constraint firstItem="Xal-Xr-HXL" firstAttribute="leading" secondItem="Qwn-9J-vdZ" secondAttribute="leading" id="Diq-sb-jAC"/>
-                                            <constraint firstItem="Qwn-9J-vdZ" firstAttribute="top" secondItem="lse-8P-wqK" secondAttribute="top" id="OGG-Wl-6r3"/>
+                                            <constraint firstItem="Cxa-oA-01W" firstAttribute="centerY" secondItem="Qwn-9J-vdZ" secondAttribute="centerY" id="I73-ey-Qub"/>
+                                            <constraint firstAttribute="centerY" secondItem="Cxa-oA-01W" secondAttribute="centerY" id="N9b-z5-sLH"/>
+                                            <constraint firstItem="Qwn-9J-vdZ" firstAttribute="top" secondItem="lse-8P-wqK" secondAttribute="top" constant="5" id="OGG-Wl-6r3"/>
                                             <constraint firstItem="Xal-Xr-HXL" firstAttribute="top" secondItem="Qwn-9J-vdZ" secondAttribute="bottom" id="RVb-1V-sBP"/>
                                             <constraint firstAttribute="trailing" secondItem="Xal-Xr-HXL" secondAttribute="trailing" id="TfZ-xt-g90"/>
                                             <constraint firstItem="Qwn-9J-vdZ" firstAttribute="leading" secondItem="vAk-1E-D4k" secondAttribute="trailing" constant="5" id="hir-Gu-xcU"/>
+                                            <constraint firstAttribute="centerY" secondItem="vAk-1E-D4k" secondAttribute="centerY" id="keC-8e-R57"/>
+                                            <constraint firstItem="Qwn-9J-vdZ" firstAttribute="leading" secondItem="Cxa-oA-01W" secondAttribute="trailing" constant="5" id="niA-ks-Kob"/>
                                             <constraint firstAttribute="height" constant="64" id="s9E-Si-0mJ"/>
+                                            <constraint firstItem="Qwn-9J-vdZ" firstAttribute="top" secondItem="lse-8P-wqK" secondAttribute="top" id="uUe-Yo-YCR"/>
                                             <constraint firstItem="Qwn-9J-vdZ" firstAttribute="centerY" secondItem="vAk-1E-D4k" secondAttribute="centerY" id="utt-Ku-fYg"/>
+                                            <constraint firstAttribute="centerY" secondItem="Qwn-9J-vdZ" secondAttribute="centerY" id="wgX-lA-GQd"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="I73-ey-Qub"/>
+                                                <exclude reference="OGG-Wl-6r3"/>
+                                                <exclude reference="utt-Ku-fYg"/>
+                                                <exclude reference="wgX-lA-GQd"/>
                                                 <exclude reference="TfZ-xt-g90"/>
                                             </mask>
                                         </variation>
@@ -1497,6 +1514,7 @@
                         <outlet property="descriptionButton" destination="bia-sE-06Y" id="Tos-9a-nrS"/>
                         <outlet property="favoritesButton" destination="JIf-EF-Sf1" id="Q79-mo-fTM"/>
                         <outlet property="folderButton" destination="y2h-IL-KHy" id="vrG-nP-OVF"/>
+                        <outlet property="imageView" destination="Cxa-oA-01W" id="2n0-T0-p1w"/>
                         <outlet property="itemToolbar" destination="wV6-fM-eDy" id="LwS-BF-bdm"/>
                         <outlet property="itemWebView" destination="yiU-67-nXY" id="kg5-LP-RKV"/>
                         <outlet property="mediaTable" destination="7Sy-pu-DXg" id="pi2-ze-inJ"/>
