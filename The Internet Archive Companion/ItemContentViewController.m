@@ -80,7 +80,12 @@
     [self.itemWebView setOpaque:NO];
     self.itemWebView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     [self.itemWebView setBackgroundColor:[UIColor whiteColor]];
-    
+
+    self.itemWebView.alpha = 1.0;
+    self.collectionHolderView.alpha = 0;
+    self.mediaTable.alpha = 0;
+
+
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
@@ -208,7 +213,6 @@
 
 - (IBAction)toggleViews:(id)sender
 {
-
     self.mediaTable.hidden = sender != self.folderButton;
     self.itemWebView.hidden = sender != self.descriptionButton;
     self.collectionHolderView.hidden = sender != self.collectionButton;
@@ -216,6 +220,16 @@
     self.folderButton.selected = sender == self.folderButton;
     self.descriptionButton.selected = sender == self.descriptionButton;
     self.collectionButton.selected = sender == self.collectionButton;
+
+    [UIView animateWithDuration:0.33 animations:^{
+
+
+
+        self.itemWebView.alpha = sender == self.descriptionButton ? 1.0 : 0;
+        self.collectionHolderView.alpha = sender == self.collectionButton ? 1.0 : 0;
+        self.mediaTable.alpha = sender == self.folderButton ? 1.0 : 0;
+
+    }];
 
 }
 

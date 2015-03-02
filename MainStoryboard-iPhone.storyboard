@@ -1457,6 +1457,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yiU-67-nXY" secondAttribute="trailing" id="2Sk-JD-lGe"/>
                             <constraint firstItem="f2o-gT-210" firstAttribute="leading" secondItem="pDQ-bp-6vG" secondAttribute="leading" id="4gc-VN-X0W"/>
