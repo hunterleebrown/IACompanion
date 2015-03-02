@@ -71,6 +71,14 @@
     if ([self.mediaTable respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.mediaTable setSeparatorInset:UIEdgeInsetsZero];
     }
+    
+    NSLog(@"---->parent: %@", self.parentViewController.restorationIdentifier);
+    if([self.parentViewController.restorationIdentifier isEqualToString:@"searchNav"])
+    {
+        [self.navigationItem setLeftBarButtonItems:nil];
+        UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
+        [self.navigationItem setRightBarButtonItems:@[closeItem]];
+    }
 
 
 
@@ -97,11 +105,15 @@
 }
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
-
-
-    
 }
+
+
+- (void)closeSearch
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
+    [(UINavigationController*)self.parentViewController popViewControllerAnimated:NO];
+}
+
 
 #pragma mark - Results
 

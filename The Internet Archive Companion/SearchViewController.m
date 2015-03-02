@@ -13,6 +13,7 @@
 #import "StringUtils.h"
 #import "MediaUtils.h"
 #import "FontMapping.h"
+#import "ItemContentViewController.h"
 
 @interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
@@ -20,6 +21,7 @@
 @property (assign) NSInteger numFound;
 @property (assign) NSInteger start;
 @property (assign) BOOL didTriggerLoadMore;
+@property (nonatomic, weak) UIButton *closeButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *numFoundLabel;
 
@@ -79,7 +81,17 @@
     [mpbutton setImage:mpi forState:UIControlStateNormal];
     UIBarButtonItem* mpBarButton = [[UIBarButtonItem alloc] initWithCustomView:mpbutton];
     
-    [self.navigationItem setLeftBarButtonItems:@[listButton, mpBarButton, backButton]];
+//    [self.navigationItem setLeftBarButtonItems:@[listButton, mpBarButton, backButton]];
+
+        [self.navigationItem setLeftBarButtonItems:nil];
+
+//    [self.closeButton setTitle:CLOSE forState:UIControlStateNormal];
+//    [self.closeButton.titleLabel setFont:ICONOCHIVE_FONT];
+//    [self.closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [self.closeButton addTarget:self action:@selector(searchBarCancelButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
+    [self.navigationItem setRightBarButtonItems:@[closeItem]];
 
 
 
@@ -121,10 +133,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)closeSearch
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
+}
 
 - (void) searchBarCancelButtonClicked:(UISearchBar *)inSearchBar{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
     [inSearchBar resignFirstResponder];
+    
+    
 }
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)inSearchBar{
@@ -226,7 +244,15 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
+    
+
+        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+        [cvc setSearchDoc:doc];
+    
+//        [self pushViewController:cvc animated:YES];
+    [self.navigationController pushViewController:cvc animated:YES];
+    
     
 }
 

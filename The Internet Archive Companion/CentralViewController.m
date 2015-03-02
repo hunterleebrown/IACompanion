@@ -129,11 +129,14 @@
         }
     }];
     
+//    [self performSegueWithIdentifier:@"navSearch" sender:nil];
+    
 }
 
 - (void) didReceiveSearchButtonClosePressNotification:(NSNotification *)notification{
     // SearchViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"searchViewController"];
     //[_contentNavController pushViewController:svc animated:YES];
+    
     [UIView animateWithDuration:0.33 animations:^{
         [_searchView setAlpha:0.0];
     } completion:^(BOOL finished) {
@@ -147,8 +150,8 @@
 - (void) closeSearch{
     [_searchView setAlpha:0.0];
     [_searchView setHidden:YES];
-    [_searchViewController.searchBar resignFirstResponder];
-    [_searchViewController.searchResultsTable deselectRowAtIndexPath:_searchViewController.searchResultsTable.indexPathForSelectedRow animated:YES];
+   // [_searchViewController.searchBar resignFirstResponder];
+   // [_searchViewController.searchResultsTable deselectRowAtIndexPath:_searchViewController.searchResultsTable.indexPathForSelectedRow animated:YES];
 
 }
 

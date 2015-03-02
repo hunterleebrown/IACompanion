@@ -237,7 +237,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="qSn-LB-gda" kind="embed" identifier="searchEmbed" id="BXA-tr-skJ"/>
+                                    <segue destination="cjw-69-9ia" kind="embed" identifier="searchEmbed" id="Thv-9U-DOw"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -276,7 +276,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2436" y="401"/>
+            <point key="canvasLocation" x="2464" y="423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vzq-V4-8aK">
@@ -293,7 +293,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjw-TC-iJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3009" y="-322"/>
+            <point key="canvasLocation" x="3081" y="-318"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="c4S-zO-CZE">
@@ -556,9 +556,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3660" y="245"/>
+            <point key="canvasLocation" x="3890" y="-318"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Internet Archive Search-->
+        <scene sceneID="gWW-bQ-agL">
+            <objects>
+                <navigationController storyboardIdentifier="searchNav" title="Internet Archive Search" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cjw-69-9ia" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XJ4-Mx-86E">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qSn-LB-gda" kind="relationship" relationship="rootViewController" id="zYG-f1-emx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCz-H2-dCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3216" y="450"/>
+        </scene>
+        <!--Internet Archive Search-->
         <scene sceneID="PJO-bR-F2G">
             <objects>
                 <viewController storyboardIdentifier="searchViewController" id="qSn-LB-gda" customClass="SearchViewController" sceneMemberID="viewController">
@@ -567,14 +589,14 @@
                         <viewControllerLayoutGuide type="bottom" id="cD8-Of-WG6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="02l-d9-364">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search The Internet Archive" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Universal Access to Knowlege" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" keyboardAppearance="alert"/>
                                 <connections>
                                     <outlet property="delegate" destination="qSn-LB-gda" id="JXz-hG-ess"/>
@@ -592,7 +614,7 @@
                                     <segment title="Text"/>
                                     <segment title="Image"/>
                                 </segments>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="searchFilterChange:" destination="qSn-LB-gda" eventType="valueChanged" id="h5G-zO-9pg"/>
                                 </connections>
@@ -605,12 +627,12 @@
                                     <constraint firstAttribute="width" constant="300" id="F6N-wY-bhN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="182" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rvY-sS-u1i">
-                                <rect key="frame" x="0.0" y="95" width="600" height="505"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="95" width="600" height="461"/>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="328" id="kuo-Tz-Cfy"/>
                                 </constraints>
@@ -805,7 +827,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="trailing" secondItem="jw3-cD-TaP" secondAttribute="trailing" id="0SJ-vU-NbR"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="top" secondItem="jw3-cD-TaP" secondAttribute="bottom" id="7oM-wI-pgI"/>
@@ -836,6 +858,9 @@
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Internet Archive Search" id="vsa-7D-1Bv">
+                        <barButtonItem key="backBarButtonItem" title=" " id="r7H-kj-jva"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="numFoundLabel" destination="ykI-sc-EGX" id="tYP-JN-Vvw"/>
                         <outlet property="searchBar" destination="jw3-cD-TaP" id="Gbb-dG-6J9"/>
@@ -845,7 +870,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwM-6Z-moR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2448" y="1326"/>
+            <point key="canvasLocation" x="3898" y="450"/>
         </scene>
         <!--Item Content View Controller-->
         <scene sceneID="h8M-VI-jwG">
@@ -934,11 +959,11 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="TfZ-xt-g90"/>
                                                 <exclude reference="I73-ey-Qub"/>
                                                 <exclude reference="OGG-Wl-6r3"/>
                                                 <exclude reference="utt-Ku-fYg"/>
                                                 <exclude reference="wgX-lA-GQd"/>
-                                                <exclude reference="TfZ-xt-g90"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -1528,7 +1553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Y9-ij-32p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4384" y="961"/>
+            <point key="canvasLocation" x="4572" y="1087"/>
         </scene>
         <!--Media Image View Controller-->
         <scene sceneID="uMN-S5-8WI">
