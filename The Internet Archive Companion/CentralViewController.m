@@ -8,7 +8,6 @@
 
 #import "CentralViewController.h"
 #import "ArchiveSearchDoc.h"
-#import "CollectionContentViewController.h"
 #import "ItemContentViewController.h"
 #import "SearchViewController.h"
 #import <QuartzCore/QuartzCore.h>

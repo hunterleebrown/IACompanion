@@ -16,7 +16,6 @@
 		5A0D9A3017802F1F006D539C /* MainNavTableViewHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D9A2F17802F1F006D539C /* MainNavTableViewHeaderViewCell.m */; };
 		5A22BFDE17A8C36600220753 /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A22BFDD17A8C36600220753 /* PopUpViewController.m */; };
 		5A23501E1780C44D0050C9A2 /* ItemContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23501D1780C44D0050C9A2 /* ItemContentViewController.m */; };
-		5A2350211780C47A0050C9A2 /* CollectionContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2350201780C47A0050C9A2 /* CollectionContentViewController.m */; };
 		5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930616C3855400C3E107 /* ArchiveFile.m */; };
 		5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A23930816C3A07500C3E107 /* MediaPlayer.framework */; };
 		5A33984E1A9839F50001C7A4 /* Iconochive-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */; };
@@ -95,8 +94,6 @@
 		5A22BFDD17A8C36600220753 /* PopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpViewController.m; sourceTree = "<group>"; };
 		5A23501C1780C44D0050C9A2 /* ItemContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemContentViewController.h; sourceTree = "<group>"; };
 		5A23501D1780C44D0050C9A2 /* ItemContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemContentViewController.m; sourceTree = "<group>"; };
-		5A23501F1780C47A0050C9A2 /* CollectionContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionContentViewController.h; sourceTree = "<group>"; };
-		5A2350201780C47A0050C9A2 /* CollectionContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionContentViewController.m; sourceTree = "<group>"; };
 		5A23930516C3855400C3E107 /* ArchiveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveFile.h; sourceTree = "<group>"; };
 		5A23930616C3855400C3E107 /* ArchiveFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveFile.m; sourceTree = "<group>"; };
 		5A23930816C3A07500C3E107 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -452,8 +449,6 @@
 				5A756DB0178002A000E7F922 /* ContentViewController.m */,
 				5A23501C1780C44D0050C9A2 /* ItemContentViewController.h */,
 				5A23501D1780C44D0050C9A2 /* ItemContentViewController.m */,
-				5A23501F1780C47A0050C9A2 /* CollectionContentViewController.h */,
-				5A2350201780C47A0050C9A2 /* CollectionContentViewController.m */,
 				5A7C05A017890CEA0044EC5B /* CollectionDataHandlerAndHeaderView.h */,
 				5A7C05A117890CEA0044EC5B /* CollectionDataHandlerAndHeaderView.m */,
 			);
@@ -693,7 +688,6 @@
 				5A756DB1178002A000E7F922 /* ContentViewController.m in Sources */,
 				5A0D9A3017802F1F006D539C /* MainNavTableViewHeaderViewCell.m in Sources */,
 				5A23501E1780C44D0050C9A2 /* ItemContentViewController.m in Sources */,
-				5A2350211780C47A0050C9A2 /* CollectionContentViewController.m in Sources */,
 				5A7C05A217890CEA0044EC5B /* CollectionDataHandlerAndHeaderView.m in Sources */,
 				5A7C05A6178917410044EC5B /* CollectionViewTableCell.m in Sources */,
 				CEEF55D3178F6A2F0085E0CF /* PopUpView.m in Sources */,

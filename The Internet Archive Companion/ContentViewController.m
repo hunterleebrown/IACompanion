@@ -9,7 +9,6 @@
 #import "FontMapping.h"
 #import "ContentViewController.h"
 #import "ArchiveSearchDoc.h"
-#import "CollectionContentViewController.h"
 #import "ItemContentViewController.h"
 #import "PopUpView.h"
 #import "ArchiveCollectionViewControllerHelper.h"
