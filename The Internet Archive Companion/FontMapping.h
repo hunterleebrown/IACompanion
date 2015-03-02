@@ -35,6 +35,7 @@
 #define FULLSCREEN @"\u26F6"
 
 #define AUDIO @"\U0001F568"
+
 #define VIDEO @"\U0001F39E"
 #define COLLECTION @"\u2317"
 #define IMAGE @"\U0001F5BC"
@@ -52,6 +53,7 @@
 #define VIEWS_COLOR [UIColor colorWithRed:117.0/255.0 green:117.0/255.0 blue:117.0/255.0 alpha:1.0]
 
 #define COLLECTION_BACKGROUND_COLOR [UIColor colorWithRed:133.0/255.0 green:133.0/255.0 blue:133.0/255.0 alpha:1.0]
+
 
 
 #endif

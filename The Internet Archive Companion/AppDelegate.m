@@ -12,6 +12,7 @@
 #import <CoreData/CoreData.h>
 #import "PopUpView.h"
 #import "InitialViewController.h"
+#import "FontMapping.h"
 
 @interface AppDelegate ()
 
@@ -56,14 +57,43 @@
 //        }
 //    }
 
-
+    [self accessibilityLabels];
 
     return YES;
 }
 
 
 
+- (void)accessibilityLabels
+{
 
+    [ARCHIVE setAccessibilityLabel:@"Archive"];
+    
+    [AUDIO setAccessibilityLabel:@"Audio"];
+    [AUDIO setAccessibilityHint:@"Audio Type"];
+    
+    [VIDEO setAccessibilityLabel:@"Video"];
+    [VIDEO setAccessibilityHint:@"Video Type"];
+    
+    [BOOK setAccessibilityLabel:@"Text"];
+    [BOOK setAccessibilityHint:@"Text Type"];
+    
+    [IMAGE setAccessibilityLabel:@"Image"];
+    [IMAGE setAccessibilityHint:@"Image Type"];
+    
+
+    [FAVORITE setAccessibilityLabel:@"Favorites"];
+    [MEDIAPLAYER setAccessibilityLabel:@"Media player"];
+    [HAMBURGER setAccessibilityLabel:@"Main Navigation"];
+    [SEARCH setAccessibilityLabel:@"Search"];
+    
+    [COLLECTION setAccessibilityLabel:@"Collection"];
+    [FOLDER setAccessibilityLabel:@"Files"];
+    
+    [CLOSE setAccessibilityLabel:@"Close"];
+    [FULLSCREEN setAccessibilityLabel:@"Full Screen"];
+    
+}
 
 
 - (void) showPopUpWithMessageNotification:(NSNotification *)notification{

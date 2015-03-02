@@ -53,6 +53,19 @@
     UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
     [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
     [self.navigationItem setRightBarButtonItems:@[closeItem]];
+    
+    
+    
+    [self.searchFilters setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT, NSForegroundColorAttributeName:[UIColor darkGrayColor]} forState:UIControlStateNormal];
+    
+    [self.searchFilters setTitle:ARCHIVE forSegmentAtIndex:0];    
+    [self.searchFilters setTitle:AUDIO forSegmentAtIndex:1];
+    [self.searchFilters setTitle:VIDEO forSegmentAtIndex:2];
+    [self.searchFilters setTitle:BOOK  forSegmentAtIndex:3];
+    [self.searchFilters setTitle:IMAGE forSegmentAtIndex:4];
+    
+
+    self.searchFilters.layer.borderColor = [UIColor clearColor].CGColor;
 
 }
 - (void) viewDidAppear:(BOOL)animated {
