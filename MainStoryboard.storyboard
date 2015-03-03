@@ -282,10 +282,11 @@
         <scene sceneID="Vzq-V4-8aK">
             <objects>
                 <navigationController extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" id="gW7-dQ-sli" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="d4r-Qj-4rU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d4r-Qj-4rU">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="5DB-Ie-EAF" kind="relationship" relationship="rootViewController" id="55d-uS-4oi"/>
@@ -304,29 +305,35 @@
                         <viewControllerLayoutGuide type="bottom" id="U5y-CW-rrw"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="VRw-ce-b4a">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxT-h9-K8j">
-                                <rect key="frame" x="290" y="10" width="21" height="30"/>
+                                <rect key="frame" x="290" y="54" width="21" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QNZ-FV-28i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="left" text="Internet Archive Companion" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="t4W-sB-iDl">
-                                <rect key="frame" x="20" y="50" width="560" height="30"/>
+                                <rect key="frame" x="150" y="94" width="300" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.66000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="BoQ-Jc-cnh"/>
                                     <constraint firstAttribute="height" constant="30" id="CgE-Fw-bzx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkF-LC-d7M">
-                                <rect key="frame" x="26" y="100" width="44" height="44"/>
+                                <rect key="frame" x="26" y="144" width="44" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="r9a-f7-fcY"/>
                                     <constraint firstAttribute="height" constant="44" id="u5V-2U-MCC"/>
@@ -334,26 +341,29 @@
                                 <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
                                 <state key="normal" title="L">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressListButton" destination="5DB-Ie-EAF" eventType="touchUpInside" id="Fma-LP-4oJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the list icon to reveal and choose the very top collections of the Archive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="F1L-aG-kLd">
-                                <rect key="frame" x="80" y="100" width="484" height="44"/>
+                                <rect key="frame" x="80" y="144" width="484" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="1RE-YJ-zZs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWp-V0-4oI">
-                                <rect key="frame" x="26" y="154" width="44" height="44"/>
+                                <rect key="frame" x="26" y="198" width="44" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="yNA-MW-EdV"/>
                                     <constraint firstAttribute="width" constant="44" id="ybk-O6-XEj"/>
@@ -361,26 +371,29 @@
                                 <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
                                 <state key="normal" title="M">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressMPButton" destination="5DB-Ie-EAF" eventType="touchUpInside" id="fey-8z-GCs"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the media player button to reveal your playlist of audio and video files with embedded player." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="3OY-eg-MDD">
-                                <rect key="frame" x="80" y="154" width="484" height="44"/>
+                                <rect key="frame" x="80" y="198" width="484" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Vpq-Kc-A7C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-LY-ZcK">
-                                <rect key="frame" x="26" y="213" width="44" height="44"/>
+                                <rect key="frame" x="26" y="257" width="44" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="RXY-nV-I9a"/>
                                     <constraint firstAttribute="width" constant="44" id="kUW-xb-Pvz"/>
@@ -388,26 +401,29 @@
                                 <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
                                 <state key="normal" title="S">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressSearchButton" destination="5DB-Ie-EAF" eventType="touchUpInside" id="t7r-bd-zah"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the magnifying glass icon to open the search pane and look for anything in the Archive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="UnJ-qN-evd">
-                                <rect key="frame" x="80" y="208" width="500" height="54"/>
+                                <rect key="frame" x="80" y="252" width="500" height="54"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="F4H-en-u8i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fZ-Rr-lAm">
-                                <rect key="frame" x="26" y="272" width="44" height="44"/>
+                                <rect key="frame" x="26" y="316" width="44" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="5eF-2X-jC9"/>
                                     <constraint firstAttribute="height" constant="44" id="9yg-mx-zE3"/>
@@ -415,42 +431,50 @@
                                 <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
                                 <state key="normal" title="F">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressFavorites" destination="5DB-Ie-EAF" eventType="touchUpInside" id="f5w-7Z-jv3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9x-mO-jYw">
-                                <rect key="frame" x="36" y="505" width="63" height="31"/>
+                                <rect key="frame" x="36" y="549" width="63" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="5mx-gu-C4d"/>
                                     <constraint firstAttribute="width" constant="63" id="Te4-so-WfO"/>
                                 </constraints>
-                                <state key="normal" title="Credits"/>
+                                <state key="normal" title="Credits">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="showPopUp:" destination="5DB-Ie-EAF" eventType="touchUpInside" id="Ry0-Na-EIz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5x-zT-6zp">
-                                <rect key="frame" x="413" y="505" width="167" height="31"/>
+                                <rect key="frame" x="413" y="549" width="167" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="167" id="jZM-ul-dS0"/>
                                     <constraint firstAttribute="height" constant="31" id="xgn-hg-a27"/>
                                 </constraints>
-                                <state key="normal" title="Internet Archive Blog"/>
+                                <state key="normal" title="Internet Archive Blog">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="showPopUp:" destination="5DB-Ie-EAF" eventType="touchUpInside" id="nBk-sr-H3e"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add a favorite, or view your list of favorite archive items." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="wy9-G8-Z51">
-                                <rect key="frame" x="80" y="272" width="484" height="44"/>
+                                <rect key="frame" x="80" y="316" width="484" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="BGk-eV-ya0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 </variation>
@@ -495,6 +519,7 @@
                             <constraint firstItem="1fZ-Rr-lAm" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leadingMargin" constant="10" id="aXj-F6-IIV"/>
                             <constraint firstItem="UnJ-qN-evd" firstAttribute="leading" secondItem="mBN-LY-ZcK" secondAttribute="trailing" constant="10" id="bMK-q1-mJL"/>
                             <constraint firstItem="3OY-eg-MDD" firstAttribute="centerY" secondItem="HWp-V0-4oI" secondAttribute="centerY" id="bXk-dZ-W9c"/>
+                            <constraint firstAttribute="centerX" secondItem="t4W-sB-iDl" secondAttribute="centerX" id="dRk-Xh-F4D"/>
                             <constraint firstItem="UnJ-qN-evd" firstAttribute="top" secondItem="3OY-eg-MDD" secondAttribute="bottom" constant="10" id="fqV-7l-ahA"/>
                             <constraint firstItem="F1L-aG-kLd" firstAttribute="leading" secondItem="QkF-LC-d7M" secondAttribute="trailing" constant="10" id="g6S-s0-VTU"/>
                             <constraint firstItem="3OY-eg-MDD" firstAttribute="leading" secondItem="HWp-V0-4oI" secondAttribute="trailing" constant="10" id="grX-Gf-eGd"/>
@@ -515,6 +540,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="80X-Fw-AHD"/>
+                                <exclude reference="LRF-NG-ffY"/>
                                 <exclude reference="WqV-2W-q22"/>
                                 <exclude reference="He8-J6-C9L"/>
                                 <exclude reference="Hfj-Li-cd6"/>
@@ -543,7 +570,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
                     <connections>
                         <outlet property="creditsButton" destination="L9x-mO-jYw" id="xbn-Tt-3At"/>
