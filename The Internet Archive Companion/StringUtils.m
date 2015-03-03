@@ -48,7 +48,7 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 
 
 + (NSString *) displayDateFromArchiveDateString:(NSString *)archiveInDate {
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    NSDateFormatter *dateFormatter = [self.class dateFormatter];
     
     dateFormatter.dateFormat = ArchiveDateFormat;
     NSDate *sDate = [dateFormatter dateFromString:archiveInDate];
@@ -63,7 +63,7 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 
 + (NSString *) displayDateFromArchiveDayString:(NSString *)metaDate{
     
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    NSDateFormatter *dateFormatter = [self.class dateFormatter];
     
     dateFormatter.dateFormat = ArchiveMetaDayFormat;
     NSDate *sDate = [dateFormatter dateFromString:metaDate];
@@ -79,7 +79,7 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 
 + (NSString *) displayDateFromArchiveMetaDateString:(NSString *)metaDate{
 
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    NSDateFormatter *dateFormatter = [self.class dateFormatter];
     
     dateFormatter.dateFormat = ArchiveMetaDateFormat;
     NSDate *sDate = [dateFormatter dateFromString:metaDate];
@@ -129,7 +129,7 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 
 
 + (NSString *) decimalFormatNumberFromInteger:(NSInteger)input{
-    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    NSNumberFormatter *formatter = [self numberFormatter];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:input]];
     return formatted;
@@ -149,7 +149,30 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
     return [NSString stringWithFormat:@"%02ld:%02ld:%02ld",(long)hours, (long)minutes, (long)seconds];
 }
 
++ (NSDateFormatter *)dateFormatter
+{
+    static NSDateFormatter *dateFormatter;
+    
+    if (!dateFormatter)
+    {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
+    }
+    
+    return dateFormatter;
+}
 
 
++ (NSNumberFormatter *)numberFormatter
+{
+    static NSNumberFormatter *numberFormatter;
+    
+    if (!numberFormatter)
+    {
+        numberFormatter = [NSNumberFormatter new];
+    }
+    
+    return numberFormatter;
+}
 
 @end

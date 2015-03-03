@@ -28,6 +28,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) IBOutlet UILabel *typeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *viewsIconLabel;
 @property (nonatomic, weak) IBOutlet UILabel *viewsCountLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dateLabel;
+
 
 @property (nonatomic, weak) IBOutlet UILabel *creator;
 @property (nonatomic) CollectionViewTableCellStyle collectionCellStyle;

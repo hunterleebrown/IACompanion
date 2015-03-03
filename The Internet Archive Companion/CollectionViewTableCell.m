@@ -103,6 +103,7 @@
             self.viewsIconLabel.hidden = YES;
 
             [self.typeLabel setTextColor:[UIColor whiteColor]];
+            [self.dateLabel setHidden:YES];
 
             break;
 
@@ -123,6 +124,8 @@
             self.paddedView.layer.cornerRadius = 0.0f;
             self.viewsCountLabel.hidden = NO;
             self.viewsIconLabel.hidden = NO;
+            [self.dateLabel setHidden:NO];
+
 
 
             [self setTypeLabelStringFromMediaType:self.doc.type];
@@ -167,7 +170,8 @@
     NSString *count = [doc.rawDoc objectForKey:@"downloads"];
     [self.viewsCountLabel setText:[StringUtils decimalFormatNumberFromInteger:[count integerValue]]];
 
-
+    [self.dateLabel setText:[StringUtils displayDateFromArchiveDateString:[doc.rawDoc objectForKey:@"publicdate"]]];        
+    
 }
 
 
