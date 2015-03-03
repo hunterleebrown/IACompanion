@@ -17,6 +17,7 @@
 #import "MediaUtils.h"
 #import "FontMapping.h"
 #import "CollectionDataHandlerAndHeaderView.h"
+#import "StringUtils.h"
 
 
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -176,14 +177,16 @@
     self.typeLabel.text = [MediaUtils iconStringFromMediaType:self.detDoc.type];
     [self.typeLabel setTextColor:[MediaUtils colorFromMediaType:self.detDoc.type]];
 
-
-
-
-
     if(self.detDoc.creator)
     {
-        [self.byLabel setText:[NSString stringWithFormat:@"by %@", self.detDoc.creator]];
+        NSString *creator = self.detDoc.creator;
+        NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", @"by", creator]];
+        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, [@"by" length])];
+        [self.byLabel setAttributedText:attString];
     }
+
+
+
 
     NSLog(@"------> imageUrl:%f", self.itemImageWidth);
 
@@ -206,8 +209,14 @@
         self.imageView.hidden = NO;
         self.typeLabel.hidden = YES;
 
-    } else
+    }
+    else
     {
+        NSString *date = [StringUtils displayDateFromArchiveDateString:self.detDoc.publicDate];
+        NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", @"Archived", date]];
+        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, [@"Archived" length])];
+        [self.dateLabel setAttributedText:attString];
+
         self.imageView.hidden = YES;
         
         NSMutableArray *mItems = [NSMutableArray new];

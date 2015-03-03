@@ -78,6 +78,8 @@
     self.paddedView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
     self.paddedView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.paddedView.bounds].CGPath;
 
+    self.paddedView.layer.shadowPath =
+    [UIBezierPath bezierPathWithRect:self.paddedView.layer.bounds].CGPath;
 
 
     [self.contentView setBackgroundColor:[UIColor clearColor]];
@@ -170,7 +172,10 @@
     NSString *count = [doc.rawDoc objectForKey:@"downloads"];
     [self.viewsCountLabel setText:[StringUtils decimalFormatNumberFromInteger:[count integerValue]]];
 
-    [self.dateLabel setText:[StringUtils displayDateFromArchiveDateString:[doc.rawDoc objectForKey:@"publicdate"]]];        
+    NSString *date = [StringUtils displayDateFromArchiveDateString:[doc.rawDoc objectForKey:@"publicdate"]];
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", @"Archived", date]];
+    [attString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, [@"Archived" length])];
+    [self.dateLabel setAttributedText:attString];
     
 }
 
