@@ -24,6 +24,13 @@
 #define VIEWS @"\U0001F441"
 #define FOLDER @"\U0001F5C3"
 #define PLUS @"\u2295"
+#define CLOCK @"\U0001F551"
+
+#define TEXTASC @"\U0001F524"
+#define TEXTDSC @"\U0001F525"
+
+#define UP @"\u25B4"
+#define DOWN @"\u25BE"
 
 #define ARCHIVE @"\U0001F3DB"
 #define CLOSE @"\U0001F5D9"

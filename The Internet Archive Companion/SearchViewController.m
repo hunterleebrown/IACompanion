@@ -31,6 +31,9 @@
 @property (nonatomic, weak) IBOutlet UIButton *viewsButton;
 @property (nonatomic, weak) IBOutlet UIButton *dateButton;
 
+@property (nonatomic) IADataServiceSortType selectedType;
+@property (nonatomic, strong) UIButton *selectedButton;
+
 @end
 
 @implementation SearchViewController
@@ -72,6 +75,22 @@
     
 
     self.searchFilters.layer.borderColor = [UIColor clearColor].CGColor;
+
+
+    [self.titleButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:20]];
+    [self.viewsButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:20]];
+    [self.dateButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:20]];
+
+    [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+    [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+    [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+
+
+    for(UIButton *button in @[self.relevanceButton, self.dateButton, self.titleButton, self.viewsButton])
+    {
+        [button setEnabled:NO];
+    }
+
 
 }
 - (void) viewDidAppear:(BOOL)animated {
@@ -153,25 +172,68 @@
 {
     IADataServiceSortType type;
 
+    self.selectedButton.selected = NO;
+
     if(sender == self.dateButton)
     {
         type = IADataServiceSortTypeDateDescending;
+        [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, DOWN] forState:UIControlStateNormal];
+        if(type == self.selectedType)
+        {
+            type = IADataServiceSortTypeDateAscending;
+            [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, UP] forState:UIControlStateNormal];
+        }
+        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+
     }
     else if(sender == self.titleButton)
     {
         type = IADataServiceSortTypeTitleAscending;
+        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+        if(type == self.selectedType)
+        {
+            type = IADataServiceSortTypeTitleDescending;
+            [self.titleButton setTitle:TEXTDSC forState:UIControlStateNormal];
+        }
+        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+
     }
     else if(sender == self.viewsButton)
     {
         type = IADataServiceSortTypeDownloadDescending;
+        [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, DOWN] forState:UIControlStateNormal];
+
+        if(type == self.selectedType)
+        {
+            type = IADataServiceSortTypeDownloadAscending;
+            [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, UP] forState:UIControlStateNormal];
+        }
+        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+
     }
     else
     {
         type = IADataServiceSortTypeNone;
+        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+
     }
 
-    [service searchChangeSortType:type];
-    [service forceFetchData];
+    if(![self.searchBar.text isEqualToString:@""])
+    {
+        self.selectedButton = sender;
+        self.selectedButton.selected = YES;
+
+        [service searchChangeSortType:type];
+        [service forceFetchData];
+        self.selectedType = type;
+    }
+
+
 
 }
 
@@ -204,6 +266,19 @@
 
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv {
+
+    if (!self.selectedButton)
+    {
+        [self.relevanceButton setSelected:YES];
+        self.selectedButton = self.relevanceButton;
+    }
+
+    for(UIButton *button in @[self.relevanceButton, self.dateButton, self.titleButton, self.viewsButton])
+    {
+        [button setEnabled:YES];
+    }
+
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
     
     if(service.rawResults && [service.rawResults objectForKey:@"documents"]){
