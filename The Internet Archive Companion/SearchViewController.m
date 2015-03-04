@@ -31,7 +31,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *viewsButton;
 @property (nonatomic, weak) IBOutlet UIButton *dateButton;
 
-@property (nonatomic) IADataServiceSortType selectedType;
+@property (nonatomic) IADataServiceSortType selectedSortType;
 @property (nonatomic, strong) UIButton *selectedButton;
 
 @end
@@ -127,9 +127,142 @@
 
 
 
-- (IBAction)searchFilterChange:(id)sender{
-    UISegmentedControl *segment = (UISegmentedControl *)sender;
-    NSInteger selectedSegment = segment.selectedSegmentIndex;
+
+
+
+# pragma mark - bottom sort buttons
+
+- (IBAction)sortButtonPressed:(id)sender
+{
+    IADataServiceSortType type;
+
+    self.selectedButton.selected = NO;
+
+    if(sender == self.dateButton)
+    {
+        type = IADataServiceSortTypeDateDescending;
+        [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, DOWN] forState:UIControlStateNormal];
+        if(type == self.selectedSortType)
+        {
+            type = IADataServiceSortTypeDateAscending;
+            [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, UP] forState:UIControlStateNormal];
+        }
+        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+
+    }
+    else if(sender == self.titleButton)
+    {
+        type = IADataServiceSortTypeTitleAscending;
+        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+        if(type == self.selectedSortType)
+        {
+            type = IADataServiceSortTypeTitleDescending;
+            [self.titleButton setTitle:TEXTDSC forState:UIControlStateNormal];
+        }
+        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+
+    }
+    else if(sender == self.viewsButton)
+    {
+        type = IADataServiceSortTypeDownloadDescending;
+        [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, DOWN] forState:UIControlStateNormal];
+
+        if(type == self.selectedSortType)
+        {
+            type = IADataServiceSortTypeDownloadAscending;
+            [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, UP] forState:UIControlStateNormal];
+        }
+        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+
+    }
+    else
+    {
+        type = IADataServiceSortTypeNone;
+        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+
+    }
+
+    //    if(![self.searchBar.text isEqualToString:@""])
+    //    {
+    //
+
+    self.selectedButton = sender;
+    self.selectedButton.selected = YES;
+
+    [service searchChangeSortType:type];
+    [service forceFetchData];
+    self.selectedSortType = type;
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
+
+    //    }
+
+
+
+}
+
+- (void)resetSortButtons
+{
+
+    [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+    [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+    [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+
+
+    for(UIButton *button in @[self.relevanceButton, self.dateButton, self.titleButton, self.viewsButton])
+    {
+        [button setSelected:NO];
+    }
+
+    self.selectedButton = nil;
+    self.selectedSortType = nil;
+}
+
+
+#pragma mark -
+
+
+- (void)closeSearch
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
+}
+
+- (void) searchBarCancelButtonClicked:(UISearchBar *)inSearchBar{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
+    [inSearchBar resignFirstResponder];
+    
+    
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)inSearchBar{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+    [self resetSortButtons];
+
+    if([self filterQueryParam])
+    {
+        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, [self filterQueryParam]]];
+    }
+    else{
+        service = [[IAJsonDataService alloc] initWithQueryString:searchBar.text];
+    }
+
+    [service setDelegate:self];
+    [service fetchData];
+    [inSearchBar resignFirstResponder];
+
+}
+
+
+- (NSString *)filterQueryParam
+{
+
+    NSInteger selectedSegment = searchFilters.selectedSegmentIndex;
     // audio, video, text, image
 
     NSString *extraSearchParam = @"";
@@ -154,115 +287,29 @@
             break;
     }
 
+    return extraSearchParam;
+
+}
+
+
+- (IBAction)searchFilterChange:(id)sender{
+    UISegmentedControl *segment = (UISegmentedControl *)sender;
+    NSInteger selectedSegment = segment.selectedSegmentIndex;
+    // audio, video, text, image
+
+    NSString *extraSearchParam = [self filterQueryParam];
+
 
     if(![searchBar.text isEqualToString:@""]){
+        [self resetSortButtons];
         service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, extraSearchParam]];
         [service setDelegate:self];
         [service fetchData];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
         [searchBar resignFirstResponder];
     }
-
-}
-
-
-# pragma mark - bottom sort buttons
-
-- (IBAction)sortButtonPressed:(id)sender
-{
-    IADataServiceSortType type;
-
-    self.selectedButton.selected = NO;
-
-    if(sender == self.dateButton)
-    {
-        type = IADataServiceSortTypeDateDescending;
-        [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, DOWN] forState:UIControlStateNormal];
-        if(type == self.selectedType)
-        {
-            type = IADataServiceSortTypeDateAscending;
-            [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, UP] forState:UIControlStateNormal];
-        }
-        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-
-    }
-    else if(sender == self.titleButton)
-    {
-        type = IADataServiceSortTypeTitleAscending;
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-        if(type == self.selectedType)
-        {
-            type = IADataServiceSortTypeTitleDescending;
-            [self.titleButton setTitle:TEXTDSC forState:UIControlStateNormal];
-        }
-        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
-
-    }
-    else if(sender == self.viewsButton)
-    {
-        type = IADataServiceSortTypeDownloadDescending;
-        [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, DOWN] forState:UIControlStateNormal];
-
-        if(type == self.selectedType)
-        {
-            type = IADataServiceSortTypeDownloadAscending;
-            [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, UP] forState:UIControlStateNormal];
-        }
-        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-
-    }
-    else
-    {
-        type = IADataServiceSortTypeNone;
-        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
-
-    }
-
-    if(![self.searchBar.text isEqualToString:@""])
-    {
-        self.selectedButton = sender;
-        self.selectedButton.selected = YES;
-
-        [service searchChangeSortType:type];
-        [service forceFetchData];
-        self.selectedType = type;
-    }
-
-
-
-}
-
-
-#pragma mark -
-
-
-- (void)closeSearch
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
-}
-
-- (void) searchBarCancelButtonClicked:(UISearchBar *)inSearchBar{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
-    [inSearchBar resignFirstResponder];
-    
     
 }
-
-- (void) searchBarSearchButtonClicked:(UISearchBar *)inSearchBar{
-    service = [[IAJsonDataService alloc] initWithQueryString:searchBar.text];
-    [service setDelegate:self];
-    [service fetchData];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
-    [inSearchBar resignFirstResponder];
-
-}
-
-
 
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv {
