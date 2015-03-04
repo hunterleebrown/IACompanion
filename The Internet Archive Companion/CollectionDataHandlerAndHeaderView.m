@@ -47,7 +47,7 @@
     start = 0;
     didTriggerLoadMore = NO;
     identifier = ident;
-    service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadCount];
+    service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadDescending];
     [service setDelegate:self];
     [service fetchData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
@@ -121,7 +121,7 @@
     UISegmentedControl *seggers = (UISegmentedControl *)sender;
     switch (seggers.selectedSegmentIndex) {
         case 0:
-            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadCount];
+            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadDescending];
             [service setDelegate:self];
             [service fetchData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];

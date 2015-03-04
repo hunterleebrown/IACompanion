@@ -16,7 +16,7 @@
 
 @property (nonatomic, weak) MainNavViewController *mainNavViewController;
 @property (nonatomic, weak) UINavigationController *contentNavController;
-@property (nonatomic, weak) SearchViewController *searchViewController;
+@property (nonatomic, weak) UINavigationController *searchNavigationViewController;
 
 
 @property (nonatomic, weak) IBOutlet UIView *navView;

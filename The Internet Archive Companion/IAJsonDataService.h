@@ -11,8 +11,13 @@
 
 typedef enum {
     IADataServiceSortTypeDateDescending = 0,
-    IADataServiceSortTypeDownloadCount = 1,
-    IADataServiceTitleAscending = 2
+    IADataServiceSortTypeDateAscending = 1,
+    IADataServiceSortTypeDownloadDescending = 2,
+    IADataServiceSortTypeDownloadAscending = 3,
+    IADataServiceSortTypeTitleAscending = 4,
+    IADataServiceSortTypeTitleDescending = 5
+
+
 } IADataServiceSortType;
 
 
@@ -30,6 +35,8 @@ typedef enum {
 - (void) changeToSubCollections;
 - (void) changeSortType:(IADataServiceSortType *)type;
 - (void) setLoadMoreStart:(NSString *)lMS;
+
+- (void) searchChangeSortType:(IADataServiceSortType *)type;
 
 
 @end

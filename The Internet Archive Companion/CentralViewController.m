@@ -125,7 +125,11 @@
     } completion:^(BOOL finished) {
         if(notification.object){
             NSString *collectionId = notification.object;
-            [_searchViewController.searchBar setText:[NSString stringWithFormat:@"collection:%@ ", collectionId]];
+            [_searchNavigationViewController popToRootViewControllerAnimated:NO];
+            SearchViewController *svc = [_searchNavigationViewController.viewControllers objectAtIndex:0];
+            [svc.searchBar setText:[NSString stringWithFormat:@"collection:%@ ", collectionId]];
+
+
         }
     }];
     
@@ -134,9 +138,7 @@
 }
 
 - (void) didReceiveSearchButtonClosePressNotification:(NSNotification *)notification{
-    // SearchViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"searchViewController"];
-    //[_contentNavController pushViewController:svc animated:YES];
-    
+
     [UIView animateWithDuration:0.33 animations:^{
         [_searchView setAlpha:0.0];
     } completion:^(BOOL finished) {
@@ -150,8 +152,6 @@
 - (void) closeSearch{
     [_searchView setAlpha:0.0];
     [_searchView setHidden:YES];
-   // [_searchViewController.searchBar resignFirstResponder];
-   // [_searchViewController.searchResultsTable deselectRowAtIndexPath:_searchViewController.searchResultsTable.indexPathForSelectedRow animated:YES];
 
 }
 
@@ -162,7 +162,7 @@
     }
 
     if([segue.identifier isEqualToString:@"searchEmbed"]){
-        _searchViewController = [segue destinationViewController];
+        _searchNavigationViewController = [segue destinationViewController];
     }
 
    

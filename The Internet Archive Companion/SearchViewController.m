@@ -25,6 +25,12 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *numFoundLabel;
 
+
+@property (nonatomic, weak) IBOutlet UIButton *relevanceButton;
+@property (nonatomic, weak) IBOutlet UIButton *titleButton;
+@property (nonatomic, weak) IBOutlet UIButton *viewsButton;
+@property (nonatomic, weak) IBOutlet UIButton *dateButton;
+
 @end
 
 @implementation SearchViewController
@@ -84,7 +90,7 @@
 
 }
 
-
+#pragma mark - top buttons
 - (void) didPressListButton{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleContentNotification" object:nil];
 }
@@ -100,11 +106,76 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+- (IBAction)searchFilterChange:(id)sender{
+    UISegmentedControl *segment = (UISegmentedControl *)sender;
+    NSInteger selectedSegment = segment.selectedSegmentIndex;
+    // audio, video, text, image
+
+    NSString *extraSearchParam = @"";
+
+    switch (selectedSegment) {
+        case 0:
+
+            break;
+        case 1:
+            extraSearchParam = @"+AND+mediatype:audio";
+            break;
+        case 2:
+            extraSearchParam = @"+AND+mediatype:movies";
+            break;
+        case 3:
+            extraSearchParam = @"+AND+mediatype:texts";
+            break;
+        case 4:
+            extraSearchParam = @"+AND+mediatype:image";
+            break;
+        default:
+            break;
+    }
+
+
+    if(![searchBar.text isEqualToString:@""]){
+        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, extraSearchParam]];
+        [service setDelegate:self];
+        [service fetchData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+        [searchBar resignFirstResponder];
+    }
+
 }
+
+
+# pragma mark - bottom sort buttons
+
+- (IBAction)sortButtonPressed:(id)sender
+{
+    IADataServiceSortType type;
+
+    if(sender == self.dateButton)
+    {
+        type = IADataServiceSortTypeDateDescending;
+    }
+    else if(sender == self.titleButton)
+    {
+        type = IADataServiceSortTypeTitleAscending;
+    }
+    else if(sender == self.viewsButton)
+    {
+        type = IADataServiceSortTypeDownloadDescending;
+    }
+    else
+    {
+        type = nil;
+    }
+    [service searchChangeSortType:type];
+
+}
+
+
+#pragma mark -
+
 
 - (void)closeSearch
 {
@@ -127,43 +198,7 @@
 
 }
 
-- (IBAction)searchFilterChange:(id)sender{
-    UISegmentedControl *segment = (UISegmentedControl *)sender;
-    NSInteger selectedSegment = segment.selectedSegmentIndex;
-    // audio, video, text, image
-    
-    NSString *extraSearchParam = @"";
-    
-    switch (selectedSegment) {
-        case 0:
-            
-            break;
-        case 1:
-            extraSearchParam = @"+AND+mediatype:audio";
-            break;
-        case 2:
-            extraSearchParam = @"+AND+mediatype:movies";
-            break;
-        case 3:
-            extraSearchParam = @"+AND+mediatype:texts";
-            break;
-        case 4:
-            extraSearchParam = @"+AND+mediatype:image";
-            break;
-        default:
-            break;
-    }
-    
-    
-    if(![searchBar.text isEqualToString:@""]){
-        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, extraSearchParam]];
-        [service setDelegate:self];
-        [service fetchData];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
-        [searchBar resignFirstResponder];
-    }
-    
-}
+
 
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv {
@@ -214,6 +249,7 @@
 
 
 
+#pragma mark - TableView
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];

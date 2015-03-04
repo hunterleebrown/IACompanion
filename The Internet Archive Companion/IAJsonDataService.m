@@ -30,6 +30,8 @@
 - (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type {
     self = [super init];
     if(self){
+//        NSLog(@"---------> sort type:%@", type);
+
         identifier = idString;
         loadMoreStart = @"0";
         self.urlStr = [self docsUrlStringsWithType:MediaTypeNone withIdentifier:identifier withSort:[self sortStringFromType:type]];
@@ -53,8 +55,6 @@
     self = [super init];
     if(self){
         NSString *realQuery = [NSString stringWithFormat:@"%@+AND+NOT+collection:web+AND+NOT+collection:webwidecrawl", query];
-       // NSString *escapedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL,	 (CFStringRef)realQuery,	 NULL,	 (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingISOLatin1));
-        
         testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@&output=json&rows=50", realQuery];
         self.urlStr = testUrl;
     }
@@ -67,12 +67,23 @@
 
 
 - (NSString *)sortStringFromType:(IADataServiceSortType)type{
-    if(type == IADataServiceSortTypeDownloadCount) {
+    if(       type == IADataServiceSortTypeDownloadDescending) {
         return @"downloads+desc";
+    } else if(type == IADataServiceSortTypeDownloadAscending){
+        return  @"downloads+asc";
+
     } else if(type == IADataServiceSortTypeDateDescending){
         return  @"publicdate+desc";
-    } else {
+    } else if(type == IADataServiceSortTypeDateAscending){
+        return @"publicdate+asc";
+
+    } else if(type == IADataServiceSortTypeTitleAscending){
         return @"titleSorter+asc";
+    } else if(type == IADataServiceSortTypeTitleDescending){
+        return @"titleSorter+desc";
+
+    } else {
+        return @"";
     }
 }
 
@@ -100,6 +111,18 @@
     
 }
 
+- (void) searchChangeSortType:(IADataServiceSortType *)type
+{
+//    NSLog(@"-----------> testUrl:%@", testUrl);
+//    NSLog(@"-----------> sortType:%i", type ? type : );
+    NSLog(@"-----------> sort param:%@", type ? [self sortStringFromType:type] : @"");
+
+    self.urlStr = [NSString stringWithFormat:@"%@&sort=[]=%@", testUrl, type ? [self sortStringFromType:type] : @""];
+
+    NSLog(@"-----------> new self.urlStr: %@", self.urlStr);
+
+
+}
 
 - (void) changeSortType:(IADataServiceSortType *)type {
     loadMoreStart = @"0";
@@ -139,12 +162,12 @@
 
         
         
-        testUrl = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&output=json";
+        testUrl = @"http://archive.org/advancedsearch.php?q=mediatype:%@+AND+NOT+hidden:true+AND+collection:%@&sort[]=%@&rows=50&output=json";
         NSString *searchUrl = [NSString stringWithFormat:testUrl, t, identifier, sort];
         return [self docsUrlStringWithTest:searchUrl withStart:loadMoreStart];
         
     } else {
-        testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@&sort[]=%@&sort[]=&sort[]=&rows=50&output=json";
+        testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@&sort[]=%@&rows=50&output=json";
         NSString *searchUrl = [NSString stringWithFormat:testUrl, identifier, sort];
         return [self docsUrlStringWithTest:searchUrl withStart:loadMoreStart];
     }
