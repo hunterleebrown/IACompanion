@@ -677,14 +677,14 @@
                                                     <rect key="frame" x="10" y="5" width="580" height="135"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="U0z-d0-xNk" customClass="ArchiveImageView">
-                                                            <rect key="frame" x="5" y="5" width="90" height="60"/>
+                                                            <rect key="frame" x="5" y="5" width="60" height="60"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="85" id="1n6-Iu-UfA"/>
                                                                 <constraint firstAttribute="height" constant="80" id="9xs-aG-gh2"/>
                                                                 <constraint firstAttribute="width" constant="74" id="Ecm-Th-SSS"/>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="MzJ-jm-Zbd"/>
-                                                                <constraint firstAttribute="width" constant="90" id="Nsr-Yt-oxt"/>
+                                                                <constraint firstAttribute="width" constant="60" id="Nsr-Yt-oxt"/>
                                                                 <constraint firstAttribute="height" constant="74" id="XPd-aa-gYa"/>
                                                                 <constraint firstAttribute="height" constant="60" id="lPM-kL-urt"/>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="wD0-uR-xHa"/>
@@ -1267,11 +1267,11 @@
                                                             <rect key="frame" x="10" y="5" width="580" height="135"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="oBW-LN-Dv5" customClass="ArchiveImageView">
-                                                                    <rect key="frame" x="5" y="5" width="90" height="60"/>
+                                                                    <rect key="frame" x="5" y="5" width="60" height="60"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="74" id="CsA-FQ-Psb"/>
-                                                                        <constraint firstAttribute="width" constant="90" id="Dmj-go-WFZ"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="Dmj-go-WFZ"/>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="ISp-l3-pe9"/>
                                                                         <constraint firstAttribute="height" constant="80" id="aWs-wm-h9q"/>
                                                                         <constraint firstAttribute="width" constant="74" id="ed3-Bd-Jo0"/>
