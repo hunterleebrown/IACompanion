@@ -151,8 +151,8 @@
 
     if(self.itemToolbar)
     {
-        [self.itemToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-        [self.itemToolbar setBackgroundColor:[UIColor clearColor]];
+//        [self.itemToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//        [self.itemToolbar setBackgroundColor:[UIColor clearColor]];
         self.itemToolbar.clipsToBounds = YES;
     }
 

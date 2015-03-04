@@ -209,6 +209,8 @@
         self.imageView.hidden = NO;
         self.typeLabel.hidden = YES;
 
+        [self toggleViews:self.collectionButton];
+
     }
     else
     {
