@@ -167,9 +167,11 @@
     }
     else
     {
-        type = nil;
+        type = IADataServiceSortTypeNone;
     }
+
     [service searchChangeSortType:type];
+    [service forceFetchData];
 
 }
 

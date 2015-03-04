@@ -10,12 +10,13 @@
 #import "IADataService.h"
 
 typedef enum {
-    IADataServiceSortTypeDateDescending = 0,
-    IADataServiceSortTypeDateAscending = 1,
-    IADataServiceSortTypeDownloadDescending = 2,
-    IADataServiceSortTypeDownloadAscending = 3,
-    IADataServiceSortTypeTitleAscending = 4,
-    IADataServiceSortTypeTitleDescending = 5
+    IADataServiceSortTypeDateDescending,
+    IADataServiceSortTypeDateAscending,
+    IADataServiceSortTypeDownloadDescending,
+    IADataServiceSortTypeDownloadAscending,
+    IADataServiceSortTypeTitleAscending,
+    IADataServiceSortTypeTitleDescending,
+    IADataServiceSortTypeNone
 
 
 } IADataServiceSortType;

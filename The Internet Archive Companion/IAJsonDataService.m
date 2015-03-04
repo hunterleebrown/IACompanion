@@ -67,24 +67,36 @@
 
 
 - (NSString *)sortStringFromType:(IADataServiceSortType)type{
-    if(       type == IADataServiceSortTypeDownloadDescending) {
-        return @"downloads+desc";
-    } else if(type == IADataServiceSortTypeDownloadAscending){
-        return  @"downloads+asc";
 
-    } else if(type == IADataServiceSortTypeDateDescending){
-        return  @"publicdate+desc";
-    } else if(type == IADataServiceSortTypeDateAscending){
-        return @"publicdate+asc";
+    switch (type) {
+        case IADataServiceSortTypeDateDescending:
+            return  @"publicdate+desc";
+            break;
+        case IADataServiceSortTypeDateAscending:
+            return @"publicdate+asc";
+            break;
 
-    } else if(type == IADataServiceSortTypeTitleAscending){
-        return @"titleSorter+asc";
-    } else if(type == IADataServiceSortTypeTitleDescending){
-        return @"titleSorter+desc";
+        case IADataServiceSortTypeDownloadDescending:
+            return @"downloads+desc";
+            break;
+        case IADataServiceSortTypeDownloadAscending:
+            return  @"downloads+asc";
+            break;
 
-    } else {
-        return @"";
+        case IADataServiceSortTypeTitleDescending:
+            return @"titleSorter+desc";
+            break;
+
+        case IADataServiceSortTypeTitleAscending:
+            return @"titleSorter+asc";
+            break;
+
+        case IADataServiceSortTypeNone:
+            return @"";
+            break;
     }
+
+
 }
 
 - (id) initForMetadataDocsWithIdentifier:(NSString *)ident{
@@ -113,14 +125,7 @@
 
 - (void) searchChangeSortType:(IADataServiceSortType *)type
 {
-//    NSLog(@"-----------> testUrl:%@", testUrl);
-//    NSLog(@"-----------> sortType:%i", type ? type : );
-    NSLog(@"-----------> sort param:%@", type ? [self sortStringFromType:type] : @"");
-
-    self.urlStr = [NSString stringWithFormat:@"%@&sort=[]=%@", testUrl, type ? [self sortStringFromType:type] : @""];
-
-    NSLog(@"-----------> new self.urlStr: %@", self.urlStr);
-
+    self.urlStr = [NSString stringWithFormat:@"%@&sort[]=%@", testUrl, [self sortStringFromType:type]];
 
 }
 
