@@ -23,8 +23,8 @@ typedef enum {
 
 
 @interface IAJsonDataService : IADataService
-@property (nonatomic, strong) NSMutableDictionary *rawResults;
 
+@property (nonatomic, strong) NSMutableDictionary *rawResults;
 
 - (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type;
 - (id) initForAllCollectionItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type;

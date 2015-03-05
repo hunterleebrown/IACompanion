@@ -1319,14 +1319,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Veu-nD-qvL">
-                                                <rect key="frame" x="10" y="0.0" width="580" height="29"/>
+                                                <rect key="frame" x="10" y="0.0" width="456" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="ulG-eM-tyG"/>
                                                 </constraints>
                                                 <segments>
-                                                    <segment title="Coll."/>
+                                                    <segment title="All"/>
                                                     <segment title="IA Pick"/>
-                                                    <segment title="Search"/>
                                                 </segments>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -1337,16 +1336,40 @@
                                                     <action selector="segmentedControlIndexChanged:" destination="QiC-Ab-jPH" eventType="valueChanged" id="UTl-fW-Wq8"/>
                                                 </connections>
                                             </segmentedControl>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mon-a3-LOF">
+                                                <rect key="frame" x="476" y="0.0" width="114" height="30"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <state key="normal" title="Search Collection">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="searchCollection:" destination="QiC-Ab-jPH" eventType="touchUpInside" id="ZOw-TJ-nI9"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Veu-nD-qvL" secondAttribute="trailing" constant="10" id="3Sp-nG-n9B"/>
+                                            <constraint firstItem="mon-a3-LOF" firstAttribute="top" secondItem="QiC-Ab-jPH" secondAttribute="top" id="LF6-kc-wVa"/>
                                             <constraint firstItem="Veu-nD-qvL" firstAttribute="leading" secondItem="QiC-Ab-jPH" secondAttribute="leading" constant="10" id="LvF-ns-7md"/>
                                             <constraint firstAttribute="height" constant="32" id="NWH-O0-ih7"/>
+                                            <constraint firstAttribute="trailing" secondItem="mon-a3-LOF" secondAttribute="trailing" constant="10" id="aeF-y4-fGc"/>
+                                            <constraint firstItem="mon-a3-LOF" firstAttribute="leading" secondItem="Veu-nD-qvL" secondAttribute="trailing" constant="10" id="asd-fB-QOK"/>
+                                            <constraint firstItem="mon-a3-LOF" firstAttribute="leading" secondItem="Veu-nD-qvL" secondAttribute="trailing" constant="10" id="elF-9k-3Pe"/>
                                             <constraint firstItem="Veu-nD-qvL" firstAttribute="centerX" secondItem="QiC-Ab-jPH" secondAttribute="centerX" id="j7G-se-il0"/>
+                                            <constraint firstItem="mon-a3-LOF" firstAttribute="leading" secondItem="Veu-nD-qvL" secondAttribute="trailing" constant="5" id="q60-OA-Cxo"/>
                                             <constraint firstItem="Veu-nD-qvL" firstAttribute="top" secondItem="QiC-Ab-jPH" secondAttribute="top" id="qBX-eZ-MAj"/>
+                                            <constraint firstAttribute="bottom" secondItem="mon-a3-LOF" secondAttribute="bottom" constant="2" id="x9W-Ns-Fun"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="3Sp-nG-n9B"/>
+                                                <exclude reference="j7G-se-il0"/>
+                                                <exclude reference="asd-fB-QOK"/>
+                                                <exclude reference="q60-OA-Cxo"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="collectionTableView" destination="yfn-tU-KSV" id="5M9-9o-Yah"/>
                                             <outlet property="countLabel" destination="LBx-rM-hF9" id="gQv-Po-0Xl"/>
