@@ -57,6 +57,7 @@
 		5AD456BE1A907E7F0035FBA1 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD456BD1A907E7F0035FBA1 /* Media.xcassets */; };
 		5ADCCC2818012F9300DFAE14 /* FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADCCC2718012F9300DFAE14 /* FavoritesCell.m */; };
 		5AEE7662179F1FD200CF8C23 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE7661179F1FD200CF8C23 /* SearchViewController.m */; };
+		CE14C9D21AA7E76300D47281 /* SorterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE14C9D11AA7E76300D47281 /* SorterView.m */; };
 		CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3019CD16C5729E00733B99 /* StringUtils.m */; };
 		CE3FFD0D17943D8300709F5F /* MediaFileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FFD0C17943D8300709F5F /* MediaFileCell.m */; };
 		CE3FFD10179440D200709F5F /* MediaFileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */; };
@@ -173,6 +174,8 @@
 		5AEE7660179F1FD200CF8C23 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		5AEE7661179F1FD200CF8C23 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		5AF2310D16D7575D00262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		CE14C9D01AA7E76300D47281 /* SorterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SorterView.h; sourceTree = "<group>"; };
+		CE14C9D11AA7E76300D47281 /* SorterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SorterView.m; sourceTree = "<group>"; };
 		CE3019CC16C5729E00733B99 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		CE3019CD16C5729E00733B99 /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtils.m; sourceTree = "<group>"; };
 		CE3FFD0B17943D8300709F5F /* MediaFileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFileCell.h; sourceTree = "<group>"; };
@@ -518,6 +521,8 @@
 				5A5B8C981A9921DE00B8528B /* FontMapping.h */,
 				5A89CE161A99A8D60088C006 /* MediaUtils.h */,
 				5A89CE171A99A8D60088C006 /* MediaUtils.m */,
+				CE14C9D01AA7E76300D47281 /* SorterView.h */,
+				CE14C9D11AA7E76300D47281 /* SorterView.m */,
 			);
 			name = "Common Views";
 			sourceTree = "<group>";
@@ -677,6 +682,7 @@
 				5A756D87177FA71600E7F922 /* MainNavTableViewCell.m in Sources */,
 				5A756D8C177FAAC900E7F922 /* ArchiveCache.m in Sources */,
 				5A756D90177FAEDF00E7F922 /* ArchiveImage.m in Sources */,
+				CE14C9D21AA7E76300D47281 /* SorterView.m in Sources */,
 				5A756D94177FAF9700E7F922 /* ArchiveFileDownload.m in Sources */,
 				5A756D97177FB14500E7F922 /* ArchiveFileDownloader.m in Sources */,
 				5A756D9B177FBF7B00E7F922 /* IADataService.m in Sources */,

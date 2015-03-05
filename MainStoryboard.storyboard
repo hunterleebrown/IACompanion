@@ -662,7 +662,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="145" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rvY-sS-u1i">
-                                <rect key="frame" x="0.0" y="95" width="600" height="461"/>
+                                <rect key="frame" x="0.0" y="95" width="600" height="417"/>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="328" id="kuo-Tz-Cfy"/>
@@ -769,7 +769,7 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1R1-NH-wss">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1R1-NH-wss">
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -896,101 +896,134 @@
                                     <outlet property="delegate" destination="qSn-LB-gda" id="Yuq-eY-9t1"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbd-3S-msp">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JdK-nA-PEC" customClass="SorterView">
                                 <rect key="frame" x="0.0" y="512" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hWc-4D-2a9"/>
-                                    <barButtonItem style="plain" id="ZhV-lF-CTD">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zAw-bZ-9U4">
-                                            <rect key="frame" x="155" y="7" width="90" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="RELEVANCE">
-                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="sortButtonPressed:" destination="qSn-LB-gda" eventType="touchUpInside" id="Ay8-HZ-KQz"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="Imz-y6-mfN">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="klT-xQ-Igr">
-                                            <rect key="frame" x="214" y="7" width="60" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="DATE">
-                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="sortButtonPressed:" destination="qSn-LB-gda" eventType="touchUpInside" id="74H-HX-pL2"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="cZU-AN-ryb">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nhE-lx-Jbm">
-                                            <rect key="frame" x="290" y="7" width="60" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="TITLE">
-                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="sortButtonPressed:" destination="qSn-LB-gda" eventType="touchUpInside" id="HyN-v7-otv"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="xeO-4e-Rdu">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Vo-H5-Y42">
-                                            <rect key="frame" x="375" y="7" width="60" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="VIEWS">
-                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="sortButtonPressed:" destination="qSn-LB-gda" eventType="touchUpInside" id="Klb-t3-8Gi"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kyG-3M-hEd"/>
-                                </items>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </toolbar>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpK-41-OM4">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="o2p-Fk-Mqj"/>
+                                            <barButtonItem style="plain" id="C1e-wx-6Rj">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tDc-iC-5Pi">
+                                                    <rect key="frame" x="155" y="7" width="90" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" title="RELEVANCE">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="sortButtonPressed:" destination="JdK-nA-PEC" eventType="touchUpInside" id="iUm-wS-DUx"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="NVG-9r-bKE">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jXP-oP-ei6">
+                                                    <rect key="frame" x="214" y="7" width="60" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" title="DATE">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="sortButtonPressed:" destination="JdK-nA-PEC" eventType="touchUpInside" id="nQa-Zl-S0y"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="Kfd-uP-fVB">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6az-AP-n70">
+                                                    <rect key="frame" x="290" y="7" width="60" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" title="TITLE">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="sortButtonPressed:" destination="JdK-nA-PEC" eventType="touchUpInside" id="Vko-Ig-Kvr"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="j8t-Rf-p9y">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J0f-rq-npQ">
+                                                    <rect key="frame" x="375" y="7" width="60" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" title="VIEWS">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="sortButtonPressed:" destination="JdK-nA-PEC" eventType="touchUpInside" id="Iaz-YW-Wxk"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="kpw-Ib-U1E"/>
+                                        </items>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="QpK-41-OM4" firstAttribute="top" secondItem="JdK-nA-PEC" secondAttribute="top" id="1J3-0w-Hs3"/>
+                                    <constraint firstItem="QpK-41-OM4" firstAttribute="leading" secondItem="JdK-nA-PEC" secondAttribute="leading" id="4Va-am-Dxl"/>
+                                    <constraint firstAttribute="height" constant="44" id="5NP-On-dQD"/>
+                                    <constraint firstAttribute="trailing" secondItem="QpK-41-OM4" secondAttribute="trailing" id="LRt-1D-B3A"/>
+                                    <constraint firstItem="QpK-41-OM4" firstAttribute="top" secondItem="JdK-nA-PEC" secondAttribute="top" id="aAd-oa-6cJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="QpK-41-OM4" secondAttribute="trailing" id="grt-vZ-Dfl"/>
+                                    <constraint firstItem="QpK-41-OM4" firstAttribute="leading" secondItem="JdK-nA-PEC" secondAttribute="leading" id="jIr-GQ-EpN"/>
+                                    <constraint firstAttribute="bottom" secondItem="QpK-41-OM4" secondAttribute="bottom" id="jkm-9d-rJk"/>
+                                    <constraint firstAttribute="bottom" secondItem="QpK-41-OM4" secondAttribute="bottom" id="vcv-mF-y9u"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1J3-0w-Hs3"/>
+                                        <exclude reference="grt-vZ-Dfl"/>
+                                        <exclude reference="jIr-GQ-EpN"/>
+                                        <exclude reference="jkm-9d-rJk"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dateButton" destination="jXP-oP-ei6" id="tOM-NQ-Khz"/>
+                                    <outlet property="relevanceButton" destination="tDc-iC-5Pi" id="w1M-JC-eJ5"/>
+                                    <outlet property="titleButton" destination="6az-AP-n70" id="f3q-ks-v3G"/>
+                                    <outlet property="viewsButton" destination="J0f-rq-npQ" id="zjh-dJ-BNg"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="trailing" secondItem="jw3-cD-TaP" secondAttribute="trailing" id="0SJ-vU-NbR"/>
+                            <constraint firstItem="cD8-Of-WG6" firstAttribute="top" secondItem="JdK-nA-PEC" secondAttribute="bottom" id="3Ru-E2-0us"/>
+                            <constraint firstAttribute="trailing" secondItem="JdK-nA-PEC" secondAttribute="trailing" id="7hx-Ce-c2h"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="top" secondItem="jw3-cD-TaP" secondAttribute="bottom" id="7oM-wI-pgI"/>
                             <constraint firstAttribute="bottom" secondItem="rvY-sS-u1i" secondAttribute="bottom" id="8jv-sC-TLh"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" id="Ej0-fg-1Ke"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="leading" secondItem="HB2-Ev-PlD" secondAttribute="leading" id="Mtd-jc-usu"/>
                             <constraint firstAttribute="trailing" secondItem="HB2-Ev-PlD" secondAttribute="trailing" constant="10" id="Nhy-1b-Nj0"/>
-                            <constraint firstAttribute="trailing" secondItem="Rbd-3S-msp" secondAttribute="trailing" id="Odv-Yl-5V6"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="top" secondItem="HB2-Ev-PlD" secondAttribute="bottom" id="QLv-p5-yvc"/>
                             <constraint firstItem="jw3-cD-TaP" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" id="XBV-6c-BBQ"/>
+                            <constraint firstItem="JdK-nA-PEC" firstAttribute="top" secondItem="rvY-sS-u1i" secondAttribute="bottom" id="Ynu-GM-wig"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="132" id="nKY-2V-MT3"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" constant="10" id="oaR-Su-ZGb"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="73" id="osJ-r4-Woo"/>
-                            <constraint firstItem="cD8-Of-WG6" firstAttribute="top" secondItem="Rbd-3S-msp" secondAttribute="bottom" id="s6b-kb-omb"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="trailing" secondItem="HB2-Ev-PlD" secondAttribute="trailing" id="sKf-OD-thM"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="108" id="sbh-VE-IOM"/>
                             <constraint firstItem="jw3-cD-TaP" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" id="uEZ-mD-Uh8"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="top" secondItem="ykI-sc-EGX" secondAttribute="bottom" id="vqB-Kc-bRX"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="trailing" secondItem="02l-d9-364" secondAttribute="trailing" id="vqY-Dl-slc"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="centerX" secondItem="jw3-cD-TaP" secondAttribute="centerX" id="vzf-3y-5Os"/>
-                            <constraint firstItem="Rbd-3S-msp" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" id="z7x-N3-0YX"/>
+                            <constraint firstItem="JdK-nA-PEC" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" id="xFg-U8-aRc"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="osJ-r4-Woo"/>
+                                <exclude reference="8jv-sC-TLh"/>
                                 <exclude reference="nKY-2V-MT3"/>
                                 <exclude reference="Mtd-jc-usu"/>
                                 <exclude reference="sKf-OD-thM"/>
@@ -1003,14 +1036,11 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="r7H-kj-jva"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="dateButton" destination="klT-xQ-Igr" id="mhi-37-mNa"/>
                         <outlet property="numFoundLabel" destination="ykI-sc-EGX" id="tYP-JN-Vvw"/>
-                        <outlet property="relevanceButton" destination="zAw-bZ-9U4" id="Ynn-SV-Wg3"/>
                         <outlet property="searchBar" destination="jw3-cD-TaP" id="Gbb-dG-6J9"/>
                         <outlet property="searchFilters" destination="HB2-Ev-PlD" id="L6R-Ua-Bl7"/>
                         <outlet property="searchResultsTable" destination="rvY-sS-u1i" id="wTj-fs-xA7"/>
-                        <outlet property="titleButton" destination="nhE-lx-Jbm" id="8Ix-bH-4DC"/>
-                        <outlet property="viewsButton" destination="8Vo-H5-Y42" id="9Ik-Ph-1CK"/>
+                        <outlet property="sorterView" destination="JdK-nA-PEC" id="oAC-UP-Clj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwM-6Z-moR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1080,7 +1110,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-Xr-HXL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-Xr-HXL">
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="vW0-JN-KNF"/>
                                                 </constraints>
@@ -1093,7 +1123,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ven-fo-k3U">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ven-fo-k3U">
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -1441,7 +1471,7 @@
                                                                         </mask>
                                                                     </variation>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKy-bt-Wm9">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKy-bt-Wm9">
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>

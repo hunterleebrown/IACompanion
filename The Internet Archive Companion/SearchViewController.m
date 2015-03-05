@@ -14,6 +14,7 @@
 #import "MediaUtils.h"
 #import "FontMapping.h"
 #import "ItemContentViewController.h"
+#import "SorterView.h"
 
 @interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
@@ -26,13 +27,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *numFoundLabel;
 
 
-@property (nonatomic, weak) IBOutlet UIButton *relevanceButton;
-@property (nonatomic, weak) IBOutlet UIButton *titleButton;
-@property (nonatomic, weak) IBOutlet UIButton *viewsButton;
-@property (nonatomic, weak) IBOutlet UIButton *dateButton;
-
-@property (nonatomic) IADataServiceSortType selectedSortType;
-@property (nonatomic, strong) UIButton *selectedButton;
+@property (nonatomic, weak) IBOutlet SorterView *sorterView;
 
 @end
 
@@ -77,20 +72,7 @@
     self.searchFilters.layer.borderColor = [UIColor clearColor].CGColor;
 
 
-    [self.titleButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:20]];
-    [self.viewsButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:20]];
-    [self.dateButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:20]];
-
-    [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-    [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-    [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
-
-
-    for(UIButton *button in @[self.relevanceButton, self.dateButton, self.titleButton, self.viewsButton])
-    {
-        [button setEnabled:NO];
-    }
-
+ 
 
 }
 - (void) viewDidAppear:(BOOL)animated {
@@ -130,99 +112,8 @@
 
 
 
-# pragma mark - bottom sort buttons
-
-- (IBAction)sortButtonPressed:(id)sender
-{
-    IADataServiceSortType type;
-
-    self.selectedButton.selected = NO;
-
-    if(sender == self.dateButton)
-    {
-        type = IADataServiceSortTypeDateDescending;
-        [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, DOWN] forState:UIControlStateNormal];
-        if(type == self.selectedSortType)
-        {
-            type = IADataServiceSortTypeDateAscending;
-            [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, UP] forState:UIControlStateNormal];
-        }
-        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-
-    }
-    else if(sender == self.titleButton)
-    {
-        type = IADataServiceSortTypeTitleAscending;
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-        if(type == self.selectedSortType)
-        {
-            type = IADataServiceSortTypeTitleDescending;
-            [self.titleButton setTitle:TEXTDSC forState:UIControlStateNormal];
-        }
-        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
-
-    }
-    else if(sender == self.viewsButton)
-    {
-        type = IADataServiceSortTypeDownloadDescending;
-        [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, DOWN] forState:UIControlStateNormal];
-
-        if(type == self.selectedSortType)
-        {
-            type = IADataServiceSortTypeDownloadAscending;
-            [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, UP] forState:UIControlStateNormal];
-        }
-        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-
-    }
-    else
-    {
-        type = IADataServiceSortTypeNone;
-        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
-
-    }
-
-    //    if(![self.searchBar.text isEqualToString:@""])
-    //    {
-    //
-
-    self.selectedButton = sender;
-    self.selectedButton.selected = YES;
-
-    [service searchChangeSortType:type];
-    [service forceFetchData];
-    self.selectedSortType = type;
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
 
-    //    }
-
-
-
-}
-
-- (void)resetSortButtons
-{
-
-    [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-    [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-    [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
-
-
-    for(UIButton *button in @[self.relevanceButton, self.dateButton, self.titleButton, self.viewsButton])
-    {
-        [button setSelected:NO];
-    }
-
-    self.selectedButton = nil;
-    self.selectedSortType = nil;
-}
 
 
 #pragma mark -
@@ -242,14 +133,17 @@
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)inSearchBar{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
-    [self resetSortButtons];
+    [self.sorterView resetSortButtons];
 
     if([self filterQueryParam])
     {
         service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, [self filterQueryParam]]];
+        [self.sorterView setService:service];
     }
     else{
         service = [[IAJsonDataService alloc] initWithQueryString:searchBar.text];
+        [self.sorterView setService:service];
+
     }
 
     [service setDelegate:self];
@@ -301,8 +195,11 @@
 
 
     if(![searchBar.text isEqualToString:@""]){
-        [self resetSortButtons];
+        [self.sorterView resetSortButtons];
+        
         service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, extraSearchParam]];
+        [self.sorterView setService:service];
+
         [service setDelegate:self];
         [service fetchData];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
@@ -313,18 +210,9 @@
 
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv {
-
-    if (!self.selectedButton)
-    {
-        [self.relevanceButton setSelected:YES];
-        self.selectedButton = self.relevanceButton;
-    }
-
-    for(UIButton *button in @[self.relevanceButton, self.dateButton, self.titleButton, self.viewsButton])
-    {
-        [button setEnabled:YES];
-    }
-
+   
+    [self.sorterView serviceDidReturn];
+    
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
     
