@@ -1324,7 +1324,7 @@
                                                     <constraint firstAttribute="width" constant="300" id="ulG-eM-tyG"/>
                                                 </constraints>
                                                 <segments>
-                                                    <segment title="Coll."/>
+                                                    <segment title="All"/>
                                                     <segment title="IA Pick"/>
                                                     <segment title="Search"/>
                                                 </segments>

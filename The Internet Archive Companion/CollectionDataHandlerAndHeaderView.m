@@ -143,7 +143,8 @@
 //            
 //            break;
         case 0:
-            [service changeToSubCollections];
+            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeNone];
+            [self.sorterView setService:service];
             [service fetchData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 

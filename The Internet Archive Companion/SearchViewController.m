@@ -265,16 +265,9 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
-    
-
-        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-        [cvc setSearchDoc:doc];
-    
-//        [self pushViewController:cvc animated:YES];
+    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+    [cvc setSearchDoc:doc];
     [self.navigationController pushViewController:cvc animated:YES];
-    
-    
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
