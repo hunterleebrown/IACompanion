@@ -11,6 +11,7 @@
 #import "ArchiveSearchDoc.h"
 #import "CollectionViewTableCell.h"
 #import "StringUtils.h"
+#import "SorterView.h"
 
 @interface CollectionDataHandlerAndHeaderView ()
 
@@ -19,6 +20,8 @@
 @property (assign) NSInteger numFound;
 @property (assign) NSInteger start;
 @property (assign) BOOL didTriggerLoadMore;
+
+@property (nonatomic, weak) IBOutlet SorterView *sorterView;
 
 @end
 
@@ -47,7 +50,8 @@
     start = 0;
     didTriggerLoadMore = NO;
     identifier = ident;
-    service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadDescending];
+    service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeNone];
+    [self.sorterView setService:service];
     [service setDelegate:self];
     [service fetchData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
@@ -57,6 +61,8 @@
 }
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv{
+    [self.sorterView serviceDidReturn];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
 
     if(service.rawResults && [service.rawResults objectForKey:@"documents"]){
@@ -120,33 +126,36 @@
 - (IBAction)segmentedControlIndexChanged:(id)sender {
     UISegmentedControl *seggers = (UISegmentedControl *)sender;
     switch (seggers.selectedSegmentIndex) {
+//        case 0:
+//            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadDescending];
+//            [self.sorterView setService:service];
+//            [service setDelegate:self];
+//            [service fetchData];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+//
+//            break;
+//        case 1:
+//            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDateDescending];
+//            [self.sorterView setService:service];
+//            [service setDelegate:self];
+//            [service fetchData];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+//            
+//            break;
         case 0:
-            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDownloadDescending];
-            [service setDelegate:self];
-            [service fetchData];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
-
-            break;
-        case 2:
             [service changeToSubCollections];
             [service fetchData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
             break;
-        case 1:
-            service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeDateDescending];
-            [service setDelegate:self];
-            [service fetchData];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
-            break;
-        case 3:
+        case 1:
             [service changeToStaffPicks];
             [service fetchData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
             break;
-        case 4:
+        case 2:
             [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewController" object:identifier];
             break;
         default:
