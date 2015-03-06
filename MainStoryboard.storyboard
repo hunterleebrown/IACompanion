@@ -31,6 +31,7 @@
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -624,8 +625,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbA-Rw-1mh">
+                                <rect key="frame" x="10" y="0.0" width="30" height="44"/>
+                                <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressCloseButton:" destination="qSn-LB-gda" eventType="touchUpInside" id="iFU-eu-dVw"/>
+                                </connections>
+                            </button>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Universal Access to Knowledge" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="40" y="0.0" width="560" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1004,16 +1016,22 @@
                             <constraint firstAttribute="trailing" secondItem="JdK-nA-PEC" secondAttribute="trailing" id="7hx-Ce-c2h"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="top" secondItem="jw3-cD-TaP" secondAttribute="bottom" id="7oM-wI-pgI"/>
                             <constraint firstAttribute="bottom" secondItem="rvY-sS-u1i" secondAttribute="bottom" id="8jv-sC-TLh"/>
+                            <constraint firstItem="SbA-Rw-1mh" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" constant="10" id="AzI-oa-78V"/>
+                            <constraint firstItem="jw3-cD-TaP" firstAttribute="leading" secondItem="SbA-Rw-1mh" secondAttribute="trailing" id="Cl7-tU-5yO"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" id="Ej0-fg-1Ke"/>
+                            <constraint firstAttribute="trailing" secondItem="jw3-cD-TaP" secondAttribute="trailing" id="Jdv-wf-2L6"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="leading" secondItem="HB2-Ev-PlD" secondAttribute="leading" id="Mtd-jc-usu"/>
                             <constraint firstAttribute="trailing" secondItem="HB2-Ev-PlD" secondAttribute="trailing" constant="10" id="Nhy-1b-Nj0"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="top" secondItem="HB2-Ev-PlD" secondAttribute="bottom" id="QLv-p5-yvc"/>
+                            <constraint firstItem="jw3-cD-TaP" firstAttribute="centerY" secondItem="SbA-Rw-1mh" secondAttribute="centerY" id="W5D-gn-vzt"/>
                             <constraint firstItem="jw3-cD-TaP" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" id="XBV-6c-BBQ"/>
                             <constraint firstItem="JdK-nA-PEC" firstAttribute="top" secondItem="rvY-sS-u1i" secondAttribute="bottom" id="Ynu-GM-wig"/>
                             <constraint firstItem="jw3-cD-TaP" firstAttribute="top" secondItem="NEd-oQ-XuM" secondAttribute="bottom" id="fSB-pB-kek"/>
+                            <constraint firstAttribute="centerX" secondItem="ykI-sc-EGX" secondAttribute="centerX" id="iuf-Mb-tp3"/>
                             <constraint firstItem="rvY-sS-u1i" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="132" id="nKY-2V-MT3"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" constant="10" id="oaR-Su-ZGb"/>
                             <constraint firstItem="HB2-Ev-PlD" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="73" id="osJ-r4-Woo"/>
+                            <constraint firstItem="SbA-Rw-1mh" firstAttribute="top" secondItem="NEd-oQ-XuM" secondAttribute="bottom" id="qnU-aw-bdu"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="trailing" secondItem="HB2-Ev-PlD" secondAttribute="trailing" id="sKf-OD-thM"/>
                             <constraint firstItem="ykI-sc-EGX" firstAttribute="top" secondItem="02l-d9-364" secondAttribute="top" constant="108" id="sbh-VE-IOM"/>
                             <constraint firstItem="jw3-cD-TaP" firstAttribute="leading" secondItem="02l-d9-364" secondAttribute="leading" id="uEZ-mD-Uh8"/>
@@ -1024,13 +1042,16 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="XBV-6c-BBQ"/>
                                 <exclude reference="osJ-r4-Woo"/>
+                                <exclude reference="0SJ-vU-NbR"/>
                                 <exclude reference="8jv-sC-TLh"/>
                                 <exclude reference="nKY-2V-MT3"/>
+                                <exclude reference="XBV-6c-BBQ"/>
+                                <exclude reference="uEZ-mD-Uh8"/>
                                 <exclude reference="Mtd-jc-usu"/>
                                 <exclude reference="sKf-OD-thM"/>
                                 <exclude reference="sbh-VE-IOM"/>
+                                <exclude reference="vzf-3y-5Os"/>
                             </mask>
                         </variation>
                     </view>
@@ -1039,6 +1060,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="r7H-kj-jva"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="closeButton" destination="SbA-Rw-1mh" id="4Nt-8i-Bce"/>
                         <outlet property="numFoundLabel" destination="ykI-sc-EGX" id="tYP-JN-Vvw"/>
                         <outlet property="searchBar" destination="jw3-cD-TaP" id="Gbb-dG-6J9"/>
                         <outlet property="searchFilters" destination="HB2-Ev-PlD" id="L6R-Ua-Bl7"/>

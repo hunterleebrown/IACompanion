@@ -22,7 +22,7 @@
 @property (assign) NSInteger numFound;
 @property (assign) NSInteger start;
 @property (assign) BOOL didTriggerLoadMore;
-@property (nonatomic, weak) UIButton *closeButton;
+@property (nonatomic, weak) IBOutlet UIButton *closeButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *numFoundLabel;
 
@@ -68,7 +68,8 @@
     [self.searchFilters setTitle:BOOK  forSegmentAtIndex:3];
     [self.searchFilters setTitle:IMAGE forSegmentAtIndex:4];
     
-
+    [self.closeButton setTitle:CLOSE forState:UIControlStateNormal];
+    
     self.searchFilters.layer.borderColor = [UIColor clearColor].CGColor;
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -134,7 +135,10 @@
 
 #pragma mark -
 
-
+- (IBAction)didPressCloseButton:(id)sender
+{
+    [self closeSearch];
+}
 - (void)closeSearch
 {
     [self.searchBar resignFirstResponder];
