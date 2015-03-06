@@ -123,6 +123,11 @@
     
 }
 
+- (IBAction)searchCollection:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewController" object:identifier];
+}
+
 - (IBAction)segmentedControlIndexChanged:(id)sender {
     UISegmentedControl *seggers = (UISegmentedControl *)sender;
     switch (seggers.selectedSegmentIndex) {
@@ -156,9 +161,9 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
             break;
-        case 2:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewController" object:identifier];
-            break;
+//        case 2:
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewController" object:identifier];
+//            break;
         default:
             break;
     }

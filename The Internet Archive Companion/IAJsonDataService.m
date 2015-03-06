@@ -11,10 +11,10 @@
 #import "StringUtils.h"
 
 @interface IAJsonDataService ()
-@property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *testUrl;
 @property (nonatomic, strong) NSString *loadMoreStart;
 @property (nonatomic, strong) NSString *fileNameIn;
+@property (nonatomic, strong) NSString *identifier;
 
 
 @end
@@ -112,6 +112,9 @@
 - (void) changeToStaffPicks {
     testUrl = @"http://archive.org/advancedsearch.php?q=collection:%@+pick:1&rows=50&output=json";
     loadMoreStart = @"0";
+    
+    NSLog(@"---------> identifier:%@", identifier);
+    
     self.urlStr = [NSString stringWithFormat:testUrl, identifier];
 }
 
@@ -125,6 +128,11 @@
 
 - (void) searchChangeSortType:(IADataServiceSortType *)type
 {
+
+    if(identifier){
+        testUrl = [NSString stringWithFormat:testUrl, identifier];
+    }
+    
     NSString *sort = @"";
     if(![[self sortStringFromType:type] isEqualToString:@""])
     {

@@ -128,6 +128,7 @@
             [_searchNavigationViewController popToRootViewControllerAnimated:NO];
             SearchViewController *svc = [_searchNavigationViewController.viewControllers objectAtIndex:0];
             [svc.searchBar setText:[NSString stringWithFormat:@"collection:%@ ", collectionId]];
+            [svc.searchBar becomeFirstResponder];
 
 
         }
@@ -152,7 +153,6 @@
 - (void) closeSearch{
     [_searchView setAlpha:0.0];
     [_searchView setHidden:YES];
-
 }
 
 

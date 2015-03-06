@@ -121,6 +121,7 @@
 
 - (void)closeSearch
 {
+    [self.searchBar resignFirstResponder];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
 }
 
