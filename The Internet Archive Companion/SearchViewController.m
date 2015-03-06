@@ -52,11 +52,11 @@
     searchDocuments = [NSMutableArray new];
     didTriggerLoadMore = NO;
     
-    [self.navigationItem setLeftBarButtonItems:nil];
-   
-    UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
-    [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
-    [self.navigationItem setRightBarButtonItems:@[closeItem]];
+//    [self.navigationItem setLeftBarButtonItems:nil];
+//   
+//    UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
+//    [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
+//    [self.navigationItem setRightBarButtonItems:@[closeItem]];
     
     
     
@@ -71,8 +71,11 @@
 
     self.searchFilters.layer.borderColor = [UIColor clearColor].CGColor;
 
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 
- 
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self.navigationController.navigationBar setTranslucent:NO];
 
 }
 - (void) viewDidAppear:(BOOL)animated {
@@ -88,8 +91,21 @@
 - (void) viewDidDisappear:(BOOL)animated{
     [searchBar resignFirstResponder];
     [searchResultsTable deselectRowAtIndexPath:searchResultsTable.indexPathForSelectedRow animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewDidDisappear:animated];
 
 }
+
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+
+
 
 #pragma mark - top buttons
 - (void) didPressListButton{
