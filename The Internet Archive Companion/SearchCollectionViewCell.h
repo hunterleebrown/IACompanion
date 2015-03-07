@@ -26,6 +26,6 @@ typedef enum : NSUInteger {
 @property (nonatomic) CollectionViewCellStyle collectionCellStyle;
 
 
-+ (CGSize)collectionView:(UICollectionView*)collectionView sizeOfCellForArchiveDoc:(ArchiveSearchDoc *)doc;
++ (CGSize)orientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView sizeOfCellForArchiveDoc:(ArchiveSearchDoc *)doc;
 
 @end

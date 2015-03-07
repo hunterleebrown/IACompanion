@@ -338,8 +338,16 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    return [SearchCollectionViewCell collectionView:collectionView sizeOfCellForArchiveDoc:doc];
+    return [SearchCollectionViewCell orientation:self.interfaceOrientation collectionView:collectionView sizeOfCellForArchiveDoc:doc];
 }
+
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [self.searchCollectionView.collectionViewLayout invalidateLayout];
+}
+
+
 
 
 @end

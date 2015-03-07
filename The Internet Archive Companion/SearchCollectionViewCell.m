@@ -26,14 +26,16 @@
 
 
 
-+ (CGSize)collectionView:(UICollectionView*)collectionView sizeOfCellForArchiveDoc:(ArchiveSearchDoc *)doc{
++ (CGSize)orientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView sizeOfCellForArchiveDoc:(ArchiveSearchDoc *)doc{
     
     CollectionViewCellStyle style = doc.type == MediaTypeCollection ? CollectionViewCellStyleCollection : CollectionViewCellStyleItem;
     
     UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     
-    
-    CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 3 : 2;
+
+    NSInteger orientationDivisor = UIInterfaceOrientationIsLandscape(orientation) ? 4 : 3;
+
+    CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? orientationDivisor : 2;
     CGFloat padding = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 20 : 10;
     
     CGFloat width = ceil((collectionView.bounds.size.width / divisor) - padding);
