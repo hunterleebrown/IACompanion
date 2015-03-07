@@ -12,6 +12,7 @@
 #import "CollectionViewTableCell.h"
 #import "StringUtils.h"
 #import "SorterView.h"
+#import "SearchCollectionViewCell.h"
 
 @interface CollectionDataHandlerAndHeaderView ()
 
@@ -43,7 +44,6 @@
 - (void) setIdentifier:(NSString *)ident {
     
     
-    [collectionTableView setScrollsToTop:YES];
     
     searchDocuments = [NSMutableArray new];
     numFound = 0;
@@ -57,7 +57,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
 
-    [collectionTableView setScrollsToTop:YES];
+    [self.collectionView setScrollsToTop:YES];
 }
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv{
@@ -73,7 +73,9 @@
         [searchDocuments addObjectsFromArray:[service.rawResults objectForKey:@"documents"]];
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
 
-        [collectionTableView reloadData];
+//        [collectionTableView reloadData];
+        [self.collectionView reloadData];
+        
         [_countLabel setText:[NSString stringWithFormat:@"%@ items found", [StringUtils decimalFormatNumberFromInteger:numFound]]];
         
         if(!didTriggerLoadMore) {
@@ -85,6 +87,9 @@
     
 
 }
+
+#pragma mark - Table View
+
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
@@ -106,6 +111,42 @@
     return cell;
 }
 
+
+
+
+#pragma mark - Collection View
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [searchDocuments count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"itemSearchCollectionCell" forIndexPath:indexPath];
+    
+    [cell setArchiveSearchDoc:doc];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    return [SearchCollectionViewCell collectionView:collectionView sizeOfCellForArchiveDoc:doc];
+}
+
+
+#pragma mark -
+
 - (BOOL) scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
     
     return YES;
@@ -113,7 +154,9 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
+//    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
+    if(scrollView.contentOffset.y > scrollView.contentSize.height * 0.5) {
+
         if(searchDocuments.count > 0  && searchDocuments.count < numFound  && start < numFound && !didTriggerLoadMore){
             [self loadMoreItems:nil];
 

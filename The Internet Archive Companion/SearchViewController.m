@@ -15,6 +15,7 @@
 #import "FontMapping.h"
 #import "ItemContentViewController.h"
 #import "SorterView.h"
+#import "SearchCollectionViewCell.h"
 
 @interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
@@ -22,12 +23,15 @@
 @property (assign) NSInteger numFound;
 @property (assign) NSInteger start;
 @property (assign) BOOL didTriggerLoadMore;
-@property (nonatomic, weak) UIButton *closeButton;
+@property (nonatomic, weak) IBOutlet UIButton *closeButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *numFoundLabel;
 
 
 @property (nonatomic, weak) IBOutlet SorterView *sorterView;
+
+
+@property (nonatomic, weak) IBOutlet UICollectionView *searchCollectionView;
 
 @end
 
@@ -52,11 +56,11 @@
     searchDocuments = [NSMutableArray new];
     didTriggerLoadMore = NO;
     
-    [self.navigationItem setLeftBarButtonItems:nil];
-   
-    UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
-    [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
-    [self.navigationItem setRightBarButtonItems:@[closeItem]];
+//    [self.navigationItem setLeftBarButtonItems:nil];
+//   
+//    UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
+//    [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
+//    [self.navigationItem setRightBarButtonItems:@[closeItem]];
     
     
     
@@ -68,11 +72,15 @@
     [self.searchFilters setTitle:BOOK  forSegmentAtIndex:3];
     [self.searchFilters setTitle:IMAGE forSegmentAtIndex:4];
     
-
+    [self.closeButton setTitle:CLOSE forState:UIControlStateNormal];
+    
     self.searchFilters.layer.borderColor = [UIColor clearColor].CGColor;
 
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 
- 
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self.navigationController.navigationBar setTranslucent:NO];
 
 }
 - (void) viewDidAppear:(BOOL)animated {
@@ -88,8 +96,21 @@
 - (void) viewDidDisappear:(BOOL)animated{
     [searchBar resignFirstResponder];
     [searchResultsTable deselectRowAtIndexPath:searchResultsTable.indexPathForSelectedRow animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewDidDisappear:animated];
 
 }
+
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+
+
 
 #pragma mark - top buttons
 - (void) didPressListButton{
@@ -118,7 +139,10 @@
 
 #pragma mark -
 
-
+- (IBAction)didPressCloseButton:(id)sender
+{
+    [self closeSearch];
+}
 - (void)closeSearch
 {
     [self.searchBar resignFirstResponder];
@@ -225,7 +249,8 @@
         [searchDocuments addObjectsFromArray:[service.rawResults objectForKey:@"documents"]];
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
         
-        [searchResultsTable reloadData];
+//        [searchResultsTable reloadData];
+        [self.searchCollectionView reloadData];
         [_numFoundLabel setText:[NSString stringWithFormat:@"%@ items found", [StringUtils decimalFormatNumberFromInteger:numFound]]];
         
         if(!didTriggerLoadMore) {
@@ -239,7 +264,9 @@
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     [searchBar resignFirstResponder];
     
-    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
+ //   if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
+    if(scrollView.contentOffset.y > scrollView.contentSize.height * 0.5)
+    {
         if(searchDocuments.count > 0  && searchDocuments.count < numFound  && start < numFound && !didTriggerLoadMore){
             [self loadMoreItems:nil];
         }
@@ -283,5 +310,40 @@
     return cell;
     
 }
+
+
+#pragma mark - Collection View
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [searchDocuments count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
+
+    [cell setArchiveSearchDoc:doc];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+    [cvc setSearchDoc:doc];
+    [self.navigationController pushViewController:cvc animated:YES];
+
+
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    return [SearchCollectionViewCell collectionView:collectionView sizeOfCellForArchiveDoc:doc];
+}
+
 
 @end

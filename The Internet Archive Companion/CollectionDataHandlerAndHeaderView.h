@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "IAJsonDataService.h"
 
-@interface CollectionDataHandlerAndHeaderView : UIView  <UITableViewDataSource, UITableViewDelegate, IADataServiceDelegate>
+@interface CollectionDataHandlerAndHeaderView : UIView  <UITableViewDataSource, UITableViewDelegate, IADataServiceDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 
 @property (nonatomic, strong) IBOutlet UITableView *collectionTableView;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *filters;
 @property (nonatomic, weak) IBOutlet UILabel *countLabel;
+
+
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSString *identifier;
 
