@@ -32,7 +32,13 @@
     
     UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     
-    CGFloat width = ceil((collectionView.bounds.size.width / 2) - 10);
+    
+    CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 3 : 2;
+    CGFloat padding = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 20 : 10;
+    
+    CGFloat width = ceil((collectionView.bounds.size.width / divisor) - padding);
+    
+    
     CGSize labelTextSize = [doc.title boundingRectWithSize:CGSizeMake(width - 10, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName : font} context:nil].size;
     
     CGFloat height = labelTextSize.height > (3 * font.lineHeight) ? (3 * font.lineHeight) : labelTextSize.height;
