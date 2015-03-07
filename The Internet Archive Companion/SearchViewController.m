@@ -249,7 +249,7 @@
         [searchDocuments addObjectsFromArray:[service.rawResults objectForKey:@"documents"]];
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
         
-        [searchResultsTable reloadData];
+//        [searchResultsTable reloadData];
         [self.searchCollectionView reloadData];
         [_numFoundLabel setText:[NSString stringWithFormat:@"%@ items found", [StringUtils decimalFormatNumberFromInteger:numFound]]];
         
@@ -267,7 +267,6 @@
  //   if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
     if(scrollView.contentOffset.y > scrollView.contentSize.height * 0.5)
     {
-
         if(searchDocuments.count > 0  && searchDocuments.count < numFound  && start < numFound && !didTriggerLoadMore){
             [self loadMoreItems:nil];
         }
