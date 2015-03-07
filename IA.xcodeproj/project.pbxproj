@@ -62,6 +62,7 @@
 		CE3FFD0D17943D8300709F5F /* MediaFileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FFD0C17943D8300709F5F /* MediaFileCell.m */; };
 		CE3FFD10179440D200709F5F /* MediaFileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */; };
 		CE3FFD1417944FAB00709F5F /* MediaPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FFD1317944FAB00709F5F /* MediaPlayerViewController.m */; };
+		CE5D49A21AAA66CB002D921F /* SearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5D49A11AAA66CB002D921F /* SearchCollectionViewCell.m */; };
 		CE6FFE2F17933EE0002A292B /* MetaDataTable.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6FFE2E17933EE0002A292B /* MetaDataTable.m */; };
 		CE6FFE32179345D6002A292B /* MetaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6FFE31179345D6002A292B /* MetaCell.m */; };
 		CE94FC331798233500660A44 /* BufferingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE94FC321798233500660A44 /* BufferingView.m */; };
@@ -184,6 +185,8 @@
 		CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFileHeaderCell.m; sourceTree = "<group>"; };
 		CE3FFD1217944FAB00709F5F /* MediaPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPlayerViewController.h; sourceTree = "<group>"; };
 		CE3FFD1317944FAB00709F5F /* MediaPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPlayerViewController.m; sourceTree = "<group>"; };
+		CE5D49A01AAA66CB002D921F /* SearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCollectionViewCell.h; sourceTree = "<group>"; };
+		CE5D49A11AAA66CB002D921F /* SearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCollectionViewCell.m; sourceTree = "<group>"; };
 		CE6FFE2D17933EE0002A292B /* MetaDataTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataTable.h; sourceTree = "<group>"; };
 		CE6FFE2E17933EE0002A292B /* MetaDataTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataTable.m; sourceTree = "<group>"; };
 		CE6FFE30179345D6002A292B /* MetaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaCell.h; sourceTree = "<group>"; };
@@ -562,6 +565,8 @@
 			children = (
 				5AEE7660179F1FD200CF8C23 /* SearchViewController.h */,
 				5AEE7661179F1FD200CF8C23 /* SearchViewController.m */,
+				CE5D49A01AAA66CB002D921F /* SearchCollectionViewCell.h */,
+				CE5D49A11AAA66CB002D921F /* SearchCollectionViewCell.m */,
 			);
 			name = "Search View Controller";
 			sourceTree = "<group>";
@@ -680,6 +685,7 @@
 				5A9003191735B6E3000C6304 /* PlayerFile.m in Sources */,
 				5A756D84177FA35500E7F922 /* MainNavViewController.m in Sources */,
 				5A756D87177FA71600E7F922 /* MainNavTableViewCell.m in Sources */,
+				CE5D49A21AAA66CB002D921F /* SearchCollectionViewCell.m in Sources */,
 				5A756D8C177FAAC900E7F922 /* ArchiveCache.m in Sources */,
 				5A756D90177FAEDF00E7F922 /* ArchiveImage.m in Sources */,
 				CE14C9D21AA7E76300D47281 /* SorterView.m in Sources */,

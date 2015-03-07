@@ -15,6 +15,7 @@
 #import "FontMapping.h"
 #import "ItemContentViewController.h"
 #import "SorterView.h"
+#import "SearchCollectionViewCell.h"
 
 @interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
@@ -28,6 +29,9 @@
 
 
 @property (nonatomic, weak) IBOutlet SorterView *sorterView;
+
+
+@property (nonatomic, weak) IBOutlet UICollectionView *searchCollectionView;
 
 @end
 
@@ -246,6 +250,7 @@
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
         
         [searchResultsTable reloadData];
+        [self.searchCollectionView reloadData];
         [_numFoundLabel setText:[NSString stringWithFormat:@"%@ items found", [StringUtils decimalFormatNumberFromInteger:numFound]]];
         
         if(!didTriggerLoadMore) {
@@ -259,7 +264,10 @@
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     [searchBar resignFirstResponder];
     
-    if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
+ //   if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
+    if(scrollView.contentOffset.y > scrollView.contentSize.height * 0.5)
+    {
+
         if(searchDocuments.count > 0  && searchDocuments.count < numFound  && start < numFound && !didTriggerLoadMore){
             [self loadMoreItems:nil];
         }
@@ -286,16 +294,9 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
-    
-
-        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-        [cvc setSearchDoc:doc];
-    
-//        [self pushViewController:cvc animated:YES];
+    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+    [cvc setSearchDoc:doc];
     [self.navigationController pushViewController:cvc animated:YES];
-    
-    
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -310,5 +311,40 @@
     return cell;
     
 }
+
+
+#pragma mark - Collection View
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [searchDocuments count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
+
+    [cell setArchiveSearchDoc:doc];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+    [cvc setSearchDoc:doc];
+    [self.navigationController pushViewController:cvc animated:YES];
+
+
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+    return [SearchCollectionViewCell collectionView:collectionView sizeOfCellForArchiveDoc:doc];
+}
+
 
 @end
