@@ -288,11 +288,7 @@
 
 
 
-- (IBAction)addFavorite:(id)sender{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.searchDoc];
 
-
-}
 
 
 - (IBAction)showSharingActionsSheet:(id)sender{
@@ -384,10 +380,7 @@
 
 
 
-- (void) didPressBackButton{
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 
 - (void)didReceiveMemoryWarning
 {

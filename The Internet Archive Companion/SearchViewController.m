@@ -212,12 +212,8 @@
 
 
 - (IBAction)searchFilterChange:(id)sender{
-    UISegmentedControl *segment = (UISegmentedControl *)sender;
-    NSInteger selectedSegment = segment.selectedSegmentIndex;
-    // audio, video, text, image
 
     NSString *extraSearchParam = [self filterQueryParam];
-
 
     if(![searchBar.text isEqualToString:@""]){
         [self.sorterView resetSortButtons];

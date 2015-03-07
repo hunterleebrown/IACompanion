@@ -33,7 +33,6 @@
 
 
 
-
 @end
 
 @implementation ItemContentViewController
@@ -78,7 +77,7 @@
     {
         
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:BACK style:UIBarButtonItemStylePlain target:self action:@selector(didPressBackButton)];
-        [backButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
+        [backButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:20.0]} forState:UIControlStateNormal];
         
         UIBarButtonItem *mediaButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
         [mediaButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
@@ -131,6 +130,16 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
     [(UINavigationController*)self.parentViewController popViewControllerAnimated:NO];
+}
+
+- (void) didPressBackButton{
+    [self.collectionHandlerView.service stopFetchingData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)addFavorite:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.searchDoc];
 }
 
 
@@ -252,6 +261,11 @@
     [mediaFiles addObjectsFromArray:[files sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]]];
     
     [self orgainizeMediaFiles:mediaFiles];
+
+    if(organizedMediaFiles.count == 0)
+    {
+        self.folderButton.hidden = YES;
+    }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
 
@@ -508,6 +522,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)dealloc
+{
+
 }
 
 @end

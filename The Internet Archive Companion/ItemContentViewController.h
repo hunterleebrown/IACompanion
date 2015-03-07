@@ -13,7 +13,6 @@
 @interface ItemContentViewController : ContentViewController<UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 
-- (IBAction)showSharingActionsSheet:(id)sender;
 
 - (IBAction)addFavorite:(id)sender;
 

@@ -16,6 +16,8 @@
 @property (nonatomic, weak) IBOutlet UISegmentedControl *filters;
 @property (nonatomic, weak) IBOutlet UILabel *countLabel;
 
+@property (nonatomic, strong) IAJsonDataService *service;
+
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 

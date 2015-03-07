@@ -70,8 +70,7 @@
 @property (nonatomic, weak) IBOutlet UIView *titleHolder;
 
 - (IBAction)showPopUp:(id)sender;
-- (IBAction)toggleViews:(id)sender;
-
+- (IBAction)showSharingActionsSheet:(id)sender;
 
 
 

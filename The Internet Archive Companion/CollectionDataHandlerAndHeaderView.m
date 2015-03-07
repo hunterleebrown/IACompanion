@@ -16,7 +16,6 @@
 
 @interface CollectionDataHandlerAndHeaderView ()
 
-@property (nonatomic, strong) IAJsonDataService *service;
 @property (nonatomic, strong) NSMutableArray *searchDocuments;
 @property (assign) NSInteger numFound;
 @property (assign) NSInteger start;
@@ -29,28 +28,18 @@
 @implementation CollectionDataHandlerAndHeaderView
 @synthesize service, identifier, searchDocuments, collectionTableView, numFound, didTriggerLoadMore, start;
 
-- (id) initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
-    if (self){
-        
-
-    
-        
-    }
-    return self;
-}
 
 
 - (void) setIdentifier:(NSString *)ident {
     
-    
-    
+
     searchDocuments = [NSMutableArray new];
     numFound = 0;
     start = 0;
     didTriggerLoadMore = NO;
     identifier = ident;
     service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeNone];
+    [service changeToStaffPicks];
     [self.sorterView setService:service];
     [service setDelegate:self];
     [service fetchData];
@@ -190,23 +179,22 @@
 //            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 //            
 //            break;
-        case 0:
+        case 1:
             service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeNone];
+            service.delegate = self;
             [self.sorterView setService:service];
             [service fetchData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
             break;
 
-        case 1:
+        case 0:
             [service changeToStaffPicks];
             [service fetchData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
             break;
-//        case 2:
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewController" object:identifier];
-//            break;
+
         default:
             break;
     }
@@ -228,5 +216,7 @@
 
     }
 }
+
+
 
 @end
