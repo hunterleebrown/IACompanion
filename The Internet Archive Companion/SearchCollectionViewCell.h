@@ -20,6 +20,9 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet ArchiveImageView *archiveImageView;
+@property (nonatomic, weak) IBOutlet UILabel *creator;
+@property (nonatomic, weak) IBOutlet UILabel *typeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *countLabel;
 
 @property (nonatomic, strong) ArchiveSearchDoc *archiveSearchDoc;
 
@@ -27,5 +30,6 @@ typedef enum : NSUInteger {
 
 
 + (CGSize)orientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView sizeOfCellForArchiveDoc:(ArchiveSearchDoc *)doc;
++ (NSString *)creatorText:(ArchiveSearchDoc *)doc;
 
 @end

@@ -131,7 +131,16 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 + (NSString *) decimalFormatNumberFromInteger:(NSInteger)input{
     NSNumberFormatter *formatter = [self numberFormatter];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:input]];
+
+    NSNumber *numInt = [NSNumber numberWithInteger:input];
+
+//    if(input > 1000000)
+//    {
+//        NSNumber *calcNum = [NSNumber numberWithInteger:ceil(input / 1000000)];
+//        return [NSString stringWithFormat:@"%@M", [calcNum stringValue]];
+//    }
+
+    NSString *formatted = [formatter stringFromNumber:numInt];
     return formatted;
 
 }

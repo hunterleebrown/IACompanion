@@ -9,6 +9,7 @@
 #import "SearchCollectionViewCell.h"
 #import "FontMapping.h"
 #import "MediaUtils.h"
+#import "StringUtils.h"
 
 @interface SearchCollectionViewCell ()
 
@@ -31,6 +32,7 @@
     CollectionViewCellStyle style = doc.type == MediaTypeCollection ? CollectionViewCellStyleCollection : CollectionViewCellStyleItem;
     
     UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    UIFont *creatorFont = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     
 
     NSInteger orientationDivisor = UIInterfaceOrientationIsLandscape(orientation) ? 4 : 3;
@@ -42,9 +44,14 @@
     
     
     CGSize labelTextSize = [doc.title boundingRectWithSize:CGSizeMake(width - 10, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName : font} context:nil].size;
-    
+
+    CGSize creatorSize = [[SearchCollectionViewCell creatorText:doc] boundingRectWithSize:CGSizeMake(width - 10, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName : creatorFont} context:nil].size;
+
     CGFloat height = labelTextSize.height > (3 * font.lineHeight) ? (3 * font.lineHeight) : labelTextSize.height;
+    height += creatorSize.height;
+    height += ICONOCHIVE_FONT.lineHeight;
     height += 10;
+
     
     CGFloat imageHeight = style == CollectionViewCellStyleCollection ? 60 : ceil(width * 0.66);
     height += imageHeight;
@@ -58,15 +65,28 @@
     _archiveSearchDoc = archiveSearchDoc;
     self.archiveImageView.archiveImage = archiveSearchDoc.archiveImage;
     [self.titleLabel setText:archiveSearchDoc.title];
+    [self.creator setText:[self.class creatorText:archiveSearchDoc]];
 
-    
+    self.typeLabel.text = [MediaUtils iconStringFromMediaType:archiveSearchDoc.type];
+    [self.typeLabel setTextColor:[MediaUtils colorFromMediaType:archiveSearchDoc.type]];
+
     if(archiveSearchDoc.type == MediaTypeCollection){
         [self setCollectionCellStyle:CollectionViewCellStyleCollection];
     } else {
         [self setCollectionCellStyle:CollectionViewCellStyleItem];
     }
-    
 
+    [self.countLabel setText:[StringUtils decimalFormatNumberFromInteger:[archiveSearchDoc.rawDoc objectForKey:@"downloads"]]];
+
+}
+
++ (NSString *)creatorText:(ArchiveSearchDoc *)doc{
+    if(doc.creator){
+        return [NSString stringWithFormat:@"by %@", doc.creator];
+    } else
+    {
+        return @"";
+    }
 }
 
 - (void)layoutSubviews
@@ -84,7 +104,7 @@
     switch (self.collectionCellStyle) {
         case CollectionViewCellStyleCollection:
             [self.titleLabel setTextColor:[UIColor whiteColor]];
-            //            [self.creator setTextColor:[UIColor whiteColor]];
+            [self.creator setTextColor:[UIColor whiteColor]];
             [self setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
             
             self.archiveImageView.layer.cornerRadius = imageWidth / 2;
@@ -97,7 +117,9 @@
             [self.titleLabel setTextColor:[UIColor blackColor]];
             //            [self.creator setTextColor:[UIColor whiteColor]];
             [self setBackgroundColor:[UIColor whiteColor]];
-            
+
+            [self.creator setTextColor:[UIColor darkGrayColor]];
+
             self.archiveImageView.layer.cornerRadius = 0;
             self.archiveImageView.layer.masksToBounds = YES;
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
