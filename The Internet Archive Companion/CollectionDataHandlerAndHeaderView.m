@@ -214,7 +214,6 @@
 
         [service setLoadMoreStart:[NSString stringWithFormat:@"%li", (long)start]];
         [service fetchData];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
     }
 }

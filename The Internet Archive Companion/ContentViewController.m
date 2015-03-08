@@ -303,7 +303,6 @@
 
         [self.service setLoadMoreStart:[NSString stringWithFormat:@"%li", (long)self.start]];
         [self.service fetchData];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
     }
 }
