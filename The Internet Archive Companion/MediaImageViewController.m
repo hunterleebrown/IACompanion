@@ -7,6 +7,7 @@
 //
 
 #import "MediaImageViewController.h"
+#import "FontMapping.h"
 
 @interface MediaImageViewController () <UIScrollViewDelegate>
 
@@ -40,6 +41,8 @@
     [archiveImageView setContentMode:UIViewContentModeScaleAspectFit];
     
     [archiveImageView setArchiveImage:image];
+
+    [self.closeButton setTitle:CLOSE forState:UIControlStateNormal];
     
 }
 

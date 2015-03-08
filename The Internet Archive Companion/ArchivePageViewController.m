@@ -176,6 +176,7 @@
     if(bookFile.format == FileFormatDjVuTXT || bookFile.format == FileFormatTxt){
         
         ArchiveBookPageTextViewController *page = [[ArchiveBookPageTextViewController alloc] initWithNibName:@"ArchiveBookPageTextViewController" bundle:nil];
+
         NSInteger fontSize = 14;
         fontSize = self.fontSizeForAll;
         [page getPageWithFile:bookFile withIndex:index fontSize:fontSize];
@@ -185,6 +186,9 @@
     } else {
         
         ArchiveBookPageImageViewController *page = [[ArchiveBookPageImageViewController alloc] initWithNibName:@"ArchiveBookPageImageViewController" bundle:nil];
+
+//        ArchiveBookPageImageViewController *page = [self.storyboard instantiateViewControllerWithIdentifier:@"bookPageImageViewController"];
+
         [page setPageWithServer:bookFile.server withZipFileLocation:[NSString stringWithFormat:@"%@/%@", bookFile.directory, bookFile.name] withFileName:bookFile.name withIdentifier:_identifier withIndex:index];
         return page;
         

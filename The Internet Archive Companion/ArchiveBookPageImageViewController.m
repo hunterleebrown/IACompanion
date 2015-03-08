@@ -7,6 +7,7 @@
 //
 
 #import "ArchiveBookPageImageViewController.h"
+#import "FontMapping.h"
 
 
 // http://ia600305.us.archive.org/BookReader/BookReaderImages.php?zip=/14/items/adventuresalices00carrrich/adventuresalices00carrrich_jp2.zip&file=adventuresalices00carrrich_jp2/adventuresalices00carrrich_0001.jp2&scale=4&rotate=0
@@ -55,7 +56,14 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
     if(self){
     
         [self.view setBackgroundColor:[UIColor whiteColor]];
-        
+
+        [_scrollView setUserInteractionEnabled:YES];
+        [_scrollView setShowsVerticalScrollIndicator:YES];
+        [_scrollView setShowsHorizontalScrollIndicator:YES];
+        [_scrollView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+        //set the zooming properties of the scroll view
+        _scrollView.minimumZoomScale = 1.0;
+        _scrollView.maximumZoomScale = 10.0;
         
         
 
@@ -107,7 +115,12 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
     
     
 
-    
+    [self.popButton setTitle:CLOSE forState:UIControlStateNormal];
+    [self.popButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:25]];
+    [self.popButton setBackgroundColor:[UIColor darkGrayColor]];
+    [self.popButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    [self.pageNumber setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
     
 	// Do any additional setup after loading the view.
 }

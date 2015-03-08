@@ -116,7 +116,6 @@
     sliderIsTouched = NO;
 
     [self.closeButtonButton setTitle:CLOSE forState:UIControlStateNormal];
-    [self.mediaPlayerButton setTitle:MEDIAPLAYER forState:UIControlStateNormal];
     [self.playButton setTitle:PLAY forState:UIControlStateNormal];
     [self.ffButton setTitle:FFORWARD forState:UIControlStateNormal];
     [self.rwButton setTitle:RREVERSE forState:UIControlStateNormal];

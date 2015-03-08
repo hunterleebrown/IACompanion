@@ -46,12 +46,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="536" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <barButtonItem title="Media" id="jLD-7c-WmQ">
+                                    <barButtonItem id="jLD-7c-WmQ">
                                         <connections>
                                             <action selector="goMediaPlayer:" destination="xcZ-1y-339" id="DuJ-vM-yW6"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Fav" id="jx7-bR-VDL">
+                                    <barButtonItem id="jx7-bR-VDL">
                                         <connections>
                                             <action selector="goFavorites:" destination="xcZ-1y-339" id="RaL-Ht-A23"/>
                                         </connections>
@@ -1964,7 +1964,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTz-y0-Ptr">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="wbw-aD-2M9" id="GVn-5d-6QR"/>
@@ -1972,20 +1972,26 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxv-NJ-APx">
-                                <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                <rect key="frame" x="5" y="20" width="30" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Q6t-he-b84"/>
                                     <constraint firstAttribute="width" constant="30" id="VOh-VS-iba"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" image="close-button.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Q6t-he-b84"/>
+                                        <exclude reference="VOh-VS-iba"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="didPressCloseButton:" destination="wbw-aD-2M9" eventType="touchUpInside" id="fvI-yH-bKS"/>
                                 </connections>
@@ -1995,14 +2001,23 @@
                         <constraints>
                             <constraint firstItem="gTz-y0-Ptr" firstAttribute="bottom" secondItem="AMZ-5C-jJX" secondAttribute="bottom" id="0R1-9G-ViZ"/>
                             <constraint firstItem="gTz-y0-Ptr" firstAttribute="trailing" secondItem="AMZ-5C-jJX" secondAttribute="trailing" id="6UX-cT-hjV"/>
-                            <constraint firstItem="yxv-NJ-APx" firstAttribute="top" secondItem="AMZ-5C-jJX" secondAttribute="top" constant="10" id="9qM-tz-VZh"/>
-                            <constraint firstItem="yxv-NJ-APx" firstAttribute="leading" secondItem="AMZ-5C-jJX" secondAttribute="leading" constant="10" id="It5-Zs-IUn"/>
+                            <constraint firstItem="gTz-y0-Ptr" firstAttribute="top" secondItem="tGn-Y8-O8j" secondAttribute="bottom" id="76Z-1L-Nap"/>
+                            <constraint firstItem="yxv-NJ-APx" firstAttribute="top" secondItem="AMZ-5C-jJX" secondAttribute="top" constant="5" id="9qM-tz-VZh"/>
+                            <constraint firstItem="yxv-NJ-APx" firstAttribute="leading" secondItem="AMZ-5C-jJX" secondAttribute="leading" constant="5" id="It5-Zs-IUn"/>
+                            <constraint firstItem="yxv-NJ-APx" firstAttribute="top" secondItem="tGn-Y8-O8j" secondAttribute="bottom" id="KtM-b3-Ztz"/>
                             <constraint firstItem="gTz-y0-Ptr" firstAttribute="top" secondItem="AMZ-5C-jJX" secondAttribute="top" id="TkK-fW-uFH"/>
                             <constraint firstItem="gTz-y0-Ptr" firstAttribute="leading" secondItem="AMZ-5C-jJX" secondAttribute="leading" id="x5x-IG-mEw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9qM-tz-VZh"/>
+                                <exclude reference="TkK-fW-uFH"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
+                        <outlet property="closeButton" destination="yxv-NJ-APx" id="L0q-W7-BD3"/>
                         <outlet property="scrollView" destination="gTz-y0-Ptr" id="1yc-RS-vjk"/>
                         <outlet property="tapGestureRecognizer" destination="Wkb-ei-Gso" id="bRh-hs-G8t"/>
                     </connections>
@@ -2014,7 +2029,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5330" y="964"/>
+            <point key="canvasLocation" x="5282" y="1087"/>
         </scene>
         <!--Archive Page View Controller-->
         <scene sceneID="dFN-HW-aXC">
@@ -2024,7 +2039,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beG-0s-0qT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5330" y="200"/>
+            <point key="canvasLocation" x="4572" y="320"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="UA9-2x-QaZ">
@@ -2179,21 +2194,6 @@
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sU8-3d-Wq4"/>
-                                    <barButtonItem style="plain" id="ndN-6Z-IYC">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rQK-8h-S0k">
-                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <accessibility key="accessibilityConfiguration">
-                                                <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
-                                            </accessibility>
-                                            <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
-                                            <state key="normal">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="eea-2G-1JK"/>
                                     <barButtonItem style="plain" id="3Jf-Tb-zqT">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ceJ-oM-2MP">
                                             <rect key="frame" x="554" y="2" width="35" height="40"/>
@@ -2551,7 +2551,6 @@
                         <outlet property="ffButton" destination="1tq-Oy-aV8" id="wbf-QG-3nl"/>
                         <outlet property="fullScreenButton" destination="ceJ-oM-2MP" id="Wf2-tq-sGH"/>
                         <outlet property="imageView" destination="ovf-1o-oWt" id="g35-UM-r79"/>
-                        <outlet property="mediaPlayerButton" destination="rQK-8h-S0k" id="YaE-MZ-2Op"/>
                         <outlet property="playButton" destination="cxQ-4W-uLu" id="uIw-t0-Zsu"/>
                         <outlet property="playerHolder" destination="Sq7-b0-vPh" id="Hxu-cU-wlf"/>
                         <outlet property="playerTableView" destination="Uy7-8G-Vle" id="c9V-TU-6Lu"/>
@@ -2623,8 +2622,5 @@
             <point key="canvasLocation" x="1661.25" y="957.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="close-button.png" width="40" height="40"/>
-    </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

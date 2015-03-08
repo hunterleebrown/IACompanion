@@ -9,6 +9,7 @@
 #import "ArchiveBookPageTextViewController.h"
 #import "ArchivePageViewController.h"
 #import "StringUtils.h"
+#import "FontMapping.h"
 
 
 @interface ArchiveBookPageTextViewController ()
@@ -47,6 +48,12 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
     // Do any additional setup after loading the view from its nib.
     //NSLog(@"-----> useUrl: %@  start:%i  end:%i", useUrl, start, end);
     [self adjustForOrientationAndDevice];
+
+    [self.popButton setTitle:CLOSE forState:UIControlStateNormal];
+    [self.popButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:25]];
+    [self.popButton setBackgroundColor:[UIColor darkGrayColor]];
+    [self.popButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
 
 }
 
