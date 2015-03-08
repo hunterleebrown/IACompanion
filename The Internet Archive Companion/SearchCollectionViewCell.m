@@ -50,7 +50,7 @@
     CGFloat height = labelTextSize.height > (3 * font.lineHeight) ? (3 * font.lineHeight) : labelTextSize.height;
     height += creatorSize.height;
     height += ICONOCHIVE_FONT.lineHeight;
-    height += 10;
+    height += 15;
 
     
     CGFloat imageHeight = style == CollectionViewCellStyleCollection ? 60 : ceil(width * 0.66);
@@ -76,7 +76,19 @@
         [self setCollectionCellStyle:CollectionViewCellStyleItem];
     }
 
-    [self.countLabel setText:[StringUtils decimalFormatNumberFromInteger:[archiveSearchDoc.rawDoc objectForKey:@"downloads"]]];
+//    [self.countLabel setText:[StringUtils decimalFormatNumberFromInteger:[[archiveSearchDoc.rawDoc objectForKey:@"downloads"] integerValue]]];
+
+    NSString *countString = [StringUtils decimalFormatNumberFromInteger:[[archiveSearchDoc.rawDoc objectForKey:@"downloads"] integerValue]];
+    NSMutableAttributedString *countAtt = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", VIEWS, countString]];
+    [countAtt addAttribute:NSFontAttributeName value:[UIFont fontWithName:ICONOCHIVE size:10] range:NSMakeRange(0, VIEWS.length)];
+    [countAtt addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:10] range:NSMakeRange(VIEWS.length+1, countString.length)];
+
+    self.countLabel.attributedText = countAtt;
+
+
+    NSString *date = [StringUtils displayShortDateFromArchiveDateString:[archiveSearchDoc.rawDoc objectForKey:@"publicdate"]];
+    [self.dateLabel setText:[NSString stringWithFormat:@"Archived\n%@", date]];
+    [self.dateLabel setFont:[UIFont systemFontOfSize:10]];
 
 }
 
@@ -106,11 +118,14 @@
             [self.titleLabel setTextColor:[UIColor whiteColor]];
             [self.creator setTextColor:[UIColor whiteColor]];
             [self setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
-            
+
+            [self.typeLabel setTextColor:[UIColor whiteColor]];
+            [self.countLabel setTextColor:[UIColor whiteColor]];
+
             self.archiveImageView.layer.cornerRadius = imageWidth / 2;
             self.archiveImageView.layer.masksToBounds = YES;
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
-
+            self.dateLabel.hidden = YES;
             
             break;
         case CollectionViewCellStyleItem:
@@ -119,12 +134,15 @@
             [self setBackgroundColor:[UIColor whiteColor]];
 
             [self.creator setTextColor:[UIColor darkGrayColor]];
+            [self.countLabel setTextColor:[UIColor darkGrayColor]];
 
             self.archiveImageView.layer.cornerRadius = 0;
             self.archiveImageView.layer.masksToBounds = YES;
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
             [self.archiveImageView setClipsToBounds:YES];
+            self.dateLabel.hidden = NO;
 
+            [self.dateLabel setTextColor:[UIColor darkGrayColor]];
             
             break;
     }

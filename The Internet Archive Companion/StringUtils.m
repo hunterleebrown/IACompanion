@@ -18,6 +18,7 @@ NSString *const ArchiveMetaDateFormat = @"yyyy'-'MM'-'dd' 'HH':'mm':'ss";
 //2010-07-06
 NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 
+NSString *const ShortDateFormat = @"M/d/YYYY";
 
 
 + (NSString *) urlEncodeString:(NSString *)input{
@@ -45,6 +46,19 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 }
 
 
+
++ (NSString *) displayShortDateFromArchiveDateString:(NSString *)archiveInDate {
+    NSDateFormatter *dateFormatter = [self.class dateFormatter];
+
+    dateFormatter.dateFormat = ArchiveDateFormat;
+    NSDate *sDate = [dateFormatter dateFromString:archiveInDate];
+
+    NSDateFormatter *showDateFormat = [NSDateFormatter new];
+    [showDateFormat setDateFormat:ShortDateFormat];
+    NSString *theDate = [showDateFormat stringFromDate:sDate];
+
+    return theDate;
+}
 
 
 + (NSString *) displayDateFromArchiveDateString:(NSString *)archiveInDate {
@@ -134,11 +148,11 @@ NSString *const ArchiveMetaDayFormat = @"yyyy'-'MM'-'dd";
 
     NSNumber *numInt = [NSNumber numberWithInteger:input];
 
-//    if(input > 1000000)
-//    {
-//        NSNumber *calcNum = [NSNumber numberWithInteger:ceil(input / 1000000)];
-//        return [NSString stringWithFormat:@"%@M", [calcNum stringValue]];
-//    }
+    if(input > 1000000)
+    {
+        NSNumber *calcNum = [NSNumber numberWithInteger:ceil(input / 1000000)];
+        return [NSString stringWithFormat:@"%@M", [calcNum stringValue]];
+    }
 
     NSString *formatted = [formatter stringFromNumber:numInt];
     return formatted;

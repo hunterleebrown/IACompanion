@@ -19,6 +19,7 @@
 + (NSString *) decimalFormatNumberFromInteger:(NSInteger)input;
 + (NSString *)timeFormatted:(NSInteger)totalSecond;
 + (NSString *) stringByStrippingHTML:(NSString *)inString;
++ (NSString *) displayShortDateFromArchiveDateString:(NSString *)archiveInDate;
 
 
 @end

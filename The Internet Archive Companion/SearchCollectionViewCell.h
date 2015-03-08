@@ -23,6 +23,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) IBOutlet UILabel *creator;
 @property (nonatomic, weak) IBOutlet UILabel *typeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *countLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dateLabel;
+
 
 @property (nonatomic, strong) ArchiveSearchDoc *archiveSearchDoc;
 
