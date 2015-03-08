@@ -36,13 +36,11 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *middleWebViewHeight;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *upperViewHeight;
 
-@property (nonatomic, strong) ArchiveSearchDoc *searchDoc;
 
 @property (nonatomic, strong) UIBarButtonItem *backButton;
 @property (nonatomic, strong) UIBarButtonItem *listButton;
 @property (nonatomic, strong) UIBarButtonItem *searchButton;
 @property (nonatomic, strong) UIBarButtonItem *mpBarButton;
-@property (nonatomic, strong) IAJsonDataService *service;
 
 
 @property (nonatomic, strong) ArchiveDetailDoc *detDoc;

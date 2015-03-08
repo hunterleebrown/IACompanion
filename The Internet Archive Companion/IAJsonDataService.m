@@ -113,6 +113,8 @@
     if(self){
         testUrl = @"http://archive.org/metadata/%@";
         identifier = ident;
+
+        
         self.urlStr = [NSString stringWithFormat:testUrl, identifier];
     }
     return self;

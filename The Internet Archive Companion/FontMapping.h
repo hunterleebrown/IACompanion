@@ -16,7 +16,7 @@
 #define HAMBURGER @"\u21f6"
 #define MEDIAPLAYER @"\U0001F3AC"
 #define SEARCH @"\U0001F50D"
-#define FAVORITE @"\u2605"
+#define FAVORITE @"\u2661"
 #define BACK @"\u02c2"
 #define INFO @"\u0069"
 #define SHARE @"\U0001F381"
@@ -25,6 +25,7 @@
 #define FOLDER @"\U0001F5C3"
 #define PLUS @"\u2295"
 #define CLOCK @"\U0001F551"
+#define STAR @"\u2605"
 
 #define TEXTASC @"\U0001F524"
 #define TEXTDSC @"\U0001F525"

@@ -30,6 +30,7 @@
 
 
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
+@property (nonatomic, strong) IAJsonDataService *service;
 
 
 
@@ -49,18 +50,12 @@
 
 - (void)viewDidLoad
 {
+    self.title = @"ITEM";
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
     [self.navigationItem setLeftBarButtonItems:@[self.backButton, self.listButton, self.mpBarButton]];
-    [self.service fetchData];
-    
-    
-//    self.archiveDescription = [[UIWebView alloc] initWithFrame:CGRectZero];
-//    self.archiveDescription.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
-//    [self.archiveDescription setBackgroundColor:[UIColor clearColor]];
-//    [self.archiveDescription setOpaque:NO];
-//    [self.archiveDescription setDelegate:self];
+
 
     mediaFiles = [NSMutableArray new];
     organizedMediaFiles = [NSMutableDictionary new];
@@ -109,6 +104,7 @@
     self.imageView.layer.cornerRadius = self.imageView.bounds.size.width / 2;
     self.imageView.layer.masksToBounds = YES;
 
+    [self.service fetchData];
 
 
 }
@@ -118,8 +114,17 @@
 }
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+
 }
 
+
+- (void) setSearchDoc:(ArchiveSearchDoc *)searchDoc{
+    _searchDoc = searchDoc;
+    self.service = nil;
+    self.service = [[IAJsonDataService alloc] initForMetadataDocsWithIdentifier:_searchDoc.identifier];
+    [self.service setDelegate:self];
+
+}
 
 
 - (void) didPressMPButton {
@@ -162,24 +167,24 @@
 
     BOOL gotAnImage = NO;
     NSMutableArray *files = [NSMutableArray new];
-    for(ArchiveFile *file in self.detDoc.files){
-        if(file.format != FileFormatOther){
-            [files addObject:file];
-            
-            if(self.detDoc.type != MediaTypeCollection) {
-                if((file.format == FileFormatJPEG || file.format == FileFormatPNG) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
-                    if(gotAnImage == NO)
-                    {
-                        ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
-                        [self.imageView setArchiveImage:image];
-                        gotAnImage = YES;
-                        self.itemImageUrl = file.url;
-                        self.itemImageWidth = self.itemWebView.bounds.size.width > 320 ? ceil(self.itemWebView.bounds.size.width * 0.75)  : 300;
-                    }
-                }
-            }
-        }
-    }
+//    for(ArchiveFile *file in self.detDoc.files){
+//        if(file.format != FileFormatOther){
+//            [files addObject:file];
+//            
+//            if(self.detDoc.type != MediaTypeCollection) {
+//                if((file.format == FileFormatJPEG || file.format == FileFormatPNG) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
+//                    if(gotAnImage == NO)
+//                    {
+//                        ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
+//                        [self.imageView setArchiveImage:image];
+//                        gotAnImage = YES;
+//                        self.itemImageUrl = file.url;
+//                        self.itemImageWidth = self.itemWebView.bounds.size.width > 320 ? ceil(self.itemWebView.bounds.size.width * 0.75)  : 300;
+//                    }
+//                }
+//            }
+//        }
+//    }
 
 
 

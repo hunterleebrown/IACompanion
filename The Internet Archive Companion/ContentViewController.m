@@ -40,6 +40,9 @@
 @property (assign) NSInteger start;
 @property (assign) BOOL didTriggerLoadMore;
 
+@property (nonatomic, strong) IAJsonDataService *service;
+
+
 @end
 
 @implementation ContentViewController
@@ -164,10 +167,14 @@
     }
 
     self.searchDocuments = [NSMutableArray new];
-    self.service = [[IAJsonDataService alloc] initWithAllPicks];
-    self.service.delegate = self;
-    [self.service fetchData];
 
+
+    if(![self.title isEqualToString:@"ITEM"]) {
+        self.service = [[IAJsonDataService alloc] initWithAllPicks];
+        self.service.delegate = self;
+        [self.service fetchData];
+       }
+       
 }
 
 
@@ -466,13 +473,7 @@
 
 
 
-- (void) setSearchDoc:(ArchiveSearchDoc *)searchDoc{
-    _searchDoc = searchDoc;
-    self.service = [[IAJsonDataService alloc] initForMetadataDocsWithIdentifier:_searchDoc.identifier];
-    [self.service setDelegate:self];
-    
-    
-}
+
 
 
 

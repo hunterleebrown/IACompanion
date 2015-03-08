@@ -13,6 +13,7 @@
 @interface ItemContentViewController : ContentViewController<UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 
+@property (nonatomic, strong) ArchiveSearchDoc *searchDoc;
 
 - (IBAction)addFavorite:(id)sender;
 
