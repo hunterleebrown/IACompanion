@@ -62,7 +62,7 @@
     NSString *creatorName = [SearchCollectionViewCell creatorText:doc];
     CGSize creatorSize = [creatorName boundingRectWithSize:CGSizeMake(width - padding, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName : creatorFont} context:nil].size;
 
-    CGFloat height = labelTextSize.height + 5; //padding
+    CGFloat height = labelTextSize.height + 15; //padding
 
     height += [creatorName isEqualToString:@""] ? 0 : creatorFont.lineHeight;
     height += ICONOCHIVE_FONT.lineHeight;
