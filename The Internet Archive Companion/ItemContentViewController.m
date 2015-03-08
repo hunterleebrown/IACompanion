@@ -217,7 +217,6 @@
 
 
         [self.collectionHandlerView setIdentifier:self.searchDoc.identifier];
-        [self.collectionHandlerView.collectionTableView setScrollsToTop:YES];
 
         self.imageView.hidden = NO;
         self.typeLabel.hidden = YES;
