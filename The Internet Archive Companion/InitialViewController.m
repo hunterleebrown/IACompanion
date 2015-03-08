@@ -185,12 +185,20 @@
     FavoritesTableViewController *favs = (FavoritesTableViewController *)[favoritesVC.viewControllers objectAtIndex:0];
 
     [favs setManagedObjectContext:self.managedObjectContext];
-    
-    [self presentViewController:favoritesVC animated:YES completion:^{
-        if(doc){
-            [favs addFavorite:doc];
-        }
-    }];
+
+
+    if(!doc) {
+        [self presentViewController:favoritesVC animated:YES completion:nil];
+    } else {
+        [favs addFavorite:doc];
+    }
+
+//
+//    [self presentViewController:favoritesVC animated:YES completion:^{
+//        if(doc){
+//            [favs addFavorite:doc];
+//        }
+//    }];
 
 }
 

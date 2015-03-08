@@ -11,5 +11,6 @@
 @interface FavoritesCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *title;
+@property (nonatomic, strong) IBOutlet UILabel *typeLabel;
 
 @end

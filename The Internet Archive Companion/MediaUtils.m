@@ -252,11 +252,36 @@
         case FileFormat64KbpsMP3:
             return AUDIO_COLOR;
             break;
-
+            
         default:
             return [UIColor blackColor];
             break;
     }
+}
+
++ (MediaType)mediaTypeFromString:(NSString *)string
+{
+
+    if([string isEqualToString:@"collection"]){
+        return MediaTypeCollection;
+    } else if([string isEqualToString:@"audio"]){
+        return MediaTypeAudio;
+    } else if([string isEqualToString:@"video"]){
+        return MediaTypeVideo;
+    } else if([string isEqualToString:@"texts"]){
+        return MediaTypeTexts;
+    } else if([string isEqualToString:@"movies"]){
+        return MediaTypeVideo;
+    } else if([string isEqualToString:@"etree"]){
+        return MediaTypeEtree;
+    } else if([string isEqualToString:@"software"]){
+        return MediaTypeSoftware;
+    } else if([string isEqualToString:@"image"]){
+        return MediaTypeImage;
+    } else {
+        return MediaTypeAny;
+    }
+
 }
 
 + (FileFormat)formatFromString:(NSString *)name

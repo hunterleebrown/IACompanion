@@ -9,6 +9,7 @@
 #import "IAJsonDataService.h"
 #import "ArchiveSearchDoc.h"
 #import "StringUtils.h"
+#import "MediaUtils.h"
 
 @interface IAJsonDataService ()
 @property (nonatomic, strong) NSString *testUrl;
@@ -113,8 +114,6 @@
     if(self){
         testUrl = @"http://archive.org/metadata/%@";
         identifier = ident;
-
-        
         self.urlStr = [NSString stringWithFormat:testUrl, identifier];
     }
     return self;
@@ -317,27 +316,30 @@
             }
         }
         [dDoc setFiles:files];
-        
-        if([[metadata objectForKey:@"mediatype"] isEqualToString:@"collection"]){
-            [dDoc setType:MediaTypeCollection];
-        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"audio"]){
-            [dDoc setType:MediaTypeAudio];
-        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"video"]){
-            [dDoc setType:MediaTypeVideo];
-        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"texts"]){
-            [dDoc setType:MediaTypeTexts];
-        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"movies"]){
-            [dDoc setType:MediaTypeVideo];
-        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"etree"]){
-            [dDoc setType:MediaTypeEtree];
-        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"software"]){
-            [dDoc setType:MediaTypeSoftware];
-        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"image"]){
-            [dDoc setType:MediaTypeImage];
-        } else {
-            [dDoc setType:MediaTypeAny];
-        }
-        
+
+//        if([[metadata objectForKey:@"mediatype"] isEqualToString:@"collection"]){
+//            [dDoc setType:MediaTypeCollection];
+//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"audio"]){
+//            [dDoc setType:MediaTypeAudio];
+//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"video"]){
+//            [dDoc setType:MediaTypeVideo];
+//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"texts"]){
+//            [dDoc setType:MediaTypeTexts];
+//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"movies"]){
+//            [dDoc setType:MediaTypeVideo];
+//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"etree"]){
+//            [dDoc setType:MediaTypeEtree];
+//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"software"]){
+//            [dDoc setType:MediaTypeSoftware];
+//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"image"]){
+//            [dDoc setType:MediaTypeImage];
+//        } else {
+//            [dDoc setType:MediaTypeAny];
+//        }
+
+        [dDoc setType:[MediaUtils mediaTypeFromString:[metadata objectForKey:@"mediatype"]]];
+
+
         [responseDocs addObject:dDoc];
         [rawResults setObject:responseDocs forKey:@"documents"];
         

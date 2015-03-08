@@ -10,6 +10,7 @@
 #import "Favorite.h"
 #import "FavoritesCell.h"
 #import "FontMapping.h"
+#import "MediaUtils.h"
 
 @interface FavoritesTableViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -37,10 +38,10 @@
     //Create a button
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
                                    initWithTitle:CLOSE style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
-    [closeButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:ICONOCHIVE size:25]} forState:UIControlStateNormal];
+//    [closeButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:ICONOCHIVE size:25]} forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = closeButton;
 
-    self.title = FAVORITE;
+    self.title = @"Your Favorites List";
 
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
@@ -87,6 +88,9 @@
     Favorite *fav = (Favorite *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell.title setText:fav.title];
 
+    MediaType mediatype = [MediaUtils mediaTypeFromString:fav.format];
+    [cell.typeLabel setText:[MediaUtils iconStringFromMediaType:mediatype]];
+    [cell.typeLabel setTextColor:[MediaUtils colorFromMediaType:mediatype]];
 
     // Configure the cell...
     
@@ -111,12 +115,13 @@
     // If appropriate, configure the new managed object.
     
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    
+
+
     [newManagedObject setValue:doc.title forKey:@"title"];
     [newManagedObject setValue:doc.identifier forKey:@"identifier"];
     [newManagedObject setValue:@"URL" forKey:@"url"];
     [newManagedObject setValue:doc.title forKey:@"identifierTitle"];
-    [newManagedObject setValue:@"NONE" forKey:@"format"];
+    [newManagedObject setValue:[doc.rawDoc valueForKeyPath:@"mediatype"] forKey:@"format"]; // bit of a hack.. storying mediatype on format. Could be confusing.
     [newManagedObject setValue:[NSNumber numberWithInteger:[[self.fetchedResultsController fetchedObjects]count] + 1] forKey:@"displayOrder"];
     
     // Save the context.

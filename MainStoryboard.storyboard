@@ -28,6 +28,7 @@
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2214,16 +2215,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7dz-za-3BF">
-                                            <rect key="frame" x="20" y="11" width="280" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7dz-za-3BF">
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shj-7T-v8h">
+                                            <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="25"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="shj-7T-v8h" secondAttribute="centerY" id="0yT-NB-oEk"/>
+                                        <constraint firstAttribute="trailing" secondItem="7dz-za-3BF" secondAttribute="trailing" constant="5" id="7z4-wB-d0M"/>
+                                        <constraint firstAttribute="trailing" secondItem="shj-7T-v8h" secondAttribute="trailing" constant="10" id="B1I-GA-lpK"/>
+                                        <constraint firstItem="7dz-za-3BF" firstAttribute="leading" secondItem="3di-zu-4uA" secondAttribute="leading" constant="10" id="YhF-gC-v9P"/>
+                                        <constraint firstAttribute="trailing" secondItem="7dz-za-3BF" secondAttribute="trailing" constant="10" id="g4Q-hH-cM5"/>
+                                        <constraint firstAttribute="centerY" secondItem="7dz-za-3BF" secondAttribute="centerY" id="nho-Up-CJd"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="g4Q-hH-cM5"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="title" destination="7dz-za-3BF" id="3jW-e2-gNO"/>
+                                    <outlet property="typeLabel" destination="shj-7T-v8h" id="yjp-0n-cUQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
