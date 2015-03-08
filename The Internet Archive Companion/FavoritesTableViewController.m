@@ -20,19 +20,8 @@
 
 @implementation FavoritesTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
+
 
 - (void)viewDidLoad
 {
@@ -47,12 +36,21 @@
     
     //Create a button
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
-    
+                                   initWithTitle:CLOSE style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
+    [closeButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:ICONOCHIVE size:25]} forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = closeButton;
-    
+
     self.title = FAVORITE;
+
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
+
+
+
+
 }
+
+
 
 - (void) close{
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -88,8 +86,8 @@
     
     Favorite *fav = (Favorite *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell.title setText:fav.title];
-    
-    
+
+
     // Configure the cell...
     
     return cell;
@@ -231,7 +229,6 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-          //  [self configureCell:(PlayerTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
