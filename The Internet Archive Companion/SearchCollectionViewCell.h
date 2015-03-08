@@ -16,6 +16,13 @@ typedef enum : NSUInteger {
     CollectionViewCellStyleItem = 1
 } CollectionViewCellStyle;
 
+typedef enum : NSUInteger {
+    CellLayoutStyleGrid = 0,
+    CellLayoutStyleCompact = 1
+} CellLayoutStyle;
+
+
+
 @interface SearchCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
@@ -29,9 +36,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) ArchiveSearchDoc *archiveSearchDoc;
 
 @property (nonatomic) CollectionViewCellStyle collectionCellStyle;
+@property (nonatomic) CellLayoutStyle cellLayoutStyle;
+
 
 + (NSAttributedString *) titleAttributedString:(NSString *)string;
-+ (CGSize)orientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView sizeOfCellForArchiveDoc:(ArchiveSearchDoc *)doc;
++ (CGSize)sizeForOrientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView cellLayoutStyle:(CellLayoutStyle)layoutStyle archiveDoc:(ArchiveSearchDoc *)doc;
 + (NSString *)creatorText:(ArchiveSearchDoc *)doc;
 
 @end

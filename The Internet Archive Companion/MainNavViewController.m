@@ -80,12 +80,11 @@
 
 
 
-    for(UIBarButtonItem *item in @[self.homeBarButtonItem, self.favoritesBarButtonItem, self.mediaBarButtonItem])
+    for(UIBarButtonItem *item in @[self.favoritesBarButtonItem, self.mediaBarButtonItem])
     {
         [item setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT} forState:UIControlStateNormal];
     }
 
-    [self.homeBarButtonItem setTitle:ARCHIVE];
     [self.favoritesBarButtonItem setTitle:FAVORITE];
     [self.mediaBarButtonItem setTitle:MEDIAPLAYER];
 

@@ -89,7 +89,7 @@
 
 
 
-    _listButton = [[UIBarButtonItem alloc] initWithTitle:HAMBURGER style:UIBarButtonItemStylePlain target:self action:@selector(didPressListButton)];
+    _listButton = [[UIBarButtonItem alloc] initWithTitle:ARCHIVE style:UIBarButtonItemStylePlain target:self action:@selector(didPressListButton)];
     [_listButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
     
 
@@ -190,7 +190,6 @@
     [self.searchFilters setTitle:IMAGE forSegmentAtIndex:4];
 
 
-    self.title = ARCHIVE;
 
     [self.sorterView.relevanceButton setHidden:YES];
     CGRect fr = self.sorterView.relevanceButton.frame;
@@ -343,7 +342,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
-    return [SearchCollectionViewCell orientation:self.interfaceOrientation collectionView:collectionView sizeOfCellForArchiveDoc:doc];
+    return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:CellLayoutStyleGrid archiveDoc:doc];
 }
 
 

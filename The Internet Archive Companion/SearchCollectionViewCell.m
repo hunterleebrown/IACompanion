@@ -39,8 +39,9 @@
 
 }
 
-+ (CGSize)orientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView sizeOfCellForArchiveDoc:(ArchiveSearchDoc *)doc{
-    
++ (CGSize)sizeForOrientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView cellLayoutStyle:(CellLayoutStyle)layoutStyle archiveDoc:(ArchiveSearchDoc *)doc
+{
+
     CollectionViewCellStyle style = doc.type == MediaTypeCollection ? CollectionViewCellStyleCollection : CollectionViewCellStyleItem;
     
     UIFont *font = [UIFont systemFontOfSize:17];
