@@ -32,6 +32,7 @@
 
 
 @property (nonatomic, weak) IBOutlet UICollectionView *searchCollectionView;
+@property (nonatomic) CellLayoutStyle *cellLayoutStyle;
 
 @end
 

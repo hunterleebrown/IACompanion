@@ -11,6 +11,11 @@
 #import "MediaUtils.h"
 #import "StringUtils.h"
 
+
+//static CGFloat compactHeight = 44.0f;
+#define TITLE_FONT [UIFont systemFontOfSize:17]
+
+
 @interface SearchCollectionViewCell ()
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleLabelTopConstraint;
@@ -21,6 +26,8 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *imageViewWidthConstraint;
 
 
+
+
 @end
 
 @implementation SearchCollectionViewCell
@@ -29,7 +36,7 @@
 
 + (NSAttributedString *) titleAttributedString:(NSString *)string
 {
-    UIFont *font = [UIFont systemFontOfSize:17];
+    UIFont *font = TITLE_FONT;
     NSMutableParagraphStyle *para = [NSMutableParagraphStyle new];
     para.lineSpacing = 0;
     para.maximumLineHeight = font.pointSize;
@@ -44,7 +51,6 @@
 
     CollectionViewCellStyle style = doc.type == MediaTypeCollection ? CollectionViewCellStyleCollection : CollectionViewCellStyleItem;
     
-    UIFont *font = [UIFont systemFontOfSize:17];
     UIFont *creatorFont = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     
 
@@ -74,8 +80,31 @@
     height += padding; //top and bottom padding
 
 
+    if(layoutStyle == CellLayoutStyleCompact)
+    {
+        width = collectionView.bounds.size.width - 20.0f;
+        return CGSizeMake(width, [SearchCollectionViewCell compactHeightForDoc:doc width:width]);
+    }
+
     return CGSizeMake(width, height);
     
+}
+
++ (CGFloat)compactHeightForDoc:(ArchiveSearchDoc *)doc width:(CGFloat)width;
+{
+
+//    NSAttributedString *titAtt = [SearchCollectionViewCell titleAttributedString:doc.title];
+//    CGSize labelTextSize = [titAtt boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) context:nil].size;
+
+    CGFloat height = TITLE_FONT.lineHeight + 10;
+    NSString *creatorName = [SearchCollectionViewCell creatorText:doc];
+    UIFont *creatorFont = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+
+    height += [creatorName isEqualToString:@""] ? 0 : creatorFont.lineHeight;
+    height += ICONOCHIVE_FONT.lineHeight;
+
+
+    return height;
 }
 
 - (void)setArchiveSearchDoc:(ArchiveSearchDoc *)archiveSearchDoc
@@ -134,12 +163,28 @@
    
     CGFloat imageHeight = self.collectionCellStyle == CollectionViewCellStyleCollection ? 60 :self.bounds.size.width * 0.66;
     CGFloat imageWidth = self.collectionCellStyle == CollectionViewCellStyleCollection ? 60 : self.bounds.size.width - 10;
-    
+
+
+    if(self.bounds.size.height == [self.class compactHeightForDoc:self.archiveSearchDoc width:self.bounds.size.width]) // we're in compact mode
+    {
+        imageHeight = 0;
+        self.archiveImageView.hidden = YES;
+        [self.titleLabel setNumberOfLines:1];
+    } else
+    {
+        self.archiveImageView.hidden = NO;
+        [self.titleLabel setNumberOfLines:0];
+
+    }
+
+
     self.imageViewHeightConstraint.constant = imageHeight;
     self.imageViewWidthConstraint.constant = imageWidth;
     
     [self.archiveImageView setNeedsUpdateConstraints];
-    
+
+
+
     switch (self.collectionCellStyle) {
         case CollectionViewCellStyleCollection:
             [self.titleLabel setTextColor:[UIColor whiteColor]];

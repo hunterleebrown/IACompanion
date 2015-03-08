@@ -457,14 +457,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-I7-WiX">
                                 <rect key="frame" x="0.0" y="44" width="600" height="66"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Picks From the Internet Archive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0C-eD-9d7">
-                                        <rect key="frame" x="158" y="5" width="284" height="20"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V5m-1t-1cC">
-                                        <rect key="frame" x="10" y="28" width="580" height="29"/>
+                                        <rect key="frame" x="10" y="5" width="580" height="29"/>
                                         <segments>
                                             <segment title="First"/>
                                             <segment title="Second"/>
@@ -477,24 +471,73 @@
                                             <action selector="searchFilterChange:" destination="5DB-Ie-EAF" eventType="valueChanged" id="0hU-7e-b1Y"/>
                                         </connections>
                                     </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Picks From the Internet Archive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0C-eD-9d7">
+                                        <rect key="frame" x="158" y="38" width="284" height="20"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="s0C-eD-9d7" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="top" constant="5" id="0zX-F2-jg2"/>
+                                    <constraint firstItem="s0C-eD-9d7" firstAttribute="top" secondItem="V5m-1t-1cC" secondAttribute="bottom" constant="5" id="45h-m0-Oeg"/>
                                     <constraint firstAttribute="bottom" secondItem="V5m-1t-1cC" secondAttribute="bottom" constant="10" id="D4R-FR-iTj"/>
+                                    <constraint firstItem="V5m-1t-1cC" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="top" constant="5" id="P4b-yy-aLQ"/>
                                     <constraint firstAttribute="trailing" secondItem="V5m-1t-1cC" secondAttribute="trailing" constant="10" id="PtS-q2-Wfh"/>
                                     <constraint firstItem="V5m-1t-1cC" firstAttribute="leading" secondItem="hTf-I7-WiX" secondAttribute="leading" constant="10" id="Q0p-VO-OMz"/>
                                     <constraint firstAttribute="centerY" secondItem="V5m-1t-1cC" secondAttribute="centerY" id="S3O-qu-uod"/>
                                     <constraint firstAttribute="height" constant="66" id="dkO-VA-6C9"/>
                                     <constraint firstAttribute="centerX" secondItem="V5m-1t-1cC" secondAttribute="centerX" id="ifo-cA-ZgW"/>
                                     <constraint firstAttribute="centerX" secondItem="s0C-eD-9d7" secondAttribute="centerX" id="s1T-Of-qCc"/>
+                                    <constraint firstItem="V5m-1t-1cC" firstAttribute="top" secondItem="s0C-eD-9d7" secondAttribute="bottom" id="w1y-i6-P8o"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="D4R-FR-iTj"/>
                                         <exclude reference="S3O-qu-uod"/>
                                         <exclude reference="ifo-cA-ZgW"/>
+                                        <exclude reference="w1y-i6-P8o"/>
+                                        <exclude reference="0zX-F2-jg2"/>
                                     </mask>
                                 </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdw-er-KrX" customClass="LayoutChangerView">
+                                <rect key="frame" x="5" y="463" width="44" height="88"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh4-lK-lZ0">
+                                        <rect key="frame" x="7" y="5" width="30" height="30"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressChangeLayoutStyleButton:" destination="cdw-er-KrX" eventType="touchUpInside" id="bD9-Oh-8AU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg3-XC-9xV">
+                                        <rect key="frame" x="7" y="40" width="30" height="30"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressChangeLayoutStyleButton:" destination="cdw-er-KrX" eventType="touchUpInside" id="8o9-pd-xXh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="kg3-XC-9xV" firstAttribute="top" secondItem="mh4-lK-lZ0" secondAttribute="bottom" constant="5" id="9km-mw-Q34"/>
+                                    <constraint firstAttribute="centerX" secondItem="mh4-lK-lZ0" secondAttribute="centerX" id="LRD-Re-UGq"/>
+                                    <constraint firstItem="mh4-lK-lZ0" firstAttribute="top" secondItem="cdw-er-KrX" secondAttribute="top" constant="5" id="O0L-fF-IZY"/>
+                                    <constraint firstAttribute="centerX" secondItem="kg3-XC-9xV" secondAttribute="centerX" id="XA4-DR-XMQ"/>
+                                    <constraint firstAttribute="width" constant="44" id="YfP-1h-gIL"/>
+                                    <constraint firstAttribute="height" constant="88" id="qAf-f7-s6z"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="collectionView" destination="d1Y-XL-FdP" id="vND-kf-KPG"/>
+                                    <outlet property="gridButton" destination="mh4-lK-lZ0" id="LmT-Yr-7tT"/>
+                                    <outlet property="listButton" destination="kg3-XC-9xV" id="LBn-9t-Idb"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGD-Af-ja2" customClass="SorterView">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -605,6 +648,7 @@
                             <constraint firstItem="hTf-I7-WiX" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" id="6OR-9y-ly8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d1Y-XL-FdP" secondAttribute="trailing" id="8jh-2u-CxL"/>
                             <constraint firstAttribute="trailing" secondItem="hTf-I7-WiX" secondAttribute="trailing" id="Gsk-uP-a96"/>
+                            <constraint firstItem="cdw-er-KrX" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" constant="5" id="Kak-0y-DGh"/>
                             <constraint firstItem="nGD-Af-ja2" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" id="aG0-vy-rnI"/>
                             <constraint firstItem="hTf-I7-WiX" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" id="cgm-ve-Lar"/>
                             <constraint firstItem="hTf-I7-WiX" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" id="cka-tc-6cb"/>
@@ -613,6 +657,7 @@
                             <constraint firstAttribute="trailing" secondItem="d1Y-XL-FdP" secondAttribute="trailing" id="jgf-Ef-9mw"/>
                             <constraint firstAttribute="trailing" secondItem="nGD-Af-ja2" secondAttribute="trailing" id="mCp-MK-lVb"/>
                             <constraint firstItem="U5y-CW-rrw" firstAttribute="top" secondItem="d1Y-XL-FdP" secondAttribute="bottom" id="rMv-gJ-f4U"/>
+                            <constraint firstItem="nGD-Af-ja2" firstAttribute="top" secondItem="cdw-er-KrX" secondAttribute="bottom" constant="5" id="tTl-Vz-Xgx"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -624,6 +669,7 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
                     <connections>
+                        <outlet property="layoutChangerView" destination="cdw-er-KrX" id="GvR-lT-fln"/>
                         <outlet property="picksCollectionView" destination="d1Y-XL-FdP" id="KFF-RH-PZg"/>
                         <outlet property="searchFilters" destination="V5m-1t-1cC" id="Ed6-Gl-LMI"/>
                         <outlet property="sorterView" destination="nGD-Af-ja2" id="Fvt-dW-WPn"/>

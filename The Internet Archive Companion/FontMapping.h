@@ -26,6 +26,7 @@
 #define PLUS @"\u2295"
 #define CLOCK @"\U0001F551"
 #define STAR @"\u2605"
+#define GRID @"\u229E"
 
 #define TEXTASC @"\U0001F524"
 #define TEXTDSC @"\U0001F525"

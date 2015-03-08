@@ -52,6 +52,9 @@
 {
     self.title = @"ITEM";
     [super viewDidLoad];
+
+    self.navigationItem.title = @"";
+
 	// Do any additional setup after loading the view.
     
     [self.navigationItem setLeftBarButtonItems:@[self.backButton, self.mpBarButton]];

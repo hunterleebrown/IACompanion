@@ -17,8 +17,8 @@ typedef enum : NSUInteger {
 } CollectionViewCellStyle;
 
 typedef enum : NSUInteger {
-    CellLayoutStyleGrid = 0,
-    CellLayoutStyleCompact = 1
+    CellLayoutStyleGrid,
+    CellLayoutStyleCompact
 } CellLayoutStyle;
 
 
@@ -36,11 +36,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) ArchiveSearchDoc *archiveSearchDoc;
 
 @property (nonatomic) CollectionViewCellStyle collectionCellStyle;
-@property (nonatomic) CellLayoutStyle cellLayoutStyle;
 
 
 + (NSAttributedString *) titleAttributedString:(NSString *)string;
 + (CGSize)sizeForOrientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView cellLayoutStyle:(CellLayoutStyle)layoutStyle archiveDoc:(ArchiveSearchDoc *)doc;
 + (NSString *)creatorText:(ArchiveSearchDoc *)doc;
++ (CGFloat)compactHeightForDoc:(ArchiveSearchDoc *)doc width:(CGFloat)width;
 
 @end

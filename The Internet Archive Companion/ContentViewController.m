@@ -16,6 +16,7 @@
 #import "SearchCollectionViewCell.h"
 #import "IAJsonDataService.h"
 #import "SorterView.h"
+#import "LayoutChangerView.h"
 
 @interface ContentViewController () <IADataServiceDelegate, UISearchBarDelegate, UIAlertViewDelegate, UIToolbarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong)  UIWebView *moreInfoView;
@@ -36,6 +37,7 @@
 @property (nonatomic, weak) IBOutlet UICollectionView *picksCollectionView;
 @property (nonatomic, strong) NSMutableArray *searchDocuments;
 
+@property (nonatomic, weak) IBOutlet LayoutChangerView *layoutChangerView;
 
 @property (assign) NSInteger numFound;
 @property (assign) NSInteger start;
@@ -342,7 +344,9 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
-    return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:CellLayoutStyleGrid archiveDoc:doc];
+//    SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
+//    [cell setCellLayoutStyle:self.layoutChangerView.cellLayoutStyle];
+    return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:self.layoutChangerView.cellLayoutStyle archiveDoc:doc];
 }
 
 
