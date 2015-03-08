@@ -27,4 +27,8 @@
 - (void)serviceDidReturn;
 
 
+- (IADataServiceSortType)readyDateButton;
+- (IADataServiceSortType)readyTitleButton;
+- (IADataServiceSortType)readyViewsButton;
+
 @end

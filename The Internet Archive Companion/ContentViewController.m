@@ -177,6 +177,8 @@
         [self.service fetchData];
         [self.sorterView setService:self.service];
         [self.navigationItem setLeftBarButtonItems:@[_listButton]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
     }
 
     [self.searchFilters setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT, NSForegroundColorAttributeName:[UIColor darkGrayColor]} forState:UIControlStateNormal];
@@ -190,6 +192,17 @@
 
     self.title = ARCHIVE;
 
+    [self.sorterView.relevanceButton setHidden:YES];
+    CGRect fr = self.sorterView.relevanceButton.frame;
+    fr.size.width = 0;
+    self.sorterView.relevanceButton.frame = fr;
+
+    self.sorterView.selectedButton = self.sorterView.dateButton;
+    self.sorterView.selectedButton.selected = YES;
+    self.sorterView.selectedSortType = IADataServiceSortTypeDateDescending;
+    [self.sorterView readyDateButton];
+
+   // [self.sorterView.toolbar setItems:@[self.sorterView.dateButton, self.sorterView.titleButton, self.sorterView.viewsButton]];
 
 }
 

@@ -38,6 +38,58 @@
 
 # pragma mark - bottom sort buttons
 
+
+- (IADataServiceSortType)readyDateButton
+{
+    IADataServiceSortType type;
+    type = IADataServiceSortTypeDateDescending;
+    [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, DOWN] forState:UIControlStateNormal];
+    if(type == self.selectedSortType)
+    {
+        type = IADataServiceSortTypeDateAscending;
+        [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, UP] forState:UIControlStateNormal];
+    }
+    [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+    [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+
+    return type;
+}
+
+- (IADataServiceSortType)readyTitleButton
+{
+    IADataServiceSortType type;
+    type = IADataServiceSortTypeTitleAscending;
+    [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+    if(type == self.selectedSortType)
+    {
+        type = IADataServiceSortTypeTitleDescending;
+        [self.titleButton setTitle:TEXTDSC forState:UIControlStateNormal];
+    }
+    [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
+    [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+
+    return type;
+}
+
+- (IADataServiceSortType)readyViewsButton
+{
+    IADataServiceSortType type;
+    type = IADataServiceSortTypeDownloadDescending;
+    [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, DOWN] forState:UIControlStateNormal];
+
+    if(type == self.selectedSortType)
+    {
+        type = IADataServiceSortTypeDownloadAscending;
+        [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, UP] forState:UIControlStateNormal];
+    }
+    [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+    [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+
+    return type;
+}
+
+
+
 - (IBAction)sortButtonPressed:(id)sender
 {
     IADataServiceSortType type;
@@ -46,43 +98,17 @@
     
     if(sender == self.dateButton)
     {
-        type = IADataServiceSortTypeDateDescending;
-        [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, DOWN] forState:UIControlStateNormal];
-        if(type == self.selectedSortType)
-        {
-            type = IADataServiceSortTypeDateAscending;
-            [self.dateButton setTitle:[NSString stringWithFormat:@"%@%@", CLOCK, UP] forState:UIControlStateNormal];
-        }
-        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
+        type = [self readyDateButton];
         
     }
     else if(sender == self.titleButton)
     {
-        type = IADataServiceSortTypeTitleAscending;
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-        if(type == self.selectedSortType)
-        {
-            type = IADataServiceSortTypeTitleDescending;
-            [self.titleButton setTitle:TEXTDSC forState:UIControlStateNormal];
-        }
-        [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
-        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
+        type = [self readyTitleButton];
         
     }
     else if(sender == self.viewsButton)
     {
-        type = IADataServiceSortTypeDownloadDescending;
-        [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, DOWN] forState:UIControlStateNormal];
-        
-        if(type == self.selectedSortType)
-        {
-            type = IADataServiceSortTypeDownloadAscending;
-            [self.viewsButton setTitle:[NSString stringWithFormat:@"%@%@", VIEWS, UP] forState:UIControlStateNormal];
-        }
-        [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
-        [self.titleButton setTitle:TEXTASC forState:UIControlStateNormal];
-        
+        type = [self readyViewsButton];
     }
     else
     {
