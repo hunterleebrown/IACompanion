@@ -108,7 +108,7 @@
     [_mpBarButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
 
-    [self.navigationItem setRightBarButtonItems:@[_mpBarButton,_searchButton]];
+    [self.navigationItem setRightBarButtonItems:@[_searchButton, _mpBarButton]];
     
     
     popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
