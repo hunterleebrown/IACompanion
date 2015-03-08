@@ -16,6 +16,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *viewsButton;
 @property (nonatomic, weak) IBOutlet UIButton *dateButton;
 
+@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
+
 @property (nonatomic) IADataServiceSortType selectedSortType;
 @property (nonatomic, strong) UIButton *selectedButton;
 

@@ -54,7 +54,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self.navigationItem setLeftBarButtonItems:@[self.backButton, self.listButton, self.mpBarButton]];
+    [self.navigationItem setLeftBarButtonItems:@[self.backButton, self.mpBarButton]];
 
 
     mediaFiles = [NSMutableArray new];
@@ -70,14 +70,11 @@
     NSLog(@"---->parent: %@", self.parentViewController.restorationIdentifier);
     if([self.parentViewController.restorationIdentifier isEqualToString:@"searchNav"])
     {
-        
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:BACK style:UIBarButtonItemStylePlain target:self action:@selector(didPressBackButton)];
-        [backButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:20.0]} forState:UIControlStateNormal];
-        
+
         UIBarButtonItem *mediaButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
         [mediaButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
         
-        [self.navigationItem setLeftBarButtonItems:@[backButton]];
+        [self.navigationItem setLeftBarButtonItems:@[self.backButton]];
         
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
         [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
@@ -87,6 +84,7 @@
         
         
     }
+
 
 
 
@@ -167,24 +165,25 @@
 
     BOOL gotAnImage = NO;
     NSMutableArray *files = [NSMutableArray new];
-//    for(ArchiveFile *file in self.detDoc.files){
-//        if(file.format != FileFormatOther){
-//            [files addObject:file];
-//            
-//            if(self.detDoc.type != MediaTypeCollection) {
-//                if((file.format == FileFormatJPEG || file.format == FileFormatPNG) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
-//                    if(gotAnImage == NO)
-//                    {
-//                        ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
-//                        [self.imageView setArchiveImage:image];
-//                        gotAnImage = YES;
-//                        self.itemImageUrl = file.url;
-//                        self.itemImageWidth = self.itemWebView.bounds.size.width > 320 ? ceil(self.itemWebView.bounds.size.width * 0.75)  : 300;
-//                    }
-//                }
-//            }
-//        }
-//    }
+    
+    for(ArchiveFile *file in self.detDoc.files){
+        if(file.format != FileFormatOther){
+            [files addObject:file];
+            
+            if(self.detDoc.type != MediaTypeCollection) {
+                if((file.format == FileFormatJPEG || file.format == FileFormatPNG) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
+                    if(gotAnImage == NO)
+                    {
+                        ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
+                        [self.imageView setArchiveImage:image];
+                        gotAnImage = YES;
+                        self.itemImageUrl = file.url;
+                        self.itemImageWidth = self.itemWebView.bounds.size.width > 320 ? ceil(self.itemWebView.bounds.size.width * 0.75)  : 300;
+                    }
+                }
+            }
+        }
+    }
 
 
 

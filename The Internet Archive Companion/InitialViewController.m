@@ -180,7 +180,7 @@
     
     UINavigationController *favoritesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"favoritesVC"];
     [favoritesVC setModalPresentationStyle:UIModalPresentationFormSheet];
-    [favoritesVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+//    [favoritesVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     FavoritesTableViewController *favs = (FavoritesTableViewController *)[favoritesVC.viewControllers objectAtIndex:0];
 
     [favs setManagedObjectContext:self.managedObjectContext];

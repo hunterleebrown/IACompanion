@@ -36,7 +36,7 @@
 @end
 
 @implementation SearchViewController
-@synthesize service, searchResultsTable, searchBar, searchFilters, searchDocuments, numFound, start, didTriggerLoadMore;
+@synthesize service, searchBar, searchFilters, searchDocuments, numFound, start, didTriggerLoadMore;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -95,7 +95,6 @@
 
 - (void) viewDidDisappear:(BOOL)animated{
     [searchBar resignFirstResponder];
-    [searchResultsTable deselectRowAtIndexPath:searchResultsTable.indexPathForSelectedRow animated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewDidDisappear:animated];
 
@@ -245,16 +244,14 @@
         [searchDocuments addObjectsFromArray:[service.rawResults objectForKey:@"documents"]];
         numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
         
-//        [searchResultsTable reloadData];
         [self.searchCollectionView reloadData];
         [_numFoundLabel setText:[NSString stringWithFormat:@"%@ items found", [StringUtils decimalFormatNumberFromInteger:numFound]]];
         
         if(!didTriggerLoadMore) {
-            [searchResultsTable setContentOffset:CGPointZero animated:YES];
+            [self.searchCollectionView setContentOffset:CGPointZero animated:YES];
         }
     }
     didTriggerLoadMore = NO;
-    [searchResultsTable setHidden:NO];
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -281,27 +278,7 @@
 
 
 
-#pragma mark - TableView
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-    [cvc setSearchDoc:doc];
-    [self.navigationController pushViewController:cvc animated:YES];
-}
-
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [searchDocuments count];
-}
-
-- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CollectionViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultsCell"];
-    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    [cell load:doc];
-
-    return cell;
-    
-}
 
 
 #pragma mark - Collection View

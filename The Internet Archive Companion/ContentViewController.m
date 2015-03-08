@@ -15,6 +15,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SearchCollectionViewCell.h"
 #import "IAJsonDataService.h"
+#import "SorterView.h"
 
 @interface ContentViewController () <IADataServiceDelegate, UISearchBarDelegate, UIAlertViewDelegate, UIToolbarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong)  UIWebView *moreInfoView;
@@ -41,6 +42,8 @@
 @property (assign) BOOL didTriggerLoadMore;
 
 @property (nonatomic, strong) IAJsonDataService *service;
+@property (nonatomic, weak) IBOutlet SorterView *sorterView;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *searchFilters;
 
 
 @end
@@ -103,7 +106,6 @@
     [_mpBarButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
 
-    [self.navigationItem setLeftBarButtonItems:@[_listButton]];
     [self.navigationItem setRightBarButtonItems:@[_mpBarButton,_searchButton]];
     
     
@@ -173,15 +175,79 @@
         self.service = [[IAJsonDataService alloc] initWithAllPicks];
         self.service.delegate = self;
         [self.service fetchData];
-       }
-       
+        [self.sorterView setService:self.service];
+        [self.navigationItem setLeftBarButtonItems:@[_listButton]];
+    }
+
+    [self.searchFilters setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT, NSForegroundColorAttributeName:[UIColor darkGrayColor]} forState:UIControlStateNormal];
+
+    [self.searchFilters setTitle:ARCHIVE forSegmentAtIndex:0];
+    [self.searchFilters setTitle:AUDIO forSegmentAtIndex:1];
+    [self.searchFilters setTitle:VIDEO forSegmentAtIndex:2];
+    [self.searchFilters setTitle:BOOK  forSegmentAtIndex:3];
+    [self.searchFilters setTitle:IMAGE forSegmentAtIndex:4];
+
+
+    self.title = ARCHIVE;
+
+
 }
 
 
 #pragma mark - data
 
+- (NSString *)filterQueryParam
+{
+
+    NSInteger selectedSegment = self.searchFilters.selectedSegmentIndex;
+    // audio, video, text, image
+
+    NSString *extraSearchParam = @"";
+
+    switch (selectedSegment) {
+        case 0:
+
+            break;
+        case 1:
+            extraSearchParam = @"+AND+mediatype:audio";
+            break;
+        case 2:
+            extraSearchParam = @"+AND+mediatype:movies";
+            break;
+        case 3:
+            extraSearchParam = @"+AND+mediatype:texts";
+            break;
+        case 4:
+            extraSearchParam = @"+AND+mediatype:image";
+            break;
+        default:
+            break;
+    }
+
+    return extraSearchParam;
+    
+}
+
+- (IBAction)searchFilterChange:(id)sender{
+
+    NSString *extraSearchParam = [self filterQueryParam];
+
+        [self.sorterView resetSortButtons];
+
+        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"+pick:1%@",  extraSearchParam]];
+        [self.sorterView setService:service];
+
+        [service setDelegate:self];
+        [service fetchData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
+}
+
+
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv {
+
+    [self.sorterView serviceDidReturn];
 
 
 
@@ -198,7 +264,7 @@
         [self.picksCollectionView reloadData];
 
         if(!self.didTriggerLoadMore) {
-            [self.picksCollectionView setContentOffset:CGPointZero animated:YES];
+            [self.picksCollectionView setContentOffset:CGPointMake(0, -95.0f) animated:YES];
         }
     }
     self.didTriggerLoadMore = NO;
