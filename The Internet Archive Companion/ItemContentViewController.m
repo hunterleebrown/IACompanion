@@ -82,12 +82,12 @@
         UIBarButtonItem *mediaButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
         [mediaButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
         
-        [self.navigationItem setLeftBarButtonItems:@[backButton, mediaButton]];
+        [self.navigationItem setLeftBarButtonItems:@[backButton]];
         
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
         [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
         
-        [self.navigationItem setRightBarButtonItems:@[closeItem]];
+        [self.navigationItem setRightBarButtonItems:@[mediaButton, closeItem]];
         
         
         

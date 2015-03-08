@@ -259,16 +259,12 @@
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     [searchBar resignFirstResponder];
-    
- //   if(scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height - 375){
     if(scrollView.contentOffset.y > scrollView.contentSize.height * 0.5)
     {
         if(searchDocuments.count > 0  && searchDocuments.count < numFound  && start < numFound && !didTriggerLoadMore){
             [self loadMoreItems:nil];
         }
     }
-    
-    
 }
 
 - (void)loadMoreItems:(id)sender {

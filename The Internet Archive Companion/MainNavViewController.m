@@ -26,6 +26,13 @@
 @property (nonatomic, strong) IAJsonDataService *videoService;
 @property (nonatomic, strong) IAJsonDataService *textService;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+
+@property (nonatomic, weak) IBOutlet UIToolbar *topToolbar;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *homeBarButtonItem;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *mediaBarButtonItem;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *favoritesBarButtonItem;
+
+
 @end
 
 
@@ -64,13 +71,25 @@
 
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
 
-//    [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor blackColor]];
+
+    for(UIBarButtonItem *item in @[self.homeBarButtonItem, self.favoritesBarButtonItem, self.mediaBarButtonItem])
+    {
+        [item setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT} forState:UIControlStateNormal];
+    }
+
+    [self.homeBarButtonItem setTitle:ARCHIVE];
+    [self.favoritesBarButtonItem setTitle:FAVORITE];
+    [self.mediaBarButtonItem setTitle:MEDIAPLAYER];
+
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endRefreshing) name:@"EndRefreshing" object:nil];
 
     
@@ -86,11 +105,24 @@
 
     
 }
-
-- (BOOL)prefersStatusBarHidden
+- (IBAction)goHome:(id)sender
 {
-    return YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PopToHome" object:nil];
+
 }
+
+- (IBAction)goFavorites:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenFavorites" object:nil];
+}
+
+- (IBAction)goMediaPlayer:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
+}
+
+
+
 
 - (void) endRefreshing
 {
@@ -160,20 +192,19 @@
 
 #pragma mark - table
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return 3;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
+
         case 0:
-            return 3;
-        case 1:
             return [audioSearchDocuments count];
             break;
-        case 2:
+        case 1:
             return [videoSearchDocuments count];
             break;
-        case 3:
+        case 2:
             return [textSearchDocuments count];
             break;
         default:
@@ -194,32 +225,14 @@
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
         case 0:
-            
-            if(indexPath.row == 0) {
-                [cell.navCellTitleLabel setText:@"Home"];
-                [self setArchiveIconForCell:cell titleName:ARCHIVE];
-
-            } else if(indexPath.row == 1) {
-                [cell.navCellTitleLabel setText:@"Media Player"];
-                [self setArchiveIconForCell:cell titleName:MEDIAPLAYER];
-            }
-            else if(indexPath.row == 2) {
-                [cell.navCellTitleLabel setText:@"Favorites"];
-                [self setArchiveIconForCell:cell titleName:FAVORITE];
-            }
-            cell.fontLabel.hidden = NO;
-            return cell;
-            
-            break;
-        case 1:
             doc = [audioSearchDocuments objectAtIndex:indexPath.row];
             cell.fontLabel.hidden = YES;
             break;
-        case 2:
+        case 1:
             doc = [videoSearchDocuments objectAtIndex:indexPath.row];
             cell.fontLabel.hidden = YES;
             break;
-        case 3:
+        case 2:
             doc = [textSearchDocuments objectAtIndex:indexPath.row];
             cell.fontLabel.hidden = YES;
             break;
@@ -260,16 +273,14 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
+
         case 0:
-            return nil;
-            break;
-        case 1:
             return @"Audio Collections";
             break;
-        case 2:
+        case 1:
             return @"Video Collections";
             break;
-        case 3:
+        case 2:
             return @"Text Collections";
             break;
         default:
@@ -279,40 +290,51 @@
     
 }
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    switch (section) {
-        case 0:
-            return 0;
-            break;            
-        default:
-            return 22;
-            break;
-    }
-
+    return 22.0f;
 }
+
+
+
+
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     MainNavTableViewHeaderViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"mainNavSectionHeader"];
+
+    NSString *audioString = [NSString stringWithFormat:@"%@ %@", AUDIO, @"Audio"];
+    NSMutableAttributedString *audioAtt = [[NSMutableAttributedString alloc] initWithString:audioString];
+    [audioAtt addAttribute:NSForegroundColorAttributeName value:AUDIO_COLOR range:NSMakeRange(0, AUDIO.length)];
+    [audioAtt addAttribute:NSFontAttributeName value:[UIFont fontWithName:ICONOCHIVE size:20] range:NSMakeRange(0, AUDIO.length)];
+
+
+    NSString *videoString = [NSString stringWithFormat:@"%@ %@", VIDEO, @"Video"];
+    NSMutableAttributedString *videoAtt = [[NSMutableAttributedString alloc] initWithString:videoString];
+    [videoAtt addAttribute:NSForegroundColorAttributeName value:VIDEO_COLOR range:NSMakeRange(0, VIDEO.length)];
+    [videoAtt addAttribute:NSFontAttributeName value:[UIFont fontWithName:ICONOCHIVE size:20] range:NSMakeRange(0, VIDEO.length)];
+
+
+    NSString *bookString = [NSString stringWithFormat:@"%@ %@", BOOK, @"Texts"];
+    NSMutableAttributedString *bookAtt = [[NSMutableAttributedString alloc] initWithString:bookString];
+    [bookAtt addAttribute:NSForegroundColorAttributeName value:BOOK_COLOR range:NSMakeRange(0, BOOK.length)];
+    [bookAtt addAttribute:NSFontAttributeName value:[UIFont fontWithName:ICONOCHIVE size:20] range:NSMakeRange(0, BOOK.length)];
+
+
     switch (section) {
+
         case 0:
-            return nil;
+            headerCell.sectionLabel.attributedText =  audioAtt;
+            break;
         case 1:
-            headerCell.sectionLabel.text =  @"Audio Collections";
-            headerCell.sectionLabel.textColor = AUDIO_COLOR;
+            headerCell.sectionLabel.attributedText =  videoAtt ;
             break;
         case 2:
-            headerCell.sectionLabel.text =  @"Video Collections";
-            headerCell.sectionLabel.textColor = VIDEO_COLOR;
-            break;
-        case 3:
-            headerCell.sectionLabel.text =  @"Text Collections";
-            headerCell.sectionLabel.textColor = BOOK_COLOR;
+            headerCell.sectionLabel.attributedText =  bookAtt;
             break;
         default:
             headerCell.sectionLabel.text =  @"";
             break;
     }
+    [headerCell setBackgroundColor:[UIColor clearColor]];
+    [headerCell.contentView setBackgroundColor:[UIColor colorWithRed:134.0/255.0 green:134.0/255.0 blue:134.0/255.0 alpha:1.0]];
 
-    [headerCell setBackgroundColor:[UIColor blackColor]];
-    [headerCell.contentView setBackgroundColor:[UIColor blackColor]];
     return headerCell;
 
 }
@@ -321,28 +343,14 @@
     
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
+
         case 0:
-            
-            if(indexPath.row == 0){
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"PopToHome" object:nil];
-                return;
-            } else if(indexPath.row == 1){
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
-                return;
-            } else if(indexPath.row == 2){
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenFavorites" object:nil];
-                return;
-            }
-            
-            
-            break;
-        case 1:
             doc = [audioSearchDocuments objectAtIndex:indexPath.row];
             break;
-        case 2:
+        case 1:
             doc = [videoSearchDocuments objectAtIndex:indexPath.row];
             break;
-        case 3:
+        case 2:
             doc = [textSearchDocuments objectAtIndex:indexPath.row];
             break;
         default:

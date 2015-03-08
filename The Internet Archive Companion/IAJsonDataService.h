@@ -29,6 +29,7 @@ typedef enum {
 - (id) initForAllItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type;
 - (id) initForAllCollectionItemsWithCollectionIdentifier:(NSString *)idString sortType:(IADataServiceSortType *)type;
 - (id) initWithQueryString:(NSString *)query;
+- (id) initWithAllPicks;
 
 
 - (id) initForMetadataDocsWithIdentifier:(NSString *)ident;

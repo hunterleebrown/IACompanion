@@ -13,8 +13,10 @@
 #import "PopUpView.h"
 #import "ArchiveCollectionViewControllerHelper.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SearchCollectionViewCell.h"
+#import "IAJsonDataService.h"
 
-@interface ContentViewController () <UISearchBarDelegate, UIAlertViewDelegate, UIToolbarDelegate>
+@interface ContentViewController () <IADataServiceDelegate, UISearchBarDelegate, UIAlertViewDelegate, UIToolbarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong)  UIWebView *moreInfoView;
 
 @property (nonatomic, strong) NSURL *externalUrl;
@@ -29,6 +31,14 @@
 @property (nonatomic, weak) IBOutlet UILabel *topArchiveLogo;
 
 @property (nonatomic, weak) IBOutlet UIImageView *bwArchiveImage;
+
+@property (nonatomic, weak) IBOutlet UICollectionView *picksCollectionView;
+@property (nonatomic, strong) NSMutableArray *searchDocuments;
+
+
+@property (assign) NSInteger numFound;
+@property (assign) NSInteger start;
+@property (assign) BOOL didTriggerLoadMore;
 
 @end
 
@@ -90,11 +100,8 @@
     [_mpBarButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
 
-    [self.navigationItem setLeftBarButtonItems:@[_listButton, _mpBarButton]];
-
-    
-    
-    [self.navigationItem setRightBarButtonItems:@[_searchButton]];
+    [self.navigationItem setLeftBarButtonItems:@[_listButton]];
+    [self.navigationItem setRightBarButtonItems:@[_mpBarButton,_searchButton]];
     
     
     popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
@@ -156,8 +163,110 @@
         self.itemToolbar.clipsToBounds = YES;
     }
 
+    self.searchDocuments = [NSMutableArray new];
+    self.service = [[IAJsonDataService alloc] initWithAllPicks];
+    self.service.delegate = self;
+    [self.service fetchData];
 
 }
+
+
+#pragma mark - data
+
+
+- (void) dataDidBecomeAvailableForService:(IADataService *)serv {
+
+
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
+
+    if(service.rawResults && [service.rawResults objectForKey:@"documents"]){
+
+        if(!self.didTriggerLoadMore) {
+            [self.searchDocuments removeAllObjects];
+        }
+        [self.searchDocuments addObjectsFromArray:[service.rawResults objectForKey:@"documents"]];
+        self.numFound  = [[service.rawResults objectForKey:@"numFound"] intValue];
+
+        [self.picksCollectionView reloadData];
+
+        if(!self.didTriggerLoadMore) {
+            [self.picksCollectionView setContentOffset:CGPointZero animated:YES];
+        }
+    }
+    self.didTriggerLoadMore = NO;
+    [self.picksCollectionView setHidden:NO];
+}
+
+
+#pragma mark - load more
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(scrollView.contentOffset.y > scrollView.contentSize.height * 0.5)
+    {
+        if(self.searchDocuments.count > 0  && self.searchDocuments.count < self.numFound  && self.start < self.numFound && !self.didTriggerLoadMore){
+            [self loadMoreItems:nil];
+        }
+    }
+}
+
+- (void)loadMoreItems:(id)sender {
+    if(self.numFound > 50) {
+        self.didTriggerLoadMore = YES;
+        self.start = self.start + 50;
+
+        [self.service setLoadMoreStart:[NSString stringWithFormat:@"%li", (long)self.start]];
+        [self.service fetchData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+
+    }
+}
+
+#pragma mark -
+
+
+
+#pragma mark - collection view
+
+#pragma mark - Collection View
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.searchDocuments count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
+    SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
+
+    [cell setArchiveSearchDoc:doc];
+
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
+    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+    [cvc setSearchDoc:doc];
+    [self.navigationController pushViewController:cvc animated:YES];
+
+
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
+    return [SearchCollectionViewCell orientation:self.interfaceOrientation collectionView:collectionView sizeOfCellForArchiveDoc:doc];
+}
+
+
+
+
+
+
+#pragma mark -
 
 - (void) doParalax
 {
@@ -375,6 +484,9 @@
     [UIView animateWithDuration:0.35 animations:^{
         [popUpView setFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];
     }];
+
+    [self.picksCollectionView.collectionViewLayout invalidateLayout];
+
 
 }
 

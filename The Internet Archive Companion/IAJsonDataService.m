@@ -62,8 +62,17 @@
     return self;
 }
 
+- (id)initWithAllPicks
+{
+    self = [super init];
+    if(self){
+        NSString *realQuery = [NSString stringWithFormat:@"%@+AND+NOT+collection:web+AND+NOT+collection:webwidecrawl", @"+pick:1"];
+        testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@&output=json&rows=50", realQuery];
+        self.urlStr = testUrl;
+    }
 
-
+    return self;
+}
 
 
 - (NSString *)sortStringFromType:(IADataServiceSortType)type{
