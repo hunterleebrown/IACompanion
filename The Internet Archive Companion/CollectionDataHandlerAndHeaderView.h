@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "IAJsonDataService.h"
+#import "LayoutChangerView.h"
 
 @interface CollectionDataHandlerAndHeaderView : UIView  <UITableViewDataSource, UITableViewDelegate, IADataServiceDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -20,6 +21,8 @@
 
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) IBOutlet LayoutChangerView *layoutChangerView;
+
 
 @property (nonatomic, strong) NSString *identifier;
 

@@ -16,6 +16,7 @@
 #import "ItemContentViewController.h"
 #import "SorterView.h"
 #import "SearchCollectionViewCell.h"
+#import "LayoutChangerView.h"
 
 @interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
@@ -33,6 +34,7 @@
 
 @property (nonatomic, weak) IBOutlet UICollectionView *searchCollectionView;
 @property (nonatomic) CellLayoutStyle *cellLayoutStyle;
+@property (nonatomic, weak) IBOutlet LayoutChangerView *layoutChangerView;
 
 @end
 
@@ -311,7 +313,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:CellLayoutStyleGrid archiveDoc:doc];
+    return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:self.layoutChangerView.cellLayoutStyle archiveDoc:doc];
 }
 
 

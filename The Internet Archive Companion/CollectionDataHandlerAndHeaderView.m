@@ -132,7 +132,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    return [SearchCollectionViewCell sizeForOrientation:[[UIApplication sharedApplication]statusBarOrientation] collectionView:collectionView cellLayoutStyle:CellLayoutStyleGrid archiveDoc:doc];
+    return [SearchCollectionViewCell sizeForOrientation:[[UIApplication sharedApplication]statusBarOrientation] collectionView:collectionView cellLayoutStyle:self.layoutChangerView.cellLayoutStyle archiveDoc:doc];
 }
 
 
