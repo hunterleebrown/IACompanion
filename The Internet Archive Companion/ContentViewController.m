@@ -100,8 +100,6 @@
     [_searchButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
     
-    _backButton = [[UIBarButtonItem alloc] initWithTitle:BACK style:UIBarButtonItemStylePlain target:self action:@selector(didPressBackButton)];
-    [_backButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
 
     _mpBarButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
@@ -278,7 +276,7 @@
         [self.picksCollectionView reloadData];
 
         if(!self.didTriggerLoadMore) {
-            [self.picksCollectionView setContentOffset:CGPointMake(0, -95.0f) animated:YES];
+            [self.picksCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
         }
     }
     self.didTriggerLoadMore = NO;

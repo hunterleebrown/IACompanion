@@ -56,8 +56,11 @@
     self.navigationItem.title = @"";
 
 	// Do any additional setup after loading the view.
-    
-    [self.navigationItem setLeftBarButtonItems:@[self.backButton, self.mpBarButton]];
+
+    self.backButton = [[UIBarButtonItem alloc] initWithTitle:BACK style:UIBarButtonItemStylePlain target:self action:@selector(didPressBackButton)];
+    [self.backButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
+
+    [self.navigationItem setLeftBarButtonItems:@[self.backButton]];
 
 
     mediaFiles = [NSMutableArray new];
@@ -74,11 +77,10 @@
     if([self.parentViewController.restorationIdentifier isEqualToString:@"searchNav"])
     {
 
+
         UIBarButtonItem *mediaButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
         [mediaButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
-        
-        [self.navigationItem setLeftBarButtonItems:@[self.backButton]];
-        
+
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
         [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
         
@@ -138,11 +140,14 @@
     [(UINavigationController*)self.parentViewController popViewControllerAnimated:NO];
 }
 
+
 - (void) didPressBackButton{
     [self.collectionHandlerView.service stopFetchingData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
 
 - (IBAction)addFavorite:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.searchDoc];

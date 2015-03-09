@@ -126,9 +126,7 @@
 }
 
 
-- (void) didPressBackButton{
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 
 
 
