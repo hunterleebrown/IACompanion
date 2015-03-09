@@ -45,14 +45,16 @@
 	// Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.95];
-    self.view.layer.cornerRadius = 10.0;
-    self.view.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.view.layer.borderWidth = 1;
-    
-    CGPathRef path = CGPathCreateWithRect(self.view.bounds, NULL);
-    self.view.layer.shadowPath = path;
-    CGPathRelease(path);
-    
+    self.view.backgroundColor = [UIColor clearColor];
+
+//    self.view.layer.cornerRadius = 10.0;
+//    self.view.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    self.view.layer.borderWidth = 1;
+
+//    CGPathRef path = CGPathCreateWithRect(self.view.bounds, NULL);
+//    self.view.layer.shadowPath = path;
+//    CGPathRelease(path);
+
     expanded = NO;
     
     
@@ -80,7 +82,7 @@
     [self.view addSubview:popTitle];
  
     
-    [containerView setFrame:CGRectMake(5, 44, self.view.frame.size.width, self.view.frame.size.height)];
+    [containerView setFrame:CGRectMake(5, 44, self.view.frame.size.width, 110)];
 
     
 }
@@ -119,7 +121,7 @@
 
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [containerView setFrame:CGRectMake(5, 44, self.view.frame.size.width, self.view.frame.size.height - 44)];
+    [containerView setFrame:CGRectMake(5, 44, self.view.frame.size.width, 110)];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
 
     

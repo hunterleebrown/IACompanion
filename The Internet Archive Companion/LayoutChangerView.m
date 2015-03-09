@@ -55,6 +55,7 @@
 
 - (void)layoutSubviews
 {
+
     if(!self.selectedButton)
     {
         self.selectedButton = self.gridButton;
@@ -72,6 +73,7 @@
     [self.gridButton setTitle:GRID forState:UIControlStateNormal];
     [self.listButton setTitle:HAMBURGER forState:UIControlStateNormal];
 
+    [super layoutSubviews];
 
 }
 

@@ -55,6 +55,7 @@
 		5A942D4616D5F545001CB01B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A942D4516D5F545001CB01B /* MainStoryboard.storyboard */; };
 		5A990BA716B9F2E500B4C058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A990BA616B9F2E500B4C058 /* QuartzCore.framework */; };
 		5AB736A017A5B91700967D4D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7369F17A5B91700967D4D /* LoadingViewController.m */; };
+		5ABD97521AAD687A0002DC47 /* NotifyUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD97511AAD687A0002DC47 /* NotifyUserView.m */; };
 		5AD456BE1A907E7F0035FBA1 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD456BD1A907E7F0035FBA1 /* Media.xcassets */; };
 		5ADCCC2818012F9300DFAE14 /* FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADCCC2718012F9300DFAE14 /* FavoritesCell.m */; };
 		5AEE7662179F1FD200CF8C23 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE7661179F1FD200CF8C23 /* SearchViewController.m */; };
@@ -171,6 +172,8 @@
 		5A990BA616B9F2E500B4C058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5AB7369E17A5B91700967D4D /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		5AB7369F17A5B91700967D4D /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		5ABD97501AAD687A0002DC47 /* NotifyUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifyUserView.h; sourceTree = "<group>"; };
+		5ABD97511AAD687A0002DC47 /* NotifyUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifyUserView.m; sourceTree = "<group>"; };
 		5AD456BC1A904BE80035FBA1 /* IA length.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "IA length.xcdatamodel"; sourceTree = "<group>"; };
 		5AD456BD1A907E7F0035FBA1 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		5ADCCC2618012F9300DFAE14 /* FavoritesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesCell.h; sourceTree = "<group>"; };
@@ -437,6 +440,8 @@
 			children = (
 				5A756DA3177FFE2800E7F922 /* InitialViewController.h */,
 				5A756DA4177FFE2800E7F922 /* InitialViewController.m */,
+				5ABD97501AAD687A0002DC47 /* NotifyUserView.h */,
+				5ABD97511AAD687A0002DC47 /* NotifyUserView.m */,
 			);
 			name = "Initial View Controller";
 			sourceTree = "<group>";
@@ -684,6 +689,7 @@
 				5A0A10BC16A640A300CC70CD /* main.m in Sources */,
 				5A4F701A1AACD9430009A3B2 /* LayoutChangerView.m in Sources */,
 				5A0A10C016A640A300CC70CD /* AppDelegate.m in Sources */,
+				5ABD97521AAD687A0002DC47 /* NotifyUserView.m in Sources */,
 				5A8A195C16B5DDDA00F6A2E4 /* ArchiveSearchDoc.m in Sources */,
 				5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */,
 				CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */,

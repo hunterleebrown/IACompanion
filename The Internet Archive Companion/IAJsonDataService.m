@@ -378,11 +378,6 @@
     
     
     
-    
-    
-    
-    
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     

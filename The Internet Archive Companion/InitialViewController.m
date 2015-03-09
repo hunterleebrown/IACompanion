@@ -12,15 +12,16 @@
 #import "LoadingViewController.h"
 #import "CentralViewController.h"
 #import "FavoritesTableViewController.h"
+#import "NotifyUserView.h"
 
 @interface InitialViewController () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong)  MediaPlayerViewController *mediaPlayerViewController;
 @property (nonatomic, strong) CentralViewController *centralViewController;
-
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
+
+@property (nonatomic, weak) IBOutlet NotifyUserView *notifyUserView;
 
 @end
 
@@ -112,13 +113,17 @@
 }
 
 - (void) showPopUpControllerNotification:(NSNotification *)notification{
-    PopUpViewController *popUpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"popUpViewController"];
-    [popUpVC setModalPresentationStyle:UIModalPresentationFormSheet];
-    [popUpVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//    PopUpViewController *popUpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"popUpViewController"];
+  //  [popUpVC setModalPresentationStyle:UIModalPresentationFormSheet];
+   // [popUpVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
 
-    [popUpVC showWithSubView:nil title:@"Something went wrong" message:notification.object];
-    [self presentViewController:popUpVC animated:YES completion:nil];
-    
+//    [popUpVC showWithSubView:nil title:@"Something went wrong" message:notification.object];
+ //   [self presentViewController:popUpVC animated:YES completion:nil];
+
+
+    self.notifyUserView.message.text = notification.object;
+    [self.notifyUserView show];
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EndRefreshing" object:nil];
 
     
