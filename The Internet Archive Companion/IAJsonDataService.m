@@ -391,6 +391,7 @@
     //[alert show];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Download failed. Is your internet connection working?"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
 
 }
@@ -412,6 +413,7 @@
 
 
     }
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
     
 }

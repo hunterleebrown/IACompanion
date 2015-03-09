@@ -137,11 +137,11 @@
 - (void) showLoadingIndicatorNotification:(NSNotification *)notification{
    // [self.window bringSubviewToFront:loadingView];
     
-    [loadingIndicatorHolder setHidden:![notification.object boolValue]];
-    [self.view bringSubviewToFront:loadingIndicatorHolder];
-    [loadingIndicatorViewController startAnimating:[notification.object boolValue]];
-    
-    
+//    [loadingIndicatorHolder setHidden:![notification.object boolValue]];
+//    [self.view bringSubviewToFront:loadingIndicatorHolder];
+//    [loadingIndicatorViewController startAnimating:[notification.object boolValue]];
+//    
+
 }
 
 
