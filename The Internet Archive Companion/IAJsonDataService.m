@@ -390,8 +390,9 @@
    // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download Failure" message:@"Couldn't complete request." delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
     //[alert show];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Download failed. Is your internet connection working?"];
-    
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
+
+
 }
 
 - (void) didFinishFileDownload:(ArchiveFileDownload *)download{
@@ -407,8 +408,9 @@
         //  [alert show];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Something went wrong with parsing data from the Internet Archive Server. Try again."];
-        
-    
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
+
+
     }
 
     
