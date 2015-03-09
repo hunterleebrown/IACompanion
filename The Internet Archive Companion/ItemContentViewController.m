@@ -77,6 +77,9 @@
     if([self.parentViewController.restorationIdentifier isEqualToString:@"searchNav"])
     {
 
+        UIBarButtonItem *favsToolBuuton = [[UIBarButtonItem alloc] initWithTitle:FAVORITE style:UIBarButtonItemStylePlain target:self action:@selector(didPressFavorites)];
+        [favsToolBuuton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
+
 
         UIBarButtonItem *mediaButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
         [mediaButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
@@ -84,7 +87,7 @@
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
         [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
         
-        [self.navigationItem setRightBarButtonItems:@[closeItem, mediaButton]];
+        [self.navigationItem setRightBarButtonItems:@[closeItem, mediaButton, favsToolBuuton]];
         
         
         

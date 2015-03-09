@@ -100,13 +100,15 @@
     [_searchButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
     
+    UIBarButtonItem *favsToolBuuton = [[UIBarButtonItem alloc] initWithTitle:FAVORITE style:UIBarButtonItemStylePlain target:self action:@selector(didPressFavorites)];
+    [favsToolBuuton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
 
     _mpBarButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
     [_mpBarButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
 
-    [self.navigationItem setRightBarButtonItems:@[_searchButton, _mpBarButton]];
+    [self.navigationItem setRightBarButtonItems:@[_searchButton, _mpBarButton, favsToolBuuton]];
     
     
     popUpView = [[PopUpView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, self.view.frame.size.height)];

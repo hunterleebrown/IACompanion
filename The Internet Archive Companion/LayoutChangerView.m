@@ -48,7 +48,6 @@
 
     [self.collectionView.collectionViewLayout invalidateLayout];
 
-    UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     [self.collectionView setContentOffset:CGPointMake(0, 66) animated:YES];
 
 }
