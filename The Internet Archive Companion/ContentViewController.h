@@ -19,6 +19,8 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *byLabel;
+@property (nonatomic, weak) IBOutlet UIButton *creatorButton;
+
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 @property (nonatomic, weak) IBOutlet UIView *tableHeaderView;
 @property (nonatomic, weak) IBOutlet ArchiveImageView *imageView;

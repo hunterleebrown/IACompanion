@@ -206,7 +206,18 @@
         NSString *creator = self.detDoc.creator;
         NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", @"by", creator]];
         [attString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, [@"by" length])];
-        [self.byLabel setAttributedText:attString];
+        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(3, creator.length)];
+
+        
+        NSMutableAttributedString *selAtt = [[NSMutableAttributedString alloc] initWithAttributedString:attString];
+        [selAtt addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(3, creator.length)];
+
+        
+        //[self.creatorButton.titleLabel setAttributedText:attString];
+        
+        [self.creatorButton setAttributedTitle:attString forState:UIControlStateNormal];
+        [self.creatorButton setAttributedTitle:selAtt forState:UIControlStateHighlighted];
+
     }
 
 
@@ -224,7 +235,7 @@
         [self.titleLabel setTextColor:[UIColor whiteColor]];
         [self.titleLabel setText:[NSString stringWithFormat:@"%@ Collection", self.detDoc.title]];
         [self.titleHolder setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
-        [self.byLabel setTextColor:[UIColor whiteColor]];
+       // [self.creatorButton setTitleColor:[] forState:<#(UIControlState)#>]];
 
 
         [self.collectionHandlerView setIdentifier:self.searchDoc.identifier];
