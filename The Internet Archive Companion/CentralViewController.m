@@ -40,6 +40,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveCollectionCellSelectNotification:) name:@"CellSelectNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceivePopToHome:) name:@"PopToHome" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonPressNotification:) name:@"SearchViewController" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonPressNotification:) name:@"SearchViewController" object:nil];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonClosePressNotification:) name:@"SearchViewControllerClose" object:nil];
 
     //[self doOrientationLayout:self.interfaceOrientation];

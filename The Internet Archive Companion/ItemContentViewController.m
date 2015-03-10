@@ -322,6 +322,15 @@
 
 }
 
+#pragma mark - creator button
+- (IBAction)didPressCreatorButton:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewController" object:[NSString stringWithFormat:@"creator:\"%@\"", self.detDoc.creator]];
+
+
+}
+
+
 #pragma mark -
 
 - (void) orgainizeMediaFiles:(NSMutableArray *)files{
