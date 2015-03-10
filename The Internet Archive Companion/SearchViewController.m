@@ -151,9 +151,7 @@
 
 - (void) searchBarCancelButtonClicked:(UISearchBar *)inSearchBar{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerClose" object:nil];
-    [inSearchBar resignFirstResponder];
-    
-    
+    [inSearchBar resignFirstResponder];    
 }
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)inSearchBar{
@@ -168,7 +166,6 @@
     else{
         service = [[IAJsonDataService alloc] initWithQueryString:searchBar.text];
         [self.sorterView setService:service];
-
     }
 
     [service setDelegate:self];

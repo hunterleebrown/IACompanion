@@ -325,7 +325,7 @@
 #pragma mark - creator button
 - (IBAction)didPressCreatorButton:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewController" object:[NSString stringWithFormat:@"creator:\"%@\"", self.detDoc.creator]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerCreator" object:[NSString stringWithFormat:@"creator:\"%@\"", self.detDoc.creator]];
 
 
 }

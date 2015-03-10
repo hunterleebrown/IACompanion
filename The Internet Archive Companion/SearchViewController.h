@@ -14,5 +14,7 @@
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 - (IBAction)searchFilterChange:(id)sender;
+- (void) searchBarSearchButtonClicked:(UISearchBar *)inSearchBar;
+
 
 @end

@@ -40,7 +40,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveCollectionCellSelectNotification:) name:@"CellSelectNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceivePopToHome:) name:@"PopToHome" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonPressNotification:) name:@"SearchViewController" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonPressNotification:) name:@"SearchViewController" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchCreatorButtonPressNotification:) name:@"SearchViewControllerCreator" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonClosePressNotification:) name:@"SearchViewControllerClose" object:nil];
 
@@ -131,14 +131,29 @@
             SearchViewController *svc = [_searchNavigationViewController.viewControllers objectAtIndex:0];
             [svc.searchBar setText:[NSString stringWithFormat:@"collection:%@ ", collectionId]];
             [svc.searchBar becomeFirstResponder];
-
-
         }
     }];
     
-//    [self performSegueWithIdentifier:@"navSearch" sender:nil];
+
+}
+
+- (void) didReceiveSearchCreatorButtonPressNotification:(NSNotification *)notification{
+    [_searchView setHidden:NO];
+    [UIView animateWithDuration:0.33 animations:^{
+        [_searchView setAlpha:1.0];
+    } completion:^(BOOL finished) {
+        if(notification.object){
+            [_searchNavigationViewController popToRootViewControllerAnimated:NO];
+            SearchViewController *svc = [_searchNavigationViewController.viewControllers objectAtIndex:0];
+            [svc.searchBar setText:notification.object];
+//            [svc.searchBar becomeFirstResponder];
+            [svc searchBarSearchButtonClicked:svc.searchBar];
+        }
+    }];
     
 }
+
+
 
 - (void) didReceiveSearchButtonClosePressNotification:(NSNotification *)notification{
 
