@@ -33,28 +33,13 @@
 
         self.buttons = [NSMutableArray new];
 
-        UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [firstButton setTitle:@"ALL" forState:UIControlStateNormal];
-        [firstButton.titleLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1]];
-        [firstButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [firstButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-        [firstButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateSelected];
-        [self addSubview:firstButton];
-        [self.buttons addObject:firstButton];
-        [firstButton addTarget:self action:@selector(didSelectButton:) forControlEvents:UIControlEventTouchUpInside];
-        [firstButton setSelected:YES];
-
         for (NSNumber *type in @[[NSNumber numberWithInteger:MediaTypeTexts], [NSNumber numberWithInteger:MediaTypeVideo], [NSNumber numberWithInteger:MediaTypeAudio], [NSNumber numberWithInteger:MediaTypeImage], [NSNumber numberWithInteger:MediaTypeEtree], [NSNumber numberWithInteger:MediaTypeCollection]]) {
             UIButton *button = [self createButtonForMediaTypeNumber:type];
             [self addSubview:button];
             [self.buttons addObject:button];
             [button addTarget:self action:@selector(didSelectButton:) forControlEvents:UIControlEventTouchUpInside];
-
         }
 
-//        UIButton *firstButton = (UIButton *)[self.buttons objectAtIndex:0];
-//        firstButton.selected = YES;
-//        firstButton.backgroundColor = [MediaUtils colorFromMediaType:MediaTypeTexts];
 
 
     }
@@ -65,42 +50,64 @@
 - (UIButton *)createButtonForMediaTypeNumber:(NSNumber *)mediaType
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:[MediaUtils iconStringFromMediaType:[mediaType integerValue]] forState:UIControlStateNormal];
+    [button setTitle:[MediaUtils iconStringFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:25]];
-    [button setTitleColor:[MediaUtils colorFromMediaType:[mediaType integerValue]] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateSelected];
-
+    [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    [button setTag:[mediaType integerValue]];
     return button;
 
 }
 
 - (void)layoutSubviews
 {
-
-    NSLog(NSStringFromCGRect(self.bounds));
-
-
     CGFloat width = roundf((self.bounds.size.width - 20 )/ self.buttons.count);
     CGFloat startx = 10;
     for(UIButton *button in self.buttons)
     {
         button.frame = CGRectMake(startx, 10, width, 34);
-//        button.layer.borderColor = [UIColor redColor].CGColor;
-//        button.layer.borderWidth = 1.0;
         startx += width;
     }
-
 
 }
 
 - (void) didSelectButton:(id)sender
 {
-    [self unselectAll];
-
     UIButton *button = sender;
-    button.selected = YES;
 
+    NSLog(@"------------> tag: %i", (MediaType)button.tag);
+    NSLog(@"-------> selected: %@", button.selected ? @"SELECTED" : @"NOT SELECTED");
+
+    ArchiveContentTypeControlView __weak *weakself = self;
+
+    if(button.selected)
+    {
+        self.selectButtonBlock([weakself filterQueryParam:MediaTypeNone]);
+        [self unselectAll];
+
+    }
+    else
+    {
+        self.selectButtonBlock([weakself filterQueryParam:(MediaType)button.tag]);
+        [self allGreyButtons];
+        [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)button.tag] forState:UIControlStateNormal];
+        button.selected = !button.selected;
+
+    }
+
+
+
+}
+
+
+
+- (void)allGreyButtons
+{
+    for(UIButton *button in self.buttons)
+    {
+        [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)unselectAll
@@ -108,42 +115,57 @@
     for(UIButton *button in self.buttons)
     {
         button.selected = NO;
+        [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)button.tag] forState:UIControlStateNormal];
     }
 
 }
 
+- (MediaType)selectedMediaType
+{
+    for(UIButton *button in self.buttons)
+    {
+        if (button.selected) {
+            return button.tag;
+        }
+    }
 
-//- (NSString *)filterQueryParam
-//{
-//
-//    NSInteger selectedSegment = [self selectedButtonIndex];
-//    // audio, video, text, image
-//
-//    NSString *extraSearchParam = @"";
-//
-//    switch (selectedSegment) {
-//        case 0:
-//
-//            break;
-//        case 1:
-//            extraSearchParam = @"+AND+mediatype:audio";
-//            break;
-//        case 2:
-//            extraSearchParam = @"+AND+mediatype:movies";
-//            break;
-//        case 3:
-//            extraSearchParam = @"+AND+mediatype:texts";
-//            break;
-//        case 4:
-//            extraSearchParam = @"+AND+mediatype:image";
-//            break;
-//        default:
-//            break;
-//    }
-//
-//    return extraSearchParam;
-//    
-//}
+    return MediaTypeNone;
+}
+
+
+- (NSString *)filterQueryParam:(MediaType)type
+{
+
+    NSString *extraSearchParam = @"";
+
+    switch (type) {
+        case MediaTypeNone:
+            break;
+        case MediaTypeAudio:
+            extraSearchParam = @"+AND+mediatype:audio";
+            break;
+        case MediaTypeEtree:
+            extraSearchParam = @"+AND+mediatype:etree";
+            break;
+        case MediaTypeVideo:
+            extraSearchParam = @"+AND+mediatype:movies";
+            break;
+        case MediaTypeTexts:
+            extraSearchParam = @"+AND+mediatype:texts";
+            break;
+        case MediaTypeImage:
+            extraSearchParam = @"+AND+mediatype:image";
+            break;
+        case MediaTypeCollection:
+            extraSearchParam = @"+AND+mediatype:collection";
+            break;
+        default:
+            break;
+    }
+
+    return extraSearchParam;
+    
+}
 
 
 @end

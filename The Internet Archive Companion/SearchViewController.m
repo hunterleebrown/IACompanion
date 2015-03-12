@@ -17,6 +17,7 @@
 #import "SorterView.h"
 #import "SearchCollectionViewCell.h"
 #import "LayoutChangerView.h"
+#import "ArchiveContentTypeControlView.h"
 
 @interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
@@ -35,6 +36,8 @@
 @property (nonatomic, weak) IBOutlet UICollectionView *searchCollectionView;
 @property (nonatomic) CellLayoutStyle *cellLayoutStyle;
 @property (nonatomic, weak) IBOutlet LayoutChangerView *layoutChangerView;
+
+@property (nonatomic, weak) IBOutlet ArchiveContentTypeControlView *contentTypeControlView;
 
 @end
 
@@ -85,6 +88,9 @@
     
     [self.navigationController.navigationBar setTranslucent:NO];
 
+    self.contentTypeControlView.selectButtonBlock = ^(NSString *param){
+        [self searchFilterChangeWithParam:param];
+    };
 }
 - (void) viewDidAppear:(BOOL)animated {
     for(id subview in [searchBar subviews])
@@ -207,6 +213,22 @@
 
 }
 
+
+- (void) searchFilterChangeWithParam:(NSString *)param
+{
+    if(![searchBar.text isEqualToString:@""]){
+        [self.sorterView resetSortButtons];
+
+        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, param]];
+        [self.sorterView setService:service];
+
+        [service setDelegate:self];
+        [service fetchData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
+        [searchBar resignFirstResponder];
+    }
+
+}
 
 - (IBAction)searchFilterChange:(id)sender{
 

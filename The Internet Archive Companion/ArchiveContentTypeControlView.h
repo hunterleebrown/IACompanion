@@ -10,13 +10,6 @@
 
 @interface ArchiveContentTypeControlView : UIView
 
-//@property (nonatomic, strong) UIButton *collectionsButton;
-//@property (nonatomic, strong) UIButton *booksButton;
-//@property (nonatomic, strong) UIButton *audioButton;
-//@property (nonatomic, strong) UIButton *concertsButton;
-//@property (nonatomic, strong) UIButton *videoButton;
-//@property (nonatomic, strong) UIButton *imagesButton;
-//@property (nonatomic, strong) UIButton *softwareButton;
-
+@property (copy) void (^selectButtonBlock)(NSString *param);
 
 @end

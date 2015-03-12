@@ -1094,6 +1094,7 @@
                     <navigationItem key="navigationItem" id="vsa-7D-1Bv"/>
                     <connections>
                         <outlet property="closeButton" destination="SbA-Rw-1mh" id="4Nt-8i-Bce"/>
+                        <outlet property="contentTypeControlView" destination="GeA-ip-p1u" id="yNj-V4-cb8"/>
                         <outlet property="layoutChangerView" destination="hPK-2f-X1p" id="79q-pw-9MU"/>
                         <outlet property="numFoundLabel" destination="ykI-sc-EGX" id="tYP-JN-Vvw"/>
                         <outlet property="searchBar" destination="jw3-cD-TaP" id="Gbb-dG-6J9"/>
