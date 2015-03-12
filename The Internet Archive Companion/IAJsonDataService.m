@@ -260,27 +260,8 @@
                     [aDoc setDetails:[doc objectForKey:@"description"]];
                     [aDoc setPublicDate:[doc objectForKey:@"publicdate"]];
                     [aDoc setDate:[doc objectForKey:@"date"]];
-                    
-                    if([[doc objectForKey:@"mediatype"] isEqualToString:@"collection"]){
-                        [aDoc setType:MediaTypeCollection];
-                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"audio"]){
-                        [aDoc setType:MediaTypeAudio];
-                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"movies"]){
-                        [aDoc setType:MediaTypeVideo];
-                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"texts"]){
-                        [aDoc setType:MediaTypeTexts];
-                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"image"]){
-                        [aDoc setType:MediaTypeImage];
-                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"software"]){
-                        [aDoc setType:MediaTypeSoftware];
-                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"etree"]){
-                        [aDoc setType:MediaTypeEtree];
-                    } else if([[doc objectForKey:@"mediatype"] isEqualToString:@"image"]){
-                        [aDoc setType:MediaTypeImage];
-                    } else {
-                        [aDoc setType:MediaTypeAny];
-                    }
-                    
+            
+                    [aDoc setType:[MediaUtils mediaTypeFromString:[doc objectForKey:@"mediatype"]]];
                     
                     [responseDocs addObject:aDoc];
                 }
@@ -318,28 +299,7 @@
         }
         [dDoc setFiles:files];
 
-//        if([[metadata objectForKey:@"mediatype"] isEqualToString:@"collection"]){
-//            [dDoc setType:MediaTypeCollection];
-//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"audio"]){
-//            [dDoc setType:MediaTypeAudio];
-//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"video"]){
-//            [dDoc setType:MediaTypeVideo];
-//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"texts"]){
-//            [dDoc setType:MediaTypeTexts];
-//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"movies"]){
-//            [dDoc setType:MediaTypeVideo];
-//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"etree"]){
-//            [dDoc setType:MediaTypeEtree];
-//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"software"]){
-//            [dDoc setType:MediaTypeSoftware];
-//        } else if([[metadata objectForKey:@"mediatype"] isEqualToString:@"image"]){
-//            [dDoc setType:MediaTypeImage];
-//        } else {
-//            [dDoc setType:MediaTypeAny];
-//        }
-
         [dDoc setType:[MediaUtils mediaTypeFromString:[metadata objectForKey:@"mediatype"]]];
-
 
         [responseDocs addObject:dDoc];
         [rawResults setObject:responseDocs forKey:@"documents"];
@@ -387,8 +347,6 @@
 
 - (void) didFailFileDownload:(ArchiveFileDownload *)download{
 
-   // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download Failure" message:@"Couldn't complete request." delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
-    //[alert show];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Download failed. Is your internet connection working?"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -405,8 +363,6 @@
     @try {
         [self packageJsonResponeDictionary:jsonResponse];
     } @catch (id exception) {
-        //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Data Issue" message:[NSString stringWithFormat:@"%@", @"Something went wrong in interpreting data from the server. Try again."] delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
-        //  [alert show];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Something went wrong with parsing data from the Internet Archive Server. Try again."];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
