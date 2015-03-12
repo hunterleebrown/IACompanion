@@ -41,7 +41,7 @@
         }
 
         self.currentMediaType = MediaTypeNone;
-
+        [self recolorAllButtons];
     }
     return self;
 }
@@ -52,9 +52,6 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:[MediaUtils iconStringFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:25]];
-
-//    [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateNormal];
-//    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
 
     [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateSelected];
@@ -86,47 +83,53 @@
 
     ArchiveContentTypeControlView __weak *weakself = self;
 
-//    if(button.selected)
-//    {
-//        self.selectButtonBlock([weakself filterQueryParam:MediaTypeNone]);
-//        [self unselectAll];
-//        self.currentMediaType = MediaTypeNone;
-//
-//    }
-//    else
-//    {
-//        self.selectButtonBlock([weakself filterQueryParam:(MediaType)button.tag]);
-//        self.currentMediaType = (MediaType)button.tag;
-//        [self allGreyButtons];
-//        [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)button.tag] forState:UIControlStateNormal];
-//        button.selected = !button.selected;
-//
-//    }
 
     button.selected = !button.selected;
     NSLog(@"------> %@", [weakself selectedFilters]);
     self.selectButtonBlock([weakself selectedFilters]);
+
+    [self allGreyButtons];
+
+    if(![self IsAnyButtonSelected])
+    {
+        [self recolorAllButtons];
+    }
 }
 
 
 
 - (void)allGreyButtons
 {
-    for(UIButton *button in self.buttons)
-    {
-        [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    for(UIButton *button in self.buttons){
+        if(!button.selected) {
+            [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        }
     }
     
 }
 
-- (void)unselectAll
+
+- (void)recolorAllButtons
 {
     for(UIButton *button in self.buttons)
     {
-        button.selected = NO;
         [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)button.tag] forState:UIControlStateNormal];
     }
 
+}
+
+- (BOOL)IsAnyButtonSelected
+{
+
+    for(UIButton *button in self.buttons)
+    {
+        if(button.selected)
+        {
+            return YES;
+        }
+
+    }
+    return NO;
 }
 
 
