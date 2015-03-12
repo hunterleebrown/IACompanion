@@ -61,13 +61,8 @@
     
     searchDocuments = [NSMutableArray new];
     didTriggerLoadMore = NO;
-    
 
-    
-
-    
     [self.closeButton setTitle:CLOSE forState:UIControlStateNormal];
-    
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
 

@@ -330,7 +330,7 @@
         <!--Content View Controller-->
         <scene sceneID="c4S-zO-CZE">
             <objects>
-                <viewController id="5DB-Ie-EAF" customClass="ContentViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5DB-Ie-EAF" customClass="ContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dbq-1c-Egw"/>
                         <viewControllerLayoutGuide type="bottom" id="U5y-CW-rrw"/>
@@ -340,14 +340,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d1Y-XL-FdP">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="66" maxX="0.0" maxY="44"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="Uh3-aB-23P">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="44" maxX="5" maxY="49"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="49"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchCell" id="Fx5-51-lJJ" customClass="SearchCollectionViewCell">
@@ -454,25 +453,18 @@
                                     <outlet property="delegate" destination="5DB-Ie-EAF" id="OoV-5R-Sod"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-I7-WiX">
-                                <rect key="frame" x="0.0" y="44" width="600" height="66"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-I7-WiX" customClass="ArchiveContentTypeControlView">
+                                <rect key="frame" x="0.0" y="44" width="600" height="56"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V5m-1t-1cC">
-                                        <rect key="frame" x="10" y="5" width="580" height="29"/>
-                                        <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
-                                            <segment title=""/>
-                                            <segment title=""/>
-                                            <segment title=""/>
-                                        </segments>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="searchFilterChange:" destination="5DB-Ie-EAF" eventType="valueChanged" id="0hU-7e-b1Y"/>
-                                        </connections>
-                                    </segmentedControl>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZi-QV-spX">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="6Sc-4d-NJk"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Picks From the Internet Archive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0C-eD-9d7">
-                                        <rect key="frame" x="158" y="38" width="284" height="20"/>
+                                        <rect key="frame" x="158" y="35" width="284" height="20"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -481,23 +473,15 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="s0C-eD-9d7" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="top" constant="5" id="0zX-F2-jg2"/>
-                                    <constraint firstItem="s0C-eD-9d7" firstAttribute="top" secondItem="V5m-1t-1cC" secondAttribute="bottom" constant="5" id="45h-m0-Oeg"/>
-                                    <constraint firstAttribute="bottom" secondItem="V5m-1t-1cC" secondAttribute="bottom" constant="10" id="D4R-FR-iTj"/>
-                                    <constraint firstItem="V5m-1t-1cC" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="top" constant="5" id="P4b-yy-aLQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="V5m-1t-1cC" secondAttribute="trailing" constant="10" id="PtS-q2-Wfh"/>
-                                    <constraint firstItem="V5m-1t-1cC" firstAttribute="leading" secondItem="hTf-I7-WiX" secondAttribute="leading" constant="10" id="Q0p-VO-OMz"/>
-                                    <constraint firstAttribute="centerY" secondItem="V5m-1t-1cC" secondAttribute="centerY" id="S3O-qu-uod"/>
-                                    <constraint firstAttribute="height" constant="66" id="dkO-VA-6C9"/>
-                                    <constraint firstAttribute="centerX" secondItem="V5m-1t-1cC" secondAttribute="centerX" id="ifo-cA-ZgW"/>
+                                    <constraint firstItem="YZi-QV-spX" firstAttribute="leading" secondItem="hTf-I7-WiX" secondAttribute="leading" id="5kV-6N-pab"/>
+                                    <constraint firstAttribute="trailing" secondItem="YZi-QV-spX" secondAttribute="trailing" id="J5n-co-vG0"/>
+                                    <constraint firstItem="s0C-eD-9d7" firstAttribute="top" secondItem="YZi-QV-spX" secondAttribute="bottom" id="UiM-fA-A4l"/>
+                                    <constraint firstAttribute="height" constant="56" id="dkO-VA-6C9"/>
+                                    <constraint firstItem="YZi-QV-spX" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="top" id="ip8-kp-HYw"/>
                                     <constraint firstAttribute="centerX" secondItem="s0C-eD-9d7" secondAttribute="centerX" id="s1T-Of-qCc"/>
-                                    <constraint firstItem="V5m-1t-1cC" firstAttribute="top" secondItem="s0C-eD-9d7" secondAttribute="bottom" id="w1y-i6-P8o"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="D4R-FR-iTj"/>
-                                        <exclude reference="S3O-qu-uod"/>
-                                        <exclude reference="ifo-cA-ZgW"/>
-                                        <exclude reference="w1y-i6-P8o"/>
                                         <exclude reference="0zX-F2-jg2"/>
                                     </mask>
                                 </variation>
@@ -646,6 +630,7 @@
                         <constraints>
                             <constraint firstItem="d1Y-XL-FdP" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" id="0wF-g8-jJ6"/>
                             <constraint firstItem="hTf-I7-WiX" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" id="6OR-9y-ly8"/>
+                            <constraint firstItem="d1Y-XL-FdP" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="bottom" id="6cx-0F-zJq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d1Y-XL-FdP" secondAttribute="trailing" id="8jh-2u-CxL"/>
                             <constraint firstAttribute="trailing" secondItem="hTf-I7-WiX" secondAttribute="trailing" id="Gsk-uP-a96"/>
                             <constraint firstItem="cdw-er-KrX" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" constant="5" id="Kak-0y-DGh"/>
@@ -666,22 +651,23 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="6OR-9y-ly8"/>
                                 <exclude reference="0wF-g8-jJ6"/>
                                 <exclude reference="8jh-2u-CxL"/>
+                                <exclude reference="SZX-LE-uFm"/>
                                 <exclude reference="T3H-WB-CBa"/>
                                 <exclude reference="kkU-qs-QOO"/>
                                 <exclude reference="vFU-2b-yIS"/>
                                 <exclude reference="x1U-3G-9PT"/>
-                                <exclude reference="6OR-9y-ly8"/>
                             </mask>
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="1wH-JU-iOC"/>
                     <connections>
+                        <outlet property="contentTypeControlView" destination="hTf-I7-WiX" id="fJt-NB-fkc"/>
                         <outlet property="layoutChangerView" destination="cdw-er-KrX" id="GvR-lT-fln"/>
                         <outlet property="picksCollectionView" destination="d1Y-XL-FdP" id="KFF-RH-PZg"/>
-                        <outlet property="searchFilters" destination="V5m-1t-1cC" id="Ed6-Gl-LMI"/>
                         <outlet property="sorterView" destination="nGD-Af-ja2" id="Fvt-dW-WPn"/>
                     </connections>
                 </viewController>
@@ -842,8 +828,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvq-3S-kO6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
                                 <subviews>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Universal Access to Knowledge" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
+                                        <rect key="frame" x="0.0" y="0.0" width="565" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" keyboardAppearance="alert"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="qSn-LB-gda" id="JXz-hG-ess"/>
+                                        </connections>
+                                    </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbA-Rw-1mh">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="44"/>
+                                        <rect key="frame" x="565" y="0.0" width="30" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Eag-t3-FhB"/>
                                         </constraints>
@@ -856,16 +852,6 @@
                                             <action selector="didPressCloseButton:" destination="qSn-LB-gda" eventType="touchUpInside" id="iFU-eu-dVw"/>
                                         </connections>
                                     </button>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Universal Access to Knowledge" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-cD-TaP">
-                                        <rect key="frame" x="30" y="0.0" width="570" height="44"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" keyboardAppearance="alert"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="qSn-LB-gda" id="JXz-hG-ess"/>
-                                        </connections>
-                                    </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GeA-ip-p1u" customClass="ArchiveContentTypeControlView">
                                         <rect key="frame" x="0.0" y="44" width="600" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -894,6 +880,7 @@
                                     <constraint firstItem="GeA-ip-p1u" firstAttribute="top" secondItem="ykI-sc-EGX" secondAttribute="bottom" id="1hI-AK-Cax"/>
                                     <constraint firstAttribute="trailing" secondItem="jw3-cD-TaP" secondAttribute="trailing" id="258-RS-phD"/>
                                     <constraint firstItem="jw3-cD-TaP" firstAttribute="leading" secondItem="SbA-Rw-1mh" secondAttribute="trailing" id="6YD-oF-MD5"/>
+                                    <constraint firstAttribute="trailing" secondItem="jw3-cD-TaP" secondAttribute="trailing" id="DP4-aB-XOf"/>
                                     <constraint firstItem="SbA-Rw-1mh" firstAttribute="top" secondItem="yvq-3S-kO6" secondAttribute="top" id="HSg-Nj-yAh"/>
                                     <constraint firstItem="GeA-ip-p1u" firstAttribute="top" secondItem="jw3-cD-TaP" secondAttribute="bottom" id="JL7-Tf-tIa"/>
                                     <constraint firstItem="GeA-ip-p1u" firstAttribute="leading" secondItem="yvq-3S-kO6" secondAttribute="leading" id="OEY-Ts-oW2"/>
@@ -901,18 +888,25 @@
                                     <constraint firstAttribute="bottom" secondItem="ykI-sc-EGX" secondAttribute="bottom" id="Yw8-2Z-Q7n"/>
                                     <constraint firstItem="jw3-cD-TaP" firstAttribute="top" secondItem="yvq-3S-kO6" secondAttribute="top" id="Zqe-2i-8g2"/>
                                     <constraint firstAttribute="centerX" secondItem="ykI-sc-EGX" secondAttribute="centerX" id="a3a-LW-SWT"/>
+                                    <constraint firstAttribute="trailing" secondItem="SbA-Rw-1mh" secondAttribute="trailing" constant="5" id="bSw-wH-oln"/>
                                     <constraint firstAttribute="height" constant="110" id="fmn-Uh-JaM"/>
                                     <constraint firstAttribute="height" constant="150" id="npZ-Om-v7W"/>
                                     <constraint firstAttribute="trailing" secondItem="GeA-ip-p1u" secondAttribute="trailing" id="oUH-XF-d5V"/>
                                     <constraint firstItem="SbA-Rw-1mh" firstAttribute="leading" secondItem="yvq-3S-kO6" secondAttribute="leading" id="r4c-Uk-uPA"/>
                                     <constraint firstItem="ykI-sc-EGX" firstAttribute="top" secondItem="GeA-ip-p1u" secondAttribute="bottom" id="vLs-V6-e2h"/>
+                                    <constraint firstItem="SbA-Rw-1mh" firstAttribute="leading" secondItem="jw3-cD-TaP" secondAttribute="trailing" id="w8k-YU-4LQ"/>
+                                    <constraint firstItem="jw3-cD-TaP" firstAttribute="leading" secondItem="yvq-3S-kO6" secondAttribute="leading" id="wOb-YD-Ypn"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="fmn-Uh-JaM"/>
                                         <exclude reference="npZ-Om-v7W"/>
+                                        <exclude reference="258-RS-phD"/>
+                                        <exclude reference="6YD-oF-MD5"/>
+                                        <exclude reference="DP4-aB-XOf"/>
                                         <exclude reference="1hI-AK-Cax"/>
                                         <exclude reference="XgK-EF-CBE"/>
+                                        <exclude reference="r4c-Uk-uPA"/>
                                     </mask>
                                 </variation>
                             </view>

@@ -17,6 +17,7 @@
 #import "IAJsonDataService.h"
 #import "SorterView.h"
 #import "LayoutChangerView.h"
+#import "ArchiveContentTypeControlView.h"
 
 @interface ContentViewController () <IADataServiceDelegate, UISearchBarDelegate, UIAlertViewDelegate, UIToolbarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong)  UIWebView *moreInfoView;
@@ -36,6 +37,7 @@
 
 @property (nonatomic, weak) IBOutlet UICollectionView *picksCollectionView;
 @property (nonatomic, strong) NSMutableArray *searchDocuments;
+@property (nonatomic, weak) IBOutlet ArchiveContentTypeControlView *contentTypeControlView;
 
 @property (nonatomic, weak) IBOutlet LayoutChangerView *layoutChangerView;
 
@@ -46,6 +48,7 @@
 @property (nonatomic, strong) IAJsonDataService *service;
 @property (nonatomic, weak) IBOutlet SorterView *sorterView;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *searchFilters;
+
 
 
 @end
@@ -181,15 +184,10 @@
         [self.navigationItem setLeftBarButtonItems:@[_listButton]];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
+
     }
 
-    [self.searchFilters setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT, NSForegroundColorAttributeName:[UIColor darkGrayColor]} forState:UIControlStateNormal];
 
-    [self.searchFilters setTitle:ARCHIVE forSegmentAtIndex:0];
-    [self.searchFilters setTitle:AUDIO forSegmentAtIndex:1];
-    [self.searchFilters setTitle:VIDEO forSegmentAtIndex:2];
-    [self.searchFilters setTitle:BOOK  forSegmentAtIndex:3];
-    [self.searchFilters setTitle:IMAGE forSegmentAtIndex:4];
 
 
 
@@ -205,57 +203,33 @@
 
    // [self.sorterView.toolbar setItems:@[self.sorterView.dateButton, self.sorterView.titleButton, self.sorterView.viewsButton]];
 
+
+
+    self.contentTypeControlView.selectButtonBlock = ^(NSString *param){
+        [self searchFilterChangeWithParam:param];
+    };
+
 }
 
 
 #pragma mark - data
 
-- (NSString *)filterQueryParam
+
+- (void) searchFilterChangeWithParam:(NSString *)param
 {
+    [self.sorterView resetSortButtons];
 
-    NSInteger selectedSegment = self.searchFilters.selectedSegmentIndex;
-    // audio, video, text, image
+    service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"+pick:1%@",  param]];
+    [self.sorterView setService:service];
 
-    NSString *extraSearchParam = @"";
-
-    switch (selectedSegment) {
-        case 0:
-
-            break;
-        case 1:
-            extraSearchParam = @"+AND+mediatype:audio";
-            break;
-        case 2:
-            extraSearchParam = @"+AND+mediatype:movies";
-            break;
-        case 3:
-            extraSearchParam = @"+AND+mediatype:texts";
-            break;
-        case 4:
-            extraSearchParam = @"+AND+mediatype:image";
-            break;
-        default:
-            break;
-    }
-
-    return extraSearchParam;
-    
+    [service setDelegate:self];
+    [service fetchData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 }
 
-- (IBAction)searchFilterChange:(id)sender{
 
-    NSString *extraSearchParam = [self filterQueryParam];
 
-        [self.sorterView resetSortButtons];
 
-        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"+pick:1%@",  extraSearchParam]];
-        [self.sorterView setService:service];
-
-        [service setDelegate:self];
-        [service fetchData];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
-
-}
 
 
 
