@@ -355,6 +355,30 @@
         }
     }
     
+//    FileFormat64KbpsMP3 = 8,
+//    FileFormat128KbpsMP3 = 12,
+//    FileFormatMP3 = 13,
+//    FileFormat96KbpsMP3 = 14,
+//
+    // REMOVING ALL AUDIO BESIDES VBR MP3
+    [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormat128KbpsMP3]];
+    [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormatMP3]];
+    [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormat96KbpsMP3]];
+    [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormat64KbpsMP3]];
+    
+    
+    // Filtering out repeated titles in VBR List
+    NSArray *vbrs = [organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormatVBRMP3]];
+    NSMutableSet* existingNames = [NSMutableSet set];
+    NSMutableArray* filteredArray = [NSMutableArray array];
+    for (ArchiveFile *file in vbrs) {
+        if (![existingNames containsObject:file.title]) {
+            [existingNames addObject:file.title];
+            [filteredArray addObject:file];
+        }
+    }
+    [organizedMediaFiles setObject:filteredArray forKey:[NSNumber numberWithInt:FileFormatVBRMP3]];
+    
     [mediaTable reloadData];
     
 }
