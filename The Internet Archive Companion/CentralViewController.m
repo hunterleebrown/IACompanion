@@ -11,6 +11,7 @@
 #import "ItemContentViewController.h"
 #import "SearchViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "NSString+urlEncodeUsingEncoding.h"
 
 
 @interface CentralViewController ()
@@ -111,7 +112,6 @@
         [_contentNavController pushViewController:cvc animated:YES];
     }
     
-    
     if(_contentView.frame.origin.x == 256 && !UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
         [self moveContentViewOver];
     }
@@ -133,8 +133,6 @@
             [svc.searchBar becomeFirstResponder];
         }
     }];
-    
-
 }
 
 - (void) didReceiveSearchCreatorButtonPressNotification:(NSNotification *)notification{
@@ -145,12 +143,11 @@
         if(notification.object){
             [_searchNavigationViewController popToRootViewControllerAnimated:NO];
             SearchViewController *svc = [_searchNavigationViewController.viewControllers objectAtIndex:0];
+            [svc.searchFilters setSelectedSegmentIndex:0];
             [svc.searchBar setText:notification.object];
-//            [svc.searchBar becomeFirstResponder];
             [svc searchBarSearchButtonClicked:svc.searchBar];
         }
     }];
-    
 }
 
 

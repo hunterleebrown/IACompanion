@@ -9,6 +9,8 @@
 #import "ContentViewController.h"
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <Foundation/Foundation.h>
+
 
 @interface ItemContentViewController : ContentViewController<UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 

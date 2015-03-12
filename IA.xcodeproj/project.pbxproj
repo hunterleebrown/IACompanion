@@ -274,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				5ADAB7ED16C76E8100DBC072 /* IA Resources */,
+				5A5094591AAFE39400FC4D75 /* Categories */,
 				5AD16C62178E305200B7E58C /* Common Views */,
 				5A756D81177FA31500E7F922 /* View Controllers */,
 				5AB7369D17A5B8E800967D4D /* Loading View Controller */,
@@ -348,6 +349,13 @@
 			children = (
 			);
 			name = Multimedia;
+			sourceTree = "<group>";
+		};
+		5A5094591AAFE39400FC4D75 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		5A727D741800C8E900EEF8C2 /* Favorites */ = {

@@ -689,10 +689,10 @@
             </objects>
             <point key="canvasLocation" x="3890" y="-318"/>
         </scene>
-        <!--Internet Archive Search-->
+        <!--Navigation Controller-->
         <scene sceneID="gWW-bQ-agL">
             <objects>
-                <navigationController storyboardIdentifier="searchNav" title="Internet Archive Search" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cjw-69-9ia" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="searchNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cjw-69-9ia" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XJ4-Mx-86E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -712,7 +712,7 @@
             </objects>
             <point key="canvasLocation" x="3216" y="450"/>
         </scene>
-        <!--Internet Archive Search-->
+        <!--Search View Controller-->
         <scene sceneID="PJO-bR-F2G">
             <objects>
                 <viewController storyboardIdentifier="searchViewController" id="qSn-LB-gda" customClass="SearchViewController" sceneMemberID="viewController">
@@ -1081,9 +1081,7 @@
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Internet Archive Search" id="vsa-7D-1Bv">
-                        <barButtonItem key="backBarButtonItem" title=" " id="r7H-kj-jva"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="vsa-7D-1Bv"/>
                     <connections>
                         <outlet property="closeButton" destination="SbA-Rw-1mh" id="4Nt-8i-Bce"/>
                         <outlet property="layoutChangerView" destination="hPK-2f-X1p" id="79q-pw-9MU"/>
@@ -1170,7 +1168,7 @@
                                                     <action selector="didPressCreatorButton:" destination="gp1-Y2-9gB" eventType="touchUpInside" id="KM8-wE-vDl"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ven-fo-k3U">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ven-fo-k3U">
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -1211,17 +1209,17 @@
                                             <mask key="constraints">
                                                 <exclude reference="k7p-nC-a0A"/>
                                                 <exclude reference="s9E-Si-0mJ"/>
-                                                <exclude reference="I73-ey-Qub"/>
-                                                <exclude reference="N9b-z5-sLH"/>
-                                                <exclude reference="keC-8e-R57"/>
-                                                <exclude reference="Hgp-dv-60Q"/>
-                                                <exclude reference="OGG-Wl-6r3"/>
-                                                <exclude reference="utt-Ku-fYg"/>
-                                                <exclude reference="wgX-lA-GQd"/>
                                                 <exclude reference="4jh-E7-KdM"/>
                                                 <exclude reference="E2g-dZ-8S7"/>
                                                 <exclude reference="Jl9-66-dzn"/>
                                                 <exclude reference="s9e-UN-Rmt"/>
+                                                <exclude reference="I73-ey-Qub"/>
+                                                <exclude reference="N9b-z5-sLH"/>
+                                                <exclude reference="keC-8e-R57"/>
+                                                <exclude reference="OGG-Wl-6r3"/>
+                                                <exclude reference="utt-Ku-fYg"/>
+                                                <exclude reference="wgX-lA-GQd"/>
+                                                <exclude reference="Hgp-dv-60Q"/>
                                             </mask>
                                         </variation>
                                     </view>

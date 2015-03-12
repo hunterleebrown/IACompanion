@@ -20,6 +20,7 @@
 #import "StringUtils.h"
 
 
+
 @interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *mediaFiles;
@@ -325,9 +326,11 @@
 #pragma mark - creator button
 - (IBAction)didPressCreatorButton:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerCreator" object:[NSString stringWithFormat:@"creator:\"%@\"", self.detDoc.creator]];
+//    NSString *encode = [self.detDoc.creator stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSCharacterSet *customAllowedSet =  [NSCharacterSet characterSetWithCharactersInString:@"=\"#%/&<>?@\\^`{|}"].invertedSet;
+    NSString *sEncode = [self.detDoc.creator stringByAddingPercentEncodingWithAllowedCharacters:customAllowedSet];
 
-
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchViewControllerCreator" object:[NSString stringWithFormat:@"creator:\"%@\"", sEncode]];
 }
 
 
