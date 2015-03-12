@@ -10,10 +10,8 @@
 
 @interface SearchViewController : UIViewController <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, weak) IBOutlet UISegmentedControl *searchFilters;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
-- (IBAction)searchFilterChange:(id)sender;
 - (void) searchBarSearchButtonClicked:(UISearchBar *)inSearchBar;
 
 

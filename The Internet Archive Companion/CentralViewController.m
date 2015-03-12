@@ -142,7 +142,7 @@
         if(notification.object){
             [_searchNavigationViewController popToRootViewControllerAnimated:NO];
             SearchViewController *svc = [_searchNavigationViewController.viewControllers objectAtIndex:0];
-            [svc.searchFilters setSelectedSegmentIndex:0];
+//            [svc.searchFilters setSelectedSegmentIndex:0];
             [svc.searchBar setText:notification.object];
             [svc searchBarSearchButtonClicked:svc.searchBar];
         }

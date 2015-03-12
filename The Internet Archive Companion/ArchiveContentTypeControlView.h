@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArchiveSearchDoc.h"
 
 @interface ArchiveContentTypeControlView : UIView
 
 @property (copy) void (^selectButtonBlock)(NSString *param);
+@property (nonatomic) MediaType currentMediaType;
+
+- (NSString *)filterQueryParam:(MediaType)type;
 
 @end

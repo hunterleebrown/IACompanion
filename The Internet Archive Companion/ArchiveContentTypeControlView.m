@@ -40,7 +40,7 @@
             [button addTarget:self action:@selector(didSelectButton:) forControlEvents:UIControlEventTouchUpInside];
         }
 
-
+        self.currentMediaType = MediaTypeNone;
 
     }
     return self;
@@ -65,7 +65,7 @@
     CGFloat startx = 10;
     for(UIButton *button in self.buttons)
     {
-        button.frame = CGRectMake(startx, 10, width, 34);
+        button.frame = CGRectMake(startx, 0, width, 34);
         startx += width;
     }
 
@@ -84,11 +84,13 @@
     {
         self.selectButtonBlock([weakself filterQueryParam:MediaTypeNone]);
         [self unselectAll];
+        self.currentMediaType = MediaTypeNone;
 
     }
     else
     {
         self.selectButtonBlock([weakself filterQueryParam:(MediaType)button.tag]);
+        self.currentMediaType = (MediaType)button.tag;
         [self allGreyButtons];
         [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)button.tag] forState:UIControlStateNormal];
         button.selected = !button.selected;
@@ -120,17 +122,7 @@
 
 }
 
-- (MediaType)selectedMediaType
-{
-    for(UIButton *button in self.buttons)
-    {
-        if (button.selected) {
-            return button.tag;
-        }
-    }
 
-    return MediaTypeNone;
-}
 
 
 - (NSString *)filterQueryParam:(MediaType)type

@@ -42,7 +42,7 @@
 @end
 
 @implementation SearchViewController
-@synthesize service, searchBar, searchFilters, searchDocuments, numFound, start, didTriggerLoadMore;
+@synthesize service, searchBar, searchDocuments, numFound, start, didTriggerLoadMore;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -62,25 +62,12 @@
     searchDocuments = [NSMutableArray new];
     didTriggerLoadMore = NO;
     
-//    [self.navigationItem setLeftBarButtonItems:nil];
-//   
-//    UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
-//    [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
-//    [self.navigationItem setRightBarButtonItems:@[closeItem]];
+
     
-    
-    
-    [self.searchFilters setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT, NSForegroundColorAttributeName:[UIColor darkGrayColor]} forState:UIControlStateNormal];
-    
-    [self.searchFilters setTitle:ARCHIVE forSegmentAtIndex:0];    
-    [self.searchFilters setTitle:AUDIO forSegmentAtIndex:1];
-    [self.searchFilters setTitle:VIDEO forSegmentAtIndex:2];
-    [self.searchFilters setTitle:BOOK  forSegmentAtIndex:3];
-    [self.searchFilters setTitle:IMAGE forSegmentAtIndex:4];
+
     
     [self.closeButton setTitle:CLOSE forState:UIControlStateNormal];
     
-    self.searchFilters.layer.borderColor = [UIColor clearColor].CGColor;
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
@@ -164,9 +151,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
     [self.sorterView resetSortButtons];
 
-    if([self filterQueryParam])
+    if(self.contentTypeControlView.currentMediaType != MediaTypeNone)
     {
-        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, [self filterQueryParam]]];
+        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, [self.contentTypeControlView filterQueryParam:self.contentTypeControlView.currentMediaType]]];
         [self.sorterView setService:service];
     }
     else{
@@ -181,37 +168,7 @@
 }
 
 
-- (NSString *)filterQueryParam
-{
 
-    NSInteger selectedSegment = searchFilters.selectedSegmentIndex;
-    // audio, video, text, image
-
-    NSString *extraSearchParam = @"";
-
-    switch (selectedSegment) {
-        case 0:
-
-            break;
-        case 1:
-            extraSearchParam = @"+AND+mediatype:audio";
-            break;
-        case 2:
-            extraSearchParam = @"+AND+mediatype:movies";
-            break;
-        case 3:
-            extraSearchParam = @"+AND+mediatype:texts";
-            break;
-        case 4:
-            extraSearchParam = @"+AND+mediatype:image";
-            break;
-        default:
-            break;
-    }
-
-    return extraSearchParam;
-
-}
 
 
 - (void) searchFilterChangeWithParam:(NSString *)param
@@ -230,23 +187,6 @@
 
 }
 
-- (IBAction)searchFilterChange:(id)sender{
-
-    NSString *extraSearchParam = [self filterQueryParam];
-
-    if(![searchBar.text isEqualToString:@""]){
-        [self.sorterView resetSortButtons];
-        
-        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, extraSearchParam]];
-        [self.sorterView setService:service];
-
-        [service setDelegate:self];
-        [service fetchData];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
-        [searchBar resignFirstResponder];
-    }
-    
-}
 
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv {
