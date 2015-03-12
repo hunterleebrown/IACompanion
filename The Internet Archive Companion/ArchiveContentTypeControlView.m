@@ -50,12 +50,18 @@
 - (UIButton *)createButtonForMediaTypeNumber:(NSNumber *)mediaType
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:[MediaUtils iconStringFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:25]];
+
+
+    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:[MediaUtils iconStringFromMediaType:(MediaType)[mediaType integerValue]] attributes:@{NSFontAttributeName : [UIFont fontWithName:ICONOCHIVE size:25], NSForegroundColorAttributeName : [MediaUtils colorFromMediaType:(MediaType)[mediaType integerValue]]}];
+    [button setAttributedTitle:attString forState:UIControlStateNormal];
+
+    NSAttributedString *attStringSelected = [[NSAttributedString alloc] initWithString:[MediaUtils iconStringFromMediaType:(MediaType)[mediaType integerValue]] attributes:@{NSFontAttributeName : [UIFont fontWithName:ICONOCHIVE size:30], NSForegroundColorAttributeName : [MediaUtils colorFromMediaType:(MediaType)[mediaType integerValue]]}];
+    [button setAttributedTitle:attStringSelected forState:UIControlStateSelected];
+
+
 
     [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateSelected];
-
 
     [button setTag:[mediaType integerValue]];
     return button;
@@ -103,6 +109,9 @@
     for(UIButton *button in self.buttons){
         if(!button.selected) {
             [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+
+            NSAttributedString *attString = [[NSAttributedString alloc] initWithString:[MediaUtils iconStringFromMediaType:(MediaType)button.tag] attributes:@{NSFontAttributeName : [UIFont fontWithName:ICONOCHIVE size:25], NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
+            [button setAttributedTitle:attString forState:UIControlStateNormal];
         }
     }
     
@@ -113,8 +122,8 @@
 {
     for(UIButton *button in self.buttons)
     {
-        [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)button.tag] forState:UIControlStateNormal];
-    }
+        NSAttributedString *attString = [[NSAttributedString alloc] initWithString:[MediaUtils iconStringFromMediaType:(MediaType)button.tag] attributes:@{NSFontAttributeName : [UIFont fontWithName:ICONOCHIVE size:25], NSForegroundColorAttributeName : [MediaUtils colorFromMediaType:(MediaType)button.tag]}];
+        [button setAttributedTitle:attString forState:UIControlStateNormal];    }
 
 }
 
