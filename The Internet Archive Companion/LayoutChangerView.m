@@ -65,8 +65,10 @@
     for(UIButton *button in @[self.gridButton, self.listButton])
     {
         [button.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:25]];
-        [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [button setTintColor:[UIColor darkGrayColor]];
+        [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [button setTintColor:[UIColor clearColor]];
+        [button setTitleColor:BUTTON_DEFAULT_SELECT_COLOR forState:UIControlStateSelected];
+        
     }
 
 

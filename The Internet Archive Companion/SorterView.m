@@ -32,6 +32,13 @@
     [self.toolbar setBackgroundColor:[UIColor clearColor]];
 
     self.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.85];
+    
+    for(UIButton *button in @[self.relevanceButton, self.titleButton, self.viewsButton, self.dateButton])
+    {
+        button.tintColor = [UIColor clearColor];
+        [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [button setTitleColor:BUTTON_DEFAULT_SELECT_COLOR forState:UIControlStateSelected];
+    }
 
 
 }

@@ -12,6 +12,7 @@
 
 @interface ArchiveContentTypeControlView ()
 @property (nonatomic, strong) NSMutableArray *buttons;
+@property (nonatomic, strong) UILabel *filterLabel;
 @end
 
 @implementation ArchiveContentTypeControlView
@@ -40,6 +41,13 @@
             [button addTarget:self action:@selector(didSelectButton:) forControlEvents:UIControlEventTouchUpInside];
         }
 
+        self.filterLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 12)];
+        [self.filterLabel setFont:[UIFont systemFontOfSize:11]];
+        [self.filterLabel setText:@"filter toggles"];
+        [self.filterLabel setTextColor:[UIColor lightGrayColor]];
+        [self.filterLabel setTextAlignment:NSTextAlignmentCenter];
+//        [self addSubview:self.filterLabel];
+        
         self.currentMediaType = MediaTypeNone;
         [self recolorAllButtons];
     }
@@ -76,8 +84,13 @@
     {
         button.frame = CGRectMake(startx, 0, width, 34);
         startx += width;
+//        button.layer.borderColor = [UIColor redColor].CGColor;
+//        button.layer.borderWidth = 1.0;
     }
+    
+    self.filterLabel.frame = CGRectMake(0, 0, self.bounds.size.width, 12);
 
+    
 }
 
 - (void) didSelectButton:(id)sender

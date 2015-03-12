@@ -22,7 +22,7 @@
 
 @interface IADataService : NSObject<ArchiveFileDownloaderDelegate>
 
-@property (nonatomic, strong) id<IADataServiceDelegate> delegate;
+@property (nonatomic, weak) id<IADataServiceDelegate> delegate;
 @property (nonatomic, strong) NSString *urlStr;
 
 - (id)initWithUrlString:(NSString *)urlString;

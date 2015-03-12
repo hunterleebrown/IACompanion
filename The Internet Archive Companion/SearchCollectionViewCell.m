@@ -13,7 +13,8 @@
 
 
 //static CGFloat compactHeight = 44.0f;
-#define TITLE_FONT [UIFont systemFontOfSize:17]
+#define TITLE_FONT [UIFont systemFontOfSize:14]
+#define CREATOR_FONT [UIFont systemFontOfSize:12]
 
 
 @interface SearchCollectionViewCell ()
@@ -37,10 +38,12 @@
 + (NSAttributedString *) titleAttributedString:(NSString *)string
 {
     UIFont *font = TITLE_FONT;
+    
+
     NSMutableParagraphStyle *para = [NSMutableParagraphStyle new];
-    para.lineSpacing = 0;
-    para.maximumLineHeight = font.pointSize;
-    para.maximumLineHeight = font.pointSize;
+    para.lineSpacing = 0.5;
+//    para.maximumLineHeight = font.pointSize;
+//    para.maximumLineHeight = font.pointSize;
 
     return [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName : font, NSParagraphStyleAttributeName : para}];
 
@@ -51,27 +54,22 @@
 
     CollectionViewCellStyle style = doc.type == MediaTypeCollection ? CollectionViewCellStyleCollection : CollectionViewCellStyleItem;
     
-    UIFont *creatorFont = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
-    
 
     NSInteger orientationDivisor = UIInterfaceOrientationIsLandscape(orientation) ? 4 : 3;
 
     CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? orientationDivisor : 2;
-    //CGFloat padding = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 20 : 10;
     CGFloat padding = 10;
     
     CGFloat width = ceil((collectionView.bounds.size.width / divisor) - padding);
 
 
-
     CGSize labelTextSize = [[SearchCollectionViewCell titleAttributedString:doc.title] boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) context:nil].size;
 
     NSString *creatorName = [SearchCollectionViewCell creatorText:doc];
-    CGSize creatorSize = [creatorName boundingRectWithSize:CGSizeMake(width - padding, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName : creatorFont} context:nil].size;
 
     CGFloat height = labelTextSize.height + 15; //padding
 
-    height += [creatorName isEqualToString:@""] ? 0 : creatorFont.lineHeight;
+    height += [creatorName isEqualToString:@""] ? 0 : CREATOR_FONT.lineHeight;
     height += ICONOCHIVE_FONT.lineHeight;
 
     CGFloat imageHeight = style == CollectionViewCellStyleCollection ? 60 : ceil(width * 0.66);
@@ -98,9 +96,8 @@
 
     CGFloat height = TITLE_FONT.lineHeight + 10;
     NSString *creatorName = [SearchCollectionViewCell creatorText:doc];
-    UIFont *creatorFont = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
 
-    height += [creatorName isEqualToString:@""] ? 0 : creatorFont.lineHeight;
+    height += [creatorName isEqualToString:@""] ? 0 : CREATOR_FONT.lineHeight;
     height += ICONOCHIVE_FONT.lineHeight;
 
 
@@ -113,9 +110,9 @@
     self.archiveImageView.archiveImage = archiveSearchDoc.archiveImage;
 
     [self.titleLabel setAttributedText:[self.class titleAttributedString:archiveSearchDoc.title]];
-    [self.titleLabel setFont:[UIFont systemFontOfSize:17]];
 
     [self.creator setText:[self.class creatorText:archiveSearchDoc]];
+    [self.creator setFont:CREATOR_FONT];
 
     self.typeLabel.text = [MediaUtils iconStringFromMediaType:archiveSearchDoc.type];
     [self.typeLabel setTextColor:[MediaUtils colorFromMediaType:archiveSearchDoc.type]];
@@ -127,7 +124,6 @@
         [self setCollectionCellStyle:CollectionViewCellStyleItem];
     }
 
-//    [self.countLabel setText:[StringUtils decimalFormatNumberFromInteger:[[archiveSearchDoc.rawDoc objectForKey:@"downloads"] integerValue]]];
 
     NSString *countString = [StringUtils decimalFormatNumberFromInteger:[[archiveSearchDoc.rawDoc objectForKey:@"downloads"] integerValue]];
     NSMutableAttributedString *countAtt = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", VIEWS, countString]];
@@ -202,7 +198,6 @@
             break;
         case CollectionViewCellStyleItem:
             [self.titleLabel setTextColor:[UIColor blackColor]];
-            //            [self.creator setTextColor:[UIColor whiteColor]];
             [self setBackgroundColor:[UIColor whiteColor]];
 
             [self.creator setTextColor:[UIColor darkGrayColor]];
@@ -212,7 +207,6 @@
             self.archiveImageView.layer.masksToBounds = YES;
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
             [self.archiveImageView setClipsToBounds:YES];
-//            self.dateLabel.hidden = NO;
 
             [self.dateLabel setTextColor:[UIColor darkGrayColor]];
             

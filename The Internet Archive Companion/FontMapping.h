@@ -62,7 +62,7 @@
 #define VIEWS_COLOR [UIColor colorWithRed:117.0/255.0 green:117.0/255.0 blue:117.0/255.0 alpha:1.0]
 
 #define COLLECTION_BACKGROUND_COLOR [UIColor colorWithRed:133.0/255.0 green:133.0/255.0 blue:133.0/255.0 alpha:1.0]
-
+#define BUTTON_DEFAULT_SELECT_COLOR [UIColor colorWithRed:67.0/255.0 green:139.0/255.0 blue:202.0/255.0 alpha:1.0]
 
 
 #endif

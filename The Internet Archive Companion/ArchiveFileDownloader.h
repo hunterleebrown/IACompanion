@@ -35,7 +35,7 @@ typedef enum {
 @interface ArchiveFileDownloader : NSObject
 
 
-@property (nonatomic, assign) id <ArchiveFileDownloaderDelegate> delegate;
+@property (nonatomic, weak) id <ArchiveFileDownloaderDelegate> delegate;
 @property (nonatomic, assign) id target;
 @property (nonatomic, readonly) ArchiveFileDownload *download;
 @property (nonatomic, assign) BOOL useCurrentRunLoop;
