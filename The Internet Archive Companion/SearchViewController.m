@@ -146,15 +146,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
     [self.sorterView resetSortButtons];
 
-    if(self.contentTypeControlView.currentMediaType != MediaTypeNone)
-    {
-        service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, [self.contentTypeControlView filterQueryParam:self.contentTypeControlView.currentMediaType]]];
-        [self.sorterView setService:service];
-    }
-    else{
-        service = [[IAJsonDataService alloc] initWithQueryString:searchBar.text];
-        [self.sorterView setService:service];
-    }
+    service = [[IAJsonDataService alloc] initWithQueryString:[NSString stringWithFormat:@"%@%@", searchBar.text, [self.contentTypeControlView selectedFilters]]];
+    [self.sorterView setService:service];
 
     [service setDelegate:self];
     [service fetchData];

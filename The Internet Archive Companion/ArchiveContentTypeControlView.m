@@ -52,8 +52,14 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:[MediaUtils iconStringFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:25]];
-    [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+
+//    [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateNormal];
+//    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+
+    [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)[mediaType integerValue]] forState:UIControlStateSelected];
+
+
     [button setTag:[mediaType integerValue]];
     return button;
 
@@ -80,25 +86,26 @@
 
     ArchiveContentTypeControlView __weak *weakself = self;
 
-    if(button.selected)
-    {
-        self.selectButtonBlock([weakself filterQueryParam:MediaTypeNone]);
-        [self unselectAll];
-        self.currentMediaType = MediaTypeNone;
+//    if(button.selected)
+//    {
+//        self.selectButtonBlock([weakself filterQueryParam:MediaTypeNone]);
+//        [self unselectAll];
+//        self.currentMediaType = MediaTypeNone;
+//
+//    }
+//    else
+//    {
+//        self.selectButtonBlock([weakself filterQueryParam:(MediaType)button.tag]);
+//        self.currentMediaType = (MediaType)button.tag;
+//        [self allGreyButtons];
+//        [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)button.tag] forState:UIControlStateNormal];
+//        button.selected = !button.selected;
+//
+//    }
 
-    }
-    else
-    {
-        self.selectButtonBlock([weakself filterQueryParam:(MediaType)button.tag]);
-        self.currentMediaType = (MediaType)button.tag;
-        [self allGreyButtons];
-        [button setTitleColor:[MediaUtils colorFromMediaType:(MediaType)button.tag] forState:UIControlStateNormal];
-        button.selected = !button.selected;
-
-    }
-
-
-
+    button.selected = !button.selected;
+    NSLog(@"------> %@", [weakself selectedFilters]);
+    self.selectButtonBlock([weakself selectedFilters]);
 }
 
 
@@ -123,40 +130,44 @@
 }
 
 
+- (NSString *)selectedFilters
+{
+    NSMutableString *filter = [[NSMutableString alloc] initWithString:@""];
+    int count = 0;
+    for (UIButton *button in self.buttons) {
+        if(button.selected){
+            [filter appendString:[NSString stringWithFormat:@"%@%@",count == 0 ? @"+AND+(" : @"+OR+", [self filterQueryParam:(MediaType)button.tag]]];
+            count ++;
+        }
+
+    }
+
+    return [NSString stringWithFormat:@"%@%@", filter, filter.length == 0 ? @"" : @")"];
+}
 
 
 - (NSString *)filterQueryParam:(MediaType)type
 {
 
-    NSString *extraSearchParam = @"";
-
     switch (type) {
         case MediaTypeNone:
-            break;
+            return @"";
         case MediaTypeAudio:
-            extraSearchParam = @"+AND+mediatype:audio";
-            break;
+            return @"mediatype:audio";
         case MediaTypeEtree:
-            extraSearchParam = @"+AND+mediatype:etree";
-            break;
+            return @"mediatype:etree";
         case MediaTypeVideo:
-            extraSearchParam = @"+AND+mediatype:movies";
-            break;
+            return @"mediatype:movies";
         case MediaTypeTexts:
-            extraSearchParam = @"+AND+mediatype:texts";
-            break;
+            return @"mediatype:texts";
         case MediaTypeImage:
-            extraSearchParam = @"+AND+mediatype:image";
-            break;
+            return @"mediatype:image";
         case MediaTypeCollection:
-            extraSearchParam = @"+AND+mediatype:collection";
-            break;
+            return @"mediatype:collection";
         default:
-            break;
+            return @"";
     }
 
-    return extraSearchParam;
-    
 }
 
 

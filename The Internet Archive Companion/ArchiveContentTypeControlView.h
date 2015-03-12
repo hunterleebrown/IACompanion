@@ -15,5 +15,6 @@
 @property (nonatomic) MediaType currentMediaType;
 
 - (NSString *)filterQueryParam:(MediaType)type;
+- (NSString *)selectedFilters;
 
 @end
