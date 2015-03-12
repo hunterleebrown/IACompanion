@@ -361,24 +361,45 @@
 //    FileFormat96KbpsMP3 = 14,
 //
     // REMOVING ALL AUDIO BESIDES VBR MP3
-    [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormat128KbpsMP3]];
-    [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormatMP3]];
-    [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormat96KbpsMP3]];
-    [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormat64KbpsMP3]];
+    if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormat128KbpsMP3]] != nil){
+        [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormat128KbpsMP3]];
+    }
+    if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormatMP3]] != nil){
+        [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormatMP3]];
+    }
+    if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormat96KbpsMP3]] != nil){
+        [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormat96KbpsMP3]];
+    }
+    if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormat64KbpsMP3]] != nil){
+        [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormat64KbpsMP3]];
+    }
     
-    
-    // Filtering out repeated titles in VBR List
-    NSArray *vbrs = [organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormatVBRMP3]];
-    NSMutableSet* existingNames = [NSMutableSet set];
-    NSMutableArray* filteredArray = [NSMutableArray array];
-    for (ArchiveFile *file in vbrs) {
-        if (![existingNames containsObject:file.title]) {
-            [existingNames addObject:file.title];
-            [filteredArray addObject:file];
+    if(self.detDoc.type != MediaTypeTexts)
+    {
+        if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormatDjVuTXT]] != nil){
+            [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormatDjVuTXT]];
+        }
+        if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormatTxt]] != nil){
+            [organizedMediaFiles removeObjectForKey:[NSNumber numberWithInt:FileFormatTxt]];
         }
     }
-    [organizedMediaFiles setObject:filteredArray forKey:[NSNumber numberWithInt:FileFormatVBRMP3]];
     
+    
+    if([organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormatVBRMP3]] != nil)
+    {
+        // Filtering out repeated titles in VBR List
+        NSArray *vbrs = [organizedMediaFiles objectForKey:[NSNumber numberWithInt:FileFormatVBRMP3]];
+        NSMutableSet* existingNames = [NSMutableSet set];
+        NSMutableArray* filteredArray = [NSMutableArray array];
+        for (ArchiveFile *file in vbrs) {
+            if (![existingNames containsObject:file.title]) {
+                [existingNames addObject:file.title];
+                [filteredArray addObject:file];
+            }
+        }
+        [organizedMediaFiles setObject:filteredArray forKey:[NSNumber numberWithInt:FileFormatVBRMP3]];
+    }
+        
     [mediaTable reloadData];
     
 }

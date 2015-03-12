@@ -16,7 +16,6 @@ typedef enum {
     
     FileFormatJPEG = 5,
     FileFormatGIF = 6,
-    FileFormatProcessedJP2ZIP = 7,
     
     FileFormatH264 = 2,
     FileFormatMPEG4 = 3,
@@ -25,6 +24,7 @@ typedef enum {
     
     FileFormatDjVuTXT = 10,
     FileFormatTxt = 11,
+    FileFormatProcessedJP2ZIP = 7,
 
     FileFormatVBRMP3 = 1,
     FileFormat64KbpsMP3 = 8,
