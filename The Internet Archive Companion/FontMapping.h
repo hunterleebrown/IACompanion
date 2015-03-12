@@ -56,7 +56,7 @@
 #define VIDEO_COLOR [UIColor colorWithRed:235.0/255.0 green:77.0/255.0 blue:59.0/255.0 alpha:1.0]
 #define BOOK_COLOR [UIColor colorWithRed:246.0/255.0 green:155.0/255.0 blue:47.0/255.0 alpha:1.0]
 #define IMAGE_COLOR [UIColor colorWithRed:153.0/255.0 green:132.0/255.0 blue:189.0/255.0 alpha:1.0]
-#define COLLECTION_COLOR [UIColor blackColor]
+#define COLLECTION_COLOR [UIColor colorWithRed:53.0/255.0 green:118.0/255.0 blue:190.0/255.0 alpha:1.0]
 #define SOFTWARE_COLOR [UIColor colorWithRed:142.0/255.0 green:197.0/255.0 blue:63.0/255.0 alpha:1.0]
 #define ETREE_COLOR [UIColor colorWithRed:19.0/255.0 green:155.0/255.0 blue:235.0/255.0 alpha:1.0]
 #define VIEWS_COLOR [UIColor colorWithRed:117.0/255.0 green:117.0/255.0 blue:117.0/255.0 alpha:1.0]
