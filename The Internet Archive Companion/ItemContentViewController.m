@@ -207,7 +207,7 @@
         NSString *creator = self.detDoc.creator;
         NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", @"by", creator]];
         [attString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, [@"by" length])];
-        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(3, creator.length)];
+        [attString addAttribute:NSForegroundColorAttributeName value:BUTTON_DEFAULT_SELECT_COLOR range:NSMakeRange(3, creator.length)];
 
         
         NSMutableAttributedString *selAtt = [[NSMutableAttributedString alloc] initWithAttributedString:attString];
