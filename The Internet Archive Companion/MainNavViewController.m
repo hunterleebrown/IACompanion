@@ -58,6 +58,7 @@
         [textService setDelegate:self];
         
         
+        
 
     }
     return self;
@@ -288,9 +289,7 @@
     }
     
 }
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 22.0f;
-}
+
 
 
 
@@ -331,8 +330,6 @@
             headerCell.sectionLabel.text =  @"";
             break;
     }
-    [headerCell setBackgroundColor:[UIColor clearColor]];
-    [headerCell.contentView setBackgroundColor:[UIColor colorWithRed:134.0/255.0 green:134.0/255.0 blue:134.0/255.0 alpha:1.0]];
 
     return headerCell;
 
@@ -364,6 +361,14 @@
     return NO;
 }
 
+
+- (void)viewDidLayoutSubviews
+{
+
+    [self.topToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    
+    [super viewDidLayoutSubviews];
+}
 
 
 
