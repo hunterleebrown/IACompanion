@@ -372,14 +372,7 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSString *urlString = request.URL.absoluteString;
     if(navigationType == UIWebViewNavigationTypeLinkClicked){
-        
-//        if(webView == self.middleWebView){
-//            externalUrl = request.URL;
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-//            [alert show];
-//            return NO;
-//        }
-        
+
         NSString *detailURL;
         
         NSArray *slashes = [urlString componentsSeparatedByString:@"/"];

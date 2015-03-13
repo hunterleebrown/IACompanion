@@ -31,6 +31,7 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *homeBarButtonItem;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *mediaBarButtonItem;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *favoritesBarButtonItem;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *questionBarButtonItem;
 
 
 @end
@@ -81,13 +82,14 @@
 
 
 
-    for(UIBarButtonItem *item in @[self.favoritesBarButtonItem, self.mediaBarButtonItem])
+    for(UIBarButtonItem *item in @[self.favoritesBarButtonItem, self.mediaBarButtonItem, self.questionBarButtonItem])
     {
         [item setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT} forState:UIControlStateNormal];
     }
 
     [self.favoritesBarButtonItem setTitle:FAVORITE];
     [self.mediaBarButtonItem setTitle:MEDIAPLAYER];
+    [self.questionBarButtonItem setTitle:QUESTION];
 
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endRefreshing) name:@"EndRefreshing" object:nil];
@@ -121,7 +123,11 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenMediaPlayer" object:nil];
 }
 
+- (IBAction)goCredits:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenCredits" object:nil];
 
+}
 
 
 - (void) endRefreshing

@@ -27,6 +27,9 @@
 #define CLOCK @"\U0001F551"
 #define STAR @"\u2605"
 #define GRID @"\u229E"
+#define QUESTION @"\u2370"
+
+
 
 #define TEXTASC @"\U0001F524"
 #define TEXTDSC @"\U0001F525"

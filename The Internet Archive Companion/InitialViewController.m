@@ -55,6 +55,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatusBarBlack) name:@"ChangeStatusBarBlack" object:nil];
 
 
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openCredits) name:@"OpenCredits" object:nil];
+
+    
 
     
 //    if([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]){
@@ -176,7 +180,12 @@
 }
 
 
+- (void)openCredits
+{
+    UINavigationController *creditsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"creditsViewController"];
+    [self presentViewController:creditsVC animated:YES completion:nil];
 
+}
 
 
 
@@ -198,12 +207,6 @@
         [favs addFavorite:doc];
     }
 
-//
-//    [self presentViewController:favoritesVC animated:YES completion:^{
-//        if(doc){
-//            [favs addFavorite:doc];
-//        }
-//    }];
 
 }
 
