@@ -21,13 +21,14 @@
 
 
 
-@interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) NSMutableArray *mediaFiles;
 @property (nonatomic, strong) NSMutableDictionary *organizedMediaFiles;
 @property (nonatomic, weak) IBOutlet UITableView *mediaTable;
 @property (nonatomic, weak) IBOutlet UIView *collectionHolderView;
 
+@property (nonatomic, strong) NSURL *externalUrl;
 
 
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
@@ -447,7 +448,10 @@
             [pageViewController setIdentifier:self.searchDoc.identifier];
             [pageViewController setBookFile:aFile];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenBookViewer" object:pageViewController];
-
+        } else if (aFile.format == FileFormatEPUB) {
+            self.externalUrl = [NSURL URLWithString:aFile.url];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page To Save EPUB Book" message:@"Do you want to open Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+            [alert show];
 
         } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"AddToPlayerListFileAndPlayNotification" object:aFile];
@@ -469,7 +473,7 @@
         [headerCell setTypeLabelIconFromFileTypeString:format];
 
         MediaType *type = [MediaUtils mediaTypeFromFileFormat:[MediaUtils formatFromString:format]];
-        headerCell.sectionPlayAllButton.hidden = type == MediaTypeNone;
+        headerCell.sectionPlayAllButton.hidden = type == MediaTypeNone || type == MediaTypeTexts;
         [headerCell.sectionPlayAllButton setTag:section];
         [headerCell.sectionPlayAllButton addTarget:self action:@selector(playAll:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -594,11 +598,20 @@
                                           otherButtonTitles:nil];
     [alert show];
 }
+
+
 - (NSString *)shareMessage{
     
     return [NSString stringWithFormat:@"From the Internet Archive: %@", [NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
 }
 
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        [[UIApplication sharedApplication] openURL:self.externalUrl];
+
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

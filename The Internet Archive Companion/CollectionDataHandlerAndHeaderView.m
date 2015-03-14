@@ -39,8 +39,7 @@
     didTriggerLoadMore = NO;
     identifier = ident;
     service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeNone];
-    [service changeToStaffPicks];
-    [self.sorterView setService:service];
+        [self.sorterView setService:service];
     [service setDelegate:self];
     [service fetchData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
@@ -181,7 +180,7 @@
 //            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 //            
 //            break;
-        case 1:
+        case 0:
             service = [[IAJsonDataService alloc] initForAllItemsWithCollectionIdentifier:identifier sortType:IADataServiceSortTypeNone];
             service.delegate = self;
             [self.sorterView setService:service];
@@ -190,7 +189,7 @@
 
             break;
 
-        case 0:
+        case 1:
             [service changeToStaffPicks];
             [service fetchData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];

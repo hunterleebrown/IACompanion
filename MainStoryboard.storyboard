@@ -1421,8 +1421,8 @@
                                                     <constraint firstAttribute="width" constant="300" id="ulG-eM-tyG"/>
                                                 </constraints>
                                                 <segments>
-                                                    <segment title="IA Picks"/>
                                                     <segment title="All Items"/>
+                                                    <segment title="IA Picks"/>
                                                 </segments>
                                                 <variation key="default">
                                                     <mask key="constraints">

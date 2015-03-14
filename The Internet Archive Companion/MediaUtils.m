@@ -53,6 +53,10 @@
             return MediaTypeVideo;
             break;
 
+        case FileFormatEPUB:
+            return MediaTypeTexts;
+            break;
+
         default:
             return MediaTypeNone;
             break;
@@ -183,6 +187,9 @@
             return IMAGE;
             break;
 
+        case FileFormatEPUB:
+            return BOOK;
+            break;
         default:
             return AUDIO;
             break;
@@ -252,7 +259,11 @@
         case FileFormat64KbpsMP3:
             return AUDIO_COLOR;
             break;
-            
+
+        case FileFormatEPUB:
+            return BOOK_COLOR;
+            break;
+
         default:
             return [UIColor blackColor];
             break;
@@ -320,7 +331,10 @@
             format = FileFormatTxt;
         } else if([name isEqualToString:@"PNG"]){
             format = FileFormatPNG;
+        } else if([name isEqualToString:@"EPUB"]){
+            format = FileFormatEPUB;
         }
+
         else {
             format = FileFormatOther;
         }

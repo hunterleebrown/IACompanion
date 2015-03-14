@@ -97,6 +97,8 @@
             _format = FileFormatTxt;
         } else if([[file objectForKey:@"format"] isEqualToString:@"PNG"]){
             _format = FileFormatPNG;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"EPUB"]){
+            _format = FileFormatEPUB;
         }
         else {
             _format = FileFormatOther;

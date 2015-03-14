@@ -150,7 +150,7 @@ NSString *const ShortDateFormat = @"M/d/YYYY";
 
     if(input > 1000000)
     {
-        NSNumber *calcNum = [NSNumber numberWithInteger:ceil(input / 1000000)];
+        NSNumber *calcNum = [NSNumber numberWithInteger:input / 1000000];
         return [NSString stringWithFormat:@"%@M", [calcNum stringValue]];
     }
 
