@@ -55,7 +55,7 @@
     CollectionViewCellStyle style = doc.type == MediaTypeCollection ? CollectionViewCellStyleCollection : CollectionViewCellStyleItem;
     
 
-    NSInteger orientationDivisor = UIInterfaceOrientationIsLandscape(orientation) ? 4 : 3;
+    NSInteger orientationDivisor = UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 4 : 3;
 
     CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? orientationDivisor : 2;
     CGFloat padding = 10;
