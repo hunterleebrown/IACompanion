@@ -67,7 +67,11 @@
 {
     self = [super init];
     if(self){
-        NSString *realQuery = [NSString stringWithFormat:@"%@+AND+NOT+collection:web+AND+NOT+collection:webwidecrawl", @"+pick:1"];
+        NSString *pick = @"pick:1+AND+NOT+collection:opensource_movies+AND+NOT+collection:opensource_audio+AND+NOT+collection:zoterocommons+AND+NOT+collection:scholarworkspaces+AND+NOT+collection:test_collection+AND+NOT+collection:opensource+AND+NOT+collection:ourmedia+AND+NOT+collection:open_source_software+AND+NOT+collection:opensource_media+AND+NOT+collection:web+AND+NOT+collection:webwidecrawl";
+
+//        NSString *pick = @"pick:1+AND+NOT+collection:open_source_audio+AND+NOT+collection:open_source_movies+";
+
+        NSString *realQuery = [NSString stringWithFormat:@"%@", pick];
         testUrl = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@&output=json&rows=50", realQuery];
         self.urlStr = testUrl;
         [self searchChangeSortType:IADataServiceSortTypeDateDescending];
