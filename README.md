@@ -1,6 +1,6 @@
 IACompanion
 ===========
-Version 4.0 (and branch 4_0) is a refresh of the entire code. The app now shares the same design style and elements found on the Internet Archive's web site refresh from March 2015.'   
+Version 4.0 (and branch 4_0) is a refresh of the entire code. The app now shares the same design style and elements found on the Internet Archive's web site refresh from March 2015.
 
 Now optimized with Collection views and switchable minimal list vs. tile view etc. 
 
