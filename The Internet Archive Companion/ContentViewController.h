@@ -13,7 +13,7 @@
 #import "MetaDataTable.h"
 #import "ArchiveImageView.h"
 
-@interface ContentViewController : UIViewController <IADataServiceDelegate, UIWebViewDelegate>
+@interface ContentViewController : UIViewController <IADataServiceDelegate, UIWebViewDelegate, UIAlertViewDelegate>
 
 
 
@@ -72,6 +72,7 @@
 - (IBAction)showPopUp:(id)sender;
 - (IBAction)showSharingActionsSheet:(id)sender;
 
+- (void)transitionMediaButtonColor:(UIColor *)color;
 
 
 @end

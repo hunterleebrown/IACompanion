@@ -21,7 +21,7 @@
 
 
 
-@interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *mediaFiles;
 @property (nonatomic, strong) NSMutableDictionary *organizedMediaFiles;
@@ -83,13 +83,11 @@
         [favsToolBuuton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
 
-        UIBarButtonItem *mediaButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
-        [mediaButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
         [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:20.0]} forState:UIControlStateNormal];
         
-        [self.navigationItem setRightBarButtonItems:@[closeItem, mediaButton, favsToolBuuton]];
+        [self.navigationItem setRightBarButtonItems:@[closeItem, self.mpBarButton, favsToolBuuton]];
         
         
         
@@ -449,7 +447,7 @@
             [pageViewController setBookFile:aFile];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenBookViewer" object:pageViewController];
         } else if (aFile.format == FileFormatEPUB) {
-            self.externalUrl = [NSURL URLWithString:aFile.url];
+//            self.externalUrl = [NSURL URLWithString:aFile.url];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page To Save EPUB Book" message:@"Do you want to open Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
             [alert show];
 
@@ -600,18 +598,26 @@
 }
 
 
+- (IBAction)showWeb:(id)sender
+{
+    self.externalUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    if(buttonIndex == 1){
+        [[UIApplication sharedApplication] openURL:self.externalUrl];
+
+    }
+}
 - (NSString *)shareMessage{
     
     return [NSString stringWithFormat:@"From the Internet Archive: %@", [NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
 }
 
 
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == 1){
-        [[UIApplication sharedApplication] openURL:self.externalUrl];
-
-    }
-}
 
 - (void)didReceiveMemoryWarning
 {

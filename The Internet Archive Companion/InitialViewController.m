@@ -13,6 +13,7 @@
 #import "CentralViewController.h"
 #import "FavoritesTableViewController.h"
 #import "NotifyUserView.h"
+#import "FontMapping.h"
 
 @interface InitialViewController () <NSFetchedResultsControllerDelegate>
 
@@ -22,6 +23,7 @@
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
 
 @property (nonatomic, weak) IBOutlet NotifyUserView *notifyUserView;
+
 
 @end
 
@@ -70,7 +72,18 @@
 
     self.statusBarStyle = UIStatusBarStyleDefault;
 
+
+
+
 }
+
+- (void)viewDidLayoutSubviews
+{
+
+}
+
+
+
 
 - (void)changeStatusBarWhite
 {

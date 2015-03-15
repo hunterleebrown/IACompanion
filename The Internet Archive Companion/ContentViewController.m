@@ -110,7 +110,6 @@
     _mpBarButton = [[UIBarButtonItem alloc] initWithTitle:MEDIAPLAYER style:UIBarButtonItemStylePlain target:self action:@selector(didPressMPButton)];
     [_mpBarButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
 
-
     [self.navigationItem setRightBarButtonItems:@[_searchButton, _mpBarButton, favsToolBuuton]];
     
     
@@ -184,7 +183,6 @@
         [self.navigationItem setLeftBarButtonItems:@[_listButton]];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 
-
     }
 
 
@@ -209,7 +207,13 @@
         [self searchFilterChangeWithParam:param];
     };
 
+
+
+
 }
+
+
+
 
 
 #pragma mark - data
@@ -416,12 +420,9 @@
     return YES;
 }
 
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == 1){
-        [[UIApplication sharedApplication] openURL:externalUrl];
 
-    }
-}
+
+
 
 
 
@@ -472,12 +473,7 @@
 }
 
 
-- (IBAction)showWeb:(id)sender
-{
-    externalUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-    [alert show];
-}
+
 
 - (IBAction) showPopUp:(id)sender{
     

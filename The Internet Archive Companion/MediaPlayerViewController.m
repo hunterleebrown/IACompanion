@@ -54,6 +54,7 @@
 @property (nonatomic, weak) IBOutlet UIToolbar *playerToolbar;
 @property (nonatomic, weak) IBOutlet UIToolbar *topToolbar;
 
+
 @end
 
 @implementation MediaPlayerViewController
@@ -321,7 +322,7 @@
 
 - (void) playBackStateChangeNotification:(NSNotification *)notification{
     switch(player.playbackState) {
-        case MPMoviePlaybackStatePlaying: {
+        case MPMoviePlaybackStatePlaying:
             [self monitorPlaybackTime];
 
             // Turn on remote control event delivery
@@ -329,16 +330,14 @@
             
             // Set itself as the first responder
             [self becomeFirstResponder];
-//            [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
             [playButton setTitle:PAUSE forState:UIControlStateNormal];
 
-        }
+
             break;
-        case MPMoviePlaybackStatePaused: {
-//            [playButton setImage:[UIImage imageNamed:@"play-button.png"] forState:UIControlStateNormal];
+        case MPMoviePlaybackStatePaused:
+        case MPMoviePlaybackStateStopped:
             [playButton setTitle:PLAY forState:UIControlStateNormal];
 
-        }
             break;
         default:
             break;
@@ -346,6 +345,9 @@
     }
     
 }
+
+
+
 
 - (void)updateRemote
 {

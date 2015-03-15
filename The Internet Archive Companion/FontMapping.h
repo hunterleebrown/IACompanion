@@ -29,7 +29,9 @@
 #define GRID @"\u229E"
 #define QUESTION @"\u2370"
 
-
+#define SPEAKER_0 @"\U0001F508"
+#define SPEAKER_1 @"\U0001F509"
+#define SPEAKER_2 @"\U0001F50A"
 
 #define TEXTASC @"\U0001F524"
 #define TEXTDSC @"\U0001F525"
