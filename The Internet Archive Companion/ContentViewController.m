@@ -365,6 +365,8 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    [self.picksCollectionView.collectionViewLayout invalidateLayout];
+
     [super viewDidAppear:animated];
 
 }
