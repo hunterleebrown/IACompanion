@@ -44,11 +44,6 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSearchButtonClosePressNotification:) name:@"SearchViewControllerClose" object:nil];
 
-    //[self doOrientationLayout:self.interfaceOrientation];
-
-//    self.contentView.layer.cornerRadius = 10;
-//    self.contentView.layer.masksToBounds = YES;
-//
     [self.navView setBackgroundColor:[UIColor clearColor]];
 
 }
