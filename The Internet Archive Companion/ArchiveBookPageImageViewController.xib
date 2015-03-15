@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1792</int>
-		<string key="IBDocument.SystemVersion">14C109</string>
-		<string key="IBDocument.InterfaceBuilderVersion">6254</string>
+		<string key="IBDocument.SystemVersion">14C1510</string>
+		<string key="IBDocument.InterfaceBuilderVersion">6751</string>
 		<string key="IBDocument.AppKitVersion">1344.72</string>
 		<string key="IBDocument.HIToolboxVersion">757.30</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">6247</string>
+			<string key="NS.object.0">6736</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -16,6 +16,7 @@
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUIScrollView</string>
+			<string>IBUITapGestureRecognizer</string>
 			<string>IBUIView</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -47,6 +48,7 @@
 								<int key="NSvFlags">274</int>
 								<string key="NSFrame">{{-264, 0}, {1296, 1004}}</string>
 								<reference key="NSSuperview" ref="432995484"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="442988153"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUIContentMode">1</int>
@@ -56,6 +58,7 @@
 						</array>
 						<string key="NSFrameSize">{768, 1004}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="930264023"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -67,6 +70,7 @@
 						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{357, 20}, {55, 22}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="736369768">
@@ -106,6 +110,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{10, 20}, {30, 30}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="315033032"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="480654866">
@@ -138,6 +143,7 @@
 				</array>
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="432995484"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -168,6 +174,7 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
+			<object class="IBUITapGestureRecognizer" id="252205999"/>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array key="connectionRecords">
@@ -212,6 +219,14 @@
 					<int key="connectionID">100</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">tapGestureRecognizer</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="252205999"/>
+					</object>
+					<int key="connectionID">107</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">popMe:</string>
 						<reference key="source" ref="442988153"/>
@@ -227,6 +242,23 @@
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">99</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">gestureRecognizers</string>
+						<reference key="source" ref="432995484"/>
+						<reference key="destination" ref="252205999"/>
+						<bool key="addsContentToExistingCollection">YES</bool>
+					</object>
+					<int key="connectionID">108</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">gotATap:</string>
+						<reference key="source" ref="252205999"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">109</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -284,6 +316,11 @@
 						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="432995484"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">101</int>
+						<reference key="object" ref="252205999"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -293,6 +330,7 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="101.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="21.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.CustomClassName">ArchiveImageView</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -302,9 +340,230 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100</int>
+			<int key="maxID">109</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">ArchiveBookPageImageViewController</string>
+					<string key="superclassName">ArchiveBookPageViewController</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="aSyncImageView">ArchiveImageView</string>
+						<string key="pageNumber">UILabel</string>
+						<string key="scrollView">UIScrollView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="aSyncImageView">
+							<string key="name">aSyncImageView</string>
+							<string key="candidateClassName">ArchiveImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="pageNumber">
+							<string key="name">pageNumber</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="scrollView">
+							<string key="name">scrollView</string>
+							<string key="candidateClassName">UIScrollView</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">../The Internet Archive Companion/ArchiveBookPageImageViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ArchiveBookPageImageViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">gotATap:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">gotATap:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">gotATap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">tapGestureRecognizer</string>
+						<string key="NS.object.0">UITapGestureRecognizer</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">tapGestureRecognizer</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">tapGestureRecognizer</string>
+							<string key="candidateClassName">UITapGestureRecognizer</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">../The Internet Archive Companion/ArchiveBookPageImageViewController.m</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ArchiveBookPageViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">popMe:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">popMe:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">popMe:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="leftShadow">UIImageView</string>
+						<string key="popButton">UIButton</string>
+						<string key="rightShadow">UIImageView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="leftShadow">
+							<string key="name">leftShadow</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="popButton">
+							<string key="name">popButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="rightShadow">
+							<string key="name">rightShadow</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">../The Internet Archive Companion/ArchiveBookPageViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ArchiveBookPageViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">popMe:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">popMe:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">popMe:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">../The Internet Archive Companion/ArchiveBookPageViewController.m</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ArchiveImageView</string>
+					<string key="superclassName">UIImageView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">../The Internet Archive Companion/ArchiveImageView.h</string>
+					</object>
+				</object>
+			</array>
+			<array class="NSMutableArray" key="referencedPartialClassDescriptionsV3.2+">
+				<object class="IBPartialClassDescription">
+					<string key="className">UIButton</string>
+					<string key="superclassName">UIControl</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIButton.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIControl</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIControl.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIGestureRecognizer</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIGestureRecognizer.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIImageView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIImageView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UILabel</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UILabel.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIResponder</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIResponder.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIScrollView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIScrollView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UISearchBar</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UISearchBar.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UISearchDisplayController</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UISearchDisplayController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UITapGestureRecognizer</string>
+					<string key="superclassName">UIGestureRecognizer</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UITapGestureRecognizer.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIView</string>
+					<string key="superclassName">UIResponder</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIViewController</string>
+					<string key="superclassName">UIResponder</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<bool key="IBDocument.previouslyAttemptedUpgradeToXcode5">NO</bool>

@@ -20,6 +20,7 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
 
 }
 
+@property (nonatomic, weak) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 
 
 @end
@@ -141,6 +142,14 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
     
 }
 
+- (IBAction)gotATap:(id)sender
+{
+    UIActivityViewController *shareViewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.aSyncImageView.image] applicationActivities:nil];
+    if([shareViewController respondsToSelector:@selector(popoverPresentationController)]){
+        [shareViewController.popoverPresentationController setSourceView:self.view];
+    }
+    [self presentViewController:shareViewController animated:YES completion:nil];
+}
 
 
 - (void) scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
