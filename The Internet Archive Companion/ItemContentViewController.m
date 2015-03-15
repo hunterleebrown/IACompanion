@@ -447,7 +447,7 @@
             [pageViewController setBookFile:aFile];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenBookViewer" object:pageViewController];
         } else if (aFile.format == FileFormatEPUB) {
-//            self.externalUrl = [NSURL URLWithString:aFile.url];
+            self.externalUrl = [NSURL URLWithString:aFile.url];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page To Save EPUB Book" message:@"Do you want to open Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
             [alert show];
 
