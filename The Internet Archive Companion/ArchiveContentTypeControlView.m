@@ -12,6 +12,8 @@
 
 @interface ArchiveContentTypeControlView ()
 @property (nonatomic, strong) NSMutableArray *buttons;
+@property (nonatomic, strong) NSMutableArray *subTitles;
+
 @property (nonatomic, strong) UILabel *filterLabel;
 @end
 
@@ -33,12 +35,18 @@
     {
 
         self.buttons = [NSMutableArray new];
+        self.subTitles = [NSMutableArray new];
 
         for (NSNumber *type in @[[NSNumber numberWithInteger:MediaTypeTexts], [NSNumber numberWithInteger:MediaTypeVideo], [NSNumber numberWithInteger:MediaTypeAudio], [NSNumber numberWithInteger:MediaTypeImage], [NSNumber numberWithInteger:MediaTypeEtree], [NSNumber numberWithInteger:MediaTypeCollection]]) {
             UIButton *button = [self createButtonForMediaTypeNumber:type];
             [self addSubview:button];
             [self.buttons addObject:button];
+
             [button addTarget:self action:@selector(didSelectButton:) forControlEvents:UIControlEventTouchUpInside];
+
+            UILabel *subLabel = [self textTitleForMediaTypeNumber:type];
+            [self addSubview:subLabel];
+            [self.subTitles addObject:subLabel];
         }
 
         self.filterLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 12)];
@@ -54,6 +62,15 @@
     return self;
 }
 
+- (UILabel *)textTitleForMediaTypeNumber:(NSNumber *)mediaType
+{
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectZero];
+    lab.text = [MediaUtils stringFromMediaType:(MediaType)[mediaType integerValue]];
+    [lab setFont:[UIFont systemFontOfSize:11]];
+    [lab setTextColor:[UIColor lightGrayColor]];
+    [lab setTextAlignment:NSTextAlignmentCenter];
+    return lab;
+}
 
 - (UIButton *)createButtonForMediaTypeNumber:(NSNumber *)mediaType
 {
@@ -80,12 +97,24 @@
 {
     CGFloat width = roundf((self.bounds.size.width - 20 )/ self.buttons.count);
     CGFloat startx = 10;
+    int count = 0;
     for(UIButton *button in self.buttons)
     {
         button.frame = CGRectMake(startx, 0, width, 34);
         startx += width;
 //        button.layer.borderColor = [UIColor redColor].CGColor;
 //        button.layer.borderWidth = 1.0;
+
+        UILabel *lab = [self.subTitles objectAtIndex:count];
+        CGRect fr = lab.frame;
+        fr.origin.x = button.frame.origin.x;
+        fr.origin.y = button.frame.size.height;
+        fr.size.height = 12;
+        fr.size.width   = button.frame.size.width;
+        lab.frame = fr;
+        lab.center = CGPointMake(button.center.x, lab.center.y);
+
+        count ++;
     }
     
     self.filterLabel.frame = CGRectMake(0, 0, self.bounds.size.width, 12);

@@ -295,6 +295,50 @@
 
 }
 
+
++ (NSString *)stringFromMediaType:(MediaType)type
+{
+
+    switch (type) {
+        case MediaTypeAudio:
+            return @"audio";
+            break;
+
+        case MediaTypeCollection:
+            return @"collection";
+            break;
+
+        case MediaTypeImage:
+            return @"image";
+            break;
+
+        case MediaTypeTexts:
+            return @"text";
+            break;
+
+        case MediaTypeVideo:
+            return @"video";
+            break;
+
+        case MediaTypeSoftware:
+            return @"software";
+            break;
+
+        case MediaTypeEtree:
+            return @"concerts";
+            break;
+
+        case MediaTypeAny:
+            return @"";
+            break;
+            
+        default:
+            return @"";
+            break;
+    }
+    
+}
+
 + (FileFormat)formatFromString:(NSString *)name
 {
 

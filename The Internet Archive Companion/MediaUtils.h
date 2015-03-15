@@ -19,5 +19,6 @@
 + (UIColor *)colorFromMediaType:(MediaType)type;
 + (MediaType)mediaTypeFromFileFormat:(FileFormat)format;
 + (MediaType)mediaTypeFromString:(NSString*)string;
++ (NSString *)stringFromMediaType:(MediaType)type;
 
 @end
