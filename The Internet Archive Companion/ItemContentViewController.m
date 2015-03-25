@@ -81,15 +81,19 @@
 
         UIBarButtonItem *favsToolBuuton = [[UIBarButtonItem alloc] initWithTitle:FAVORITE style:UIBarButtonItemStylePlain target:self action:@selector(didPressFavorites)];
         [favsToolBuuton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
-
+        [favsToolBuuton setTintColor:[UIColor darkGrayColor]];
 
 
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
         [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:20.0]} forState:UIControlStateNormal];
-        
+
+        [closeItem setTintColor:[UIColor darkGrayColor]];
+        [self.mpBarButton setTintColor:[UIColor darkGrayColor]];
+        [self.backButton setTintColor:[UIColor darkGrayColor]];
+
         [self.navigationItem setRightBarButtonItems:@[closeItem, self.mpBarButton, favsToolBuuton]];
         
-        
+        [self.navigationController.toolbar setTintColor:[UIColor darkGrayColor]];
         
     }
 
@@ -206,8 +210,12 @@
         NSString *creator = self.detDoc.creator;
         NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", @"by", creator]];
         [attString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, [@"by" length])];
-        [attString addAttribute:NSForegroundColorAttributeName value:BUTTON_DEFAULT_SELECT_COLOR range:NSMakeRange(3, creator.length)];
 
+        if(self.detDoc.type == MediaTypeCollection) {
+            [attString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(3, creator.length)];
+        } else {
+            [attString addAttribute:NSForegroundColorAttributeName value:BUTTON_DEFAULT_SELECT_COLOR range:NSMakeRange(3, creator.length)];
+        }
         
         NSMutableAttributedString *selAtt = [[NSMutableAttributedString alloc] initWithAttributedString:attString];
         [selAtt addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(3, creator.length)];
@@ -237,7 +245,7 @@
         [self.titleHolder setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
        // [self.creatorButton setTitleColor:[] forState:<#(UIControlState)#>]];
 
-
+        //[self.creatorButton setBackgroundColor:[UIColor lightGrayColor]];
         [self.collectionHandlerView setIdentifier:self.searchDoc.identifier];
 
         self.imageView.hidden = NO;
