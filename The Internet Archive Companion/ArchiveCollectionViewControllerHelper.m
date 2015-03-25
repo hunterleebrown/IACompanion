@@ -16,15 +16,14 @@
 @end
 
 @implementation ArchiveCollectionViewControllerHelper
-@synthesize service;
 
 
 
 - (void) setSearchDoc:(ArchiveSearchDoc *)searchDoc{
     _searchDoc = searchDoc;
-    service = [[IAJsonDataService alloc] initForMetadataDocsWithIdentifier:_searchDoc.identifier];
-    [service setDelegate:self];
-    [service fetchData];
+    self.service = [[IAJsonDataService alloc] initForMetadataDocsWithIdentifier:self.searchDoc.identifier];
+    [self.service setDelegate:self];
+    [self.service forceFetchData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:YES]];
 }
 

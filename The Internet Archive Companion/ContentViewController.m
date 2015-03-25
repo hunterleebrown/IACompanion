@@ -54,7 +54,7 @@
 @end
 
 @implementation ContentViewController
-@synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable, externalUrl;
+@synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable;
 @synthesize detDoc, moreInfoView, listIconButton, playerIconButton, searchIconButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -392,7 +392,7 @@
                 NSString *secondSlash = [slashes objectAtIndex:i+1];
                 if([secondSlash rangeOfString:@"#"].length != 0)
                 {
-                    externalUrl = request.URL;
+                    self.externalUrl = request.URL;
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
                     [alert show];
                     return NO;
@@ -412,7 +412,7 @@
         if(detailURL){
             
         } else {
-            externalUrl = request.URL;
+            self.externalUrl = request.URL;
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
             [alert show];
             
@@ -502,13 +502,13 @@
     } else if (((UIButton *)sender).tag == 1) {
         [self.popUpView showWithSubView:self.metaDataTable title:@"MetaData" message:nil];
     } else if (((UIButton *)sender).tag == 2) {
-        externalUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
+        self.externalUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
         [alert show];
     } else if (((UIButton *)sender).tag == 3) {
         [self.popUpView showWithSubView:moreInfoView title:@"Credits" message:nil];
     } else if (((UIButton *)sender).tag == 4) {
-        externalUrl = [NSURL URLWithString:@"http://blog.archive.org"];
+        self.externalUrl = [NSURL URLWithString:@"http://blog.archive.org"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
         [alert show];
     }
