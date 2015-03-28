@@ -41,10 +41,65 @@ NSString *const ShortDateFormat = @"M/d/YYYY";
     NSRange r;
     NSString *s = [inString copy];
     while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+    {
         s = [s stringByReplacingCharactersInRange:r withString:@""];
+    }
     return s;
 }
 
+
++ (NSString *) htmlStringByAddingBreaks:(NSString *)html {
+    
+    NSRange r;
+    NSString *s = [html copy];
+    if((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+    {
+        
+        while ((r = [s rangeOfString:@"\n" options:NSRegularExpressionSearch]).location != NSNotFound)
+        {
+            s = [s stringByReplacingCharactersInRange:r withString:@"<br/>"];
+        }
+
+        while ((r = [s rangeOfString:@"\n\n" options:NSRegularExpressionSearch]).location != NSNotFound)
+        {
+            s = [s stringByReplacingCharactersInRange:r withString:@"<br/>"];
+        }
+
+        while ((r = [s rangeOfString:@"<br/><br/>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        {
+            s = [s stringByReplacingCharactersInRange:r withString:@"<br/>"];
+        }
+
+        while ((r = [s rangeOfString:@"<br><br/>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        {
+            s = [s stringByReplacingCharactersInRange:r withString:@"<br/>"];
+        }
+        
+        while ((r = [s rangeOfString:@"</p><br/>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        {
+            s = [s stringByReplacingCharactersInRange:r withString:@"</p>"];
+        }
+        
+        while ((r = [s rangeOfString:@"</p>\n</p>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        {
+            s = [s stringByReplacingCharactersInRange:r withString:@"</p>"];
+        }
+        
+        
+        //
+//        while ((r = [s rangeOfString:@"</br></br>" options:NSRegularExpressionSearch]).location != NSNotFound)
+//        {
+//            s = [s stringByReplacingCharactersInRange:r withString:@"</br>"];
+//        }
+
+        return s;
+        
+    } else
+    {
+        return [html stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
+    }
+    
+}
 
 
 + (NSString *) displayShortDateFromArchiveDateString:(NSString *)archiveInDate {

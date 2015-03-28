@@ -17,9 +17,10 @@
 + (NSString *) displayDateFromArchiveDayString:(NSString *)metaDate;
 + (NSString *) stringFromObject:(NSObject *)object;
 + (NSString *) decimalFormatNumberFromInteger:(NSInteger)input;
-+ (NSString *)timeFormatted:(NSInteger)totalSecond;
++ (NSString *) timeFormatted:(NSInteger)totalSecond;
 + (NSString *) stringByStrippingHTML:(NSString *)inString;
 + (NSString *) displayShortDateFromArchiveDateString:(NSString *)archiveInDate;
 
++ (NSString *) htmlStringByAddingBreaks:(NSString *)html;
 
 @end

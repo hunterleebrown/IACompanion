@@ -13,7 +13,7 @@
 #import "MetaDataTable.h"
 #import "ArchiveImageView.h"
 
-@interface ContentViewController : UIViewController <IADataServiceDelegate, UIWebViewDelegate, UIAlertViewDelegate>
+@interface ContentViewController : UIViewController <IADataServiceDelegate, UIAlertViewDelegate>
 
 
 

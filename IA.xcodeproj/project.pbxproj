@@ -75,7 +75,6 @@
 		CEBA014316CEF6B30038625F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014216CEF6B30038625F /* AVFoundation.framework */; };
 		CEBA014716CEFFB60038625F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA014616CEFFB60038625F /* AudioToolbox.framework */; };
 		CEC57063179AEB9400A7B713 /* MediaImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC57062179AEB9400A7B713 /* MediaImageViewController.m */; };
-		CEE4AC4F1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */; };
 		CEEF55D3178F6A2F0085E0CF /* PopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF55D2178F6A2F0085E0CF /* PopUpView.m */; };
 /* End PBXBuildFile section */
 
@@ -213,8 +212,6 @@
 		CEBA014616CEFFB60038625F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEC57061179AEB9400A7B713 /* MediaImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaImageViewController.h; sourceTree = "<group>"; };
 		CEC57062179AEB9400A7B713 /* MediaImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaImageViewController.m; sourceTree = "<group>"; };
-		CEE4AC4D1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveCollectionViewControllerHelper.h; sourceTree = "<group>"; };
-		CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveCollectionViewControllerHelper.m; sourceTree = "<group>"; };
 		CEE4AC6B1795EFDD00FAE34F /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
 		CEE4AC6C1795EFDD00FAE34F /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
 		CEEF55D1178F6A2F0085E0CF /* PopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpView.h; sourceTree = "<group>"; };
@@ -390,8 +387,6 @@
 				5AEE765F179F1EEF00CF8C23 /* Search View Controller */,
 				5A93EBA017A44E8600D6CB38 /* Book View Controller */,
 				CE3FFD1117944F7A00709F5F /* MeidaPlayerController */,
-				CEE4AC4D1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.h */,
-				CEE4AC4E1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m */,
 				CEC57061179AEB9400A7B713 /* MediaImageViewController.h */,
 				CEC57062179AEB9400A7B713 /* MediaImageViewController.m */,
 			);
@@ -752,7 +747,6 @@
 				CE3FFD0D17943D8300709F5F /* MediaFileCell.m in Sources */,
 				CE3FFD10179440D200709F5F /* MediaFileHeaderCell.m in Sources */,
 				CE3FFD1417944FAB00709F5F /* MediaPlayerViewController.m in Sources */,
-				CEE4AC4F1795C7C800FAE34F /* ArchiveCollectionViewControllerHelper.m in Sources */,
 				CE94FC331798233500660A44 /* BufferingView.m in Sources */,
 				CEC57063179AEB9400A7B713 /* MediaImageViewController.m in Sources */,
 				5AEE7662179F1FD200CF8C23 /* SearchViewController.m in Sources */,

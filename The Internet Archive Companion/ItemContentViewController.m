@@ -21,7 +21,7 @@
 
 
 
-@interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ItemContentViewController () <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *mediaFiles;
 @property (nonatomic, strong) NSMutableDictionary *organizedMediaFiles;
@@ -273,11 +273,14 @@
         [self.itemToolbar setItems:mItems];
     }
 
-    NSString *html = [NSString stringWithFormat:@"<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'/><style>img{max-width:%fpx !important;} a:link{color:#666; text-decoration:none;} p{padding:5px;}</style></head><body style='margin-left:10px; margin-right:10px; background-color:#ffffff; color:#000; font-size:12px; font-family:\"Helvetica\"'>%@%@</body></html>", self.itemImageWidth, imgHtml, self.detDoc.details];
+    
+//    NSLog([StringUtils htmlStringByAddingBreaks:self.detDoc.details]);
+
+    
+    NSString *html = [NSString stringWithFormat:@"<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'/><style>img{max-width:%fpx !important;} a:link{color:#666; text-decoration:none;} p{padding:5px;}</style></head><body style='margin-left:10px; margin-right:10px; background-color:#ffffff; color:#000; font-size:12px; font-family:\"Helvetica\"'>%@%@</body></html>", self.itemImageWidth, imgHtml, [StringUtils htmlStringByAddingBreaks:self.detDoc.details]];
     
 
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
-    
     
     [self.itemWebView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
                              MIMEType:@"text/html"
@@ -428,7 +431,9 @@
     
     if(organizedMediaFiles.count > 0){
         ArchiveFile *aFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-        cell.fileTitle.text = aFile.title;
+
+//        cell.fileTitle.text = aFile.title;
+        cell.fileTitle.text = [NSString stringWithFormat:@"%@%@",aFile.track ? [NSString stringWithFormat:@"%ld ",(long)aFile.track] : @"",aFile.title];
         cell.fileFormat.text = [aFile.file objectForKey:@"format"];
         cell.durationLabel.text = [aFile.file objectForKey:@"duration"];
         cell.fileName.text = aFile.name;
@@ -625,6 +630,58 @@
 - (NSString *)shareMessage{
     
     return [NSString stringWithFormat:@"From the Internet Archive: %@", [NSString stringWithFormat:@"http://archive.org/details/%@", self.detDoc.identifier]];
+}
+
+
+#pragma mark - web view delegate
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    NSString *urlString = request.URL.absoluteString;
+    if(navigationType == UIWebViewNavigationTypeLinkClicked){
+        
+        NSString *detailURL;
+        
+        NSArray *slashes = [urlString componentsSeparatedByString:@"/"];
+        
+        for(int i=0; i < [slashes count]; i++){
+            NSString *slash = [slashes objectAtIndex:i];
+            NSRange textRange;
+            textRange = [slash rangeOfString:@"details"];
+            
+            if(textRange.location != NSNotFound) {
+                NSString *secondSlash = [slashes objectAtIndex:i+1];
+                if([secondSlash rangeOfString:@"#"].length != 0)
+                {
+                    self.externalUrl = request.URL;
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+                    [alert show];
+                    return NO;
+                }
+                
+                NSLog(@"  second slash: %@", secondSlash);
+                NSString *identifier = [slashes objectAtIndex:i+1];
+                ArchiveSearchDoc *doc = [ArchiveSearchDoc new];
+                doc.identifier = identifier;
+
+                
+                ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+                [cvc setSearchDoc:doc];
+                [self.navigationController pushViewController:cvc animated:YES];
+                
+                return NO;
+            }
+            
+        }
+        if(detailURL){
+            
+        } else {
+            self.externalUrl = request.URL;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+            [alert show];
+            
+        }
+        return NO;
+    }
+    return YES;
 }
 
 

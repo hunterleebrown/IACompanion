@@ -12,7 +12,6 @@
 #import "ItemContentViewController.h"
 #import "NewItemViewController.h"
 #import "PopUpView.h"
-#import "ArchiveCollectionViewControllerHelper.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SearchCollectionViewCell.h"
 #import "IAJsonDataService.h"
@@ -313,14 +312,13 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
-//    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+    [cvc setSearchDoc:doc];
+    [self.navigationController pushViewController:cvc animated:YES];
+
+//    NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
 //    [cvc setSearchDoc:doc];
 //    [self.navigationController pushViewController:cvc animated:YES];
-
-    NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
-    [cvc setSearchDoc:doc];
-    
-    [self.navigationController pushViewController:cvc animated:YES];
     
 
 }
@@ -381,52 +379,7 @@
     [super viewDidDisappear:animated];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    NSString *urlString = request.URL.absoluteString;
-    if(navigationType == UIWebViewNavigationTypeLinkClicked){
 
-        NSString *detailURL;
-        
-        NSArray *slashes = [urlString componentsSeparatedByString:@"/"];
-     
-        for(int i=0; i < [slashes count]; i++){
-            NSString *slash = [slashes objectAtIndex:i];
-            NSRange textRange;
-            textRange = [slash rangeOfString:@"details"];
-     
-            if(textRange.location != NSNotFound) {
-                NSString *secondSlash = [slashes objectAtIndex:i+1];
-                if([secondSlash rangeOfString:@"#"].length != 0)
-                {
-                    self.externalUrl = request.URL;
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-                    [alert show];
-                    return NO;
-                }
-
-                NSLog(@"  second slash: %@", secondSlash);
-                NSString *identifier = [slashes objectAtIndex:i+1];
-                ArchiveSearchDoc *doc = [ArchiveSearchDoc new];
-                doc.identifier = identifier;
-                doc.type = MediaTypeAny;
-                ArchiveCollectionViewControllerHelper *helper = [ArchiveCollectionViewControllerHelper new];
-                [helper setSearchDoc:doc];
-                return NO;
-            }
-            
-        }
-        if(detailURL){
-            
-        } else {
-            self.externalUrl = request.URL;
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open Web Page" message:@"Do you want to view this web page with Safari?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-            [alert show];
-            
-        }
-        return NO;
-    }
-    return YES;
-}
 
 
 

@@ -81,14 +81,14 @@
     ArchiveSearchDoc *aDoc = notification.object;
     
     if(aDoc.type == MediaTypeCollection){
-//        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-//        [cvc setSearchDoc:aDoc];
-//        [_contentNavController pushViewController:cvc animated:YES];
-
-        NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
-//        [cvc setSearchDoc:aDoc];
+        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+        [cvc setSearchDoc:aDoc];
         [_contentNavController pushViewController:cvc animated:YES];
-        
+
+//        NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
+////        [cvc setSearchDoc:aDoc];
+//        [_contentNavController pushViewController:cvc animated:YES];
+//        
         [self toggleContent:nil];
     
     } else {
@@ -102,14 +102,14 @@
     ArchiveSearchDoc *aDoc = notification.object;
     
 
-//    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-//    [cvc setSearchDoc:aDoc];
-//    [_contentNavController pushViewController:cvc animated:YES];
-
-    
-    NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
+    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
     [cvc setSearchDoc:aDoc];
     [_contentNavController pushViewController:cvc animated:YES];
+
+    
+//    NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
+//    [cvc setSearchDoc:aDoc];
+//    [_contentNavController pushViewController:cvc animated:YES];
     
     if(_contentView.frame.origin.x == 256 && !UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
         [self moveContentViewOver];
