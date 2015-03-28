@@ -273,7 +273,7 @@
         [self.itemToolbar setItems:mItems];
     }
 
-    NSString *html = [NSString stringWithFormat:@"<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'/><style>img{max-width:%fpx !important;} a:link{color:#666; text-decoration:none;} p{padding:5px;}</style></head><body style='margin-left:10px; margin-right:10px; background-color:#ffffff; color:#000; font-size:15px; font-family:\"Helvetica\"'>%@%@</body></html>", self.itemImageWidth, imgHtml, self.detDoc.details];
+    NSString *html = [NSString stringWithFormat:@"<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'/><style>img{max-width:%fpx !important;} a:link{color:#666; text-decoration:none;} p{padding:5px;}</style></head><body style='margin-left:10px; margin-right:10px; background-color:#ffffff; color:#000; font-size:12px; font-family:\"Helvetica\"'>%@%@</body></html>", self.itemImageWidth, imgHtml, self.detDoc.details];
     
 
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];

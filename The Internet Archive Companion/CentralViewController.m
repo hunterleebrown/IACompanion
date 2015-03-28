@@ -9,6 +9,7 @@
 #import "CentralViewController.h"
 #import "ArchiveSearchDoc.h"
 #import "ItemContentViewController.h"
+#import "NewItemViewController.h"
 #import "SearchViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -80,9 +81,14 @@
     ArchiveSearchDoc *aDoc = notification.object;
     
     if(aDoc.type == MediaTypeCollection){
-        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-        [cvc setSearchDoc:aDoc];
+//        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+//        [cvc setSearchDoc:aDoc];
+//        [_contentNavController pushViewController:cvc animated:YES];
+
+        NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
+//        [cvc setSearchDoc:aDoc];
         [_contentNavController pushViewController:cvc animated:YES];
+        
         [self toggleContent:nil];
     
     } else {
@@ -95,16 +101,15 @@
 
     ArchiveSearchDoc *aDoc = notification.object;
     
-    if(aDoc.type == MediaTypeCollection){
-        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-        [cvc setSearchDoc:aDoc];
-        [_contentNavController pushViewController:cvc animated:YES];
-        
-    } else {
-        ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-        [cvc setSearchDoc:aDoc];
-        [_contentNavController pushViewController:cvc animated:YES];
-    }
+
+//    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+//    [cvc setSearchDoc:aDoc];
+//    [_contentNavController pushViewController:cvc animated:YES];
+
+    
+    NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
+    [cvc setSearchDoc:aDoc];
+    [_contentNavController pushViewController:cvc animated:YES];
     
     if(_contentView.frame.origin.x == 256 && !UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
         [self moveContentViewOver];

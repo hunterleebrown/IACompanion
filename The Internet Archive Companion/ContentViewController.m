@@ -10,6 +10,7 @@
 #import "ContentViewController.h"
 #import "ArchiveSearchDoc.h"
 #import "ItemContentViewController.h"
+#import "NewItemViewController.h"
 #import "PopUpView.h"
 #import "ArchiveCollectionViewControllerHelper.h"
 #import <QuartzCore/QuartzCore.h>
@@ -312,10 +313,15 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
-    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-    [cvc setSearchDoc:doc];
-    [self.navigationController pushViewController:cvc animated:YES];
+//    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+//    [cvc setSearchDoc:doc];
+//    [self.navigationController pushViewController:cvc animated:YES];
 
+    NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
+    [cvc setSearchDoc:doc];
+    
+    [self.navigationController pushViewController:cvc animated:YES];
+    
 
 }
 

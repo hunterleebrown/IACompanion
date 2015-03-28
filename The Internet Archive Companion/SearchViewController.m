@@ -18,6 +18,7 @@
 #import "SearchCollectionViewCell.h"
 #import "LayoutChangerView.h"
 #import "ArchiveContentTypeControlView.h"
+#import "NewItemViewController.h"
 
 @interface SearchViewController () <IADataServiceDelegate>
 @property (nonatomic, strong) IAJsonDataService *service;
@@ -247,11 +248,15 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+//    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+//    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+//    [cvc setSearchDoc:doc];
+//    [self.navigationController pushViewController:cvc animated:YES];
+
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+    NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
     [cvc setSearchDoc:doc];
     [self.navigationController pushViewController:cvc animated:YES];
-
 
 }
 

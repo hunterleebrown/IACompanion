@@ -67,6 +67,7 @@
 		CE3FFD10179440D200709F5F /* MediaFileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FFD0F179440D200709F5F /* MediaFileHeaderCell.m */; };
 		CE3FFD1417944FAB00709F5F /* MediaPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FFD1317944FAB00709F5F /* MediaPlayerViewController.m */; };
 		CE5D49A21AAA66CB002D921F /* SearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5D49A11AAA66CB002D921F /* SearchCollectionViewCell.m */; };
+		CE6DE5AE1AC6288F00E616C8 /* NewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6DE5AD1AC6288F00E616C8 /* NewItemViewController.m */; };
 		CE6FFE2F17933EE0002A292B /* MetaDataTable.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6FFE2E17933EE0002A292B /* MetaDataTable.m */; };
 		CE6FFE32179345D6002A292B /* MetaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6FFE31179345D6002A292B /* MetaCell.m */; };
 		CE94FC331798233500660A44 /* BufferingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE94FC321798233500660A44 /* BufferingView.m */; };
@@ -199,6 +200,8 @@
 		CE3FFD1317944FAB00709F5F /* MediaPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPlayerViewController.m; sourceTree = "<group>"; };
 		CE5D49A01AAA66CB002D921F /* SearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCollectionViewCell.h; sourceTree = "<group>"; };
 		CE5D49A11AAA66CB002D921F /* SearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCollectionViewCell.m; sourceTree = "<group>"; };
+		CE6DE5AC1AC6288F00E616C8 /* NewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewItemViewController.h; sourceTree = "<group>"; };
+		CE6DE5AD1AC6288F00E616C8 /* NewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewItemViewController.m; sourceTree = "<group>"; };
 		CE6FFE2D17933EE0002A292B /* MetaDataTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataTable.h; sourceTree = "<group>"; };
 		CE6FFE2E17933EE0002A292B /* MetaDataTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataTable.m; sourceTree = "<group>"; };
 		CE6FFE30179345D6002A292B /* MetaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaCell.h; sourceTree = "<group>"; };
@@ -480,6 +483,8 @@
 				5A23501D1780C44D0050C9A2 /* ItemContentViewController.m */,
 				5A7C05A017890CEA0044EC5B /* CollectionDataHandlerAndHeaderView.h */,
 				5A7C05A117890CEA0044EC5B /* CollectionDataHandlerAndHeaderView.m */,
+				CE6DE5AC1AC6288F00E616C8 /* NewItemViewController.h */,
+				CE6DE5AD1AC6288F00E616C8 /* NewItemViewController.m */,
 			);
 			name = ContentViewController;
 			sourceTree = "<group>";
@@ -755,6 +760,7 @@
 				5A22BFDE17A8C36600220753 /* PopUpViewController.m in Sources */,
 				5A727D771800C90A00EEF8C2 /* FavoritesTableViewController.m in Sources */,
 				5A2A70411AB117B0002DA9F6 /* ArchiveContentTypeControlView.m in Sources */,
+				CE6DE5AE1AC6288F00E616C8 /* NewItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
