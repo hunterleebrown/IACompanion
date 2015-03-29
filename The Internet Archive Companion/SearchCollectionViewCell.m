@@ -57,6 +57,7 @@
     
     NSMutableParagraphStyle *para = [NSMutableParagraphStyle new];
     para.lineSpacing = 1.0;
+    para.lineBreakMode = NSLineBreakByTruncatingTail;
     
     return [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName : font, NSParagraphStyleAttributeName : para}];
     
@@ -104,6 +105,9 @@
         return CGSizeMake(width, [SearchCollectionViewCell compactHeightForDoc:doc width:width]);
     }
 
+    height += 15;
+
+    
     return CGSizeMake(width, height);
     
 }
@@ -129,6 +133,7 @@
 
     height += detailsSize.height > DETAILS_FONT.lineHeight * 3 ? DETAILS_FONT.lineHeight * 3 : detailsSize.height;
 
+    height += 15;
 
     return height;
 }
@@ -157,7 +162,7 @@
 //    [self.detailsLabel setText:[StringUtils stringByStrippingHTML:self.archiveSearchDoc.details]];
     
     [self.detailsLabel setAttributedText:[self.class detailsAttributedString:[StringUtils stringByStrippingHTML:self.archiveSearchDoc.details]]];
-    
+    [self.detailsLabel setLineBreakMode:NSLineBreakByTruncatingTail];
     
     NSString *countString = [StringUtils decimalFormatNumberFromInteger:[[archiveSearchDoc.rawDoc objectForKey:@"downloads"] integerValue]];
     NSMutableAttributedString *countAtt = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", VIEWS, countString]];
