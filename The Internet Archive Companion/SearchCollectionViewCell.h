@@ -31,6 +31,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) IBOutlet UILabel *typeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *countLabel;
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
+@property (nonatomic, weak) IBOutlet UILabel *detailsLabel;
 
 
 @property (nonatomic, strong) ArchiveSearchDoc *archiveSearchDoc;
@@ -42,5 +43,7 @@ typedef enum : NSUInteger {
 + (CGSize)sizeForOrientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView cellLayoutStyle:(CellLayoutStyle)layoutStyle archiveDoc:(ArchiveSearchDoc *)doc;
 + (NSString *)creatorText:(ArchiveSearchDoc *)doc;
 + (CGFloat)compactHeightForDoc:(ArchiveSearchDoc *)doc width:(CGFloat)width;
+
++ (NSAttributedString *) detailsAttributedString:(NSString *)string;
 
 @end

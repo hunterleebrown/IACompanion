@@ -15,6 +15,7 @@
 //static CGFloat compactHeight = 44.0f;
 #define TITLE_FONT [UIFont systemFontOfSize:14]
 #define CREATOR_FONT [UIFont systemFontOfSize:12]
+#define DETAILS_FONT [UIFont systemFontOfSize:12]
 
 
 @interface SearchCollectionViewCell ()
@@ -49,6 +50,19 @@
 
 }
 
++ (NSAttributedString *) detailsAttributedString:(NSString *)string
+{
+    UIFont *font = DETAILS_FONT;
+    
+    
+    NSMutableParagraphStyle *para = [NSMutableParagraphStyle new];
+    para.lineSpacing = 1.0;
+    
+    return [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName : font, NSParagraphStyleAttributeName : para}];
+    
+}
+
+
 + (CGSize)sizeForOrientation:(UIInterfaceOrientation)orientation collectionView:(UICollectionView*)collectionView cellLayoutStyle:(CellLayoutStyle)layoutStyle archiveDoc:(ArchiveSearchDoc *)doc
 {
 
@@ -58,19 +72,25 @@
     NSInteger orientationDivisor = UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 4 : 3;
 
     CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? orientationDivisor : UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 3 : 2;
-    CGFloat padding = 10;
+    CGFloat padding = 15;
     
     CGFloat width = ceil((collectionView.bounds.size.width / divisor) - padding);
 
 
     CGSize labelTextSize = [[SearchCollectionViewCell titleAttributedString:doc.title] boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) context:nil].size;
 
+    CGSize detailsSize = [[SearchCollectionViewCell detailsAttributedString:[StringUtils stringByStrippingHTML:doc.details]] boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) context:nil].size;
+
+    
     NSString *creatorName = [SearchCollectionViewCell creatorText:doc];
 
     CGFloat height = labelTextSize.height + 15; //padding
 
     height += [creatorName isEqualToString:@""] ? 0 : CREATOR_FONT.lineHeight;
     height += ICONOCHIVE_FONT.lineHeight;
+    
+    height += detailsSize.height > DETAILS_FONT.lineHeight * 3 ? DETAILS_FONT.lineHeight * 3 : detailsSize.height;
+//    height += detailsSize.height > 0 ? 10: 0;
 
     CGFloat imageHeight = style == CollectionViewCellStyleCollection ? 60 : ceil(width * 0.66);
     height += imageHeight;
@@ -94,11 +114,20 @@
 //    NSAttributedString *titAtt = [SearchCollectionViewCell titleAttributedString:doc.title];
 //    CGSize labelTextSize = [titAtt boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) context:nil].size;
 
-    CGFloat height = TITLE_FONT.lineHeight + 10;
+    CGSize labelTextSize = [[SearchCollectionViewCell titleAttributedString:doc.title] boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) context:nil].size;
+
+    
+//    CGFloat height = TITLE_FONT.lineHeight + 10;
+    CGFloat height = labelTextSize.height + 25;
+    
     NSString *creatorName = [SearchCollectionViewCell creatorText:doc];
+    CGSize detailsSize = [[SearchCollectionViewCell detailsAttributedString:doc.details] boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) context:nil].size;
+
 
     height += [creatorName isEqualToString:@""] ? 0 : CREATOR_FONT.lineHeight;
     height += ICONOCHIVE_FONT.lineHeight;
+
+    height += detailsSize.height > DETAILS_FONT.lineHeight * 3 ? DETAILS_FONT.lineHeight * 3 : detailsSize.height;
 
 
     return height;
@@ -125,6 +154,11 @@
     }
 
 
+//    [self.detailsLabel setText:[StringUtils stringByStrippingHTML:self.archiveSearchDoc.details]];
+    
+    [self.detailsLabel setAttributedText:[self.class detailsAttributedString:[StringUtils stringByStrippingHTML:self.archiveSearchDoc.details]]];
+    
+    
     NSString *countString = [StringUtils decimalFormatNumberFromInteger:[[archiveSearchDoc.rawDoc objectForKey:@"downloads"] integerValue]];
     NSMutableAttributedString *countAtt = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", VIEWS, countString]];
     [countAtt addAttribute:NSFontAttributeName value:[UIFont fontWithName:ICONOCHIVE size:12] range:NSMakeRange(0, VIEWS.length)];
@@ -165,7 +199,7 @@
     {
         imageHeight = 0;
         self.archiveImageView.hidden = YES;
-        [self.titleLabel setNumberOfLines:1];
+//        [self.titleLabel setNumberOfLines:1];
     } else
     {
         self.archiveImageView.hidden = NO;

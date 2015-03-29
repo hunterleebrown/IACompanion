@@ -30,6 +30,7 @@
 
 @property (nonatomic, strong) NSURL *externalUrl;
 
+@property (nonatomic, weak) IBOutlet UIButton *searchCollectionButton;
 
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
 @property (nonatomic, strong) IAJsonDataService *service;
@@ -97,7 +98,9 @@
         
     }
 
-
+    if(self.searchCollectionButton){
+        [self.searchCollectionButton setTintColor:BUTTON_DEFAULT_SELECT_COLOR];
+    }
 
 
     [self.descriptionButton setSelected:YES];
@@ -684,6 +687,16 @@
     return YES;
 }
 
+
+
+- (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+
+    
+    [self.collectionHandlerView.collectionView.collectionViewLayout invalidateLayout];
+    
+    
+}
 
 
 - (void)didReceiveMemoryWarning
