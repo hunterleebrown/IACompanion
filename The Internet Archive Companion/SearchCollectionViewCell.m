@@ -239,6 +239,7 @@
             break;
         case CollectionViewCellStyleItem:
             [self.titleLabel setTextColor:[UIColor blackColor]];
+            [self.detailsLabel setTextColor:[UIColor lightGrayColor]];
 
             [self setBackgroundColor:[UIColor whiteColor]];
 
