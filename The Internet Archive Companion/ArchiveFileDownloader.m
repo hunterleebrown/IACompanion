@@ -142,9 +142,9 @@
 }
 
 - (void)startDownloading {
-       // NSLog(@"started downloading %@", download.urlPath);
+        NSLog(@"started downloading %@", download.urlPath);
     if ([[ArchiveCache sharedInstance].cache objectForKey:download.urlPath]) {
-       // NSLog(@"startDownloading: from cache");
+        NSLog(@"startDownloading: from cache");
         [self retrieveCurrentDownloadFromCache];
     }
     else {
@@ -218,7 +218,8 @@
     download.activeDownload = nil;
     download.connection = nil;
     isDownloading = NO;
-    
+    [[ArchiveCache sharedInstance].cache setObject:download.data forKey:download.urlPath];
+
 }
 
 

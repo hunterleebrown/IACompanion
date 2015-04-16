@@ -80,9 +80,9 @@ static NSOperationQueue *queue = nil;
     if(cD != nil){
         NSData *cachedData = (NSData *)cD;
         [self displayView:cachedData];
-      //  NSLog(@"CACHE HIT...");
+        NSLog(@"CACHE HIT...");
     } else {
-       // NSLog(@"NO CACHE HIT...");
+        NSLog(@"NO CACHE HIT...");
         
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                             initWithTarget:self
