@@ -196,7 +196,7 @@
                         [self.imageView setArchiveImage:image];
                         gotAnImage = YES;
                         self.itemImageUrl = file.url;
-                        self.itemImageWidth = self.itemWebView.bounds.size.width > 320 ? ceil(self.itemWebView.bounds.size.width * 0.75)  : 300;
+                        self.itemImageWidth = self.view.bounds.size.width > 320 ? ceil(self.view.bounds.size.width * 0.75)  : 300;
                     }
                 }
             }
@@ -234,9 +234,9 @@
 
 
 
-    NSLog(@"------> imageUrl:%f", self.itemImageWidth);
+    NSLog(@"------> imageWidth:%f", self.itemImageWidth);
 
-    NSString *imgHtml = [NSString stringWithFormat:@"<img style='display:block; margin-left:auto; margin-right:auto; width:%fpx;' src='%@'/><br/>", self.itemImageWidth, self.itemImageUrl];
+    NSString *imgHtml = [NSString stringWithFormat:@"<img style='display:block; margin-left:auto; margin-right:auto; width:%fpx; max-width:%fpx;' src='%@'/><br/>", self.itemImageWidth, self.itemImageWidth, self.itemImageUrl];
 
 
     if(self.detDoc.type == MediaTypeCollection)
