@@ -293,6 +293,10 @@
         }
         [dDoc setDetails:[metadata objectForKey:@"description"]];
         [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];
+        if([metadata objectForKey:@"date"] != nil)
+        {
+            [dDoc setDate:[metadata objectForKey:@"date"]];
+        }
         
         NSMutableArray *files = [NSMutableArray new];
         if([jsonResponse objectForKey:@"files"]){
