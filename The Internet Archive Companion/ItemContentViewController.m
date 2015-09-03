@@ -18,6 +18,7 @@
 #import "FontMapping.h"
 #import "CollectionDataHandlerAndHeaderView.h"
 #import "StringUtils.h"
+#import "AppDelegate.h"
 
 
 
@@ -34,6 +35,8 @@
 
 @property (nonatomic, weak) IBOutlet CollectionDataHandlerAndHeaderView *collectionHandlerView;
 @property (nonatomic, strong) IAJsonDataService *service;
+
+//  [(MyAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
 
 
 
