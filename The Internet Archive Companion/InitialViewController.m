@@ -28,7 +28,6 @@
 @end
 
 @implementation InitialViewController
-@synthesize mediaPlayerHolder, mediaPlayerViewController, managedObjectContext, loadingIndicatorHolder, loadingIndicatorViewController, centralViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -114,15 +113,15 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"mediaPlayer"]){
-        mediaPlayerViewController = [segue destinationViewController];
-        [mediaPlayerViewController setManagedObjectContext:self.managedObjectContext];
+        self.mediaPlayerViewController = [segue destinationViewController];
+        [self.mediaPlayerViewController setManagedObjectContext:self.managedObjectContext];
         [self setNeedsStatusBarAppearanceUpdate];
     }
     if([segue.identifier isEqualToString:@"loadingViewController"]){
-        loadingIndicatorViewController = [segue destinationViewController];
+        self.loadingIndicatorViewController = [segue destinationViewController];
     }
     if ([segue.identifier isEqualToString:@"centralViewController"]) {
-        centralViewController = [segue destinationViewController];
+        self.centralViewController = [segue destinationViewController];
     
     }
 
@@ -168,22 +167,22 @@
 
     [UIView animateWithDuration:0.33 animations:^{
         //[mediaPlayerHolder setFrame:CGRectMake(- mediaPlayerHolder.frame.size.width, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
-        [mediaPlayerHolder setAlpha:0.0];
+        [self.mediaPlayerHolder setAlpha:0.0];
         [self.centralViewHolder setAlpha:1.0];
         [self setNeedsStatusBarAppearanceUpdate];
 
     } completion:^(BOOL finished) {
-        [mediaPlayerHolder setHidden:YES];
+        [self.mediaPlayerHolder setHidden:YES];
     }];
 
 }
 
 - (void) openPlayer {
-    [mediaPlayerHolder setHidden:NO];
+    [self.mediaPlayerHolder setHidden:NO];
     self.statusBarStyle = UIStatusBarStyleLightContent;
     [UIView animateWithDuration:0.33 animations:^{
         //[mediaPlayerHolder setFrame:CGRectMake(0, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
-        [mediaPlayerHolder setAlpha:1.0];
+        [self.mediaPlayerHolder setAlpha:1.0];
         [self.centralViewHolder setAlpha:0.0];
         [self setNeedsStatusBarAppearanceUpdate];
 
