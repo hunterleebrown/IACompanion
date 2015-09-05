@@ -281,7 +281,7 @@
         [dDoc setRawDoc:jsonResponse];
         NSDictionary *metadata = [jsonResponse objectForKey:@"metadata"];
         [dDoc setIdentifier:[metadata objectForKey:@"identifier"]];
-        [dDoc setTitle:[StringUtils stringFromObject:[metadata objectForKey:@"title"]]];
+        [dDoc setTitle:[metadata objectForKey:@"title"]];
         if(![metadata objectForKey:@"headerImage"]){
             [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/img/%@", dDoc.identifier]];
             ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:dDoc.headerImageUrl];
@@ -301,7 +301,7 @@
         NSMutableArray *files = [NSMutableArray new];
         if([jsonResponse objectForKey:@"files"]){
             for (NSDictionary *file in [jsonResponse objectForKey:@"files"]) {
-                ArchiveFile *aFile = [[ArchiveFile alloc]initWithIdentifier:dDoc.identifier withIdentifierTitle:[StringUtils stringFromObject:dDoc.title] withServer:[jsonResponse objectForKey:@"server"] withDirectory:[jsonResponse objectForKey:@"dir"] withFile:file];
+                ArchiveFile *aFile = [[ArchiveFile alloc]initWithIdentifier:dDoc.identifier withIdentifierTitle:dDoc.title withServer:[jsonResponse objectForKey:@"server"] withDirectory:[jsonResponse objectForKey:@"dir"] withFile:file];
                 [files addObject:aFile];
             }
         }

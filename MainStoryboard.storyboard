@@ -724,6 +724,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="4nC-hQ-oSH"/>
+                                <exclude reference="5aa-AM-RKV"/>
+                                <exclude reference="DDb-XY-tMz"/>
                                 <exclude reference="0wF-g8-jJ6"/>
                                 <exclude reference="6cx-0F-zJq"/>
                                 <exclude reference="8jh-2u-CxL"/>
@@ -734,9 +737,6 @@
                                 <exclude reference="vFU-2b-yIS"/>
                                 <exclude reference="x1U-3G-9PT"/>
                                 <exclude reference="6OR-9y-ly8"/>
-                                <exclude reference="4nC-hQ-oSH"/>
-                                <exclude reference="5aa-AM-RKV"/>
-                                <exclude reference="DDb-XY-tMz"/>
                                 <exclude reference="AqQ-OB-3Xa"/>
                             </mask>
                         </variation>
@@ -752,7 +752,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3890" y="-318"/>
+            <point key="canvasLocation" x="3888" y="-318"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gWW-bQ-agL">

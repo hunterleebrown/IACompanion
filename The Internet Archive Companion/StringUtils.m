@@ -122,6 +122,12 @@ NSString *const ShortDateFormat = @"M/d/YYYY";
     dateFormatter.dateFormat = ArchiveDateFormat;
     NSDate *sDate = [dateFormatter dateFromString:archiveInDate];
     
+    if(!sDate)
+    {
+        dateFormatter.dateFormat = ArchiveMetaDateFormat;
+        sDate = [dateFormatter dateFromString:archiveInDate];
+    }
+    
     NSDateFormatter *showDateFormat = [NSDateFormatter new];
     [showDateFormat setDateFormat:DisplayDateFormat];
     NSString *theDate = [showDateFormat stringFromDate:sDate];
