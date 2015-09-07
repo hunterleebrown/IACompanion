@@ -2443,6 +2443,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
+                                    <barButtonItem style="plain" id="Ab1-fF-ABx">
+                                        <view key="customView" hidden="YES" contentMode="scaleToFill" id="C0F-zh-2Na" customClass="BufferingView">
+                                            <rect key="frame" x="20" y="6" width="33" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <action selector="doPlayPause:" destination="YFe-rc-yeM" id="6T9-cG-nOY"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6NU-42-YIb"/>
                                     <barButtonItem title="PLAYER" id="CmV-mf-ZnI">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2819,6 +2829,7 @@
                         <outlet property="sliderHolder" destination="PU9-0c-QPs" id="mYq-ei-InL"/>
                         <outlet property="sliderMaxLabel" destination="6MH-hS-4gC" id="Uvi-3j-GCi"/>
                         <outlet property="sliderMinLabel" destination="BfV-UP-4pd" id="z8D-zn-B7o"/>
+                        <outlet property="topBufferingView" destination="C0F-zh-2Na" id="FPA-T2-KMR"/>
                         <outlet property="topToolbar" destination="Z1g-Qo-DKw" id="x0c-tN-K0l"/>
                     </connections>
                 </viewController>
@@ -2884,6 +2895,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sJ-sa-4fI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1661.25" y="957.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cYN-9p-gaV">
+            <objects>
+                <viewController id="VEL-4s-yH7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pqa-Sr-hqg"/>
+                        <viewControllerLayoutGuide type="bottom" id="9hO-MX-JjN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PWh-KN-gDc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="28K-FC-QFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

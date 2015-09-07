@@ -13,4 +13,7 @@
 - (void) startAnimating;
 - (void) stopAnimating;
 
+- (void)setTitleText:(NSString *)tit;
+- (void)setColor:(UIColor *)color;
+
 @end

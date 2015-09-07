@@ -79,7 +79,7 @@
 
 
     
-    self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - 66;
+    self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - 64;
     self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height;
     
 }
@@ -184,7 +184,7 @@
     
     CGPoint point = [recognizer translationInView:self.view];
     CGFloat newY = self.mediaPlayerTopConstraint.constant + point.y;
-    if(newY >= 0 && newY < self.view.bounds.size.height - 66)
+    if(newY >= 0 && newY < self.view.bounds.size.height - 64)
     {
         self.mediaPlayerTopConstraint.constant = newY;
         [self.mediaPlayerHolder layoutIfNeeded];
@@ -214,7 +214,7 @@
 
     [UIView animateWithDuration:0.33 animations:^{
 
-        self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - 66;
+        self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - 64;
         self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height;
         
         [self.mediaPlayerHolder layoutIfNeeded];

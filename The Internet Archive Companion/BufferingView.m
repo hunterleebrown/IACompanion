@@ -11,8 +11,8 @@
 
 @interface BufferingView ()
 @property (nonatomic) BOOL shouldAnimate;
-@property (nonatomic, strong) UILabel *title;
-
+@property (nonatomic) UILabel *title;
+@property (nonatomic, strong) UIColor *bufferColor;
 @end
 
 @implementation BufferingView
@@ -33,7 +33,7 @@
         shouldAnimate = NO;
         self.layer.borderWidth = 1.0;
         self.layer.cornerRadius = 10;
-        self.layer.borderColor = [UIColor darkGrayColor].CGColor;
+//        self.layer.borderColor = [UIColor darkGrayColor].CGColor;
         title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 18)];
         [title setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]];
         [title setTextColor:[UIColor whiteColor]];
@@ -44,8 +44,21 @@
         [title setBackgroundColor:[UIColor clearColor]];
         [title setTextAlignment:NSTextAlignmentCenter];
         
+        self.bufferColor = [UIColor orangeColor];
     }
     return self;
+}
+
+
+- (void)setTitleText:(NSString *)tit
+{
+    title.text = tit;
+}
+
+
+- (void)setColor:(UIColor *)color
+{
+    self.bufferColor = color;
 }
 
 - (void) layoutSubviews{
@@ -57,7 +70,8 @@
     
     [self setHidden:NO];
     shouldAnimate = YES;
-    [UIView animateWithDuration:1.0f delay:0.0f options:(UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat) animations:^{ self.backgroundColor = [UIColor orangeColor];
+    [UIView animateWithDuration:1.0f delay:0.0f options:(UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat) animations:^{
+        self.backgroundColor = self.bufferColor;
     } completion:^(BOOL finished) {
       //  if(!shouldAnimate){
       //      return;

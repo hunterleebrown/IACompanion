@@ -54,7 +54,7 @@
 @property (nonatomic, weak) IBOutlet UIToolbar *playerToolbar;
 @property (nonatomic, weak) IBOutlet UIToolbar *topToolbar;
 
-
+@property (nonatomic, weak) IBOutlet BufferingView *topBufferingView;
 
 @end
 
@@ -138,8 +138,13 @@
     [self.topToolbar setBackgroundColor:[UIColor clearColor]];
 
 
-
+    [self.topBufferingView setTitleText:@""];
+    
+    [self.topBufferingView setColor:[UIColor redColor]];
 }
+
+
+
 
 - (IBAction)togglePlayer:(id)sender
 {
@@ -319,12 +324,15 @@
         [self updateRemote];
     } else if ((state & MPMovieLoadStateUnknown) == MPMovieLoadStateUnknown) {
         [bufferingView stopAnimating];
+
     }  else {
         [bufferingView startAnimating];
+
     }
     
     if((state & MPMovieLoadStateStalled) == MPMovieLoadStateStalled) {
         [bufferingView startAnimating];
+
 
     }
 
@@ -335,6 +343,7 @@
         case MPMoviePlaybackStatePlaying:
             [self monitorPlaybackTime];
 
+            [self.topBufferingView startAnimating];
             // Turn on remote control event delivery
             [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
             
@@ -347,7 +356,7 @@
         case MPMoviePlaybackStatePaused:
         case MPMoviePlaybackStateStopped:
             [playButton setTitle:PLAY forState:UIControlStateNormal];
-
+            [self.topBufferingView stopAnimating];
             break;
         default:
             break;
@@ -813,8 +822,8 @@
        // [bufferingView stopAnimating];
 
         [playButton setTitle:PLAY forState:UIControlStateNormal];
-
-
+        [self.topBufferingView stopAnimating];
+        
     } else if(player.playbackState == MPMoviePlaybackStatePaused){
         
         [player play];
