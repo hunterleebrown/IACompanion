@@ -16,6 +16,7 @@
 #import "BufferingView.h"
 #import "StringUtils.h"
 #import "FontMapping.h"
+#import "MediaUtils.h"
 
 @interface MediaPlayerViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
@@ -141,6 +142,8 @@
     [self.topBufferingView setTitleText:@""];
     
     [self.topBufferingView setColor:[UIColor redColor]];
+    
+//    self.fullScreenButton.hidden = YES;
 }
 
 
@@ -442,7 +445,8 @@
         [player setContentURL:[NSURL URLWithString:file.url]];
         [player prepareToPlay];
         [player play];
-        [self setSelectedCellOfPlayingFileForPlayer:player];        
+        [self setSelectedCellOfPlayingFileForPlayer:player];
+        
     }
     
 }
@@ -576,6 +580,8 @@
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell.contentView setBackgroundColor:[UIColor clearColor]];
 }
+
+#pragma mark - table stuff
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
