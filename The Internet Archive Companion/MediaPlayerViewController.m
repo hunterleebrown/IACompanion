@@ -55,9 +55,12 @@
 @property (nonatomic, weak) IBOutlet UIToolbar *topToolbar;
 
 
+
 @end
 
 @implementation MediaPlayerViewController
+
+
 @synthesize managedObjectContext, player, imageView, playButton, playerHolder, tableIsEditing, bufferingView, sliderIsTouched;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -137,6 +140,13 @@
 
 
 }
+
+- (IBAction)togglePlayer:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleMediaPlayer" object:nil];
+
+}
+
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {

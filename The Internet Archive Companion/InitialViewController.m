@@ -24,6 +24,8 @@
 
 @property (nonatomic, weak) IBOutlet NotifyUserView *notifyUserView;
 
+@property (nonatomic) IBOutlet NSLayoutConstraint *mediaPlayerTopConstraint;
+@property (nonatomic) IBOutlet NSLayoutConstraint *mediaPlayerHeightConstraint;
 
 @end
 
@@ -42,8 +44,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleMediaPlayer) name:@"ToggleMediaPlayer" object:nil];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closePlayer) name:@"CloseMediaPlayer" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openPlayer) name:@"OpenMediaPlayer" object:nil];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openFavoritesNotification:) name:@"OpenFavorites" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBookViewControllerNotification:) name:@"OpenBookViewer" object:nil];
@@ -62,24 +70,20 @@
     
 
     
-//    if([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]){
-//        [self setNeedsStatusBarAppearanceUpdate];
-//    }
+    if([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]){
+        [self setNeedsStatusBarAppearanceUpdate];
+    }
 
-
-    [self.mediaPlayerHolder setBackgroundColor:[UIColor clearColor]];
 
     self.statusBarStyle = UIStatusBarStyleDefault;
 
 
-
-
+    
+    self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - 66;
+    self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height;
+    
 }
 
-- (void)viewDidLayoutSubviews
-{
-
-}
 
 
 
@@ -115,6 +119,7 @@
     if([segue.identifier isEqualToString:@"mediaPlayer"]){
         self.mediaPlayerViewController = [segue destinationViewController];
         [self.mediaPlayerViewController setManagedObjectContext:self.managedObjectContext];
+        
         [self setNeedsStatusBarAppearanceUpdate];
     }
     if([segue.identifier isEqualToString:@"loadingViewController"]){
@@ -161,33 +166,83 @@
 }
 
 
-- (void) closePlayer{
-    [self.centralViewHolder setHidden:NO];
+- (void)toggleMediaPlayer
+{
+    if(self.mediaPlayerTopConstraint.constant == 0)
+    {
+        [self closePlayer];
+    }
+    else
+    {
+        [self openPlayer];
+    }
+
+}
+
+- (IBAction)panPlayer:(UIPanGestureRecognizer *)recognizer
+{
+    
+    CGPoint point = [recognizer translationInView:self.view];
+    CGFloat newY = self.mediaPlayerTopConstraint.constant + point.y;
+    if(newY >= 0 && newY < self.view.bounds.size.height - 66)
+    {
+        self.mediaPlayerTopConstraint.constant = newY;
+        [self.mediaPlayerHolder layoutIfNeeded];
+//        NSLog(@"PAN GESTURE RECOGNIZER ----->:%f", [recognizer velocityInView:self.view].y);
+        CGFloat yVelocity = [recognizer velocityInView:self.view].y;
+        if(yVelocity > 1000)
+        {
+            [self closePlayer];
+        }
+        
+        if(yVelocity < -1000)
+        {
+            [self openPlayer];
+        }
+        
+    }
+    // THIS Was the magic sauce. W/O it all mayhem breaks lose.
+    [recognizer setTranslation:CGPointZero inView:self.view];
+
+}
+
+
+- (IBAction) closePlayer{
     self.statusBarStyle = UIStatusBarStyleDefault;
+    
+    [self.view layoutIfNeeded];
 
     [UIView animateWithDuration:0.33 animations:^{
-        //[mediaPlayerHolder setFrame:CGRectMake(- mediaPlayerHolder.frame.size.width, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
-        [self.mediaPlayerHolder setAlpha:0.0];
-        [self.centralViewHolder setAlpha:1.0];
+
+        self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - 66;
+        self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height;
+        
+        [self.mediaPlayerHolder layoutIfNeeded];
+        [self.view layoutIfNeeded];
+
         [self setNeedsStatusBarAppearanceUpdate];
 
     } completion:^(BOOL finished) {
-        [self.mediaPlayerHolder setHidden:YES];
+//        [self.mediaPlayerHolder setHidden:NO];
     }];
 
 }
 
-- (void) openPlayer {
-    [self.mediaPlayerHolder setHidden:NO];
+- (IBAction) openPlayer {
     self.statusBarStyle = UIStatusBarStyleLightContent;
-    [UIView animateWithDuration:0.33 animations:^{
-        //[mediaPlayerHolder setFrame:CGRectMake(0, 0, mediaPlayerHolder.frame.size.width, mediaPlayerHolder.frame.size.height)];
-        [self.mediaPlayerHolder setAlpha:1.0];
-        [self.centralViewHolder setAlpha:0.0];
-        [self setNeedsStatusBarAppearanceUpdate];
+    [self.view layoutIfNeeded];
 
+    
+    [UIView animateWithDuration:0.33 animations:^{
+        self.mediaPlayerTopConstraint.constant = 0;
+        self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height;
+        
+        [self.mediaPlayerHolder layoutIfNeeded];
+        [self.view layoutIfNeeded];
+        [self setNeedsStatusBarAppearanceUpdate];
+        
     } completion:^(BOOL finished) {
-        [self.centralViewHolder setHidden:YES];
+//        [self.centralViewHolder setHidden:NO];
     }];
 }
 
@@ -226,7 +281,30 @@
 
 
 
+- (void) dealloc
+{
 
+    
+    NSArray *notifications = @[@"ToggleMediaPlayer",
+                               @"CloseMediaPlayer",
+                               @"OpenMediaPlayer",
+                               @"OpenFavorites",
+                               @"OpenBookViewer",
+                               @"ShowLoadingIndicator",
+                               @"NotifyUser",
+                               @"AddFavoriteNotification",
+                               @"ChangeStatusBarWhite",
+                               @"ChangeStatusBarBlack",
+                               @"OpenCredits"];
+    
+    for(NSString *notification in notifications)
+    {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:notification object:nil];
+    }
+    
+    
+    
+}
 
 
 
