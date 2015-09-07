@@ -46,11 +46,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="536" height="44"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
-                                    <barButtonItem id="jLD-7c-WmQ">
-                                        <connections>
-                                            <action selector="goMediaPlayer:" destination="xcZ-1y-339" id="DuJ-vM-yW6"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem id="jx7-bR-VDL">
                                         <connections>
                                             <action selector="goFavorites:" destination="xcZ-1y-339" id="RaL-Ht-A23"/>
@@ -242,7 +237,6 @@
                     </view>
                     <connections>
                         <outlet property="favoritesBarButtonItem" destination="jx7-bR-VDL" id="0Nk-FU-4sD"/>
-                        <outlet property="mediaBarButtonItem" destination="jLD-7c-WmQ" id="Shc-0j-hM1"/>
                         <outlet property="navTable" destination="opd-i0-dxE" id="zhd-dR-JXE"/>
                         <outlet property="questionBarButtonItem" destination="cho-yY-lqA" id="uux-0C-UKI"/>
                         <outlet property="topToolbar" destination="8Nk-gg-oL8" id="xBR-Dc-9Lc"/>

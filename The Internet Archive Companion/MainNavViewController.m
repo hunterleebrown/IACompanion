@@ -82,13 +82,13 @@
 
 
 
-    for(UIBarButtonItem *item in @[self.favoritesBarButtonItem, self.mediaBarButtonItem, self.questionBarButtonItem])
+    for(UIBarButtonItem *item in @[self.favoritesBarButtonItem, self.questionBarButtonItem])
     {
         [item setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT} forState:UIControlStateNormal];
     }
 
     [self.favoritesBarButtonItem setTitle:FAVORITE];
-    [self.mediaBarButtonItem setTitle:MEDIAPLAYER];
+//    [self.mediaBarButtonItem setTitle:MEDIAPLAYER];
     [self.questionBarButtonItem setTitle:QUESTION];
 
 
