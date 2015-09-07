@@ -218,8 +218,10 @@
     download.activeDownload = nil;
     download.connection = nil;
     isDownloading = NO;
-    [[ArchiveCache sharedInstance].cache setObject:download.data forKey:download.urlPath];
-
+    if(download.data)
+    {
+        [[ArchiveCache sharedInstance].cache setObject:download.data forKey:download.urlPath];
+    }
 }
 
 

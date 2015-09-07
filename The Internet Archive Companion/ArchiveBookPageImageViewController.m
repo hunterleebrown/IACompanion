@@ -84,8 +84,8 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
 
     NSString *page = [name substringWithRange:NSMakeRange(0, (name.length - 8))];
     _url = [NSString stringWithFormat:@"http://%@%@zip=%@&file=%@_jp2/%@_%@.jp2&scale=2", _server, BookReaderImagesPHP, _zipFile, page, page, [NSString stringWithFormat:@"%04ld", (long)self.index]];
-  //  NSLog(@"------> page: %@", page);
-   // NSLog(@"------> url: %@", _url);
+    NSLog(@"------> page: %@", page);
+    NSLog(@"------> url: %@", _url);
     
     ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:_url];
     [_aSyncImageView setArchiveImage:anImage];

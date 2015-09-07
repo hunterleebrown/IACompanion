@@ -291,7 +291,28 @@
             ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:dDoc.headerImageUrl];
             [dDoc setArchiveImage:anImage];
         }
-        [dDoc setDetails:[metadata objectForKey:@"description"]];
+        
+        // Descriptions can now be arrays... yay
+        if([[metadata objectForKey:@"description"] isKindOfClass:[NSArray class]])
+        {
+            NSArray *desc = [metadata objectForKey:@"description"];
+            NSMutableString *descText = [NSMutableString new];
+            
+            for(NSObject *obj in desc)
+            {
+                if([obj isKindOfClass:[NSString class]])
+                {
+                    [descText appendString:[NSString stringWithFormat:@"%@\n", obj]];
+                }
+            }
+            [dDoc setDetails:descText];
+
+        } else
+        {
+            [dDoc setDetails:[metadata objectForKey:@"description"]];
+        }
+        
+        
         [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];
         if([metadata objectForKey:@"date"] != nil)
         {
@@ -370,7 +391,10 @@
     
     @try {
         [self packageJsonResponeDictionary:jsonResponse];
-    } @catch (id exception) {
+    } @catch (NSException *exception) {
+        
+        NSString *reason = exception.reason;
+        NSString *name = exception.name;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Something went wrong with parsing data from the Internet Archive Server. Try again."];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
