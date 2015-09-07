@@ -27,6 +27,7 @@
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -42,31 +43,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="536" height="556"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Nk-gg-oL8">
-                                <rect key="frame" x="0.0" y="0.0" width="536" height="44"/>
-                                <color key="backgroundColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <barButtonItem id="jx7-bR-VDL">
-                                        <connections>
-                                            <action selector="goFavorites:" destination="xcZ-1y-339" id="RaL-Ht-A23"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem id="cho-yY-lqA">
-                                        <connections>
-                                            <action selector="goCredits:" destination="xcZ-1y-339" id="SWd-5H-yg2"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </toolbar>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="42" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="opd-i0-dxE">
-                                <rect key="frame" x="0.0" y="44" width="536" height="512"/>
+                                <rect key="frame" x="0.0" y="0.0" width="536" height="556"/>
                                 <color key="backgroundColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainNavCell" id="Voh-dj-hLF" customClass="MainNavTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="aboutCell" id="1HL-kd-Tkw" customClass="MainNavTableViewCell">
                                         <rect key="frame" x="0.0" y="42" width="536" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1HL-kd-Tkw" id="vhN-gf-7PE">
+                                            <rect key="frame" x="0.0" y="0.0" width="536" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afa-XK-ms0">
+                                                    <rect key="frame" x="8" y="11" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="aQK-Y5-xRm"/>
+                                                        <constraint firstAttribute="width" constant="44" id="xfk-KU-pq1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="30"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u31-Sp-FPB">
+                                                    <rect key="frame" x="62" y="22" width="464" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="u31-Sp-FPB" secondAttribute="trailing" constant="10" id="6YT-fx-hjM"/>
+                                                <constraint firstItem="Afa-XK-ms0" firstAttribute="leading" secondItem="vhN-gf-7PE" secondAttribute="leading" constant="8" id="OUn-9J-eju"/>
+                                                <constraint firstItem="u31-Sp-FPB" firstAttribute="centerY" secondItem="vhN-gf-7PE" secondAttribute="centerY" id="ObL-O0-DRq"/>
+                                                <constraint firstItem="u31-Sp-FPB" firstAttribute="leading" secondItem="Afa-XK-ms0" secondAttribute="trailing" constant="10" id="QPz-QY-qra"/>
+                                                <constraint firstItem="Afa-XK-ms0" firstAttribute="centerY" secondItem="vhN-gf-7PE" secondAttribute="centerY" id="suE-Ln-Rdg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="navCellTitleLabel" destination="u31-Sp-FPB" id="i6N-8z-auY"/>
+                                            <outlet property="typeLabel" destination="Afa-XK-ms0" id="Lwm-mC-Pl5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainNavCell" id="Voh-dj-hLF" customClass="MainNavTableViewCell">
+                                        <rect key="frame" x="0.0" y="108" width="536" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Voh-dj-hLF" id="85R-TB-PBV">
                                             <rect key="frame" x="0.0" y="0.0" width="536" height="66"/>
@@ -155,7 +175,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="mainNavSectionHeader" id="RhR-cQ-dvJ" customClass="MainNavTableViewHeaderViewCell">
-                                        <rect key="frame" x="0.0" y="108" width="536" height="66"/>
+                                        <rect key="frame" x="0.0" y="174" width="536" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RhR-cQ-dvJ" id="siu-Bz-KXG">
                                             <rect key="frame" x="0.0" y="0.0" width="536" height="66"/>
@@ -215,31 +235,13 @@
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="opd-i0-dxE" secondAttribute="bottom" id="0BM-4S-B3U"/>
-                            <constraint firstAttribute="trailing" secondItem="8Nk-gg-oL8" secondAttribute="trailing" id="4vg-Tq-ZCJ"/>
-                            <constraint firstItem="opd-i0-dxE" firstAttribute="top" secondItem="Qwo-qU-AhK" secondAttribute="top" constant="20" id="8dI-Q7-wU4"/>
                             <constraint firstItem="opd-i0-dxE" firstAttribute="leading" secondItem="Qwo-qU-AhK" secondAttribute="leading" id="9bA-hn-thM"/>
-                            <constraint firstItem="opd-i0-dxE" firstAttribute="top" secondItem="YFq-gO-z6L" secondAttribute="bottom" id="VQY-Kq-0ag"/>
-                            <constraint firstItem="opd-i0-dxE" firstAttribute="top" secondItem="YFq-gO-z6L" secondAttribute="bottom" id="Wv1-sk-fSy"/>
-                            <constraint firstItem="opd-i0-dxE" firstAttribute="top" secondItem="YFq-gO-z6L" secondAttribute="bottom" constant="10" id="X7X-OL-Iv6"/>
-                            <constraint firstItem="8Nk-gg-oL8" firstAttribute="leading" secondItem="Qwo-qU-AhK" secondAttribute="leading" id="XOO-iE-6LT"/>
+                            <constraint firstItem="opd-i0-dxE" firstAttribute="top" secondItem="YFq-gO-z6L" secondAttribute="bottom" id="Yeq-jV-1ma"/>
                             <constraint firstAttribute="trailing" secondItem="opd-i0-dxE" secondAttribute="trailing" id="evs-QM-LwZ"/>
-                            <constraint firstItem="opd-i0-dxE" firstAttribute="top" secondItem="8Nk-gg-oL8" secondAttribute="bottom" id="kBa-B3-ioS"/>
-                            <constraint firstItem="8Nk-gg-oL8" firstAttribute="top" secondItem="YFq-gO-z6L" secondAttribute="bottom" id="pnk-rq-94a"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="8dI-Q7-wU4"/>
-                                <exclude reference="VQY-Kq-0ag"/>
-                                <exclude reference="Wv1-sk-fSy"/>
-                                <exclude reference="X7X-OL-Iv6"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="favoritesBarButtonItem" destination="jx7-bR-VDL" id="0Nk-FU-4sD"/>
                         <outlet property="navTable" destination="opd-i0-dxE" id="zhd-dR-JXE"/>
-                        <outlet property="questionBarButtonItem" destination="cho-yY-lqA" id="uux-0C-UKI"/>
-                        <outlet property="topToolbar" destination="8Nk-gg-oL8" id="xBR-Dc-9Lc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUo-pC-CfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1554,7 +1556,7 @@
                                             <outlet property="countLabel" destination="LBx-rM-hF9" id="gQv-Po-0Xl"/>
                                             <outlet property="filters" destination="Veu-nD-qvL" id="Jqu-95-Ezl"/>
                                             <outlet property="layoutChangerView" destination="Rdr-3i-fyz" id="4At-YV-210"/>
-                                            <outlet property="sorterView" destination="NSQ-BC-aBd" id="YPF-Nb-HOr"/>
+                                            <outlet property="sorterView" destination="NSQ-BC-aBd" id="XZh-yr-m8h"/>
                                         </connections>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBx-rM-hF9">
@@ -1764,8 +1766,7 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="sortButtonPressed:" destination="NSQ-BC-aBd" eventType="touchUpInside" id="mCQ-aU-Y2t"/>
-                                                                <action selector="sortButtonPressed:" destination="JdK-nA-PEC" eventType="touchUpInside" id="ywn-jP-FAb"/>
+                                                                <action selector="sortButtonPressed:" destination="NSQ-BC-aBd" eventType="touchUpInside" id="vGg-Rv-lAW"/>
                                                             </connections>
                                                         </button>
                                                     </barButtonItem>
@@ -1780,8 +1781,7 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="sortButtonPressed:" destination="JdK-nA-PEC" eventType="touchUpInside" id="Aoc-th-2pX"/>
-                                                                <action selector="sortButtonPressed:" destination="NSQ-BC-aBd" eventType="touchUpInside" id="WNT-Vz-gcB"/>
+                                                                <action selector="sortButtonPressed:" destination="NSQ-BC-aBd" eventType="touchUpInside" id="77y-fN-FtL"/>
                                                             </connections>
                                                         </button>
                                                     </barButtonItem>
@@ -1796,8 +1796,7 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="sortButtonPressed:" destination="NSQ-BC-aBd" eventType="touchUpInside" id="Nz6-eI-9vh"/>
-                                                                <action selector="sortButtonPressed:" destination="JdK-nA-PEC" eventType="touchUpInside" id="p0s-LV-XOb"/>
+                                                                <action selector="sortButtonPressed:" destination="NSQ-BC-aBd" eventType="touchUpInside" id="EAS-RM-cry"/>
                                                             </connections>
                                                         </button>
                                                     </barButtonItem>
@@ -1812,8 +1811,7 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="sortButtonPressed:" destination="JdK-nA-PEC" eventType="touchUpInside" id="6gf-EY-TM7"/>
-                                                                <action selector="sortButtonPressed:" destination="NSQ-BC-aBd" eventType="touchUpInside" id="TKy-66-999"/>
+                                                                <action selector="sortButtonPressed:" destination="NSQ-BC-aBd" eventType="touchUpInside" id="b0J-kp-4uT"/>
                                                             </connections>
                                                         </button>
                                                     </barButtonItem>
@@ -1831,11 +1829,11 @@
                                             <constraint firstItem="cjy-FA-bD6" firstAttribute="top" secondItem="NSQ-BC-aBd" secondAttribute="top" id="yLD-hL-1kE"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="dateButton" destination="Woj-tg-f32" id="H43-O9-z7L"/>
-                                            <outlet property="relevanceButton" destination="TOF-cC-ul0" id="WTK-gF-t1K"/>
-                                            <outlet property="titleButton" destination="kI1-S7-NM0" id="edB-2N-IXc"/>
-                                            <outlet property="toolbar" destination="cjy-FA-bD6" id="QcS-2A-sSV"/>
-                                            <outlet property="viewsButton" destination="Fcy-02-oAr" id="48p-eY-d8I"/>
+                                            <outlet property="dateButton" destination="Woj-tg-f32" id="3dl-4E-GgA"/>
+                                            <outlet property="relevanceButton" destination="TOF-cC-ul0" id="9P7-pp-nBC"/>
+                                            <outlet property="titleButton" destination="kI1-S7-NM0" id="gXV-gS-Wsr"/>
+                                            <outlet property="toolbar" destination="cjy-FA-bD6" id="PUQ-XP-rQI"/>
+                                            <outlet property="viewsButton" destination="Fcy-02-oAr" id="Zus-TA-gxK"/>
                                         </connections>
                                     </view>
                                 </subviews>

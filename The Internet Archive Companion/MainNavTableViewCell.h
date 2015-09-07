@@ -16,4 +16,6 @@
 @property (nonatomic, weak) IBOutlet UIView *paddedView;
 @property (nonatomic, strong) UILabel *fontLabel;
 
+@property (nonatomic, weak) IBOutlet UILabel *typeLabel;
+
 @end

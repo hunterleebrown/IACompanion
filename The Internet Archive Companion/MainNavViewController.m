@@ -33,6 +33,8 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *favoritesBarButtonItem;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *questionBarButtonItem;
 
+@property (nonatomic, weak) IBOutlet UIToolbar *secondTopToolbar;
+
 
 @end
 
@@ -82,14 +84,14 @@
 
 
 
-    for(UIBarButtonItem *item in @[self.favoritesBarButtonItem, self.questionBarButtonItem])
-    {
-        [item setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT} forState:UIControlStateNormal];
-    }
+//    for(UIBarButtonItem *item in @[self.favoritesBarButtonItem, self.questionBarButtonItem])
+//    {
+//        [item setTitleTextAttributes:@{NSFontAttributeName : ICONOCHIVE_FONT} forState:UIControlStateNormal];
+//    }
 
-    [self.favoritesBarButtonItem setTitle:FAVORITE];
+//    [self.favoritesBarButtonItem setTitle:FAVORITE];
 //    [self.mediaBarButtonItem setTitle:MEDIAPLAYER];
-    [self.questionBarButtonItem setTitle:QUESTION];
+//    [self.questionBarButtonItem setTitle:QUESTION];
 
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endRefreshing) name:@"EndRefreshing" object:nil];
@@ -199,19 +201,22 @@
 
 #pragma mark - table
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 4;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
 
         case 0:
-            return [audioSearchDocuments count];
+            return 2;
             break;
         case 1:
-            return [videoSearchDocuments count];
+            return [audioSearchDocuments count];
             break;
         case 2:
+            return [videoSearchDocuments count];
+            break;
+        case 3:
             return [textSearchDocuments count];
             break;
         default:
@@ -222,7 +227,7 @@
 
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MainNavTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainNavCell"];
+    MainNavTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:indexPath.section == 0 ? @"aboutCell" : @"mainNavCell"];
     [cell.navImageView setArchiveImage:nil];
 
     [cell.navImageView setHidden:YES];
@@ -231,15 +236,15 @@
 
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
-        case 0:
+        case 1:
             doc = [audioSearchDocuments objectAtIndex:indexPath.row];
             cell.fontLabel.hidden = YES;
             break;
-        case 1:
+        case 2:
             doc = [videoSearchDocuments objectAtIndex:indexPath.row];
             cell.fontLabel.hidden = YES;
             break;
-        case 2:
+        case 3:
             doc = [textSearchDocuments objectAtIndex:indexPath.row];
             cell.fontLabel.hidden = YES;
             break;
@@ -247,13 +252,31 @@
             break;
     }
 
-    [cell.navCellTitleLabel setHidden:NO];
-    [cell.navImageView setHidden:NO];
-    [cell.navCellTitleLabel setText:doc.title];
-    [cell.navImageView setArchiveImage:doc.archiveImage];
-    [cell setBackgroundColor:[UIColor clearColor]];
-    [cell.contentView setBackgroundColor:[UIColor clearColor]];
+    if (indexPath.section != 0) {
+        
+        [cell.navCellTitleLabel setHidden:NO];
+        [cell.navImageView setHidden:NO];
+        [cell.navCellTitleLabel setText:doc.title];
+        [cell.navImageView setArchiveImage:doc.archiveImage];
+        [cell setBackgroundColor:[UIColor clearColor]];
+        [cell.contentView setBackgroundColor:[UIColor clearColor]];
+    } else
+    {
+        if(indexPath.row == 0)
+        {
+            cell.navCellTitleLabel.hidden = NO;
+            cell.navCellTitleLabel.text = @"Favorites";
+            cell.typeLabel.text = FAVORITE;
+        }
+        else if (indexPath.row == 1)
+        {
+            cell.navCellTitleLabel.hidden = NO;
+            cell.navCellTitleLabel.text = @"About";
+            cell.typeLabel.text = @"i";
 
+
+        }
+    }
     return cell;
 }
 
@@ -281,13 +304,13 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
 
-        case 0:
+        case 1:
             return @"Audio Collections";
             break;
-        case 1:
+        case 2:
             return @"Video Collections";
             break;
-        case 2:
+        case 3:
             return @"Text Collections";
             break;
         default:
@@ -324,43 +347,66 @@
 
     switch (section) {
 
-        case 0:
+        case 1:
             headerCell.sectionLabel.attributedText =  audioAtt;
             break;
-        case 1:
+        case 2:
             headerCell.sectionLabel.attributedText =  videoAtt ;
             break;
-        case 2:
+        case 3:
             headerCell.sectionLabel.attributedText =  bookAtt;
             break;
         default:
             headerCell.sectionLabel.text =  @"";
             break;
     }
+    
+    if(section == 0)
+    {
+        return nil;
+    }
 
     return headerCell;
 
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return indexPath.section == 0 ? 44 : 54;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return section == 0 ? 0 : UITableViewAutomaticDimension;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ArchiveSearchDoc *doc;
     switch (indexPath.section) {
-
-        case 0:
-            doc = [audioSearchDocuments objectAtIndex:indexPath.row];
+            case 0:
+            if (indexPath.row == 0) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenFavorites" object:nil];
+            } else if(indexPath.row == 1)
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenCredits" object:nil];
+            }
             break;
         case 1:
-            doc = [videoSearchDocuments objectAtIndex:indexPath.row];
+            doc = [audioSearchDocuments objectAtIndex:indexPath.row];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NavCellNotification" object:doc];
             break;
         case 2:
+            doc = [videoSearchDocuments objectAtIndex:indexPath.row];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NavCellNotification" object:doc];
+            break;
+        case 3:
             doc = [textSearchDocuments objectAtIndex:indexPath.row];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NavCellNotification" object:doc];
             break;
         default:
             break;
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"NavCellNotification" object:doc];
 }
 
 - (BOOL) scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
@@ -373,6 +419,11 @@
 {
 
     [self.topToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.secondTopToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+ 
+    [self.topToolbar setClipsToBounds:YES];
+    [self.secondTopToolbar setClipsToBounds:YES];
+
     
     [super viewDidLayoutSubviews];
 }

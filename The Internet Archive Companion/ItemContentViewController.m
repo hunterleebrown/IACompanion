@@ -96,7 +96,7 @@
         [self.mpBarButton setTintColor:[UIColor darkGrayColor]];
         [self.backButton setTintColor:[UIColor darkGrayColor]];
 
-        [self.navigationItem setRightBarButtonItems:@[closeItem, favsToolBuuton]];
+        [self.navigationItem setRightBarButtonItems:@[closeItem]];
         
         [self.navigationController.toolbar setTintColor:[UIColor darkGrayColor]];
         
