@@ -2217,7 +2217,7 @@
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-dv-Xwh">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.84999999999999998" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="580" id="43Z-Of-qPa"/>
@@ -2278,8 +2278,8 @@
                             <constraint firstItem="hze-UI-bhc" firstAttribute="trailing" secondItem="D1H-zc-ghf" secondAttribute="trailing" id="B9y-L5-0P6"/>
                             <constraint firstItem="A0T-C9-he2" firstAttribute="centerY" secondItem="hze-UI-bhc" secondAttribute="centerY" id="E5C-pC-NNK"/>
                             <constraint firstItem="t5Z-Nt-phs" firstAttribute="leading" secondItem="D1H-zc-ghf" secondAttribute="leading" id="FRG-It-mTu"/>
+                            <constraint firstItem="GXP-dv-Xwh" firstAttribute="top" secondItem="hze-UI-bhc" secondAttribute="top" id="JE3-zg-Vwn"/>
                             <constraint firstItem="A0T-C9-he2" firstAttribute="centerX" secondItem="hze-UI-bhc" secondAttribute="centerX" id="M2y-TY-Fj2"/>
-                            <constraint firstItem="GXP-dv-Xwh" firstAttribute="top" secondItem="mvr-px-bwc" secondAttribute="bottom" id="SCX-hs-rgg"/>
                             <constraint firstItem="GXP-dv-Xwh" firstAttribute="leading" secondItem="D1H-zc-ghf" secondAttribute="leading" id="UoO-fL-zEv"/>
                             <constraint firstItem="hze-UI-bhc" firstAttribute="bottom" secondItem="D1H-zc-ghf" secondAttribute="bottom" constant="-44" id="Xj4-bu-uGj"/>
                             <constraint firstItem="hYP-s6-DiX" firstAttribute="top" secondItem="t5Z-Nt-phs" secondAttribute="bottom" id="fZI-4E-GGJ"/>
@@ -2294,7 +2294,7 @@
                         <outlet property="loadingIndicatorHolder" destination="A0T-C9-he2" id="OsZ-rf-fGN"/>
                         <outlet property="mediaPlayerHeightConstraint" destination="43Z-Of-qPa" id="n9j-8s-n64"/>
                         <outlet property="mediaPlayerHolder" destination="GXP-dv-Xwh" id="xZk-dg-oG8"/>
-                        <outlet property="mediaPlayerTopConstraint" destination="SCX-hs-rgg" id="NMK-1Z-YF5"/>
+                        <outlet property="mediaPlayerTopConstraint" destination="JE3-zg-Vwn" id="Tje-JX-iEf"/>
                         <outlet property="notifyUserView" destination="t5Z-Nt-phs" id="595-pe-KiX"/>
                     </connections>
                 </viewController>
@@ -2443,7 +2443,7 @@
                                 <items>
                                     <barButtonItem style="plain" id="Ab1-fF-ABx">
                                         <view key="customView" hidden="YES" contentMode="scaleToFill" id="C0F-zh-2Na" customClass="BufferingView">
-                                            <rect key="frame" x="20" y="6" width="33" height="33"/>
+                                            <rect key="frame" x="20" y="11" width="33" height="23"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -2809,6 +2809,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <connections>
                         <outlet property="bufferingView" destination="AdI-j9-iex" id="8lR-i7-8JX"/>
