@@ -28,6 +28,7 @@
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
             <string>Iconochive-Regular</string>
+            <string>Iconochive-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2441,6 +2442,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
+                                    <barButtonItem style="plain" id="bVY-f9-UeV">
+                                        <view key="customView" contentMode="scaleToFill" id="kZP-Aq-Kph">
+                                            <rect key="frame" x="20" y="6" width="33" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNF-Hg-ykA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Iconochive-Regular" family="Iconochive-Regular" pointSize="25"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="rNF-Hg-ykA" firstAttribute="leading" secondItem="kZP-Aq-Kph" secondAttribute="leading" id="5ir-ME-0CY"/>
+                                                <constraint firstAttribute="trailing" secondItem="rNF-Hg-ykA" secondAttribute="trailing" id="88v-DE-mbJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="rNF-Hg-ykA" secondAttribute="bottom" id="9gJ-ii-b9t"/>
+                                                <constraint firstItem="rNF-Hg-ykA" firstAttribute="top" secondItem="kZP-Aq-Kph" secondAttribute="top" id="YOX-h9-Y9o"/>
+                                            </constraints>
+                                        </view>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6NU-42-YIb"/>
                                     <barButtonItem title="PLAYER" id="CmV-mf-ZnI">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2822,6 +2845,7 @@
                         <outlet property="sliderHolder" destination="PU9-0c-QPs" id="mYq-ei-InL"/>
                         <outlet property="sliderMaxLabel" destination="6MH-hS-4gC" id="Uvi-3j-GCi"/>
                         <outlet property="sliderMinLabel" destination="BfV-UP-4pd" id="z8D-zn-B7o"/>
+                        <outlet property="topSpeakerLabel" destination="rNF-Hg-ykA" id="Bam-pF-5p9"/>
                         <outlet property="topToolbar" destination="Z1g-Qo-DKw" id="x0c-tN-K0l"/>
                     </connections>
                 </viewController>

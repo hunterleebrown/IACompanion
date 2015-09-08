@@ -31,7 +31,7 @@
     self = [super initWithCoder:aDecoder];
     if(self){
         shouldAnimate = NO;
-        self.layer.borderWidth = 1.0;
+//        self.layer.borderWidth = 1.0;
         self.layer.cornerRadius = 10;
 //        self.layer.borderColor = [UIColor darkGrayColor].CGColor;
         title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];

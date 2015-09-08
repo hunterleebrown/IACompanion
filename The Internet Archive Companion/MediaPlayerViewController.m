@@ -57,6 +57,10 @@
 
 @property (nonatomic, weak) IBOutlet BufferingView *topBufferingView;
 
+@property (nonatomic, weak) IBOutlet UILabel *topSpeakerLabel;
+
+@property (nonatomic) BOOL shouldUpdateSpeaker;
+@property (nonatomic, strong) NSArray *speakerArray;
 @end
 
 @implementation MediaPlayerViewController
@@ -139,11 +143,19 @@
     [self.topToolbar setBackgroundColor:[UIColor clearColor]];
 
 
-//    [self.topBufferingView setTitleText:@""];
+    [self.topBufferingView setTitleText:@""];
 //
-//    [self.topBufferingView setColor:[UIColor redColor]];
+    [self.topBufferingView setColor:[UIColor redColor]];
     
 //    self.fullScreenButton.hidden = YES;
+    
+    self.topSpeakerLabel.text = SPEAKER_0;
+    
+    self.speakerArray = @[SPEAKER_0, SPEAKER_1, SPEAKER_2];
+    
+    self.shouldUpdateSpeaker = YES;
+
+    
 }
 
 
@@ -346,7 +358,7 @@
         case MPMoviePlaybackStatePlaying:
             [self monitorPlaybackTime];
 
-//            [self.topBufferingView startAnimating];
+            [self.topBufferingView startAnimating];
             // Turn on remote control event delivery
             [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
             
@@ -359,7 +371,7 @@
         case MPMoviePlaybackStatePaused:
         case MPMoviePlaybackStateStopped:
             [playButton setTitle:PLAY forState:UIControlStateNormal];
-//            [self.topBufferingView stopAnimating];
+            [self.topBufferingView stopAnimating];
             break;
         default:
             break;
@@ -368,7 +380,11 @@
     
 }
 
+- (IBAction)tapTopBuffer:(id)sender
+{
 
+
+}
 
 
 - (void)updateRemote
@@ -828,7 +844,7 @@
        // [bufferingView stopAnimating];
 
         [playButton setTitle:PLAY forState:UIControlStateNormal];
-//        [self.topBufferingView stopAnimating];
+        [self.topBufferingView stopAnimating];
         
     } else if(player.playbackState == MPMoviePlaybackStatePaused){
         
