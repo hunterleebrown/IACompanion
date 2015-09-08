@@ -99,7 +99,11 @@
             _format = FileFormatPNG;
         } else if([[file objectForKey:@"format"] isEqualToString:@"EPUB"]){
             _format = FileFormatEPUB;
+        } else if([[file objectForKey:@"format"] isEqualToString:@"Item Image"]){
+            _format = FileFormatImage;
         }
+    
+        
         else {
             _format = FileFormatOther;
         }

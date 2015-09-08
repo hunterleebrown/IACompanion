@@ -281,7 +281,16 @@
         [dDoc setRawDoc:jsonResponse];
         NSDictionary *metadata = [jsonResponse objectForKey:@"metadata"];
         [dDoc setIdentifier:[metadata objectForKey:@"identifier"]];
-        [dDoc setTitle:[metadata objectForKey:@"title"]];
+        
+        if([[metadata objectForKey:@"title"] isKindOfClass:[NSArray class]])
+        {
+            [dDoc setTitle:[metadata objectForKey:@"title"][0]];
+        }
+        else
+        {
+            [dDoc setTitle:[metadata objectForKey:@"title"]];
+        }
+        
         if(![metadata objectForKey:@"headerImage"]){
             [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/img/%@", dDoc.identifier]];
             ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:dDoc.headerImageUrl];

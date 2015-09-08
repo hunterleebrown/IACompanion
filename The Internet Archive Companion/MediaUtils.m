@@ -187,6 +187,10 @@
             return IMAGE;
             break;
 
+        case FileFormatImage:
+            return IMAGE;
+            break;
+            
         case FileFormatEPUB:
             return BOOK;
             break;
@@ -209,6 +213,10 @@
             return VIDEO_COLOR;
             break;
 
+        case FileFormatImage:
+            return IMAGE_COLOR;
+            break;
+            
         case FileFormatJPEG:
             return IMAGE_COLOR;
             break;
@@ -377,6 +385,8 @@
             format = FileFormatPNG;
         } else if([name isEqualToString:@"EPUB"]){
             format = FileFormatEPUB;
+        } else if([name isEqualToString:@"Item Image"]){
+            format = FileFormatImage;
         }
 
         else {

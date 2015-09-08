@@ -107,16 +107,17 @@
     }
 
 
-    [self.descriptionButton setSelected:YES];
-
+//    [self.descriptionButton setSelected:YES];
+    [self.folderButton setSelected:YES];
+    
 
     [self.itemWebView setOpaque:NO];
     self.itemWebView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     [self.itemWebView setBackgroundColor:[UIColor whiteColor]];
 
-    self.itemWebView.alpha = 1.0;
+    self.itemWebView.alpha = 0;
     self.collectionHolderView.alpha = 0;
-    self.mediaTable.alpha = 0;
+    self.mediaTable.alpha = 1.0;
     
     self.imageView.layer.cornerRadius = self.imageView.bounds.size.width / 2;
     self.imageView.layer.masksToBounds = YES;
@@ -199,7 +200,7 @@
             [files addObject:file];
             
             if(self.detDoc.type != MediaTypeCollection) {
-                if((file.format == FileFormatJPEG || file.format == FileFormatPNG) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
+                if((file.format == FileFormatJPEG || file.format == FileFormatPNG || file.format == FileFormatImage) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
                     if(gotAnImage == NO)
                     {
                         ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
@@ -315,6 +316,8 @@
     if(organizedMediaFiles.count == 0)
     {
         self.folderButton.hidden = YES;
+        self.mediaTable.hidden = YES;
+        self.itemWebView.hidden = NO;
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
@@ -462,7 +465,7 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(organizedMediaFiles.count > 0){
         ArchiveFile *aFile = [[organizedMediaFiles objectForKey:[[organizedMediaFiles allKeys]  objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF || aFile.format == FileFormatPNG) {
+        if(aFile.format == FileFormatJPEG || aFile.format == FileFormatGIF || aFile.format == FileFormatPNG || aFile.format == FileFormatImage) {
             MediaImageViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"mediaImageViewController"];
             [vc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
             ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:aFile.url];

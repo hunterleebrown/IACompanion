@@ -33,9 +33,10 @@ typedef enum {
     FileFormat96KbpsMP3 = 14,
 
     FileFormatPNG = 15,
-    FileFormatEPUB = 16
+    FileFormatEPUB = 16,
 
-
+    FileFormatImage = 17
+    
 
 } FileFormat;
 
