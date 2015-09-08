@@ -139,9 +139,9 @@
     [self.topToolbar setBackgroundColor:[UIColor clearColor]];
 
 
-    [self.topBufferingView setTitleText:@""];
-    
-    [self.topBufferingView setColor:[UIColor redColor]];
+//    [self.topBufferingView setTitleText:@""];
+//
+//    [self.topBufferingView setColor:[UIColor redColor]];
     
 //    self.fullScreenButton.hidden = YES;
 }
@@ -346,7 +346,7 @@
         case MPMoviePlaybackStatePlaying:
             [self monitorPlaybackTime];
 
-            [self.topBufferingView startAnimating];
+//            [self.topBufferingView startAnimating];
             // Turn on remote control event delivery
             [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
             
@@ -359,7 +359,7 @@
         case MPMoviePlaybackStatePaused:
         case MPMoviePlaybackStateStopped:
             [playButton setTitle:PLAY forState:UIControlStateNormal];
-            [self.topBufferingView stopAnimating];
+//            [self.topBufferingView stopAnimating];
             break;
         default:
             break;
@@ -828,7 +828,7 @@
        // [bufferingView stopAnimating];
 
         [playButton setTitle:PLAY forState:UIControlStateNormal];
-        [self.topBufferingView stopAnimating];
+//        [self.topBufferingView stopAnimating];
         
     } else if(player.playbackState == MPMoviePlaybackStatePaused){
         

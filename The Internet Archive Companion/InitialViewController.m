@@ -15,6 +15,7 @@
 #import "NotifyUserView.h"
 #import "FontMapping.h"
 
+
 @interface InitialViewController () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong)  MediaPlayerViewController *mediaPlayerViewController;
@@ -30,6 +31,9 @@
 @end
 
 @implementation InitialViewController
+
+const CGFloat heightOfMediaPlayerToolbar = 64.0;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -79,13 +83,20 @@
 
 
     
-    self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - 44;
-    self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height;
+    self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - heightOfMediaPlayerToolbar;
+    self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
     
 }
 
 
+- (void)viewDidLayoutSubviews
+{
 
+    self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
+    [self.mediaPlayerHolder layoutIfNeeded];
+    
+    [super viewDidLayoutSubviews];
+}
 
 
 - (void)changeStatusBarWhite
@@ -184,7 +195,7 @@
     
     CGPoint point = [recognizer translationInView:self.view];
     CGFloat newY = self.mediaPlayerTopConstraint.constant + point.y;
-    if(newY >= 0 && newY < self.view.bounds.size.height - 44)
+    if(newY >= 0 && newY < self.view.bounds.size.height - heightOfMediaPlayerToolbar)
     {
         self.mediaPlayerTopConstraint.constant = newY;
         [self.mediaPlayerHolder layoutIfNeeded];
@@ -208,19 +219,19 @@
 
 
 - (IBAction) closePlayer{
-    self.statusBarStyle = UIStatusBarStyleDefault;
+//    self.statusBarStyle = UIStatusBarStyleDefault;
     
     [self.view layoutIfNeeded];
 
     [UIView animateWithDuration:0.33 animations:^{
 
-        self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - 44;
-        self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height;
+        self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - heightOfMediaPlayerToolbar;
+        self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
         
         [self.mediaPlayerHolder layoutIfNeeded];
         [self.view layoutIfNeeded];
 
-        [self setNeedsStatusBarAppearanceUpdate];
+//        [self setNeedsStatusBarAppearanceUpdate];
 
     } completion:^(BOOL finished) {
 //        [self.mediaPlayerHolder setHidden:NO];
@@ -229,17 +240,17 @@
 }
 
 - (IBAction) openPlayer {
-    self.statusBarStyle = UIStatusBarStyleLightContent;
+//    self.statusBarStyle = UIStatusBarStyleLightContent;
     [self.view layoutIfNeeded];
 
     
     [UIView animateWithDuration:0.33 animations:^{
         self.mediaPlayerTopConstraint.constant = 0;
-        self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height;
+        self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
         
         [self.mediaPlayerHolder layoutIfNeeded];
         [self.view layoutIfNeeded];
-        [self setNeedsStatusBarAppearanceUpdate];
+//        [self setNeedsStatusBarAppearanceUpdate];
         
     } completion:^(BOOL finished) {
 //        [self.centralViewHolder setHidden:NO];

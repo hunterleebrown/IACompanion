@@ -34,11 +34,9 @@
         self.layer.borderWidth = 1.0;
         self.layer.cornerRadius = 10;
 //        self.layer.borderColor = [UIColor darkGrayColor].CGColor;
-        title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 18)];
+        title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
         [title setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]];
         [title setTextColor:[UIColor whiteColor]];
-        [title setShadowColor:[UIColor darkGrayColor]];
-        [title setShadowOffset:CGSizeMake(1, 1)];
         [self addSubview:title];
         [title setText:@"loading"];
         [title setBackgroundColor:[UIColor clearColor]];
@@ -63,7 +61,7 @@
 
 - (void) layoutSubviews{
     [super layoutSubviews];
-    [title setFrame:CGRectMake(self.frame.size.width / 2 - 25, 2, 50, 18)];
+    [title setFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
 }
 
 - (void) startAnimating{
