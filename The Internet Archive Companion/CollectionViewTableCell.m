@@ -72,14 +72,14 @@
 
 
 
-    self.paddedView.layer.shadowColor = [[UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.2] CGColor];
-    self.paddedView.layer.shadowOpacity = 0.2;
-    self.paddedView.layer.shadowRadius = 1.0;
-    self.paddedView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
-    self.paddedView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.paddedView.bounds].CGPath;
-
-    self.paddedView.layer.shadowPath =
-    [UIBezierPath bezierPathWithRect:self.paddedView.layer.bounds].CGPath;
+//    self.paddedView.layer.shadowColor = [[UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.2] CGColor];
+//    self.paddedView.layer.shadowOpacity = 0.2;
+//    self.paddedView.layer.shadowRadius = 1.0;
+//    self.paddedView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
+//    self.paddedView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.paddedView.bounds].CGPath;
+//
+//    self.paddedView.layer.shadowPath =
+//    [UIBezierPath bezierPathWithRect:self.paddedView.layer.bounds].CGPath;
 
 
     [self.contentView setBackgroundColor:[UIColor clearColor]];
@@ -110,9 +110,9 @@
             break;
 
         default:
-            [self.title setTextColor:[UIColor darkGrayColor]];
+            [self.title setTextColor:[UIColor whiteColor]];
             [self.creator setTextColor:[UIColor darkGrayColor]];
-            [self.paddedView setBackgroundColor:[UIColor whiteColor]];
+            [self.paddedView setBackgroundColor:[UIColor clearColor]];
 
 
             self.archiveImageView.frame = imageRect;

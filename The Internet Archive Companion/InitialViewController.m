@@ -28,6 +28,8 @@
 @property (nonatomic) IBOutlet NSLayoutConstraint *mediaPlayerTopConstraint;
 @property (nonatomic) IBOutlet NSLayoutConstraint *mediaPlayerHeightConstraint;
 
+@property (nonatomic) BOOL isPlayerOpen;
+
 @end
 
 @implementation InitialViewController
@@ -86,6 +88,8 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - heightOfMediaPlayerToolbar;
     self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
     
+    self.isPlayerOpen = NO;
+    
 }
 
 
@@ -94,6 +98,12 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
     self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
     [self.mediaPlayerHolder layoutIfNeeded];
+    
+    if(self.mediaPlayerHolder.frame.origin.y > self.view.bounds.size.height || !self.isPlayerOpen)
+    {
+        self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - heightOfMediaPlayerToolbar;
+        [self.mediaPlayerHolder layoutIfNeeded];
+    }
     
     [super viewDidLayoutSubviews];
 }
@@ -199,6 +209,12 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     {
         self.mediaPlayerTopConstraint.constant = newY;
         [self.mediaPlayerHolder layoutIfNeeded];
+        
+        if(newY > self.view.bounds.size.height - heightOfMediaPlayerToolbar)
+        {
+            self.isPlayerOpen = YES;
+        }
+        
 //        NSLog(@"PAN GESTURE RECOGNIZER ----->:%f", [recognizer velocityInView:self.view].y);
         CGFloat yVelocity = [recognizer velocityInView:self.view].y;
         if(yVelocity > 1000)
@@ -219,12 +235,8 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
 
 - (IBAction) closePlayer{
-//    self.statusBarStyle = UIStatusBarStyleDefault;
-    
     [self.view layoutIfNeeded];
-
     [UIView animateWithDuration:0.33 animations:^{
-
         self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - heightOfMediaPlayerToolbar;
         self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
         
@@ -234,26 +246,22 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 //        [self setNeedsStatusBarAppearanceUpdate];
 
     } completion:^(BOOL finished) {
-//        [self.mediaPlayerHolder setHidden:NO];
+        self.isPlayerOpen = NO;
     }];
 
 }
 
 - (IBAction) openPlayer {
-//    self.statusBarStyle = UIStatusBarStyleLightContent;
     [self.view layoutIfNeeded];
-
-    
     [UIView animateWithDuration:0.33 animations:^{
         self.mediaPlayerTopConstraint.constant = 0;
         self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
         
         [self.mediaPlayerHolder layoutIfNeeded];
         [self.view layoutIfNeeded];
-//        [self setNeedsStatusBarAppearanceUpdate];
         
     } completion:^(BOOL finished) {
-//        [self.centralViewHolder setHidden:NO];
+        self.isPlayerOpen = YES;
     }];
 }
 

@@ -238,20 +238,20 @@
             
             break;
         case CollectionViewCellStyleItem:
-            [self.titleLabel setTextColor:[UIColor blackColor]];
+            [self.titleLabel setTextColor:[UIColor whiteColor]];
             [self.detailsLabel setTextColor:[UIColor lightGrayColor]];
 
-            [self setBackgroundColor:[UIColor whiteColor]];
+            [self setBackgroundColor:[UIColor clearColor]];
 
-            [self.creator setTextColor:[UIColor darkGrayColor]];
-            [self.countLabel setTextColor:[UIColor darkGrayColor]];
+            [self.creator setTextColor:[UIColor lightGrayColor]];
+            [self.countLabel setTextColor:[UIColor lightGrayColor]];
 
             self.archiveImageView.layer.cornerRadius = 0;
             self.archiveImageView.layer.masksToBounds = YES;
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
             [self.archiveImageView setClipsToBounds:YES];
 
-            [self.dateLabel setTextColor:[UIColor darkGrayColor]];
+            [self.dateLabel setTextColor:[UIColor lightGrayColor]];
             
             break;
     }
