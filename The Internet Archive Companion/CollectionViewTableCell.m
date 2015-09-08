@@ -110,9 +110,9 @@
             break;
 
         default:
-            [self.title setTextColor:[UIColor whiteColor]];
+            [self.title setTextColor:[UIColor blackColor]];
             [self.creator setTextColor:[UIColor darkGrayColor]];
-            [self.paddedView setBackgroundColor:[UIColor clearColor]];
+            [self.paddedView setBackgroundColor:[UIColor whiteColor]];
 
 
             self.archiveImageView.frame = imageRect;
