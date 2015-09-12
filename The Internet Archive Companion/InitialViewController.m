@@ -112,14 +112,17 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 - (void)changeStatusBarWhite
 {
     self.statusBarStyle = UIStatusBarStyleLightContent;
-    [self setNeedsStatusBarAppearanceUpdate];
+    [UIView animateWithDuration:0.33 animations:^{
+        [self setNeedsStatusBarAppearanceUpdate];
+    }];
 }
 
 - (void)changeStatusBarBlack
 {
     self.statusBarStyle = UIStatusBarStyleDefault;
-    [self setNeedsStatusBarAppearanceUpdate];
-}
+    [UIView animateWithDuration:0.33 animations:^{
+        [self setNeedsStatusBarAppearanceUpdate];
+    }];}
 
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -172,7 +175,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 }
 
 - (void) viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+//    [super viewDidAppear:animated];
   //  [centralViewController toggleContent:nil];
 }
 

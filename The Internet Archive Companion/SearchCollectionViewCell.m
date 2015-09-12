@@ -13,7 +13,7 @@
 
 
 //static CGFloat compactHeight = 44.0f;
-#define TITLE_FONT [UIFont systemFontOfSize:14]
+#define TITLE_FONT  [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]//[UIFont systemFontOfSize:14]
 #define CREATOR_FONT [UIFont systemFontOfSize:12]
 #define DETAILS_FONT [UIFont systemFontOfSize:12]
 
@@ -72,7 +72,7 @@
 
     NSInteger orientationDivisor = UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 4 : 3;
 
-    CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? orientationDivisor : UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 3 : 2;
+    CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? orientationDivisor : UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 3 : 1;
     CGFloat padding = 15;
     
     CGFloat width = ceil((collectionView.bounds.size.width / divisor) - padding);
@@ -93,7 +93,7 @@
     height += detailsSize.height > DETAILS_FONT.lineHeight * 3 ? DETAILS_FONT.lineHeight * 3 : detailsSize.height;
 //    height += detailsSize.height > 0 ? 10: 0;
 
-    CGFloat imageHeight = style == CollectionViewCellStyleCollection ? 60 : ceil(width * 0.66);
+    CGFloat imageHeight = style == CollectionViewCellStyleCollection ? 60 : [[self class] imageHeightFromWidth:width];
     height += imageHeight;
 
     height += padding; //top and bottom padding
@@ -110,6 +110,11 @@
     
     return CGSizeMake(width, height);
     
+}
+
++ (CGFloat)imageHeightFromWidth:(CGFloat)width
+{
+    return ceil(width * 0.33);
 }
 
 + (CGFloat)compactHeightForDoc:(ArchiveSearchDoc *)doc width:(CGFloat)width;
@@ -196,7 +201,7 @@
 {
     [super layoutSubviews];
    
-    CGFloat imageHeight = self.collectionCellStyle == CollectionViewCellStyleCollection ? 60 :self.bounds.size.width * 0.66;
+    CGFloat imageHeight = self.collectionCellStyle == CollectionViewCellStyleCollection ? 60 : [[self class] imageHeightFromWidth:self.bounds.size.width];
     CGFloat imageWidth = self.collectionCellStyle == CollectionViewCellStyleCollection ? 60 : self.bounds.size.width - 10;
 
 

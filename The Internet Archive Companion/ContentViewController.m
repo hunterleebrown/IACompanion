@@ -365,11 +365,23 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+    
+
     [super viewWillAppear:animated];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     [self.picksCollectionView.collectionViewLayout invalidateLayout];
+
+    [UIView animateWithDuration:0.33 animations:^{
+        
+        self.navigationController.view.backgroundColor = [UIColor whiteColor];
+        self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+        
+    }];
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
 
     [super viewDidAppear:animated];
 

@@ -39,7 +39,10 @@
 //  [(MyAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
 
 @property (nonatomic, weak) IBOutlet ArchiveImageView *titleImage;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleImageBottom;
 
+@property (nonatomic, weak) IBOutlet UIView *titleImageOverlay;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleOverlayHeight;
 
 @end
 
@@ -126,21 +129,73 @@
     
 
 
+    
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.extendedLayoutIncludesOpaqueBars = YES;
+
+    
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)viewDidLayoutSubviews
 {
+    
+
+    self.titleImageBottom.constant = self.titleHolder.bounds.size.height;
+    [self.titleImage layoutIfNeeded];
+    
+    self.titleOverlayHeight.constant = self.titleHolder.bounds.size.height;
+    [self.titleImageOverlay layoutIfNeeded];
+    
     [super viewDidLayoutSubviews];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+    
+    self.navigationController.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+}
+
+
 - (void) viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
+    
     [super viewDidDisappear:animated];
 }
-- (void) viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
+
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
 
 }
 
+- (void) viewDidAppear:(BOOL)animated{
+    
+
+//    [super viewDidAppear:animated];
+
+}
+
+- (IBAction)closeVC:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void) setSearchDoc:(ArchiveSearchDoc *)searchDoc{
     _searchDoc = searchDoc;
@@ -285,6 +340,10 @@
             }
         }
         [self.itemToolbar setItems:mItems];
+        
+        
+        
+        [self.titleImage setArchiveImage:self.detDoc.archiveImage];
     }
 
     
@@ -321,6 +380,8 @@
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
+
+ 
 
     
 }
