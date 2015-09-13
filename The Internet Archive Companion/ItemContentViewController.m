@@ -277,11 +277,17 @@
         if(self.detDoc.type == MediaTypeCollection) {
             [attString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(3, creator.length)];
         } else {
-            [attString addAttribute:NSForegroundColorAttributeName value:BUTTON_DEFAULT_SELECT_COLOR range:NSMakeRange(3, creator.length)];
+            [attString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(3, creator.length)];
         }
         
         NSMutableAttributedString *selAtt = [[NSMutableAttributedString alloc] initWithAttributedString:attString];
         [selAtt addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(3, creator.length)];
+        
+        NSShadow *shadow = [NSShadow new];
+        [shadow setShadowColor : [UIColor darkGrayColor]];
+        [shadow setShadowOffset : CGSizeMake(1.0f, 1.0f)];
+        
+        [attString addAttribute:NSShadowAttributeName value:shadow range:NSMakeRange(0, creator.length + 3)];
 
         
         //[self.creatorButton.titleLabel setAttributedText:attString];
