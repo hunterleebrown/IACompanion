@@ -55,12 +55,16 @@
 @property (nonatomic, weak) IBOutlet UIToolbar *playerToolbar;
 @property (nonatomic, weak) IBOutlet UIToolbar *topToolbar;
 
-@property (nonatomic, weak) IBOutlet BufferingView *topBufferingView;
 
-@property (nonatomic, weak) IBOutlet UILabel *topSpeakerLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *topEqualizerImage;
 
 @property (nonatomic) BOOL shouldUpdateSpeaker;
 @property (nonatomic, strong) NSArray *speakerArray;
+
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *mediaPlayerTitle;
+
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *topMediaPlayerButton;
+
 @end
 
 @implementation MediaPlayerViewController
@@ -137,28 +141,41 @@
 
     [self.playerToolbar setBackgroundColor:[UIColor clearColor]];
 
+    
     [self.topToolbar setBackgroundImage:[UIImage new]
                         forToolbarPosition:UIToolbarPositionAny
                                 barMetrics:UIBarMetricsDefault];
     [self.topToolbar setBackgroundColor:[UIColor clearColor]];
 
 
-    [self.topBufferingView setTitleText:@""];
-//
-    [self.topBufferingView setColor:[UIColor redColor]];
-    
-//    self.fullScreenButton.hidden = YES;
-    
-    self.topSpeakerLabel.text = SPEAKER_0;
-    
-    self.speakerArray = @[SPEAKER_0, SPEAKER_1, SPEAKER_2];
-    
-    self.shouldUpdateSpeaker = YES;
 
+    [self animateEqualizerBarSetUp];
+    self.topEqualizerImage.hidden = YES;
+    
+    
+}
+
+- (void)animateEqualizerBarSetUp
+{
+    self.topEqualizerImage.animationImages = @[[UIImage imageNamed:@"Equalizer01"],
+                                               [UIImage imageNamed:@"Equalizer02"],
+                                               [UIImage imageNamed:@"Equalizer03"],
+                                               [UIImage imageNamed:@"Equalizer04"],
+                                               [UIImage imageNamed:@"Equalizer05"]
+                                               ];
+    
+    self.topEqualizerImage.animationRepeatCount = 0;
+    self.topEqualizerImage.animationDuration = 0.55;
     
 }
 
 
+
+- (void)animateEqualizer:(BOOL)shouldAnimate
+{
+    self.topEqualizerImage.hidden = !shouldAnimate;
+    self.topEqualizerImage.hidden ? [self.topEqualizerImage stopAnimating] : [self.topEqualizerImage startAnimating];
+}
 
 
 - (IBAction)togglePlayer:(id)sender
@@ -328,6 +345,7 @@
 
 }
 
+#pragma mark - playback delegates
 
 - (void) playerLoadStateNotification:(NSNotification *)notification {
     MPMoviePlayerController *p = [notification object];
@@ -358,7 +376,6 @@
         case MPMoviePlaybackStatePlaying:
             [self monitorPlaybackTime];
 
-            [self.topBufferingView startAnimating];
             // Turn on remote control event delivery
             [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
             
@@ -366,12 +383,15 @@
             [self becomeFirstResponder];
             [playButton setTitle:PAUSE forState:UIControlStateNormal];
 
+            [self animateEqualizer:YES];
 
             break;
         case MPMoviePlaybackStatePaused:
         case MPMoviePlaybackStateStopped:
             [playButton setTitle:PLAY forState:UIControlStateNormal];
-            [self.topBufferingView stopAnimating];
+            
+            [self animateEqualizer:NO];
+
             break;
         default:
             break;
@@ -380,11 +400,7 @@
     
 }
 
-- (IBAction)tapTopBuffer:(id)sender
-{
 
-
-}
 
 
 - (void)updateRemote
@@ -392,6 +408,10 @@
     NSInteger index = [self indexOfInFileFromUrl:player.contentURL];
     PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
     NSDictionary *songInfo;
+    
+    self.mediaPlayerTitle.title = file.title;
+    [self.topToolbar layoutIfNeeded];
+    [self viewDidLayoutSubviews];
 
     if(imageView.image){
         MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:imageView.image];
@@ -414,6 +434,8 @@
     }
 
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+    
+
 }
 
 
@@ -844,7 +866,6 @@
        // [bufferingView stopAnimating];
 
         [playButton setTitle:PLAY forState:UIControlStateNormal];
-        [self.topBufferingView stopAnimating];
         
     } else if(player.playbackState == MPMoviePlaybackStatePaused){
         

@@ -118,8 +118,8 @@ NSString *const BookReaderImagesPHP = @"/BookReader/BookReaderImages.php?";
 
     [self.popButton setTitle:CLOSE forState:UIControlStateNormal];
     [self.popButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:25]];
-    [self.popButton setBackgroundColor:[UIColor darkGrayColor]];
-    [self.popButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.popButton setBackgroundColor:[UIColor clearColor]];
+    [self.popButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
     [self.pageNumber setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
     
