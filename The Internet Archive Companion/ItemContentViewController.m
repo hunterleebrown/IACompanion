@@ -221,6 +221,14 @@
 
 - (IBAction)addFavorite:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.searchDoc];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenFavorites" object:nil];
+
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Favorites" message:@"Item added to your favorites list.  Find your favorites on the left hand nav of the main screen. Press the Internet Archive logo at the top of the page." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alert show];
+    
 }
 
 

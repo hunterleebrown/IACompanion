@@ -1901,9 +1901,9 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="WvF-qH-5nT"/>
                                         <exclude reference="VVA-zb-t0a"/>
                                         <exclude reference="Y0k-ms-RDb"/>
+                                        <exclude reference="WvF-qH-5nT"/>
                                     </mask>
                                 </variation>
                             </view>
