@@ -86,18 +86,12 @@
     NSLog(@"---->parent: %@", self.parentViewController.restorationIdentifier);
     if([self.parentViewController.restorationIdentifier isEqualToString:@"searchNav"])
     {
-
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
         [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:20.0]} forState:UIControlStateNormal];
-
-        [self.navigationItem setRightBarButtonItems:nil];
-        
-//        [self.navigationController.toolbar setTintColor:[UIColor whiteColor]];
-//        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-
-        
     }
 
+    [self.navigationItem setRightBarButtonItems:nil];
+    
     if(self.searchCollectionButton){
         [self.searchCollectionButton setTintColor:BUTTON_DEFAULT_SELECT_COLOR];
     }

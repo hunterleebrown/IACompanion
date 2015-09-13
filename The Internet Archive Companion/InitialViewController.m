@@ -192,7 +192,12 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
 - (void)toggleMediaPlayer
 {
-    if(self.mediaPlayerTopConstraint.constant == 0)
+    NSLog(@"----------> self.view top:%f", self.view.bounds.size.height);
+
+    NSLog(@"----------> player top:%f", self.mediaPlayerHolder.frame.origin.y);
+    
+    
+    if(self.mediaPlayerHolder.frame.origin.y != self.view.bounds.size.height - 44)
     {
         [self closePlayer];
     }
@@ -245,13 +250,13 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
 
 - (IBAction) closePlayer{
-    [self.view layoutIfNeeded];
+//    [self.view layoutIfNeeded];
     [UIView animateWithDuration:0.33 animations:^{
         self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - heightOfMediaPlayerToolbar;
         self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
         
         [self.mediaPlayerHolder layoutIfNeeded];
-        [self.view layoutIfNeeded];
+        [self.view layoutSubviews];
 
 //        [self setNeedsStatusBarAppearanceUpdate];
 
@@ -262,14 +267,14 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 }
 
 - (IBAction) openPlayer {
-    [self.view layoutIfNeeded];
+//    [self.view layoutIfNeeded];
     
     [UIView animateWithDuration:0.33 animations:^{
         self.mediaPlayerTopConstraint.constant = 0;
         self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
         
         [self.mediaPlayerHolder layoutIfNeeded];
-        [self.view layoutIfNeeded];
+        [self.view layoutSubviews];
         
     } completion:^(BOOL finished) {
         self.isPlayerOpen = YES;
