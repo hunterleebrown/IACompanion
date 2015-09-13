@@ -51,8 +51,8 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 
     [self.popButton setTitle:CLOSE forState:UIControlStateNormal];
     [self.popButton.titleLabel setFont:[UIFont fontWithName:ICONOCHIVE size:25]];
-    [self.popButton setBackgroundColor:[UIColor darkGrayColor]];
-    [self.popButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.popButton setBackgroundColor:[UIColor colorWithRed:255.00/255.00 green:255.00/255.00 blue:255.00/255.00 alpha:8.85]];
+    [self.popButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
 
 }

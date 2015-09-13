@@ -205,9 +205,16 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
 - (IBAction)panPlayer:(UIPanGestureRecognizer *)recognizer
 {
+    [self.mediaPlayerHolder layoutIfNeeded];
+
     
     CGPoint point = [recognizer translationInView:self.view];
     CGFloat newY = self.mediaPlayerTopConstraint.constant + point.y;
+    
+    
+    NSLog(@"---------> new y:%f %f", (self.view.bounds.size.height - heightOfMediaPlayerToolbar), newY);
+    
+    
     if(newY >= 0 && newY < self.view.bounds.size.height - heightOfMediaPlayerToolbar)
     {
         self.mediaPlayerTopConstraint.constant = newY;
@@ -256,6 +263,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
 - (IBAction) openPlayer {
     [self.view layoutIfNeeded];
+    
     [UIView animateWithDuration:0.33 animations:^{
         self.mediaPlayerTopConstraint.constant = 0;
         self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;

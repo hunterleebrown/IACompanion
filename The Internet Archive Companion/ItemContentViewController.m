@@ -87,21 +87,14 @@
     if([self.parentViewController.restorationIdentifier isEqualToString:@"searchNav"])
     {
 
-        UIBarButtonItem *favsToolBuuton = [[UIBarButtonItem alloc] initWithTitle:FAVORITE style:UIBarButtonItemStylePlain target:self action:@selector(didPressFavorites)];
-        [favsToolBuuton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:30.0]} forState:UIControlStateNormal];
-        [favsToolBuuton setTintColor:[UIColor darkGrayColor]];
-
-
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:CLOSE style:UIBarButtonSystemItemCancel target:self action:@selector(closeSearch)];
         [closeItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"Iconochive-Regular" size:20.0]} forState:UIControlStateNormal];
 
-        [closeItem setTintColor:[UIColor darkGrayColor]];
-        [self.mpBarButton setTintColor:[UIColor darkGrayColor]];
-        [self.backButton setTintColor:[UIColor darkGrayColor]];
-
-        [self.navigationItem setRightBarButtonItems:@[closeItem]];
+        [self.navigationItem setRightBarButtonItems:nil];
         
-        [self.navigationController.toolbar setTintColor:[UIColor darkGrayColor]];
+//        [self.navigationController.toolbar setTintColor:[UIColor whiteColor]];
+//        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+
         
     }
 
@@ -151,22 +144,26 @@
     self.titleOverlayHeight.constant = self.titleHolder.bounds.size.height;
     [self.titleImageOverlay layoutIfNeeded];
     
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+
+    
     [super viewDidLayoutSubviews];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
 
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
-    
-    self.navigationController.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:nil];
+//    
+//    self.navigationController.view.backgroundColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+//    
+//    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
 }
 
 
 - (void) viewDidDisappear:(BOOL)animated{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
     
     [super viewDidDisappear:animated];
 }
@@ -182,6 +179,9 @@
     
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+
 
 }
 
@@ -317,8 +317,8 @@
         //[self.creatorButton setBackgroundColor:[UIColor lightGrayColor]];
         [self.collectionHandlerView setIdentifier:self.searchDoc.identifier];
 
-        self.imageView.hidden = NO;
-        self.typeLabel.hidden = YES;
+        self.imageView.hidden = YES;
+        self.typeLabel.hidden = NO;
 
         [self toggleViews:self.collectionButton];
 

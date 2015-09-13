@@ -366,17 +366,29 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
 
+
+    
     [super viewWillAppear:animated];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     [self.picksCollectionView.collectionViewLayout invalidateLayout];
 
-    [UIView animateWithDuration:0.33 animations:^{
+    [UIView animateWithDuration:0.15 animations:^{
         
-        self.navigationController.view.backgroundColor = [UIColor whiteColor];
-        self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                      forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.shadowImage = [UIImage new];
+        self.navigationController.navigationBar.translucent = YES;
+        
+        self.navigationController.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.85];
+        self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.85];
+        
+        [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
+
+        
         
     }];
     

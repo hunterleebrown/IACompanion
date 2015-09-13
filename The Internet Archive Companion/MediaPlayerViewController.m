@@ -53,7 +53,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *mediaPlayerButton;
 
 @property (nonatomic, weak) IBOutlet UIToolbar *playerToolbar;
-@property (nonatomic, weak) IBOutlet UIToolbar *topToolbar;
 
 
 @property (nonatomic, weak) IBOutlet UIImageView *topEqualizerImage;
@@ -61,9 +60,9 @@
 @property (nonatomic) BOOL shouldUpdateSpeaker;
 @property (nonatomic, strong) NSArray *speakerArray;
 
-@property (nonatomic, weak) IBOutlet UIBarButtonItem *mediaPlayerTitle;
-
-@property (nonatomic, weak) IBOutlet UIBarButtonItem *topMediaPlayerButton;
+@property (nonatomic, weak) IBOutlet UIView *topTitleHolderView;
+@property (nonatomic, weak) IBOutlet UILabel *topTitle;
+@property (nonatomic, weak) IBOutlet UIButton *topMediaPlayerButton;
 
 @end
 
@@ -142,10 +141,8 @@
     [self.playerToolbar setBackgroundColor:[UIColor clearColor]];
 
     
-    [self.topToolbar setBackgroundImage:[UIImage new]
-                        forToolbarPosition:UIToolbarPositionAny
-                                barMetrics:UIBarMetricsDefault];
-    [self.topToolbar setBackgroundColor:[UIColor clearColor]];
+
+    [self.topMediaPlayerButton setTitle:PLAY forState:UIControlStateNormal];
 
 
 
@@ -382,6 +379,7 @@
             // Set itself as the first responder
             [self becomeFirstResponder];
             [playButton setTitle:PAUSE forState:UIControlStateNormal];
+            [self.topMediaPlayerButton setTitle:PAUSE forState:UIControlStateNormal];
 
             [self animateEqualizer:YES];
 
@@ -389,6 +387,8 @@
         case MPMoviePlaybackStatePaused:
         case MPMoviePlaybackStateStopped:
             [playButton setTitle:PLAY forState:UIControlStateNormal];
+            [self.topMediaPlayerButton setTitle:PLAY forState:UIControlStateNormal];
+
             
             [self animateEqualizer:NO];
 
@@ -409,10 +409,9 @@
     PlayerFile *file = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
     NSDictionary *songInfo;
     
-    self.mediaPlayerTitle.title = file.title;
-    [self.topToolbar layoutIfNeeded];
-    [self viewDidLayoutSubviews];
-
+    self.topTitle.text = file.title;
+    
+    
     if(imageView.image){
         MPMediaItemArtwork *art = [[MPMediaItemArtwork alloc] initWithImage:imageView.image];
         songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
