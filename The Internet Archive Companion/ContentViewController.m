@@ -49,6 +49,8 @@
 @property (nonatomic, weak) IBOutlet SorterView *sorterView;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *searchFilters;
 
+@property (nonatomic) BOOL topToolbarFadedOut;
+@property (nonatomic, weak) IBOutlet UIView *topSelectorView;
 
 
 @end
@@ -212,7 +214,13 @@
 
 }
 
+- (void)viewDidLayoutSubviews
+{
 
+    [self forceFadeOutToolbar:self.topToolbarFadedOut];
+    
+    [super viewDidLayoutSubviews];
+}
 
 
 
@@ -273,7 +281,46 @@
             [self loadMoreItems:nil];
         }
     }
+    
+    if(scrollView == self.picksCollectionView)
+    {
+       if( [scrollView.panGestureRecognizer translationInView:scrollView.superview].y < 0 )
+       {
+           NSLog(@"----------> going up:!");
+           [self fadeOutToolbar:YES];
+       }
+       else
+       {
+           NSLog(@"----------> going down:!");
+           [self fadeOutToolbar:NO];
+       }
+        
+    }
+    
 }
+
+
+- (void)forceFadeOutToolbar:(BOOL)fadeOut
+{
+    [UIView animateWithDuration:0.33 animations:^{
+        self.navigationController.navigationBar.alpha = fadeOut ? 0.0 : 1.0;
+        self.topSelectorView.alpha = fadeOut ? 0.0 : 1.0;
+        self.layoutChangerView.alpha = fadeOut ? 0.0 : 1.0;
+        self.sorterView.alpha = fadeOut ? 0.0 : 1.0;
+        
+    } completion:^(BOOL finished) {
+        self.topToolbarFadedOut = fadeOut;
+    }];
+}
+
+- (void)fadeOutToolbar:(BOOL)fadeOut
+{
+    if(self.topToolbarFadedOut != fadeOut)
+    {
+        [self forceFadeOutToolbar:fadeOut];
+    }
+}
+
 
 - (void)loadMoreItems:(id)sender {
     if(self.numFound > 50) {
@@ -290,7 +337,7 @@
 
 
 
-#pragma mark - collection view
+
 
 #pragma mark - Collection View
 

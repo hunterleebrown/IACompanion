@@ -730,6 +730,7 @@
                         <outlet property="layoutChangerView" destination="cdw-er-KrX" id="GvR-lT-fln"/>
                         <outlet property="picksCollectionView" destination="d1Y-XL-FdP" id="KFF-RH-PZg"/>
                         <outlet property="sorterView" destination="nGD-Af-ja2" id="Fvt-dW-WPn"/>
+                        <outlet property="topSelectorView" destination="hTf-I7-WiX" id="lZr-FA-Koa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
