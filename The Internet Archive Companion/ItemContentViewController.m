@@ -44,6 +44,8 @@
 @property (nonatomic, weak) IBOutlet UIView *titleImageOverlay;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleOverlayHeight;
 
+@property (nonatomic, strong) ArchiveImage *observableImage;
+
 @end
 
 @implementation ItemContentViewController
@@ -145,6 +147,9 @@
     [self.titleImageOverlay.layer insertSublayer:gradient atIndex:0];
 
     
+    self.mediaTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -178,6 +183,7 @@
 //    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
 //    
 //    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
+    self.titleImage.hidden = YES;
 }
 
 
@@ -382,7 +388,8 @@
         
         
         
-        [self.titleImage setArchiveImage:self.detDoc.archiveImage];
+        
+//        [self.titleImage setArchiveImage:self.detDoc.archiveImage];
     }
 
     
@@ -390,7 +397,7 @@
 
 
     
-    NSString *html = [NSString stringWithFormat:@"<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'/><style>img{max-width:%fpx !important;} a:link{color:#666; text-decoration:none;} p{padding:5px;}</style></head><body style='margin-left:10px; margin-right:10px; background-color:#fff; color:#000; font-size:12px; font-family:\"Helvetica\"'>%@</body></html>", self.itemImageWidth, [StringUtils htmlStringByAddingBreaks:self.detDoc.details]];
+    NSString *html = [NSString stringWithFormat:@"<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'/><style>img{max-width:%fpx !important;} a:link{color:#666; text-decoration:none;} p{padding:5px;}</style></head><body style='margin-left:10px; margin-right:10px; background-color:#fff; color:#000; font-size:15px; font-family:\"Helvetica\"'>%@</body></html>", self.itemImageWidth, [StringUtils htmlStringByAddingBreaks:self.detDoc.details]];
     
 
     NSURL *theBaseURL = [NSURL URLWithString:@"http://archive.org"];
@@ -403,7 +410,12 @@
 
 //    [self.metaDataTable addMetadata:[self.detDoc.rawDoc objectForKey:@"metadata"]];
     
-    [self.titleImage setArchiveImage:[[ArchiveImage alloc] initWithUrlPath:self.itemImageUrl]];
+
+    
+    [self.titleImage setAlpha:0.0];
+    self.observableImage = [[ArchiveImage alloc] initWithUrlPath:self.itemImageUrl];
+    [self.observableImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
+    [self.titleImage setArchiveImage:self.observableImage];
 
     
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"track" ascending:YES];
@@ -423,6 +435,20 @@
  
 
     
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if(object == self.observableImage && [keyPath isEqualToString:@"downloaded"]){
+    
+        [UIView animateWithDuration:0.33 animations:^{
+            
+            self.titleImage.alpha = 1.0;
+            
+        } completion:nil];
+    
+    }
+
 }
 
 
@@ -824,7 +850,7 @@
 
 - (void)dealloc
 {
-
+    [self.observableImage removeObserver:self forKeyPath:@"downloaded"];
 }
 
 @end

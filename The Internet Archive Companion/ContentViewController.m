@@ -370,13 +370,14 @@
 
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
-//    SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
-//    [cell setCellLayoutStyle:self.layoutChangerView.cellLayoutStyle];
-    return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:self.layoutChangerView.cellLayoutStyle archiveDoc:doc];
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
+////    SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
+////    [cell setCellLayoutStyle:self.layoutChangerView.cellLayoutStyle];
+//    return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:self.layoutChangerView.cellLayoutStyle archiveDoc:doc];
+//    
+//}
 
 
 

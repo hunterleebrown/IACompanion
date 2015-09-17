@@ -28,7 +28,7 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *imageViewWidthConstraint;
 
 
-
+//@property (nonatomic, weak) IBOutlet UIView *gradientHolderView;
 
 @end
 
@@ -185,6 +185,19 @@
         [self.dateLabel setHidden:NO];
     }
 
+    if(self.collectionCellStyle == CollectionViewCellStyleItem)
+    {
+    
+//        UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.00];
+//        UIColor *upperMiddleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.25];
+//        UIColor *middleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.55];
+//        UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.85];
+//        CAGradientLayer *gradient = [CAGradientLayer layer];
+//        gradient.frame = self.bounds;
+//        gradient.colors = [NSArray arrayWithObjects: (id)topColor.CGColor,(id)topColor.CGColor, (id)topColor.CGColor, middleColor.CGColor, bottomColor.CGColor, bottomColor.CGColor, nil];
+//        [self.gradientHolderView.layer insertSublayer:gradient atIndex:0];
+//        
+    }
 
 }
 
@@ -221,9 +234,12 @@
     self.imageViewHeightConstraint.constant = imageHeight;
     self.imageViewWidthConstraint.constant = imageWidth;
     
-    [self.archiveImageView setNeedsUpdateConstraints];
 
 
+
+    
+//    self.layer.cornerRadius = 5;
+    //    self.layer.masksToBounds = YES;
 
     switch (self.collectionCellStyle) {
         case CollectionViewCellStyleCollection:
@@ -241,27 +257,33 @@
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
             self.dateLabel.hidden = YES;
             
+            
             break;
         case CollectionViewCellStyleItem:
-            [self.titleLabel setTextColor:[UIColor blackColor]];
-            [self.detailsLabel setTextColor:[UIColor darkGrayColor]];
+            [self.titleLabel setTextColor:[UIColor whiteColor]];
+            [self.detailsLabel setTextColor:[UIColor lightTextColor]];
 
-            [self setBackgroundColor:[UIColor whiteColor]];
+            [self setBackgroundColor:[UIColor blackColor]];
 
-            [self.creator setTextColor:[UIColor darkGrayColor]];
-            [self.countLabel setTextColor:[UIColor darkGrayColor]];
+            [self.creator setTextColor:[UIColor lightTextColor]];
+            [self.countLabel setTextColor:[UIColor lightTextColor]];
 
             self.archiveImageView.layer.cornerRadius = 0;
             self.archiveImageView.layer.masksToBounds = YES;
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
             [self.archiveImageView setClipsToBounds:YES];
+            [self.archiveImageView setBackgroundColor:[UIColor whiteColor]];
 
-            [self.dateLabel setTextColor:[UIColor darkGrayColor]];
+            [self.dateLabel setTextColor:[UIColor lightTextColor]];
+            self.imageViewWidthConstraint.constant = 100;
+
+            
             
             break;
     }
     
-
+    [self.archiveImageView layoutIfNeeded];
+    [self.archiveImageView setNeedsUpdateConstraints];
 
     [self.archiveImageView setClipsToBounds:YES];
 }
