@@ -119,6 +119,30 @@
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.extendedLayoutIncludesOpaqueBars = YES;
+    
+    
+//    // Create the colors
+    UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.33];
+    UIColor *upperMiddleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.65];
+    UIColor *middleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.85];
+    UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0];
+//
+//    // Create the gradient
+//    CAGradientLayer *theViewGradient = [CAGradientLayer layer];
+//    theViewGradient.colors = [NSArray arrayWithObjects: (id)topColor.CGColor, (id)bottomColor.CGColor, nil];
+//    theViewGradient.frame = self.titleImageOverlay.bounds;
+//    
+
+
+//    
+//    //Add gradient to view
+//    [self.titleImageOverlay.layer insertSublayer:theViewGradient atIndex:0];
+
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.view.bounds;
+    gradient.colors = [NSArray arrayWithObjects: (id)topColor.CGColor, (id)upperMiddleColor.CGColor, (id)middleColor.CGColor, (id)bottomColor.CGColor, nil];
+    [self.titleImageOverlay.layer insertSublayer:gradient atIndex:0];
 
     
 }
@@ -132,10 +156,10 @@
 {
     
 
-    self.titleImageBottom.constant = self.titleHolder.bounds.size.height;
+    self.titleImageBottom.constant = self.mediaTable.frame.origin.y + self.mediaTable.bounds.size.height;
     [self.titleImage layoutIfNeeded];
     
-    self.titleOverlayHeight.constant = self.titleHolder.bounds.size.height;
+    self.titleOverlayHeight.constant = self.titleImageBottom.constant;
     [self.titleImageOverlay layoutIfNeeded];
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
@@ -165,19 +189,26 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
-
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                  forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
-    
     self.navigationController.view.backgroundColor = [UIColor clearColor];
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+
+    [self makeTranslToolbar:self.navigationController.navigationBar];
+
+    [self.itemToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    self.itemToolbar.backgroundColor = [UIColor clearColor];
+    [self.itemToolbar setTintColor:[UIColor whiteColor]];
     
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-
-
 }
+
+- (void)makeTranslToolbar:(UINavigationBar *)toolbar
+{
+    [toolbar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    toolbar.backgroundColor = [UIColor clearColor];
+    [toolbar setTintColor:[UIColor whiteColor]];
+
+    toolbar.shadowImage = [UIImage new];
+    toolbar.translucent = YES;
+}
+
 
 - (void) viewDidAppear:(BOOL)animated{
     
