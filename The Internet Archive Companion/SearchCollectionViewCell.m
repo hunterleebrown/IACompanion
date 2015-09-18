@@ -87,13 +87,13 @@
 
     CGFloat height = labelTextSize.height + 15; //padding
 
-    height += [creatorName isEqualToString:@""] ? 0 : CREATOR_FONT.lineHeight;
+    height += [creatorName isEqualToString:@""] ? 0 : CREATOR_FONT.lineHeight + 20;
     height += ICONOCHIVE_FONT.lineHeight;
     
     height += detailsSize.height > DETAILS_FONT.lineHeight * 3 ? DETAILS_FONT.lineHeight * 3 : detailsSize.height;
 //    height += detailsSize.height > 0 ? 10: 0;
 
-    CGFloat imageHeight = style == CollectionViewCellStyleCollection ? 60 : [[self class] imageHeightFromWidth:width];
+    CGFloat imageHeight = style == CollectionViewCellStyleCollection ? 60 : 100; //[[self class] imageHeightFromWidth:width];
     height += imageHeight;
 
     height += padding; //top and bottom padding
@@ -265,8 +265,8 @@
 
             [self setBackgroundColor:[UIColor blackColor]];
 
-            [self.creator setTextColor:[UIColor lightTextColor]];
-            [self.countLabel setTextColor:[UIColor lightTextColor]];
+            [self.creator setTextColor:[UIColor whiteColor]];
+            [self.countLabel setTextColor:[UIColor whiteColor]];
 
             self.archiveImageView.layer.cornerRadius = 0;
             self.archiveImageView.layer.masksToBounds = YES;
@@ -274,7 +274,7 @@
             [self.archiveImageView setClipsToBounds:YES];
             [self.archiveImageView setBackgroundColor:[UIColor whiteColor]];
 
-            [self.dateLabel setTextColor:[UIColor lightTextColor]];
+            [self.dateLabel setTextColor:[UIColor whiteColor]];
             self.imageViewWidthConstraint.constant = 100;
 
             

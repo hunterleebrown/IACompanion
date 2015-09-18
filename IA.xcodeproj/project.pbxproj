@@ -841,14 +841,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunter L Brown (K4B37Y9ZCB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hunter L Brown (K4B37Y9ZCB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = IA;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3f720dde-6d48-449b-b93c-a5220c29e7e5";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -866,7 +866,7 @@
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = IA;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bdeebc58-5589-46d1-8d34-16639a6fbf2b";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

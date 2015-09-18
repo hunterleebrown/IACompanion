@@ -152,10 +152,10 @@
     
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
+//- (UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleLightContent;
+//}
 
 - (void)viewDidLayoutSubviews
 {
@@ -297,8 +297,8 @@
                 if((file.format == FileFormatJPEG || file.format == FileFormatPNG || file.format == FileFormatImage) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
                     if(gotAnImage == NO)
                     {
-                        ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
-                        [self.imageView setArchiveImage:image];
+//                        ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
+//                        [self.imageView setArchiveImage:image];
                         gotAnImage = YES;
                         self.itemImageUrl = file.url;
                         self.itemImageWidth = self.view.bounds.size.width > 320 ? ceil(self.view.bounds.size.width * 0.75)  : 300;
@@ -679,6 +679,10 @@
 }
 
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 
 
