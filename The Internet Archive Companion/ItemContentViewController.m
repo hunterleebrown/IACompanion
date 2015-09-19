@@ -45,6 +45,9 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleOverlayHeight;
 
 @property (nonatomic, strong) ArchiveImage *observableImage;
+@property (nonatomic) BOOL weAreObserving;
+
+@property (nonatomic, strong) CAGradientLayer *overlayGradient;
 
 @end
 
@@ -123,28 +126,7 @@
     self.extendedLayoutIncludesOpaqueBars = YES;
     
     
-//    // Create the colors
-    UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.33];
-    UIColor *upperMiddleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.65];
-    UIColor *middleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.85];
-    UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0];
-//
-//    // Create the gradient
-//    CAGradientLayer *theViewGradient = [CAGradientLayer layer];
-//    theViewGradient.colors = [NSArray arrayWithObjects: (id)topColor.CGColor, (id)bottomColor.CGColor, nil];
-//    theViewGradient.frame = self.titleImageOverlay.bounds;
-//    
 
-
-//    
-//    //Add gradient to view
-//    [self.titleImageOverlay.layer insertSublayer:theViewGradient atIndex:0];
-
-    
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = self.view.bounds;
-    gradient.colors = [NSArray arrayWithObjects: (id)topColor.CGColor, (id)upperMiddleColor.CGColor, (id)middleColor.CGColor, (id)bottomColor.CGColor, nil];
-    [self.titleImageOverlay.layer insertSublayer:gradient atIndex:0];
 
     
     self.mediaTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -169,6 +151,8 @@
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
+    
+    self.overlayGradient.frame = self.view.bounds;
     
     [super viewDidLayoutSubviews];
 }
@@ -414,7 +398,16 @@
     
     [self.titleImage setAlpha:0.0];
     self.observableImage = [[ArchiveImage alloc] initWithUrlPath:self.itemImageUrl];
-    [self.observableImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
+    
+    if(self.observableImage.downloaded)
+    {
+        [self fadeInEverything];
+    } else
+    {
+        [self.observableImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
+        self.weAreObserving = YES;
+    }
+    
     [self.titleImage setArchiveImage:self.observableImage];
 
     
@@ -440,16 +433,93 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
     if(object == self.observableImage && [keyPath isEqualToString:@"downloaded"]){
-    
-        [UIView animateWithDuration:0.33 animations:^{
-            
-            self.titleImage.alpha = 1.0;
-            
-        } completion:nil];
-    
+        [self fadeInEverything];
     }
 
 }
+
+- (void) fadeInEverything
+{
+
+    UIColor *avColor = [self averageColor:self.observableImage.contentImage];
+    // CGFloat red = 0.66, green = 0.66, blue = 0.66, alpha = 1.0;
+    //[avColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    [UIView animateWithDuration:0.33 animations:^{
+        
+        self.titleImage.alpha = 1.0;
+        
+        UIColor *adjColor;
+        CGFloat hue, saturation, brightness, alpha;
+        
+        if ([avColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]) {
+            brightness += (1.5-1.0);
+            brightness = MAX(MIN(brightness, 1.0), 0.0);
+            adjColor =  [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:alpha];
+            [self.titleLabel setTextColor:adjColor];
+            
+            for(UIButton *butt in @[self.wwwButton, self.descriptionButton, self.folderButton, self.favoritesButton, self.shareButton])
+            {
+                [butt setTitleColor:adjColor forState:UIControlStateNormal];
+            }
+            
+        }
+        [self doGradientWithColor:avColor];
+        
+    } completion:nil];
+    
+}
+
+
+- (void)doGradientWithColor:(UIColor *)color
+{
+    
+    UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.33];
+    UIColor *upperMiddleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.65];
+    UIColor *middleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.85];
+    UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0];
+
+//    UIColor *topColor = [color colorWithAlphaComponent:0.33];
+//    UIColor *upperMiddleColor = [color colorWithAlphaComponent:0.65];
+//    UIColor *middleColor = [color colorWithAlphaComponent:0.85];
+//    UIColor *bottomColor = [color colorWithAlphaComponent:1.0];
+    
+    
+    self.overlayGradient = [CAGradientLayer layer];
+    self.overlayGradient.frame = self.view.bounds;
+    self.overlayGradient.colors = [NSArray arrayWithObjects: (id)topColor.CGColor, (id)upperMiddleColor.CGColor, (id)middleColor.CGColor, (id)bottomColor.CGColor, nil];
+    [self.titleImageOverlay.layer insertSublayer:self.overlayGradient atIndex:0];
+
+}
+
+
+#pragma mark - color finding
+- (UIColor *)averageColor:(UIImage *)image {
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    unsigned char rgba[4];
+    CGContextRef context = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    
+    CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), image.CGImage);
+    CGColorSpaceRelease(colorSpace);
+    CGContextRelease(context);
+    
+    if(rgba[3] > 0) {
+        CGFloat alpha = ((CGFloat)rgba[3])/255.0;
+        CGFloat multiplier = alpha/255.0;
+        return [UIColor colorWithRed:((CGFloat)rgba[0])*multiplier
+                               green:((CGFloat)rgba[1])*multiplier
+                                blue:((CGFloat)rgba[2])*multiplier
+                               alpha:alpha];
+    }
+    else {
+        return [UIColor colorWithRed:((CGFloat)rgba[0])/255.0
+                               green:((CGFloat)rgba[1])/255.0
+                                blue:((CGFloat)rgba[2])/255.0
+                               alpha:((CGFloat)rgba[3])/255.0];
+    }
+}
+
 
 
 #pragma mark - toggle about and folders
@@ -854,7 +924,10 @@
 
 - (void)dealloc
 {
-    [self.observableImage removeObserver:self forKeyPath:@"downloaded"];
+    if(self.weAreObserving)
+    {
+        [self.observableImage removeObserver:self forKeyPath:@"downloaded"];
+    }
 }
 
 @end

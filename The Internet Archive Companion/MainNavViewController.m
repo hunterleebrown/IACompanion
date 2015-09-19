@@ -61,7 +61,6 @@
         [textService setDelegate:self];
         
         
-        
 
     }
     return self;
@@ -107,6 +106,8 @@
     [refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
     [navTable addSubview:refreshControl];
     [refreshControl setTintColor:[UIColor whiteColor]];
+
+    self.navTable.contentInset = UIEdgeInsetsMake(0, 0, 44, 0);
 
     
 }
