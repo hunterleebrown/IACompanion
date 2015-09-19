@@ -217,12 +217,22 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     CGFloat newY = self.mediaPlayerTopConstraint.constant + point.y;
     
     
-    NSLog(@"---------> new y:%f %f", (self.view.bounds.size.height - heightOfMediaPlayerToolbar), newY);
+//    NSLog(@"---------> new y:%f %f", (self.view.bounds.size.height - heightOfMediaPlayerToolbar), newY);
+    
+    
+    CGFloat alph = newY / (self.view.bounds.size.height - heightOfMediaPlayerToolbar);
+    NSLog(@"------------> alph: %f", 1- alph);
+    
     
     
     if(newY >= 0 && newY < self.view.bounds.size.height - heightOfMediaPlayerToolbar)
     {
         self.mediaPlayerTopConstraint.constant = newY;
+        
+        CGFloat a = 1 - alph > 0.3 ? 1 - alph : 0.3;
+        
+        self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:a];
+        
         [self.mediaPlayerHolder layoutIfNeeded];
         
         if(newY > self.view.bounds.size.height - heightOfMediaPlayerToolbar)
@@ -259,6 +269,8 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
         [self.view layoutSubviews];
 
 //        [self setNeedsStatusBarAppearanceUpdate];
+        
+        self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:0.3];
 
     } completion:^(BOOL finished) {
         self.isPlayerOpen = NO;
@@ -275,6 +287,9 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
         
         [self.mediaPlayerHolder layoutIfNeeded];
         [self.view layoutSubviews];
+        
+        self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:1.0];
+
         
     } completion:^(BOOL finished) {
         self.isPlayerOpen = YES;

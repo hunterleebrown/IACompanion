@@ -40,6 +40,9 @@
 
 @property (nonatomic, weak) IBOutlet ArchiveContentTypeControlView *contentTypeControlView;
 
+@property (nonatomic) BOOL controlsFadedOut;
+
+
 @end
 
 @implementation SearchViewController
@@ -211,7 +214,50 @@
             [self loadMoreItems:nil];
         }
     }
+    
+    if(scrollView == self.searchCollectionView)
+    {
+        if( [scrollView.panGestureRecognizer translationInView:scrollView.superview].y < 0 )
+        {
+            NSLog(@"----------> going up:!");
+            [self fadeOutToolbar:YES];
+        }
+        else
+        {
+            NSLog(@"----------> going down:!");
+            [self fadeOutToolbar:NO];
+        }
+        
+    }
+    
+    
 }
+
+
+- (void)forceFadeOutToolbar:(BOOL)fadeOut
+{
+    [UIView animateWithDuration:0.33 animations:^{
+
+        self.layoutChangerView.alpha = fadeOut ? 0.0 : 1.0;
+        self.sorterView.alpha = fadeOut ? 0.0 : 1.0;
+        
+    } completion:^(BOOL finished) {
+        self.controlsFadedOut = fadeOut;
+    }];
+}
+
+- (void)fadeOutToolbar:(BOOL)fadeOut
+{
+    if(self.controlsFadedOut != fadeOut)
+    {
+        [self forceFadeOutToolbar:fadeOut];
+    }
+}
+
+
+
+
+
 
 - (void)loadMoreItems:(id)sender {
     if(numFound > 50) {

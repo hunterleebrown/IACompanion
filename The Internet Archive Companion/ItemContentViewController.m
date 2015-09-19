@@ -340,7 +340,7 @@
         [self.typeLabel setTextColor:[UIColor whiteColor]];
         [self.titleLabel setTextColor:[UIColor whiteColor]];
         [self.titleLabel setText:[NSString stringWithFormat:@"%@ Collection", self.detDoc.title]];
-        [self.titleHolder setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
+//        [self.titleHolder setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
        // [self.creatorButton setTitleColor:[] forState:<#(UIControlState)#>]];
 
         //[self.creatorButton setBackgroundColor:[UIColor lightGrayColor]];
@@ -458,10 +458,13 @@
             adjColor =  [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:alpha];
             [self.titleLabel setTextColor:adjColor];
             
-            for(UIButton *butt in @[self.wwwButton, self.descriptionButton, self.folderButton, self.favoritesButton, self.shareButton])
+            for(UIButton *butt in @[self.wwwButton, self.descriptionButton, self.folderButton, self.favoritesButton, self.shareButton, self.searchCollectionButton])
             {
                 [butt setTitleColor:adjColor forState:UIControlStateNormal];
             }
+            
+            [self.collectionHandlerView.filters setTintColor:adjColor];
+            [self.collectionHandlerView.countLabel setTextColor:adjColor];
             
         }
         [self doGradientWithColor:avColor];
