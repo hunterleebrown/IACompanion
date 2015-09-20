@@ -44,7 +44,6 @@
 @property (nonatomic, weak) IBOutlet UIView *titleImageOverlay;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleOverlayHeight;
 
-@property (nonatomic, strong) ArchiveImage *observableImage;
 @property (nonatomic) BOOL weAreObserving;
 
 @property (nonatomic, strong) CAGradientLayer *overlayGradient;
@@ -119,27 +118,16 @@
 
     [self.service fetchData];
     
-
-
-    
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.extendedLayoutIncludesOpaqueBars = YES;
     
-    
     [self.collectionHandlerView setParentViewController:self];
 
-
-    
     self.mediaTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-
     
 }
 
-//- (UIStatusBarStyle)preferredStatusBarStyle
-//{
-//    return UIStatusBarStyleLightContent;
-//}
+
 
 - (void)viewDidLayoutSubviews
 {
@@ -161,20 +149,14 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-
-//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:nil];
-//    
-//    self.navigationController.view.backgroundColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
-//    
-//    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
     self.titleImage.hidden = YES;
+    [super viewWillDisappear:animated];
 }
 
 
 - (void) viewDidDisappear:(BOOL)animated{
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
+
     [super viewDidDisappear:animated];
 }
 
@@ -293,8 +275,6 @@
                 if((file.format == FileFormatJPEG || file.format == FileFormatPNG || file.format == FileFormatImage) && ![[file.file objectForKey:@"source"] isEqualToString: @"derivative"]) {
                     if(gotAnImage == NO)
                     {
-//                        ArchiveImage *image = [[ArchiveImage alloc] initWithUrlPath:file.url];
-//                        [self.imageView setArchiveImage:image];
                         gotAnImage = YES;
                         self.itemImageUrl = file.url;
                         self.itemImageWidth = self.view.bounds.size.width > 320 ? ceil(self.view.bounds.size.width * 0.75)  : 300;
@@ -330,9 +310,6 @@
         
         [attString addAttribute:NSShadowAttributeName value:shadow range:NSMakeRange(0, creator.length + 3)];
 
-        
-        //[self.creatorButton.titleLabel setAttributedText:attString];
-        
         [self.creatorButton setAttributedTitle:attString forState:UIControlStateNormal];
         [self.creatorButton setAttributedTitle:selAtt forState:UIControlStateHighlighted];
 
@@ -352,10 +329,7 @@
         [self.typeLabel setTextColor:[UIColor whiteColor]];
         [self.titleLabel setTextColor:[UIColor whiteColor]];
         [self.titleLabel setText:[NSString stringWithFormat:@"%@ Collection", self.detDoc.title]];
-//        [self.titleHolder setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
-       // [self.creatorButton setTitleColor:[] forState:<#(UIControlState)#>]];
 
-        //[self.creatorButton setBackgroundColor:[UIColor lightGrayColor]];
         [self.collectionHandlerView setIdentifier:self.searchDoc.identifier];
 
         self.imageView.hidden = YES;
@@ -389,14 +363,9 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
         }
         
-        
-//        [self.titleImage setArchiveImage:self.detDoc.archiveImage];
     }
 
     
-//    NSLog([StringUtils htmlStringByAddingBreaks:self.detDoc.details]);
-
-
     
     NSString *html = [NSString stringWithFormat:@"<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'/><style>img{max-width:%fpx !important;} a:link{color:#666; text-decoration:none;} p{padding:5px;}</style></head><body style='margin-left:10px; margin-right:10px; background-color:#fff; color:#000; font-size:15px; font-family:\"Helvetica\"'>%@</body></html>", self.itemImageWidth, [StringUtils htmlStringByAddingBreaks:self.detDoc.details]];
     
@@ -409,24 +378,21 @@
                               baseURL:theBaseURL];
     
 
-//    [self.metaDataTable addMetadata:[self.detDoc.rawDoc objectForKey:@"metadata"]];
-    
-
     
     [self.titleImage setAlpha:0.0];
-    self.observableImage = [[ArchiveImage alloc] initWithUrlPath:self.itemImageUrl];
     
-    if(self.observableImage.downloaded)
+    [self.titleImage setArchiveImage:self.detDoc.archiveImage];
+
+    
+    if(self.detDoc.archiveImage.downloaded)
     {
         [self fadeInEverything];
     } else
     {
-        [self.observableImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
+        [self.detDoc.archiveImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
         self.weAreObserving = YES;
     }
     
-    [self.titleImage setArchiveImage:self.observableImage];
-
     
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"track" ascending:YES];
     [mediaFiles addObjectsFromArray:[files sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]]];
@@ -447,9 +413,12 @@
     
 }
 
+
+#pragma mark - Handling Fading in Background Image, etc
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
-    if(object == self.observableImage && [keyPath isEqualToString:@"downloaded"]){
+    if(object == self.detDoc.archiveImage && [keyPath isEqualToString:@"downloaded"]){
         [self fadeInEverything];
     }
 
@@ -457,53 +426,97 @@
 
 - (void) fadeInEverything
 {
-
-    UIColor *avColor = [self averageColor:self.observableImage.contentImage];
-    // CGFloat red = 0.66, green = 0.66, blue = 0.66, alpha = 1.0;
-    //[avColor getRed:&red green:&green blue:&blue alpha:&alpha];
     
-    [UIView animateWithDuration:0.33 animations:^{
+    BOOL isDark = NO;
+    UIColor *adjColor;
+    UIColor *avColor;
+    CGFloat hue, saturation, brightness, alpha, white;
+    
+    
+    if([self isGrayScaleImage:self.detDoc.archiveImage.contentImage])
+    {
+        avColor = [UIColor whiteColor];
+        adjColor = [UIColor whiteColor];
+        isDark = NO;
+    }
+    else
+    {
         
-        self.titleImage.alpha = 1.0;
-        
-        UIColor *adjColor;
-        CGFloat hue, saturation, brightness, alpha;
+        avColor = [self averageColor:self.detDoc.archiveImage.contentImage];
         
         if ([avColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]) {
             brightness += (1.5-1.0);
             brightness = MAX(MIN(brightness, 1.0), 0.0);
             adjColor =  [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:alpha];
-            [self.titleLabel setTextColor:adjColor];
-            
-            for(UIButton *butt in @[self.wwwButton, self.descriptionButton, self.folderButton, self.favoritesButton, self.shareButton, self.searchCollectionButton])
-            {
-                [butt setTitleColor:adjColor forState:UIControlStateNormal];
-            }
-            
-            [self.collectionHandlerView.filters setTintColor:adjColor];
-            [self.collectionHandlerView.countLabel setTextColor:adjColor];
-            
         }
-        [self doGradientWithColor:avColor];
+    }
+    
+    ItemContentViewController __weak *weakself = self; 
+    
+    [UIView animateWithDuration:0.33 animations:^{
         
+        [weakself.titleLabel setTextColor:adjColor];
+        for(UIButton *butt in @[weakself.wwwButton, weakself.descriptionButton, weakself.folderButton, weakself.favoritesButton, weakself.shareButton, weakself.searchCollectionButton])
+        {
+            [butt setTitleColor:adjColor forState:UIControlStateNormal];
+        }
+        [weakself.collectionHandlerView.filters setTintColor:adjColor];
+        [weakself.collectionHandlerView.countLabel setTextColor:adjColor];
+        
+        [self doGradientWithColor:avColor];
+        weakself.titleImage.alpha = 1.0;
     } completion:nil];
     
+}
+
+// http://stackoverflow.com/questions/16768739/how-to-detect-image-is-grayscale
+- (BOOL)isGrayScaleImage:(UIImage *)image{
+    
+    CGImageRef imageRef = [image CGImage];
+    CGColorSpaceRef colorSpace = CGImageGetColorSpace(imageRef);
+    if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelRGB) {
+        CGDataProviderRef dataProvider = CGImageGetDataProvider(imageRef);
+        CFDataRef imageData = CGDataProviderCopyData(dataProvider);
+        const UInt8 *rawData = CFDataGetBytePtr(imageData);
+        
+        size_t width = CGImageGetWidth(imageRef);
+        size_t height = CGImageGetHeight(imageRef);
+        
+        int byteIndex = 0;
+        BOOL allPixelsGrayScale = YES;
+        for(int ii = 0 ; ii <width*height; ++ii)
+        {
+            int r = rawData[byteIndex];
+            int g = rawData[byteIndex+1];
+            int b = rawData[byteIndex+2];
+            if (!((r == g)&&(g == b))) {
+                allPixelsGrayScale = NO;
+                break;
+            }
+            byteIndex += 4;
+        }
+        CFRelease(imageData);
+        CGColorSpaceRelease(colorSpace);
+        return allPixelsGrayScale;
+    }
+    else if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelMonochrome){
+        CGColorSpaceRelease(colorSpace); return YES;}
+    else {CGColorSpaceRelease(colorSpace); return NO;}
 }
 
 
 - (void)doGradientWithColor:(UIColor *)color
 {
     
-//    UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.33];
-//    UIColor *upperMiddleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.65];
-//    UIColor *middleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.85];
-//    UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0];
-//
-    UIColor *topColor = [color colorWithAlphaComponent:0.33];
-    UIColor *upperMiddleColor = [color colorWithAlphaComponent:0.65];
+    UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.33];
+    UIColor *upperMiddleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.65];
     UIColor *middleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.85];
     UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0];
-    
+//
+//    UIColor *topColor = [color colorWithAlphaComponent:0.33];
+//    UIColor *upperMiddleColor = [color colorWithAlphaComponent:0.65];
+//    UIColor *middleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.85];
+//    UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0];
     
     self.overlayGradient = [CAGradientLayer layer];
     self.overlayGradient.frame = self.view.bounds;
@@ -513,7 +526,7 @@
 }
 
 
-#pragma mark - color finding
+//http://stackoverflow.com/questions/13694618/objective-c-getting-least-used-and-most-used-color-in-a-image
 - (UIColor *)averageColor:(UIImage *)image {
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -577,7 +590,7 @@
 }
 
 
-#pragma mark -
+#pragma mark - massaging files and file data
 
 - (void) orgainizeMediaFiles:(NSMutableArray *)files{
     for(ArchiveFile *f in files){
@@ -946,7 +959,7 @@
 {
     if(self.weAreObserving)
     {
-        [self.observableImage removeObserver:self forKeyPath:@"downloaded"];
+        [self.detDoc.archiveImage removeObserver:self forKeyPath:@"downloaded"];
     }
 }
 
