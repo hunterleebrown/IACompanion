@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PlayerFile.h"
+#import "MediaPlayerViewController.h"
 
 @interface PlayerTableViewCell : UITableViewCell
 
@@ -15,7 +16,12 @@
 @property (nonatomic, weak) IBOutlet UILabel *fileTitle;
 @property (nonatomic, weak) IBOutlet UILabel *identifierLabel;
 @property (nonatomic, weak) IBOutlet UILabel *formatLabel;
+@property (nonatomic, weak) NSString *identifier;
+@property (nonatomic, weak) MediaPlayerViewController *mediaPlayerViewController;
+@property (nonatomic, weak) IBOutlet UIButton *viewButton;
 
 - (void)setFormat:(NSString *)format;
+
+- (IBAction)viewItem:(id)sender;
 
 @end

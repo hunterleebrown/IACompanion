@@ -9,6 +9,7 @@
 #import "PlayerTableViewCell.h"
 #import "ArchiveFile.h"
 #import "MediaUtils.h"
+#import "ItemContentViewController.h"
 
 @interface PlayerTableViewCell ()
 
@@ -52,8 +53,31 @@
 }
 
 
+- (IBAction)viewItem:(id)sender
+{
 
+    NSLog(@"----------> identifier:%@", self.identifier);
+    
+    ArchiveSearchDoc *doc = [ArchiveSearchDoc new];
+    doc.identifier = self.identifier;
 
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        ItemContentViewController *cvc = [self.mediaPlayerViewController.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+        [cvc setSearchDoc:doc];
+        UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
+        [pop presentPopoverFromRect:self.mediaPlayerViewController.playerToolbar.frame inView:self.mediaPlayerViewController.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseMediaPlayer" object:nil];
+
+    }
+    
+}
 
 
 - (void)awakeFromNib {

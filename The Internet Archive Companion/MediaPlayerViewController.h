@@ -11,6 +11,9 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
+@property (nonatomic, weak) IBOutlet UIToolbar *playerToolbar;
+
+
 - (IBAction)closePlayer;
 
 

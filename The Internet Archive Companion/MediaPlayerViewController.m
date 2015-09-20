@@ -52,7 +52,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *closeButtonButton;
 @property (nonatomic, weak) IBOutlet UIButton *mediaPlayerButton;
 
-@property (nonatomic, weak) IBOutlet UIToolbar *playerToolbar;
 
 
 @property (nonatomic, weak) IBOutlet UIImageView *topEqualizerImage;
@@ -607,6 +606,8 @@
 {
     PlayerFile *file = (PlayerFile *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    cell.identifier = file.identifier;
+    cell.mediaPlayerViewController = self;
     
     cell.fileTitle.text = file.title;
     cell.identifierLabel.text = file.identifierTitle;
