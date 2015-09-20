@@ -286,12 +286,10 @@
     {
        if( [scrollView.panGestureRecognizer translationInView:scrollView.superview].y < 0 )
        {
-           NSLog(@"----------> going up:!");
            [self fadeOutToolbar:YES];
        }
        else
        {
-           NSLog(@"----------> going down:!");
            [self fadeOutToolbar:NO];
        }
         
@@ -361,7 +359,19 @@
     ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
     ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
     [cvc setSearchDoc:doc];
-    [self.navigationController pushViewController:cvc animated:YES];
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || doc.type == MediaTypeCollection) {
+        [self.navigationController pushViewController:cvc animated:YES];
+    }
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
+        SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
+        [pop presentPopoverFromRect:cell.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+    }
+    
 
 //    NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
 //    [cvc setSearchDoc:doc];

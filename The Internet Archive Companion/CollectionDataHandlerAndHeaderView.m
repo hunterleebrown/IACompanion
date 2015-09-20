@@ -23,6 +23,8 @@
 
 @property (nonatomic, weak) IBOutlet SorterView *sorterView;
 
+@property (nonatomic) BOOL controlsFadedOut;
+
 @end
 
 @implementation CollectionDataHandlerAndHeaderView
@@ -149,12 +151,48 @@
 
         if(searchDocuments.count > 0  && searchDocuments.count < numFound  && start < numFound && !didTriggerLoadMore){
             [self loadMoreItems:nil];
-
+        }
+    }
+    
+    
+    if(scrollView == self.collectionView)
+    {
+        if( [scrollView.panGestureRecognizer translationInView:scrollView.superview].y < 0 )
+        {
+            [self fadeOutToolbar:YES];
+        }
+        else
+        {
+            [self fadeOutToolbar:NO];
         }
         
     }
     
 }
+
+
+- (void)forceFadeOutToolbar:(BOOL)fadeOut
+{
+    [UIView animateWithDuration:0.33 animations:^{
+        
+        self.layoutChangerView.alpha = fadeOut ? 0.0 : 1.0;
+        self.sorterView.alpha = fadeOut ? 0.0 : 1.0;
+        
+    } completion:^(BOOL finished) {
+        self.controlsFadedOut = fadeOut;
+    }];
+}
+
+- (void)fadeOutToolbar:(BOOL)fadeOut
+{
+    if(self.controlsFadedOut != fadeOut)
+    {
+        [self forceFadeOutToolbar:fadeOut];
+    }
+}
+
+
+
 
 - (IBAction)searchCollection:(id)sender
 {

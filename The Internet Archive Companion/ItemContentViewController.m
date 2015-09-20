@@ -187,6 +187,9 @@
     self.itemToolbar.backgroundColor = [UIColor clearColor];
     [self.itemToolbar setTintColor:[UIColor whiteColor]];
     
+    self.titleImage.hidden = NO;
+
+    
 }
 
 - (void)makeTranslToolbar:(UINavigationBar *)toolbar

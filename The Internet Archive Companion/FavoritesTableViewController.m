@@ -44,10 +44,11 @@
     self.title = @"Your Favorites List";
 
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor blackColor]];
 
-
-
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
 
 }
 

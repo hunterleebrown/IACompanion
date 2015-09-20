@@ -35,6 +35,8 @@
 //    [self.backView.layer setBorderColor:[UIColor darkGrayColor].CGColor];
 //    [self.backView.layer setBorderWidth:1.0];
 
+    self.backgroundColor = [UIColor clearColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
 
 }
 

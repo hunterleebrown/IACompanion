@@ -219,12 +219,10 @@
     {
         if( [scrollView.panGestureRecognizer translationInView:scrollView.superview].y < 0 )
         {
-            NSLog(@"----------> going up:!");
             [self fadeOutToolbar:YES];
         }
         else
         {
-            NSLog(@"----------> going down:!");
             [self fadeOutToolbar:NO];
         }
         
