@@ -263,8 +263,14 @@
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)service{
     
-    //ArchiveDetailDoc *doc = ((IAJsonDataService *)service).rawResults
-    assert([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] != nil);
+    
+    if([[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0] == nil)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"We caught an error in the data from the Internet Archive. \n \n Content not available."];
+        return;
+    }
+    
+    
     self.detDoc = [[((IAJsonDataService *)service).rawResults objectForKey:@"documents"] objectAtIndex:0];
     
     self.titleLabel.text = self.detDoc.title;

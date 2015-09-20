@@ -229,7 +229,7 @@
         [self.titleLabel setNumberOfLines:0];
 
     }
-
+    
 
     self.imageViewHeightConstraint.constant = imageHeight;
     self.imageViewWidthConstraint.constant = imageWidth;

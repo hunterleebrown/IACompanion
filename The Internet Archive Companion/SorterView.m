@@ -23,10 +23,10 @@
     [self.viewsButton setTitle:VIEWS forState:UIControlStateNormal];
     [self.dateButton setTitle:CLOCK forState:UIControlStateNormal];
     
-    self.relevanceButton.enabled = NO;
-    self.titleButton.enabled = NO;
-    self.viewsButton.enabled = NO;
-    self.dateButton.enabled = NO;
+    self.relevanceButton.enabled = YES;
+    self.titleButton.enabled = YES;
+    self.viewsButton.enabled = YES;
+    self.dateButton.enabled = YES;
 
     [self.toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [self.toolbar setBackgroundColor:[UIColor clearColor]];
