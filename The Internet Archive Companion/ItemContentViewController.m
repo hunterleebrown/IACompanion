@@ -126,10 +126,12 @@
     self.extendedLayoutIncludesOpaqueBars = YES;
     
     
+    [self.collectionHandlerView setParentViewController:self];
 
 
     
     self.mediaTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
 
     
 }

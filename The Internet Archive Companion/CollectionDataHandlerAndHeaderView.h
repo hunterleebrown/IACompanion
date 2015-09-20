@@ -23,6 +23,7 @@
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, weak) IBOutlet LayoutChangerView *layoutChangerView;
 
+@property (nonatomic, weak) UIViewController *parentViewController;
 
 @property (nonatomic, strong) NSString *identifier;
 

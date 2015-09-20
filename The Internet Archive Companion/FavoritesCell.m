@@ -26,4 +26,11 @@
     // Configure the view for the selected state
 }
 
+- (void)layoutSubviews
+{
+    [self setBackgroundColor:[UIColor clearColor]];
+    [self.contentView setBackgroundColor:[UIColor clearColor]];
+    [super layoutSubviews];
+}
+
 @end

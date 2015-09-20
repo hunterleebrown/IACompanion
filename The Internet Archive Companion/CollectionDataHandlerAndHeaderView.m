@@ -13,6 +13,7 @@
 #import "StringUtils.h"
 #import "SorterView.h"
 #import "SearchCollectionViewCell.h"
+#import "ItemContentViewController.h"
 
 @interface CollectionDataHandlerAndHeaderView ()
 
@@ -24,6 +25,8 @@
 @property (nonatomic, weak) IBOutlet SorterView *sorterView;
 
 @property (nonatomic) BOOL controlsFadedOut;
+
+
 
 @end
 
@@ -127,7 +130,19 @@
 {
 
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || doc.type == MediaTypeCollection) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
+    }
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        ItemContentViewController *cvc = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+        [cvc setSearchDoc:doc];
+        UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
+        SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"itemSearchCollectionCell" forIndexPath:indexPath];
+        [pop presentPopoverFromRect:cell.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+    }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

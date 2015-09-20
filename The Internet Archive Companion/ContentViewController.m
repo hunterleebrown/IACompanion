@@ -367,6 +367,7 @@
     else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
+//        pop.popoverLayoutMargins = UIEdgeInsetsMake(50, 50, 50, 50);
         SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
         [pop presentPopoverFromRect:cell.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         

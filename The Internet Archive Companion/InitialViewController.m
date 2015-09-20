@@ -281,19 +281,31 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 - (IBAction) openPlayer {
 //    [self.view layoutIfNeeded];
     
-    [UIView animateWithDuration:0.33 animations:^{
-        self.mediaPlayerTopConstraint.constant = 0;
-        self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
-        
-        [self.mediaPlayerHolder layoutIfNeeded];
-        [self.view layoutSubviews];
-        
-        self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:1.0];
+    
+    void(^animatePlayerOpen)(void) = ^void(void){
+        [UIView animateWithDuration:0.33 animations:^{
+            self.mediaPlayerTopConstraint.constant = 0;
+            self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
+            
+            [self.mediaPlayerHolder layoutIfNeeded];
+            [self.view layoutSubviews];
+            
+            self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:1.0];
+            
+            
+        } completion:^(BOOL finished) {
+            self.isPlayerOpen = YES;
+        }];
+    };
+    
+    if(self.presentedViewController)
+    {
+        [self dismissViewControllerAnimated:YES completion:animatePlayerOpen];
+    } else{
+        animatePlayerOpen();
+    }
+    
 
-        
-    } completion:^(BOOL finished) {
-        self.isPlayerOpen = YES;
-    }];
 }
 
 
@@ -362,7 +374,20 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 - (void) showBookViewControllerNotification:(NSNotification *)notification{
     ArchivePageViewController *bookViewControllers = notification.object;
     [bookViewControllers setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-    [self presentViewController:bookViewControllers animated:YES completion:nil];
+    
+    if(self.presentedViewController)
+    {
+        [self dismissViewControllerAnimated:NO completion:^{
+            [self presentViewController:bookViewControllers animated:YES completion:nil];
+
+        }];
+        
+    }
+    else
+    {
+        
+        [self presentViewController:bookViewControllers animated:YES completion:nil];
+    }
 
 }
 
