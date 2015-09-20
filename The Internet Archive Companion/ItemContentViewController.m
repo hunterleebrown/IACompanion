@@ -494,15 +494,15 @@
 - (void)doGradientWithColor:(UIColor *)color
 {
     
-    UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.33];
-    UIColor *upperMiddleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.65];
+//    UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.33];
+//    UIColor *upperMiddleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.65];
+//    UIColor *middleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.85];
+//    UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0];
+//
+    UIColor *topColor = [color colorWithAlphaComponent:0.33];
+    UIColor *upperMiddleColor = [color colorWithAlphaComponent:0.65];
     UIColor *middleColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.85];
     UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0];
-
-//    UIColor *topColor = [color colorWithAlphaComponent:0.33];
-//    UIColor *upperMiddleColor = [color colorWithAlphaComponent:0.65];
-//    UIColor *middleColor = [color colorWithAlphaComponent:0.85];
-//    UIColor *bottomColor = [color colorWithAlphaComponent:1.0];
     
     
     self.overlayGradient = [CAGradientLayer layer];

@@ -383,6 +383,8 @@
 
         return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:self.layoutChangerView.cellLayoutStyle archiveDoc:doc];
 
+    
+    
 //    CGFloat width = self.view.bounds.size.width - 20;
   //  return CGSizeMake(width, width * 0.66);
     

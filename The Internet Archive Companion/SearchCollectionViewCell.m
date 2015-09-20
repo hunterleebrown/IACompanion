@@ -108,7 +108,7 @@
     height += 15;
 
     
-    return CGSizeMake(width, height);
+    return CGSizeMake(width, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 132 : 142);
     
 }
 
