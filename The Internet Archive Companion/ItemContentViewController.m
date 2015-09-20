@@ -180,7 +180,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
+    
+
     self.navigationController.view.backgroundColor = [UIColor clearColor];
 
     [self makeTranslToolbar:self.navigationController.navigationBar];
@@ -355,7 +356,9 @@
         self.typeLabel.hidden = NO;
 
         [self toggleViews:self.collectionButton];
-
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
+        
     }
     else
     {
@@ -375,7 +378,10 @@
         }
         [self.itemToolbar setItems:mItems];
         
-        
+        if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad)
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
+        }
         
         
 //        [self.titleImage setArchiveImage:self.detDoc.archiveImage];

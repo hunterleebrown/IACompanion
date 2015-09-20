@@ -293,15 +293,23 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
+
     ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
     [cvc setSearchDoc:doc];
-    [self.navigationController pushViewController:cvc animated:YES];
-
-//    ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-//    NewItemViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newItemViewController"];
-//    [cvc setSearchDoc:doc];
-//    [self.navigationController pushViewController:cvc animated:YES];
-
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || doc.type == MediaTypeCollection) {
+        [self.navigationController pushViewController:cvc animated:YES];
+    }
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
+        SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
+        [pop presentPopoverFromRect:cell.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+    }
+    
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

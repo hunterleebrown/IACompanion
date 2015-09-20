@@ -70,9 +70,9 @@
     CollectionViewCellStyle style = doc.type == MediaTypeCollection ? CollectionViewCellStyleCollection : CollectionViewCellStyleItem;
     
 
-    NSInteger orientationDivisor = UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 4 : 3;
+    NSInteger orientationDivisor = UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 3 : 2;
 
-    CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? orientationDivisor : UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 3 : 1;
+    CGFloat divisor = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? orientationDivisor : UIInterfaceOrientationIsLandscape(orientation) && collectionView.bounds.size.width == [UIScreen mainScreen].bounds.size.width ? 2 : 1;
     CGFloat padding = 15;
     
     CGFloat width = ceil((collectionView.bounds.size.width / divisor) - padding);
@@ -247,7 +247,7 @@
             [self.creator setTextColor:[UIColor whiteColor]];
             [self.detailsLabel setTextColor:[UIColor whiteColor]];
 
-            [self setBackgroundColor:COLLECTION_BACKGROUND_COLOR];
+            [self setBackgroundColor:[COLLECTION_BACKGROUND_COLOR colorWithAlphaComponent:0.85]];
 
             [self.typeLabel setTextColor:[UIColor whiteColor]];
             [self.countLabel setTextColor:[UIColor whiteColor]];
@@ -263,7 +263,7 @@
             [self.titleLabel setTextColor:[UIColor whiteColor]];
             [self.detailsLabel setTextColor:[UIColor lightTextColor]];
 
-            [self setBackgroundColor:[UIColor blackColor]];
+            [self setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.85]];
 
             [self.creator setTextColor:[UIColor whiteColor]];
             [self.countLabel setTextColor:[UIColor whiteColor]];
