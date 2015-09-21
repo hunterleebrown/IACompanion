@@ -240,7 +240,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         [_contentView setFrame:CGRectMake(whereToGoLeft, 0, _contentView.bounds.size.width, _contentView.bounds.size.height)];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
             if(whereToGoLeft == -256){
@@ -274,7 +274,7 @@
     
     [UIView animateWithDuration:0.3 animations:^{
         [_contentView setFrame:CGRectMake(whereToGoLeft, 0, _contentView.bounds.size.width, _contentView.bounds.size.height)];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
 
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
             if(whereToGoLeft == 256){

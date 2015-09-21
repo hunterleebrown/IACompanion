@@ -19,6 +19,9 @@
 #import "LayoutChangerView.h"
 #import "ArchiveContentTypeControlView.h"
 
+#define kNavBarDefaultPosition CGPointMake(160, 22) // we need this for later.  This is (iPhone) the center coordinate of a navigationBar in portrait mode.
+
+
 @interface ContentViewController () <IADataServiceDelegate, UISearchBarDelegate, UIAlertViewDelegate, UIToolbarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong)  UIWebView *moreInfoView;
 
@@ -52,12 +55,17 @@
 @property (nonatomic) BOOL topToolbarFadedOut;
 @property (nonatomic, weak) IBOutlet UIView *topSelectorView;
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *selectorViewLeading;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *sorterViewLeading;
+
 
 @end
 
 @implementation ContentViewController
 @synthesize service, popUpView, archiveDescription, tableHeaderView, metaDataTable;
 @synthesize detDoc, moreInfoView, listIconButton, playerIconButton, searchIconButton;
+
+const CGFloat gripperOffset = 17.0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -209,6 +217,9 @@
         [self searchFilterChangeWithParam:param];
     };
 
+    
+    [self.view addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
+
 
 
 
@@ -217,9 +228,40 @@
 - (void)viewDidLayoutSubviews
 {
 
-    [self forceFadeOutToolbar:self.topToolbarFadedOut];
     
     [super viewDidLayoutSubviews];
+}
+
+- (void)dealloc
+{
+    [self.view removeObserver:self forKeyPath:@"frame"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if(object == self.view && [keyPath isEqualToString:@"frame"])
+    {
+            if(!self.topToolbarFadedOut)
+            {
+                if(self.topSelectorView.frame.origin.y != 0)
+                {
+                    self.selectorViewLeading.constant = 0;
+                    self.sorterViewLeading.constant = 0;
+
+                    [self.topSelectorView layoutIfNeeded];
+                    [self.sorterView layoutIfNeeded];
+                }
+            } else
+            {
+                if(self.topSelectorView.frame.origin.y != self.view.bounds.size.width - gripperOffset)
+                {
+                    self.selectorViewLeading.constant = self.view.bounds.size.width - gripperOffset;
+                    self.sorterViewLeading.constant = self.view.bounds.size.width;
+                    [self.topSelectorView layoutIfNeeded];
+        
+                }
+            }
+    }
 }
 
 
@@ -269,10 +311,15 @@
     }
     self.didTriggerLoadMore = NO;
     [self.picksCollectionView setHidden:NO];
+    
+
+    
 }
 
 
-#pragma mark - load more
+#pragma mark - scrollview and load more
+
+
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     if(scrollView.contentOffset.y > scrollView.contentSize.height * 0.5)
@@ -286,15 +333,57 @@
     {
        if( [scrollView.panGestureRecognizer translationInView:scrollView.superview].y < 0 )
        {
-           [self fadeOutToolbar:YES];
+//           [self fadeOutToolbar:YES]; // going Up
+//           [self transformOut];
+           
        }
        else
        {
-           [self fadeOutToolbar:NO];
+//           [self fadeOutToolbar:NO]; // going down.
        }
+        
+    
+        
+        
         
     }
     
+}
+
+
+- (IBAction)transformOut
+{
+    if(!self.topToolbarFadedOut)
+    {
+        [UIView animateWithDuration:0.33 animations:^{
+            
+            self.selectorViewLeading.constant = self.view.bounds.size.width - gripperOffset;
+            self.sorterViewLeading.constant = self.view.bounds.size.width;
+            [self.topSelectorView layoutIfNeeded];
+            [self.sorterView layoutIfNeeded];
+            
+        } completion:^(BOOL finished) {
+            self.topToolbarFadedOut = YES;
+        }];
+    }
+}
+
+
+- (IBAction)transformIn
+{
+    if(self.topToolbarFadedOut)
+    {
+        [UIView animateWithDuration:0.33 animations:^{
+            
+            self.selectorViewLeading.constant = 0;
+            self.sorterViewLeading.constant = 0;
+            [self.topSelectorView layoutIfNeeded];
+            [self.sorterView layoutIfNeeded];
+            
+        } completion:^(BOOL finished) {
+            self.topToolbarFadedOut = NO;
+        }];
+    }
 }
 
 
@@ -425,7 +514,8 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
+
 
 
     
@@ -442,17 +532,19 @@
         self.navigationController.navigationBar.shadowImage = [UIImage new];
         self.navigationController.navigationBar.translucent = YES;
         
-        self.navigationController.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.85];
-        self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.85];
+        self.navigationController.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];//[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.85];
+        self.navigationController.navigationBar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];//[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.85];
         
-        [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+        
+        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
 
         
         
     }];
     
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
 
     [super viewDidAppear:animated];
 

@@ -229,7 +229,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     {
         self.mediaPlayerTopConstraint.constant = newY;
         
-        CGFloat a = 1 - alph > 0.3 ? 1 - alph : 0.3;
+        CGFloat a = 1 - alph > 0.5 ? 1 - alph : 0.5;
         
         self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:a];
         
@@ -270,7 +270,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
 //        [self setNeedsStatusBarAppearanceUpdate];
         
-        self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:0.3];
+        self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:0.5];
 
     } completion:^(BOOL finished) {
         self.isPlayerOpen = NO;

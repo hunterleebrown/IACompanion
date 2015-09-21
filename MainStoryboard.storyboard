@@ -480,23 +480,23 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-I7-WiX">
-                                <rect key="frame" x="0.0" y="64" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZi-QV-spX" customClass="ArchiveContentTypeControlView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="6Sc-4d-NJk"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LATEST STAFF PICKS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0C-eD-9d7">
                                         <rect key="frame" x="0.0" y="55" width="600" height="25"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="hi5-J6-wSm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -504,8 +504,15 @@
                                             </mask>
                                         </variation>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gripper" translatesAutoresizingMaskIntoConstraints="NO" id="OKb-3m-gP2">
+                                        <rect key="frame" x="2" y="28" width="12" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="3av-78-PBP"/>
+                                            <constraint firstAttribute="width" constant="12" id="8xv-ES-5we"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="YZi-QV-spX" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="top" id="1Ry-ww-AhW"/>
                                     <constraint firstItem="YZi-QV-spX" firstAttribute="leading" secondItem="hTf-I7-WiX" secondAttribute="leading" id="5kV-6N-pab"/>
@@ -517,6 +524,8 @@
                                     <constraint firstAttribute="bottom" secondItem="YZi-QV-spX" secondAttribute="bottom" id="Uo4-dZ-vqb"/>
                                     <constraint firstAttribute="height" constant="65" id="dkO-VA-6C9"/>
                                     <constraint firstItem="YZi-QV-spX" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="top" id="ip8-kp-HYw"/>
+                                    <constraint firstItem="OKb-3m-gP2" firstAttribute="leading" secondItem="hTf-I7-WiX" secondAttribute="leading" constant="2" id="vSi-07-uba"/>
+                                    <constraint firstItem="OKb-3m-gP2" firstAttribute="centerY" secondItem="hTf-I7-WiX" secondAttribute="centerY" id="xyP-Mf-yI1"/>
                                     <constraint firstAttribute="bottom" secondItem="s0C-eD-9d7" secondAttribute="bottom" id="ydP-Qp-XRM"/>
                                 </constraints>
                                 <variation key="default">
@@ -526,6 +535,10 @@
                                         <exclude reference="ip8-kp-HYw"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="PNn-IY-Hre" appends="YES" id="pMv-77-RJd"/>
+                                    <outletCollection property="gestureRecognizers" destination="6Lm-RO-6qK" appends="YES" id="hSL-JR-8Ko"/>
+                                </connections>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdw-er-KrX" customClass="LayoutChangerView">
                                 <rect key="frame" x="5" y="419" width="44" height="88"/>
@@ -667,23 +680,26 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="d1Y-XL-FdP" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" id="0wF-g8-jJ6"/>
                             <constraint firstItem="hTf-I7-WiX" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" id="6OR-9y-ly8"/>
                             <constraint firstItem="d1Y-XL-FdP" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="bottom" id="6cx-0F-zJq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d1Y-XL-FdP" secondAttribute="trailing" id="8jh-2u-CxL"/>
                             <constraint firstItem="hTf-I7-WiX" firstAttribute="top" secondItem="VRw-ce-b4a" secondAttribute="top" constant="64" id="Adc-p9-EOZ"/>
+                            <constraint firstItem="nGD-Af-ja2" firstAttribute="width" secondItem="VRw-ce-b4a" secondAttribute="width" id="D2b-ac-2Jp"/>
                             <constraint firstAttribute="trailing" secondItem="hTf-I7-WiX" secondAttribute="trailing" id="Gsk-uP-a96"/>
                             <constraint firstItem="d1Y-XL-FdP" firstAttribute="top" secondItem="hTf-I7-WiX" secondAttribute="bottom" id="IEP-oP-B1S"/>
                             <constraint firstItem="cdw-er-KrX" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" constant="5" id="Kak-0y-DGh"/>
                             <constraint firstItem="d1Y-XL-FdP" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" id="LK6-pr-0La"/>
                             <constraint firstItem="d1Y-XL-FdP" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" id="SZX-LE-uFm"/>
                             <constraint firstItem="d1Y-XL-FdP" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" id="T3H-WB-CBa"/>
+                            <constraint firstItem="hTf-I7-WiX" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" id="XGo-EJ-TO6"/>
                             <constraint firstItem="nGD-Af-ja2" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" id="aG0-vy-rnI"/>
                             <constraint firstItem="hTf-I7-WiX" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" id="cgm-ve-Lar"/>
                             <constraint firstItem="hTf-I7-WiX" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" id="cka-tc-6cb"/>
                             <constraint firstItem="d1Y-XL-FdP" firstAttribute="leading" secondItem="VRw-ce-b4a" secondAttribute="leading" id="hKy-Bv-mHP"/>
+                            <constraint firstItem="hTf-I7-WiX" firstAttribute="width" secondItem="VRw-ce-b4a" secondAttribute="width" id="hwy-dh-mAQ"/>
                             <constraint firstItem="U5y-CW-rrw" firstAttribute="top" secondItem="nGD-Af-ja2" secondAttribute="bottom" constant="44" id="iP0-2i-sMd"/>
                             <constraint firstAttribute="trailing" secondItem="d1Y-XL-FdP" secondAttribute="trailing" id="jgf-Ef-9mw"/>
                             <constraint firstItem="d1Y-XL-FdP" firstAttribute="top" secondItem="dbq-1c-Egw" secondAttribute="bottom" id="kkU-qs-QOO"/>
@@ -707,7 +723,10 @@
                                 <exclude reference="vFU-2b-yIS"/>
                                 <exclude reference="x1U-3G-9PT"/>
                                 <exclude reference="6OR-9y-ly8"/>
+                                <exclude reference="Adc-p9-EOZ"/>
+                                <exclude reference="Gsk-uP-a96"/>
                                 <exclude reference="cgm-ve-Lar"/>
+                                <exclude reference="mCp-MK-lVb"/>
                             </mask>
                         </variation>
                     </view>
@@ -717,11 +736,23 @@
                         <outlet property="contentTypeControlView" destination="YZi-QV-spX" id="sPR-oN-O7a"/>
                         <outlet property="layoutChangerView" destination="cdw-er-KrX" id="GvR-lT-fln"/>
                         <outlet property="picksCollectionView" destination="d1Y-XL-FdP" id="KFF-RH-PZg"/>
+                        <outlet property="selectorViewLeading" destination="cka-tc-6cb" id="QYz-GP-dAv"/>
                         <outlet property="sorterView" destination="nGD-Af-ja2" id="Fvt-dW-WPn"/>
+                        <outlet property="sorterViewLeading" destination="aG0-vy-rnI" id="QHU-R4-Hnr"/>
                         <outlet property="topSelectorView" destination="hTf-I7-WiX" id="lZr-FA-Koa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQd-17-Vqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="PNn-IY-Hre">
+                    <connections>
+                        <action selector="transformIn" destination="5DB-Ie-EAF" id="zvI-PU-kT0"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="6Lm-RO-6qK">
+                    <connections>
+                        <action selector="transformOut" destination="5DB-Ie-EAF" id="Jzz-zw-zJY"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3888" y="-318"/>
         </scene>
@@ -1003,7 +1034,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPK-2f-X1p" customClass="LayoutChangerView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPK-2f-X1p" customClass="LayoutChangerView">
                                 <rect key="frame" x="5" y="375" width="44" height="88"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dae-ni-coa">
@@ -1356,6 +1387,13 @@
                                                 <exclude reference="s9E-Si-0mJ"/>
                                                 <exclude reference="I73-ey-Qub"/>
                                                 <exclude reference="N9b-z5-sLH"/>
+                                                <exclude reference="9bM-SQ-Jiv"/>
+                                                <exclude reference="OGG-Wl-6r3"/>
+                                                <exclude reference="a0k-1f-qH7"/>
+                                                <exclude reference="mxx-ar-Cwl"/>
+                                                <exclude reference="uUe-Yo-YCR"/>
+                                                <exclude reference="utt-Ku-fYg"/>
+                                                <exclude reference="wgX-lA-GQd"/>
                                                 <exclude reference="L2W-b2-3Ga"/>
                                                 <exclude reference="Y6T-cJ-B3Q"/>
                                                 <exclude reference="cNV-sk-cp8"/>
@@ -1364,13 +1402,6 @@
                                                 <exclude reference="k1V-Ut-cVi"/>
                                                 <exclude reference="keC-8e-R57"/>
                                                 <exclude reference="zAJ-Wc-PKT"/>
-                                                <exclude reference="9bM-SQ-Jiv"/>
-                                                <exclude reference="OGG-Wl-6r3"/>
-                                                <exclude reference="a0k-1f-qH7"/>
-                                                <exclude reference="mxx-ar-Cwl"/>
-                                                <exclude reference="uUe-Yo-YCR"/>
-                                                <exclude reference="utt-Ku-fYg"/>
-                                                <exclude reference="wgX-lA-GQd"/>
                                                 <exclude reference="PIN-eR-N9S"/>
                                                 <exclude reference="vTI-Nn-FeM"/>
                                                 <exclude reference="4jh-E7-KdM"/>
@@ -2398,7 +2429,7 @@
                             </containerView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-dv-Xwh">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="580" id="43Z-Of-qPa"/>
                                 </constraints>
@@ -3308,5 +3339,8 @@
             <point key="canvasLocation" x="1661.25" y="957.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gripper" width="12" height="24"/>
+    </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

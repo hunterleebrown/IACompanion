@@ -31,7 +31,8 @@
     [self.toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [self.toolbar setBackgroundColor:[UIColor clearColor]];
 
-    self.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.85];
+//    self.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.85];
+    self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     
     for(UIButton *button in @[self.relevanceButton, self.titleButton, self.viewsButton, self.dateButton])
     {
