@@ -148,7 +148,7 @@
     _archiveSearchDoc = archiveSearchDoc;
     self.archiveImageView.archiveImage = archiveSearchDoc.archiveImage;
 
-    [self.titleLabel setAttributedText:[self.class titleAttributedString:archiveSearchDoc.title]];
+    [self.titleLabel setText:archiveSearchDoc.title];
 
     [self.creator setText:[self.class creatorText:archiveSearchDoc]];
     [self.creator setFont:CREATOR_FONT];
@@ -231,9 +231,12 @@
     }
     
 
-    self.imageViewHeightConstraint.constant = imageHeight;
-    self.imageViewWidthConstraint.constant = imageWidth;
-    
+//    [self.archiveImageView setNeedsUpdateConstraints];
+//
+//    
+//    self.imageViewHeightConstraint.constant = imageHeight;
+//    self.imageViewWidthConstraint.constant = imageWidth;
+//    
 
 
 
@@ -252,8 +255,8 @@
             [self.typeLabel setTextColor:[UIColor whiteColor]];
             [self.countLabel setTextColor:[UIColor whiteColor]];
 
-            self.archiveImageView.layer.cornerRadius = imageWidth / 2;
-            self.archiveImageView.layer.masksToBounds = YES;
+//            self.archiveImageView.layer.cornerRadius = imageWidth / 2;
+//            self.archiveImageView.layer.masksToBounds = YES;
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
             self.dateLabel.hidden = YES;
             
@@ -275,7 +278,7 @@
             [self.archiveImageView setBackgroundColor:[UIColor whiteColor]];
 
             [self.dateLabel setTextColor:[UIColor whiteColor]];
-            self.imageViewWidthConstraint.constant = 100;
+//            self.imageViewWidthConstraint.constant = 100;
 
             
             
@@ -283,7 +286,10 @@
     }
     
     [self.archiveImageView layoutIfNeeded];
-    [self.archiveImageView setNeedsUpdateConstraints];
+    [self.creator layoutIfNeeded];
+    [self.typeLabel layoutIfNeeded];
+    [self.dateLabel layoutIfNeeded];
+    [self.countLabel layoutIfNeeded];
 
     [self.archiveImageView setClipsToBounds:YES];
 }
