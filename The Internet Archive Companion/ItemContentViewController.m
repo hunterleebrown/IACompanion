@@ -155,7 +155,7 @@
 
 
 - (void) viewDidDisappear:(BOOL)animated{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
 
     [super viewDidDisappear:animated];
 }
@@ -337,7 +337,7 @@
 
         [self toggleViews:self.collectionButton];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
         
     }
     else
@@ -360,7 +360,7 @@
         
         if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad)
         {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
         }
         
     }

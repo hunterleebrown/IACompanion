@@ -145,6 +145,10 @@
             [svc.searchBar setText:[NSString stringWithFormat:@"collection:%@ ", collectionId]];
             [svc.searchBar becomeFirstResponder];
         }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
+
+        
     }];
 }
 
@@ -160,6 +164,8 @@
             [svc.searchBar setText:notification.object];
             [svc searchBarSearchButtonClicked:svc.searchBar];
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarBlack" object:nil];
+
     }];
 }
 
@@ -171,6 +177,7 @@
         [_searchView setAlpha:0.0];
     } completion:^(BOOL finished) {
         [_searchView setHidden:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
 
     }];
     
@@ -180,6 +187,8 @@
 - (void) closeSearch{
     [_searchView setAlpha:0.0];
     [_searchView setHidden:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStatusBarWhite" object:nil];
+
 }
 
 
