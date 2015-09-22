@@ -70,30 +70,20 @@
         [self cancelActiveDownload];
         isDownloading = NO;
     }
-    
-    
-    
+ 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[download.urlPath stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]]];
     [request setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
     
     NSURLConnection *conn;
     
     if (useCurrentRunLoop) {
-        conn = [[NSURLConnection alloc]
-                initWithRequest:request
-                delegate:self
-                startImmediately:NO];
-        
-        
+        conn = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
         [conn scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         [conn start];
     }
     else {
         conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     }
-    
-    
-   
     
     isDownloading = YES;
     self.downloadStatus = ArchiveFileDownloaderDowloadStatusInProgress;
