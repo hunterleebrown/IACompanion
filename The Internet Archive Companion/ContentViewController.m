@@ -457,7 +457,20 @@ const CGFloat gripperOffset = 17.0;
     {
         UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
         SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
+        
+//        CGRect rect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.width/2, 1, 1);
+
+        
         [pop presentPopoverFromRect:cell.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+////        cvc.preferredContentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width);
+//        cvc.modalPresentationStyle = UIModalPresentationPageSheet;
+////        cvc.popoverPresentationController.sourceView = cell;
+////        cvc.popoverPresentationController.sourceRect = cell.frame;
+//
+//        [self presentViewController:cvc animated:YES completion:^{
+//            
+//        }];
         
     }
     

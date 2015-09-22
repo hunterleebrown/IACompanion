@@ -47,6 +47,7 @@
 @property (nonatomic) BOOL weAreObserving;
 
 @property (nonatomic, strong) CAGradientLayer *overlayGradient;
+@property (nonatomic, weak) IBOutlet UIView *blackOut;
 
 @end
 
@@ -149,6 +150,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    self.blackOut.alpha = 1.0;
     self.titleImage.hidden = YES;
     [super viewWillDisappear:animated];
 }
@@ -162,7 +164,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
+    if(self.titleImage.archiveImage.downloaded)
+    {
+        self.blackOut.alpha = 0.0;
+    }
 
     self.navigationController.view.backgroundColor = [UIColor clearColor];
 
@@ -465,6 +470,7 @@
         
         [self doGradientWithColor:avColor];
         weakself.titleImage.alpha = 1.0;
+        self.blackOut.alpha = 0.0;
     } completion:nil];
     
 }
