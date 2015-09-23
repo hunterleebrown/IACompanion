@@ -448,15 +448,36 @@ const CGFloat gripperOffset = 17.0;
     ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
     ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
     [cvc setSearchDoc:doc];
+    SearchCollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || doc.type == MediaTypeCollection) {
-        [self.navigationController pushViewController:cvc animated:YES];
+        UIImageView *img = [[UIImageView alloc] initWithImage:[cell.archiveImageView.image copy]];
+        [img setContentMode:UIViewContentModeScaleAspectFill];
+        
+        CGRect point= [self.view convertRect:cell.archiveImageView.bounds fromView:cell.archiveImageView];
+        [img setFrame:point];
+        
+        [self.view addSubview:img];
+        
+        [UIView animateWithDuration:0.33 animations:^{
+            [img setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+            
+        } completion:^(BOOL finished) {
+            [self.navigationController pushViewController:cvc animated:NO];
+            [cvc.view addSubview:img];
+            [UIView animateWithDuration:0.33 animations:^{
+                [img setAlpha:0.0];
+            } completion:^(BOOL finished) {
+                [img removeFromSuperview];
+            }];
+        }];
+
+        
     }
     else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
-        SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
         
 //        CGRect rect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.width/2, 1, 1);
 

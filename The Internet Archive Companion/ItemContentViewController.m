@@ -114,8 +114,8 @@
     self.collectionHolderView.alpha = 0;
     self.mediaTable.alpha = 1.0;
     
-    self.imageView.layer.cornerRadius = self.imageView.bounds.size.width / 2;
-    self.imageView.layer.masksToBounds = YES;
+//    self.imageView.layer.cornerRadius = self.imageView.bounds.size.width / 2;
+//    self.imageView.layer.masksToBounds = YES;
 
     [self.service fetchData];
     
@@ -125,6 +125,9 @@
     [self.collectionHandlerView setParentViewController:self];
 
     self.mediaTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.titleImage.archiveImage = self.searchDoc.archiveImage;
+
     
 }
 
@@ -210,6 +213,8 @@
     self.service = nil;
     self.service = [[IAJsonDataService alloc] initForMetadataDocsWithIdentifier:_searchDoc.identifier];
     [self.service setDelegate:self];
+    
+//    self.titleImage.archiveImage = self.searchDoc.archiveImage;
 
 }
 
@@ -384,9 +389,9 @@
     
 
     
-    [self.titleImage setAlpha:0.0];
+//    [self.titleImage setAlpha:0.0];
     
-    [self.titleImage setArchiveImage:self.detDoc.archiveImage];
+//    [self.titleImage setArchiveImage:self.detDoc.archiveImage];
 
     
     if(self.detDoc.archiveImage.downloaded)
