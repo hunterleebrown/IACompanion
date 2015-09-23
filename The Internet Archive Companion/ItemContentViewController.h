@@ -14,6 +14,7 @@
 
 @interface ItemContentViewController : ContentViewController<UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
+@property (nonatomic, weak) IBOutlet ArchiveImageView *overImage;
 
 @property (nonatomic, strong) ArchiveSearchDoc *searchDoc;
 

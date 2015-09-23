@@ -455,22 +455,20 @@ const CGFloat gripperOffset = 17.0;
         UIImageView *img = [[UIImageView alloc] initWithImage:[cell.archiveImageView.image copy]];
         [img setContentMode:UIViewContentModeScaleAspectFill];
         
-        CGRect point= [self.view convertRect:cell.archiveImageView.bounds fromView:cell.archiveImageView];
+        CGRect point = [self.view convertRect:cell.archiveImageView.bounds fromView:cell.archiveImageView];
         [img setFrame:point];
         
         [self.view addSubview:img];
+        
+
         
         [UIView animateWithDuration:0.33 animations:^{
             [img setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
             
         } completion:^(BOOL finished) {
             [self.navigationController pushViewController:cvc animated:NO];
-            [cvc.view addSubview:img];
-            [UIView animateWithDuration:0.33 animations:^{
-                [img setAlpha:0.0];
-            } completion:^(BOOL finished) {
-                [img removeFromSuperview];
-            }];
+            [img removeFromSuperview];
+
         }];
 
         

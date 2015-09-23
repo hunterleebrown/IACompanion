@@ -49,6 +49,7 @@
 @property (nonatomic, strong) CAGradientLayer *overlayGradient;
 @property (nonatomic, weak) IBOutlet UIView *blackOut;
 
+
 @end
 
 @implementation ItemContentViewController
@@ -127,6 +128,8 @@
     self.mediaTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.titleImage.archiveImage = self.searchDoc.archiveImage;
+
+    [self.overImage setArchiveImage:self.searchDoc.archiveImage];
 
     
 }
@@ -476,6 +479,9 @@
         [self doGradientWithColor:avColor];
         weakself.titleImage.alpha = 1.0;
         self.blackOut.alpha = 0.0;
+        
+        self.overImage.alpha = 0.0;
+        
     } completion:nil];
     
 }
