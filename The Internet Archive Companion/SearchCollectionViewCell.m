@@ -275,7 +275,8 @@
             self.archiveImageView.layer.masksToBounds = YES;
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
             [self.archiveImageView setClipsToBounds:YES];
-            [self.archiveImageView setBackgroundColor:[UIColor whiteColor]];
+            
+//            [self.archiveImageView setBackgroundColor:[UIColor whiteColor]];
 
             [self.dateLabel setTextColor:[UIColor whiteColor]];
 //            self.imageViewWidthConstraint.constant = 100;

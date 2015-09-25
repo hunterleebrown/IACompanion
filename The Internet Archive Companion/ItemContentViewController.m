@@ -128,10 +128,18 @@
     self.mediaTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.titleImage.archiveImage = self.searchDoc.archiveImage;
-
-    [self.overImage setArchiveImage:self.searchDoc.archiveImage];
-
     
+
+    if(self.overImage && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        [self.overImage setArchiveImage:self.searchDoc.archiveImage];
+    } else
+    {
+        self.overImage.hidden = YES;
+    }
+    
+    [self doGradientWithColor:[UIColor clearColor]];
+    self.blackOut.alpha = 0.0;
 }
 
 
@@ -216,6 +224,11 @@
     self.service = nil;
     self.service = [[IAJsonDataService alloc] initForMetadataDocsWithIdentifier:_searchDoc.identifier];
     [self.service setDelegate:self];
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        self.overImage.hidden  = YES;
+    }
     
 //    self.titleImage.archiveImage = self.searchDoc.archiveImage;
 
@@ -466,6 +479,9 @@
     
     ItemContentViewController __weak *weakself = self; 
     
+
+
+
     [UIView animateWithDuration:0.33 animations:^{
         
         [weakself.titleLabel setTextColor:adjColor];
@@ -476,12 +492,13 @@
         [weakself.collectionHandlerView.filters setTintColor:adjColor];
         [weakself.collectionHandlerView.countLabel setTextColor:adjColor];
         
-        [self doGradientWithColor:avColor];
         weakself.titleImage.alpha = 1.0;
-        self.blackOut.alpha = 0.0;
         
-        self.overImage.alpha = 0.0;
-        
+        if(self.overImage)
+        {
+            self.overImage.alpha = 0.0;
+        }
+            
     } completion:nil];
     
 }

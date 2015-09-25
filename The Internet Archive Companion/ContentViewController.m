@@ -453,14 +453,13 @@ const CGFloat gripperOffset = 17.0;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || doc.type == MediaTypeCollection) {
         UIImageView *img = [[UIImageView alloc] initWithImage:[cell.archiveImageView.image copy]];
+        [img setBackgroundColor:[UIColor whiteColor]];
         [img setContentMode:UIViewContentModeScaleAspectFill];
         
         CGRect point = [self.view convertRect:cell.archiveImageView.bounds fromView:cell.archiveImageView];
         [img setFrame:point];
         
         [self.view addSubview:img];
-        
-
         
         [UIView animateWithDuration:0.33 animations:^{
             [img setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];

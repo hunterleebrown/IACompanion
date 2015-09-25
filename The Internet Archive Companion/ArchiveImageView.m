@@ -57,7 +57,6 @@
     if (self) {
         self.archiveImage = image;
         [archiveImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
-
     }
     
     return self;
@@ -88,6 +87,7 @@
 
 - (void)updateImage:(ArchiveImage *)img {
     self.image = img.contentImage;
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - Download Handlers
