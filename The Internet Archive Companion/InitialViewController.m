@@ -240,7 +240,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
             self.isPlayerOpen = YES;
         }
         
-//        NSLog(@"PAN GESTURE RECOGNIZER ----->:%f", [recognizer velocityInView:self.view].y);
+        NSLog(@"PAN GESTURE RECOGNIZER ----->:%f", [recognizer velocityInView:self.view].y);
         CGFloat yVelocity = [recognizer velocityInView:self.view].y;
         if(yVelocity > 1000)
         {

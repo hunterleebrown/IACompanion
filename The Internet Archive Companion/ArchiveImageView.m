@@ -87,7 +87,7 @@
 
 - (void)updateImage:(ArchiveImage *)img {
     self.image = img.contentImage;
-    self.backgroundColor = [UIColor whiteColor];
+//    self.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - Download Handlers

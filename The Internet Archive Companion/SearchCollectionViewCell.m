@@ -293,6 +293,11 @@
     [self.countLabel layoutIfNeeded];
 
     [self.archiveImageView setClipsToBounds:YES];
+    if(self.archiveImageView.archiveImage.downloaded)
+    {
+        [self.archiveImageView setBackgroundColor:[UIColor whiteColor]];
+    }
+    
 }
 
 
