@@ -46,4 +46,7 @@ typedef enum : NSUInteger {
 
 + (NSAttributedString *) detailsAttributedString:(NSString *)string;
 
+
+- (void)handleTapWithDesitnationViewController:(UIViewController *)destinationController presentingController:(UIViewController *)presentingViewController collectionView:(UICollectionView *)collectionView;
+
 @end

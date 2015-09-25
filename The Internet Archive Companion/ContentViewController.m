@@ -450,64 +450,14 @@ const CGFloat gripperOffset = 17.0;
     [cvc setSearchDoc:doc];
     SearchCollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || doc.type == MediaTypeCollection) {
-        UIImageView *img = [[UIImageView alloc] initWithImage:[cell.archiveImageView.image copy]];
-        [img setBackgroundColor:[UIColor whiteColor]];
-        [img setContentMode:UIViewContentModeScaleAspectFill];
-        
-        CGRect point = [self.view convertRect:cell.archiveImageView.bounds fromView:cell.archiveImageView];
-        [img setFrame:point];
-        
-        [self.view addSubview:img];
-        
-        [UIView animateWithDuration:0.33 animations:^{
-            [img setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-            
-        } completion:^(BOOL finished) {
-            [self.navigationController pushViewController:cvc animated:NO];
-            [img removeFromSuperview];
-
-        }];
-
-        
-    }
-    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
-        
-//        CGRect rect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.width/2, 1, 1);
-
-        
-        [pop presentPopoverFromRect:cell.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        
-////        cvc.preferredContentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width);
-//        cvc.modalPresentationStyle = UIModalPresentationPageSheet;
-////        cvc.popoverPresentationController.sourceView = cell;
-////        cvc.popoverPresentationController.sourceRect = cell.frame;
-//
-//        [self presentViewController:cvc animated:YES completion:^{
-//            
-//        }];
-        
-    }
-    
+    [cell handleTapWithDesitnationViewController:cvc presentingController:self collectionView:collectionView];
 
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
-//    SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
-//    [cell setCellLayoutStyle:self.layoutChangerView.cellLayoutStyle];
-
-        return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:self.layoutChangerView.cellLayoutStyle archiveDoc:doc];
-
-    
-    
-//    CGFloat width = self.view.bounds.size.width - 20;
-  //  return CGSizeMake(width, width * 0.66);
-    
+    return [SearchCollectionViewCell sizeForOrientation:self.interfaceOrientation collectionView:collectionView cellLayoutStyle:self.layoutChangerView.cellLayoutStyle archiveDoc:doc];
 }
 
 

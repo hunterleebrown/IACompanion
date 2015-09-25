@@ -293,22 +293,11 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
-
     ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
     [cvc setSearchDoc:doc];
-    
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || doc.type == MediaTypeCollection) {
-        [self.navigationController pushViewController:cvc animated:YES];
-    }
-    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
-        SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
-        [pop presentPopoverFromRect:cell.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        
-    }
-    
+    SearchCollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+
+    [cell handleTapWithDesitnationViewController:cvc presentingController:self collectionView:collectionView];
     
 }
 

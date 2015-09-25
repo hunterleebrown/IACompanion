@@ -295,4 +295,37 @@
     [self.archiveImageView setClipsToBounds:YES];
 }
 
+
+- (void)handleTapWithDesitnationViewController:(UIViewController *)destinationController presentingController:(UIViewController *)presentingViewController collectionView:(UICollectionView *)collectionView
+{
+
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || self.archiveSearchDoc.type == MediaTypeCollection) {
+        UIImageView *img = [[UIImageView alloc] initWithImage:[self.archiveImageView.image copy]];
+        [img setBackgroundColor:[UIColor whiteColor]];
+        [img setContentMode:UIViewContentModeScaleAspectFill];
+        
+        CGRect point = [presentingViewController.view convertRect:self.archiveImageView.bounds fromView:self.archiveImageView];
+        [img setFrame:point];
+        
+        [presentingViewController.view addSubview:img];
+        
+        [UIView animateWithDuration:0.33 animations:^{
+            [img setFrame:CGRectMake(0, 0, presentingViewController.view.bounds.size.width, presentingViewController.view.bounds.size.height)];
+            
+        } completion:^(BOOL finished) {
+            [presentingViewController.navigationController pushViewController:destinationController animated:NO];
+            [img removeFromSuperview];
+            
+        }];
+        
+        
+    }
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:destinationController];
+        [pop presentPopoverFromRect:self.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    
+}
+
 @end

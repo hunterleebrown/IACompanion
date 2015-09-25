@@ -131,18 +131,27 @@
 
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || doc.type == MediaTypeCollection) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
-    }
-    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        ItemContentViewController *cvc = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
-        [cvc setSearchDoc:doc];
-        UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
-        SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"itemSearchCollectionCell" forIndexPath:indexPath];
-        [pop presentPopoverFromRect:cell.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        
-    }
+//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone || doc.type == MediaTypeCollection) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"CellSelectNotification" object:doc];
+//    }
+//    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//    {
+//        ItemContentViewController *cvc = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+//        [cvc setSearchDoc:doc];
+//        UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:cvc];
+//        SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"itemSearchCollectionCell" forIndexPath:indexPath];
+//        [pop presentPopoverFromRect:cell.frame inView:collectionView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//        
+//    }
+    
+    SearchCollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    ItemContentViewController *cvc = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
+    [cvc setSearchDoc:doc];
+
+    [cell handleTapWithDesitnationViewController:cvc presentingController:self.parentViewController collectionView:collectionView];
+
+    
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
