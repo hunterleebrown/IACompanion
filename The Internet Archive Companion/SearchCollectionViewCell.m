@@ -165,9 +165,8 @@
 
 
 //    [self.detailsLabel setText:[StringUtils stringByStrippingHTML:self.archiveSearchDoc.details]];
-    
-    [self.detailsLabel setAttributedText:[self.class detailsAttributedString:[StringUtils stringByStrippingHTML:self.archiveSearchDoc.details]]];
-    [self.detailsLabel setLineBreakMode:NSLineBreakByTruncatingTail];
+//    [self.detailsLabel setAttributedText:[self.class detailsAttributedString:[StringUtils stringByStrippingHTML:self.archiveSearchDoc.details]]];
+//    [self.detailsLabel setLineBreakMode:NSLineBreakByTruncatingTail];
     
     NSString *countString = [StringUtils decimalFormatNumberFromInteger:[[archiveSearchDoc.rawDoc objectForKey:@"downloads"] integerValue]];
     NSMutableAttributedString *countAtt = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", VIEWS, countString]];
@@ -222,7 +221,6 @@
     {
         imageHeight = 0;
         self.archiveImageView.hidden = YES;
-//        [self.titleLabel setNumberOfLines:1];
     } else
     {
         self.archiveImageView.hidden = NO;
@@ -231,18 +229,6 @@
     }
     
 
-//    [self.archiveImageView setNeedsUpdateConstraints];
-//
-//    
-//    self.imageViewHeightConstraint.constant = imageHeight;
-//    self.imageViewWidthConstraint.constant = imageWidth;
-//    
-
-
-
-    
-//    self.layer.cornerRadius = 5;
-    //    self.layer.masksToBounds = YES;
 
     switch (self.collectionCellStyle) {
         case CollectionViewCellStyleCollection:
@@ -255,13 +241,11 @@
             [self.typeLabel setTextColor:[UIColor whiteColor]];
             [self.countLabel setTextColor:[UIColor whiteColor]];
 
-//            self.archiveImageView.layer.cornerRadius = imageWidth / 2;
-//            self.archiveImageView.layer.masksToBounds = YES;
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
             self.dateLabel.hidden = YES;
             
-            
             break;
+            
         case CollectionViewCellStyleItem:
             [self.titleLabel setTextColor:[UIColor whiteColor]];
             [self.detailsLabel setTextColor:[UIColor lightTextColor]];
@@ -276,12 +260,7 @@
             [self.archiveImageView setContentMode:UIViewContentModeScaleAspectFill];
             [self.archiveImageView setClipsToBounds:YES];
             
-//            [self.archiveImageView setBackgroundColor:[UIColor whiteColor]];
-
             [self.dateLabel setTextColor:[UIColor whiteColor]];
-//            self.imageViewWidthConstraint.constant = 100;
-
-            
             
             break;
     }

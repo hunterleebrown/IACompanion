@@ -2543,6 +2543,7 @@
                         <outlet property="mediaPlayerHolder" destination="GXP-dv-Xwh" id="xZk-dg-oG8"/>
                         <outlet property="mediaPlayerTopConstraint" destination="xG8-cA-YwG" id="yxx-vg-MPo"/>
                         <outlet property="notifyUserView" destination="t5Z-Nt-phs" id="595-pe-KiX"/>
+                        <outlet property="panGestureRecognizer" destination="hCB-oF-avB" id="a9Z-5D-f2S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ab-lR-fDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2723,9 +2724,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Vba-Bf-w9S" appends="YES" id="YW3-Ot-lUQ"/>
-                                        </connections>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2754,9 +2752,6 @@
                                     <constraint firstAttribute="height" constant="32" id="9IW-Nd-5jK"/>
                                     <constraint firstAttribute="width" constant="32" id="XcB-Xq-SLb"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Vba-Bf-w9S" appends="YES" id="gqe-Kx-RnD"/>
-                                </connections>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sq7-b0-vPh">
                                 <rect key="frame" x="0.0" y="44" width="600" height="240"/>
@@ -3307,6 +3302,7 @@
                         <outlet property="sliderMinLabel" destination="BfV-UP-4pd" id="z8D-zn-B7o"/>
                         <outlet property="topEqualizerImage" destination="Kwr-aZ-zCK" id="w5u-TP-ZkV"/>
                         <outlet property="topMediaPlayerButton" destination="WOd-QL-sQY" id="mdr-Z4-tUN"/>
+                        <outlet property="topTapGestureRecognizer" destination="Vba-Bf-w9S" id="88Y-nA-GU8"/>
                         <outlet property="topTitle" destination="f2T-Ic-ATl" id="ZLP-U4-NxU"/>
                         <outlet property="topTitleHolderView" destination="tyh-38-1qI" id="Afg-lg-8lD"/>
                     </connections>

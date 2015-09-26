@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
+
 @interface MediaPlayerViewController : UIViewController<UIAlertViewDelegate>
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, weak) IBOutlet UIToolbar *playerToolbar;
+@property (nonatomic, weak) IBOutlet UITapGestureRecognizer *topTapGestureRecognizer;
 
 
 - (IBAction)closePlayer;

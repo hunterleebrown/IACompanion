@@ -63,6 +63,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *topTitle;
 @property (nonatomic, weak) IBOutlet UIButton *topMediaPlayerButton;
 
+
+
 @end
 
 @implementation MediaPlayerViewController
@@ -139,11 +141,7 @@
 
     [self.playerToolbar setBackgroundColor:[UIColor clearColor]];
 
-    
-
     [self.topMediaPlayerButton setTitle:PLAY forState:UIControlStateNormal];
-
-
 
     [self animateEqualizerBarSetUp];
     self.topEqualizerImage.hidden = YES;
@@ -269,10 +267,7 @@
     // Dismiss the view controller ONLY when the reason is not "playback ended"
     if ([finishReason intValue] != MPMovieFinishReasonPlaybackEnded)
     {
-        // Remove this class from the observers
-        [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                        name:MPMoviePlayerPlaybackDidFinishNotification
-                                                      object:thePlayer];
+
     } else {
         [self playNext];
     }
@@ -923,21 +918,21 @@
 
 - (void) playNext{
     NSInteger index = [self indexOfInFileFromUrl:player.contentURL];
+    
+    
+    
     if(index >= 0) {
         NSInteger newIndex = index +1;
         if(newIndex == [[self.fetchedResultsController fetchedObjects ]count]){
-            // Remove this class from the observers
-            [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                            name:MPMoviePlayerPlaybackDidFinishNotification
-                                                          object:player];
+            
         } else {
+            [player stop];
             PlayerFile *newFile = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:newIndex inSection:0]];
             [player setContentURL:[NSURL URLWithString:newFile.url]];
-            [player stop];
             [player play];
             
             [self setSelectedCellOfPlayingFileForPlayer:player];
-            //  [self monitorPlaybackTime];
+            [self monitorPlaybackTime];
             
         }
         
@@ -965,6 +960,11 @@
     }
     
     
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:player];
 }
 
 @end

@@ -30,6 +30,8 @@
 
 @property (nonatomic) BOOL isPlayerOpen;
 
+@property (nonatomic, weak) IBOutlet UIPanGestureRecognizer *panGestureRecognizer;
+
 @end
 
 @implementation InitialViewController
@@ -89,6 +91,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
     
     self.isPlayerOpen = NO;
+    
     
 }
 
@@ -192,9 +195,8 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
 - (void)toggleMediaPlayer
 {
-    NSLog(@"----------> self.view top:%f", self.view.bounds.size.height);
-
-    NSLog(@"----------> player top:%f", self.mediaPlayerHolder.frame.origin.y);
+//    NSLog(@"----------> self.view top:%f", self.view.bounds.size.height);
+//    NSLog(@"----------> player top:%f", self.mediaPlayerHolder.frame.origin.y);
     
     
     if(self.mediaPlayerHolder.frame.origin.y != self.view.bounds.size.height - 44)
@@ -216,13 +218,8 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     CGPoint point = [recognizer translationInView:self.view];
     CGFloat newY = self.mediaPlayerTopConstraint.constant + point.y;
     
-    
-//    NSLog(@"---------> new y:%f %f", (self.view.bounds.size.height - heightOfMediaPlayerToolbar), newY);
-    
-    
     CGFloat alph = newY / (self.view.bounds.size.height - heightOfMediaPlayerToolbar);
-    NSLog(@"------------> alph: %f", 1- alph);
-    
+//    NSLog(@"------------> alph: %f", 1- alph);
     
     
     if(newY >= 0 && newY < self.view.bounds.size.height - heightOfMediaPlayerToolbar)
@@ -240,7 +237,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
             self.isPlayerOpen = YES;
         }
         
-        NSLog(@"PAN GESTURE RECOGNIZER ----->:%f", [recognizer velocityInView:self.view].y);
+//        NSLog(@"PAN GESTURE RECOGNIZER ----->:%f", [recognizer velocityInView:self.view].y);
         CGFloat yVelocity = [recognizer velocityInView:self.view].y;
         if(yVelocity > 1000)
         {
@@ -260,7 +257,6 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
 
 - (IBAction) closePlayer{
-//    [self.view layoutIfNeeded];
     [UIView animateWithDuration:0.33 animations:^{
         self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - heightOfMediaPlayerToolbar;
         self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
@@ -268,8 +264,6 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
         [self.mediaPlayerHolder layoutIfNeeded];
         [self.view layoutSubviews];
 
-//        [self setNeedsStatusBarAppearanceUpdate];
-        
         self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:0.5];
 
     } completion:^(BOOL finished) {
@@ -279,8 +273,6 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 }
 
 - (IBAction) openPlayer {
-//    [self.view layoutIfNeeded];
-    
     
     void(^animatePlayerOpen)(void) = ^void(void){
         [UIView animateWithDuration:0.33 animations:^{
@@ -291,7 +283,6 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
             [self.view layoutSubviews];
             
             self.mediaPlayerHolder.backgroundColor = [self.mediaPlayerHolder.backgroundColor colorWithAlphaComponent:1.0];
-            
             
         } completion:^(BOOL finished) {
             self.isPlayerOpen = YES;
@@ -305,7 +296,6 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
         animatePlayerOpen();
     }
     
-
 }
 
 
@@ -313,9 +303,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 {
     UINavigationController *creditsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"creditsViewController"];
     [self presentViewController:creditsVC animated:YES completion:nil];
-
 }
-
 
 
 - (void) openFavoritesNotification:(NSNotification *)notification {
@@ -323,30 +311,21 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     
     UINavigationController *favoritesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"favoritesVC"];
     [favoritesVC setModalPresentationStyle:UIModalPresentationFormSheet];
-//    [favoritesVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
 
     FavoritesTableViewController *favs = (FavoritesTableViewController *)[favoritesVC.viewControllers objectAtIndex:0];
-
     [favs setManagedObjectContext:self.managedObjectContext];
-
 
     if(!doc) {
         [self presentViewController:favoritesVC animated:YES completion:nil];
     } else {
         [favs addFavorite:doc];
     }
-
-
 }
-
-
 
 
 
 - (void) dealloc
 {
-
-    
     NSArray *notifications = @[@"ToggleMediaPlayer",
                                @"CloseMediaPlayer",
                                @"OpenMediaPlayer",
@@ -364,12 +343,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
         [[NSNotificationCenter defaultCenter] removeObserver:self name:notification object:nil];
     }
     
-    
-    
 }
-
-
-
 
 - (void) showBookViewControllerNotification:(NSNotification *)notification{
     ArchivePageViewController *bookViewControllers = notification.object;
@@ -379,13 +353,10 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     {
         [self dismissViewControllerAnimated:NO completion:^{
             [self presentViewController:bookViewControllers animated:YES completion:nil];
-
         }];
-        
     }
     else
     {
-        
         [self presentViewController:bookViewControllers animated:YES completion:nil];
     }
 
@@ -394,11 +365,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
 
 - (BOOL) shouldAutorotate {
-//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-//        return YES;
-//    }
     return YES;
-    
 }
 
 
