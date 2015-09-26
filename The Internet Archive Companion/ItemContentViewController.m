@@ -407,8 +407,9 @@
     
 //    [self.titleImage setAlpha:0.0];
     
-//    [self.titleImage setArchiveImage:self.detDoc.archiveImage];
-
+    if(!self.titleImage.archiveImage) {
+        [self.titleImage setArchiveImage:self.detDoc.archiveImage];
+    }
     
     if(self.detDoc.archiveImage.downloaded)
     {
@@ -435,7 +436,10 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
 
  
-
+    if(self.navigationController.navigationBarHidden)
+    {
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
+    }
     
 }
 
