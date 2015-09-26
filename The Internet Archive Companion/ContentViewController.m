@@ -59,6 +59,8 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *sorterViewLeading;
 
 
+@property (nonatomic) BOOL navigationBarHidden;
+
 @end
 
 @implementation ContentViewController
@@ -335,11 +337,21 @@ const CGFloat gripperOffset = 17.0;
        {
 //           [self fadeOutToolbar:YES]; // going Up
 //           [self transformOut];
-           
+           if(!self.navigationBarHidden)
+           {
+               [self.navigationController setNavigationBarHidden:YES animated:YES];
+               self.navigationBarHidden = !self.navigationBarHidden;
+           }
+
        }
        else
        {
-//           [self fadeOutToolbar:NO]; // going down.
+           //           [self fadeOutToolbar:NO]; // going down.
+           if(self.navigationBarHidden)
+           {
+               [self.navigationController setNavigationBarHidden:NO animated:YES];
+               self.navigationBarHidden = !self.navigationBarHidden;
+           }
        }
         
     

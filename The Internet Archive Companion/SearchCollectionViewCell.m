@@ -314,12 +314,17 @@
         
         [presentingViewController.view addSubview:img];
         
+        [presentingViewController.navigationController setNavigationBarHidden:YES animated:YES];
+        
         [UIView animateWithDuration:0.33 animations:^{
             [img setFrame:CGRectMake(0, 0, presentingViewController.view.bounds.size.width, presentingViewController.view.bounds.size.height)];
             
         } completion:^(BOOL finished) {
             [presentingViewController.navigationController pushViewController:destinationController animated:NO];
             [img removeFromSuperview];
+            
+            [destinationController.navigationController setNavigationBarHidden:NO animated:YES];
+
             
         }];
         
