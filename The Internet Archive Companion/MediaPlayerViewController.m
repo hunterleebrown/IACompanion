@@ -262,7 +262,6 @@
 
 - (void)playlistFinishedCallback:(NSNotification *)notification{
     
-    MPMoviePlayerController *thePlayer = [notification object];
     NSNumber *finishReason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     
     // Dismiss the view controller ONLY when the reason is not "playback ended"

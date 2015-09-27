@@ -464,7 +464,7 @@
     BOOL isDark = NO;
     UIColor *adjColor;
     UIColor *avColor;
-    CGFloat hue, saturation, brightness, alpha, white;
+    CGFloat hue, saturation, brightness, alpha;
     
     
     if([self isGrayScaleImage:self.detDoc.archiveImage.contentImage])
@@ -771,7 +771,7 @@
         headerCell.sectionHeaderLabel.text = format;
         [headerCell setTypeLabelIconFromFileTypeString:format];
 
-        MediaType *type = [MediaUtils mediaTypeFromFileFormat:[MediaUtils formatFromString:format]];
+        MediaType type = [MediaUtils mediaTypeFromFileFormat:[MediaUtils formatFromString:format]];
         headerCell.sectionPlayAllButton.hidden = type == MediaTypeNone || type == MediaTypeTexts;
         [headerCell.sectionPlayAllButton setTag:section];
         [headerCell.sectionPlayAllButton addTarget:self action:@selector(playAll:) forControlEvents:UIControlEventTouchUpInside];
