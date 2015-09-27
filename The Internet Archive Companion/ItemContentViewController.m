@@ -565,7 +565,10 @@
         
         CGImageRef imageRef = [image CGImage];
         CGColorSpaceRef colorSpace = CGImageGetColorSpace(imageRef);
-        if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelRGB) {
+        
+        if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelRGB)
+        {
+            
             CGDataProviderRef dataProvider = CGImageGetDataProvider(imageRef);
             CFDataRef imageData = CGDataProviderCopyData(dataProvider);
             const UInt8 *rawData = CFDataGetBytePtr(imageData);
@@ -586,13 +589,17 @@
                 }
                 byteIndex += 4;
             }
-            CFRelease(imageData);
-            CGColorSpaceRelease(colorSpace);
+
             return allPixelsGrayScale;
         }
-        else if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelMonochrome){
-            CGColorSpaceRelease(colorSpace); return YES;}
-        else {CGColorSpaceRelease(colorSpace); return NO;}
+        else if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelMonochrome)
+        {
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
     }
 
 }
