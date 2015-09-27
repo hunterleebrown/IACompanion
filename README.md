@@ -1,5 +1,26 @@
 IACompanion
 ===========
+Version 4.75 (and branch 4_75/ tag 4.75)
+
+- Major UI redesign/refresh:
+   using each item's original submitted artwork as basis for backgrounds 
+   using black and transparent backgrounds more than white
+   using dynamic title and button coloring based off of item artwork
+- top navigation toolbar animates with scroll
+- top list content buttons are left/right swipe enabled to get it out of the way
+- removed the list/grid toggle for list views
+- removed descriptions from list views
+- iPad items, from main listing pages, now show up as pop ups, allowing quicker access to media files
+- player fixes:
+   playlist should now automatically forward to next item (fixed a bug)
+   player should be title tappable and up/down swipe gesture enabled to open and close
+   added "Go to Item" from the Playlist.
+- favorited item now indicates with bright red heart symbol on the item screen. You can remove the favorite from the item screen as well.
+- collection lists sort buttons are now fully enabled (fixed bug)
+- added launch screen for iPad multitasking compliance
+- lots of other bug fixes and refactoring of underlying code
+
+===========
 Version 4.5 (and branch 4_5/ tag 4.5)
 
 - player now sits at the bottom of the screen by default and is tappable and swipe enabled to bring it into view
