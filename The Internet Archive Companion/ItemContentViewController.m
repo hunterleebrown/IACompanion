@@ -145,6 +145,9 @@
     self.blackOut.alpha = 0.0;
     
     
+    self.mediaTable.rowHeight = UITableViewAutomaticDimension;
+    self.mediaTable.estimatedRowHeight = 44;
+    
     [self.service fetchData];
 
     
