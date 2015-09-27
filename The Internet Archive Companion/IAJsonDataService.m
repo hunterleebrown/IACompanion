@@ -402,8 +402,8 @@
         [self packageJsonResponeDictionary:jsonResponse];
     } @catch (NSException *exception) {
         
-        NSString *reason = exception.reason;
-        NSString *name = exception.name;
+//        NSString *reason = exception.reason;
+//        NSString *name = exception.name;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Something went wrong with parsing data from the Internet Archive Server. Try again."];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];

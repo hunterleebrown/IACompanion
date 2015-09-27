@@ -325,11 +325,11 @@
         <scene sceneID="Vzq-V4-8aK">
             <objects>
                 <navigationController extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" id="gW7-dQ-sli" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d4r-Qj-4rU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="d4r-Qj-4rU">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -1255,8 +1255,7 @@
                                         <exclude reference="K0Z-5Q-toc"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="800" height="0.0"/>
+                                <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
                                         <exclude reference="K0Z-5Q-toc"/>
                                     </mask>
@@ -2621,6 +2620,12 @@
                                             <exclude reference="0yT-NB-oEk"/>
                                         </mask>
                                     </variation>
+                                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="43"/>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                        <rect key="frame" x="0.0" y="0.0" width="800" height="43"/>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -2764,9 +2769,9 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sq7-b0-vPh">
                                 <rect key="frame" x="0.0" y="44" width="600" height="240"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovf-1o-oWt" customClass="ArchiveImageView">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovf-1o-oWt" customClass="ArchiveImageView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="240" id="TYe-E1-06h"/>
                                         </constraints>
@@ -3301,6 +3306,7 @@
                         <outlet property="imageView" destination="ovf-1o-oWt" id="g35-UM-r79"/>
                         <outlet property="playButton" destination="cxQ-4W-uLu" id="uIw-t0-Zsu"/>
                         <outlet property="playerHolder" destination="Sq7-b0-vPh" id="Hxu-cU-wlf"/>
+                        <outlet property="playerHolderHeightConstraint" destination="wBn-Zg-a44" id="9Pr-wh-2M1"/>
                         <outlet property="playerTableView" destination="Uy7-8G-Vle" id="c9V-TU-6Lu"/>
                         <outlet property="playerToolbar" destination="qKZ-eD-AIf" id="441-yM-KbN"/>
                         <outlet property="rwButton" destination="jhN-Lq-6Rc" id="vuy-0F-hIw"/>

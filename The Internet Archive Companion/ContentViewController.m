@@ -22,7 +22,7 @@
 #define kNavBarDefaultPosition CGPointMake(160, 22) // we need this for later.  This is (iPhone) the center coordinate of a navigationBar in portrait mode.
 
 
-@interface ContentViewController () <IADataServiceDelegate, UISearchBarDelegate, UIAlertViewDelegate, UIToolbarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ContentViewController () <IADataServiceDelegate, UISearchBarDelegate, UIAlertViewDelegate, UIToolbarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,UIWebViewDelegate>
 @property (nonatomic, strong)  UIWebView *moreInfoView;
 
 @property (nonatomic, strong) NSURL *externalUrl;
@@ -138,7 +138,7 @@ const CGFloat gripperOffset = 17.0;
     [moreInfoView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
                               MIMEType:@"text/html"
                       textEncodingName:@"UTF-8"
-                               baseURL:nil];
+                               baseURL:[NSURL URLWithString:@"http://archive.org"]];
     
     
     [moreInfoView.scrollView setScrollEnabled:NO];
@@ -466,7 +466,7 @@ const CGFloat gripperOffset = 17.0;
     ArchiveSearchDoc *doc = [self.searchDocuments objectAtIndex:indexPath.row];
     ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
     [cvc setSearchDoc:doc];
-    SearchCollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    SearchCollectionViewCell *cell = (SearchCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
     [cell handleTapWithDesitnationViewController:cvc presentingController:self collectionView:collectionView];
 

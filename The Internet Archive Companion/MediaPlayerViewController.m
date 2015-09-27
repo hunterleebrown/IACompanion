@@ -64,6 +64,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *topTitle;
 @property (nonatomic, weak) IBOutlet UIButton *topMediaPlayerButton;
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *playerHolderHeightConstraint;
+
 
 
 @end
@@ -193,7 +195,7 @@
 }
 
 - (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    player.view.frame = CGRectMake(0, 0, playerHolder.frame.size.width, playerHolder.frame.size.height);
+//    player.view.frame = CGRectMake(0, 0, playerHolder.frame.size.width, playerHolder.frame.size.height);
 
 }
 
@@ -363,6 +365,18 @@
 }
 
 - (void) playBackStateChangeNotification:(NSNotification *)notification{
+   
+    BOOL isAMovie = NO;
+    NSInteger index = [self indexOfInFileFromUrl:player.contentURL];
+    PlayerFile *file = (PlayerFile *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    if( [MediaUtils formatFromString:file.format] == FileFormatH264||
+       [MediaUtils formatFromString:file.format] == FileFormatH264HD ||
+       [MediaUtils formatFromString:file.format] == FileFormatMPEG4 ||
+       [MediaUtils formatFromString:file.format] == FileFormat512kbMPEG4 )
+    {
+        isAMovie = YES;
+    }
+    
     switch(player.playbackState) {
         case MPMoviePlaybackStatePlaying:
             [self monitorPlaybackTime];
@@ -376,6 +390,47 @@
             [self.topMediaPlayerButton setTitle:PAUSE forState:UIControlStateNormal];
 
             [self animateEqualizer:YES];
+            
+            if(isAMovie)
+            {
+                if(self.imageView.image)
+                {
+                    self.imageView.image = nil;
+                }
+                self.imageView.backgroundColor = [UIColor blackColor];
+                
+                if(UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+                    
+                    if(self.playerHolderHeightConstraint.constant != 264) {
+                        self.playerHolderHeightConstraint.constant = 264;
+                        [UIView animateWithDuration:0.33 animations:^{
+                            [self.playerHolder layoutIfNeeded];
+                        }];
+                    }
+                }
+                
+            }
+            else
+            {
+                if(UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+                    self.imageView.backgroundColor = [UIColor whiteColor];
+                    CGFloat imageDivisor = self.playerHolder.bounds.size.width / self.imageView.image.size.width;
+                    self.playerHolderHeightConstraint.constant = (self.imageView.image.size.height * imageDivisor);
+                    
+                    [UIView animateWithDuration:0.33 animations:^{
+                        [self.playerHolder layoutIfNeeded];
+                    } completion:^(BOOL finished) {
+                        if(self.playerTableView.bounds.size.height < 64)
+                        {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyUser" object:@"Rotate the device to see the full list"];
+                        }
+                    }];
+                }
+
+            }
+           
+            
+            
 
             break;
         case MPMoviePlaybackStatePaused:

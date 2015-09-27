@@ -72,7 +72,6 @@
 - (IBAction)showPopUp:(id)sender;
 - (IBAction)showSharingActionsSheet:(id)sender;
 
-- (void)transitionMediaButtonColor:(UIColor *)color;
 
 
 @end

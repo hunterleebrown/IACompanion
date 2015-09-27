@@ -60,6 +60,7 @@
 		5ABD97521AAD687A0002DC47 /* NotifyUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD97511AAD687A0002DC47 /* NotifyUserView.m */; };
 		5AD456BE1A907E7F0035FBA1 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD456BD1A907E7F0035FBA1 /* Media.xcassets */; };
 		5ADCCC2818012F9300DFAE14 /* FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADCCC2718012F9300DFAE14 /* FavoritesCell.m */; };
+		5AE651C11BB86C9000D12DC9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE651C01BB86C9000D12DC9 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		5AEE7662179F1FD200CF8C23 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE7661179F1FD200CF8C23 /* SearchViewController.m */; };
 		CE14C9D21AA7E76300D47281 /* SorterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE14C9D11AA7E76300D47281 /* SorterView.m */; };
 		CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3019CD16C5729E00733B99 /* StringUtils.m */; };
@@ -185,6 +186,7 @@
 		5AD456BD1A907E7F0035FBA1 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		5ADCCC2618012F9300DFAE14 /* FavoritesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesCell.h; sourceTree = "<group>"; };
 		5ADCCC2718012F9300DFAE14 /* FavoritesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesCell.m; sourceTree = "<group>"; };
+		5AE651C01BB86C9000D12DC9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5AEE7660179F1FD200CF8C23 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		5AEE7661179F1FD200CF8C23 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		5AF2310D16D7575D00262B09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				5AD2070E16A8F9460027CCA5 /* Data */,
 				5A0A10BE16A640A300CC70CD /* AppDelegate.h */,
 				5A0A10BF16A640A300CC70CD /* AppDelegate.m */,
+				5AE651C01BB86C9000D12DC9 /* Launch Screen.storyboard */,
 				5A942D4516D5F545001CB01B /* MainStoryboard.storyboard */,
 				5A0A10B616A640A300CC70CD /* Supporting Files */,
 			);
@@ -701,6 +704,7 @@
 			files = (
 				5A33984E1A9839F50001C7A4 /* Iconochive-Regular.ttf in Resources */,
 				5A93EBC117A4598600D6CB38 /* ArchiveBookPageImageViewController.xib in Resources */,
+				5AE651C11BB86C9000D12DC9 /* Launch Screen.storyboard in Resources */,
 				5A93EBC217A4598600D6CB38 /* ArchiveBookPageTextViewController.xib in Resources */,
 				5A0A10BA16A640A300CC70CD /* InfoPlist.strings in Resources */,
 				5A5A0AF51A422BD00009CBC2 /* Images.xcassets in Resources */,
@@ -861,7 +865,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hunterleebrown.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = IA;
 				PROVISIONING_PROFILE = "0b593e0a-f7b0-47d1-8aee-3b8083d2b5f5";
@@ -880,7 +884,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hunterleebrown.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = IA;
 				PROVISIONING_PROFILE = "360eaf17-ce22-42ec-99e0-cf36a3eca9ac";

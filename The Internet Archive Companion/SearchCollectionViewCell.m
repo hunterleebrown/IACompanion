@@ -214,7 +214,7 @@
     [super layoutSubviews];
    
     CGFloat imageHeight = self.collectionCellStyle == CollectionViewCellStyleCollection ? 60 : [[self class] imageHeightFromWidth:self.bounds.size.width];
-    CGFloat imageWidth = self.collectionCellStyle == CollectionViewCellStyleCollection ? 60 : self.bounds.size.width - 10;
+//    CGFloat imageWidth = self.collectionCellStyle == CollectionViewCellStyleCollection ? 60 : self.bounds.size.width - 10;
 
 
     if(self.bounds.size.height == [self.class compactHeightForDoc:self.archiveSearchDoc width:self.bounds.size.width]) // we're in compact mode

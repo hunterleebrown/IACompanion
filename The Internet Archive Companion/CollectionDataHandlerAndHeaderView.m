@@ -164,7 +164,7 @@
 //        
 //    }
     
-    SearchCollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    SearchCollectionViewCell *cell = (SearchCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     ItemContentViewController *cvc = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
     [cvc setSearchDoc:doc];
 

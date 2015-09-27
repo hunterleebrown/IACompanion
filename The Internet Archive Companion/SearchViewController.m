@@ -316,7 +316,7 @@
     ArchiveSearchDoc *doc = [searchDocuments objectAtIndex:indexPath.row];
     ItemContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"itemViewController"];
     [cvc setSearchDoc:doc];
-    SearchCollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    SearchCollectionViewCell *cell = (SearchCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
 
     [cell handleTapWithDesitnationViewController:cvc presentingController:self collectionView:collectionView];
     
