@@ -60,7 +60,7 @@
         [videoService setDelegate:self];
         [textService setDelegate:self];
         
-        
+
 
     }
     return self;
@@ -108,7 +108,7 @@
     [refreshControl setTintColor:[UIColor whiteColor]];
 
     self.navTable.contentInset = UIEdgeInsetsMake(0, 0, 44, 0);
-
+    
     
 }
 - (IBAction)goHome:(id)sender

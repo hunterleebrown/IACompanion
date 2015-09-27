@@ -42,6 +42,8 @@
 
 @property (nonatomic) BOOL controlsFadedOut;
 
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 
 @end
 
@@ -77,7 +79,21 @@
     self.contentTypeControlView.selectButtonBlock = ^(NSString *param){
         [self searchFilterChangeWithParam:param];
     };
+    
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+    [self.searchCollectionView setAlwaysBounceVertical:YES];
+    [self.refreshControl setTintColor:[UIColor whiteColor]];
+    [self.searchCollectionView addSubview:self.refreshControl];
+    
+    
+    [self.searchCollectionView setScrollsToTop:NO];
+
+
 }
+
+
+
 - (void) viewDidAppear:(BOOL)animated {
     for(id subview in [searchBar subviews])
     {
@@ -179,12 +195,17 @@
 
 }
 
+- (void)handleRefresh
+{
+    [service fetchData];
+}
 
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv {
    
     [self.sorterView serviceDidReturn];
     
+    [self.refreshControl endRefreshing];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
     

@@ -58,6 +58,7 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *selectorViewLeading;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *sorterViewLeading;
 
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @property (nonatomic) BOOL navigationBarHidden;
 
@@ -69,14 +70,7 @@
 
 const CGFloat gripperOffset = 17.0;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+
 
 
 
@@ -223,9 +217,21 @@ const CGFloat gripperOffset = 17.0;
     [self.view addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
 
 
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+    [self.picksCollectionView setAlwaysBounceVertical:YES];
+    [self.refreshControl setTintColor:[UIColor whiteColor]];
+    [self.picksCollectionView addSubview:self.refreshControl];
 
+    [self.picksCollectionView setScrollsToTop:YES];
 
 }
+
+- (void)handleRefresh
+{
+    [service fetchData];
+}
+
 
 - (void)viewDidLayoutSubviews
 {
@@ -293,7 +299,7 @@ const CGFloat gripperOffset = 17.0;
 
     [self.sorterView serviceDidReturn];
 
-
+    [self.refreshControl endRefreshing];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
 

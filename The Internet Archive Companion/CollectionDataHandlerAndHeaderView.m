@@ -27,6 +27,8 @@
 @property (nonatomic) BOOL controlsFadedOut;
 
 
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 
 @end
 
@@ -34,6 +36,13 @@
 @synthesize service, identifier, searchDocuments, collectionTableView, numFound, didTriggerLoadMore, start;
 
 
+
+- (void)handleRefresh
+{
+//    [self.refreshControl beginRefreshing];
+    [service fetchData];
+    
+}
 
 - (void) setIdentifier:(NSString *)ident {
     
@@ -51,10 +60,21 @@
 
 
     [self.collectionView setScrollsToTop:YES];
+    
+    if (!self.refreshControl) {
+        self.refreshControl = [UIRefreshControl new];
+        [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+        [self.collectionView setAlwaysBounceVertical:YES];
+        [self.refreshControl setTintColor:[UIColor whiteColor]];
+        [self.collectionView addSubview:self.refreshControl];
+    }
 }
 
 - (void) dataDidBecomeAvailableForService:(IADataService *)serv{
     [self.sorterView serviceDidReturn];
+    [self.refreshControl endRefreshing];
+
+    
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLoadingIndicator" object:[NSNumber numberWithBool:NO]];
 
