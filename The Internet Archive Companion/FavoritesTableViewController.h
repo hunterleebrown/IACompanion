@@ -13,5 +13,6 @@
 
 
 - (void) addFavorite:(ArchiveSearchDoc *)doc;
+- (void) removeFavorite:(ArchiveSearchDoc *)doc;
 
 @end

@@ -19,6 +19,7 @@
 #import "CollectionDataHandlerAndHeaderView.h"
 #import "StringUtils.h"
 #import "AppDelegate.h"
+#import "AppCoreDataManager.h"
 
 
 
@@ -49,6 +50,9 @@
 @property (nonatomic, strong) CAGradientLayer *overlayGradient;
 @property (nonatomic, weak) IBOutlet UIView *blackOut;
 
+@property (nonatomic) BOOL thisIsAFavorite;
+
+@property (nonatomic, strong) UIColor *adjColor;
 
 @end
 
@@ -140,6 +144,11 @@
     
     [self doGradientWithColor:[UIColor clearColor]];
     self.blackOut.alpha = 0.0;
+    
+    
+    
+    
+    
 }
 
 
@@ -256,10 +265,24 @@
 
 - (IBAction)addFavorite:(id)sender{
     
+
+    if(!self.thisIsAFavorite)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.detDoc];
+    } else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveFavoriteNotification" object:self.detDoc];
+    }
+
+    self.thisIsAFavorite = [[AppCoreDataManager sharedInstance] hasFavoritesIdentifier:self.searchDoc.identifier];
+    [self adjustButtonColorsWithColor:self.adjColor];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.detDoc];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Favorites" message:@"Item added to your favorites list.  Find your favorites on the left hand nav of the main screen. Press the Internet Archive logo at the top of the page." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    NSString *addFavorite = @"Item added to your favorites list.  Find your favorites on the left hand nav of the main screen. Press the Internet Archive logo at the top of the page.";
+    
+    NSString *removeFavorite = @"Item removed from your favorites list.";
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Favorites" message:self.thisIsAFavorite ? addFavorite : removeFavorite delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     
     [alert show];
     
@@ -444,6 +467,7 @@
         [self.navigationController setNavigationBarHidden:NO animated:NO];
     }
     
+
 }
 
 
@@ -459,11 +483,21 @@
 
 - (void) fadeInEverything
 {
+    NSOperationQueue *queue = [NSOperationQueue new];
+    ItemContentViewController __weak *weakSelf = self;
+    // Querying favorites can take a little bit of time, so putting this on a background thread.
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        weakSelf.thisIsAFavorite = [[AppCoreDataManager sharedInstance] hasFavoritesIdentifier:weakSelf.searchDoc.identifier];
+        [weakSelf performSelectorOnMainThread:@selector(extraFade) withObject:nil waitUntilDone:NO];
+    }];
+    [queue addOperation:operation];
     
+}
 
-    
+- (void)extraFade
+{
+
     BOOL isDark = NO;
-    UIColor *adjColor;
     UIColor *avColor;
     CGFloat hue, saturation, brightness, alpha;
     
@@ -471,46 +505,55 @@
     if([self isGrayScaleImage:self.detDoc.archiveImage.contentImage])
     {
         avColor = [UIColor whiteColor];
-        adjColor = [UIColor whiteColor];
+        self.adjColor = [UIColor whiteColor];
         isDark = NO;
     }
     else
     {
-        
         avColor = [self averageColor:self.detDoc.archiveImage.contentImage];
         
         if ([avColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]) {
             brightness += (1.5-1.0);
             brightness = MAX(MIN(brightness, 1.0), 0.0);
-            adjColor =  [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:alpha];
+            self.adjColor =  [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:alpha];
         }
     }
     
-    ItemContentViewController __weak *weakself = self; 
-    
-
-
-
     [UIView animateWithDuration:0.33 animations:^{
         
-        [weakself.titleLabel setTextColor:adjColor];
-        for(UIButton *butt in @[weakself.wwwButton, weakself.descriptionButton, weakself.folderButton, weakself.favoritesButton, weakself.shareButton, weakself.searchCollectionButton])
-        {
-            [butt setTitleColor:adjColor forState:UIControlStateNormal];
-        }
-        [weakself.collectionHandlerView.filters setTintColor:adjColor];
-        [weakself.collectionHandlerView.countLabel setTextColor:adjColor];
+        [self.titleLabel setTextColor:self.adjColor];
         
-        weakself.titleImage.alpha = 1.0;
+        [self.collectionHandlerView.filters setTintColor:self.adjColor];
+        [self.collectionHandlerView.countLabel setTextColor:self.adjColor];
+        
+        [self adjustButtonColorsWithColor:self.adjColor];
+        
+        self.titleImage.alpha = 1.0;
         
         if(self.overImage)
         {
             self.overImage.alpha = 0.0;
         }
-            
+        
     } completion:nil];
+
+}
+
+
+- (void)adjustButtonColorsWithColor:(UIColor *)adjColor
+{
+
+    for(UIButton *butt in @[self.wwwButton, self.descriptionButton, self.folderButton, self.favoritesButton, self.shareButton, self.searchCollectionButton])
+    {
+        [butt setTitleColor:adjColor forState:UIControlStateNormal];
+    }
+    if(self.thisIsAFavorite)
+    {
+        [self.favoritesButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    }
     
 }
+
 
 // http://stackoverflow.com/questions/16768739/how-to-detect-image-is-grayscale
 - (BOOL)isGrayScaleImage:(UIImage *)image{

@@ -67,6 +67,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopUpControllerNotification:) name:@"NotifyUser" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openFavoritesNotification:) name:@"AddFavoriteNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeFavoriteNotification:) name:@"RemoveFavoriteNotification" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatusBarWhite) name:@"ChangeStatusBarWhite" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatusBarBlack) name:@"ChangeStatusBarBlack" object:nil];
@@ -92,6 +93,9 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     
     self.isPlayerOpen = NO;
     
+    
+    // Init Favorites data fetched results controller
+    [[AppCoreDataManager sharedInstance] fetchedResultsControllerForSchema:@"Favorite" cacheName:@"FavoritesRequest" delegate:nil];
     
 }
 
@@ -305,6 +309,15 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 }
 
 
+- (void)removeFavoriteNotification:(NSNotification *)notification
+{
+    ArchiveSearchDoc *doc = notification.object;
+    FavoritesTableViewController *favs = [self.storyboard instantiateViewControllerWithIdentifier:@"favoritesTableVC"];
+    [favs removeFavorite:doc];
+
+    
+}
+
 - (void) openFavoritesNotification:(NSNotification *)notification {
     ArchiveSearchDoc *doc = notification.object;
     
@@ -338,7 +351,8 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
                                @"AddFavoriteNotification",
                                @"ChangeStatusBarWhite",
                                @"ChangeStatusBarBlack",
-                               @"OpenCredits"];
+                               @"OpenCredits",
+                               @"RemoveFavoriteNotification"];
     
     for(NSString *notification in notifications)
     {

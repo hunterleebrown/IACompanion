@@ -7,6 +7,7 @@
 //
 
 #import "AppCoreDataManager.h"
+#import "MediaUtils.h"
 
 
 @interface AppCoreDataManager ()
@@ -14,7 +15,6 @@
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
-@property (nonatomic, strong) NSMutableDictionary *fetchResultControllers;
 
 @end
 
@@ -49,6 +49,7 @@ static AppCoreDataManager *appCoreDataManager;
     self = [super init];
     
     if (self) {
+        self.fetchResultControllers = [NSMutableDictionary new];
         [self setupManagedObjectContext];
     }
     
@@ -225,6 +226,75 @@ static AppCoreDataManager *appCoreDataManager;
     return aFetchedResultsController;
 }
 
+
+- (BOOL)hasFavoritesIdentifier:(NSString *)identifier
+{
+    NSFetchedResultsController *results = [self.fetchResultControllers objectForKey:@"Favorite"];
+    NSArray *favorites = [results fetchedObjects];
+
+    NSIndexSet *indexes = [favorites indexesOfObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        return [((Favorite *)obj).identifier isEqualToString:identifier];
+    }];
+    
+    return indexes.count > 0;
+}
+
+- (Favorite *)favoriteWithIdentifier:(NSString *)identifier
+{
+    NSFetchedResultsController *results = [self.fetchResultControllers objectForKey:@"Favorite"];
+    NSArray *favorites = [results fetchedObjects];
+    
+    Favorite __block *foundFavorite;
+    NSIndexSet *indexes = [favorites indexesOfObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if([((Favorite *)obj).identifier isEqualToString:identifier])
+        {
+            foundFavorite = (Favorite *)obj;
+            return YES;
+        }
+        
+        return NO;
+    }];
+    
+    return foundFavorite;
+}
+
+
+- (void) addFavorite:(ArchiveSearchDoc *)doc{
+    
+    NSFetchedResultsController *results = [self.fetchResultControllers objectForKey:@"Favorite"];
+    results.delegate = nil;
+    
+    NSManagedObjectContext *context = [results managedObjectContext];
+    NSEntityDescription *entity = [[results fetchRequest] entity];
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    
+    [newManagedObject setValue:doc.title forKey:@"title"];
+    [newManagedObject setValue:doc.identifier forKey:@"identifier"];
+    [newManagedObject setValue:@"URL" forKey:@"url"];
+    [newManagedObject setValue:doc.title forKey:@"identifierTitle"];
+    [newManagedObject setValue:[MediaUtils stringFromMediaType:doc.type] forKey:@"format"]; // bit of a hack.. storying mediatype on format. Could be confusing.
+    [newManagedObject setValue:[NSNumber numberWithInteger:[[results fetchedObjects]count] + 1] forKey:@"displayOrder"];
+    
+    // Save the context.
+    
+    NSError *error = nil;
+    
+    if (![context save:&error])
+        
+    {
+        
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+         
+         */
+        
+        // NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        
+        
+    }
+}
 
 
 @end

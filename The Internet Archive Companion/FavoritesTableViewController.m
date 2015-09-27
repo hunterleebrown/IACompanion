@@ -49,6 +49,11 @@
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
 
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0;
+
 }
 
 
@@ -89,6 +94,12 @@
     
     
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -149,10 +160,25 @@
         
         
     }
+}
+
+- (void)removeFavorite:(ArchiveSearchDoc *)doc
+{
     
+    Favorite *fave = [[AppCoreDataManager sharedInstance] favoriteWithIdentifier:doc.identifier];
     
+    NSLog(@"------------> fave:%@", fave);
     
+
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    [context deleteObject:fave];
     
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        // NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
     
 }
 
@@ -166,8 +192,19 @@
         
         return _fetchedResultsController;
     }
+
+
     
-    _fetchedResultsController = [[AppCoreDataManager sharedInstance] fetchedResultsControllerForSchema:@"Favorite" cacheName:@"FavoritesRequest" delegate:self];
+    if([[AppCoreDataManager sharedInstance].fetchResultControllers objectForKey:@"Favorite"] != nil)
+    {
+        _fetchedResultsController = [[AppCoreDataManager sharedInstance].fetchResultControllers objectForKey:@"Favorite"];
+        _fetchedResultsController.delegate = self;
+    }
+    else
+    {
+        _fetchedResultsController = [[AppCoreDataManager sharedInstance] fetchedResultsControllerForSchema:@"Favorite" cacheName:@"FavoritesRequest" delegate:self];
+    }
+
     
     return _fetchedResultsController;
 }

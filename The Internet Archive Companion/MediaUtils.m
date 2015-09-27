@@ -140,11 +140,11 @@
             break;
 
         case MediaTypeAny:
-            return [UIColor blackColor];
+            return [UIColor whiteColor];
             break;
 
         default:
-            return [UIColor blackColor];
+            return [UIColor whiteColor];
             break;
     }
     

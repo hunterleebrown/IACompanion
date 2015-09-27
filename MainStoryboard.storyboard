@@ -2573,15 +2573,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7dz-za-3BF">
-                                            <rect key="frame" x="10" y="22" width="550" height="0.0"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="7dz-za-3BF">
+                                            <rect key="frame" x="10" y="10" width="550" height="0.0"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="63O-7h-SaV"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shj-7T-v8h">
-                                            <rect key="frame" x="560" y="22" width="30" height="0.0"/>
+                                            <rect key="frame" x="560" y="10" width="30" height="0.0"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="zDo-1q-fex"/>
@@ -2597,9 +2600,12 @@
                                         <constraint firstAttribute="trailing" secondItem="7dz-za-3BF" secondAttribute="trailing" constant="5" id="7z4-wB-d0M"/>
                                         <constraint firstAttribute="trailing" secondItem="shj-7T-v8h" secondAttribute="trailing" constant="10" id="B1I-GA-lpK"/>
                                         <constraint firstItem="7dz-za-3BF" firstAttribute="trailing" secondItem="shj-7T-v8h" secondAttribute="leading" id="D42-aQ-lTo"/>
+                                        <constraint firstItem="7dz-za-3BF" firstAttribute="top" secondItem="3di-zu-4uA" secondAttribute="top" constant="10" id="LCq-Up-unr"/>
                                         <constraint firstItem="7dz-za-3BF" firstAttribute="leading" secondItem="3di-zu-4uA" secondAttribute="leading" constant="10" id="YhF-gC-v9P"/>
                                         <constraint firstItem="7dz-za-3BF" firstAttribute="leading" secondItem="shj-7T-v8h" secondAttribute="leading" constant="10" id="bfW-kF-yUD"/>
                                         <constraint firstAttribute="trailing" secondItem="7dz-za-3BF" secondAttribute="trailing" constant="10" id="g4Q-hH-cM5"/>
+                                        <constraint firstAttribute="bottom" secondItem="7dz-za-3BF" secondAttribute="bottom" constant="10" id="jxW-cL-gxQ"/>
+                                        <constraint firstItem="shj-7T-v8h" firstAttribute="top" secondItem="7dz-za-3BF" secondAttribute="top" id="na2-8V-vxd"/>
                                         <constraint firstAttribute="centerY" secondItem="7dz-za-3BF" secondAttribute="centerY" id="nho-Up-CJd"/>
                                         <constraint firstAttribute="trailing" secondItem="7dz-za-3BF" secondAttribute="trailing" constant="10" id="qsM-tM-FaO"/>
                                         <constraint firstItem="7dz-za-3BF" firstAttribute="trailing" secondItem="shj-7T-v8h" secondAttribute="leading" id="xS2-WN-RV2"/>
@@ -2610,7 +2616,9 @@
                                             <exclude reference="D42-aQ-lTo"/>
                                             <exclude reference="bfW-kF-yUD"/>
                                             <exclude reference="g4Q-hH-cM5"/>
+                                            <exclude reference="nho-Up-CJd"/>
                                             <exclude reference="qsM-tM-FaO"/>
+                                            <exclude reference="0yT-NB-oEk"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
