@@ -669,7 +669,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0620;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Hunter Lee Brown";
 				TargetAttributes = {
 					5A0A10AA16A640A300CC70CD = {
@@ -806,6 +806,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -861,6 +862,7 @@
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hunterleebrown.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = IA;
 				PROVISIONING_PROFILE = "0b593e0a-f7b0-47d1-8aee-3b8083d2b5f5";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -879,6 +881,7 @@
 				GCC_PREFIX_HEADER = "The Internet Archive Companion/IA-Prefix.pch";
 				INFOPLIST_FILE = "The Internet Archive Companion/IA-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hunterleebrown.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = IA;
 				PROVISIONING_PROFILE = "360eaf17-ce22-42ec-99e0-cf36a3eca9ac";
 				TARGETED_DEVICE_FAMILY = "1,2";
