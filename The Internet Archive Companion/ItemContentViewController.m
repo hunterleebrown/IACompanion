@@ -130,7 +130,7 @@
     self.titleImage.archiveImage = self.searchDoc.archiveImage;
     
 
-    if(self.overImage && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    if(self.overImage && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && self.searchDoc.archiveImage)
     {
         [self.overImage setArchiveImage:self.searchDoc.archiveImage];
     } else
@@ -416,9 +416,10 @@
         if(!self.titleImage.archiveImage)
         {
             self.titleImage.archiveImage = self.detDoc.archiveImage;
+            [self.titleImage.archiveImage startDownloading];
         }
         
-        [self.detDoc.archiveImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
+        [self.titleImage.archiveImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
         self.weAreObserving = YES;
     }
     

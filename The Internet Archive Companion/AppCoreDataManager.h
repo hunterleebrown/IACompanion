@@ -15,4 +15,6 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *favoritesFetchedResultsController;
 
+- (NSFetchedResultsController *)fetchedResultsControllerForSchema:(NSString *)schema cacheName:(NSString *)cacheName delegate:(id<NSFetchedResultsControllerDelegate>)delegate;
+
 @end
