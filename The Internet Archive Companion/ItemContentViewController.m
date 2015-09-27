@@ -122,7 +122,6 @@
 //    self.imageView.layer.cornerRadius = self.imageView.bounds.size.width / 2;
 //    self.imageView.layer.masksToBounds = YES;
 
-    [self.service fetchData];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.extendedLayoutIncludesOpaqueBars = YES;
@@ -146,7 +145,8 @@
     self.blackOut.alpha = 0.0;
     
     
-    
+    [self.service fetchData];
+
     
     
 }
@@ -431,7 +431,7 @@
     
 
     
-    if(self.detDoc.archiveImage.downloaded)
+    if(self.titleImage.archiveImage.downloaded)
     {
         [self fadeInEverything];
     } else
@@ -558,36 +558,40 @@
 // http://stackoverflow.com/questions/16768739/how-to-detect-image-is-grayscale
 - (BOOL)isGrayScaleImage:(UIImage *)image{
     
-    CGImageRef imageRef = [image CGImage];
-    CGColorSpaceRef colorSpace = CGImageGetColorSpace(imageRef);
-    if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelRGB) {
-        CGDataProviderRef dataProvider = CGImageGetDataProvider(imageRef);
-        CFDataRef imageData = CGDataProviderCopyData(dataProvider);
-        const UInt8 *rawData = CFDataGetBytePtr(imageData);
+    @autoreleasepool {
         
-        size_t width = CGImageGetWidth(imageRef);
-        size_t height = CGImageGetHeight(imageRef);
-        
-        int byteIndex = 0;
-        BOOL allPixelsGrayScale = YES;
-        for(int ii = 0 ; ii <width*height; ++ii)
-        {
-            int r = rawData[byteIndex];
-            int g = rawData[byteIndex+1];
-            int b = rawData[byteIndex+2];
-            if (!((r == g)&&(g == b))) {
-                allPixelsGrayScale = NO;
-                break;
+        CGImageRef imageRef = [image CGImage];
+        CGColorSpaceRef colorSpace = CGImageGetColorSpace(imageRef);
+        if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelRGB) {
+            CGDataProviderRef dataProvider = CGImageGetDataProvider(imageRef);
+            CFDataRef imageData = CGDataProviderCopyData(dataProvider);
+            const UInt8 *rawData = CFDataGetBytePtr(imageData);
+            
+            size_t width = CGImageGetWidth(imageRef);
+            size_t height = CGImageGetHeight(imageRef);
+            
+            int byteIndex = 0;
+            BOOL allPixelsGrayScale = YES;
+            for(int ii = 0 ; ii <width*height; ++ii)
+            {
+                int r = rawData[byteIndex];
+                int g = rawData[byteIndex+1];
+                int b = rawData[byteIndex+2];
+                if (!((r == g)&&(g == b))) {
+                    allPixelsGrayScale = NO;
+                    break;
+                }
+                byteIndex += 4;
             }
-            byteIndex += 4;
+            CFRelease(imageData);
+            CGColorSpaceRelease(colorSpace);
+            return allPixelsGrayScale;
         }
-        CFRelease(imageData);
-        CGColorSpaceRelease(colorSpace);
-        return allPixelsGrayScale;
+        else if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelMonochrome){
+            CGColorSpaceRelease(colorSpace); return YES;}
+        else {CGColorSpaceRelease(colorSpace); return NO;}
     }
-    else if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelMonochrome){
-        CGColorSpaceRelease(colorSpace); return YES;}
-    else {CGColorSpaceRelease(colorSpace); return NO;}
+
 }
 
 
