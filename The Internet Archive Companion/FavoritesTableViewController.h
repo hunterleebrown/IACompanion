@@ -10,7 +10,6 @@
 #import "ArchiveSearchDoc.h"
 @interface FavoritesTableViewController : UITableViewController
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 
 - (void) addFavorite:(ArchiveSearchDoc *)doc;

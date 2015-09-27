@@ -17,6 +17,7 @@
 #import "StringUtils.h"
 #import "FontMapping.h"
 #import "MediaUtils.h"
+#import "AppCoreDataManager.h"
 
 @interface MediaPlayerViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
@@ -70,7 +71,7 @@
 @implementation MediaPlayerViewController
 
 
-@synthesize managedObjectContext, player, imageView, playButton, playerHolder, tableIsEditing, bufferingView, sliderIsTouched;
+@synthesize player, imageView, playButton, playerHolder, tableIsEditing, bufferingView, sliderIsTouched;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -557,9 +558,7 @@
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    // If appropriate, configure the new managed object.
     
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     
     [newManagedObject setValue:file.title forKey:@"title"];
     [newManagedObject setValue:file.identifier forKey:@"identifier"];
@@ -584,11 +583,7 @@
         
         // NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         
-        
     }
-    
-    
-    
     
 }
 
@@ -712,7 +707,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PlayerFile" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PlayerFile" inManagedObjectContext:[AppCoreDataManager sharedInstance].managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
@@ -726,7 +721,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[AppCoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     

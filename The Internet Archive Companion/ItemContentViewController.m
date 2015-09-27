@@ -255,10 +255,9 @@
 
 
 - (IBAction)addFavorite:(id)sender{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.searchDoc];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenFavorites" object:nil];
-
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFavoriteNotification" object:self.detDoc];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Favorites" message:@"Item added to your favorites list.  Find your favorites on the left hand nav of the main screen. Press the Internet Archive logo at the top of the page." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     
@@ -407,15 +406,18 @@
     
 //    [self.titleImage setAlpha:0.0];
     
-    if(!self.titleImage.archiveImage) {
-        [self.titleImage setArchiveImage:self.detDoc.archiveImage];
-    }
+
     
     if(self.detDoc.archiveImage.downloaded)
     {
         [self fadeInEverything];
     } else
     {
+        if(!self.titleImage.archiveImage)
+        {
+            self.titleImage.archiveImage = self.detDoc.archiveImage;
+        }
+        
         [self.detDoc.archiveImage addObserver:self forKeyPath:@"downloaded" options:NSKeyValueObservingOptionNew context:NULL];
         self.weAreObserving = YES;
     }
@@ -456,6 +458,8 @@
 
 - (void) fadeInEverything
 {
+    
+
     
     BOOL isDark = NO;
     UIColor *adjColor;

@@ -19,6 +19,7 @@
 		5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930616C3855400C3E107 /* ArchiveFile.m */; };
 		5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A23930816C3A07500C3E107 /* MediaPlayer.framework */; };
 		5A2A70411AB117B0002DA9F6 /* ArchiveContentTypeControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A70401AB117B0002DA9F6 /* ArchiveContentTypeControlView.m */; };
+		5A2B29AB1BB73FFD00F5EB0C /* AppCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B29AA1BB73FFD00F5EB0C /* AppCoreDataManager.m */; settings = {ASSET_TAGS = (); }; };
 		5A33984E1A9839F50001C7A4 /* Iconochive-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */; };
 		5A4F701A1AACD9430009A3B2 /* LayoutChangerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4F70191AACD9430009A3B2 /* LayoutChangerView.m */; };
 		5A51FA4A16E3C464004E5C44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A51FA4916E3C464004E5C44 /* MessageUI.framework */; };
@@ -107,6 +108,8 @@
 		5A2393461801565E00B5793E /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~ipad.png"; path = "../Default~ipad.png"; sourceTree = "<group>"; };
 		5A2A703F1AB117B0002DA9F6 /* ArchiveContentTypeControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveContentTypeControlView.h; sourceTree = "<group>"; };
 		5A2A70401AB117B0002DA9F6 /* ArchiveContentTypeControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveContentTypeControlView.m; sourceTree = "<group>"; };
+		5A2B29A91BB73FFD00F5EB0C /* AppCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoreDataManager.h; sourceTree = "<group>"; };
+		5A2B29AA1BB73FFD00F5EB0C /* AppCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCoreDataManager.m; sourceTree = "<group>"; };
 		5A32CBD4180600D8008C9543 /* Default-Portrait-1024~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait-1024~ipad.png"; path = "../Default-Portrait-1024~ipad.png"; sourceTree = "<group>"; };
 		5A32CBD518060125008C9543 /* Default-Portrait-1024@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait-1024@2x~ipad.png"; path = "../Default-Portrait-1024@2x~ipad.png"; sourceTree = "<group>"; };
 		5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Iconochive-Regular.ttf"; sourceTree = "<group>"; };
@@ -342,6 +345,15 @@
 			name = "Pop Up View Controller";
 			sourceTree = "<group>";
 		};
+		5A2B29A81BB73FDF00F5EB0C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5A2B29A91BB73FFD00F5EB0C /* AppCoreDataManager.h */,
+				5A2B29AA1BB73FFD00F5EB0C /* AppCoreDataManager.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		5A33984C1A9838060001C7A4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +572,7 @@
 		5AD2070E16A8F9460027CCA5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5A2B29A81BB73FDF00F5EB0C /* CoreData */,
 				5A756D98177FBF3100E7F922 /* Services */,
 				5A756D91177FAF7500E7F922 /* File */,
 				5A756D8D177FAEBC00E7F922 /* Images */,
@@ -725,6 +738,7 @@
 				5A756D87177FA71600E7F922 /* MainNavTableViewCell.m in Sources */,
 				CE5D49A21AAA66CB002D921F /* SearchCollectionViewCell.m in Sources */,
 				5A756D8C177FAAC900E7F922 /* ArchiveCache.m in Sources */,
+				5A2B29AB1BB73FFD00F5EB0C /* AppCoreDataManager.m in Sources */,
 				5A756D90177FAEDF00E7F922 /* ArchiveImage.m in Sources */,
 				CE14C9D21AA7E76300D47281 /* SorterView.m in Sources */,
 				5A756D94177FAF9700E7F922 /* ArchiveFileDownload.m in Sources */,

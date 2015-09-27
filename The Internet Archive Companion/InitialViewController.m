@@ -14,7 +14,7 @@
 #import "FavoritesTableViewController.h"
 #import "NotifyUserView.h"
 #import "FontMapping.h"
-
+#import "AppCoreDataManager.h"
 
 @interface InitialViewController () <NSFetchedResultsControllerDelegate>
 
@@ -145,7 +145,6 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"mediaPlayer"]){
         self.mediaPlayerViewController = [segue destinationViewController];
-        [self.mediaPlayerViewController setManagedObjectContext:self.managedObjectContext];
         
         [self setNeedsStatusBarAppearanceUpdate];
     }
@@ -311,12 +310,15 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     
     UINavigationController *favoritesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"favoritesVC"];
     [favoritesVC setModalPresentationStyle:UIModalPresentationFormSheet];
-
+    
     FavoritesTableViewController *favs = (FavoritesTableViewController *)[favoritesVC.viewControllers objectAtIndex:0];
-    [favs setManagedObjectContext:self.managedObjectContext];
-
+    
     if(!doc) {
-        [self presentViewController:favoritesVC animated:YES completion:nil];
+        // This is ridiculous, but it's the only way to "get it up".... in time.  Viagra for the presentViewController
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:favoritesVC animated:YES completion:nil];
+        });
+
     } else {
         [favs addFavorite:doc];
     }

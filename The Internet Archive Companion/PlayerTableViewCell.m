@@ -60,6 +60,8 @@
     
     ArchiveSearchDoc *doc = [ArchiveSearchDoc new];
     doc.identifier = self.identifier;
+    doc.type = [MediaUtils mediaTypeFromFileFormat:self.fileFormat];
+    doc.title = self.file.title;
 
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)

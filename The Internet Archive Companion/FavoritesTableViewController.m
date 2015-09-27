@@ -11,11 +11,10 @@
 #import "FavoritesCell.h"
 #import "FontMapping.h"
 #import "MediaUtils.h"
+#import "AppCoreDataManager.h"
 
 @interface FavoritesTableViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
-
 
 @end
 
@@ -77,8 +76,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+
+    
+    if(self.fetchedResultsController.sections.count > 0){
+        id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+        return [sectionInfo numberOfObjects];
+    
+    } else {
+        
+        return 0;
+    }
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -113,16 +122,13 @@
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    // If appropriate, configure the new managed object.
+
     
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-
-
     [newManagedObject setValue:doc.title forKey:@"title"];
     [newManagedObject setValue:doc.identifier forKey:@"identifier"];
     [newManagedObject setValue:@"URL" forKey:@"url"];
     [newManagedObject setValue:doc.title forKey:@"identifierTitle"];
-    [newManagedObject setValue:[doc.rawDoc valueForKeyPath:@"mediatype"] forKey:@"format"]; // bit of a hack.. storying mediatype on format. Could be confusing.
+    [newManagedObject setValue:[MediaUtils stringFromMediaType:doc.type] forKey:@"format"]; // bit of a hack.. storying mediatype on format. Could be confusing.
     [newManagedObject setValue:[NSNumber numberWithInteger:[[self.fetchedResultsController fetchedObjects]count] + 1] forKey:@"displayOrder"];
     
     // Save the context.
@@ -164,7 +170,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorite" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorite" inManagedObjectContext:[AppCoreDataManager sharedInstance].managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
@@ -178,12 +184,12 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"FavoritesRequest"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[AppCoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:@"FavoritesRequest"];
     aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
+    _fetchedResultsController = aFetchedResultsController;
     
 	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
+	if (![_fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         // NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
