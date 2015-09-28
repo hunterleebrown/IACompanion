@@ -16,6 +16,8 @@
 #import "FontMapping.h"
 #import "AppCoreDataManager.h"
 
+#import "SimpleCache.h"
+
 @interface InitialViewController () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong)  MediaPlayerViewController *mediaPlayerViewController;
@@ -96,6 +98,33 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     
     // Init Favorites data fetched results controller
     [[AppCoreDataManager sharedInstance] fetchedResultsControllerForSchema:@"Favorite" cacheName:@"FavoritesRequest" delegate:nil];
+ 
+    
+    [[SimpleCache sharedInstance] addItem:@"Hunter" withIdentifier:@"Hunter"];
+    [[SimpleCache sharedInstance] addItem:@"Lee" withIdentifier:@"Lee"];
+    [[SimpleCache sharedInstance] addItem:@"Brown" withIdentifier:@"Brown"];
+
+    [[SimpleCache sharedInstance] addItem:@"Brown" withIdentifier:@"Brown"];
+    [[SimpleCache sharedInstance] addItem:@"Brown" withIdentifier:@"Brown"];
+
+    [[SimpleCache sharedInstance] addItem:@"Brown" withIdentifier:@"Brown"];
+
+    [[SimpleCache sharedInstance] addItem:@"Green" withIdentifier:@"Green"];
+    [[SimpleCache sharedInstance] addItem:@"Yellow" withIdentifier:@"Yellow"];
+    [[SimpleCache sharedInstance] addItem:@"Orange" withIdentifier:@"Orange"];
+
+    [[SimpleCache sharedInstance] addItem:@"Pink" withIdentifier:@"Pink"];
+    [[SimpleCache sharedInstance] addItem:@"BabyPoop" withIdentifier:@"BabyPoop"];
+    [[SimpleCache sharedInstance] addItem:@"Red" withIdentifier:@"Red"];
+
+    [[SimpleCache sharedInstance] removeItemWithIdentifier:@"BabyPoop"];
+    
+    [[SimpleCache sharedInstance] getObjectWithIdentifier:@"Pink"];
+    
+    [[SimpleCache sharedInstance] addItem:@"Carnitas" withIdentifier:@"Carnitas"];
+    [[SimpleCache sharedInstance] addItem:@"Burrito" withIdentifier:@"Burrito"];
+    [[SimpleCache sharedInstance] addItem:@"Tamale" withIdentifier:@"Tamale"];
+
     
 }
 

@@ -21,6 +21,7 @@
 		5A2A70411AB117B0002DA9F6 /* ArchiveContentTypeControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A70401AB117B0002DA9F6 /* ArchiveContentTypeControlView.m */; };
 		5A2B29AB1BB73FFD00F5EB0C /* AppCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B29AA1BB73FFD00F5EB0C /* AppCoreDataManager.m */; settings = {ASSET_TAGS = (); }; };
 		5A33984E1A9839F50001C7A4 /* Iconochive-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */; };
+		5A4629B61BB8E1BE00575538 /* SimpleCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4629B51BB8E1BE00575538 /* SimpleCache.m */; settings = {ASSET_TAGS = (); }; };
 		5A4F701A1AACD9430009A3B2 /* LayoutChangerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4F70191AACD9430009A3B2 /* LayoutChangerView.m */; };
 		5A51FA4A16E3C464004E5C44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A51FA4916E3C464004E5C44 /* MessageUI.framework */; };
 		5A5A0AF51A422BD00009CBC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A0AF41A422BD00009CBC2 /* Images.xcassets */; };
@@ -114,6 +115,8 @@
 		5A32CBD4180600D8008C9543 /* Default-Portrait-1024~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait-1024~ipad.png"; path = "../Default-Portrait-1024~ipad.png"; sourceTree = "<group>"; };
 		5A32CBD518060125008C9543 /* Default-Portrait-1024@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait-1024@2x~ipad.png"; path = "../Default-Portrait-1024@2x~ipad.png"; sourceTree = "<group>"; };
 		5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Iconochive-Regular.ttf"; sourceTree = "<group>"; };
+		5A4629B41BB8E1BE00575538 /* SimpleCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCache.h; sourceTree = "<group>"; };
+		5A4629B51BB8E1BE00575538 /* SimpleCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCache.m; sourceTree = "<group>"; };
 		5A4F70181AACD9430009A3B2 /* LayoutChangerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutChangerView.h; sourceTree = "<group>"; };
 		5A4F70191AACD9430009A3B2 /* LayoutChangerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutChangerView.m; sourceTree = "<group>"; };
 		5A5169EB180159A1004ABA0B /* Default-Landscape-1024~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape-1024~ipad.png"; path = "../Default-Landscape-1024~ipad.png"; sourceTree = "<group>"; };
@@ -353,6 +356,8 @@
 			children = (
 				5A2B29A91BB73FFD00F5EB0C /* AppCoreDataManager.h */,
 				5A2B29AA1BB73FFD00F5EB0C /* AppCoreDataManager.m */,
+				5A4629B41BB8E1BE00575538 /* SimpleCache.h */,
+				5A4629B51BB8E1BE00575538 /* SimpleCache.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 				CE6FFE32179345D6002A292B /* MetaCell.m in Sources */,
 				CE3FFD0D17943D8300709F5F /* MediaFileCell.m in Sources */,
 				CE3FFD10179440D200709F5F /* MediaFileHeaderCell.m in Sources */,
+				5A4629B61BB8E1BE00575538 /* SimpleCache.m in Sources */,
 				CE3FFD1417944FAB00709F5F /* MediaPlayerViewController.m in Sources */,
 				CE94FC331798233500660A44 /* BufferingView.m in Sources */,
 				CEC57063179AEB9400A7B713 /* MediaImageViewController.m in Sources */,
