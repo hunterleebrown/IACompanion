@@ -585,6 +585,7 @@
 
 
 - (IBAction)editList:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TogglePlayerPan" object:nil];
     tableIsEditing = !tableIsEditing;
     [_editListButton.titleLabel setText:tableIsEditing ? @"Done" : @"Edit"];
     [_playerTableView setEditing:tableIsEditing animated:YES];

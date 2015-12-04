@@ -31,6 +31,7 @@
 @property (nonatomic) BOOL isPlayerOpen;
 
 @property (nonatomic, weak) IBOutlet UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic) BOOL panEnabled;
 
 @end
 
@@ -53,12 +54,11 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleMediaPlayer) name:@"ToggleMediaPlayer" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closePlayer) name:@"CloseMediaPlayer" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openPlayer) name:@"OpenMediaPlayer" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(togglePlayerPan) name:@"TogglePlayerPan" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openFavoritesNotification:) name:@"OpenFavorites" object:nil];
     
@@ -71,28 +71,20 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatusBarWhite) name:@"ChangeStatusBarWhite" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatusBarBlack) name:@"ChangeStatusBarBlack" object:nil];
-
-
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openCredits) name:@"OpenCredits" object:nil];
-
-    
-
     
     if([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]){
         [self setNeedsStatusBarAppearanceUpdate];
     }
 
-
     self.statusBarStyle = UIStatusBarStyleDefault;
-
-
     
     self.mediaPlayerTopConstraint.constant = self.view.bounds.size.height - heightOfMediaPlayerToolbar;
     self.mediaPlayerHeightConstraint.constant = self.view.bounds.size.height - 20;
     
     self.isPlayerOpen = NO;
-    
+    self.panEnabled = YES;
     
     // Init Favorites data fetched results controller
     [[AppCoreDataManager sharedInstance] fetchedResultsControllerForSchema:@"Favorite" cacheName:@"FavoritesRequest" delegate:nil];
@@ -301,6 +293,13 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     
 }
 
+- (void)togglePlayerPan {
+    NSLog(@"toggle player pan");
+    self.panEnabled = !self.panEnabled;
+    self.panGestureRecognizer.enabled = self.panEnabled;
+    
+}
+
 
 - (void)openCredits
 {
@@ -344,6 +343,7 @@ const CGFloat heightOfMediaPlayerToolbar = 64.0;
     NSArray *notifications = @[@"ToggleMediaPlayer",
                                @"CloseMediaPlayer",
                                @"OpenMediaPlayer",
+                               @"TogglePlayerPan",
                                @"OpenFavorites",
                                @"OpenBookViewer",
                                @"ShowLoadingIndicator",
