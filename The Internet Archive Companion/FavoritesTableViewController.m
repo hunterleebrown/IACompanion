@@ -36,7 +36,7 @@
     
     //Create a button
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:CLOSE style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
+                                   initWithTitle:CLOSE style:UIBarButtonItemStylePlain target:self action:@selector(close)];
 //    [closeButton setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:ICONOCHIVE size:25]} forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = closeButton;
 

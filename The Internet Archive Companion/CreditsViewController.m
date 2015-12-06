@@ -33,7 +33,7 @@
     [self.creditsWebView loadData:[html dataUsingEncoding:NSUTF8StringEncoding]
                   MIMEType:@"text/html"
           textEncodingName:@"UTF-8"
-                   baseURL:nil];
+                   baseURL:[NSURL URLWithString:@"http://"]];
     
     
     [self.creditsWebView.scrollView setScrollEnabled:NO];

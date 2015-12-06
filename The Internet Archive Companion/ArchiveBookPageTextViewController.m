@@ -113,7 +113,7 @@ NSInteger const ReadPageBytesLengthiPadLandscape = 1300;
 
 
 - (void) adjustForOrientationAndDevice{
-    if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+    if(UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])){
         ReadPageBytesLength = ReadPageBytesLengthiPadLandscape;
     } else {
         ReadPageBytesLength = ReadPageBytesLengthiPadPortrait;

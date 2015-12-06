@@ -342,7 +342,7 @@
 
 - (void) playerLoadStateNotification:(NSNotification *)notification {
     MPMoviePlayerController *p = [notification object];
-    NSLog(@"--> loadstate: %lu", p.loadState);
+    NSLog(@"--> loadstate: %lu", (unsigned long)p.loadState);
     
     MPMovieLoadState state = [p loadState];
     if((state & MPMovieLoadStatePlayable) == MPMovieLoadStatePlayable) {
@@ -496,7 +496,7 @@
 - (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent {
 
     if (receivedEvent.type == UIEventTypeRemoteControl) {
-        NSLog(@"--------->%li", receivedEvent.subtype );
+        NSLog(@"--------->%li", (long)receivedEvent.subtype );
         switch (receivedEvent.subtype) {
             case UIEventSubtypeRemoteControlPause:
                 [self doPlayPause:nil];

@@ -59,18 +59,18 @@
 
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self doOrientationLayout:self.interfaceOrientation];
+    [self doOrientationLayout:[[UIApplication sharedApplication] statusBarOrientation]];
 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self doOrientationLayout:self.interfaceOrientation];
+    [self doOrientationLayout:[[UIApplication sharedApplication] statusBarOrientation]];
 
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self doOrientationLayout:self.interfaceOrientation];
+    [self doOrientationLayout:[[UIApplication sharedApplication] statusBarOrientation]];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
@@ -125,7 +125,7 @@
 //    [cvc setSearchDoc:aDoc];
 //    [_contentNavController pushViewController:cvc animated:YES];
     
-    if(_contentView.frame.origin.x == 256 && !UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+    if(_contentView.frame.origin.x == 256 && !UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])){
         [self moveContentViewOver];
     }
 }
@@ -211,7 +211,7 @@
 - (IBAction) toggleContent:(id)sender {
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+        if(UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])){
             [self moveContentViewBack];
             return;
         }
@@ -236,7 +236,7 @@
         whereToGoLeft = 0.0;
     } else if(_contentView.frame.origin.x == 0){
         
-        if(!UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
+        if(!UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])){
             whereToGoLeft = -256;
             
         }

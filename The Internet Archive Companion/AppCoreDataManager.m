@@ -245,7 +245,7 @@ static AppCoreDataManager *appCoreDataManager;
     NSArray *favorites = [results fetchedObjects];
     
     Favorite __block *foundFavorite;
-    NSIndexSet *indexes = [favorites indexesOfObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [favorites indexesOfObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if([((Favorite *)obj).identifier isEqualToString:identifier])
         {
             foundFavorite = (Favorite *)obj;

@@ -189,7 +189,7 @@
     if (delegate != nil) {
 		if (didFailSelector != nil) {
             if([delegate respondsToSelector:didFailSelector]) {
-                [delegate performSelector:didFailSelector withObject:download];
+                [delegate performSelector:@selector(didFailSelector) withObject:download];
             }
         }
         else if ([delegate respondsToSelector:@selector(didFailFileDownload:)]) {

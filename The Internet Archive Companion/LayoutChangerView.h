@@ -12,7 +12,7 @@
 @interface LayoutChangerView : UIView
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) CellLayoutStyle *cellLayoutStyle;
+@property (nonatomic) CellLayoutStyle cellLayoutStyle;
 
 @property (nonatomic, weak) IBOutlet UIButton *gridButton;
 @property (nonatomic, weak) IBOutlet UIButton *listButton;
