@@ -19,7 +19,7 @@
 		5A23930716C3855400C3E107 /* ArchiveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A23930616C3855400C3E107 /* ArchiveFile.m */; };
 		5A23930916C3A07500C3E107 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A23930816C3A07500C3E107 /* MediaPlayer.framework */; };
 		5A2A70411AB117B0002DA9F6 /* ArchiveContentTypeControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A70401AB117B0002DA9F6 /* ArchiveContentTypeControlView.m */; };
-		5A2B29AB1BB73FFD00F5EB0C /* AppCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B29AA1BB73FFD00F5EB0C /* AppCoreDataManager.m */; settings = {ASSET_TAGS = (); }; };
+		5A2B29AB1BB73FFD00F5EB0C /* AppCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B29AA1BB73FFD00F5EB0C /* AppCoreDataManager.m */; };
 		5A33984E1A9839F50001C7A4 /* Iconochive-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */; };
 		5A4F701A1AACD9430009A3B2 /* LayoutChangerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4F70191AACD9430009A3B2 /* LayoutChangerView.m */; };
 		5A51FA4A16E3C464004E5C44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A51FA4916E3C464004E5C44 /* MessageUI.framework */; };
@@ -60,7 +60,7 @@
 		5ABD97521AAD687A0002DC47 /* NotifyUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD97511AAD687A0002DC47 /* NotifyUserView.m */; };
 		5AD456BE1A907E7F0035FBA1 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD456BD1A907E7F0035FBA1 /* Media.xcassets */; };
 		5ADCCC2818012F9300DFAE14 /* FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADCCC2718012F9300DFAE14 /* FavoritesCell.m */; };
-		5AE651C11BB86C9000D12DC9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE651C01BB86C9000D12DC9 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		5AE651C11BB86C9000D12DC9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE651C01BB86C9000D12DC9 /* Launch Screen.storyboard */; };
 		5AEE7662179F1FD200CF8C23 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE7661179F1FD200CF8C23 /* SearchViewController.m */; };
 		CE14C9D21AA7E76300D47281 /* SorterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE14C9D11AA7E76300D47281 /* SorterView.m */; };
 		CE3019CE16C5729E00733B99 /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3019CD16C5729E00733B99 /* StringUtils.m */; };
@@ -285,7 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				5ADAB7ED16C76E8100DBC072 /* IA Resources */,
-				5A5094591AAFE39400FC4D75 /* Categories */,
 				5AD16C62178E305200B7E58C /* Common Views */,
 				5A756D81177FA31500E7F922 /* View Controllers */,
 				5AB7369D17A5B8E800967D4D /* Loading View Controller */,
@@ -363,20 +362,6 @@
 				5A33984D1A9838110001C7A4 /* Iconochive-Regular.ttf */,
 			);
 			name = Fonts;
-			sourceTree = "<group>";
-		};
-		5A5065261736DDCD00D295E2 /* Multimedia */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Multimedia;
-			sourceTree = "<group>";
-		};
-		5A5094591AAFE39400FC4D75 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Categories;
 			sourceTree = "<group>";
 		};
 		5A727D741800C8E900EEF8C2 /* Favorites */ = {
@@ -597,7 +582,6 @@
 			isa = PBXGroup;
 			children = (
 				5A33984C1A9838060001C7A4 /* Fonts */,
-				5A5065261736DDCD00D295E2 /* Multimedia */,
 				5AD456BD1A907E7F0035FBA1 /* Media.xcassets */,
 			);
 			name = "IA Resources";

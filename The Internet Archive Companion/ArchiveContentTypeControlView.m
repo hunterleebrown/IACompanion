@@ -66,7 +66,7 @@
 {
     UILabel *lab = [[UILabel alloc] initWithFrame:CGRectZero];
     lab.text = [MediaUtils stringFromMediaType:(MediaType)[mediaType integerValue]];
-    [lab setFont:[UIFont systemFontOfSize:11]];
+    [lab setFont:[UIFont systemFontOfSize:10]];
     [lab setTextColor:[UIColor lightGrayColor]];
     [lab setTextAlignment:NSTextAlignmentCenter];
     return lab;
@@ -126,13 +126,23 @@
 {
     UIButton *button = sender;
 
+    if([self IsAnyButtonSelected]) {
+        [self unsellectAllButtons];
+
+        
+   } //else {
+//        button.selected = !button.selected;
+//    }
+    button.selected = !button.selected;
+
+    
+
     NSLog(@"------------> tag: %i", (MediaType)button.tag);
     NSLog(@"-------> selected: %@", button.selected ? @"SELECTED" : @"NOT SELECTED");
 
     ArchiveContentTypeControlView __weak *weakself = self;
 
 
-    button.selected = !button.selected;
     NSLog(@"------> %@", [weakself selectedFilters]);
     self.selectButtonBlock([weakself selectedFilters]);
 
@@ -141,6 +151,12 @@
     if(![self IsAnyButtonSelected])
     {
         [self recolorAllButtons];
+    }
+}
+
+- (void)unsellectAllButtons {
+    for(UIButton *button in self.buttons){
+        [button setSelected:NO];
     }
 }
 
@@ -165,7 +181,8 @@
     for(UIButton *button in self.buttons)
     {
         NSAttributedString *attString = [[NSAttributedString alloc] initWithString:[MediaUtils iconStringFromMediaType:(MediaType)button.tag] attributes:@{NSFontAttributeName : [UIFont fontWithName:ICONOCHIVE size:25], NSForegroundColorAttributeName : [MediaUtils colorFromMediaType:(MediaType)button.tag]}];
-        [button setAttributedTitle:attString forState:UIControlStateNormal];    }
+        [button setAttributedTitle:attString forState:UIControlStateNormal];
+    }
 
 }
 
