@@ -1,4 +1,10 @@
 IACompanion
+
+===========
+Version 4.80 (and branch 4_8/ tag 4.8)
+- Player: corrected ability to drag/reorder items while editing playlist
+- Search Filter: can only select one filter at a time. Users complained confusion over the original interface
+
 ===========
 Version 4.75 (and branch 4_75/ tag 4.75)
 
