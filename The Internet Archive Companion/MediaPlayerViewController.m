@@ -150,6 +150,13 @@
     self.topEqualizerImage.hidden = YES;
     
     
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSIndexPath indexPathForRow:index inSection:0] forKey:@"lastSelectedCell"];
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"lastSelectedCell"] != nil && self.fetchedResultsController.fetchedObjects.count > 0) {
+        NSNumber *numInteger = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastSelectedCell"];
+        NSIndexPath *path = [NSIndexPath indexPathForRow:[numInteger integerValue] inSection:0];
+        [self.playerTableView selectRowAtIndexPath:path animated:NO scrollPosition:UITableViewRowAnimationTop];
+    }
+    
 }
 
 - (void)animateEqualizerBarSetUp
@@ -748,6 +755,7 @@
     //NSLog(@"-----> file.url: %@", file.url);
     
     
+    
     [self startListWithFile:file];
     
 }
@@ -846,27 +854,18 @@
         NSInteger index = [self indexOfInFileFromUrl:thePlayer.contentURL];
         //NSLog(@"--------> playing index: %i", index);
         
-        // if([_playerTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]]){
         [_playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
         
-        
-        //  }
-        
-        //        PlayerFile *file = [self.fetchedResultsController objectAtIndex:index];
-        
-        
         PlayerFile *file = (PlayerFile *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-
         
         ArchiveImage *mediaPicture = [[ArchiveImage alloc] initWithUrlPath:[NSString stringWithFormat:@"http://archive.org/services/img/%@", file.identifier]];
         [imageView setArchiveImage:mediaPicture];
         
-        
-        //[_instructions setHidden:YES];
-        
-//        [playButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
         [playButton setTitle:PAUSE forState:UIControlStateNormal];
         [bufferingView startAnimating];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:index] forKey:@"lastSelectedCell"];
+
         
         
     }
@@ -902,7 +901,17 @@
         
     } else if(player.playbackState == MPMoviePlaybackStateStopped){
         
-        [player play];
+        if(self.fetchedResultsController.fetchedObjects.count > 0) {
+            NSIndexPath *path = [self.playerTableView indexPathForSelectedRow];
+            if (path){
+                [self tableView:self.playerTableView didSelectRowAtIndexPath:path];
+            }
+            else{
+                [self.playerTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewRowAnimationTop];
+                [self tableView:self.playerTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+            }
+        }
+//        [player play];
         [playButton setTitle:PAUSE forState:UIControlStateNormal];
 
     }

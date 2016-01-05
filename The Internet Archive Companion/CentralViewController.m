@@ -317,7 +317,7 @@
     [super viewWillLayoutSubviews];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         CGRect cf = _contentView.frame;
-        cf.size.height = 1024;
+        cf.size.height = [UIScreen mainScreen].bounds.size.height;
         _contentView.frame = cf;
     }
 
@@ -330,7 +330,11 @@
 
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         CGRect cf = _contentView.frame;
-        cf.size.width = 768;
+        cf.size.width = [UIScreen mainScreen].bounds.size.width;
+        if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
+            cf.size.width = cf.size.width - 256;
+        }
+        
         _contentView.frame = cf;
     }
 }
