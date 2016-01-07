@@ -1,6 +1,12 @@
 IACompanion
 
 ===========
+Version 4.90 (and branch 4_9/ tag 4.9)
+- remembers last track played when relaunching app
+- play button now responds on relaunch if play list has tracks
+- optimized dimensions for iPad Pro
+
+===========
 Version 4.80 (and branch 4_8/ tag 4.8)
 - Player: corrected ability to drag/reorder items while editing playlist
 - Search Filter: can only select one filter at a time. Users complained confusion over the original interface
