@@ -261,7 +261,19 @@
                         ArchiveImage *anImage = [[ArchiveImage alloc] initWithUrlPath:aDoc.headerImageUrl];
                         [aDoc setArchiveImage:anImage];
                     }
-                    [aDoc setDetails:[doc objectForKey:@"description"]];
+                    
+                    
+                    NSObject *des = [doc objectForKey:@"description"];
+                    if ([des isKindOfClass:[NSString class]]) {
+                        [aDoc setDetails:[doc objectForKey:@"description"]];
+                    } else if ([des isKindOfClass:[NSArray class]]) {
+                        NSArray *desArray = (NSArray*)des;
+                        [aDoc setDetails:[desArray lastObject]];
+                    } else {
+                        NSLog(@"-----------> WHAT KIND OF DETAILS DO WE HAVE: %@", des);
+                    }
+                    
+                    
                     [aDoc setPublicDate:[doc objectForKey:@"publicdate"]];
                     [aDoc setDate:[doc objectForKey:@"date"]];
             

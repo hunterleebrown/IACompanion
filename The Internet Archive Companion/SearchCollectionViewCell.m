@@ -52,6 +52,11 @@
 
 + (NSAttributedString *) detailsAttributedString:(NSString *)string
 {
+    
+    if (![string isKindOfClass:[NSString class]]) {
+        string = @"";
+    }
+    
     UIFont *font = DETAILS_FONT;
     
     

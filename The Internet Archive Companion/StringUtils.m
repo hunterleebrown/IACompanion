@@ -36,10 +36,13 @@ NSString *const ShortDateFormat = @"M/d/YYYY";
 
 
 + (NSString *) stringByStrippingHTML:(NSString *)inString {
+    
+    if (![inString isKindOfClass:[NSString class]]) return @"";
     if (inString == nil) return @"";
     
     NSRange r;
     NSString *s = [inString copy];
+    
     while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
     {
         s = [s stringByReplacingCharactersInRange:r withString:@""];
