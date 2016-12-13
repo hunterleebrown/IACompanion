@@ -38,6 +38,12 @@
 
 + (NSAttributedString *) titleAttributedString:(NSString *)string
 {
+    
+    if (![string isKindOfClass:[NSString class]]) {
+        NSLog(@"-----------> NOT A STRING!!!!!!!!! %@", string);
+    }
+    
+    
     UIFont *font = TITLE_FONT;
     
 

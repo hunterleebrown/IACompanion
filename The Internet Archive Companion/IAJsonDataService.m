@@ -248,8 +248,9 @@
                 if([doc objectForKey:@"description"] && [doc objectForKey:@"title"]){
                     ArchiveSearchDoc *aDoc = [ArchiveSearchDoc new];
                     [aDoc setRawDoc:doc];
-                    [aDoc setIdentifier:[doc objectForKey:@"identifier"]];
-                    [aDoc setTitle:[doc objectForKey:@"title"]];
+                    [aDoc setIdentifier:[self safeStringFromValue:[doc objectForKey:@"identifier"]]];
+                    
+                    [aDoc setTitle:[self safeStringFromValue:[doc objectForKey:@"title"]]];
                     
                     if(![doc objectForKey:@"headerImage"]){
                         [aDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/img/%@", aDoc.identifier]];
@@ -262,22 +263,11 @@
                         [aDoc setArchiveImage:anImage];
                     }
                     
-                    
-                    NSObject *des = [doc objectForKey:@"description"];
-                    if ([des isKindOfClass:[NSString class]]) {
-                        [aDoc setDetails:[doc objectForKey:@"description"]];
-                    } else if ([des isKindOfClass:[NSArray class]]) {
-                        NSArray *desArray = (NSArray*)des;
-                        [aDoc setDetails:[desArray lastObject]];
-                    } else {
-                        NSLog(@"-----------> WHAT KIND OF DETAILS DO WE HAVE: %@", des);
-                    }
-                    
-                    
+                    [aDoc setDetails:[self safeStringFromValue:[doc objectForKey:@"description"]]];
                     [aDoc setPublicDate:[doc objectForKey:@"publicdate"]];
                     [aDoc setDate:[doc objectForKey:@"date"]];
             
-                    [aDoc setType:[MediaUtils mediaTypeFromString:[doc objectForKey:@"mediatype"]]];
+                    [aDoc setType:[MediaUtils mediaTypeFromString:[self safeStringFromValue:[doc objectForKey:@"mediatype"]]]];
                     
                     [responseDocs addObject:aDoc];
                 }
@@ -292,16 +282,8 @@
         ArchiveDetailDoc *dDoc = [ArchiveDetailDoc new];
         [dDoc setRawDoc:jsonResponse];
         NSDictionary *metadata = [jsonResponse objectForKey:@"metadata"];
-        [dDoc setIdentifier:[metadata objectForKey:@"identifier"]];
-        
-        if([[metadata objectForKey:@"title"] isKindOfClass:[NSArray class]])
-        {
-            [dDoc setTitle:[metadata objectForKey:@"title"][0]];
-        }
-        else
-        {
-            [dDoc setTitle:[metadata objectForKey:@"title"]];
-        }
+        [dDoc setIdentifier:[self safeStringFromValue:[metadata objectForKey:@"identifier"]]];
+        [dDoc setTitle:[self safeStringFromValue:[metadata objectForKey:@"title"]]];
         
         if(![metadata objectForKey:@"headerImage"]){
             [dDoc setHeaderImageUrl:[NSString stringWithFormat:@"http://archive.org/services/img/%@", dDoc.identifier]];
@@ -330,15 +312,14 @@
 
         } else
         {
-            [dDoc setDetails:[metadata objectForKey:@"description"]];
+            [dDoc setDetails:[self safeStringFromValue:[metadata objectForKey:@"description"]]];
         }
         
         
-        [dDoc setPublicDate:[metadata objectForKey:@"publicdate"]];
-        if([metadata objectForKey:@"date"] != nil)
-        {
-            [dDoc setDate:[metadata objectForKey:@"date"]];
-        }
+        [dDoc setPublicDate:[self safeStringFromValue:[metadata objectForKey:@"publicdate"]]];
+        [dDoc setDate:[self safeStringFromValue:[metadata objectForKey:@"date"]]];
+        
+
         
         NSMutableArray *files = [NSMutableArray new];
         if([jsonResponse objectForKey:@"files"]){
@@ -392,6 +373,30 @@
     
     
     
+}
+
+
+- (NSString *) safeStringFromValue:(NSObject *)obj
+{
+
+    if([obj isKindOfClass:[NSArray class]])
+    {
+        NSObject *first = [(NSArray *)obj firstObject];
+        if ([first isKindOfClass:[NSString class]]) {
+            NSString* string = (NSString *)first;
+            return string;
+        }
+        
+    } else {
+        if([obj isKindOfClass:[NSNull class]]) {
+            return  nil;
+        }
+        else if([obj isKindOfClass:[NSString class]]) {
+            return (NSString *)obj;
+        }
+    }
+    
+    return nil;
 }
 
 
