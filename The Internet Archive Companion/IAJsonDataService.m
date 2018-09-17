@@ -219,16 +219,10 @@
 
 - (NSString *) docsUrlStringWithTest:(NSString *)test withStart:(NSString *)start{
     testUrl = test;
-    return [NSString stringWithFormat:@"%@&start=%@", testUrl, start];
+    int pageNumber = (start.intValue / 50) + 1;
+    NSString *pageNumberStr = [NSString stringWithFormat:@"%d", pageNumber];
+    return [NSString stringWithFormat:@"%@&page=%@", testUrl, pageNumberStr];
 }
-
-
-
-
-
-
-
-
 
 - (void) packageJsonResponeDictionary:(NSDictionary *)jsonResponse{
     
